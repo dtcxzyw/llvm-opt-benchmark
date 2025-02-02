@@ -20611,20 +20611,20 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTrans
   %exitcond.not = icmp eq i64 %46, %10
   br i1 %exitcond.not, label %.lr.ph60, label %.lr.ph, !llvm.loop !381
 
-.lr.ph60:                                         ; preds = %45, %99
-  %47 = phi i8 [ %100, %99 ], [ 1, %45 ]
-  %48 = phi i32 [ %101, %99 ], [ %20, %45 ]
-  %49 = phi ptr [ %104, %99 ], [ %26, %45 ]
-  %50 = phi i8 [ %102, %99 ], [ 1, %45 ]
-  %51 = phi i32 [ %103, %99 ], [ %20, %45 ]
-  %.03059 = phi i64 [ %106, %99 ], [ 0, %45 ]
+.lr.ph60:                                         ; preds = %45, %96
+  %47 = phi i8 [ %97, %96 ], [ 1, %45 ]
+  %48 = phi i32 [ %98, %96 ], [ %20, %45 ]
+  %49 = phi ptr [ %100, %96 ], [ %26, %45 ]
+  %50 = phi i1 [ false, %96 ], [ true, %45 ]
+  %51 = phi i32 [ %99, %96 ], [ %20, %45 ]
+  %.03059 = phi i64 [ %102, %96 ], [ 0, %45 ]
   %52 = getelementptr inbounds nuw %"struct.std::pair.207", ptr %0, i64 %.03059
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %53, %55
   %57 = trunc i64 %.03059 to i32
-  br i1 %56, label %58, label %78
+  br i1 %56, label %58, label %77
 
 58:                                               ; preds = %.lr.ph60
   %59 = add i32 %48, %57
@@ -20667,139 +20667,135 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTrans
 
 _ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit: ; preds = %._crit_edge.i, %68
   %72 = phi ptr [ %.pre69, %68 ], [ %49, %._crit_edge.i ]
-  %73 = phi i8 [ %47, %68 ], [ 0, %._crit_edge.i ]
-  %74 = phi i32 [ %48, %68 ], [ %67, %._crit_edge.i ]
+  %73 = phi i32 [ %48, %68 ], [ %67, %._crit_edge.i ]
   %.pre-phi.i = phi i64 [ %70, %68 ], [ %.pre13.i, %._crit_edge.i ]
-  %75 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %72, i64 %.pre-phi.i
-  store i8 1, ptr %75, align 8
-  br label %99
+  %74 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %72, i64 %.pre-phi.i
+  store i8 1, ptr %74, align 8
+  br label %96
 
 .loopexit:                                        ; preds = %.lr.ph63
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %75
 
 .loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %75
 
-76:                                               ; preds = %.loopexit.split-lp, %.loopexit
+75:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %77 = load ptr, ptr %27, align 8
-  call void @_ZdlPv(ptr noundef %77) #17
+  %76 = load ptr, ptr %27, align 8
+  call void @_ZdlPv(ptr noundef %76) #17
   resume { ptr, i32 } %lpad.phi
 
-78:                                               ; preds = %.lr.ph60
-  %79 = add i32 %51, %57
-  %80 = trunc nuw i8 %50 to i1
-  br i1 %80, label %.preheader.i33, label %89
+77:                                               ; preds = %.lr.ph60
+  %78 = add i32 %51, %57
+  br i1 %50, label %.preheader.i33, label %87
 
-.preheader.i33:                                   ; preds = %78
+.preheader.i33:                                   ; preds = %77
   %.mask.i34 = and i32 %51, 2147483647
   %.not.i35 = icmp eq i32 %.mask.i34, 0
   br i1 %.not.i35, label %._crit_edge.i40, label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %.preheader.i33
   %.pre.i37 = load i64, ptr %53, align 8
-  br label %81
+  br label %79
 
-81:                                               ; preds = %81, %.lr.ph.i36
-  %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i39, %81 ]
-  %82 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %49, i64 %indvars.iv.i38, i32 2
-  store i64 %.pre.i37, ptr %82, align 8
+79:                                               ; preds = %79, %.lr.ph.i36
+  %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i39, %79 ]
+  %80 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %49, i64 %indvars.iv.i38, i32 2
+  store i64 %.pre.i37, ptr %80, align 8
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
-  %83 = load i32, ptr %21, align 4
-  %84 = shl i32 %83, 1
-  %85 = zext i32 %84 to i64
-  %86 = icmp samesign ult i64 %indvars.iv.next.i39, %85
-  br i1 %86, label %81, label %._crit_edge.i40, !llvm.loop !382
+  %81 = load i32, ptr %21, align 4
+  %82 = shl i32 %81, 1
+  %83 = zext i32 %82 to i64
+  %84 = icmp samesign ult i64 %indvars.iv.next.i39, %83
+  br i1 %84, label %79, label %._crit_edge.i40, !llvm.loop !382
 
-._crit_edge.i40:                                  ; preds = %81, %.preheader.i33
-  %87 = phi i32 [ %48, %.preheader.i33 ], [ %83, %81 ]
-  %88 = phi i32 [ %51, %.preheader.i33 ], [ %83, %81 ]
+._crit_edge.i40:                                  ; preds = %79, %.preheader.i33
+  %85 = phi i32 [ %48, %.preheader.i33 ], [ %81, %79 ]
+  %86 = phi i32 [ %51, %.preheader.i33 ], [ %81, %79 ]
   store i8 0, ptr %34, align 8
-  %.pre13.i41 = zext i32 %79 to i64
+  %.pre13.i41 = zext i32 %78 to i64
   br label %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42
 
-89:                                               ; preds = %78
-  %90 = load i64, ptr %53, align 8
-  %91 = zext i32 %79 to i64
-  %92 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %49, i64 %91, i32 2
-  store i64 %90, ptr %92, align 8
+87:                                               ; preds = %77
+  %88 = load i64, ptr %53, align 8
+  %89 = zext i32 %78 to i64
+  %90 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %49, i64 %89, i32 2
+  store i64 %88, ptr %90, align 8
   %.pre = load ptr, ptr %27, align 8
   br label %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42
 
-_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42: ; preds = %._crit_edge.i40, %89
-  %93 = phi i8 [ %47, %89 ], [ 0, %._crit_edge.i40 ]
-  %94 = phi i32 [ %48, %89 ], [ %87, %._crit_edge.i40 ]
-  %95 = phi ptr [ %.pre, %89 ], [ %49, %._crit_edge.i40 ]
-  %96 = phi i8 [ %50, %89 ], [ 0, %._crit_edge.i40 ]
-  %97 = phi i32 [ %51, %89 ], [ %88, %._crit_edge.i40 ]
-  %.pre-phi.i32 = phi i64 [ %91, %89 ], [ %.pre13.i41, %._crit_edge.i40 ]
-  %98 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %95, i64 %.pre-phi.i32
-  store i8 0, ptr %98, align 8
-  br label %99
+_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42: ; preds = %._crit_edge.i40, %87
+  %91 = phi i8 [ %47, %87 ], [ 0, %._crit_edge.i40 ]
+  %92 = phi i32 [ %48, %87 ], [ %85, %._crit_edge.i40 ]
+  %93 = phi ptr [ %.pre, %87 ], [ %49, %._crit_edge.i40 ]
+  %94 = phi i32 [ %51, %87 ], [ %86, %._crit_edge.i40 ]
+  %.pre-phi.i32 = phi i64 [ %89, %87 ], [ %.pre13.i41, %._crit_edge.i40 ]
+  %95 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %93, i64 %.pre-phi.i32
+  store i8 0, ptr %95, align 8
+  br label %96
 
-99:                                               ; preds = %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42
+96:                                               ; preds = %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42
   %.pre-phi.i.sink = phi i64 [ %.pre-phi.i, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit ], [ %.pre-phi.i32, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42 ]
-  %100 = phi i8 [ %73, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit ], [ %93, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42 ]
-  %101 = phi i32 [ %74, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit ], [ %94, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42 ]
-  %102 = phi i8 [ %73, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit ], [ %96, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42 ]
-  %103 = phi i32 [ %74, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit ], [ %97, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42 ]
-  %104 = load ptr, ptr %27, align 8
-  %105 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %104, i64 %.pre-phi.i.sink, i32 1
-  store i32 %57, ptr %105, align 4
-  %106 = add nuw nsw i64 %.03059, 1
-  %exitcond67.not = icmp eq i64 %106, %10
+  %97 = phi i8 [ 0, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit ], [ %91, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42 ]
+  %98 = phi i32 [ %73, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit ], [ %92, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42 ]
+  %99 = phi i32 [ %73, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit ], [ %94, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E14__insert_startERKmib.exit42 ]
+  %100 = load ptr, ptr %27, align 8
+  %101 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %100, i64 %.pre-phi.i.sink, i32 1
+  store i32 %57, ptr %101, align 4
+  %102 = add nuw nsw i64 %.03059, 1
+  %exitcond67.not = icmp eq i64 %102, %10
   br i1 %exitcond67.not, label %._crit_edge, label %.lr.ph60, !llvm.loop !383
 
-._crit_edge:                                      ; preds = %99, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_EC2EjSK_.exit
-  %.028.lcssa71 = phi ptr [ null, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_EC2EjSK_.exit ], [ %.1, %99 ]
-  %107 = phi ptr [ %26, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_EC2EjSK_.exit ], [ %104, %99 ]
-  %108 = invoke noundef i32 @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E13__init_winnerEj(ptr noundef nonnull align 8 dereferenceable(33) %6, i32 noundef 1)
+._crit_edge:                                      ; preds = %96, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_EC2EjSK_.exit
+  %.028.lcssa71 = phi ptr [ null, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_EC2EjSK_.exit ], [ %.1, %96 ]
+  %103 = phi ptr [ %26, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_EC2EjSK_.exit ], [ %100, %96 ]
+  %104 = invoke noundef i32 @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E13__init_winnerEj(ptr noundef nonnull align 8 dereferenceable(33) %6, i32 noundef 1)
           to label %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit unwind label %.loopexit.split-lp
 
 _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit: ; preds = %._crit_edge
-  %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %107, i64 %109
-  %111 = load ptr, ptr %27, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %110, i64 16, i1 false)
-  %112 = icmp sgt i64 %3, 0
-  br i1 %112, label %.lr.ph63, label %._crit_edge64
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:48:16)>::_Loser", ptr %103, i64 %105
+  %107 = load ptr, ptr %27, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false)
+  %108 = icmp sgt i64 %3, 0
+  br i1 %108, label %.lr.ph63, label %._crit_edge64
 
-.lr.ph63:                                         ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit, %126
-  %.062 = phi i64 [ %128, %126 ], [ 0, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ]
-  %.sroa.043.061 = phi ptr [ %127, %126 ], [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ]
-  %113 = load ptr, ptr %27, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  %115 = load i32, ptr %114, align 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %"struct.std::pair.207", ptr %0, i64 %116
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  store ptr %119, ptr %117, align 8
-  %120 = load i64, ptr %118, align 8
-  store i64 %120, ptr %.sroa.043.061, align 8
-  %121 = load ptr, ptr %117, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp eq ptr %121, %123
-  %spec.select76 = select i1 %124, ptr %.028.lcssa71, ptr %121
-  %125 = load i64, ptr %spec.select76, align 8
-  invoke void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb(ptr noundef nonnull align 8 dereferenceable(33) %6, i64 noundef %125, i1 noundef zeroext %124)
-          to label %126 unwind label %.loopexit
+.lr.ph63:                                         ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit, %122
+  %.062 = phi i64 [ %124, %122 ], [ 0, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ]
+  %.sroa.043.061 = phi ptr [ %123, %122 ], [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ]
+  %109 = load ptr, ptr %27, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  %111 = load i32, ptr %110, align 4
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds %"struct.std::pair.207", ptr %0, i64 %112
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store ptr %115, ptr %113, align 8
+  %116 = load i64, ptr %114, align 8
+  store i64 %116, ptr %.sroa.043.061, align 8
+  %117 = load ptr, ptr %113, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = icmp eq ptr %117, %119
+  %spec.select76 = select i1 %120, ptr %.028.lcssa71, ptr %117
+  %121 = load i64, ptr %spec.select76, align 8
+  invoke void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E19__delete_min_insertEmb(ptr noundef nonnull align 8 dereferenceable(33) %6, i64 noundef %121, i1 noundef zeroext %120)
+          to label %122 unwind label %.loopexit
 
-126:                                              ; preds = %.lr.ph63
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.043.061, i64 8
-  %128 = add nuw nsw i64 %.062, 1
-  %exitcond68.not = icmp eq i64 %128, %3
+122:                                              ; preds = %.lr.ph63
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.043.061, i64 8
+  %124 = add nuw nsw i64 %.062, 1
+  %exitcond68.not = icmp eq i64 %124, %3
   br i1 %exitcond68.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !384
 
-._crit_edge64:                                    ; preds = %126, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit
-  %.sroa.043.0.lcssa = phi ptr [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ], [ %127, %126 ]
-  %129 = load ptr, ptr %27, align 8
-  call void @_ZdlPv(ptr noundef %129) #17
+._crit_edge64:                                    ; preds = %122, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit
+  %.sroa.043.0.lcssa = phi ptr [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common8QuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEEEfPKNS1_7ContextEdRKS9_SJ_EUlmmE0_E6__initEv.exit ], [ %123, %122 ]
+  %125 = load ptr, ptr %27, align 8
+  call void @_ZdlPv(ptr noundef %125) #17
   ret ptr %.sroa.043.0.lcssa
 }
 
@@ -20884,7 +20880,7 @@ define linkonce_odr void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common
 
 .thread:                                          ; preds = %21, %25, %30, %34, %39
   %.126 = phi i64 [ %49, %39 ], [ %.02529, %25 ], [ %.02529, %30 ], [ %.02529, %34 ], [ %.02529, %21 ]
-  %.124 = phi i8 [ %43, %39 ], [ %.02330, %25 ], [ %.02330, %30 ], [ %.02330, %34 ], [ %.02330, %21 ]
+  %.124 = phi i8 [ %43, %39 ], [ 0, %25 ], [ 0, %30 ], [ 0, %34 ], [ 1, %21 ]
   %.1 = phi i32 [ %46, %39 ], [ %.02231, %25 ], [ %.02231, %30 ], [ %.02231, %34 ], [ %.02231, %21 ]
   %.not = icmp ult i32 %.032.in, 4
   br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !385
@@ -20898,14 +20894,13 @@ define linkonce_odr void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common
   %.025.lcssa = phi i64 [ %1, %3 ], [ %.126, %._crit_edge.loopexit ]
   %.023.lcssa = phi i8 [ %4, %3 ], [ %.124, %._crit_edge.loopexit ]
   %.022.lcssa = phi i32 [ %8, %3 ], [ %.1, %._crit_edge.loopexit ]
-  %51 = and i8 %.023.lcssa, 1
-  store i8 %51, ptr %50, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store i32 %.022.lcssa, ptr %53, align 4
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i64 %.025.lcssa, ptr %55, align 8
+  store i8 %.023.lcssa, ptr %50, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i32 %.022.lcssa, ptr %52, align 4
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i64 %.025.lcssa, ptr %54, align 8
   ret void
 }
 
@@ -31223,20 +31218,20 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18I
   %exitcond.not = icmp eq i64 %46, %10
   br i1 %exitcond.not, label %.lr.ph60, label %.lr.ph, !llvm.loop !587
 
-.lr.ph60:                                         ; preds = %45, %99
-  %47 = phi i8 [ %100, %99 ], [ 1, %45 ]
-  %48 = phi i32 [ %101, %99 ], [ %20, %45 ]
-  %49 = phi ptr [ %104, %99 ], [ %26, %45 ]
-  %50 = phi i8 [ %102, %99 ], [ 1, %45 ]
-  %51 = phi i32 [ %103, %99 ], [ %20, %45 ]
-  %.03059 = phi i64 [ %106, %99 ], [ 0, %45 ]
+.lr.ph60:                                         ; preds = %45, %96
+  %47 = phi i8 [ %97, %96 ], [ 1, %45 ]
+  %48 = phi i32 [ %98, %96 ], [ %20, %45 ]
+  %49 = phi ptr [ %100, %96 ], [ %26, %45 ]
+  %50 = phi i1 [ false, %96 ], [ true, %45 ]
+  %51 = phi i32 [ %99, %96 ], [ %20, %45 ]
+  %.03059 = phi i64 [ %102, %96 ], [ 0, %45 ]
   %52 = getelementptr inbounds nuw %"struct.std::pair.207", ptr %0, i64 %.03059
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %53, %55
   %57 = trunc i64 %.03059 to i32
-  br i1 %56, label %58, label %78
+  br i1 %56, label %58, label %77
 
 58:                                               ; preds = %.lr.ph60
   %59 = add i32 %48, %57
@@ -31279,139 +31274,135 @@ _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18I
 
 _ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit: ; preds = %._crit_edge.i, %68
   %72 = phi ptr [ %.pre69, %68 ], [ %49, %._crit_edge.i ]
-  %73 = phi i8 [ %47, %68 ], [ 0, %._crit_edge.i ]
-  %74 = phi i32 [ %48, %68 ], [ %67, %._crit_edge.i ]
+  %73 = phi i32 [ %48, %68 ], [ %67, %._crit_edge.i ]
   %.pre-phi.i = phi i64 [ %70, %68 ], [ %.pre13.i, %._crit_edge.i ]
-  %75 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %72, i64 %.pre-phi.i
-  store i8 1, ptr %75, align 8
-  br label %99
+  %74 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %72, i64 %.pre-phi.i
+  store i8 1, ptr %74, align 8
+  br label %96
 
 .loopexit:                                        ; preds = %.lr.ph63
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %75
 
 .loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %75
 
-76:                                               ; preds = %.loopexit.split-lp, %.loopexit
+75:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %77 = load ptr, ptr %27, align 8
-  call void @_ZdlPv(ptr noundef %77) #17
+  %76 = load ptr, ptr %27, align 8
+  call void @_ZdlPv(ptr noundef %76) #17
   resume { ptr, i32 } %lpad.phi
 
-78:                                               ; preds = %.lr.ph60
-  %79 = add i32 %51, %57
-  %80 = trunc nuw i8 %50 to i1
-  br i1 %80, label %.preheader.i33, label %89
+77:                                               ; preds = %.lr.ph60
+  %78 = add i32 %51, %57
+  br i1 %50, label %.preheader.i33, label %87
 
-.preheader.i33:                                   ; preds = %78
+.preheader.i33:                                   ; preds = %77
   %.mask.i34 = and i32 %51, 2147483647
   %.not.i35 = icmp eq i32 %.mask.i34, 0
   br i1 %.not.i35, label %._crit_edge.i40, label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %.preheader.i33
   %.pre.i37 = load i64, ptr %53, align 8
-  br label %81
+  br label %79
 
-81:                                               ; preds = %81, %.lr.ph.i36
-  %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i39, %81 ]
-  %82 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %49, i64 %indvars.iv.i38, i32 2
-  store i64 %.pre.i37, ptr %82, align 8
+79:                                               ; preds = %79, %.lr.ph.i36
+  %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i39, %79 ]
+  %80 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %49, i64 %indvars.iv.i38, i32 2
+  store i64 %.pre.i37, ptr %80, align 8
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
-  %83 = load i32, ptr %21, align 4
-  %84 = shl i32 %83, 1
-  %85 = zext i32 %84 to i64
-  %86 = icmp samesign ult i64 %indvars.iv.next.i39, %85
-  br i1 %86, label %81, label %._crit_edge.i40, !llvm.loop !588
+  %81 = load i32, ptr %21, align 4
+  %82 = shl i32 %81, 1
+  %83 = zext i32 %82 to i64
+  %84 = icmp samesign ult i64 %indvars.iv.next.i39, %83
+  br i1 %84, label %79, label %._crit_edge.i40, !llvm.loop !588
 
-._crit_edge.i40:                                  ; preds = %81, %.preheader.i33
-  %87 = phi i32 [ %48, %.preheader.i33 ], [ %83, %81 ]
-  %88 = phi i32 [ %51, %.preheader.i33 ], [ %83, %81 ]
+._crit_edge.i40:                                  ; preds = %79, %.preheader.i33
+  %85 = phi i32 [ %48, %.preheader.i33 ], [ %81, %79 ]
+  %86 = phi i32 [ %51, %.preheader.i33 ], [ %81, %79 ]
   store i8 0, ptr %34, align 8
-  %.pre13.i41 = zext i32 %79 to i64
+  %.pre13.i41 = zext i32 %78 to i64
   br label %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42
 
-89:                                               ; preds = %78
-  %90 = load i64, ptr %53, align 8
-  %91 = zext i32 %79 to i64
-  %92 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %49, i64 %91, i32 2
-  store i64 %90, ptr %92, align 8
+87:                                               ; preds = %77
+  %88 = load i64, ptr %53, align 8
+  %89 = zext i32 %78 to i64
+  %90 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %49, i64 %89, i32 2
+  store i64 %88, ptr %90, align 8
   %.pre = load ptr, ptr %27, align 8
   br label %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42
 
-_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42: ; preds = %._crit_edge.i40, %89
-  %93 = phi i8 [ %47, %89 ], [ 0, %._crit_edge.i40 ]
-  %94 = phi i32 [ %48, %89 ], [ %87, %._crit_edge.i40 ]
-  %95 = phi ptr [ %.pre, %89 ], [ %49, %._crit_edge.i40 ]
-  %96 = phi i8 [ %50, %89 ], [ 0, %._crit_edge.i40 ]
-  %97 = phi i32 [ %51, %89 ], [ %88, %._crit_edge.i40 ]
-  %.pre-phi.i32 = phi i64 [ %91, %89 ], [ %.pre13.i41, %._crit_edge.i40 ]
-  %98 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %95, i64 %.pre-phi.i32
-  store i8 0, ptr %98, align 8
-  br label %99
+_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42: ; preds = %._crit_edge.i40, %87
+  %91 = phi i8 [ %47, %87 ], [ 0, %._crit_edge.i40 ]
+  %92 = phi i32 [ %48, %87 ], [ %85, %._crit_edge.i40 ]
+  %93 = phi ptr [ %.pre, %87 ], [ %49, %._crit_edge.i40 ]
+  %94 = phi i32 [ %51, %87 ], [ %86, %._crit_edge.i40 ]
+  %.pre-phi.i32 = phi i64 [ %89, %87 ], [ %.pre13.i41, %._crit_edge.i40 ]
+  %95 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %93, i64 %.pre-phi.i32
+  store i8 0, ptr %95, align 8
+  br label %96
 
-99:                                               ; preds = %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42
+96:                                               ; preds = %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42
   %.pre-phi.i.sink = phi i64 [ %.pre-phi.i, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit ], [ %.pre-phi.i32, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42 ]
-  %100 = phi i8 [ %73, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit ], [ %93, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42 ]
-  %101 = phi i32 [ %74, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit ], [ %94, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42 ]
-  %102 = phi i8 [ %73, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit ], [ %96, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42 ]
-  %103 = phi i32 [ %74, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit ], [ %97, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42 ]
-  %104 = load ptr, ptr %27, align 8
-  %105 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %104, i64 %.pre-phi.i.sink, i32 1
-  store i32 %57, ptr %105, align 4
-  %106 = add nuw nsw i64 %.03059, 1
-  %exitcond67.not = icmp eq i64 %106, %10
+  %97 = phi i8 [ 0, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit ], [ %91, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42 ]
+  %98 = phi i32 [ %73, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit ], [ %92, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42 ]
+  %99 = phi i32 [ %73, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit ], [ %94, %_ZN14__gnu_parallel14_LoserTreeBaseImZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E14__insert_startERKmib.exit42 ]
+  %100 = load ptr, ptr %27, align 8
+  %101 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %100, i64 %.pre-phi.i.sink, i32 1
+  store i32 %57, ptr %101, align 4
+  %102 = add nuw nsw i64 %.03059, 1
+  %exitcond67.not = icmp eq i64 %102, %10
   br i1 %exitcond67.not, label %._crit_edge, label %.lr.ph60, !llvm.loop !589
 
-._crit_edge:                                      ; preds = %99, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_EC2EjSQ_.exit
-  %.028.lcssa71 = phi ptr [ null, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_EC2EjSQ_.exit ], [ %.1, %99 ]
-  %107 = phi ptr [ %26, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_EC2EjSQ_.exit ], [ %104, %99 ]
-  %108 = invoke noundef i32 @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E13__init_winnerEj(ptr noundef nonnull align 8 dereferenceable(33) %6, i32 noundef 1)
+._crit_edge:                                      ; preds = %96, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_EC2EjSQ_.exit
+  %.028.lcssa71 = phi ptr [ null, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_EC2EjSQ_.exit ], [ %.1, %96 ]
+  %103 = phi ptr [ %26, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_EC2EjSQ_.exit ], [ %100, %96 ]
+  %104 = invoke noundef i32 @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E13__init_winnerEj(ptr noundef nonnull align 8 dereferenceable(33) %6, i32 noundef 1)
           to label %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit unwind label %.loopexit.split-lp
 
 _ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit: ; preds = %._crit_edge
-  %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %107, i64 %109
-  %111 = load ptr, ptr %27, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %110, i64 16, i1 false)
-  %112 = icmp sgt i64 %3, 0
-  br i1 %112, label %.lr.ph63, label %._crit_edge64
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds nuw %"struct.__gnu_parallel::_LoserTreeBase<unsigned long, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/xgboost/xgboost/src/objective/../common/stats.h:91:16)>::_Loser", ptr %103, i64 %105
+  %107 = load ptr, ptr %27, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false)
+  %108 = icmp sgt i64 %3, 0
+  br i1 %108, label %.lr.ph63, label %._crit_edge64
 
-.lr.ph63:                                         ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit, %126
-  %.062 = phi i64 [ %128, %126 ], [ 0, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit ]
-  %.sroa.043.061 = phi ptr [ %127, %126 ], [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit ]
-  %113 = load ptr, ptr %27, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  %115 = load i32, ptr %114, align 4
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %"struct.std::pair.207", ptr %0, i64 %116
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  store ptr %119, ptr %117, align 8
-  %120 = load i64, ptr %118, align 8
-  store i64 %120, ptr %.sroa.043.061, align 8
-  %121 = load ptr, ptr %117, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp eq ptr %121, %123
-  %spec.select76 = select i1 %124, ptr %.028.lcssa71, ptr %121
-  %125 = load i64, ptr %spec.select76, align 8
-  invoke void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb(ptr noundef nonnull align 8 dereferenceable(33) %6, i64 noundef %125, i1 noundef zeroext %124)
-          to label %126 unwind label %.loopexit
+.lr.ph63:                                         ; preds = %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit, %122
+  %.062 = phi i64 [ %124, %122 ], [ 0, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit ]
+  %.sroa.043.061 = phi ptr [ %123, %122 ], [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit ]
+  %109 = load ptr, ptr %27, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  %111 = load i32, ptr %110, align 4
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds %"struct.std::pair.207", ptr %0, i64 %112
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store ptr %115, ptr %113, align 8
+  %116 = load i64, ptr %114, align 8
+  store i64 %116, ptr %.sroa.043.061, align 8
+  %117 = load ptr, ptr %113, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = icmp eq ptr %117, %119
+  %spec.select76 = select i1 %120, ptr %.028.lcssa71, ptr %117
+  %121 = load i64, ptr %spec.select76, align 8
+  invoke void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E19__delete_min_insertEmb(ptr noundef nonnull align 8 dereferenceable(33) %6, i64 noundef %121, i1 noundef zeroext %120)
+          to label %122 unwind label %.loopexit
 
-126:                                              ; preds = %.lr.ph63
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.043.061, i64 8
-  %128 = add nuw nsw i64 %.062, 1
-  %exitcond68.not = icmp eq i64 %128, %3
+122:                                              ; preds = %.lr.ph63
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.043.061, i64 8
+  %124 = add nuw nsw i64 %.062, 1
+  %exitcond68.not = icmp eq i64 %124, %3
   br i1 %exitcond68.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !590
 
-._crit_edge64:                                    ; preds = %126, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit
-  %.sroa.043.0.lcssa = phi ptr [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit ], [ %127, %126 ]
-  %129 = load ptr, ptr %27, align 8
-  call void @_ZdlPv(ptr noundef %129) #17
+._crit_edge64:                                    ; preds = %122, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit
+  %.sroa.043.0.lcssa = phi ptr [ %2, %_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common16WeightedQuantileINS2_18IndexTransformIterIZNS1_6linalg6cbeginIKfLi2EEEDaRKNS5_10TensorViewIT_XT0_EEEEUlmE_EEN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIfSaIfEEEEEEfPKNS1_7ContextEdS9_S9_T0_EUlmmE0_E6__initEv.exit ], [ %123, %122 ]
+  %125 = load ptr, ptr %27, align 8
+  call void @_ZdlPv(ptr noundef %125) #17
   ret ptr %.sroa.043.0.lcssa
 }
 
@@ -31496,7 +31487,7 @@ define linkonce_odr void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common
 
 .thread:                                          ; preds = %21, %25, %30, %34, %39
   %.126 = phi i64 [ %49, %39 ], [ %.02529, %25 ], [ %.02529, %30 ], [ %.02529, %34 ], [ %.02529, %21 ]
-  %.124 = phi i8 [ %43, %39 ], [ %.02330, %25 ], [ %.02330, %30 ], [ %.02330, %34 ], [ %.02330, %21 ]
+  %.124 = phi i8 [ %43, %39 ], [ 0, %25 ], [ 0, %30 ], [ 0, %34 ], [ 1, %21 ]
   %.1 = phi i32 [ %46, %39 ], [ %.02231, %25 ], [ %.02231, %30 ], [ %.02231, %34 ], [ %.02231, %21 ]
   %.not = icmp ult i32 %.032.in, 4
   br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !591
@@ -31510,14 +31501,13 @@ define linkonce_odr void @_ZN14__gnu_parallel10_LoserTreeILb1EmZN7xgboost6common
   %.025.lcssa = phi i64 [ %1, %3 ], [ %.126, %._crit_edge.loopexit ]
   %.023.lcssa = phi i8 [ %4, %3 ], [ %.124, %._crit_edge.loopexit ]
   %.022.lcssa = phi i32 [ %8, %3 ], [ %.1, %._crit_edge.loopexit ]
-  %51 = and i8 %.023.lcssa, 1
-  store i8 %51, ptr %50, align 8
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store i32 %.022.lcssa, ptr %53, align 4
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i64 %.025.lcssa, ptr %55, align 8
+  store i8 %.023.lcssa, ptr %50, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i32 %.022.lcssa, ptr %52, align 4
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i64 %.025.lcssa, ptr %54, align 8
   ret void
 }
 

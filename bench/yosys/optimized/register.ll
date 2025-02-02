@@ -29083,7 +29083,7 @@ define linkonce_odr void @_ZN5Yosys8HelpPass9write_rstENSt7__cxx1112basic_string
 
 .thread104:                                       ; preds = %.thread, %132, %133, %130
   %.265 = phi i64 [ %.us-phi92, %130 ], [ %.063.ph, %133 ], [ %.063.ph, %132 ], [ %.063.ph, %.thread ]
-  %.362 = phi i8 [ %.059.ph, %130 ], [ 0, %133 ], [ %.059.ph, %132 ], [ %.059.ph, %.thread ]
+  %.362 = phi i8 [ %.059.ph, %130 ], [ 0, %133 ], [ 0, %132 ], [ 0, %.thread ]
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %.265, i64 noundef -1)
           to label %135 unwind label %103
 

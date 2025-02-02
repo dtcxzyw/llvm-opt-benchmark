@@ -965,99 +965,101 @@ define dso_local void @_bt_start_array_keys(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @_bt_advance_array_keys(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %6 = load i32, ptr %5, align 4
-  %.02632 = add i32 %6, -1
-  %7 = icmp sgt i32 %.02632, -1
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %9 = icmp eq i32 %1, -1
+  %10 = zext i32 %6 to i64
+  br i1 %9, label %.split.us, label %.split
 
-.lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = icmp eq i32 %1, -1
-  br i1 %10, label %.lr.ph.split.us, label %.lr.ph.split
+.split.us:                                        ; preds = %2, %13
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %13 ], [ %10, %2 ]
+  %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
+  %11 = and i64 %indvars.iv.next38, 2147483648
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %.split33.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.02633.us = phi i32 [ %.026.us, %.lr.ph.split.us ], [ %.02632, %.lr.ph ]
-  %11 = load ptr, ptr %8, align 8
-  %12 = zext nneg i32 %.02633.us to i64
-  %13 = getelementptr %struct.BTArrayKeyInfo, ptr %11, i64 %12
-  %14 = load ptr, ptr %9, align 8
-  %15 = load i32, ptr %13, align 8
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %20 = load i32, ptr %19, align 4
-  %21 = add i32 %18, -1
-  %22 = icmp sgt i32 %21, -1
-  %23 = add i32 %20, -1
-  %spec.select.us = select i1 %22, i32 %21, i32 %23
-  store i32 %spec.select.us, ptr %17, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = sext i32 %spec.select.us to i64
-  %27 = getelementptr i64, ptr %25, i64 %26
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr %struct.ScanKeyData, ptr %14, i64 %16, i32 6
-  store i64 %28, ptr %29, align 8
-  %.026.us = add nsw i32 %.02633.us, -1
-  %30 = icmp eq i32 %.02633.us, 0
-  %or.cond.not = or i1 %30, %22
-  br i1 %or.cond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
+13:                                               ; preds = %.split.us
+  %14 = load ptr, ptr %7, align 8
+  %15 = and i64 %indvars.iv.next38, 2147483647
+  %16 = getelementptr %struct.BTArrayKeyInfo, ptr %14, i64 %15
+  %17 = load ptr, ptr %8, align 8
+  %18 = load i32, ptr %16, align 8
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %23 = load i32, ptr %22, align 4
+  %24 = add i32 %21, -1
+  %25 = icmp sgt i32 %24, -1
+  %26 = add i32 %23, -1
+  %spec.select.us = select i1 %25, i32 %24, i32 %26
+  store i32 %spec.select.us, ptr %20, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = sext i32 %spec.select.us to i64
+  %30 = getelementptr i64, ptr %28, i64 %29
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr %struct.ScanKeyData, ptr %17, i64 %19, i32 6
+  store i64 %31, ptr %32, align 8
+  br i1 %25, label %.split33.us, label %.split.us, !llvm.loop !14
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.02633 = phi i32 [ %.026, %.lr.ph.split ], [ %.02632, %.lr.ph ]
-  %31 = load ptr, ptr %8, align 8
-  %32 = zext nneg i32 %.02633 to i64
-  %33 = getelementptr %struct.BTArrayKeyInfo, ptr %31, i64 %32
-  %34 = load ptr, ptr %9, align 8
-  %35 = load i32, ptr %33, align 8
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %40 = load i32, ptr %39, align 4
-  %41 = add i32 %38, 1
-  %.not = icmp slt i32 %41, %40
-  %. = select i1 %.not, i32 %41, i32 0
-  store i32 %., ptr %37, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = sext i32 %. to i64
-  %45 = getelementptr i64, ptr %43, i64 %44
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr %struct.ScanKeyData, ptr %34, i64 %36, i32 6
-  store i64 %46, ptr %47, align 8
-  %.026 = add nsw i32 %.02633, -1
-  %48 = icmp eq i32 %.02633, 0
-  %or.cond38.not = or i1 %48, %.not
-  br i1 %or.cond38.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
+.split:                                           ; preds = %2, %35
+  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ %10, %2 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %33 = and i64 %indvars.iv.next, 2147483648
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %.split33.us
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
-  %.1 = phi i1 [ false, %2 ], [ %22, %.lr.ph.split.us ], [ %.not, %.lr.ph.split ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %50 = load ptr, ptr %49, align 8
-  %.not29 = icmp eq ptr %50, null
-  br i1 %.not29, label %52, label %51
+35:                                               ; preds = %.split
+  %36 = load ptr, ptr %7, align 8
+  %37 = and i64 %indvars.iv.next, 2147483647
+  %38 = getelementptr %struct.BTArrayKeyInfo, ptr %36, i64 %37
+  %39 = load ptr, ptr %8, align 8
+  %40 = load i32, ptr %38, align 8
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %45 = load i32, ptr %44, align 4
+  %46 = add i32 %43, 1
+  %.not = icmp slt i32 %46, %45
+  %. = select i1 %.not, i32 %46, i32 0
+  store i32 %., ptr %42, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = sext i32 %. to i64
+  %50 = getelementptr i64, ptr %48, i64 %49
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr %struct.ScanKeyData, ptr %39, i64 %41, i32 6
+  store i64 %51, ptr %52, align 8
+  br i1 %.not, label %.split33.us, label %.split, !llvm.loop !14
 
-51:                                               ; preds = %._crit_edge
+.split33.us:                                      ; preds = %.split, %35, %.split.us, %13
+  %.us-phi = phi i1 [ %12, %13 ], [ %12, %.split.us ], [ %34, %35 ], [ %34, %.split ]
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %54 = load ptr, ptr %53, align 8
+  %.not29 = icmp eq ptr %54, null
+  br i1 %.not29, label %56, label %55
+
+55:                                               ; preds = %.split33.us
   tail call void @_bt_parallel_advance_array_keys(ptr noundef nonnull %0) #14
-  br label %52
+  br label %56
 
-52:                                               ; preds = %51, %._crit_edge
-  br i1 %.1, label %55, label %53
+56:                                               ; preds = %55, %.split33.us
+  br i1 %.us-phi, label %59, label %57
 
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 0, ptr %54, align 8
-  br label %55
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i8 0, ptr %58, align 8
+  br label %59
 
-55:                                               ; preds = %53, %52
-  ret i1 %.1
+59:                                               ; preds = %57, %56
+  ret i1 %.us-phi
 }
 
 declare void @_bt_parallel_advance_array_keys(ptr noundef) local_unnamed_addr #1

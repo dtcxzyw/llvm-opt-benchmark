@@ -609,7 +609,7 @@ define hidden void @_ZN13BootstrapInfo12resolve_argsEP10JavaThread(ptr noundef n
   %11 = load i32, ptr @UseBootstrapCallInfo, align 4
   %12 = icmp slt i32 %11, 2
   %or.cond = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond, label %.loopexit75, label %13
+  br i1 %or.cond, label %.loopexit, label %13
 
 13:                                               ; preds = %2
   switch i32 %11, label %.critedge.thread [
@@ -632,7 +632,7 @@ define hidden void @_ZN13BootstrapInfo12resolve_argsEP10JavaThread(ptr noundef n
   %22 = tail call noundef ptr @_ZN29java_lang_invoke_MethodHandle4typeEP7oopDesc(ptr noundef %21) #10
   %23 = tail call noundef i32 @_ZN27java_lang_invoke_MethodType11ptype_countEP7oopDesc(ptr noundef %22) #10
   %24 = icmp eq i32 %23, 2
-  br i1 %24, label %.critedge..critedge.thread_crit_edge, label %.thread63
+  br i1 %24, label %.critedge.thread, label %.thread63
 
 .thread63:                                        ; preds = %13, %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -649,8 +649,8 @@ define hidden void @_ZN13BootstrapInfo12resolve_argsEP10JavaThread(ptr noundef n
   %35 = icmp eq i8 %34, 17
   %36 = load i32, ptr %8, align 8
   %37 = icmp sgt i32 %36, 0
-  %or.cond88 = select i1 %35, i1 %37, i1 false
-  br i1 %or.cond88, label %.lr.ph, label %.loopexit.thread
+  %or.cond90 = select i1 %35, i1 %37, i1 false
+  br i1 %or.cond90, label %.lr.ph, label %.thread72
 
 .lr.ph:                                           ; preds = %.thread63
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -659,7 +659,7 @@ define hidden void @_ZN13BootstrapInfo12resolve_argsEP10JavaThread(ptr noundef n
   br label %41
 
 41:                                               ; preds = %.lr.ph, %103
-  %.03978 = phi i32 [ 0, %.lr.ph ], [ %104, %103 ]
+  %.03985 = phi i32 [ 0, %.lr.ph ], [ %104, %103 ]
   %42 = load ptr, ptr %25, align 8
   %43 = load i32, ptr %27, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 72
@@ -682,7 +682,7 @@ define hidden void @_ZN13BootstrapInfo12resolve_argsEP10JavaThread(ptr noundef n
   %61 = shl nuw i32 %60, 16
   %62 = zext i16 %55 to i32
   %63 = or disjoint i32 %61, %62
-  %64 = add nuw i32 %.03978, 2
+  %64 = add nuw i32 %.03985, 2
   %65 = add i32 %64, %63
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i16, ptr %52, i64 %66
@@ -738,38 +738,33 @@ _ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit: ; preds = %77,
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %99 = load ptr, ptr %40, align 8
-  %.not70 = icmp eq ptr %99, null
-  br i1 %.not70, label %100, label %.loopexit75
+  %.not76 = icmp eq ptr %99, null
+  br i1 %.not76, label %100, label %.loopexit
 
 100:                                              ; preds = %_ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit
   %101 = load i8, ptr %6, align 1
   %102 = trunc i8 %101 to i1
-  br i1 %102, label %103, label %.critedge..critedge.thread_crit_edge
+  br i1 %102, label %103, label %.critedge.thread
 
 103:                                              ; preds = %41, %100
-  %104 = add nuw nsw i32 %.03978, 1
+  %104 = add nuw nsw i32 %.03985, 1
   %105 = load i32, ptr %8, align 8
   %106 = icmp slt i32 %104, %105
-  br i1 %106, label %41, label %.loopexit.thread, !llvm.loop !7
+  br i1 %106, label %41, label %.thread72, !llvm.loop !7
 
-.critedge..critedge.thread_crit_edge:             ; preds = %100, %20
-  %.pre = load i32, ptr %8, align 8
-  %.pre90 = load i32, ptr @UseBootstrapCallInfo, align 4
-  br label %.critedge.thread
-
-.critedge.thread:                                 ; preds = %.critedge..critedge.thread_crit_edge, %13
-  %107 = phi i32 [ %.pre90, %.critedge..critedge.thread_crit_edge ], [ %11, %13 ]
-  %108 = phi i32 [ %.pre, %.critedge..critedge.thread_crit_edge ], [ %9, %13 ]
-  %109 = icmp slt i32 %108, 6
-  %110 = icmp slt i32 %107, 3
-  %or.cond3 = select i1 %109, i1 %110, i1 false
+.critedge.thread:                                 ; preds = %100, %13, %20
+  %107 = load i32, ptr %8, align 8
+  %108 = icmp slt i32 %107, 6
+  %109 = load i32, ptr @UseBootstrapCallInfo, align 4
+  %110 = icmp slt i32 %109, 3
+  %or.cond3 = select i1 %108, i1 %110, i1 false
   br i1 %or.cond3, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %.critedge.thread
-  %.not81 = icmp sgt i32 %108, 0
-  br i1 %.not81, label %.lr.ph83, label %.loopexit.thread
+  %.not86 = icmp sgt i32 %107, 0
+  br i1 %.not86, label %.lr.ph88, label %.thread72
 
-.lr.ph83:                                         ; preds = %.preheader
+.lr.ph88:                                         ; preds = %.preheader
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -778,13 +773,13 @@ _ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit: ; preds = %77,
   br label %119
 
 116:                                              ; preds = %169
-  %117 = add nuw nsw i32 %.04182, 1
+  %117 = add nuw nsw i32 %.04187, 1
   %118 = load i32, ptr %8, align 8
   %.not = icmp slt i32 %117, %118
-  br i1 %.not, label %119, label %.loopexit.thread, !llvm.loop !9
+  br i1 %.not, label %119, label %.thread72, !llvm.loop !9
 
-119:                                              ; preds = %.lr.ph83, %116
-  %.04182 = phi i32 [ 0, %.lr.ph83 ], [ %117, %116 ]
+119:                                              ; preds = %.lr.ph88, %116
+  %.04187 = phi i32 [ 0, %.lr.ph88 ], [ %117, %116 ]
   store i8 0, ptr %7, align 1
   %120 = load ptr, ptr %111, align 8
   %121 = load i32, ptr %112, align 8
@@ -808,7 +803,7 @@ _ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit: ; preds = %77,
   %139 = shl nuw i32 %138, 16
   %140 = zext i16 %133 to i32
   %141 = or disjoint i32 %139, %140
-  %142 = add nuw i32 %.04182, 2
+  %142 = add nuw i32 %.04187, 2
   %143 = add i32 %142, %141
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds i16, ptr %130, i64 %144
@@ -851,24 +846,24 @@ _ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit48: ; preds = %1
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %168 = load ptr, ptr %115, align 8
-  %.not71 = icmp eq ptr %168, null
-  br i1 %.not71, label %169, label %.loopexit75
+  %.not77 = icmp eq ptr %168, null
+  br i1 %.not77, label %169, label %.loopexit
 
 169:                                              ; preds = %_ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit48
   %170 = load i8, ptr %7, align 1
   %171 = trunc i8 %170 to i1
   br i1 %171, label %116, label %.critedge
 
-.loopexit.thread:                                 ; preds = %103, %116, %.thread63, %.preheader
-  %172 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 8
-  %173 = load i32, ptr %8, align 8
-  %174 = call noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef %172, i32 noundef %173, ptr noundef %1) #10
+.thread72:                                        ; preds = %103, %116, %.preheader, %.thread63
+  %172 = phi i32 [ %107, %.preheader ], [ %36, %.thread63 ], [ %118, %116 ], [ %105, %103 ]
+  %173 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 8
+  %174 = call noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef %173, i32 noundef %172, ptr noundef %1) #10
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %176 = load ptr, ptr %175, align 8
-  %.not72 = icmp eq ptr %176, null
-  br i1 %.not72, label %177, label %.loopexit75
+  %.not78 = icmp eq ptr %176, null
+  br i1 %.not78, label %177, label %.loopexit
 
-177:                                              ; preds = %.loopexit.thread
+177:                                              ; preds = %.thread72
   %178 = icmp eq ptr %174, null
   br i1 %178, label %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, label %179
 
@@ -945,13 +940,13 @@ _ZN12ConstantPool27copy_bootstrap_arguments_atEiii14objArrayHandleib6HandleP10Ja
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %219 = load ptr, ptr %175, align 8
-  %.not73 = icmp eq ptr %219, null
-  br i1 %.not73, label %220, label %.loopexit75
+  %.not79 = icmp eq ptr %219, null
+  br i1 %.not79, label %220, label %.loopexit
 
 220:                                              ; preds = %_ZN12ConstantPool27copy_bootstrap_arguments_atEiii14objArrayHandleib6HandleP10JavaThread.exit
   %221 = load i32, ptr %8, align 8
   %222 = icmp eq i32 %221, 1
-  br i1 %222, label %223, label %.thread68
+  br i1 %222, label %223, label %.thread74
 
 223:                                              ; preds = %220
   %224 = load ptr, ptr %storemerge.i.i, align 8
@@ -964,7 +959,7 @@ _ZN12ConstantPool27copy_bootstrap_arguments_atEiii14objArrayHandleib6HandleP10Ja
   %230 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %231 = call noundef ptr %230(ptr noundef nonnull align 8 dereferenceable(16) %224, i64 noundef %229) #10
   %.not43 = icmp eq ptr %231, null
-  br i1 %.not43, label %.thread68, label %232
+  br i1 %.not43, label %.thread74, label %232
 
 232:                                              ; preds = %223
   %233 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -993,7 +988,7 @@ _ZNK7oopDesc8is_arrayEv.exit:                     ; preds = %236, %246
   %248 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %249 = load i32, ptr %248, align 4
   %250 = icmp sgt i32 %249, 4
-  br i1 %250, label %.thread68, label %251
+  br i1 %250, label %.thread74, label %251
 
 251:                                              ; preds = %_ZNK7oopDesc8is_arrayEv.exit
   %252 = getelementptr inbounds nuw i8, ptr %1, i64 808
@@ -1015,29 +1010,29 @@ _ZNK7oopDesc8is_arrayEv.exit:                     ; preds = %236, %246
 
 263:                                              ; preds = %251
   %264 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %253, i64 noundef 8, i32 noundef 0) #10
-  %.pre92 = ptrtoint ptr %264 to i64
+  %.pre = ptrtoint ptr %264 to i64
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %261, %263
-  %.pre-phi93 = phi i64 [ %259, %261 ], [ %.pre92, %263 ]
+  %.pre-phi = phi i64 [ %259, %261 ], [ %.pre, %263 ]
   %.0.i.i.i.i = phi ptr [ %257, %261 ], [ %264, %263 ]
   store ptr %231, ptr %.0.i.i.i.i, align 8
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %.pre-phi93, ptr %265, align 8
-  br label %.loopexit75
+  store i64 %.pre-phi, ptr %265, align 8
+  br label %.loopexit
 
-.thread68:                                        ; preds = %220, %_ZNK7oopDesc8is_arrayEv.exit, %223
+.thread74:                                        ; preds = %220, %_ZNK7oopDesc8is_arrayEv.exit, %223
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %267 = ptrtoint ptr %storemerge.i.i to i64
   store i64 %267, ptr %266, align 8
-  br label %.loopexit75
+  br label %.loopexit
 
 .critedge:                                        ; preds = %169, %.critedge.thread
   %268 = call noundef ptr @_ZN10oopFactory13new_typeArrayE9BasicTypeiP10JavaThread(i8 noundef zeroext 10, i32 noundef 2, ptr noundef %1) #10
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %270 = load ptr, ptr %269, align 8
-  %.not74 = icmp eq ptr %270, null
-  br i1 %.not74, label %271, label %.loopexit75
+  %.not80 = icmp eq ptr %270, null
+  br i1 %.not80, label %271, label %.loopexit
 
 271:                                              ; preds = %.critedge
   %272 = load i32, ptr %8, align 8
@@ -1080,22 +1075,22 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %261, %263
 
 300:                                              ; preds = %288
   %301 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %290, i64 noundef 8, i32 noundef 0) #10
-  %.pre91 = ptrtoint ptr %301 to i64
+  %.pre93 = ptrtoint ptr %301 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i53
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i53: ; preds = %300, %298
-  %.pre-phi = phi i64 [ %.pre91, %300 ], [ %296, %298 ]
+  %.pre-phi94 = phi i64 [ %.pre93, %300 ], [ %296, %298 ]
   %.0.i.i.i.i54 = phi ptr [ %301, %300 ], [ %294, %298 ]
   store ptr %268, ptr %.0.i.i.i.i54, align 8
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit56
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit56:            ; preds = %271, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i53
-  %storemerge.i55 = phi i64 [ %.pre-phi, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i53 ], [ 0, %271 ]
+  %storemerge.i55 = phi i64 [ %.pre-phi94, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i53 ], [ 0, %271 ]
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %storemerge.i55, ptr %302, align 8
-  br label %.loopexit75
+  br label %.loopexit
 
-.loopexit75:                                      ; preds = %_ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit, %_ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit48, %.critedge, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %.thread68, %_ZN12ConstantPool27copy_bootstrap_arguments_atEiii14objArrayHandleib6HandleP10JavaThread.exit, %.loopexit.thread, %2, %_ZN6HandleC2EP6ThreadP7oopDesc.exit56
+.loopexit:                                        ; preds = %_ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit, %_ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit48, %.critedge, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %.thread74, %_ZN12ConstantPool27copy_bootstrap_arguments_atEiii14objArrayHandleib6HandleP10JavaThread.exit, %.thread72, %2, %_ZN6HandleC2EP6ThreadP7oopDesc.exit56
   ret void
 }
 

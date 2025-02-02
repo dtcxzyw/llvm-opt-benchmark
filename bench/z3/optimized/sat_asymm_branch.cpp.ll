@@ -2512,50 +2512,54 @@ for.body.lr.ph:                                   ; preds = %if.end
   %6 = zext i32 %flip_index to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %found_conflict.018 = phi i8 [ 0, %for.body.lr.ph ], [ %found_conflict.1, %for.inc ]
+for.body:                                         ; preds = %for.body.backedge, %for.body.lr.ph
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.be, %for.body.backedge ]
   %cmp6 = icmp eq i64 %indvars.iv, %6
-  br i1 %cmp6, label %for.inc, label %if.end8
+  br i1 %cmp6, label %for.inc.thread, label %for.inc
 
-if.end8:                                          ; preds = %for.body
+for.inc:                                          ; preds = %for.body
   %arrayidx.i12 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %m_lits.i, i64 0, i64 %indvars.iv
   %agg.tmp9.sroa.0.0.copyload = load i32, ptr %arrayidx.i12, align 4
   %xor.i = xor i32 %agg.tmp9.sroa.0.0.copyload, 1
   %call14 = tail call noundef zeroext i1 @_ZN3sat12asymm_branch17propagate_literalERKNS_6clauseENS_7literalE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nonnull align 4 poison, i32 %xor.i)
-  %frombool = zext i1 %call14 to i8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body, %if.end8
-  %found_conflict.1 = phi i8 [ %found_conflict.018, %for.body ], [ %frombool, %if.end8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %tobool = trunc nuw i8 %found_conflict.1 to i1
   %cmp5 = icmp samesign uge i64 %indvars.iv.next, %5
-  %.not = select i1 %tobool, i1 true, i1 %cmp5
-  br i1 %.not, label %for.end, label %for.body, !llvm.loop !16
+  %.not = select i1 %call14, i1 true, i1 %cmp5
+  br i1 %.not, label %for.end, label %for.body.backedge
+
+for.body.backedge:                                ; preds = %for.inc, %for.inc.thread
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %for.inc ], [ %indvars.iv.next25, %for.inc.thread ]
+  br label %for.body, !llvm.loop !16
+
+for.inc.thread:                                   ; preds = %for.body
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv, 1
+  %cmp526.not = icmp samesign ult i64 %indvars.iv.next25, %5
+  br i1 %cmp526.not, label %for.body.backedge, label %for.end.thread30
+
+for.end.thread30:                                 ; preds = %for.inc.thread
+  %7 = trunc nuw i64 %indvars.iv.next25 to i32
+  br label %if.then16
 
 for.end:                                          ; preds = %for.inc
-  %7 = trunc nuw i64 %indvars.iv.next to i32
-  br i1 %tobool, label %if.end22, label %if.then16
+  %8 = trunc nuw i64 %indvars.iv.next to i32
+  br i1 %call14, label %if.end22, label %if.then16
 
-if.then16:                                        ; preds = %if.end, %for.end
-  %i.0.lcssa25 = phi i32 [ %7, %for.end ], [ 0, %if.end ]
+if.then16:                                        ; preds = %if.end, %for.end.thread30, %for.end
+  %i.0.lcssa22 = phi i32 [ %8, %for.end ], [ %7, %for.end.thread30 ], [ 0, %if.end ]
   %m_lits.i13 = getelementptr inbounds nuw i8, ptr %c, i64 20
   %idxprom.i14 = zext i32 %flip_index to i64
   %arrayidx.i15 = getelementptr inbounds nuw [0 x %"class.sat::literal"], ptr %m_lits.i13, i64 0, i64 %idxprom.i14
   %agg.tmp17.sroa.0.0.copyload = load i32, ptr %arrayidx.i15, align 4
   %call20 = tail call noundef zeroext i1 @_ZN3sat12asymm_branch17propagate_literalERKNS_6clauseENS_7literalE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nonnull align 4 poison, i32 %agg.tmp17.sroa.0.0.copyload)
-  %frombool21 = zext i1 %call20 to i8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then16, %for.end
-  %i.0.lcssa26 = phi i32 [ %7, %for.end ], [ %i.0.lcssa25, %if.then16 ]
-  %found_conflict.2 = phi i8 [ %found_conflict.1, %for.end ], [ %frombool21, %if.then16 ]
-  %8 = load ptr, ptr %this, align 8
-  tail call void @_ZN3sat6solver3popEj(ptr noundef nonnull align 8 dereferenceable(4408) %8, i32 noundef 1)
-  store i32 %i.0.lcssa26, ptr %new_sz, align 4
-  %tobool24 = trunc nuw i8 %found_conflict.2 to i1
-  ret i1 %tobool24
+  %i.0.lcssa23 = phi i32 [ %8, %for.end ], [ %i.0.lcssa22, %if.then16 ]
+  %found_conflict.2 = phi i1 [ true, %for.end ], [ %call20, %if.then16 ]
+  %9 = load ptr, ptr %this, align 8
+  tail call void @_ZN3sat6solver3popEj(ptr noundef nonnull align 8 dereferenceable(4408) %9, i32 noundef 1)
+  store i32 %i.0.lcssa23, ptr %new_sz, align 4
+  ret i1 %found_conflict.2
 }
 
 ; Function Attrs: mustprogress uwtable

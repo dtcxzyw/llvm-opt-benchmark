@@ -10330,12 +10330,11 @@ invoke.cont24.us.us:                              ; preds = %for.body.i.i.i.us.u
   %retval.sroa.0.0.in.sroa.speculated.i.i.i.us.us = phi ptr [ %scevgep.i.i.i, %sw.bb.i.i.i.us.us ], [ %__first.sroa.0.1.i.i.i.us.us, %sw.bb31.i.i.i.us.us ], [ %spec.select.i.i.i.us.us, %sw.bb38.i.i.i.us.us ], [ %incdec.ptr.i12.i.i.i.us.us.le, %invoke.cont24.us.us.loopexit.split.loop.exit54 ], [ %incdec.ptr.i10.i.i.i.us.us.le, %invoke.cont24.us.us.loopexit.split.loop.exit56 ], [ %incdec.ptr.i.i.i.i.us.us.le, %invoke.cont24.us.us.loopexit.split.loop.exit58 ], [ %__first.sroa.0.051.i.i.i.us.us, %for.body.i.i.i.us.us ]
   %cmp.i15.not.us.us = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.us.us, %.pre50
   %foundNotFv.0.not.us.us = xor i1 %foundNotFv.037.us.us, true
-  %brmerge.us.us = select i1 %cmp.i15.not.us.us, i1 true, i1 %foundNotFv.0.not.us.us
-  %.mux.us.us = select i1 %cmp.i15.not.us.us, i1 true, i1 %foundNotFv.037.us.us
+  %brmerge.us.us = or i1 %cmp.i15.not.us.us, %foundNotFv.0.not.us.us
   br i1 %brmerge.us.us, label %for.inc.us.us, label %cleanup
 
 for.inc.us.us:                                    ; preds = %invoke.cont24.us.us, %for.end.loopexit.i.i.i.us.us
-  %foundNotFv.1.us.us = phi i1 [ %.mux.us.us, %invoke.cont24.us.us ], [ true, %for.end.loopexit.i.i.i.us.us ]
+  %foundNotFv.1.us.us = phi i1 [ %cmp.i15.not.us.us, %invoke.cont24.us.us ], [ true, %for.end.loopexit.i.i.i.us.us ]
   %incdec.ptr.i.us.us = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.036.us.us, i64 8
   %cmp.i12.not.us.us = icmp eq ptr %incdec.ptr.i.us.us, %8
   br i1 %cmp.i12.not.us.us, label %for.inc35.us, label %for.body14.us.us
@@ -10395,8 +10394,7 @@ invoke.cont24:                                    ; preds = %sw.bb38.i.i.i, %sw.
   %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %.pre, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ]
   %cmp.i15.not = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %.pre50
   %foundNotFv.0.not = xor i1 %foundNotFv.037, true
-  %brmerge = select i1 %cmp.i15.not, i1 true, i1 %foundNotFv.0.not
-  %.mux = select i1 %cmp.i15.not, i1 true, i1 %foundNotFv.037
+  %brmerge = or i1 %cmp.i15.not, %foundNotFv.0.not
   br i1 %brmerge, label %for.inc, label %cleanup
 
 lpad:                                             ; preds = %if.then13.i.i
@@ -10411,7 +10409,7 @@ lpad2:                                            ; preds = %invoke.cont
   br label %ehcleanup
 
 for.inc:                                          ; preds = %invoke.cont24, %for.body14
-  %foundNotFv.1 = phi i1 [ %.mux, %invoke.cont24 ], [ true, %for.body14 ]
+  %foundNotFv.1 = phi i1 [ %cmp.i15.not, %invoke.cont24 ], [ true, %for.body14 ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.036, i64 8
   %cmp.i12.not = icmp eq ptr %incdec.ptr.i, %18
   br i1 %cmp.i12.not, label %for.inc35, label %for.body14

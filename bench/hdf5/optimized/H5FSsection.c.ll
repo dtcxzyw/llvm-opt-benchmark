@@ -1283,7 +1283,6 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_merge(ptr noundef captur
   br label %.loopexit
 
 144:                                              ; preds = %136, %134
-  %.182 = phi i8 [ %.081, %134 ], [ 0, %136 ]
   %145 = getelementptr inbounds nuw i8, ptr %123, i64 96
   %146 = load ptr, ptr %145, align 8
   %147 = call i32 %146(ptr noundef nonnull %1, ptr noundef %2) #5
@@ -1306,7 +1305,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_merge(ptr noundef captur
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 320
   %159 = load ptr, ptr %158, align 8
   %.not103 = icmp eq ptr %159, null
-  br i1 %.not103, label %.critedge, label %160
+  br i1 %.not103, label %.loopexit, label %160
 
 160:                                              ; preds = %156
   %161 = call ptr @H5SL_last(ptr noundef nonnull %159) #5
@@ -1324,12 +1323,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_merge(ptr noundef captur
 
 thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %162, %153
   %164 = phi ptr [ %163, %162 ], [ %154, %153 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
-  %.3.ph = phi i8 [ 1, %162 ], [ %.182, %153 ], [ %.182, %.thread-pre-split_crit_edge ]
+  %.3.ph = phi i8 [ 1, %162 ], [ 0, %153 ], [ 0, %.thread-pre-split_crit_edge ]
   %.not105 = icmp eq ptr %164, null
   br i1 %.not105, label %.critedge, label %117
 
-.critedge:                                        ; preds = %156, %133, %117, %thread-pre-split
-  %.3115 = phi i8 [ %.3.ph, %thread-pre-split ], [ %.081, %133 ], [ %.081, %117 ], [ %.182, %156 ]
+.critedge:                                        ; preds = %133, %117, %thread-pre-split
+  %.3115 = phi i8 [ %.3.ph, %thread-pre-split ], [ %.081, %133 ], [ %.081, %117 ]
   %165 = trunc nuw i8 %.3115 to i1
   br i1 %165, label %166, label %.loopexit
 
@@ -1342,8 +1341,8 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   store ptr null, ptr %1, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %112, %59, %.critedge, %166, %168, %149, %140, %129, %108, %98, %89, %55, %45, %36
-  %.080 = phi i32 [ -1, %36 ], [ -1, %45 ], [ -1, %55 ], [ -1, %89 ], [ -1, %98 ], [ -1, %108 ], [ -1, %129 ], [ -1, %140 ], [ -1, %149 ], [ 0, %168 ], [ 0, %166 ], [ 0, %.critedge ], [ 0, %59 ], [ 0, %112 ]
+.loopexit:                                        ; preds = %112, %59, %156, %.critedge, %166, %168, %149, %140, %129, %108, %98, %89, %55, %45, %36
+  %.080 = phi i32 [ -1, %36 ], [ -1, %45 ], [ -1, %55 ], [ -1, %89 ], [ -1, %98 ], [ -1, %108 ], [ -1, %129 ], [ -1, %140 ], [ -1, %149 ], [ 0, %168 ], [ 0, %166 ], [ 0, %.critedge ], [ 0, %156 ], [ 0, %59 ], [ 0, %112 ]
   ret i32 %.080
 }
 

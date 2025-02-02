@@ -808,14 +808,14 @@ define hidden noalias noundef nonnull ptr @_ZN5rodio6source8buffered7extract17h1
 
 .body41:                                          ; preds = %46
   %69 = icmp eq i64 %.sroa.0.0.copyload, 0
-  br i1 %69, label %.thread72.thread, label %70
+  br i1 %69, label %.thread72, label %70
 
 70:                                               ; preds = %.body41
   %71 = shl nuw i64 %.sroa.0.0.copyload, 2
   %72 = icmp ne ptr %.sroa.565.0.copyload, null
   call void @llvm.assume(i1 %72)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.565.0.copyload, i64 noundef %71, i64 noundef 4) #28, !noalias !106
-  br label %.thread72.thread
+  br label %.thread72
 
 73:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %43, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
@@ -856,7 +856,7 @@ define hidden noalias noundef nonnull ptr @_ZN5rodio6source8buffered7extract17h1
   %81 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr239drop_in_place$LT$alloc..sync..ArcInner$LT$rodio..source..buffered..Frame$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$$GT$$GT$17h832be8888eef8d1aE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %3) #26
-          to label %.thread72.thread unwind label %82
+          to label %.thread72 unwind label %82
 
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
@@ -900,14 +900,14 @@ define hidden noalias noundef nonnull ptr @_ZN5rodio6source8buffered7extract17h1
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6)
   br label %57
 
-.thread72.thread:                                 ; preds = %.body41, %70, %80, %.thread
-  %.pn3770 = phi { ptr, i32 } [ %.pn3771, %.thread ], [ %47, %.body41 ], [ %47, %70 ], [ %81, %80 ]
+.thread72:                                        ; preds = %.body41, %70, %80, %.thread
+  %.pn3770 = phi { ptr, i32 } [ %.pn3771, %.thread ], [ %81, %80 ], [ %47, %70 ], [ %47, %.body41 ]
   resume { ptr, i32 } %.pn3770
 
-.thread:                                          ; preds = %.thread75, %89, %18, %9
+.thread:                                          ; preds = %89, %.thread75, %18, %9
   %.pn3771 = phi { ptr, i32 } [ %10, %9 ], [ %19, %18 ], [ %36, %.thread75 ], [ %36, %89 ]
   invoke void @"_ZN4core3ptr172drop_in_place$LT$rodio..source..samples_converter..SamplesConverter$LT$rodio..decoder..Decoder$LT$std..io..cursor..Cursor$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$C$f32$GT$$GT$17ha19bd961eda0b956E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) #26
-          to label %.thread72.thread unwind label %85
+          to label %.thread72 unwind label %85
 }
 
 ; Function Attrs: nonlazybind uwtable

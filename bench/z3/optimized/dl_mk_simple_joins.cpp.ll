@@ -515,7 +515,7 @@ for.inc.i:                                        ; preds = %if.then7.i, %_ZNK7d
   %selected.sroa.3.2 = phi ptr [ %selected.sroa.3.1, %for.body.i ], [ %selected.sroa.3.1, %_ZNK7datalog12join_planner9pair_info8get_costEv.exit.i ], [ %key.sroa.2.0.copyload.i, %if.then7.i ]
   %selected.sroa.0.2 = phi ptr [ %selected.sroa.0.1, %for.body.i ], [ %selected.sroa.0.1, %_ZNK7datalog12join_planner9pair_info8get_costEv.exit.i ], [ %key.sroa.0.0.copyload.i, %if.then7.i ]
   %best_cost.1.i = phi float [ %best_cost.019.i, %for.body.i ], [ %best_cost.019.i, %_ZNK7datalog12join_planner9pair_info8get_costEv.exit.i ], [ %retval.0.i.i, %if.then7.i ]
-  %found.1.i = phi i8 [ %found.020.i, %for.body.i ], [ %found.020.i, %_ZNK7datalog12join_planner9pair_info8get_costEv.exit.i ], [ 1, %if.then7.i ]
+  %found.1.i = phi i8 [ %found.020.i, %for.body.i ], [ 1, %_ZNK7datalog12join_planner9pair_info8get_costEv.exit.i ], [ 1, %if.then7.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.018.i, i64 32
   %cmp.not2.i.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not2.i.i.i, label %_ZN7datalog12join_planner14pick_best_pairERSt4pairIP3appS3_E.exit, label %land.rhs.i.i.i

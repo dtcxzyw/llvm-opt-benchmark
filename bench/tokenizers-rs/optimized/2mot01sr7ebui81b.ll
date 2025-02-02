@@ -23371,15 +23371,15 @@ define hidden void @"_ZN10tokenizers5utils5cache18Cache$LT$K$C$V$GT$10set_values
   %.sroa.07.0.i.i.i = extractvalue { i32, i1 } %20, 0
   br i1 %.sroa.18.0.in.i.i.i, label %22, label %17
 
-.thread67:                                        ; preds = %_ZN4core4sync6atomic9AtomicU3212fetch_update17hdeb4e5cc056a54afE.exit.i, %53, %65, %264
+.thread67:                                        ; preds = %_ZN4core4sync6atomic9AtomicU3212fetch_update17hdeb4e5cc056a54afE.exit.i, %53, %65, %265
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
-21:                                               ; preds = %.thread85
-  %lpad.thr_comm.split-lp81 = landingpad { ptr, i32 }
+21:                                               ; preds = %.thread82
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br i1 %.088, label %.thread, label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit51"
+  br i1 %.085, label %.thread, label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit51"
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23392,7 +23392,7 @@ define hidden void @"_ZN10tokenizers5utils5cache18Cache$LT$K$C$V$GT$10set_values
   store ptr %0, ptr %26, align 8, !alias.scope !7341
   %..i = zext i1 %.not.i to i64
   store i64 %..i, ptr %15, align 8, !alias.scope !7341
-  br i1 %.not.i, label %.thread94, label %27
+  br i1 %.not.i, label %.thread88, label %27
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -23425,7 +23425,7 @@ define hidden void @"_ZN10tokenizers5utils5cache18Cache$LT$K$C$V$GT$10set_values
           cleanup
   %41 = load i64, ptr %15, align 8, !range !157, !noundef !4
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %.thread, label %265
+  br i1 %42, label %.thread, label %266
 
 "_ZN4core3ptr175drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb5f275859f882ec8E.exit": ; preds = %35, %36
   %43 = load i64, ptr %15, align 8, !range !157, !noundef !4
@@ -23474,7 +23474,7 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17hdeb4e5cc056a54afE.exit.i: ; preds
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 2, ptr %57, align 8, !alias.scope !7347
   store i64 1, ptr %14, align 8, !alias.scope !7347
-  br label %.thread85
+  br label %.thread82
 
 58:                                               ; preds = %"_ZN4core3ptr175drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb5f275859f882ec8E.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7350)
@@ -23508,13 +23508,13 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17hdeb4e5cc056a54afE.exit.i: ; preds
   store i8 %67, ptr %70, align 8, !alias.scope !7347
   %..i25 = zext i1 %.not.i24 to i64
   store i64 %..i25, ptr %14, align 8, !alias.scope !7347
-  br i1 %.not.i24, label %.thread85, label %75
+  br i1 %.not.i24, label %.thread82, label %75
 
 71:                                               ; preds = %241, %_ZN3std4sync6poison4Flag4done17h786ced5666a4c4feE.llvm.1287153784043347726.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %.pre78 = load i64, ptr %14, align 8, !range !157
-  %72 = trunc nuw i64 %.pre78 to i1
-  br i1 %72, label %.thread85, label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit.critedge"
+  %.pre80 = load i64, ptr %14, align 8, !range !157
+  %72 = trunc nuw i64 %.pre80 to i1
+  br i1 %72, label %.thread82, label %.thread75
 
 73:                                               ; preds = %218
   %74 = landingpad { ptr, i32 }
@@ -23969,7 +23969,7 @@ _ZN3std4sync6poison4Flag4done17h786ced5666a4c4feE.llvm.1287153784043347726.exit.
   %.pre = load i64, ptr %14, align 8, !range !157
   br label %242
 
-247:                                              ; preds = %268, %265, %249, %.body
+247:                                              ; preds = %269, %266, %249, %.body
   %248 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #44
@@ -23979,82 +23979,82 @@ _ZN3std4sync6poison4Flag4done17h786ced5666a4c4feE.llvm.1287153784043347726.exit.
   invoke fastcc void @"_ZN4core3ptr401drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17h39cce65058c1db19E"(ptr noalias noundef align 8 dereferenceable(24) %14) #45
           to label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit51" unwind label %247
 
-.thread85:                                        ; preds = %.thread72, %66, %71
-  %.088 = phi i1 [ false, %71 ], [ true, %66 ], [ true, %.thread72 ]
-  invoke fastcc void @"_ZN4core3ptr401drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17h39cce65058c1db19E"(ptr noalias noundef align 8 dereferenceable(24) %14)
-          to label %"_ZN4core3ptr176drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17h45080fc88606209dE.exit42" unwind label %21
-
-"_ZN4core3ptr176drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17h45080fc88606209dE.exit42": ; preds = %.thread85
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  %250 = load i64, ptr %1, align 8, !range !1379
-  %251 = icmp ne i64 %250, -9223372036854775808
-  %or.cond.not = select i1 %.088, i1 %251, i1 false
-  br i1 %or.cond.not, label %252, label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit"
-
-"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit.critedge": ; preds = %71
+.thread75:                                        ; preds = %71
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit"
 
-"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit": ; preds = %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit.critedge", %256, %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49", %252, %"_ZN4core3ptr176drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17h45080fc88606209dE.exit42"
+.thread82:                                        ; preds = %.thread72, %66, %71
+  %.085 = phi i1 [ false, %71 ], [ true, %66 ], [ true, %.thread72 ]
+  invoke fastcc void @"_ZN4core3ptr401drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17h39cce65058c1db19E"(ptr noalias noundef align 8 dereferenceable(24) %14)
+          to label %250 unwind label %21
+
+250:                                              ; preds = %.thread82
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  %251 = load i64, ptr %1, align 8, !range !1379
+  %252 = icmp ne i64 %251, -9223372036854775808
+  %or.cond.not = select i1 %.085, i1 %252, i1 false
+  br i1 %or.cond.not, label %253, label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit"
+
+"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit": ; preds = %257, %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49", %253, %.thread75, %250
   ret void
 
-252:                                              ; preds = %"_ZN4core3ptr176drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17h45080fc88606209dE.exit42"
+253:                                              ; preds = %250
   call void @"_ZN4core3ptr97drop_in_place$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$17h2291249d84e8756bE.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   br label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit"
 
 "_ZN4core3ptr175drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb5f275859f882ec8E.exit18": ; preds = %37, %38
-  %253 = load i64, ptr %15, align 8, !range !157, !noundef !4
-  %trunc9 = trunc nuw i64 %253 to i1
-  br i1 %trunc9, label %257, label %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49"
+  %254 = load i64, ptr %15, align 8, !range !157, !noundef !4
+  %trunc9 = trunc nuw i64 %254 to i1
+  br i1 %trunc9, label %258, label %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49"
 
-"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49": ; preds = %17, %.thread94, %257, %264, %"_ZN4core3ptr175drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb5f275859f882ec8E.exit18"
+"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49": ; preds = %17, %.thread88, %258, %265, %"_ZN4core3ptr175drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb5f275859f882ec8E.exit18"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  %254 = load i64, ptr %1, align 8, !range !1379, !alias.scope !7561, !noundef !4
-  %255 = icmp eq i64 %254, -9223372036854775808
-  br i1 %255, label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit", label %256
+  %255 = load i64, ptr %1, align 8, !range !1379, !alias.scope !7561, !noundef !4
+  %256 = icmp eq i64 %255, -9223372036854775808
+  br i1 %256, label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit", label %257
 
-256:                                              ; preds = %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49"
+257:                                              ; preds = %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49"
   tail call void @"_ZN4core3ptr97drop_in_place$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$17h2291249d84e8756bE.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   br label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit"
 
-257:                                              ; preds = %"_ZN4core3ptr175drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb5f275859f882ec8E.exit18"
-  %.pre79 = load ptr, ptr %25, align 8, !alias.scope !7570
-  %258 = icmp eq ptr %.pre79, null
+258:                                              ; preds = %"_ZN4core3ptr175drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb5f275859f882ec8E.exit18"
+  %.pre81 = load ptr, ptr %25, align 8, !alias.scope !7570
+  %259 = icmp eq ptr %.pre81, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7575)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7576)
-  br i1 %258, label %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49", label %.thread94
+  br i1 %259, label %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49", label %.thread88
 
-.thread94:                                        ; preds = %22, %257
+.thread88:                                        ; preds = %22, %258
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7577)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7580)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7583)
-  %259 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %260 = load ptr, ptr %259, align 8, !alias.scope !7586, !nonnull !4, !align !1113, !noundef !4
-  %261 = atomicrmw sub ptr %260, i32 1 release, align 4, !noalias !7586
-  %262 = add i32 %261, -1
-  %263 = and i32 %262, -1073741825
-  %or.cond.not.i.i.i.i.i45 = icmp eq i32 %263, -2147483648
-  br i1 %or.cond.not.i.i.i.i.i45, label %264, label %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49"
+  %260 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %261 = load ptr, ptr %260, align 8, !alias.scope !7586, !nonnull !4, !align !1113, !noundef !4
+  %262 = atomicrmw sub ptr %261, i32 1 release, align 4, !noalias !7586
+  %263 = add i32 %262, -1
+  %264 = and i32 %263, -1073741825
+  %or.cond.not.i.i.i.i.i45 = icmp eq i32 %264, -2147483648
+  br i1 %or.cond.not.i.i.i.i.i45, label %265, label %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49"
 
-264:                                              ; preds = %.thread94
-  invoke void @_ZN3std3sys4sync6rwlock5futex6RwLock22wake_writer_or_readers17h6327aa9c51411b38E(ptr noundef nonnull align 4 %260, i32 noundef %262)
+265:                                              ; preds = %.thread88
+  invoke void @_ZN3std3sys4sync6rwlock5futex6RwLock22wake_writer_or_readers17h6327aa9c51411b38E(ptr noundef nonnull align 4 %261, i32 noundef %263)
           to label %"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351.exit49" unwind label %.thread67
 
-265:                                              ; preds = %39
+266:                                              ; preds = %39
   invoke void @"_ZN4core3ptr399drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$$GT$$GT$17hf87332dbfaedb2e7E.llvm.15403311311865522351"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #45
           to label %.thread unwind label %247
 
-"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit51": ; preds = %249, %242, %.thread, %268, %21
-  %.pn1060 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp81, %21 ], [ %.pn1061, %268 ], [ %.pn1061, %.thread ], [ %.pn, %242 ], [ %.pn, %249 ]
+"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit51": ; preds = %249, %242, %.thread, %269, %21
+  %.pn1060 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %21 ], [ %.pn1061, %269 ], [ %.pn1061, %.thread ], [ %.pn, %242 ], [ %.pn, %249 ]
   resume { ptr, i32 } %.pn1060
 
-.thread:                                          ; preds = %265, %39, %.thread67, %21
-  %.pn1061 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp81, %21 ], [ %lpad.thr_comm, %.thread67 ], [ %40, %39 ], [ %40, %265 ]
-  %266 = load i64, ptr %1, align 8, !range !1379, !alias.scope !7587, !noundef !4
-  %267 = icmp eq i64 %266, -9223372036854775808
-  br i1 %267, label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit51", label %268
+.thread:                                          ; preds = %266, %39, %.thread67, %21
+  %.pn1061 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %21 ], [ %lpad.thr_comm, %.thread67 ], [ %40, %39 ], [ %40, %266 ]
+  %267 = load i64, ptr %1, align 8, !range !1379, !alias.scope !7587, !noundef !4
+  %268 = icmp eq i64 %267, -9223372036854775808
+  br i1 %268, label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit51", label %269
 
-268:                                              ; preds = %.thread
+269:                                              ; preds = %.thread
   invoke void @"_ZN4core3ptr97drop_in_place$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$17h2291249d84e8756bE.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
           to label %"_ZN4core3ptr136drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$RP$$GT$$GT$17h48dcd3307e2738b8E.exit51" unwind label %247
 }
@@ -24093,15 +24093,15 @@ define hidden void @"_ZN10tokenizers5utils5cache18Cache$LT$K$C$V$GT$10set_values
   %.sroa.07.0.i.i.i = extractvalue { i32, i1 } %21, 0
   br i1 %.sroa.18.0.in.i.i.i, label %23, label %18
 
-.thread67:                                        ; preds = %_ZN4core4sync6atomic9AtomicU3212fetch_update17hdeb4e5cc056a54afE.exit.i, %54, %66, %274
+.thread67:                                        ; preds = %_ZN4core4sync6atomic9AtomicU3212fetch_update17hdeb4e5cc056a54afE.exit.i, %54, %66, %275
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
-22:                                               ; preds = %.thread85
-  %lpad.thr_comm.split-lp81 = landingpad { ptr, i32 }
+22:                                               ; preds = %.thread82
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br i1 %.088, label %.thread, label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit51"
+  br i1 %.085, label %.thread, label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit51"
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24114,7 +24114,7 @@ define hidden void @"_ZN10tokenizers5utils5cache18Cache$LT$K$C$V$GT$10set_values
   store ptr %0, ptr %27, align 8, !alias.scope !7596
   %..i = zext i1 %.not.i to i64
   store i64 %..i, ptr %16, align 8, !alias.scope !7596
-  br i1 %.not.i, label %.thread94, label %28
+  br i1 %.not.i, label %.thread88, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -24147,7 +24147,7 @@ define hidden void @"_ZN10tokenizers5utils5cache18Cache$LT$K$C$V$GT$10set_values
           cleanup
   %42 = load i64, ptr %16, align 8, !range !157, !noundef !4
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %.thread, label %275
+  br i1 %43, label %.thread, label %276
 
 "_ZN4core3ptr166drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17hbefca4690c503cbaE.exit": ; preds = %36, %37
   %44 = load i64, ptr %16, align 8, !range !157, !noundef !4
@@ -24196,7 +24196,7 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17hdeb4e5cc056a54afE.exit.i: ; preds
   %58 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 2, ptr %58, align 8, !alias.scope !7602
   store i64 1, ptr %15, align 8, !alias.scope !7602
-  br label %.thread85
+  br label %.thread82
 
 59:                                               ; preds = %"_ZN4core3ptr166drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17hbefca4690c503cbaE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7605)
@@ -24230,13 +24230,13 @@ _ZN4core4sync6atomic9AtomicU3212fetch_update17hdeb4e5cc056a54afE.exit.i: ; preds
   store i8 %68, ptr %71, align 8, !alias.scope !7602
   %..i25 = zext i1 %.not.i24 to i64
   store i64 %..i25, ptr %15, align 8, !alias.scope !7602
-  br i1 %.not.i24, label %.thread85, label %76
+  br i1 %.not.i24, label %.thread82, label %76
 
 72:                                               ; preds = %251, %_ZN3std4sync6poison4Flag4done17h786ced5666a4c4feE.llvm.1287153784043347726.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  %.pre78 = load i64, ptr %15, align 8, !range !157
-  %73 = trunc nuw i64 %.pre78 to i1
-  br i1 %73, label %.thread85, label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit.critedge"
+  %.pre80 = load i64, ptr %15, align 8, !range !157
+  %73 = trunc nuw i64 %.pre80 to i1
+  br i1 %73, label %.thread82, label %.thread75
 
 74:                                               ; preds = %228
   %75 = landingpad { ptr, i32 }
@@ -24714,7 +24714,7 @@ _ZN3std4sync6poison4Flag4done17h786ced5666a4c4feE.llvm.1287153784043347726.exit.
   %.pre = load i64, ptr %15, align 8, !range !157
   br label %252
 
-257:                                              ; preds = %278, %275, %259, %.body
+257:                                              ; preds = %279, %276, %259, %.body
   %258 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #44
@@ -24724,82 +24724,82 @@ _ZN3std4sync6poison4Flag4done17h786ced5666a4c4feE.llvm.1287153784043347726.exit.
   invoke fastcc void @"_ZN4core3ptr383drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17hc22929cfa6871374E"(ptr noalias noundef align 8 dereferenceable(24) %15) #45
           to label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit51" unwind label %257
 
-.thread85:                                        ; preds = %.thread72, %67, %72
-  %.088 = phi i1 [ false, %72 ], [ true, %67 ], [ true, %.thread72 ]
-  invoke fastcc void @"_ZN4core3ptr383drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17hc22929cfa6871374E"(ptr noalias noundef align 8 dereferenceable(24) %15)
-          to label %"_ZN4core3ptr167drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17h8b51e6d59d8bbf99E.exit42" unwind label %22
-
-"_ZN4core3ptr167drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17h8b51e6d59d8bbf99E.exit42": ; preds = %.thread85
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  %260 = load i64, ptr %1, align 8, !range !1379
-  %261 = icmp ne i64 %260, -9223372036854775808
-  %or.cond.not = select i1 %.088, i1 %261, i1 false
-  br i1 %or.cond.not, label %262, label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit"
-
-"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit.critedge": ; preds = %72
+.thread75:                                        ; preds = %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit"
 
-"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit": ; preds = %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit.critedge", %266, %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49", %262, %"_ZN4core3ptr167drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17h8b51e6d59d8bbf99E.exit42"
+.thread82:                                        ; preds = %.thread72, %67, %72
+  %.085 = phi i1 [ false, %72 ], [ true, %67 ], [ true, %.thread72 ]
+  invoke fastcc void @"_ZN4core3ptr383drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17hc22929cfa6871374E"(ptr noalias noundef align 8 dereferenceable(24) %15)
+          to label %260 unwind label %22
+
+260:                                              ; preds = %.thread82
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
+  %261 = load i64, ptr %1, align 8, !range !1379
+  %262 = icmp ne i64 %261, -9223372036854775808
+  %or.cond.not = select i1 %.085, i1 %262, i1 false
+  br i1 %or.cond.not, label %263, label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit"
+
+"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit": ; preds = %267, %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49", %263, %.thread75, %260
   ret void
 
-262:                                              ; preds = %"_ZN4core3ptr167drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17h8b51e6d59d8bbf99E.exit42"
+263:                                              ; preds = %260
   call void @"_ZN4core3ptr88drop_in_place$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$17h72330a258766888cE.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   br label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit"
 
 "_ZN4core3ptr166drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17hbefca4690c503cbaE.exit18": ; preds = %38, %39
-  %263 = load i64, ptr %16, align 8, !range !157, !noundef !4
-  %trunc9 = trunc nuw i64 %263 to i1
-  br i1 %trunc9, label %267, label %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49"
+  %264 = load i64, ptr %16, align 8, !range !157, !noundef !4
+  %trunc9 = trunc nuw i64 %264 to i1
+  br i1 %trunc9, label %268, label %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49"
 
-"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49": ; preds = %18, %.thread94, %267, %274, %"_ZN4core3ptr166drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17hbefca4690c503cbaE.exit18"
+"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49": ; preds = %18, %.thread88, %268, %275, %"_ZN4core3ptr166drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17hbefca4690c503cbaE.exit18"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  %264 = load i64, ptr %1, align 8, !range !1379, !alias.scope !7826, !noundef !4
-  %265 = icmp eq i64 %264, -9223372036854775808
-  br i1 %265, label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit", label %266
+  %265 = load i64, ptr %1, align 8, !range !1379, !alias.scope !7826, !noundef !4
+  %266 = icmp eq i64 %265, -9223372036854775808
+  br i1 %266, label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit", label %267
 
-266:                                              ; preds = %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49"
+267:                                              ; preds = %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49"
   tail call void @"_ZN4core3ptr88drop_in_place$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$17h72330a258766888cE.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   br label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit"
 
-267:                                              ; preds = %"_ZN4core3ptr166drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17hbefca4690c503cbaE.exit18"
-  %.pre79 = load ptr, ptr %26, align 8, !alias.scope !7835
-  %268 = icmp eq ptr %.pre79, null
+268:                                              ; preds = %"_ZN4core3ptr166drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$17hbefca4690c503cbaE.exit18"
+  %.pre81 = load ptr, ptr %26, align 8, !alias.scope !7835
+  %269 = icmp eq ptr %.pre81, null
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7840)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7841)
-  br i1 %268, label %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49", label %.thread94
+  br i1 %269, label %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49", label %.thread88
 
-.thread94:                                        ; preds = %23, %267
+.thread88:                                        ; preds = %23, %268
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7842)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7845)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7848)
-  %269 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %270 = load ptr, ptr %269, align 8, !alias.scope !7851, !nonnull !4, !align !1113, !noundef !4
-  %271 = atomicrmw sub ptr %270, i32 1 release, align 4, !noalias !7851
-  %272 = add i32 %271, -1
-  %273 = and i32 %272, -1073741825
-  %or.cond.not.i.i.i.i.i45 = icmp eq i32 %273, -2147483648
-  br i1 %or.cond.not.i.i.i.i.i45, label %274, label %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49"
+  %270 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %271 = load ptr, ptr %270, align 8, !alias.scope !7851, !nonnull !4, !align !1113, !noundef !4
+  %272 = atomicrmw sub ptr %271, i32 1 release, align 4, !noalias !7851
+  %273 = add i32 %272, -1
+  %274 = and i32 %273, -1073741825
+  %or.cond.not.i.i.i.i.i45 = icmp eq i32 %274, -2147483648
+  br i1 %or.cond.not.i.i.i.i.i45, label %275, label %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49"
 
-274:                                              ; preds = %.thread94
-  invoke void @_ZN3std3sys4sync6rwlock5futex6RwLock22wake_writer_or_readers17h6327aa9c51411b38E(ptr noundef nonnull align 4 %270, i32 noundef %272)
+275:                                              ; preds = %.thread88
+  invoke void @_ZN3std3sys4sync6rwlock5futex6RwLock22wake_writer_or_readers17h6327aa9c51411b38E(ptr noundef nonnull align 4 %271, i32 noundef %273)
           to label %"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351.exit49" unwind label %.thread67
 
-275:                                              ; preds = %40
+276:                                              ; preds = %40
   invoke void @"_ZN4core3ptr381drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$tokenizers..models..bpe..word..Word$GT$$GT$$GT$$GT$$GT$17h0e20ca43b9385c55E.llvm.15403311311865522351"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #45
           to label %.thread unwind label %257
 
-"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit51": ; preds = %259, %252, %.thread, %278, %22
-  %.pn1060 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp81, %22 ], [ %.pn1061, %278 ], [ %.pn1061, %.thread ], [ %.pn, %252 ], [ %.pn, %259 ]
+"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit51": ; preds = %259, %252, %.thread, %279, %22
+  %.pn1060 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %22 ], [ %.pn1061, %279 ], [ %.pn1061, %.thread ], [ %.pn, %252 ], [ %.pn, %259 ]
   resume { ptr, i32 } %.pn1060
 
-.thread:                                          ; preds = %275, %40, %.thread67, %22
-  %.pn1061 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp81, %22 ], [ %lpad.thr_comm, %.thread67 ], [ %41, %40 ], [ %41, %275 ]
-  %276 = load i64, ptr %1, align 8, !range !1379, !alias.scope !7852, !noundef !4
-  %277 = icmp eq i64 %276, -9223372036854775808
-  br i1 %277, label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit51", label %278
+.thread:                                          ; preds = %276, %40, %.thread67, %22
+  %.pn1061 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %22 ], [ %lpad.thr_comm, %.thread67 ], [ %41, %40 ], [ %41, %276 ]
+  %277 = load i64, ptr %1, align 8, !range !1379, !alias.scope !7852, !noundef !4
+  %278 = icmp eq i64 %277, -9223372036854775808
+  br i1 %278, label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit51", label %279
 
-278:                                              ; preds = %.thread
+279:                                              ; preds = %.thread
   invoke void @"_ZN4core3ptr88drop_in_place$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$17h72330a258766888cE.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
           to label %"_ZN4core3ptr127drop_in_place$LT$core..iter..sources..once..Once$LT$$LP$alloc..string..String$C$tokenizers..models..bpe..word..Word$RP$$GT$$GT$17hcda19391f411acbfE.exit51" unwind label %257
 }

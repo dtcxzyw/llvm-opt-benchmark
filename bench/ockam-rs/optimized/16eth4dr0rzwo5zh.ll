@@ -1174,20 +1174,21 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %277
 
 277:                                              ; preds = %277, %275
-  %.sroa.0.012.i.i.i.i = phi i64 [ 0, %275 ], [ %spec.select8.i.i.i.i, %277 ]
-  %278 = icmp ult i64 %.sroa.0.012.i.i.i.i, %267
-  %279 = zext i1 %278 to i64
-  %spec.select8.i.i.i.i = add nuw i64 %.sroa.0.012.i.i.i.i, %279
-  %280 = getelementptr inbounds ptr, ptr %268, i64 %.sroa.0.012.i.i.i.i
+  %.sroa.0.011.i.i.i.i = phi i64 [ 0, %275 ], [ %spec.select8.i.i.i.i, %277 ]
+  %278 = icmp uge i64 %.sroa.0.011.i.i.i.i, %267
+  %not..i.i.i.i = xor i1 %278, true
+  %279 = zext i1 %not..i.i.i.i to i64
+  %spec.select8.i.i.i.i = add nuw i64 %.sroa.0.011.i.i.i.i, %279
+  %280 = getelementptr inbounds ptr, ptr %268, i64 %.sroa.0.011.i.i.i.i
   %281 = load ptr, ptr %280, align 8, !alias.scope !178, !noalias !181, !nonnull !11, !noundef !11
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 352
   store ptr %225, ptr %282, align 8, !noalias !188
-  %283 = trunc i64 %.sroa.0.012.i.i.i.i to i16
+  %283 = trunc i64 %.sroa.0.011.i.i.i.i to i16
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 360
   store i16 %283, ptr %284, align 8, !noalias !189
-  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i, %267
-  %or.cond.i.not.i.i.i = select i1 %278, i1 %.not.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i, label %277, label %287
+  %.not.i.i.i.i.i.i = icmp ugt i64 %spec.select8.i.i.i.i, %267
+  %or.cond.i.i.i.i = select i1 %278, i1 true, i1 %.not.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %287, label %277
 
 285:                                              ; preds = %255
   %286 = landingpad { ptr, i32 }
@@ -1943,20 +1944,21 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %270
 
 270:                                              ; preds = %270, %268
-  %.sroa.0.012.i.i.i.i = phi i64 [ 0, %268 ], [ %spec.select8.i.i.i.i, %270 ]
-  %271 = icmp ult i64 %.sroa.0.012.i.i.i.i, %260
-  %272 = zext i1 %271 to i64
-  %spec.select8.i.i.i.i = add nuw i64 %.sroa.0.012.i.i.i.i, %272
-  %273 = getelementptr inbounds ptr, ptr %261, i64 %.sroa.0.012.i.i.i.i
+  %.sroa.0.011.i.i.i.i = phi i64 [ 0, %268 ], [ %spec.select8.i.i.i.i, %270 ]
+  %271 = icmp uge i64 %.sroa.0.011.i.i.i.i, %260
+  %not..i.i.i.i = xor i1 %271, true
+  %272 = zext i1 %not..i.i.i.i to i64
+  %spec.select8.i.i.i.i = add nuw i64 %.sroa.0.011.i.i.i.i, %272
+  %273 = getelementptr inbounds ptr, ptr %261, i64 %.sroa.0.011.i.i.i.i
   %274 = load ptr, ptr %273, align 8, !alias.scope !350, !noalias !353, !nonnull !11, !noundef !11
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 176
   store ptr %219, ptr %275, align 8, !noalias !360
-  %276 = trunc i64 %.sroa.0.012.i.i.i.i to i16
+  %276 = trunc i64 %.sroa.0.011.i.i.i.i to i16
   %277 = getelementptr inbounds nuw i8, ptr %274, i64 228
   store i16 %276, ptr %277, align 4, !noalias !361
-  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i, %260
-  %or.cond.i.not.i.i.i = select i1 %271, i1 %.not.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i, label %270, label %280
+  %.not.i.i.i.i.i.i = icmp ugt i64 %spec.select8.i.i.i.i, %260
+  %or.cond.i.i.i.i = select i1 %271, i1 true, i1 %.not.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %280, label %270
 
 278:                                              ; preds = %247
   %279 = landingpad { ptr, i32 }

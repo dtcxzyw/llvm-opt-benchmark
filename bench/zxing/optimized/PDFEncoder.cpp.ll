@@ -152,7 +152,7 @@ define void @_ZNK5ZXing6Pdf4177Encoder20generateBarcodeLogicERKNSt7__cxx1112basi
 59:                                               ; preds = %58, %52, %43
   %.170 = phi i32 [ %.069, %43 ], [ %.069, %52 ], [ %spec.select.i.i, %58 ]
   %.1 = phi i32 [ %.068, %43 ], [ %.068, %52 ], [ %.03440.i, %58 ]
-  %.133.i = phi i8 [ %.03241.i, %43 ], [ %.03241.i, %52 ], [ 1, %58 ]
+  %.133.i = phi i8 [ %.03241.i, %43 ], [ 1, %52 ], [ 1, %58 ]
   %.1.i = phi float [ %.042.i, %43 ], [ %.042.i, %52 ], [ %50, %58 ]
   %60 = add i32 %.03440.i, 1
   %exitcond.not.i = icmp eq i32 %.03440.i, %31

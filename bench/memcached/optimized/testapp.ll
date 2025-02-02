@@ -1801,7 +1801,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   br i1 %cmp26, label %if.then27, label %do.body.backedge
 
 do.body.backedge:                                 ; preds = %do.body, %if.then27
-  br label %do.body, !llvm.loop !12
+  br label %do.body
 
 if.then27:                                        ; preds = %do.body
   %call28 = tail call ptr @__errno_location() #24
@@ -1813,7 +1813,7 @@ if.then27:                                        ; preds = %do.body
   ]
 
 for.inc32:                                        ; preds = %if.then27, %if.then27
-  br i1 %cmp19, label %do.body.preheader, label %for.end34, !llvm.loop !13
+  br i1 %cmp19, label %do.body.preheader, label %for.end34, !llvm.loop !12
 
 for.end34:                                        ; preds = %for.inc32
   %call35 = tail call i32 @fork() #20
@@ -1836,7 +1836,7 @@ while.cond:                                       ; preds = %if.else38, %land.rh
 land.rhs:                                         ; preds = %while.cond
   %5 = load i32, ptr %call28, align 4
   %cmp44 = icmp eq i32 %5, 4
-  br i1 %cmp44, label %while.cond, label %while.end, !llvm.loop !14
+  br i1 %cmp44, label %while.cond, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %cmp45 = icmp eq i32 %call41, %call35
@@ -1898,7 +1898,7 @@ if.end77:                                         ; preds = %if.then74, %if.end7
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.body65, %if.end77
-  br i1 %cmp64, label %for.body65, label %for.end84, !llvm.loop !15
+  br i1 %cmp64, label %for.body65, label %for.end84, !llvm.loop !14
 
 for.end84:                                        ; preds = %for.inc82
   %10 = load i32, ptr @server_pid, align 4
@@ -1928,7 +1928,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i8 %conv, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.body
   %0 = load ptr, ptr @crc32c, align 8
@@ -2098,7 +2098,7 @@ if.else.i:                                        ; preds = %do.body.i
 do.cond.i:                                        ; preds = %if.else.i, %if.then.i
   %offset.1.i = phi i64 [ %offset.0.i, %if.then.i ], [ %add.i, %if.else.i ]
   %cmp9.i = icmp ult i64 %offset.1.i, 23
-  br i1 %cmp9.i, label %do.body.i, label %send_ascii_command.exit, !llvm.loop !17
+  br i1 %cmp9.i, label %do.body.i, label %send_ascii_command.exit, !llvm.loop !16
 
 send_ascii_command.exit:                          ; preds = %do.cond.i
   call fastcc void @read_ascii_response(ptr noundef %buffer, i64 noundef 1024)
@@ -2141,7 +2141,7 @@ if.else.i12:                                      ; preds = %do.body.i5
 do.cond.i14:                                      ; preds = %if.else.i12, %if.then.i17
   %offset.1.i15 = phi i64 [ %offset.0.i6, %if.then.i17 ], [ %add.i13, %if.else.i12 ]
   %cmp9.i16 = icmp ult i64 %offset.1.i15, 25
-  br i1 %cmp9.i16, label %do.body.i5, label %send_ascii_command.exit23, !llvm.loop !17
+  br i1 %cmp9.i16, label %do.body.i5, label %send_ascii_command.exit23, !llvm.loop !16
 
 send_ascii_command.exit23:                        ; preds = %do.cond.i14
   call fastcc void @read_ascii_response(ptr noundef %buffer, i64 noundef 1024)
@@ -2263,7 +2263,7 @@ if.else.i:                                        ; preds = %do.body.i
 do.cond.i:                                        ; preds = %if.else.i, %if.then.i
   %offset.1.i = phi i64 [ %offset.0.i, %if.then.i ], [ %add.i, %if.else.i ]
   %cmp9.i = icmp ult i64 %offset.1.i, %call.i6
-  br i1 %cmp9.i, label %do.body.i, label %send_ascii_command.exit, !llvm.loop !17
+  br i1 %cmp9.i, label %do.body.i, label %send_ascii_command.exit, !llvm.loop !16
 
 send_ascii_command.exit:                          ; preds = %do.cond.i
   %8 = load ptr, ptr @con, align 8
@@ -2322,7 +2322,7 @@ while.body:                                       ; preds = %if.end13, %while.bo
   %conv19 = sext i32 %call18 to i64
   %add = add nsw i64 %offset.0129, %conv19
   %cmp16 = icmp ult i64 %add, 4000
-  br i1 %cmp16, label %while.body, label %while.end, !llvm.loop !18
+  br i1 %cmp16, label %while.body, label %while.end, !llvm.loop !17
 
 while.end:                                        ; preds = %while.body
   %call.i16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #23
@@ -2359,7 +2359,7 @@ if.else.i24:                                      ; preds = %do.body.i17
 do.cond.i26:                                      ; preds = %if.else.i24, %if.then.i29
   %offset.1.i27 = phi i64 [ %offset.0.i18, %if.then.i29 ], [ %add.i25, %if.else.i24 ]
   %cmp9.i28 = icmp ult i64 %offset.1.i27, %call.i16
-  br i1 %cmp9.i28, label %do.body.i17, label %send_ascii_command.exit35, !llvm.loop !17
+  br i1 %cmp9.i28, label %do.body.i17, label %send_ascii_command.exit35, !llvm.loop !16
 
 send_ascii_command.exit35:                        ; preds = %do.cond.i26
   %call21 = call i32 @usleep(i32 noundef 250) #20
@@ -2396,7 +2396,7 @@ if.else.i44:                                      ; preds = %do.body.i37
 do.cond.i46:                                      ; preds = %if.else.i44, %if.then.i49
   %offset.1.i47 = phi i64 [ %offset.0.i38, %if.then.i49 ], [ %add.i45, %if.else.i44 ]
   %cmp9.i48 = icmp ult i64 %offset.1.i47, 2
-  br i1 %cmp9.i48, label %do.body.i37, label %send_ascii_command.exit55, !llvm.loop !17
+  br i1 %cmp9.i48, label %do.body.i37, label %send_ascii_command.exit55, !llvm.loop !16
 
 send_ascii_command.exit55:                        ; preds = %do.cond.i46
   call fastcc void @read_ascii_response(ptr noundef %rsp, i64 noundef 80)
@@ -2445,7 +2445,7 @@ if.else.i64:                                      ; preds = %do.body.i57
 do.cond.i66:                                      ; preds = %if.else.i64, %if.then.i69
   %offset.1.i67 = phi i64 [ %offset.0.i58, %if.then.i69 ], [ %add.i65, %if.else.i64 ]
   %cmp9.i68 = icmp ult i64 %offset.1.i67, %call.i56
-  br i1 %cmp9.i68, label %do.body.i57, label %send_ascii_command.exit75, !llvm.loop !17
+  br i1 %cmp9.i68, label %do.body.i57, label %send_ascii_command.exit75, !llvm.loop !16
 
 send_ascii_command.exit75:                        ; preds = %do.cond.i66
   %call32 = call i32 @usleep(i32 noundef 250) #20
@@ -2482,7 +2482,7 @@ if.else.i84:                                      ; preds = %do.body.i77
 do.cond.i86:                                      ; preds = %if.else.i84, %if.then.i89
   %offset.1.i87 = phi i64 [ %offset.0.i78, %if.then.i89 ], [ %add.i85, %if.else.i84 ]
   %cmp9.i88 = icmp ult i64 %offset.1.i87, 2
-  br i1 %cmp9.i88, label %do.body.i77, label %send_ascii_command.exit95, !llvm.loop !17
+  br i1 %cmp9.i88, label %do.body.i77, label %send_ascii_command.exit95, !llvm.loop !16
 
 send_ascii_command.exit95:                        ; preds = %do.cond.i86
   call fastcc void @read_ascii_response(ptr noundef %rsp, i64 noundef 80)
@@ -2535,7 +2535,7 @@ if.else.i104:                                     ; preds = %do.body.i97
 do.cond.i106:                                     ; preds = %if.else.i104, %if.then.i109
   %offset.1.i107 = phi i64 [ %offset.0.i98, %if.then.i109 ], [ %add.i105, %if.else.i104 ]
   %cmp9.i108 = icmp ult i64 %offset.1.i107, %call.i96
-  br i1 %cmp9.i108, label %do.body.i97, label %send_ascii_command.exit115, !llvm.loop !17
+  br i1 %cmp9.i108, label %do.body.i97, label %send_ascii_command.exit115, !llvm.loop !16
 
 send_ascii_command.exit115:                       ; preds = %do.cond.i106
   %34 = load ptr, ptr @con, align 8
@@ -2627,7 +2627,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, 24
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %3 = load ptr, ptr @stderr, align 8
@@ -2857,7 +2857,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, 24
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %3 = load ptr, ptr @stderr, align 8
@@ -2975,7 +2975,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, 24
-  br i1 %cmp21.us.i, label %do.body.us.i, label %do.body.preheader, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %do.body.preheader, !llvm.loop !18
 
 do.body.preheader:                                ; preds = %do.cond.us.i
   %status.i = getelementptr inbounds nuw i8, ptr %buffer, i64 6
@@ -3011,7 +3011,7 @@ safe_recv_packet.exit:                            ; preds = %do.body, %if.end2.i
   call fastcc void @validate_response_header(ptr noundef %buffer, i8 noundef zeroext 16, i16 noundef zeroext 0)
   %7 = load i16, ptr %keylen8.i.i, align 2
   %cmp.not = icmp eq i16 %7, 0
-  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !20
+  br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !19
 
 do.end:                                           ; preds = %safe_recv_packet.exit
   ret i32 1
@@ -3065,7 +3065,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, 24
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %3 = load ptr, ptr @stderr, align 8
@@ -3096,7 +3096,7 @@ safe_recv_packet.exit:                            ; preds = %safe_send.exit, %if
   call fastcc void @validate_response_header(ptr noundef %buffer, i8 noundef zeroext %cmd.04, i16 noundef zeroext 129)
   %inc = add i8 %cmd.04, 1
   %cmp.not = icmp eq i8 %inc, 0
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !21
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %safe_recv_packet.exit
   ret i32 1
@@ -3412,14 +3412,14 @@ if.then.i:                                        ; preds = %sw.epilog.i
   %tobool.i = trunc i8 %2 to i1
   %cmp.i = icmp samesign ult i64 %add44.i, 66536
   %3 = and i1 %cmp.i, %tobool.i
-  br i1 %3, label %while.body.i, label %test_binary_pipeline_hickup_chunk.exit, !llvm.loop !22
+  br i1 %3, label %while.body.i, label %test_binary_pipeline_hickup_chunk.exit, !llvm.loop !21
 
 test_binary_pipeline_hickup_chunk.exit:           ; preds = %sw.epilog.i, %if.then.i, %for.body
   %offset.0.lcssa.i = phi i64 [ 0, %for.body ], [ %add44.i, %if.then.i ], [ %offset.0114.i, %sw.epilog.i ]
   call fastcc void @safe_send(ptr noundef %call, i64 noundef %offset.0.lcssa.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %key.i)
   call void @llvm.lifetime.end.p0(i64 66560, ptr nonnull %command.i)
-  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !23
+  br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %test_binary_pipeline_hickup_chunk.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
@@ -3460,7 +3460,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, 24
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %7 = load ptr, ptr @stderr, align 8
@@ -3546,7 +3546,7 @@ if.else.i:                                        ; preds = %do.body.i
 do.cond.i:                                        ; preds = %if.else.i, %if.then.i
   %offset.1.i = phi i64 [ %offset.0.i, %if.then.i ], [ %add.i, %if.else.i ]
   %cmp9.i = icmp ult i64 %offset.1.i, 10
-  br i1 %cmp9.i, label %do.body.i, label %send_ascii_command.exit, !llvm.loop !17
+  br i1 %cmp9.i, label %do.body.i, label %send_ascii_command.exit, !llvm.loop !16
 
 send_ascii_command.exit:                          ; preds = %do.cond.i
   %8 = load ptr, ptr @con, align 8
@@ -3662,7 +3662,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %0 = load ptr, ptr %arrayidx, align 16
   %tobool.not = icmp eq ptr %0, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %tobool.not, label %for.end, label %for.cond, !llvm.loop !24
+  br i1 %tobool.not, label %for.end, label %for.cond, !llvm.loop !23
 
 for.end:                                          ; preds = %for.cond
   %1 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3705,7 +3705,7 @@ if.end29:                                         ; preds = %for.body5, %if.then
   %arrayidx3 = getelementptr inbounds nuw [57 x %struct.testcase], ptr @testcases, i64 0, i64 %6
   %10 = load ptr, ptr %arrayidx3, align 16
   %cmp.not = icmp eq ptr %10, null
-  br i1 %cmp.not, label %for.end33, label %for.body5, !llvm.loop !25
+  br i1 %cmp.not, label %for.end33, label %for.body5, !llvm.loop !24
 
 for.end33:                                        ; preds = %if.end29, %for.end
   %exitcode.0.lcssa = phi i32 [ 0, %for.end ], [ %exitcode.1, %if.end29 ]
@@ -3917,7 +3917,7 @@ while.body:                                       ; preds = %if.end78, %while.bo
   %cmp80 = icmp eq i32 %call79, -1
   %cmp82 = icmp ugt i32 %wait_timeout.036, 1000
   %1 = select i1 %cmp80, i1 %cmp82, i1 false
-  br i1 %1, label %while.body, label %while.end, !llvm.loop !26
+  br i1 %1, label %while.body, label %while.end, !llvm.loop !25
 
 while.end:                                        ; preds = %while.body, %if.end78
   %call87 = call i32 @access(ptr noundef nonnull %add.ptr, i32 noundef 0) #20
@@ -3976,7 +3976,7 @@ if.end117:                                        ; preds = %if.then111
 if.end119:                                        ; preds = %if.end117, %while.body106
   %call103 = call ptr @fgets(ptr noundef nonnull %buffer, i32 noundef 80, ptr noundef nonnull %call93)
   %cmp104.not = icmp eq ptr %call103, null
-  br i1 %cmp104.not, label %while.end120, label %while.body106, !llvm.loop !27
+  br i1 %cmp104.not, label %while.end120, label %while.body106, !llvm.loop !26
 
 while.end120:                                     ; preds = %if.end119, %if.end100
   %call121 = call i32 @fclose(ptr noundef nonnull %call93)
@@ -4000,7 +4000,7 @@ while.body135:                                    ; preds = %while.cond130.prehe
   %call136 = call i32 @usleep(i32 noundef 10) #20
   %call132 = call i32 @access(ptr noundef nonnull %pid_file, i32 noundef 0) #20
   %cmp133 = icmp eq i32 %call132, -1
-  br i1 %cmp133, label %while.body135, label %while.end137, !llvm.loop !28
+  br i1 %cmp133, label %while.body135, label %while.end137, !llvm.loop !27
 
 while.end137:                                     ; preds = %while.body135, %while.cond130.preheader
   %call139 = call noalias ptr @fopen(ptr noundef nonnull %pid_file, ptr noundef nonnull @.str.192)
@@ -4026,7 +4026,7 @@ for.body:                                         ; preds = %land.rhs149
   %call155 = call i32 @usleep(i32 noundef 10) #20
   %inc156 = add nuw nsw i32 %x.041, 1
   %exitcond.not = icmp eq i32 %inc156, 20
-  br i1 %exitcond.not, label %for.end, label %land.rhs149, !llvm.loop !29
+  br i1 %exitcond.not, label %for.end, label %land.rhs149, !llvm.loop !28
 
 for.end:                                          ; preds = %for.body, %land.rhs149
   %call157 = call i32 @fclose(ptr noundef nonnull %call139)
@@ -4389,7 +4389,7 @@ if.else21:                                        ; preds = %if.end15
 do.cond:                                          ; preds = %if.then, %if.end15
   %need_more.2 = phi i1 [ true, %if.then ], [ %cmp11, %if.end15 ]
   %offset.1 = phi i64 [ %offset.0, %if.then ], [ %add16, %if.end15 ]
-  br i1 %need_more.2, label %do.body, label %do.end, !llvm.loop !30
+  br i1 %need_more.2, label %do.body, label %do.end, !llvm.loop !29
 
 do.end:                                           ; preds = %do.cond
   ret void
@@ -4424,7 +4424,7 @@ if.then6.us:                                      ; preds = %do.body.us
 do.cond.us:                                       ; preds = %if.then6.us, %if.else.us
   %offset.1.us = phi i64 [ %offset.0.us, %if.then6.us ], [ %add19.us, %if.else.us ]
   %cmp21.us = icmp ult i64 %offset.1.us, %len
-  br i1 %cmp21.us, label %do.body.us, label %do.end, !llvm.loop !19
+  br i1 %cmp21.us, label %do.body.us, label %do.end, !llvm.loop !18
 
 do.body:                                          ; preds = %entry, %do.cond
   %offset.0 = phi i64 [ %offset.1, %do.cond ], [ 0, %entry ]
@@ -4471,7 +4471,7 @@ if.else:                                          ; preds = %if.end2
 do.cond:                                          ; preds = %if.else, %if.then6
   %offset.1 = phi i64 [ %offset.0, %if.then6 ], [ %add19, %if.else ]
   %cmp21 = icmp ult i64 %offset.1, %len
-  br i1 %cmp21, label %do.body, label %do.end, !llvm.loop !19
+  br i1 %cmp21, label %do.body, label %do.end, !llvm.loop !18
 
 do.end:                                           ; preds = %do.cond.us, %do.cond
   ret void
@@ -4905,7 +4905,7 @@ if.end16:                                         ; preds = %do.body
 do.cond:                                          ; preds = %if.end16, %if.then2
   %offset.1 = phi i64 [ %offset.0, %if.then2 ], [ %add, %if.end16 ]
   %cmp18 = icmp ult i64 %offset.1, %len
-  br i1 %cmp18, label %do.body, label %return, !llvm.loop !31
+  br i1 %cmp18, label %do.body, label %return, !llvm.loop !30
 
 return:                                           ; preds = %do.cond, %land.lhs.true, %entry
   %retval.0 = phi i1 [ true, %entry ], [ false, %land.lhs.true ], [ true, %do.cond ]
@@ -4960,7 +4960,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, 24
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %3 = load ptr, ptr @stderr, align 8
@@ -5120,7 +5120,7 @@ if.then6.us.i.us:                                 ; preds = %do.body.us.i.us
 do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %if.else.us.i.us
   %offset.1.us.i.us = phi i64 [ %offset.0.us.i.us, %if.then6.us.i.us ], [ %add19.us.i.us, %if.else.us.i.us ]
   %cmp21.us.i.us = icmp ult i64 %offset.1.us.i.us, %add1.i
-  br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !19
+  br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !18
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
   %call.i9.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
@@ -5144,7 +5144,7 @@ safe_recv_packet.exit.us:                         ; preds = %if.end2.i.us, %safe
   call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 1, i16 noundef zeroext 0)
   %inc.us = add nuw nsw i32 %ii.046.us, 1
   %exitcond51.not = icmp eq i32 %inc.us, 10
-  br i1 %exitcond51.not, label %for.end, label %do.body.us.i.preheader.us, !llvm.loop !32
+  br i1 %exitcond51.not, label %for.end, label %do.body.us.i.preheader.us, !llvm.loop !31
 
 do.body.us.i.preheader:                           ; preds = %storage_command.exit, %safe_send.exit
   %ii.046 = phi i32 [ %inc, %safe_send.exit ], [ 0, %storage_command.exit ]
@@ -5174,7 +5174,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, %add1.i
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i, %if.then6.us.i.us
   %.us-phi = phi i32 [ %3, %if.then6.us.i.us ], [ %9, %if.then6.us.i ]
@@ -5187,7 +5187,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i, %if.
 safe_send.exit:                                   ; preds = %do.cond.us.i
   %inc = add nuw nsw i32 %ii.046, 1
   %exitcond.not = icmp eq i32 %inc, 10
-  br i1 %exitcond.not, label %for.end, label %do.body.us.i.preheader, !llvm.loop !32
+  br i1 %exitcond.not, label %for.end, label %do.body.us.i.preheader, !llvm.loop !31
 
 for.end:                                          ; preds = %safe_send.exit, %safe_recv_packet.exit.us
   %cmp8 = icmp eq i8 %cmd, 17
@@ -5224,7 +5224,7 @@ if.then6.us.i25:                                  ; preds = %do.body.us.i13
 do.cond.us.i22:                                   ; preds = %if.then6.us.i25, %if.else.us.i20
   %offset.1.us.i23 = phi i64 [ %offset.0.us.i14, %if.then6.us.i25 ], [ %add19.us.i21, %if.else.us.i20 ]
   %cmp21.us.i24 = icmp ult i64 %offset.1.us.i23, %add1.i
-  br i1 %cmp21.us.i24, label %do.body.us.i13, label %safe_send.exit31, !llvm.loop !19
+  br i1 %cmp21.us.i24, label %do.body.us.i13, label %safe_send.exit31, !llvm.loop !18
 
 if.then10.i28:                                    ; preds = %if.then6.us.i25
   %15 = load ptr, ptr @stderr, align 8
@@ -5348,7 +5348,7 @@ if.then6.us.i.us:                                 ; preds = %do.body.us.i.us
 do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %if.else.us.i.us
   %offset.1.us.i.us = phi i64 [ %offset.0.us.i.us, %if.then6.us.i.us ], [ %add19.us.i.us, %if.else.us.i.us ]
   %cmp21.us.i.us = icmp ult i64 %offset.1.us.i.us, %add1.i
-  br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !19
+  br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !18
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
   %cmp3.us = icmp eq i32 %ii.024.us, 0
@@ -5374,7 +5374,7 @@ for.inc.us:                                       ; preds = %safe_send.exit.us, 
   call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 2, i16 noundef zeroext %.)
   %inc.us = add nuw nsw i32 %ii.024.us, 1
   %exitcond28.not = icmp eq i32 %inc.us, 10
-  br i1 %exitcond28.not, label %for.end, label %do.body.us.i.preheader.us, !llvm.loop !33
+  br i1 %exitcond28.not, label %for.end, label %do.body.us.i.preheader.us, !llvm.loop !32
 
 do.body.us.i.preheader:                           ; preds = %storage_command.exit, %for.inc
   %ii.024 = phi i32 [ %inc, %for.inc ], [ 0, %storage_command.exit ]
@@ -5404,7 +5404,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, %add1.i
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i, %if.then6.us.i.us
   %.us-phi = phi i32 [ %3, %if.then6.us.i.us ], [ %9, %if.then6.us.i ]
@@ -5443,7 +5443,7 @@ safe_recv_packet.exit23:                          ; preds = %if.else, %if.end2.i
 for.inc:                                          ; preds = %safe_send.exit, %safe_recv_packet.exit23
   %inc = add nuw nsw i32 %ii.024, 1
   %exitcond.not = icmp eq i32 %inc, 10
-  br i1 %exitcond.not, label %for.end, label %do.body.us.i.preheader, !llvm.loop !33
+  br i1 %exitcond.not, label %for.end, label %do.body.us.i.preheader, !llvm.loop !32
 
 for.end:                                          ; preds = %for.inc, %for.inc.us
   ret void
@@ -5515,7 +5515,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, %add1.i
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %4 = load ptr, ptr @stderr, align 8
@@ -5601,7 +5601,7 @@ if.then6.us.i47:                                  ; preds = %do.body.us.i35
 do.cond.us.i44:                                   ; preds = %if.then6.us.i47, %if.else.us.i42
   %offset.1.us.i45 = phi i64 [ %offset.0.us.i36, %if.then6.us.i47 ], [ %add19.us.i43, %if.else.us.i42 ]
   %cmp21.us.i46 = icmp ult i64 %offset.1.us.i45, %add1.i18
-  br i1 %cmp21.us.i46, label %do.body.us.i35, label %safe_send.exit53, !llvm.loop !19
+  br i1 %cmp21.us.i46, label %do.body.us.i35, label %safe_send.exit53, !llvm.loop !18
 
 if.then10.i50:                                    ; preds = %if.then6.us.i47
   %12 = load ptr, ptr @stderr, align 8
@@ -5696,7 +5696,7 @@ if.then6.us.i97.us:                               ; preds = %do.body.us.i85.us
 do.cond.us.i94.us:                                ; preds = %if.then6.us.i97.us, %if.else.us.i92.us
   %offset.1.us.i95.us = phi i64 [ %offset.0.us.i86.us, %if.then6.us.i97.us ], [ %add19.us.i93.us, %if.else.us.i92.us ]
   %cmp21.us.i96.us = icmp ult i64 %offset.1.us.i95.us, %add1.i68
-  br i1 %cmp21.us.i96.us, label %do.body.us.i85.us, label %safe_send.exit103.us, !llvm.loop !19
+  br i1 %cmp21.us.i96.us, label %do.body.us.i85.us, label %safe_send.exit103.us, !llvm.loop !18
 
 safe_send.exit103.us:                             ; preds = %do.cond.us.i94.us
   %call.i104.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
@@ -5720,7 +5720,7 @@ safe_recv_packet.exit116.us:                      ; preds = %if.end2.i106.us, %s
   call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 3, i16 noundef zeroext 0)
   %inc.us = add nuw nsw i32 %ii.0121.us, 1
   %exitcond127.not = icmp eq i32 %inc.us, 10
-  br i1 %exitcond127.not, label %for.end, label %do.body.us.i85.preheader.us, !llvm.loop !34
+  br i1 %exitcond127.not, label %for.end, label %do.body.us.i85.preheader.us, !llvm.loop !33
 
 do.body.us.i85.preheader:                         ; preds = %storage_command.exit84, %safe_send.exit103
   %ii.0121 = phi i32 [ %inc, %safe_send.exit103 ], [ 0, %storage_command.exit84 ]
@@ -5750,7 +5750,7 @@ if.then6.us.i97:                                  ; preds = %do.body.us.i85
 do.cond.us.i94:                                   ; preds = %if.then6.us.i97, %if.else.us.i92
   %offset.1.us.i95 = phi i64 [ %offset.0.us.i86, %if.then6.us.i97 ], [ %add19.us.i93, %if.else.us.i92 ]
   %cmp21.us.i96 = icmp ult i64 %offset.1.us.i95, %add1.i68
-  br i1 %cmp21.us.i96, label %do.body.us.i85, label %safe_send.exit103, !llvm.loop !19
+  br i1 %cmp21.us.i96, label %do.body.us.i85, label %safe_send.exit103, !llvm.loop !18
 
 if.then10.i100:                                   ; preds = %if.then6.us.i97, %if.then6.us.i97.us
   %.us-phi = phi i32 [ %19, %if.then6.us.i97.us ], [ %25, %if.then6.us.i97 ]
@@ -5763,7 +5763,7 @@ if.then10.i100:                                   ; preds = %if.then6.us.i97, %i
 safe_send.exit103:                                ; preds = %do.cond.us.i94
   %inc = add nuw nsw i32 %ii.0121, 1
   %exitcond.not = icmp eq i32 %inc, 10
-  br i1 %exitcond.not, label %for.end, label %do.body.us.i85.preheader, !llvm.loop !34
+  br i1 %exitcond.not, label %for.end, label %do.body.us.i85.preheader, !llvm.loop !33
 
 for.end:                                          ; preds = %safe_send.exit103, %safe_recv_packet.exit116.us
   %cmp20 = icmp eq i8 %cmd, 19
@@ -5834,7 +5834,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, %add1.i.i
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %3 = load ptr, ptr @stderr, align 8
@@ -5921,7 +5921,7 @@ if.then6.us.i29:                                  ; preds = %do.body.us.i17
 do.cond.us.i26:                                   ; preds = %if.then6.us.i29, %if.else.us.i24
   %offset.1.us.i27 = phi i64 [ %offset.0.us.i18, %if.then6.us.i29 ], [ %add19.us.i25, %if.else.us.i24 ]
   %cmp21.us.i28 = icmp ult i64 %offset.1.us.i27, %add1.i
-  br i1 %cmp21.us.i28, label %do.body.us.i17, label %safe_send.exit35, !llvm.loop !19
+  br i1 %cmp21.us.i28, label %do.body.us.i17, label %safe_send.exit35, !llvm.loop !18
 
 if.then10.i32:                                    ; preds = %if.then6.us.i29
   %11 = load ptr, ptr @stderr, align 8
@@ -6001,7 +6001,7 @@ if.then6.us.i77:                                  ; preds = %do.body.us.i65
 do.cond.us.i74:                                   ; preds = %if.then6.us.i77, %if.else.us.i72
   %offset.1.us.i75 = phi i64 [ %offset.0.us.i66, %if.then6.us.i77 ], [ %add19.us.i73, %if.else.us.i72 ]
   %cmp21.us.i76 = icmp ult i64 %offset.1.us.i75, %add1.i.i49
-  br i1 %cmp21.us.i76, label %do.body.us.i65, label %safe_send.exit83, !llvm.loop !19
+  br i1 %cmp21.us.i76, label %do.body.us.i65, label %safe_send.exit83, !llvm.loop !18
 
 if.then10.i80:                                    ; preds = %if.then6.us.i77
   %18 = load ptr, ptr @stderr, align 8
@@ -6067,7 +6067,7 @@ if.then6.us.i109:                                 ; preds = %do.body.us.i97
 do.cond.us.i106:                                  ; preds = %if.then6.us.i109, %if.else.us.i104
   %offset.1.us.i107 = phi i64 [ %offset.0.us.i98, %if.then6.us.i109 ], [ %add19.us.i105, %if.else.us.i104 ]
   %cmp21.us.i108 = icmp ult i64 %offset.1.us.i107, %add1.i.i49
-  br i1 %cmp21.us.i108, label %do.body.us.i97, label %safe_send.exit115, !llvm.loop !19
+  br i1 %cmp21.us.i108, label %do.body.us.i97, label %safe_send.exit115, !llvm.loop !18
 
 if.then10.i112:                                   ; preds = %if.then6.us.i109
   %25 = load ptr, ptr @stderr, align 8
@@ -6185,7 +6185,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, %add1.i
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %3 = load ptr, ptr @stderr, align 8
@@ -6272,7 +6272,7 @@ if.then6.us.i51:                                  ; preds = %do.body.us.i39
 do.cond.us.i48:                                   ; preds = %if.then6.us.i51, %if.else.us.i46
   %offset.1.us.i49 = phi i64 [ %offset.0.us.i40, %if.then6.us.i51 ], [ %add19.us.i47, %if.else.us.i46 ]
   %cmp21.us.i50 = icmp ult i64 %offset.1.us.i49, %add1.i29
-  br i1 %cmp21.us.i50, label %do.body.us.i39, label %safe_send.exit57, !llvm.loop !19
+  br i1 %cmp21.us.i50, label %do.body.us.i39, label %safe_send.exit57, !llvm.loop !18
 
 if.then10.i54:                                    ; preds = %if.then6.us.i51
   %11 = load ptr, ptr @stderr, align 8
@@ -6355,7 +6355,7 @@ ext_command.exit94:                               ; preds = %if.end.i75, %if.the
   %add = add i64 %add1.i72, %len.0130
   %inc = add nuw nsw i32 %ii.0131, 1
   %exitcond.not = icmp eq i32 %inc, 10
-  br i1 %exitcond.not, label %do.body.us.i95, label %for.body, !llvm.loop !35
+  br i1 %exitcond.not, label %do.body.us.i95, label %for.body, !llvm.loop !34
 
 do.body.us.i95:                                   ; preds = %ext_command.exit94, %do.cond.us.i104
   %offset.0.us.i96 = phi i64 [ %offset.1.us.i105, %do.cond.us.i104 ], [ 0, %ext_command.exit94 ]
@@ -6381,7 +6381,7 @@ if.then6.us.i107:                                 ; preds = %do.body.us.i95
 do.cond.us.i104:                                  ; preds = %if.then6.us.i107, %if.else.us.i102
   %offset.1.us.i105 = phi i64 [ %offset.0.us.i96, %if.then6.us.i107 ], [ %add19.us.i103, %if.else.us.i102 ]
   %cmp21.us.i106 = icmp ult i64 %offset.1.us.i105, %add
-  br i1 %cmp21.us.i106, label %do.body.us.i95, label %for.cond29.preheader, !llvm.loop !19
+  br i1 %cmp21.us.i106, label %do.body.us.i95, label %for.cond29.preheader, !llvm.loop !18
 
 for.cond29.preheader:                             ; preds = %do.cond.us.i104
   %keylen.i117 = getelementptr inbounds nuw i8, ptr %receive, i64 2
@@ -6420,7 +6420,7 @@ safe_recv_packet.exit126:                         ; preds = %for.body32, %if.end
   call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext %cmd, i16 noundef zeroext 0)
   %inc36 = add nuw nsw i32 %ii.1132, 1
   %exitcond135.not = icmp eq i32 %inc36, 10
-  br i1 %exitcond135.not, label %for.end37, label %for.body32, !llvm.loop !36
+  br i1 %exitcond135.not, label %for.end37, label %for.body32, !llvm.loop !35
 
 for.end37:                                        ; preds = %safe_recv_packet.exit126
   ret void
@@ -6568,7 +6568,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, %add23
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %5 = load ptr, ptr @stderr, align 8
@@ -6706,7 +6706,7 @@ if.then6.us.i.us:                                 ; preds = %do.body.us.i.us
 do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %if.else.us.i.us
   %offset.1.us.i.us = phi i64 [ %offset.0.us.i.us, %if.then6.us.i.us ], [ %add19.us.i.us, %if.else.us.i.us ]
   %cmp21.us.i.us = icmp ult i64 %offset.1.us.i.us, %add17.i
-  br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !19
+  br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !18
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
   %call.i8.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
@@ -6736,7 +6736,7 @@ safe_recv_packet.exit.us:                         ; preds = %if.end2.i.us, %safe
 for.inc.us:                                       ; preds = %safe_recv_packet.exit.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond18.not, label %for.end, label %do.body.us.i.preheader.us, !llvm.loop !37
+  br i1 %exitcond18.not, label %for.end, label %do.body.us.i.preheader.us, !llvm.loop !36
 
 do.body.us.i.preheader:                           ; preds = %arithmetic_command.exit, %safe_send.exit
   %ii.013 = phi i32 [ %inc, %safe_send.exit ], [ 0, %arithmetic_command.exit ]
@@ -6766,7 +6766,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, %add17.i
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i, %if.then6.us.i.us
   %.us-phi = phi i32 [ %3, %if.then6.us.i.us ], [ %10, %if.then6.us.i ]
@@ -6779,7 +6779,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i, %if.
 safe_send.exit:                                   ; preds = %do.cond.us.i
   %inc = add nuw nsw i32 %ii.013, 1
   %exitcond.not = icmp eq i32 %inc, 10
-  br i1 %exitcond.not, label %for.end, label %do.body.us.i.preheader, !llvm.loop !37
+  br i1 %exitcond.not, label %for.end, label %do.body.us.i.preheader, !llvm.loop !36
 
 if.else:                                          ; preds = %safe_recv_packet.exit.us
   call void @__assert_fail(ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.62, i32 noundef 1720, ptr noundef nonnull @__PRETTY_FUNCTION__.test_binary_incr_impl) #21
@@ -6880,7 +6880,7 @@ if.then6.us.i.us:                                 ; preds = %do.body.us.i.us
 do.cond.us.i.us:                                  ; preds = %if.then6.us.i.us, %if.else.us.i.us
   %offset.1.us.i.us = phi i64 [ %offset.0.us.i.us, %if.then6.us.i.us ], [ %add19.us.i.us, %if.else.us.i.us ]
   %cmp21.us.i.us = icmp ult i64 %offset.1.us.i.us, %add17.i
-  br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !19
+  br i1 %cmp21.us.i.us, label %do.body.us.i.us, label %safe_send.exit.us, !llvm.loop !18
 
 safe_send.exit.us:                                ; preds = %do.cond.us.i.us
   %call.i10.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
@@ -6911,7 +6911,7 @@ safe_recv_packet.exit.us:                         ; preds = %if.end2.i.us, %safe
 for.inc.us:                                       ; preds = %safe_recv_packet.exit.us
   %dec.us = add nsw i32 %ii.048.us, -1
   %cmp.us.not = icmp eq i32 %ii.048.us, 0
-  br i1 %cmp.us.not, label %do.body.us.i15.preheader, label %do.body.us.i.preheader.us, !llvm.loop !38
+  br i1 %cmp.us.not, label %do.body.us.i15.preheader, label %do.body.us.i.preheader.us, !llvm.loop !37
 
 do.body.us.i15.preheader:                         ; preds = %safe_send.exit, %for.inc.us
   br label %do.body.us.i15
@@ -6944,7 +6944,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, %add17.i
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i, %if.then6.us.i.us
   %.us-phi = phi i32 [ %3, %if.then6.us.i.us ], [ %10, %if.then6.us.i ]
@@ -6957,7 +6957,7 @@ if.then10.i:                                      ; preds = %if.then6.us.i, %if.
 safe_send.exit:                                   ; preds = %do.cond.us.i
   %dec = add nsw i32 %ii.048, -1
   %cmp.not = icmp eq i32 %ii.048, 0
-  br i1 %cmp.not, label %do.body.us.i15.preheader, label %do.body.us.i.preheader, !llvm.loop !38
+  br i1 %cmp.not, label %do.body.us.i15.preheader, label %do.body.us.i.preheader, !llvm.loop !37
 
 if.else:                                          ; preds = %safe_recv_packet.exit.us
   call void @__assert_fail(ptr noundef nonnull @.str.287, ptr noundef nonnull @.str.62, i32 noundef 1757, ptr noundef nonnull @__PRETTY_FUNCTION__.test_binary_decr_impl) #21
@@ -6987,7 +6987,7 @@ if.then6.us.i27:                                  ; preds = %do.body.us.i15
 do.cond.us.i24:                                   ; preds = %if.then6.us.i27, %if.else.us.i22
   %offset.1.us.i25 = phi i64 [ %offset.0.us.i16, %if.then6.us.i27 ], [ %add19.us.i23, %if.else.us.i22 ]
   %cmp21.us.i26 = icmp ult i64 %offset.1.us.i25, %add17.i
-  br i1 %cmp21.us.i26, label %do.body.us.i15, label %safe_send.exit33, !llvm.loop !19
+  br i1 %cmp21.us.i26, label %do.body.us.i15, label %safe_send.exit33, !llvm.loop !18
 
 if.then10.i30:                                    ; preds = %if.then6.us.i27
   %15 = load ptr, ptr @stderr, align 8
@@ -7100,7 +7100,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, %add1.i
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %4 = load ptr, ptr @stderr, align 8
@@ -7168,7 +7168,7 @@ if.then6.us.i43:                                  ; preds = %do.body.us.i31
 do.cond.us.i40:                                   ; preds = %if.then6.us.i43, %if.else.us.i38
   %offset.1.us.i41 = phi i64 [ %offset.0.us.i32, %if.then6.us.i43 ], [ %add19.us.i39, %if.else.us.i38 ]
   %cmp21.us.i42 = icmp ult i64 %offset.1.us.i41, 28
-  br i1 %cmp21.us.i42, label %do.body.us.i31, label %safe_send.exit49, !llvm.loop !19
+  br i1 %cmp21.us.i42, label %do.body.us.i31, label %safe_send.exit49, !llvm.loop !18
 
 if.then10.i46:                                    ; preds = %if.then6.us.i43
   %11 = load ptr, ptr @stderr, align 8
@@ -7254,7 +7254,7 @@ if.then6.us.i75:                                  ; preds = %do.body.us.i63
 do.cond.us.i72:                                   ; preds = %if.then6.us.i75, %if.else.us.i70
   %offset.1.us.i73 = phi i64 [ %offset.0.us.i64, %if.then6.us.i75 ], [ %add19.us.i71, %if.else.us.i70 ]
   %cmp21.us.i74 = icmp ult i64 %offset.1.us.i73, %add1.i.i
-  br i1 %cmp21.us.i74, label %do.body.us.i63, label %safe_send.exit81, !llvm.loop !19
+  br i1 %cmp21.us.i74, label %do.body.us.i63, label %safe_send.exit81, !llvm.loop !18
 
 if.then10.i78:                                    ; preds = %if.then6.us.i75
   %18 = load ptr, ptr @stderr, align 8
@@ -7314,7 +7314,7 @@ if.then6.us.i107:                                 ; preds = %do.body.us.i95
 do.cond.us.i104:                                  ; preds = %if.then6.us.i107, %if.else.us.i102
   %offset.1.us.i105 = phi i64 [ %offset.0.us.i96, %if.then6.us.i107 ], [ %add19.us.i103, %if.else.us.i102 ]
   %cmp21.us.i106 = icmp ult i64 %offset.1.us.i105, %add1.i.i
-  br i1 %cmp21.us.i106, label %do.body.us.i95, label %safe_send.exit113, !llvm.loop !19
+  br i1 %cmp21.us.i106, label %do.body.us.i95, label %safe_send.exit113, !llvm.loop !18
 
 if.then10.i110:                                   ; preds = %if.then6.us.i107
   %25 = load ptr, ptr @stderr, align 8
@@ -7406,7 +7406,7 @@ if.then6.us.i155:                                 ; preds = %do.body.us.i143
 do.cond.us.i152:                                  ; preds = %if.then6.us.i155, %if.else.us.i150
   %offset.1.us.i153 = phi i64 [ %offset.0.us.i144, %if.then6.us.i155 ], [ %add19.us.i151, %if.else.us.i150 ]
   %cmp21.us.i154 = icmp ult i64 %offset.1.us.i153, %add1.i127
-  br i1 %cmp21.us.i154, label %do.body.us.i143, label %safe_send.exit161, !llvm.loop !19
+  br i1 %cmp21.us.i154, label %do.body.us.i143, label %safe_send.exit161, !llvm.loop !18
 
 if.then10.i158:                                   ; preds = %if.then6.us.i155
   %33 = load ptr, ptr @stderr, align 8
@@ -7476,7 +7476,7 @@ if.then6.us.i194:                                 ; preds = %do.body.us.i182
 do.cond.us.i191:                                  ; preds = %if.then6.us.i194, %if.else.us.i189
   %offset.1.us.i192 = phi i64 [ %offset.0.us.i183, %if.then6.us.i194 ], [ %add19.us.i190, %if.else.us.i189 ]
   %cmp21.us.i193 = icmp ult i64 %offset.1.us.i192, %size.0.i
-  br i1 %cmp21.us.i193, label %do.body.us.i182, label %safe_send.exit200, !llvm.loop !19
+  br i1 %cmp21.us.i193, label %do.body.us.i182, label %safe_send.exit200, !llvm.loop !18
 
 if.then10.i197:                                   ; preds = %if.then6.us.i194
   %40 = load ptr, ptr @stderr, align 8
@@ -7557,7 +7557,7 @@ if.then6.us.i242:                                 ; preds = %do.body.us.i230
 do.cond.us.i239:                                  ; preds = %if.then6.us.i242, %if.else.us.i237
   %offset.1.us.i240 = phi i64 [ %offset.0.us.i231, %if.then6.us.i242 ], [ %add19.us.i238, %if.else.us.i237 ]
   %cmp21.us.i241 = icmp ult i64 %offset.1.us.i240, %add1.i.i214
-  br i1 %cmp21.us.i241, label %do.body.us.i230, label %safe_send.exit248, !llvm.loop !19
+  br i1 %cmp21.us.i241, label %do.body.us.i230, label %safe_send.exit248, !llvm.loop !18
 
 if.then10.i245:                                   ; preds = %if.then6.us.i242
   %47 = load ptr, ptr @stderr, align 8
@@ -7586,7 +7586,7 @@ if.end2.i251:                                     ; preds = %safe_send.exit248
 
 safe_recv_packet.exit261:                         ; preds = %safe_send.exit248, %if.end2.i251
   call fastcc void @validate_response_header(ptr noundef %receive, i8 noundef zeroext 0, i16 noundef zeroext 1)
-  br i1 %cmp30, label %for.body, label %for.end, !llvm.loop !39
+  br i1 %cmp30, label %for.body, label %for.end, !llvm.loop !38
 
 for.end:                                          ; preds = %safe_recv_packet.exit261
   ret void
@@ -7653,7 +7653,7 @@ if.then6.us.i:                                    ; preds = %do.body.us.i
 do.cond.us.i:                                     ; preds = %if.then6.us.i, %if.else.us.i
   %offset.1.us.i = phi i64 [ %offset.0.us.i, %if.then6.us.i ], [ %add19.us.i, %if.else.us.i ]
   %cmp21.us.i = icmp ult i64 %offset.1.us.i, %add2.i.i
-  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !19
+  br i1 %cmp21.us.i, label %do.body.us.i, label %safe_send.exit, !llvm.loop !18
 
 if.then10.i:                                      ; preds = %if.then6.us.i
   %5 = load ptr, ptr @stderr, align 8
@@ -7742,7 +7742,7 @@ if.then6.us.i57:                                  ; preds = %do.body.us.i45
 do.cond.us.i54:                                   ; preds = %if.then6.us.i57, %if.else.us.i52
   %offset.1.us.i55 = phi i64 [ %offset.0.us.i46, %if.then6.us.i57 ], [ %add19.us.i53, %if.else.us.i52 ]
   %cmp21.us.i56 = icmp ult i64 %offset.1.us.i55, %add1.i
-  br i1 %cmp21.us.i56, label %do.body.us.i45, label %safe_send.exit63, !llvm.loop !19
+  br i1 %cmp21.us.i56, label %do.body.us.i45, label %safe_send.exit63, !llvm.loop !18
 
 if.then10.i60:                                    ; preds = %if.then6.us.i57
   %13 = load ptr, ptr @stderr, align 8
@@ -7826,7 +7826,7 @@ if.then6.us.i108:                                 ; preds = %do.body.us.i96
 do.cond.us.i105:                                  ; preds = %if.then6.us.i108, %if.else.us.i103
   %offset.1.us.i106 = phi i64 [ %offset.0.us.i97, %if.then6.us.i108 ], [ %add19.us.i104, %if.else.us.i103 ]
   %cmp21.us.i107 = icmp ult i64 %offset.1.us.i106, %add2.i.i78
-  br i1 %cmp21.us.i107, label %do.body.us.i96, label %safe_send.exit114, !llvm.loop !19
+  br i1 %cmp21.us.i107, label %do.body.us.i96, label %safe_send.exit114, !llvm.loop !18
 
 if.then10.i111:                                   ; preds = %if.then6.us.i108
   %22 = load ptr, ptr @stderr, align 8
@@ -7878,7 +7878,7 @@ if.then6.us.i147:                                 ; preds = %do.body.us.i135
 do.cond.us.i144:                                  ; preds = %if.then6.us.i147, %if.else.us.i142
   %offset.1.us.i145 = phi i64 [ %offset.0.us.i136, %if.then6.us.i147 ], [ %add19.us.i143, %if.else.us.i142 ]
   %cmp21.us.i146 = icmp ult i64 %offset.1.us.i145, 24
-  br i1 %cmp21.us.i146, label %do.body.us.i135, label %safe_send.exit153, !llvm.loop !19
+  br i1 %cmp21.us.i146, label %do.body.us.i135, label %safe_send.exit153, !llvm.loop !18
 
 if.then10.i150:                                   ; preds = %if.then6.us.i147
   %26 = load ptr, ptr @stderr, align 8
@@ -7960,7 +7960,7 @@ if.then6.us.i197:                                 ; preds = %do.body.us.i185
 do.cond.us.i194:                                  ; preds = %if.then6.us.i197, %if.else.us.i192
   %offset.1.us.i195 = phi i64 [ %offset.0.us.i186, %if.then6.us.i197 ], [ %add19.us.i193, %if.else.us.i192 ]
   %cmp21.us.i196 = icmp ult i64 %offset.1.us.i195, %add1.i.i167
-  br i1 %cmp21.us.i196, label %do.body.us.i185, label %safe_send.exit203, !llvm.loop !19
+  br i1 %cmp21.us.i196, label %do.body.us.i185, label %safe_send.exit203, !llvm.loop !18
 
 if.then10.i200:                                   ; preds = %if.then6.us.i197
   %33 = load ptr, ptr @stderr, align 8
@@ -8108,7 +8108,7 @@ if.end2.i10:                                      ; preds = %while.body
   store i32 %call11.i16, ptr %bodylen.i, align 8
   %conv.i18 = zext i32 %call11.i16 to i64
   %call16.i19 = tail call fastcc zeroext i1 @safe_recv(ptr noundef %add.ptr.i, i64 noundef %conv.i18)
-  br i1 %call16.i19, label %while.body, label %while.end, !llvm.loop !40
+  br i1 %call16.i19, label %while.body, label %while.end, !llvm.loop !39
 
 while.end:                                        ; preds = %while.body, %if.end2.i10, %entry.split, %if.end2.i
   tail call void @free(ptr noundef nonnull %call) #20
@@ -8210,4 +8210,3 @@ attributes #26 = { nounwind allocsize(0) }
 !37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}

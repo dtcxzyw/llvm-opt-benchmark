@@ -7328,7 +7328,6 @@ define dso_local void @_ZN5cmake20PrintPresetVariablesEv(ptr noundef nonnull ali
   br label %19
 
 19:                                               ; preds = %17, %15
-  %.2 = phi i8 [ 0, %17 ], [ %.01118, %15 ]
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.94)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %.not = icmp eq i32 %.0, 6
@@ -7348,7 +7347,7 @@ define dso_local void @_ZN5cmake20PrintPresetVariablesEv(ptr noundef nonnull ali
   br label %31
 
 31:                                               ; preds = %.lr.ph, %26
-  %.1 = phi i8 [ %.2, %26 ], [ %.01118, %.lr.ph ]
+  %.1 = phi i8 [ 0, %26 ], [ %.01118, %.lr.ph ]
   %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.012.017) #36
   %.not15 = icmp eq ptr %32, %5
   br i1 %.not15, label %._crit_edge, label %.lr.ph
@@ -7503,7 +7502,6 @@ define dso_local void @_ZN5cmake22PrintPresetEnvironmentEv(ptr noundef nonnull a
   br label %15
 
 15:                                               ; preds = %13, %11
-  %.2 = phi i8 [ 0, %13 ], [ %.012, %11 ]
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.94)
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.95)
@@ -7512,7 +7510,7 @@ define dso_local void @_ZN5cmake22PrintPresetEnvironmentEv(ptr noundef nonnull a
   br label %21
 
 21:                                               ; preds = %.lr.ph, %15
-  %.1 = phi i8 [ %.2, %15 ], [ %.012, %.lr.ph ]
+  %.1 = phi i8 [ 0, %15 ], [ %.012, %.lr.ph ]
   %22 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011) #36
   %.not = icmp eq ptr %22, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph

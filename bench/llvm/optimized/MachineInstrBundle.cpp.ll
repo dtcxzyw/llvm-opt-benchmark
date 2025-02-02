@@ -2859,7 +2859,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread24: ; preds = %_ZN4llvm23SmallVe
   br label %.critedge
 
 .critedge:                                        ; preds = %77, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread24, %43, %75, %47
-  %.sroa.4.1 = phi i8 [ %.sroa.4.058, %47 ], [ %.sroa.4.058, %75 ], [ %.sroa.4.058, %43 ], [ %.sroa.4.2, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread24 ], [ %spec.select14, %77 ]
+  %.sroa.4.1 = phi i8 [ %.sroa.4.058, %47 ], [ 1, %75 ], [ %.sroa.4.058, %43 ], [ %.sroa.4.2, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread24 ], [ %spec.select14, %77 ]
   %.sroa.3.1 = phi i8 [ %.sroa.3.059, %47 ], [ %.sroa.3.059, %75 ], [ %.sroa.3.059, %43 ], [ 1, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread24 ], [ %.sroa.3.059, %77 ]
   %.sroa.012.1 = phi i8 [ %.sroa.012.060, %47 ], [ %.sroa.012.2, %75 ], [ %.sroa.012.060, %43 ], [ %.sroa.012.2, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread24 ], [ %.sroa.012.2, %77 ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.11.055, i64 32

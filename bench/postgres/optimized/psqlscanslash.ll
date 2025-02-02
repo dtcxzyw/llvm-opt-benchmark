@@ -2974,7 +2974,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
 .split.us.outer:                                  ; preds = %3, %14
   %.016.us.ph = phi i8 [ %.117.us, %14 ], [ 0, %3 ]
   %.0.us.ph = phi ptr [ %.1.us, %14 ], [ %0, %3 ]
-  %4 = trunc i8 %.016.us.ph to i1
+  %4 = trunc nuw i8 %.016.us.ph to i1
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.outer, %20
@@ -2986,7 +2986,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   ]
 
 6:                                                ; preds = %.split.us
-  %7 = trunc i8 %.016.us.ph to i1
+  %7 = trunc nuw i8 %.016.us.ph to i1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %6
@@ -3000,7 +3000,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   br label %14
 
 14:                                               ; preds = %12, %8
-  %.117.us = phi i8 [ %13, %12 ], [ %.016.us.ph, %8 ]
+  %.117.us = phi i8 [ %13, %12 ], [ 1, %8 ]
   %.1.us = phi ptr [ %.0.us, %12 ], [ %9, %8 ]
   %15 = getelementptr i8, ptr %.1.us, i64 1
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.us) #32
@@ -3030,7 +3030,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   ]
 
 25:                                               ; preds = %.split
-  %26 = trunc i8 %.016.ph to i1
+  %26 = trunc nuw i8 %.016.ph to i1
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %25
@@ -3044,7 +3044,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   br label %33
 
 33:                                               ; preds = %27, %31
-  %.117 = phi i8 [ %32, %31 ], [ %.016.ph, %27 ]
+  %.117 = phi i8 [ %32, %31 ], [ 1, %27 ]
   %.1 = phi ptr [ %.0, %31 ], [ %28, %27 ]
   %34 = getelementptr i8, ptr %.1, i64 1
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #32

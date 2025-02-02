@@ -397,7 +397,7 @@ _ZL24checkFnHasLiveInYmmOrZmmRN4llvm19MachineRegisterInfoE.exit: ; preds = %.lr.
   br i1 %.not52, label %_ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit, label %51
 
 _ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit: ; preds = %.loopexit74, %55, %58, %42, %40
-  %.1 = phi i8 [ %.04781, %40 ], [ %.04781, %42 ], [ 1, %58 ], [ %.04781, %.loopexit74 ], [ 1, %55 ]
+  %.1 = phi i8 [ 1, %40 ], [ 0, %42 ], [ 1, %58 ], [ %.04781, %.loopexit74 ], [ 1, %55 ]
   %.049.add = add nuw nsw i64 %.049.idx80, 8
   %.not = icmp eq i64 %.049.add, 16
   br i1 %.not, label %62, label %40

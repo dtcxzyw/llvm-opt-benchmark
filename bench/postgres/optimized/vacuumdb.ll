@@ -1161,8 +1161,8 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 118:                                              ; preds = %117
   %119 = load ptr, ptr %3, align 8
-  %.not149172 = icmp eq ptr %119, null
-  br i1 %.not149172, label %._crit_edge.thread, label %.lr.ph
+  %.not149172.not = icmp eq ptr %119, null
+  br i1 %.not149172.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %118, %137
   %.0126174 = phi ptr [ %139, %137 ], [ %119, %118 ]
@@ -1253,7 +1253,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   br label %146
 
 146:                                              ; preds = %._crit_edge.thread, %144, %145
-  %.0132.lcssa183 = phi i1 [ false, %._crit_edge.thread ], [ true, %145 ], [ true, %144 ]
+  %.not149172.not182184 = phi i1 [ true, %._crit_edge.thread ], [ false, %145 ], [ false, %144 ]
   %.0130 = phi i8 [ 0, %._crit_edge.thread ], [ 1, %145 ], [ 1, %144 ]
   %147 = load i32, ptr @objfilter, align 4
   %148 = and i32 %147, 4
@@ -1313,7 +1313,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   br i1 %171, label %.lr.ph177, label %._crit_edge178
 
 .lr.ph177:                                        ; preds = %170
-  br i1 %.0132.lcssa183, label %.lr.ph177.split.us, label %.lr.ph177.split
+  br i1 %.not149172.not182184, label %.lr.ph177.split, label %.lr.ph177.split.us
 
 .lr.ph177.split.us:                               ; preds = %.lr.ph177, %178
   %.0127175.us = phi i32 [ %180, %178 ], [ 0, %.lr.ph177 ]
@@ -1335,8 +1335,8 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   call void @simple_string_list_append(ptr noundef nonnull %12, ptr noundef %179) #9
   call void @resetPQExpBuffer(ptr noundef nonnull %10) #9
   %180 = add nuw nsw i32 %.0127175.us, 1
-  %exitcond180.not = icmp eq i32 %180, %167
-  br i1 %exitcond180.not, label %._crit_edge178, label %.lr.ph177.split.us, !llvm.loop !12
+  %exitcond.not = icmp eq i32 %180, %167
+  br i1 %exitcond.not, label %._crit_edge178, label %.lr.ph177.split.us, !llvm.loop !12
 
 .lr.ph177.split:                                  ; preds = %.lr.ph177, %.lr.ph177.split
   %.0127175 = phi i32 [ %185, %.lr.ph177.split ], [ 0, %.lr.ph177 ]
@@ -1348,10 +1348,10 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
   call void @simple_string_list_append(ptr noundef nonnull %12, ptr noundef %184) #9
   call void @resetPQExpBuffer(ptr noundef nonnull %10) #9
   %185 = add nuw nsw i32 %.0127175, 1
-  %exitcond.not = icmp eq i32 %185, %167
-  br i1 %exitcond.not, label %._crit_edge178, label %.lr.ph177.split, !llvm.loop !12
+  %exitcond180.not = icmp eq i32 %185, %167
+  br i1 %exitcond180.not, label %._crit_edge178, label %.lr.ph177.split, !llvm.loop !12
 
-._crit_edge178:                                   ; preds = %.lr.ph177.split, %178, %170
+._crit_edge178:                                   ; preds = %178, %.lr.ph177.split, %170
   call void @termPQExpBuffer(ptr noundef nonnull %10) #9
   call void @PQclear(ptr noundef %165) #9
   %spec.select = call i32 @llvm.smin.i32(i32 %4, i32 %167)

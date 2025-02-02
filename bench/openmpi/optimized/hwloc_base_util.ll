@@ -526,7 +526,7 @@ opal_hwloc_base_get_obj_by_type.exit.thread.i:    ; preds = %212, %opal_hwloc_ba
   %.1.lcssa.i = phi i1 [ %.129.i, %.lr.ph.i ], [ %.2.i, %212 ], [ %.129.i, %opal_hwloc_base_get_obj_by_type.exit.i ]
   %203 = icmp ult i32 %.01936.i, 2
   %.not23.i = select i1 %203, i1 true, i1 %.1.lcssa.i
-  br i1 %.not23.i, label %.split41.us.i, label %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge, !llvm.loop !6
+  br i1 %.not23.i, label %.split40.us.i, label %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge, !llvm.loop !6
 
 opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge: ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i
   %.pr.i.pre = load ptr, ptr @opal_hwloc_topology, align 8
@@ -560,14 +560,14 @@ opal_hwloc_base_get_obj_by_type.exit.thread.i.thread: ; preds = %.preheader.i
   %215 = icmp eq ptr %214, null
   br i1 %215, label %opal_hwloc_base_get_obj_by_type.exit.thread.i, label %.lr.ph.i
 
-.split41.us.i:                                    ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i
+.split40.us.i:                                    ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i
   br i1 %.1.lcssa.i, label %216, label %fill_cache_line_size.exit
 
-216:                                              ; preds = %.split41.us.i
+216:                                              ; preds = %.split40.us.i
   store i32 %.117.lcssa.i, ptr @opal_cache_line_size, align 4
   br label %fill_cache_line_size.exit
 
-fill_cache_line_size.exit:                        ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread, %.split41.us.i, %216
+fill_cache_line_size.exit:                        ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread, %.split40.us.i, %216
   %.pr139 = load ptr, ptr @opal_hwloc_topology, align 8
   %.not.i89 = icmp eq ptr %.pr139, null
   br i1 %.not.i89, label %opal_hwloc_base_set_local_cpuset.exit, label %217

@@ -849,14 +849,14 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit12: ; preds = %66
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %97 = phi i8 [ %82, %.lr.ph.preheader ], [ %100, %.lr.ph ]
-  %.022.i.i25 = phi i64 [ %83, %.lr.ph.preheader ], [ %98, %.lr.ph ]
-  %98 = lshr i64 %.022.i.i25, 7
+  %.021.i.i25 = phi i64 [ %83, %.lr.ph.preheader ], [ %98, %.lr.ph ]
+  %98 = lshr i64 %.021.i.i25, 7
   %spec.select19.i.i = or i8 %97, -128
   %99 = getelementptr inbounds nuw [5 x i8], ptr %12, i64 0, i64 %indvars.iv
   store i8 %spec.select19.i.i, ptr %99, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %100 = trunc i64 %98 to i8
-  %.not.i.i13 = icmp samesign ult i64 %.022.i.i25, 8192
+  %.not.i.i13 = icmp samesign ult i64 %.021.i.i25, 8192
   br i1 %.not.i.i13, label %.thread.i.i.loopexit, label %.lr.ph, !llvm.loop !4
 
 101:                                              ; preds = %.thread.i.i

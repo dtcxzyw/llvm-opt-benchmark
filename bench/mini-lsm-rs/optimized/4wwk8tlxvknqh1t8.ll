@@ -11651,6 +11651,8 @@ common.resume:                                    ; preds = %.critedge46, %43, %
   %168 = load i64, ptr %121, align 8, !noundef !4
   %169 = icmp ne i64 %168, 0
   %brmerge = select i1 %169, i1 true, i1 %.03696
+  %not. = xor i1 %169, true
+  %.036.mux = select i1 %not., i1 true, i1 %.03696
   br i1 %brmerge, label %189, label %188
 
 170:                                              ; preds = %150
@@ -11704,7 +11706,7 @@ common.resume:                                    ; preds = %.critedge46, %43, %
   br i1 %.not41, label %194, label %191, !prof !1530
 
 189:                                              ; preds = %167, %207
-  %.137 = phi i1 [ true, %207 ], [ %.03696, %167 ]
+  %.137 = phi i1 [ true, %207 ], [ %.036.mux, %167 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   %190 = icmp eq ptr %128, %116
   br i1 %190, label %._crit_edge, label %127

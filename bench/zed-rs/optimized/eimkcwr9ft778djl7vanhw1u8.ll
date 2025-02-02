@@ -15206,7 +15206,7 @@ define hidden void @_ZN9workspace26DelayedDebouncedEditAction8fire_new17hf2fd55b
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %85
 
 21:                                               ; preds = %17, %5
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
@@ -15246,7 +15246,7 @@ define hidden void @_ZN9workspace26DelayedDebouncedEditAction8fire_new17hf2fd55b
   %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..sync..ArcInner$LT$futures_channel..oneshot..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hffa9ae807b4fe469E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %10) #35
-          to label %.thread unwind label %30
+          to label %85 unwind label %30
 
 30:                                               ; preds = %28
   %31 = landingpad { ptr, i32 }
@@ -15362,7 +15362,7 @@ define hidden void @_ZN9workspace26DelayedDebouncedEditAction8fire_new17hf2fd55b
   %68 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr292drop_in_place$LT$workspace..DelayedDebouncedEditAction..fire_new$LT$$LT$gpui..view..View$LT$editor..Editor$GT$$u20$as$u20$workspace..item..ItemHandle$GT$..added_to_pane..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h81a9ac38d9c760b1E.llvm.11197331640310745952"(ptr noalias noundef nonnull align 8 dereferenceable(72) %11) #35
-          to label %85 unwind label %69, !noalias !3119
+          to label %.thread22 unwind label %69, !noalias !3119
 
 69:                                               ; preds = %67
   %70 = landingpad { ptr, i32 }
@@ -15403,7 +15403,7 @@ define hidden void @_ZN9workspace26DelayedDebouncedEditAction8fire_new17hf2fd55b
   %81 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
-  br label %85
+  br label %.thread22
 
 "_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$$GT$17h4df87410954ebc54E.exit": ; preds = %"_ZN4core3ptr59drop_in_place$LT$async_task..task..Task$LT$$LP$$RP$$GT$$GT$17h77c75fe5ce2ab4a6E.exit.i.i", %59, %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
@@ -15415,22 +15415,22 @@ define hidden void @_ZN9workspace26DelayedDebouncedEditAction8fire_new17hf2fd55b
   %eh.lpad-body10 = phi { ptr, i32 } [ %51, %50 ], [ %41, %44 ], [ %41, %40 ]
   store ptr %25, ptr %14, align 8
   invoke void @"_ZN4core3ptr71drop_in_place$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$17ha88f8b120e667c6eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #35
-          to label %.thread unwind label %83
+          to label %85 unwind label %83
 
-83:                                               ; preds = %.thread, %82
+83:                                               ; preds = %85, %82
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #34
   unreachable
 
-85:                                               ; preds = %67, %80, %.thread
-  %.pn.pn19 = phi { ptr, i32 } [ %.pn.pn20, %.thread ], [ %81, %80 ], [ %68, %67 ]
+.thread22:                                        ; preds = %67, %80, %85
+  %.pn.pn19 = phi { ptr, i32 } [ %.pn.pn.ph, %85 ], [ %81, %80 ], [ %68, %67 ]
   resume { ptr, i32 } %.pn.pn19
 
-.thread:                                          ; preds = %82, %28, %19
-  %.pn.pn20 = phi { ptr, i32 } [ %20, %19 ], [ %29, %28 ], [ %eh.lpad-body10, %82 ]
+85:                                               ; preds = %82, %19, %28
+  %.pn.pn.ph = phi { ptr, i32 } [ %eh.lpad-body10, %82 ], [ %20, %19 ], [ %29, %28 ]
   invoke fastcc void @"_ZN4core3ptr208drop_in_place$LT$$LT$gpui..view..View$LT$editor..Editor$GT$$u20$as$u20$workspace..item..ItemHandle$GT$..added_to_pane..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4fe6ff1834e7d63bE"(ptr noalias noundef align 8 dereferenceable(32) %4) #35
-          to label %85 unwind label %83
+          to label %.thread22 unwind label %83
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

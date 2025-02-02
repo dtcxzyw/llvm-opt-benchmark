@@ -365,7 +365,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11loadGeomSetEP9rcContextRKNSt
   br label %81
 
 81:                                               ; preds = %76, %74, %72, %.lr.ph.i
-  %.119.i = phi i8 [ %.01824.i, %74 ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %72 ], [ 0, %76 ]
+  %.119.i = phi i8 [ 1, %74 ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %72 ], [ 0, %76 ]
   %.117.i = phi i1 [ false, %74 ], [ false, %.lr.ph.i ], [ %not..i, %72 ], [ %80, %76 ]
   %.1.i = phi i32 [ %.01526.i, %74 ], [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %72 ], [ %77, %76 ]
   %82 = icmp uge ptr %71, %39
@@ -549,7 +549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %161
 
 161:                                              ; preds = %156, %154, %152, %.lr.ph.i82
-  %.119.i86 = phi i8 [ %.01824.i85, %154 ], [ %.01824.i85, %.lr.ph.i82 ], [ %.01824.i85, %152 ], [ 0, %156 ]
+  %.119.i86 = phi i8 [ 1, %154 ], [ %.01824.i85, %.lr.ph.i82 ], [ %.01824.i85, %152 ], [ 0, %156 ]
   %.117.i87 = phi i1 [ false, %154 ], [ false, %.lr.ph.i82 ], [ %not..i91, %152 ], [ %160, %156 ]
   %.1.i88 = phi i32 [ %.01526.i84, %154 ], [ %.01526.i84, %.lr.ph.i82 ], [ %.01526.i84, %152 ], [ %157, %156 ]
   %162 = icmp uge ptr %151, %39

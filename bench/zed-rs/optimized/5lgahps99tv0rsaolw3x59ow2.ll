@@ -473,7 +473,7 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit: ; preds = %163
 
 169:                                              ; preds = %155, %._crit_edge54, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit", %12
   %.sroa.8.0 = phi float [ %15, %12 ], [ %159, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ %.sroa.8.2, %._crit_edge54 ], [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ %.sroa.8.1.lcssa61, %155 ]
-  %.sroa.0.0 = phi i32 [ %14, %12 ], [ 1, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ %.sroa.0.2, %._crit_edge54 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ 0, %155 ]
+  %.sroa.0.0 = phi i32 [ %14, %12 ], [ 1, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ 1, %._crit_edge54 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ 0, %155 ]
   %170 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
   %171 = insertvalue { i32, float } %170, float %.sroa.8.0, 1
   ret { i32, float } %171

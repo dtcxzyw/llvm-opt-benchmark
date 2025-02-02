@@ -1112,9 +1112,11 @@ do.body:                                          ; preds = %do.cond, %entry
   %div7 = sdiv i64 %sub6, %div18
   %add8 = add i64 %div7, %div4
   %add9 = add i64 %add8, %clusters.addr.0
-  %cmp = icmp eq i64 %add9, %n.0
-  %brmerge.not = select i1 %cmp, i1 %generous_increase.addr.0, i1 false
-  br i1 %brmerge.not, label %if.then, label %do.cond
+  %cmp = icmp ne i64 %add9, %n.0
+  %generous_increase.addr.0.not = xor i1 %generous_increase.addr.0, true
+  %brmerge = select i1 %cmp, i1 true, i1 %generous_increase.addr.0.not
+  %generous_increase.addr.0.mux = select i1 %cmp, i1 %generous_increase.addr.0, i1 false
+  br i1 %brmerge, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %do.body
   %sub13 = add i64 %div7, 1
@@ -1123,7 +1125,7 @@ if.then:                                          ; preds = %do.body
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body, %if.then
-  %generous_increase.addr.1 = phi i1 [ false, %if.then ], [ %generous_increase.addr.0, %do.body ]
+  %generous_increase.addr.1 = phi i1 [ false, %if.then ], [ %generous_increase.addr.0.mux, %do.body ]
   %clusters.addr.1 = phi i64 [ %add15, %if.then ], [ %clusters.addr.0, %do.body ]
   %n.1 = phi i64 [ 0, %if.then ], [ %add9, %do.body ]
   %cmp16.not = icmp eq i64 %n.1, %n.0
@@ -11044,26 +11046,26 @@ entry:
   %shl.i = shl nuw i32 1, %refcount_order
   %conv.i = sext i32 %shl.i to i64
   %div1.i = udiv i64 %mul.i, %conv.i
+  %add.i = add i64 %div1.i, -1
   %add5.i = add nsw i64 %div1225, -1
-  %add.i = add i64 %div21, -1
-  %add2.i = add i64 %add.i, %div1.i
-  br label %do.body.i
+  br label %do.cond.i
 
-do.body.i:                                        ; preds = %do.body.i, %entry
-  %table.0.i = phi i64 [ 0, %entry ], [ %div7.i, %do.body.i ]
-  %blocks.0.i = phi i64 [ 0, %entry ], [ %div4.i, %do.body.i ]
-  %n.0.i = phi i64 [ 0, %entry ], [ %add9.i, %do.body.i ]
-  %add3.i = add i64 %add2.i, %table.0.i
-  %sub.i = add i64 %add3.i, %blocks.0.i
+do.cond.i:                                        ; preds = %entry, %do.cond.i
+  %table.0.i = phi i64 [ 0, %entry ], [ %div7.i, %do.cond.i ]
+  %blocks.0.i = phi i64 [ 0, %entry ], [ %div4.i, %do.cond.i ]
+  %n.0.i = phi i64 [ 0, %entry ], [ %add9.i, %do.cond.i ]
+  %add2.i = add i64 %add.i, %table.0.i
+  %add3.i = add i64 %add2.i, %blocks.0.i
+  %sub.i = add i64 %add3.i, %div21
   %div4.i = sdiv i64 %sub.i, %div1.i
   %sub6.i = add i64 %add5.i, %div4.i
   %div7.i = sdiv i64 %sub6.i, %div1225
   %add8.i = add i64 %div7.i, %div4.i
   %add9.i = add i64 %add8.i, %div21
   %cmp16.not.i = icmp eq i64 %add9.i, %n.0.i
-  br i1 %cmp16.not.i, label %qcow2_refcount_metadata_size.exit, label %do.body.i, !llvm.loop !7
+  br i1 %cmp16.not.i, label %qcow2_refcount_metadata_size.exit, label %do.cond.i, !llvm.loop !7
 
-qcow2_refcount_metadata_size.exit:                ; preds = %do.body.i
+qcow2_refcount_metadata_size.exit:                ; preds = %do.cond.i
   %mul22.i = mul i64 %add8.i, %cluster_size
   %add23 = add i64 %add20, %mul22.i
   ret i64 %add23

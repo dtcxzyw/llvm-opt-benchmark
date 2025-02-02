@@ -6583,8 +6583,8 @@ _ZNK5Ipopt17RegisteredOptions30RegisteredCategoriesByPriorityERSt3setINS_8SmartP
   invoke void %122(ptr noundef nonnull align 8 dereferenceable(220) %119, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %123 unwind label %.loopexit
 
-123:                                              ; preds = %117, %85, %.thread.invoke, %83
-  %.118 = phi i1 [ false, %117 ], [ %.01784, %83 ], [ false, %.thread.invoke ], [ false, %85 ]
+123:                                              ; preds = %117, %.thread.invoke, %85, %83
+  %.118 = phi i1 [ false, %117 ], [ %.01784, %83 ], [ false, %85 ], [ false, %.thread.invoke ]
   %.sroa.056.0 = load ptr, ptr %.sroa.056.085, align 8
   %124 = load ptr, ptr %55, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 56

@@ -5609,7 +5609,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %125
 
 125:                                              ; preds = %123, %116, %114
-  %.168 = phi i8 [ %.06796, %114 ], [ 1, %123 ], [ %.06796, %116 ]
+  %.168 = phi i8 [ 1, %114 ], [ 1, %123 ], [ 0, %116 ]
   %126 = trunc nuw i8 %.06697 to i1
   br i1 %126, label %134, label %127
 
@@ -5627,7 +5627,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %134
 
 134:                                              ; preds = %132, %127, %125
-  %.1 = phi i8 [ %.06697, %125 ], [ 1, %132 ], [ %.06697, %127 ]
+  %.1 = phi i8 [ 1, %125 ], [ 1, %132 ], [ 0, %127 ]
   %135 = trunc nuw i8 %.168 to i1
   br i1 %135, label %136, label %138
 

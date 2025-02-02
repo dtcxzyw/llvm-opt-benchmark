@@ -2369,7 +2369,6 @@ if.then5:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
-  %first.1 = phi i8 [ 0, %if.then5 ], [ %first.013, %if.then ]
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.11)
   %8 = load ptr, ptr %m_context, align 8
   %m_bool_var2expr.i = getelementptr inbounds nuw i8, ptr %8, i64 9384
@@ -2383,7 +2382,7 @@ if.end:                                           ; preds = %if.then5, %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
-  %first.2 = phi i8 [ %first.1, %if.end ], [ %first.013, %for.body ]
+  %first.2 = phi i8 [ 0, %if.end ], [ %first.013, %for.body ]
   %__begin2.0 = getelementptr inbounds nuw i8, ptr %__begin2.014, i64 4
   %cmp.not = icmp eq ptr %__begin2.0, %add.ptr.i918
   br i1 %cmp.not, label %for.end, label %for.body
@@ -11319,7 +11318,6 @@ if.then6:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then6, %if.then
-  %first.1 = phi i8 [ 0, %if.then6 ], [ %first.012, %if.then ]
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.11)
   %8 = load ptr, ptr %m_context, align 8
   %m_bool_var2expr.i = getelementptr inbounds nuw i8, ptr %8, i64 9384
@@ -11333,7 +11331,7 @@ if.end:                                           ; preds = %if.then6, %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
-  %first.2 = phi i8 [ %first.1, %if.end ], [ %first.012, %for.body ]
+  %first.2 = phi i8 [ 0, %if.end ], [ %first.012, %for.body ]
   %it.0 = getelementptr inbounds nuw i8, ptr %it.013, i64 4
   %cmp.not = icmp eq ptr %it.0, %add.ptr.i817
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !47

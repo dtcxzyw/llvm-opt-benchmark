@@ -376,7 +376,7 @@ _ZNK4llvm5APInt3sleEm.exit.thread:                ; preds = %_ZNK4llvm5APInt18ge
   br label %170
 
 170:                                              ; preds = %169, %167, %.preheader.i.i
-  %.1.i.i = phi i8 [ %.01924.i.i, %.preheader.i.i ], [ %spec.select.i.i38, %167 ], [ %spec.select21.i.i, %169 ]
+  %.1.i.i = phi i8 [ 0, %.preheader.i.i ], [ %spec.select.i.i38, %167 ], [ %spec.select21.i.i, %169 ]
   %171 = add nuw nsw i64 %.01825.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %171, 624
   br i1 %exitcond.not.i.i, label %172, label %.preheader.i.i, !llvm.loop !10

@@ -859,13 +859,13 @@ define dso_local void @_ZN4llvm12SCEVDivision12visitMulExprEPKNS_11SCEVMulExprE(
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.sink.split: ; preds = %52, %40, %31
   %.sink = phi i64 [ %33, %31 ], [ %42, %40 ], [ %54, %52 ]
   %.sink74.ph = phi ptr [ %22, %31 ], [ %22, %40 ], [ %45, %52 ]
-  %.1.ph = phi i8 [ %.064, %31 ], [ %.064, %40 ], [ 1, %52 ]
+  %.1.ph = phi i8 [ 1, %31 ], [ 0, %40 ], [ 1, %52 ]
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %.sink, i64 noundef 8) #10
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.sink.split, %52, %40, %31
   %.sink74 = phi ptr [ %22, %31 ], [ %22, %40 ], [ %45, %52 ], [ %.sink74.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.sink.split ]
-  %.1 = phi i8 [ %.064, %31 ], [ %.064, %40 ], [ 1, %52 ], [ %.1.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.sink.split ]
+  %.1 = phi i8 [ 1, %31 ], [ 0, %40 ], [ 1, %52 ], [ %.1.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit.sink.split ]
   %56 = load ptr, ptr %5, align 8
   %57 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
   %58 = getelementptr inbounds ptr, ptr %56, i64 %57

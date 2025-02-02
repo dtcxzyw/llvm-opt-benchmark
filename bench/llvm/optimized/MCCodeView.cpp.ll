@@ -2709,7 +2709,7 @@ _ZL18compressAnnotationjRN4llvm15SmallVectorImplIcEE.exit116: ; preds = %149, %.
   %.sroa.052.1 = phi i32 [ %.sroa.052.0160, %87 ], [ %.sroa.052.0160, %101 ], [ %.sroa.052.1.ph, %.sink.split ]
   %.sroa.4.1 = phi i32 [ %.sroa.4.0161, %87 ], [ %.sroa.4.0161, %101 ], [ %.sroa.4.1.ph, %.sink.split ]
   %.2 = phi ptr [ %.078162, %87 ], [ %.078162, %101 ], [ %167, %.sink.split ]
-  %.1 = phi i8 [ 0, %87 ], [ %.0163, %101 ], [ %.1.ph, %.sink.split ]
+  %.1 = phi i8 [ 0, %87 ], [ 1, %101 ], [ %.1.ph, %.sink.split ]
   %169 = getelementptr inbounds nuw i8, ptr %.080159, i64 24
   %.not85 = icmp eq ptr %169, %45
   br i1 %.not85, label %._crit_edge, label %50

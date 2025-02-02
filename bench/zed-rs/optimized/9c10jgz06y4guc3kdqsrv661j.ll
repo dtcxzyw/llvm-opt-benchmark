@@ -19,8 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.4e5eb435393fb5d7439c9e1ed465e404.25 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.4e5eb435393fb5d7439c9e1ed465e404.19, [16 x i8] c".\00\00\00\00\00\00\00\92\00\00\00\10\00\00\00" }>, align 8
 @anon.4e5eb435393fb5d7439c9e1ed465e404.26 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.4e5eb435393fb5d7439c9e1ed465e404.19, [16 x i8] c".\00\00\00\00\00\00\00\93\00\00\00$\00\00\00" }>, align 8
 @anon.189432bcf7ed89cde280d69cc1f6d297.56.llvm.8892032343851396646 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
-@anon.189432bcf7ed89cde280d69cc1f6d297.76.llvm.8892032343851396646 = external hidden unnamed_addr constant <{ ptr, [8 x i8] }>, align 8
-@anon.189432bcf7ed89cde280d69cc1f6d297.77.llvm.8892032343851396646 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @__rust_no_alloc_shim_is_unstable = external global i8
 @anon.898a0e2bc5efb6124cf11a29affefa5c.34.llvm.11657739843805851274 = external hidden unnamed_addr constant <{ ptr, [8 x i8] }>, align 8
 @anon.898a0e2bc5efb6124cf11a29affefa5c.35.llvm.11657739843805851274 = external hidden unnamed_addr constant <{ [40 x i8] }>, align 1
@@ -2281,101 +2279,81 @@ define noundef align 8 dereferenceable_or_null(72) ptr @_ZN13notifications17Noti
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN13notifications17NotificationStore23load_more_notifications17hed6fe28e9724902bE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(160) %1, i1 noundef zeroext %2, ptr noalias noundef align 8 dereferenceable(40) %3) unnamed_addr #1 {
-  %5 = alloca [48 x i8], align 8
-  %6 = alloca [360 x i8], align 8
-  %7 = alloca [1 x i8], align 1
-  %8 = zext i1 %2 to i8
-  store i8 %8, ptr %7, align 1
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %10 = load i8, ptr %9, align 8, !range !70, !noundef !4
-  %11 = trunc nuw i8 %10 to i1
-  %.not = xor i1 %11, true
+  %5 = alloca [360 x i8], align 8
+  %6 = alloca [1 x i8], align 1
+  %7 = zext i1 %2 to i8
+  store i8 %7, ptr %6, align 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %9 = load i8, ptr %8, align 8, !range !70, !noundef !4
+  %10 = trunc nuw i8 %9 to i1
+  %.not = xor i1 %10, true
   %brmerge = or i1 %2, %.not
-  br i1 %brmerge, label %12, label %13
+  br i1 %brmerge, label %11, label %12
+
+11:                                               ; preds = %4
+  br i1 %2, label %33, label %14
 
 12:                                               ; preds = %4
-  br i1 %2, label %40, label %15
-
-13:                                               ; preds = %4
   store i64 3, ptr %0, align 8
-  br label %14
+  br label %13
 
-14:                                               ; preds = %40, %13
+13:                                               ; preds = %33, %12
   ret void
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 144
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !465)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !468)
-  %17 = load ptr, ptr %16, align 8, !alias.scope !471, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load i8, ptr %18, align 8, !range !70, !noalias !471, !noundef !4
-  %trunc3.i.i = trunc nuw i8 %19 to i1
-  br i1 %trunc3.i.i, label %"_ZN8sum_tree16SumTree$LT$T$GT$13leftmost_leaf17h9b9456a6f13d0f14E.llvm.8892032343851396646.exit.i", label %.lr.ph.i.i
+  %16 = load ptr, ptr %15, align 8, !alias.scope !471, !nonnull !4, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i8, ptr %17, align 8, !range !70, !noalias !471, !noundef !4
+  %trunc3.i.i = trunc nuw i8 %18 to i1
+  br i1 %trunc3.i.i, label %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit", label %.lr.ph.i.i
 
 tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %24, i64 352
-  %21 = load ptr, ptr %20, align 8, !noalias !471, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load i8, ptr %22, align 8, !range !70, !noalias !471, !noundef !4
-  %trunc.i.i = trunc nuw i8 %23 to i1
-  br i1 %trunc.i.i, label %"_ZN8sum_tree16SumTree$LT$T$GT$13leftmost_leaf17h9b9456a6f13d0f14E.llvm.8892032343851396646.exit.i", label %.lr.ph.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %23, i64 352
+  %20 = load ptr, ptr %19, align 8, !noalias !471, !nonnull !4, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load i8, ptr %21, align 8, !range !70, !noalias !471, !noundef !4
+  %trunc.i.i = trunc nuw i8 %22 to i1
+  br i1 %trunc.i.i, label %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %15, %tailrecurse.i.i
-  %24 = phi ptr [ %21, %tailrecurse.i.i ], [ %17, %15 ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 344
-  %26 = load i32, ptr %25, align 8, !noalias !471, !noundef !4
-  %.not.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i, label %27, label %tailrecurse.i.i
+.lr.ph.i.i:                                       ; preds = %14, %tailrecurse.i.i
+  %23 = phi ptr [ %20, %tailrecurse.i.i ], [ %16, %14 ]
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 344
+  %25 = load i32, ptr %24, align 8, !noalias !471, !noundef !4
+  %.not.i.i = icmp eq i32 %25, 0
+  br i1 %.not.i.i, label %26, label %tailrecurse.i.i
 
-27:                                               ; preds = %.lr.ph.i.i
+26:                                               ; preds = %.lr.ph.i.i
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.189432bcf7ed89cde280d69cc1f6d297.56.llvm.8892032343851396646) #29, !noalias !471
   unreachable
 
-"_ZN8sum_tree16SumTree$LT$T$GT$13leftmost_leaf17h9b9456a6f13d0f14E.llvm.8892032343851396646.exit.i": ; preds = %tailrecurse.i.i, %15
-  %28 = phi i8 [ %19, %15 ], [ %23, %tailrecurse.i.i ]
-  %29 = phi ptr [ %17, %15 ], [ %21, %tailrecurse.i.i ]
-  %trunc.i = trunc nuw i8 %28 to i1
-  br i1 %trunc.i, label %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit", label %30
+"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit": ; preds = %tailrecurse.i.i, %14
+  %27 = phi ptr [ %16, %14 ], [ %20, %tailrecurse.i.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %29 = load i32, ptr %28, align 8, !noalias !465, !noundef !4
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %33, label %30
 
-30:                                               ; preds = %"_ZN8sum_tree16SumTree$LT$T$GT$13leftmost_leaf17h9b9456a6f13d0f14E.llvm.8892032343851396646.exit.i"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !465
-  store ptr @anon.189432bcf7ed89cde280d69cc1f6d297.76.llvm.8892032343851396646, ptr %5, align 8, !noalias !465
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %31, align 8, !noalias !465
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %32, align 8, !noalias !465
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %33, align 8, !noalias !465
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %34, align 8, !noalias !465
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.189432bcf7ed89cde280d69cc1f6d297.77.llvm.8892032343851396646) #29, !noalias !465
-  unreachable
+30:                                               ; preds = %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit"
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 112
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  br label %33
 
-"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit": ; preds = %"_ZN8sum_tree16SumTree$LT$T$GT$13leftmost_leaf17h9b9456a6f13d0f14E.llvm.8892032343851396646.exit.i"
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %36 = load i32, ptr %35, align 8, !noalias !465, !noundef !4
-  %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %40, label %37
-
-37:                                               ; preds = %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit"
-  %38 = getelementptr inbounds nuw i8, ptr %29, i64 112
-  %39 = load i64, ptr %38, align 8, !noundef !4
-  br label %40
-
-40:                                               ; preds = %37, %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit", %12
-  %.sroa.02.0 = phi i64 [ 0, %12 ], [ 1, %37 ], [ 0, %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit" ]
-  %.sroa.4.0 = phi i64 [ undef, %12 ], [ %39, %37 ], [ undef, %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit" ]
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %42 = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %6)
-  call void @_ZN6client6Client16request_envelope17h1448423b66d8a51cE(ptr noalias noundef nonnull sret([352 x i8]) align 8 captures(none) dereferenceable(352) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 %43, i64 noundef %.sroa.02.0, i64 %.sroa.4.0)
-  store ptr %7, ptr %6, align 8
-  call void @"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$5spawn17h33680d53c3401356E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(360) %6)
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %6)
-  br label %14
+33:                                               ; preds = %30, %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit", %11
+  %.sroa.02.0 = phi i64 [ 0, %11 ], [ 1, %30 ], [ 0, %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %11 ], [ %32, %30 ], [ undef, %"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE.exit" ]
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %35 = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %5)
+  call void @_ZN6client6Client16request_envelope17h1448423b66d8a51cE(ptr noalias noundef nonnull sret([352 x i8]) align 8 captures(none) dereferenceable(352) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 %36, i64 noundef %.sroa.02.0, i64 %.sroa.4.0)
+  store ptr %6, ptr %5, align 8
+  call void @"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$5spawn17h33680d53c3401356E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(360) %5)
+  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %5)
+  br label %13
 }
 
 ; Function Attrs: nonlazybind uwtable

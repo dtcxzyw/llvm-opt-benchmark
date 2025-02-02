@@ -2211,7 +2211,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   %6 = alloca %struct.nameData, align 8
   %7 = load i32, ptr @max_replication_slots, align 4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %116, label %9
+  br i1 %8, label %118, label %9
 
 9:                                                ; preds = %4
   %10 = load i32, ptr @wal_segment_size, align 4
@@ -2228,260 +2228,263 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   %.not85.i = icmp eq i32 %2, 0
   br label %.lr.ph
 
-.loopexit:                                        ; preds = %37, %ReplicationSlotMarkDirty.exit.i, %InvalidatePossiblyObsoleteSlot.exit
-  %.342 = phi i1 [ %.01228, %InvalidatePossiblyObsoleteSlot.exit ], [ %.01228, %37 ], [ true, %ReplicationSlotMarkDirty.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  %18 = load ptr, ptr @MainLWLockArray, align 8
-  %19 = getelementptr i8, ptr %18, i64 4736
-  %20 = call zeroext i1 @LWLockAcquire(ptr noundef %19, i32 noundef 1) #15
-  %21 = load i32, ptr @max_replication_slots, align 4
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %InvalidatePossiblyObsoleteSlot.exit
+  %18 = phi i32 [ %16, %.lr.ph.lr.ph ], [ %107, %InvalidatePossiblyObsoleteSlot.exit ]
+  %.01237 = phi i1 [ false, %.lr.ph.lr.ph ], [ %.3, %InvalidatePossiblyObsoleteSlot.exit ]
+  br label %19
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.loopexit
-  %.01228 = phi i1 [ false, %.lr.ph.lr.ph ], [ %.342, %.loopexit ]
-  br label %23
+19:                                               ; preds = %.lr.ph, %109
+  %20 = phi i32 [ %18, %.lr.ph ], [ %110, %109 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %109 ]
+  %21 = load ptr, ptr @ReplicationSlotCtl, align 8
+  %22 = getelementptr [1 x %struct.ReplicationSlot], ptr %21, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %24 = load i8, ptr %23, align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %.lr.ph.i, label %109
 
-23:                                               ; preds = %.lr.ph, %107
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
-  %24 = load ptr, ptr @ReplicationSlotCtl, align 8
-  %25 = getelementptr [1 x %struct.ReplicationSlot], ptr %24, i64 0, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %27 = load i8, ptr %26, align 1
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %.lr.ph.i, label %107
-
-.lr.ph.i:                                         ; preds = %23
+.lr.ph.i:                                         ; preds = %19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 104
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 112
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %36 = getelementptr inbounds nuw i8, ptr %25, i64 224
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 224
+  br label %36
+
+._crit_edge.i:                                    ; preds = %84
+  %34 = load ptr, ptr @MainLWLockArray, align 8
+  %35 = getelementptr i8, ptr %34, i64 4736
+  call void @LWLockRelease(ptr noundef %35) #15
+  br label %InvalidatePossiblyObsoleteSlot.exit
+
+36:                                               ; preds = %84, %.lr.ph.i
+  %.063125.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %84 ]
+  %.064124.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.i, %84 ]
+  %.066123.i = phi i64 [ 0, %.lr.ph.i ], [ %.268.i, %84 ]
+  %.069122.i = phi i64 [ 0, %.lr.ph.i ], [ %.271.i, %84 ]
+  %.072121.i = phi i1 [ false, %.lr.ph.i ], [ %.173.i, %84 ]
+  %.074120.i = phi i1 [ false, %.lr.ph.i ], [ true, %84 ]
+  %37 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #15, !srcloc !10
+  %.not.i = icmp eq i8 %37, 0
+  br i1 %.not.i, label %40, label %38
+
+38:                                               ; preds = %36
+  %39 = call i32 @s_lock(ptr noundef nonnull %22, ptr noundef nonnull @.str.6, i32 noundef 1516, ptr noundef nonnull @__func__.InvalidatePossiblyObsoleteSlot) #15
   br label %40
 
-37:                                               ; preds = %87
-  %38 = load ptr, ptr @MainLWLockArray, align 8
-  %39 = getelementptr i8, ptr %38, i64 4736
-  call void @LWLockRelease(ptr noundef %39) #15
-  br label %.loopexit
+40:                                               ; preds = %38, %36
+  %41 = load i64, ptr %27, align 8
+  %42 = load i32, ptr %28, align 8
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %.thread.i
 
-40:                                               ; preds = %87, %.lr.ph.i
-  %.063125.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %87 ]
-  %.064124.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.i, %87 ]
-  %.066123.i = phi i64 [ 0, %.lr.ph.i ], [ %.268.i, %87 ]
-  %.069122.i = phi i64 [ 0, %.lr.ph.i ], [ %.271.i, %87 ]
-  %.072121.i = phi i1 [ false, %.lr.ph.i ], [ %.173.i, %87 ]
-  %.074120.i = phi i1 [ false, %.lr.ph.i ], [ true, %87 ]
-  %41 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %25, i8 1, ptr nonnull elementtype(i8) %25) #15, !srcloc !10
-  %.not.i = icmp eq i8 %41, 0
-  br i1 %.not.i, label %44, label %42
+44:                                               ; preds = %40
+  br i1 %.072121.i, label %50, label %45
 
-42:                                               ; preds = %40
-  %43 = call i32 @s_lock(ptr noundef nonnull %25, ptr noundef nonnull @.str.6, i32 noundef 1516, ptr noundef nonnull @__func__.InvalidatePossiblyObsoleteSlot) #15
-  br label %44
+45:                                               ; preds = %44
+  %46 = load i32, ptr %29, align 4
+  %47 = zext i32 %46 to i64
+  %48 = load i32, ptr %30, align 8
+  %49 = zext i32 %48 to i64
+  br label %50
 
-44:                                               ; preds = %42, %40
-  %45 = load i64, ptr %30, align 8
-  %46 = load i32, ptr %31, align 8
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %.thread.i
-
-48:                                               ; preds = %44
-  br i1 %.072121.i, label %54, label %49
-
-49:                                               ; preds = %48
-  %50 = load i32, ptr %32, align 4
-  %51 = zext i32 %50 to i64
-  %52 = load i32, ptr %33, align 8
-  %53 = zext i32 %52 to i64
-  br label %54
-
-54:                                               ; preds = %49, %48
-  %.271.i = phi i64 [ %.069122.i, %48 ], [ %51, %49 ]
-  %.268.i = phi i64 [ %.066123.i, %48 ], [ %53, %49 ]
-  %.2.i = phi i64 [ %.064124.i, %48 ], [ %45, %49 ]
-  switch i32 %0, label %InvalidatePossiblyObsoleteSlot.exit.thread [
-    i32 1, label %55
-    i32 2, label %57
-    i32 3, label %67
+50:                                               ; preds = %45, %44
+  %.271.i = phi i64 [ %.069122.i, %44 ], [ %47, %45 ]
+  %.268.i = phi i64 [ %.066123.i, %44 ], [ %49, %45 ]
+  %.2.i = phi i64 [ %.064124.i, %44 ], [ %41, %45 ]
+  switch i32 %0, label %.thread.thread.i [
+    i32 1, label %51
+    i32 2, label %53
+    i32 3, label %63
   ]
 
-InvalidatePossiblyObsoleteSlot.exit.thread:       ; preds = %54
+.thread.thread.i:                                 ; preds = %50
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !35
-  store i8 0, ptr %25, align 8
-  br label %.sink.split
+  store i8 0, ptr %22, align 8
+  br label %InvalidatePossiblyObsoleteSlot.exit.thread
 
-55:                                               ; preds = %54
+51:                                               ; preds = %50
   %.not89.i = icmp ne i64 %.2.i, 0
-  %56 = icmp ult i64 %.2.i, %12
-  %or.cond110.i = and i1 %.not89.i, %56
+  %52 = icmp ult i64 %.2.i, %12
+  %or.cond110.i = and i1 %.not89.i, %52
   br i1 %or.cond110.i, label %.thread100.i, label %.thread.i
 
-57:                                               ; preds = %54
-  %58 = load i32, ptr %34, align 8
-  %.not84.i = icmp ne i32 %58, 0
-  %.not86.i = icmp eq i32 %2, %58
+53:                                               ; preds = %50
+  %54 = load i32, ptr %31, align 8
+  %.not84.i = icmp ne i32 %54, 0
+  %.not86.i = icmp eq i32 %2, %54
   %or.cond.i = or i1 %.not85.i, %.not86.i
   %or.cond126.i = and i1 %.not84.i, %or.cond.i
-  br i1 %or.cond126.i, label %59, label %.thread.i
+  br i1 %or.cond126.i, label %55, label %.thread.i
 
-59:                                               ; preds = %57
+55:                                               ; preds = %53
   %.not87.i = icmp eq i64 %.271.i, 0
-  br i1 %.not87.i, label %63, label %60
+  br i1 %.not87.i, label %59, label %56
+
+56:                                               ; preds = %55
+  %57 = trunc nuw i64 %.271.i to i32
+  %58 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %57, i32 noundef %3) #15
+  br i1 %58, label %.thread100.i, label %59
+
+59:                                               ; preds = %56, %55
+  %.not88.i = icmp eq i64 %.268.i, 0
+  br i1 %.not88.i, label %.thread.i, label %60
 
 60:                                               ; preds = %59
-  %61 = trunc nuw i64 %.271.i to i32
+  %61 = trunc nuw i64 %.268.i to i32
   %62 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %61, i32 noundef %3) #15
-  br i1 %62, label %.thread100.i, label %63
+  br i1 %62, label %.thread100.i, label %.thread.i
 
-63:                                               ; preds = %60, %59
-  %.not88.i = icmp eq i64 %.268.i, 0
-  br i1 %.not88.i, label %.thread.i, label %64
-
-64:                                               ; preds = %63
-  %65 = trunc nuw i64 %.268.i to i32
-  %66 = call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %65, i32 noundef %3) #15
-  br i1 %66, label %.thread100.i, label %.thread.i
-
-67:                                               ; preds = %54
-  %68 = load i32, ptr %34, align 8
-  %.not83.i = icmp eq i32 %68, 0
+63:                                               ; preds = %50
+  %64 = load i32, ptr %31, align 8
+  %.not83.i = icmp eq i32 %64, 0
   br i1 %.not83.i, label %.thread.i, label %.thread100.i
 
-.thread.i:                                        ; preds = %67, %64, %63, %57, %55, %44
+.thread.i:                                        ; preds = %63, %60, %59, %53, %51, %40
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !35
-  store i8 0, ptr %25, align 8
-  br i1 %.074120.i, label %InvalidatePossiblyObsoleteSlot.exit, label %.sink.split
+  store i8 0, ptr %22, align 8
+  br i1 %.074120.i, label %65, label %InvalidatePossiblyObsoleteSlot.exit.thread
 
-InvalidatePossiblyObsoleteSlot.exit:              ; preds = %.thread.i
-  %69 = load ptr, ptr @MainLWLockArray, align 8
-  %70 = getelementptr i8, ptr %69, i64 4736
-  call void @LWLockRelease(ptr noundef %70) #15
-  br label %.loopexit
+65:                                               ; preds = %.thread.i
+  %66 = load ptr, ptr @MainLWLockArray, align 8
+  %67 = getelementptr i8, ptr %66, i64 4736
+  call void @LWLockRelease(ptr noundef %67) #15
+  br label %InvalidatePossiblyObsoleteSlot.exit
 
-.thread100.i:                                     ; preds = %67, %64, %60, %55
-  %71 = phi i1 [ false, %67 ], [ false, %64 ], [ false, %60 ], [ true, %55 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 64, i1 false)
-  %72 = load i32, ptr %35, align 4
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %77
+.thread100.i:                                     ; preds = %63, %60, %56, %51
+  %68 = phi i1 [ false, %63 ], [ false, %60 ], [ false, %56 ], [ true, %51 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false)
+  %69 = load i32, ptr %32, align 4
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %74
+
+71:                                               ; preds = %.thread100.i
+  store ptr %22, ptr @MyReplicationSlot, align 8
+  %72 = load i32, ptr @MyProcPid, align 4
+  store i32 %72, ptr %32, align 4
+  store i32 %0, ptr %28, align 8
+  br i1 %68, label %73, label %90
+
+73:                                               ; preds = %71
+  store i64 0, ptr %27, align 8
+  br label %90
 
 74:                                               ; preds = %.thread100.i
-  store ptr %25, ptr @MyReplicationSlot, align 8
-  %75 = load i32, ptr @MyProcPid, align 4
-  store i32 %75, ptr %35, align 4
-  store i32 %0, ptr %31, align 8
-  br i1 %71, label %76, label %93
-
-76:                                               ; preds = %74
-  store i64 0, ptr %30, align 8
-  br label %93
-
-77:                                               ; preds = %.thread100.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !36
-  store i8 0, ptr %25, align 8
-  call void @ConditionVariablePrepareToSleep(ptr noundef nonnull %36) #15
-  %78 = load ptr, ptr @MainLWLockArray, align 8
-  %79 = getelementptr i8, ptr %78, i64 4736
-  call void @LWLockRelease(ptr noundef %79) #15
-  %.not91.i = icmp eq i32 %.063125.i, %72
-  br i1 %.not91.i, label %87, label %80
+  store i8 0, ptr %22, align 8
+  call void @ConditionVariablePrepareToSleep(ptr noundef nonnull %33) #15
+  %75 = load ptr, ptr @MainLWLockArray, align 8
+  %76 = getelementptr i8, ptr %75, i64 4736
+  call void @LWLockRelease(ptr noundef %76) #15
+  %.not91.i = icmp eq i32 %.063125.i, %69
+  br i1 %.not91.i, label %84, label %77
+
+77:                                               ; preds = %74
+  call fastcc void @ReportSlotInvalidation(i32 noundef %0, i1 noundef zeroext true, i32 noundef %69, ptr noundef nonnull byval(%struct.nameData) align 8 %6, i64 noundef %41, i64 noundef %12, i32 noundef %3)
+  %78 = load i32, ptr @MyBackendType, align 4
+  %79 = icmp eq i32 %78, 11
+  br i1 %79, label %80, label %82
 
 80:                                               ; preds = %77
-  call fastcc void @ReportSlotInvalidation(i32 noundef %0, i1 noundef zeroext true, i32 noundef %72, ptr noundef nonnull byval(%struct.nameData) align 8 %6, i64 noundef %45, i64 noundef %12, i32 noundef %3)
-  %81 = load i32, ptr @MyBackendType, align 4
-  %82 = icmp eq i32 %81, 11
-  br i1 %82, label %83, label %85
+  %81 = call i32 @SendProcSignal(i32 noundef %69, i32 noundef 11, i32 noundef -1) #15
+  br label %84
 
-83:                                               ; preds = %80
-  %84 = call i32 @SendProcSignal(i32 noundef %72, i32 noundef 11, i32 noundef -1) #15
-  br label %87
+82:                                               ; preds = %77
+  %83 = call i32 @kill(i32 noundef %69, i32 noundef 15) #15
+  br label %84
 
-85:                                               ; preds = %80
-  %86 = call i32 @kill(i32 noundef %72, i32 noundef 15) #15
-  br label %87
+84:                                               ; preds = %82, %80, %74
+  %.173.i = phi i1 [ %.072121.i, %74 ], [ true, %82 ], [ true, %80 ]
+  %.1.i = phi i32 [ %.063125.i, %74 ], [ %69, %82 ], [ %69, %80 ]
+  call void @ConditionVariableSleep(ptr noundef nonnull %33, i32 noundef 134217776) #15
+  %85 = load ptr, ptr @MainLWLockArray, align 8
+  %86 = getelementptr i8, ptr %85, i64 4736
+  %87 = call zeroext i1 @LWLockAcquire(ptr noundef %86, i32 noundef 1) #15
+  %88 = load i8, ptr %23, align 1
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %36, label %._crit_edge.i
 
-87:                                               ; preds = %85, %83, %77
-  %.173.i = phi i1 [ %.072121.i, %77 ], [ true, %85 ], [ true, %83 ]
-  %.1.i = phi i32 [ %.063125.i, %77 ], [ %72, %85 ], [ %72, %83 ]
-  call void @ConditionVariableSleep(ptr noundef nonnull %36, i32 noundef 134217776) #15
-  %88 = load ptr, ptr @MainLWLockArray, align 8
-  %89 = getelementptr i8, ptr %88, i64 4736
-  %90 = call zeroext i1 @LWLockAcquire(ptr noundef %89, i32 noundef 1) #15
-  %91 = load i8, ptr %26, align 1
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %40, label %37
-
-93:                                               ; preds = %76, %74
+90:                                               ; preds = %73, %71
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !36
-  store i8 0, ptr %25, align 8
-  %94 = load ptr, ptr @MainLWLockArray, align 8
-  %95 = getelementptr i8, ptr %94, i64 4736
-  call void @LWLockRelease(ptr noundef %95) #15
-  %96 = load ptr, ptr @MyReplicationSlot, align 8
-  %97 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %96, i8 1, ptr elementtype(i8) %96) #15, !srcloc !10
-  %.not.i.i = icmp eq i8 %97, 0
-  br i1 %.not.i.i, label %ReplicationSlotMarkDirty.exit.i, label %98
+  store i8 0, ptr %22, align 8
+  %91 = load ptr, ptr @MainLWLockArray, align 8
+  %92 = getelementptr i8, ptr %91, i64 4736
+  call void @LWLockRelease(ptr noundef %92) #15
+  %93 = load ptr, ptr @MyReplicationSlot, align 8
+  %94 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %93, i8 1, ptr elementtype(i8) %93) #15, !srcloc !10
+  %.not.i.i = icmp eq i8 %94, 0
+  br i1 %.not.i.i, label %ReplicationSlotMarkDirty.exit.i, label %95
 
-98:                                               ; preds = %93
-  %99 = call i32 @s_lock(ptr noundef %96, ptr noundef nonnull @.str.6, i32 noundef 952, ptr noundef nonnull @__func__.ReplicationSlotMarkDirty) #15
+95:                                               ; preds = %90
+  %96 = call i32 @s_lock(ptr noundef %93, ptr noundef nonnull @.str.6, i32 noundef 952, ptr noundef nonnull @__func__.ReplicationSlotMarkDirty) #15
   br label %ReplicationSlotMarkDirty.exit.i
 
-ReplicationSlotMarkDirty.exit.i:                  ; preds = %98, %93
-  %100 = load ptr, ptr @MyReplicationSlot, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i8 1, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 9
-  store i8 1, ptr %102, align 1
+ReplicationSlotMarkDirty.exit.i:                  ; preds = %95, %90
+  %97 = load ptr, ptr @MyReplicationSlot, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store i8 1, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 9
+  store i8 1, ptr %99, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
-  store i8 0, ptr %96, align 8
+  store i8 0, ptr %93, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
+  %100 = load ptr, ptr @MyReplicationSlot, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %102 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.27, ptr noundef nonnull %101) #15
   %103 = load ptr, ptr @MyReplicationSlot, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.27, ptr noundef nonnull %104) #15
-  %106 = load ptr, ptr @MyReplicationSlot, align 8
-  call fastcc void @SaveSlotToPath(ptr noundef %106, ptr noundef %5, i32 noundef 21)
+  call fastcc void @SaveSlotToPath(ptr noundef %103, ptr noundef %5, i32 noundef 21)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @ReplicationSlotRelease()
-  call void @pgstat_drop_replslot(ptr noundef nonnull %25) #15
-  call fastcc void @ReportSlotInvalidation(i32 noundef %0, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull byval(%struct.nameData) align 8 %6, i64 noundef %45, i64 noundef %12, i32 noundef %3)
-  br label %.loopexit
+  call void @pgstat_drop_replslot(ptr noundef nonnull %22) #15
+  call fastcc void @ReportSlotInvalidation(i32 noundef %0, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull byval(%struct.nameData) align 8 %6, i64 noundef %41, i64 noundef %12, i32 noundef %3)
+  br label %InvalidatePossiblyObsoleteSlot.exit
 
-.sink.split:                                      ; preds = %.thread.i, %InvalidatePossiblyObsoleteSlot.exit.thread
+InvalidatePossiblyObsoleteSlot.exit.thread:       ; preds = %.thread.i, %.thread.thread.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br label %107
+  %.pre = load i32, ptr @max_replication_slots, align 4
+  br label %109
 
-107:                                              ; preds = %.sink.split, %23
+InvalidatePossiblyObsoleteSlot.exit:              ; preds = %._crit_edge.i, %65, %ReplicationSlotMarkDirty.exit.i
+  %.3 = phi i1 [ %.01237, %65 ], [ true, %ReplicationSlotMarkDirty.exit.i ], [ %.01237, %._crit_edge.i ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  %104 = load ptr, ptr @MainLWLockArray, align 8
+  %105 = getelementptr i8, ptr %104, i64 4736
+  %106 = call zeroext i1 @LWLockAcquire(ptr noundef %105, i32 noundef 1) #15
+  %107 = load i32, ptr @max_replication_slots, align 4
+  %108 = icmp sgt i32 %107, 0
+  br i1 %108, label %.lr.ph, label %._crit_edge
+
+109:                                              ; preds = %InvalidatePossiblyObsoleteSlot.exit.thread, %19
+  %110 = phi i32 [ %.pre, %InvalidatePossiblyObsoleteSlot.exit.thread ], [ %20, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %108 = load i32, ptr @max_replication_slots, align 4
-  %109 = sext i32 %108 to i64
-  %110 = icmp slt i64 %indvars.iv.next, %109
-  br i1 %110, label %23, label %._crit_edge, !llvm.loop !37
+  %111 = sext i32 %110 to i64
+  %112 = icmp slt i64 %indvars.iv.next, %111
+  br i1 %112, label %19, label %._crit_edge, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %.loopexit, %107
-  %.1.lcssa = phi i1 [ %.01228, %107 ], [ %.342, %.loopexit ]
-  %111 = load ptr, ptr @MainLWLockArray, align 8
-  %112 = getelementptr i8, ptr %111, i64 4736
-  call void @LWLockRelease(ptr noundef %112) #15
-  br i1 %.1.lcssa, label %113, label %116
+._crit_edge:                                      ; preds = %InvalidatePossiblyObsoleteSlot.exit, %109
+  %.012.lcssa = phi i1 [ %.01237, %109 ], [ %.3, %InvalidatePossiblyObsoleteSlot.exit ]
+  %113 = load ptr, ptr @MainLWLockArray, align 8
+  %114 = getelementptr i8, ptr %113, i64 4736
+  call void @LWLockRelease(ptr noundef %114) #15
+  br i1 %.012.lcssa, label %115, label %118
 
-113:                                              ; preds = %._crit_edge
+115:                                              ; preds = %._crit_edge
   call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false)
   call void @ReplicationSlotsComputeRequiredLSN()
-  br label %116
+  br label %118
 
 .critedge:                                        ; preds = %9
-  %114 = load ptr, ptr @MainLWLockArray, align 8
-  %115 = getelementptr i8, ptr %114, i64 4736
-  tail call void @LWLockRelease(ptr noundef %115) #15
-  br label %116
+  %116 = load ptr, ptr @MainLWLockArray, align 8
+  %117 = getelementptr i8, ptr %116, i64 4736
+  tail call void @LWLockRelease(ptr noundef %117) #15
+  br label %118
 
-116:                                              ; preds = %.critedge, %._crit_edge, %113, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %113 ], [ false, %._crit_edge ], [ false, %.critedge ]
+118:                                              ; preds = %.critedge, %._crit_edge, %115, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %115 ], [ false, %._crit_edge ], [ false, %.critedge ]
   ret i1 %.0
 }
 

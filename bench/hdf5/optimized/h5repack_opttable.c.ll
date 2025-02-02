@@ -393,7 +393,7 @@ aux_tblinsert_layout.exit:                        ; preds = %75, %.preheader94
   br i1 %105, label %.lr.ph.i78, label %aux_tblinsert_layout.exit81
 
 aux_tblinsert_layout.exit.thread:                 ; preds = %.lr.ph.i, %63, %59, %51, %aux_tblinsert_layout.exit
-  %.07398 = phi i32 [ %22, %aux_tblinsert_layout.exit ], [ %30, %51 ], [ %30, %59 ], [ %30, %63 ], [ %30, %.lr.ph.i ]
+  %.07398 = phi i32 [ %30, %63 ], [ %30, %59 ], [ %30, %51 ], [ %22, %aux_tblinsert_layout.exit ], [ %30, %.lr.ph.i ]
   %106 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv128
   %107 = load ptr, ptr %14, align 8
   %108 = zext i32 %.07398 to i64

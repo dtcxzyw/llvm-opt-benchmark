@@ -334,7 +334,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   br i1 %59, label %._crit_edge.i.i, label %62
 
 ._crit_edge.i.i:                                  ; preds = %63, %.lr.ph.i.i43, %54
-  %.064.lcssa.i.i = phi i8 [ 0, %54 ], [ %.3.i.i, %63 ], [ %.06448.i.i, %.lr.ph.i.i43 ]
+  %.064.lcssa.i.i = phi i8 [ 0, %54 ], [ %.3.i.i, %63 ], [ 1, %.lr.ph.i.i43 ]
   %.062.lcssa.i.i = phi i64 [ 0, %54 ], [ %64, %63 ], [ %.06249.i.i, %.lr.ph.i.i43 ]
   %60 = add i64 %.062.lcssa.i.i, 24
   %61 = icmp ult i64 %60, %34
@@ -399,7 +399,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   br i1 %87, label %._crit_edge58.i.i, label %96
 
 ._crit_edge58.i.i:                                ; preds = %104, %.lr.ph57.i.i, %._crit_edge.i.i
-  %.165.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %104 ], [ %.16554.i.i, %.lr.ph57.i.i ]
+  %.165.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %104 ], [ 1, %.lr.ph57.i.i ]
   %88 = add i64 %34, -24
   %89 = getelementptr inbounds i8, ptr %36, i64 %88
   %.0.copyload.i81.i.i = load <16 x i8>, ptr %89, align 1, !alias.scope !35, !noalias !39
@@ -425,7 +425,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %107, %96
-  %.5.i.i = phi i8 [ %.16554.i.i, %96 ], [ %109, %107 ]
+  %.5.i.i = phi i8 [ 0, %96 ], [ %109, %107 ]
   %105 = add i64 %.16355.i.i, 16
   %.reass.i.i = add i64 %.16355.i.i, 40
   %106 = icmp ult i64 %.reass.i.i, %34

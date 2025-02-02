@@ -1482,7 +1482,6 @@ _ZN4llvm10MIMetadataD2Ev.exit.i:                  ; preds = %436, %_ZN4llvm7Buil
   br label %_ZN4llvm8DebugLocD2Ev.exit.i
 
 _ZN4llvm8DebugLocD2Ev.exit.i:                     ; preds = %438, %_ZN4llvm10MIMetadataD2Ev.exit.i, %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread.i128
-  %.3.i = phi i8 [ 0, %_ZN4llvm10MIMetadataD2Ev.exit.i ], [ 0, %438 ], [ %.2105.i, %_ZL11ignoresVXRMRKN4llvm12MachineInstrE.exit.thread.i128 ]
   store ptr null, ptr %269, align 8, !alias.scope !17
   store i32 8, ptr %270, align 4, !alias.scope !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %271, i8 0, i64 16, i1 false), !alias.scope !17
@@ -1531,7 +1530,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i116: ; preds = %_ZN4llvm7RI
 459:                                              ; preds = %458, %456, %_ZN4llvm8DebugLocD2Ev.exit.i
   %.sroa.083.2.i = phi i8 [ %.sroa.083.1103.i, %458 ], [ %.sroa.083.1103.i, %456 ], [ %439, %_ZN4llvm8DebugLocD2Ev.exit.i ]
   %.sroa.5.2.i = phi i8 [ 2, %458 ], [ %.sroa.5.1104.i, %456 ], [ 1, %_ZN4llvm8DebugLocD2Ev.exit.i ]
-  %.4.i = phi i8 [ %.2105.i, %458 ], [ %.2105.i, %456 ], [ %.3.i, %_ZN4llvm8DebugLocD2Ev.exit.i ]
+  %.4.i = phi i8 [ %.2105.i, %458 ], [ %.2105.i, %456 ], [ 0, %_ZN4llvm8DebugLocD2Ev.exit.i ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i118 = load i64, ptr %.sroa.079.0106.i, align 8
   %460 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i118, 4
   %.not.i.i.i.i119 = icmp eq i64 %460, 0

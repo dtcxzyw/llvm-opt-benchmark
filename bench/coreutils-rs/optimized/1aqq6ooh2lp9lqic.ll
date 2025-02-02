@@ -1534,7 +1534,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
   %.280 = phi i64 [ %223, %217 ], [ %200, %193 ], [ %.078, %273 ], [ %272, %266 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.078, %233 ]
   %.277 = phi i64 [ %157, %217 ], [ %157, %193 ], [ %.075, %273 ], [ %.pre, %266 ], [ %.075, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.075, %233 ]
   %.273 = phi i1 [ %.172, %217 ], [ %.172, %193 ], [ %.071, %273 ], [ true, %266 ], [ %.071, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ true, %233 ]
-  %.2 = phi i8 [ %.070, %217 ], [ %.070, %193 ], [ %.070, %273 ], [ %.070, %266 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.070, %233 ]
+  %.2 = phi i8 [ %.070, %217 ], [ %.070, %193 ], [ 1, %273 ], [ 0, %266 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ 0, %233 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %.sroa.059.0.copyload = load i64, ptr %1, align 8
@@ -1766,7 +1766,7 @@ thread-pre-split:                                 ; preds = %278
   %.186 = phi i64 [ %.3, %307 ], [ %.085, %228 ], [ %.085, %233 ], [ %.085, %231 ], [ %.085, %34 ], [ %.085, %254 ], [ %.085, %273 ]
   %.179 = phi i64 [ %.280, %307 ], [ %.078, %228 ], [ %.078, %233 ], [ %.078, %231 ], [ %.078, %34 ], [ %.078, %254 ], [ %.078, %273 ]
   %.176 = phi i64 [ %.277, %307 ], [ %.075, %228 ], [ %.075, %233 ], [ %.075, %231 ], [ %.075, %34 ], [ %.075, %254 ], [ %.075, %273 ]
-  %.1 = phi i8 [ %.2, %307 ], [ %.070, %228 ], [ %.070, %233 ], [ %.070, %231 ], [ %.070, %34 ], [ %.070, %254 ], [ %.070, %273 ]
+  %.1 = phi i8 [ %.2, %307 ], [ 1, %228 ], [ 0, %233 ], [ 0, %231 ], [ %.070, %34 ], [ 0, %254 ], [ 1, %273 ]
   %318 = and i8 %.1, 1
   store i8 %318, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.016, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)

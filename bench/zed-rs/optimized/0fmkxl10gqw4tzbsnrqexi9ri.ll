@@ -4672,57 +4672,19 @@ define hidden void @_ZN4gpui8elements3div18InteractiveElement9on_action17hc1f0a0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9471697e8bd44764E.llvm.6854162329334621528"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9471697e8bd44764E.llvm.6854162329334621528"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !401, !noundef !4
   %trunc = trunc nuw i8 %2 to i1
-  br i1 %trunc, label %6, label %3
+  br i1 %trunc, label %thread-pre-split, label %"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hb4421cffbc5a9836E.llvm.6854162329334621528.exit"
 
-thread-pre-split:                                 ; preds = %6
-  %.pr = load i8, ptr %0, align 8
-  br label %3
-
-3:                                                ; preds = %thread-pre-split, %1
-  %4 = phi i8 [ %.pr, %thread-pre-split ], [ %2, %1 ]
-  %trunc1 = trunc nuw i8 %4 to i1
-  %5 = icmp eq i8 %4, 0
-  %or.cond = or i1 %5, %trunc1
-  br i1 %or.cond, label %"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hb4421cffbc5a9836E.llvm.6854162329334621528.exit", label %14
-
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  invoke void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17h25f958b581b174bfE.llvm.6854162329334621528"(ptr noundef nonnull %8)
-          to label %thread-pre-split unwind label %9
-
-9:                                                ; preds = %6
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  %11 = load i8, ptr %0, align 8, !range !401, !noundef !4
-  %12 = trunc nuw i8 %11 to i1
-  %13 = icmp eq i8 %11, 0
-  %or.cond5 = or i1 %13, %12
-  br i1 %or.cond5, label %"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hb4421cffbc5a9836E.llvm.6854162329334621528.exit4", label %16
-
-"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hb4421cffbc5a9836E.llvm.6854162329334621528.exit": ; preds = %14, %3
-  ret void
-
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha2762d4ebef97d74E.llvm.12208468574907391099"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
+thread-pre-split:                                 ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
+  tail call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17h25f958b581b174bfE.llvm.6854162329334621528"(ptr noundef nonnull %4)
   br label %"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hb4421cffbc5a9836E.llvm.6854162329334621528.exit"
 
-"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hb4421cffbc5a9836E.llvm.6854162329334621528.exit4": ; preds = %16, %9
-  resume { ptr, i32 } %10
-
-16:                                               ; preds = %9
-  invoke void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha2762d4ebef97d74E.llvm.12208468574907391099"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hb4421cffbc5a9836E.llvm.6854162329334621528.exit4" unwind label %17
-
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #25
-  unreachable
+"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hb4421cffbc5a9836E.llvm.6854162329334621528.exit": ; preds = %1, %thread-pre-split
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5098,7 +5060,7 @@ define hidden void @"_ZN4gpui8executor45Task$LT$core..result..Result$LT$T$C$E$GT
   %5 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %6 = invoke noundef align 8 dereferenceable(16) ptr @_ZN4gpui3app10AppContext19foreground_executor17he6ab2249f94452e8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %1)
-          to label %7 unwind label %17
+          to label %7 unwind label %14
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
@@ -5109,41 +5071,31 @@ define hidden void @"_ZN4gpui8executor45Task$LT$core..result..Result$LT$T$C$E$GT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @_ZN4gpui8executor18ForegroundExecutor5spawn17ha8b8d218554dd4b6E.llvm.6854162329334621528(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !665)
   %10 = load i8, ptr %5, align 8, !range !401, !alias.scope !665, !noundef !4
   %trunc.i = trunc nuw i8 %10 to i1
-  br i1 %trunc.i, label %12, label %thread-pre-split.i
+  br i1 %trunc.i, label %thread-pre-split.i, label %"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9471697e8bd44764E.llvm.6854162329334621528.exit"
 
 thread-pre-split.i:                               ; preds = %7
-  %11 = icmp eq i8 %10, 0
-  br i1 %11, label %"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9471697e8bd44764E.llvm.6854162329334621528.exit", label %15
-
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load ptr, ptr %13, align 8, !alias.scope !665, !nonnull !4, !noundef !4
-  tail call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17h25f958b581b174bfE.llvm.6854162329334621528"(ptr noundef nonnull %14), !noalias !665
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %12 = load ptr, ptr %11, align 8, !alias.scope !665, !nonnull !4, !noundef !4
+  tail call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17h25f958b581b174bfE.llvm.6854162329334621528"(ptr noundef nonnull %12)
   br label %"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9471697e8bd44764E.llvm.6854162329334621528.exit"
 
-15:                                               ; preds = %thread-pre-split.i
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha2762d4ebef97d74E.llvm.12208468574907391099"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
-  br label %"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9471697e8bd44764E.llvm.6854162329334621528.exit"
-
-"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9471697e8bd44764E.llvm.6854162329334621528.exit": ; preds = %12, %15, %thread-pre-split.i
+"_ZN4gpui8executor13Task$LT$T$GT$6detach17h9471697e8bd44764E.llvm.6854162329334621528.exit": ; preds = %thread-pre-split.i, %7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 
-.body.thread:                                     ; preds = %17
+13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-17:                                               ; preds = %3
+14:                                               ; preds = %3
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h868aa876c58db0ecE.llvm.6854162329334621528"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #26
-          to label %.body.thread unwind label %18
+          to label %13 unwind label %15
 
-18:                                               ; preds = %17
-  %19 = landingpad { ptr, i32 }
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #25
   unreachable

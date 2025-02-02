@@ -276,16 +276,16 @@ _ZN4llvm11SmallPtrSetIPNS_10BasicBlockELj16EEC2INS_12PredIteratorIS1_NS_5Value18
 
 _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i: ; preds = %.lr.ph.i5.i.i7.i5.i.i.i, %_ZN4llvm11SmallPtrSetIPNS_10BasicBlockELj16EEC2INS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEEET_SB_.exit.i.i
   %.sroa.0.4.i8.i.i.i = phi ptr [ %97, %_ZN4llvm11SmallPtrSetIPNS_10BasicBlockELj16EEC2INS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEEET_SB_.exit.i.i ], [ %.sroa.0.3.i6.i.i.i, %.lr.ph.i5.i.i7.i5.i.i.i ]
-  %.not1851.i.i = icmp eq ptr %.sroa.0.4.i8.i.i.i, %104
-  br i1 %.not1851.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i
+  %.not1852.i.i = icmp eq ptr %.sroa.0.4.i8.i.i.i, %104
+  br i1 %.not1852.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i
-  %.013956.i.i = phi ptr [ %.1140.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i ], [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ]
-  %.014155.i.i = phi ptr [ %.1142.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i ], [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ]
-  %.014354.i.i = phi ptr [ %.1144.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i ], [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ]
-  %.014553.i.i = phi i32 [ %.1146.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i ], [ -1, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ]
-  %.sroa.09.052.i.i = phi ptr [ %.sroa.09.2.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i ], [ %.sroa.0.4.i8.i.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ]
-  %107 = load ptr, ptr %.sroa.09.052.i.i, align 8
+  %.013957.i.i = phi ptr [ %.1140.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i ], [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ]
+  %.014156.i.i = phi ptr [ %.1142.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i ], [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ]
+  %.014355.i.i = phi ptr [ %.1144.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i ], [ null, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ]
+  %.014554.i.i = phi i32 [ %.1146.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i ], [ -1, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ]
+  %.sroa.09.053.i.i = phi ptr [ %.sroa.09.2.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i ], [ %.sroa.0.4.i8.i.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ]
+  %107 = load ptr, ptr %.sroa.09.053.i.i, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %109 = load ptr, ptr %108, align 8
   %110 = icmp ne ptr %108, %109
@@ -296,8 +296,8 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %_ZNK4llvm15SmallPtr
   %114 = icmp ult i8 %113, 11
   %spec.select.i.i.i.i = select i1 %114, ptr %111, ptr null
   %115 = load i8, ptr %spec.select.i.i.i.i, align 8
-  %.not28.i.i = icmp eq i8 %115, 31
-  br i1 %.not28.i.i, label %116, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
+  %.not29.i.i = icmp eq i8 %115, 31
+  br i1 %.not29.i.i, label %116, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
 
 116:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i
   %117 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %107) #8
@@ -308,7 +308,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %_ZNK4llvm15SmallPtr
   br i1 %121, label %122, label %155
 
 122:                                              ; preds = %116
-  %123 = icmp eq ptr %.014354.i.i, null
+  %123 = icmp eq ptr %.014355.i.i, null
   %124 = icmp ne ptr %117, null
   %or.cond.i.i = and i1 %123, %124
   br i1 %or.cond.i.i, label %125, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
@@ -371,15 +371,15 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.i.i: ; preds =
   %.v.v.i.i184.i.i = select i1 %148, i32 %145, i32 %149
   %.v.i.i185.i.i = zext i32 %.v.v.i.i184.i.i to i64
   %150 = getelementptr inbounds nuw ptr, ptr %147, i64 %.v.i.i185.i.i
-  %.not35.i.i = icmp eq ptr %.0.i.i183.i.i, %150
-  br i1 %.not35.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i, label %151
+  %.not36.i.i = icmp eq ptr %.0.i.i183.i.i, %150
+  br i1 %.not36.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i, label %151
 
 151:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.i.i
   %152 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %153 = load i16, ptr %152, align 2
   %154 = and i16 %153, 32767
-  %.not36.i.i = icmp eq i16 %154, 0
-  br i1 %.not36.i.i, label %257, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
+  %.not37.i.i = icmp eq i16 %154, 0
+  br i1 %.not37.i.i, label %257, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
 
 155:                                              ; preds = %116
   %156 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 -96
@@ -461,15 +461,15 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i: ; preds = %.
   %.v.v.i.i195.i.i = select i1 %188, i32 %185, i32 %189
   %.v.i.i196.i.i = zext i32 %.v.v.i.i195.i.i to i64
   %190 = getelementptr inbounds nuw ptr, ptr %187, i64 %.v.i.i196.i.i
-  %.not29.i.i = icmp eq ptr %.0.i.i194.i.i, %190
-  br i1 %.not29.i.i, label %208, label %191
+  %.not30.i.i = icmp eq ptr %.0.i.i194.i.i, %190
+  br i1 %.not30.i.i, label %208, label %191
 
 191:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i
   %192 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %193 = load i16, ptr %192, align 2
   %194 = and i16 %193, 32767
-  %.not30.i.i = icmp eq i16 %194, 0
-  br i1 %.not30.i.i, label %195, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
+  %.not31.i.i = icmp eq i16 %194, 0
+  br i1 %.not31.i.i, label %195, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
 
 195:                                              ; preds = %191
   %196 = getelementptr inbounds nuw i8, ptr %107, i64 56
@@ -479,8 +479,8 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i: ; preds = %.
 
 199:                                              ; preds = %204, %195
   %.sroa.06.0.i.i = phi ptr [ %197, %195 ], [ %206, %204 ]
-  %.not31.i.i = icmp eq ptr %.sroa.06.0.i.i, %198
-  br i1 %.not31.i.i, label %.loopexit.i.i, label %200
+  %.not32.i.i = icmp eq ptr %.sroa.06.0.i.i, %198
+  br i1 %.not32.i.i, label %.loopexit.i.i, label %200
 
 200:                                              ; preds = %199
   %201 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 -24
@@ -495,11 +495,11 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i: ; preds = %.
   br i1 %207, label %199, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i, !llvm.loop !13
 
 208:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i, %164
-  %.not175.i.i = icmp eq ptr %.014155.i.i, null
+  %.not175.i.i = icmp eq ptr %.014156.i.i, null
   br i1 %.not175.i.i, label %.loopexit.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
 
 .loopexit.i.i:                                    ; preds = %199, %208
-  %.2.i.i = phi ptr [ %107, %208 ], [ %.014155.i.i, %199 ]
+  %.2.i.i = phi ptr [ %107, %208 ], [ %.014156.i.i, %199 ]
   %209 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 -32
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 -64
@@ -507,15 +507,15 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit.i.i: ; preds = %.
   %213 = icmp ne ptr %210, %0
   %214 = select i1 %213, ptr %210, ptr %212
   %215 = zext i1 %213 to i32
-  %216 = icmp eq i32 %.014553.i.i, -1
+  %216 = icmp eq i32 %.014554.i.i, -1
   br i1 %216, label %218, label %217
 
 217:                                              ; preds = %.loopexit.i.i
-  %.not176.i.i = icmp eq i32 %.014553.i.i, %215
+  %.not176.i.i = icmp eq i32 %.014554.i.i, %215
   br i1 %.not176.i.i, label %218, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
 
 218:                                              ; preds = %217, %.loopexit.i.i
-  %.2147.i.i = phi i32 [ %.014553.i.i, %217 ], [ %215, %.loopexit.i.i ]
+  %.2147.i.i = phi i32 [ %.014554.i.i, %217 ], [ %215, %.loopexit.i.i ]
   %219 = load ptr, ptr %100, align 8
   %220 = load ptr, ptr %10, align 8
   %221 = icmp eq ptr %219, %220
@@ -573,8 +573,8 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i: ; pred
   %.v.v.i.i216.i.i = select i1 %241, i32 %238, i32 %242
   %.v.i.i217.i.i = zext i32 %.v.v.i.i216.i.i to i64
   %243 = getelementptr inbounds nuw ptr, ptr %240, i64 %.v.i.i217.i.i
-  %.not32.i.i = icmp eq ptr %.0.i.i215.i.i, %243
-  br i1 %.not32.i.i, label %257, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i
+  %.not33.i.i = icmp eq ptr %.0.i.i215.i.i, %243
+  br i1 %.not33.i.i, label %257, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i
   %244 = getelementptr inbounds nuw i8, ptr %214, i64 48
@@ -587,23 +587,23 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i: ; preds = %_ZNK4llvm15SmallPt
   %250 = icmp ult i8 %249, 11
   %spec.select.i.i226.i.i = select i1 %250, ptr %247, ptr null
   %251 = load i8, ptr %spec.select.i.i226.i.i, align 8
-  %.not34.i.i = icmp eq i8 %251, 31
-  br i1 %.not34.i.i, label %252, label %257
+  %.not35.i.i = icmp eq i8 %251, 31
+  br i1 %.not35.i.i, label %252, label %257
 
 252:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i
   %253 = getelementptr inbounds nuw i8, ptr %spec.select.i.i226.i.i, i64 4
   %254 = load i32, ptr %253, align 4
   %255 = and i32 %254, 134217727
   %256 = icmp eq i32 %255, 1
-  %spec.select.i.i = select i1 %256, ptr %107, ptr %.013956.i.i
+  %spec.select.i.i = select i1 %256, ptr %107, ptr %.013957.i.i
   br label %257
 
 257:                                              ; preds = %252, %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i, %151
-  %.1146.i.i = phi i32 [ %.2147.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i ], [ %.014553.i.i, %151 ], [ %.2147.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i ], [ %.2147.i.i, %252 ]
-  %.1144.i.i = phi ptr [ %.014354.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i ], [ %107, %151 ], [ %.014354.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i ], [ %.014354.i.i, %252 ]
-  %.1142.i.i = phi ptr [ %.2.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i ], [ %.014155.i.i, %151 ], [ %.2.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i ], [ %.2.i.i, %252 ]
-  %.1140.i.i = phi ptr [ %.013956.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i ], [ %.013956.i.i, %151 ], [ %107, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i ], [ %spec.select.i.i, %252 ]
-  %258 = getelementptr inbounds nuw i8, ptr %.sroa.09.052.i.i, i64 8
+  %.1146.i.i = phi i32 [ %.2147.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i ], [ %.014554.i.i, %151 ], [ %.2147.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i ], [ %.2147.i.i, %252 ]
+  %.1144.i.i = phi ptr [ %.014355.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i ], [ %107, %151 ], [ %.014355.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i ], [ %.014355.i.i, %252 ]
+  %.1142.i.i = phi ptr [ %.2.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i ], [ %.014156.i.i, %151 ], [ %.2.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i ], [ %.2.i.i, %252 ]
+  %.1140.i.i = phi ptr [ %.013957.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit228.i.i ], [ %.013957.i.i, %151 ], [ %107, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit225.i.i ], [ %spec.select.i.i, %252 ]
+  %258 = getelementptr inbounds nuw i8, ptr %.sroa.09.053.i.i, i64 8
   %.not3.i3.i.i.i = icmp eq ptr %258, %104
   br i1 %.not3.i3.i.i.i, label %_ZN4llvm19SmallPtrSetIteratorIPNS_10BasicBlockEEppEv.exit.i.i, label %.lr.ph.i4.i.i.i
 
@@ -697,9 +697,9 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit246.i.i: ; preds = %298
   br i1 %.not168.not.i.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i: ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit246.i.i, %327
-  %.014861.i.i = phi ptr [ %328, %327 ], [ %.1140.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit246.i.i ]
-  %.015360.i.i = phi i1 [ %.1154.i.i, %327 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit246.i.i ]
-  %304 = getelementptr inbounds nuw i8, ptr %.014861.i.i, i64 48
+  %.014862.i.i = phi ptr [ %328, %327 ], [ %.1140.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit246.i.i ]
+  %.015361.i.i = phi i1 [ %.1154.i.i, %327 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit246.i.i ]
+  %304 = getelementptr inbounds nuw i8, ptr %.014862.i.i, i64 48
   %305 = load ptr, ptr %304, align 8
   %306 = icmp ne ptr %304, %305
   call void @llvm.assume(i1 %306)
@@ -714,8 +714,8 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i: ; preds = %_ZN4llvm10BasicBlo
   %314 = icmp ult i8 %313, 29
   %315 = and i8 %313, -2
   %spec.select.i.i.i.i.i.i.i.i.i.i.i = icmp ne i8 %315, 82
-  %.not26.i.i = or i1 %314, %spec.select.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not26.i.i, label %327, label %316
+  %.not27.i.i = or i1 %314, %spec.select.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not27.i.i, label %327, label %316
 
 316:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i
   %317 = getelementptr inbounds nuw i8, ptr %312, i64 2
@@ -738,8 +738,8 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i: ; preds = %_ZN4llvm10BasicBlo
   br label %327
 
 327:                                              ; preds = %320, %316, %_ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i
-  %.1154.i.i = phi i1 [ true, %320 ], [ %.015360.i.i, %316 ], [ %.015360.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i ]
-  %328 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %.014861.i.i) #8
+  %.1154.i.i = phi i1 [ true, %320 ], [ %.015361.i.i, %316 ], [ %.015361.i.i, %_ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i ]
+  %328 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %.014862.i.i) #8
   %.not169.i.i = icmp eq ptr %328, %.1142.i.i
   br i1 %.not169.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit249.i.i, !llvm.loop !14
 
@@ -839,7 +839,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit262.i.i: ; preds = %381, %_ZN4llvm10Ba
 381:                                              ; preds = %379, %377
   %.0.i.i = phi ptr [ %378, %377 ], [ %380, %379 ]
   %382 = call noundef zeroext i1 @_ZN4llvm4User17replaceUsesOfWithEPNS_5ValueES2_(ptr noundef nonnull align 8 dereferenceable(24) %spec.select.i.i260.i.i, ptr noundef %376, ptr noundef %.0.i.i) #8
-  %.not64.i.i = icmp eq ptr %360, %.1140.i.i
+  %.not24.i.i = icmp eq ptr %360, %.1140.i.i
   call void @_ZN4llvm10BasicBlock17dropAllReferencesEv(ptr noundef nonnull align 8 dereferenceable(80) %360) #8
   %383 = call noundef ptr @_ZN4llvm4UsernwEmj(i64 noundef 72, i32 noundef 0) #8
   %384 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm10BasicBlock10getContextEv(ptr noundef nonnull align 8 dereferenceable(80) %360) #8
@@ -847,7 +847,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit262.i.i: ; preds = %381, %_ZN4llvm10Ba
   %385 = load ptr, ptr %14, align 8
   %386 = load i64, ptr %357, align 8
   call void @_ZN4llvm15UnreachableInstC1ERNS_11LLVMContextENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %383, ptr noundef nonnull align 8 dereferenceable(8) %384, ptr %385, i64 %386) #8
-  br i1 %.not64.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.thread.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit262.i.i, !llvm.loop !15
+  br i1 %.not24.i.i, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread.i.thread.i, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit262.i.i, !llvm.loop !15
 
 _ZNK4llvm5Value9hasOneUseEv.exit.thread.i.i:      ; preds = %.critedge2.i7.i.i9.i11.i.i.i, %217, %208, %191, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i, %158, %155, %151, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.i.i, %122, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i, %204, %200, %327, %329, %_ZN4llvm10BasicBlock13getTerminatorEv.exit246.i.i, %298, %297, %._crit_edge.i.i, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i
   %.1.i.i = phi i1 [ false, %._crit_edge.i.i ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit246.i.i ], [ false, %298 ], [ false, %297 ], [ false, %329 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5beginEv.exit.i.i ], [ %.1154.i.i, %327 ], [ false, %200 ], [ false, %204 ], [ false, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i ], [ false, %122 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE8containsEPKS1_.exit.i.i ], [ false, %151 ], [ false, %155 ], [ false, %158 ], [ false, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i ], [ false, %191 ], [ false, %208 ], [ false, %217 ], [ false, %.critedge2.i7.i.i9.i11.i.i.i ]

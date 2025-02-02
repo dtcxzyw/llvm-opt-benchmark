@@ -400,9 +400,9 @@ entry:
   %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 1
   %2 = load i64, ptr %nread_resp, align 8
   %3 = load i32, ptr %buffer_size, align 4
-  %conv157 = zext i32 %3 to i64
-  %cmp158 = icmp ult i64 %2, %conv157
-  br i1 %cmp158, label %while.body.lr.ph, label %while.end
+  %conv159 = zext i32 %3 to i64
+  %cmp160 = icmp ult i64 %2, %conv159
+  br i1 %cmp160, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
@@ -417,19 +417,18 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end139
-  %conv162 = phi i64 [ %conv157, %while.body.lr.ph ], [ %conv, %if.end139 ]
-  %5 = phi i64 [ %2, %while.body.lr.ph ], [ %28, %if.end139 ]
-  %perline.0161 = phi i64 [ %sub.ptr.sub, %while.body.lr.ph ], [ %perline.1, %if.end139 ]
-  %keepon.0160 = phi i8 [ 1, %while.body.lr.ph ], [ %keepon.2, %if.end139 ]
-  %ptr.0159 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %ptr.1, %if.end139 ]
+  %conv164 = phi i64 [ %conv159, %while.body.lr.ph ], [ %conv, %if.end139 ]
+  %5 = phi i64 [ %2, %while.body.lr.ph ], [ %29, %if.end139 ]
+  %perline.0163 = phi i64 [ %sub.ptr.sub, %while.body.lr.ph ], [ %perline.1, %if.end139 ]
+  %ptr.0161 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %ptr.1, %if.end139 ]
   %6 = load ptr, ptr %pp, align 8
   %tobool8.not = icmp eq ptr %6, null
   br i1 %tobool8.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %while.body
   %7 = load i64, ptr %cache_size, align 8
-  %add.ptr9 = getelementptr inbounds i8, ptr %ptr.0159, i64 %7
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %conv162
+  %add.ptr9 = getelementptr inbounds i8, ptr %ptr.0161, i64 %7
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %conv164
   %cmp14 = icmp ugt ptr %add.ptr9, %gep
   br i1 %cmp14, label %if.then16, label %if.end
 
@@ -438,28 +437,24 @@ if.then16:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ptr.0159, ptr nonnull align 1 %6, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %ptr.0161, ptr nonnull align 1 %6, i64 %7, i1 false)
   %8 = load i64, ptr %cache_size, align 8
   store i64 %8, ptr %gotbytes, align 8
   %9 = load ptr, ptr @Curl_cfree, align 8
   %10 = load ptr, ptr %pp, align 8
   call void %9(ptr noundef %10) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pp, i8 0, i64 16, i1 false)
-  br label %if.end34
+  br label %if.else37
 
 do.end:                                           ; preds = %while.body
-  %sub = sub nsw i64 %conv162, %5
-  %call = call i32 @Curl_read(ptr noundef nonnull %data, i32 noundef %sockfd, ptr noundef %ptr.0159, i64 noundef %sub, ptr noundef nonnull %gotbytes) #9
+  %sub = sub nsw i64 %conv164, %5
+  %call = call i32 @Curl_read(ptr noundef nonnull %data, i32 noundef %sockfd, ptr noundef %ptr.0161, i64 noundef %sub, ptr noundef nonnull %gotbytes) #9
   switch i32 %call, label %while.end [
     i32 81, label %return
-    i32 0, label %if.end34
+    i32 0, label %if.else37
   ]
 
-if.end34:                                         ; preds = %do.end, %if.end
-  %tobool35 = trunc nuw i8 %keepon.0160 to i1
-  br i1 %tobool35, label %if.else37, label %if.end139
-
-if.else37:                                        ; preds = %if.end34
+if.else37:                                        ; preds = %if.end, %do.end
   %11 = load i64, ptr %gotbytes, align 8
   %cmp38 = icmp slt i64 %11, 1
   br i1 %cmp38, label %if.then40, label %for.body.preheader
@@ -481,12 +476,12 @@ for.body.preheader:                               ; preds = %if.else37
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %15 = phi i64 [ %21, %for.inc ], [ %11, %for.body.preheader ]
-  %i.0154 = phi i64 [ %inc75, %for.inc ], [ 0, %for.body.preheader ]
-  %perline.2153 = phi i64 [ %perline.4, %for.inc ], [ %perline.0161, %for.body.preheader ]
-  %ptr.2152 = phi ptr [ %incdec.ptr, %for.inc ], [ %ptr.0159, %for.body.preheader ]
-  %inc = add nsw i64 %perline.2153, 1
-  %16 = load i8, ptr %ptr.2152, align 1
+  %15 = phi i64 [ %23, %for.inc ], [ %11, %for.body.preheader ]
+  %i.0156 = phi i64 [ %inc75, %for.inc ], [ 0, %for.body.preheader ]
+  %perline.2155 = phi i64 [ %perline.4, %for.inc ], [ %perline.0163, %for.body.preheader ]
+  %ptr.2154 = phi ptr [ %incdec.ptr, %for.inc ], [ %ptr.0161, %for.body.preheader ]
+  %inc = add nsw i64 %perline.2155, 1
+  %16 = load i8, ptr %ptr.2154, align 1
   %cmp49 = icmp eq i8 %16, 10
   br i1 %cmp49, label %if.then51, label %for.inc
 
@@ -502,50 +497,50 @@ if.end57:                                         ; preds = %if.then51
   %19 = load ptr, ptr %endofresp, align 8
   %20 = load ptr, ptr %linestart_resp, align 8
   %call59 = call zeroext i1 %19(ptr noundef %data, ptr noundef %0, ptr noundef %20, i64 noundef %inc, ptr noundef nonnull %code) #9
-  br i1 %call59, label %land.lhs.true, label %if.end71
+  br i1 %call59, label %for.end.thread, label %if.end71
+
+for.end.thread:                                   ; preds = %if.end57
+  %21 = load ptr, ptr %linestart_resp, align 8
+  %sub.ptr.lhs.cast62 = ptrtoint ptr %ptr.2154 to i64
+  %sub.ptr.rhs.cast63 = ptrtoint ptr %21 to i64
+  %sub.ptr.sub64 = sub i64 %sub.ptr.lhs.cast62, %sub.ptr.rhs.cast63
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 1 %21, i64 %sub.ptr.sub64, i1 false)
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub64
+  store i8 0, ptr %arrayidx, align 1
+  %add.ptr66 = getelementptr inbounds nuw i8, ptr %ptr.2154, i64 1
+  store ptr %add.ptr66, ptr %linestart_resp, align 8
+  %inc68 = add nuw nsw i64 %i.0156, 1
+  %22 = load i64, ptr %nread_resp, align 8
+  store i64 %22, ptr %size, align 8
+  store i64 0, ptr %nread_resp, align 8
+  %.pre173 = load i64, ptr %gotbytes, align 8
+  %cmp77.not = icmp eq i64 %inc68, %.pre173
+  br i1 %cmp77.not, label %if.then134, label %if.then79
 
 if.end71:                                         ; preds = %if.end57
-  %add.ptr72 = getelementptr inbounds nuw i8, ptr %ptr.2152, i64 1
+  %add.ptr72 = getelementptr inbounds nuw i8, ptr %ptr.2154, i64 1
   store ptr %add.ptr72, ptr %linestart_resp, align 8
   %.pre = load i64, ptr %gotbytes, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end71
-  %21 = phi i64 [ %.pre, %if.end71 ], [ %15, %for.body ]
+  %23 = phi i64 [ %.pre, %if.end71 ], [ %15, %for.body ]
   %perline.4 = phi i64 [ 0, %if.end71 ], [ %inc, %for.body ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ptr.2152, i64 1
-  %inc75 = add nuw nsw i64 %i.0154, 1
-  %cmp46 = icmp slt i64 %inc75, %21
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ptr.2154, i64 1
+  %inc75 = add nuw nsw i64 %i.0156, 1
+  %cmp46 = icmp slt i64 %inc75, %23
   br i1 %cmp46, label %for.body, label %if.then85, !llvm.loop !4
 
-land.lhs.true:                                    ; preds = %if.end57
-  %22 = load ptr, ptr %linestart_resp, align 8
-  %sub.ptr.lhs.cast62 = ptrtoint ptr %ptr.2152 to i64
-  %sub.ptr.rhs.cast63 = ptrtoint ptr %22 to i64
-  %sub.ptr.sub64 = sub i64 %sub.ptr.lhs.cast62, %sub.ptr.rhs.cast63
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 1 %22, i64 %sub.ptr.sub64, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub64
-  store i8 0, ptr %arrayidx, align 1
-  %add.ptr66 = getelementptr inbounds nuw i8, ptr %ptr.2152, i64 1
-  store ptr %add.ptr66, ptr %linestart_resp, align 8
-  %inc68 = add nuw nsw i64 %i.0154, 1
-  %23 = load i64, ptr %nread_resp, align 8
-  store i64 %23, ptr %size, align 8
-  store i64 0, ptr %nread_resp, align 8
-  %.pre171 = load i64, ptr %gotbytes, align 8
-  %cmp77.not = icmp eq i64 %inc68, %.pre171
-  br i1 %cmp77.not, label %if.then134, label %if.then79
-
-if.then79:                                        ; preds = %land.lhs.true
-  %sub80 = sub nsw i64 %.pre171, %inc68
+if.then79:                                        ; preds = %for.end.thread
+  %sub80 = sub nsw i64 %.pre173, %inc68
   br label %if.end120
 
 if.then85:                                        ; preds = %for.inc
-  %cmp86 = icmp eq i64 %perline.4, %21
-  %.pre170 = load i32, ptr %buffer_size, align 4
-  %24 = lshr i32 %.pre170, 1
+  %cmp86 = icmp eq i64 %perline.4, %23
+  %.pre172 = load i32, ptr %buffer_size, align 4
+  %24 = lshr i32 %.pre172, 1
   %div = zext nneg i32 %24 to i64
-  %cmp92 = icmp sgt i64 %21, %div
+  %cmp92 = icmp sgt i64 %23, %div
   %or.cond = select i1 %cmp86, i1 %cmp92, i1 false
   br i1 %or.cond, label %land.lhs.true97, label %if.else103
 
@@ -556,7 +551,7 @@ land.lhs.true97:                                  ; preds = %if.then85
   br i1 %tobool99.not, label %if.then122, label %if.then100
 
 if.then100:                                       ; preds = %land.lhs.true97
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.5, i64 noundef %21) #9
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.5, i64 noundef %23) #9
   br label %if.then122
 
 if.else103:                                       ; preds = %if.then85
@@ -565,38 +560,38 @@ if.else103:                                       ; preds = %if.then85
   br i1 %cmp109, label %if.end120, label %if.end139
 
 if.end120:                                        ; preds = %if.else103, %if.then79
-  %keepon.396 = phi i8 [ 0, %if.then79 ], [ %keepon.0160, %if.else103 ]
+  %keepon.398 = phi i8 [ 0, %if.then79 ], [ 1, %if.else103 ]
   %clipamount.0 = phi i64 [ %sub80, %if.then79 ], [ %perline.4, %if.else103 ]
   %tobool121.not = icmp eq i64 %clipamount.0, 0
   br i1 %tobool121.not, label %if.then134, label %if.then122
 
 if.then122:                                       ; preds = %if.then100, %land.lhs.true97, %if.end120
-  %clipamount.0127 = phi i64 [ %clipamount.0, %if.end120 ], [ 40, %land.lhs.true97 ], [ 40, %if.then100 ]
-  %keepon.396126 = phi i8 [ %keepon.396, %if.end120 ], [ %keepon.0160, %land.lhs.true97 ], [ %keepon.0160, %if.then100 ]
-  store i64 %clipamount.0127, ptr %cache_size, align 8
+  %clipamount.0129 = phi i64 [ %clipamount.0, %if.end120 ], [ 40, %land.lhs.true97 ], [ 40, %if.then100 ]
+  %keepon.398128 = phi i8 [ %keepon.398, %if.end120 ], [ 1, %land.lhs.true97 ], [ 1, %if.then100 ]
+  store i64 %clipamount.0129, ptr %cache_size, align 8
   %27 = load ptr, ptr %linestart_resp, align 8
-  %call126 = call ptr @Curl_memdup(ptr noundef %27, i64 noundef %clipamount.0127) #9
+  %call126 = call ptr @Curl_memdup(ptr noundef %27, i64 noundef %clipamount.0129) #9
   store ptr %call126, ptr %pp, align 8
   %tobool129.not = icmp eq ptr %call126, null
   br i1 %tobool129.not, label %return, label %if.then134
 
-if.then134:                                       ; preds = %if.end120, %if.then122, %land.lhs.true
-  %keepon.396114133 = phi i8 [ 0, %land.lhs.true ], [ %keepon.396, %if.end120 ], [ %keepon.396126, %if.then122 ]
+if.then134:                                       ; preds = %if.end120, %if.then122, %for.end.thread
+  %keepon.398116135 = phi i8 [ 0, %for.end.thread ], [ %keepon.398, %if.end120 ], [ %keepon.398128, %if.then122 ]
   store i64 0, ptr %nread_resp, align 8
   store ptr %1, ptr %linestart_resp, align 8
+  %28 = trunc nuw i8 %keepon.398116135 to i1
   br label %if.end139
 
-if.end139:                                        ; preds = %if.else103, %if.then134, %if.end34
-  %ptr.1 = phi ptr [ %1, %if.then134 ], [ %ptr.0159, %if.end34 ], [ %incdec.ptr, %if.else103 ]
-  %keepon.2 = phi i8 [ %keepon.396114133, %if.then134 ], [ %keepon.0160, %if.end34 ], [ %keepon.0160, %if.else103 ]
-  %perline.1 = phi i64 [ 0, %if.then134 ], [ %perline.0161, %if.end34 ], [ %perline.4, %if.else103 ]
-  %28 = load i64, ptr %nread_resp, align 8
-  %29 = load i32, ptr %buffer_size, align 4
-  %conv = zext i32 %29 to i64
-  %cmp = icmp ult i64 %28, %conv
-  %tobool = trunc nuw i8 %keepon.2 to i1
-  %30 = select i1 %cmp, i1 %tobool, i1 false
-  br i1 %30, label %while.body, label %while.end, !llvm.loop !6
+if.end139:                                        ; preds = %if.else103, %if.then134
+  %ptr.1 = phi ptr [ %1, %if.then134 ], [ %incdec.ptr, %if.else103 ]
+  %keepon.2 = phi i1 [ %28, %if.then134 ], [ true, %if.else103 ]
+  %perline.1 = phi i64 [ 0, %if.then134 ], [ %perline.4, %if.else103 ]
+  %29 = load i64, ptr %nread_resp, align 8
+  %30 = load i32, ptr %buffer_size, align 4
+  %conv = zext i32 %30 to i64
+  %cmp = icmp ult i64 %29, %conv
+  %31 = select i1 %cmp, i1 %keepon.2, i1 false
+  br i1 %31, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %do.end, %if.end139, %if.then40, %entry
   %result.0.lcssa = phi i32 [ 0, %entry ], [ 56, %if.then40 ], [ %call, %do.end ], [ 0, %if.end139 ]

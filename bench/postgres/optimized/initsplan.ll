@@ -1153,7 +1153,7 @@ list_length.exit.thread.i.i.i:                    ; preds = %list_length.exit.i.
   br label %201
 
 201:                                              ; preds = %200, %197, %193
-  %.2.i.i.i = phi i8 [ 0, %200 ], [ %.07298.i251.i.i, %197 ], [ %.07298.i251.i.i, %193 ]
+  %.2.i.i.i = phi i8 [ 0, %200 ], [ 1, %197 ], [ 0, %193 ]
   %202 = trunc i8 %.07597.i252.i.i to i1
   br i1 %202, label %203, label %205
 
@@ -1163,7 +1163,7 @@ list_length.exit.thread.i.i.i:                    ; preds = %list_length.exit.i.
   br label %205
 
 205:                                              ; preds = %203, %201
-  %.277.i.i.i = phi i8 [ %.07597.i252.i.i, %201 ], [ %spec.select.i.i.i, %203 ]
+  %.277.i.i.i = phi i8 [ 0, %201 ], [ %spec.select.i.i.i, %203 ]
   %206 = trunc nuw i8 %.2.i.i.i to i1
   br i1 %206, label %209, label %207
 

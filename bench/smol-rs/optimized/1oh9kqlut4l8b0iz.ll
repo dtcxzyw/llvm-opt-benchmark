@@ -881,6 +881,8 @@ _ZN10async_task5utils14abort_on_panic17h7e0fe89e44b67cf6E.exit: ; preds = %148
   %.095.v = select i1 %162, i64 -11, i64 -4
   %.095 = and i64 %.095.v, %.193
   %brmerge = select i1 %162, i1 true, i1 %.096
+  %not. = xor i1 %162, true
+  %.096.mux = select i1 %not., i1 true, i1 %.096
   br i1 %brmerge, label %174, label %163
 
 163:                                              ; preds = %160
@@ -928,7 +930,7 @@ _ZN10async_task5utils14abort_on_panic17h7e0fe89e44b67cf6E.exit: ; preds = %148
   br label %174
 
 174:                                              ; preds = %160, %173
-  %.197 = phi i1 [ %.096, %160 ], [ true, %173 ]
+  %.197 = phi i1 [ %.096.mux, %160 ], [ true, %173 ]
   %175 = load ptr, ptr %8, align 8, !noundef !14
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = cmpxchg weak ptr %176, i64 %.193, i64 %.095 acq_rel acquire, align 8
@@ -2792,6 +2794,8 @@ _ZN10async_task5utils14abort_on_panic17haefe654835456d80E.exit: ; preds = %542
   %.095.v = select i1 %556, i64 -11, i64 -4
   %.095 = and i64 %.095.v, %.193
   %brmerge = select i1 %556, i1 true, i1 %.096
+  %not. = xor i1 %556, true
+  %.096.mux = select i1 %not., i1 true, i1 %.096
   br i1 %brmerge, label %563, label %557
 
 557:                                              ; preds = %554
@@ -2816,7 +2820,7 @@ _ZN10async_task5utils14abort_on_panic17haefe654835456d80E.exit: ; preds = %542
   br label %563
 
 563:                                              ; preds = %554, %562
-  %.197 = phi i1 [ %.096, %554 ], [ true, %562 ]
+  %.197 = phi i1 [ %.096.mux, %554 ], [ true, %562 ]
   %564 = load ptr, ptr %19, align 8, !noundef !14
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 8
   %566 = cmpxchg weak ptr %565, i64 %.193, i64 %.095 acq_rel acquire, align 8

@@ -250,13 +250,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %_ZL14TestCipherRuleRK10CipherTest.exit.i
-  %__begin1.0.add.i = add nuw nsw i64 %__begin1.0.idx54.i, 32
+  %__begin1.0.add.i = add nuw nsw i64 %__begin1.0.idx55.i, 32
   %cmp.not.i = icmp eq i64 %__begin1.0.add.i, 416
   br i1 %cmp.not.i, label %for.body6.i, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %__begin1.0.idx54.i = phi i64 [ 0, %entry ], [ %__begin1.0.add.i, %for.cond.i ]
-  %__begin1.0.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL12kCipherTests, i64 %__begin1.0.idx54.i
+  %__begin1.0.idx55.i = phi i64 [ 0, %entry ], [ %__begin1.0.add.i, %for.cond.i ]
+  %__begin1.0.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL12kCipherTests, i64 %__begin1.0.idx55.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ctx.i.i)
   %call.i.i = tail call ptr @TLS_method()
   %call1.i.i = tail call ptr @SSL_CTX_new(ptr noundef %call.i.i)
@@ -337,22 +337,22 @@ if.then14.invoke.i.i:                             ; preds = %lor.lhs.false.i.i, 
   %call44.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.25, ptr noundef %8) #26
   %9 = load ptr, ptr %cipher_list.i.i, align 8
   %10 = load ptr, ptr %9, align 8
-  %call14.i39.i = invoke i64 @sk_num(ptr noundef %10)
+  %call14.i40.i = invoke i64 @sk_num(ptr noundef %10)
           to label %call14.i.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.split-lp.i
 
 call14.i.noexc.i:                                 ; preds = %if.then14.invoke.i.i
-  %cmp15.not.i.i = icmp eq i64 %call14.i39.i, 0
+  %cmp15.not.i.i = icmp eq i64 %call14.i40.i, 0
   br i1 %cmp15.not.i.i, label %if.then.i.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %call14.i.noexc.i
   %in_group_flags.i32.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %for.body.i33.i
 
-for.body.i33.i:                                   ; preds = %call.i37.noexc.i, %for.body.lr.ph.i.i
-  %in_group.017.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %in_group.2.i.i, %call.i37.noexc.i ]
-  %i.016.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i36.i, %call.i37.noexc.i ]
+for.body.i33.i:                                   ; preds = %call.i38.noexc.i, %for.body.lr.ph.i.i
+  %in_group.017.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %in_group.2.i.i, %call.i38.noexc.i ]
+  %i.016.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i37.i, %call.i38.noexc.i ]
   %11 = load ptr, ptr %9, align 8
-  %call2.i40.i = invoke ptr @sk_value(ptr noundef %11, i64 noundef %i.016.i.i)
+  %call2.i41.i = invoke ptr @sk_value(ptr noundef %11, i64 noundef %i.016.i.i)
           to label %call2.i.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
 
 call2.i.noexc.i:                                  ; preds = %for.body.i33.i
@@ -364,23 +364,23 @@ land.lhs.true.i.i:                                ; preds = %call2.i.noexc.i
   %13 = load i8, ptr %arrayidx.i34.i, align 1
   %tobool3.not.i.i = icmp eq i8 %13, 0
   %14 = load ptr, ptr @stderr, align 8
-  br i1 %tobool3.not.i.i, label %for.inc.critedge.i.i, label %if.end.thread.i.i
+  br i1 %tobool3.not.i.i, label %for.inc.critedge.i.i, label %if.then.i35.i
 
-if.end.thread.i.i:                                ; preds = %land.lhs.true.i.i
+if.then.i35.i:                                    ; preds = %land.lhs.true.i.i
   %15 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 3, i64 1, ptr %14) #26
   br label %if.then7.i.i
 
-if.then7.i.i:                                     ; preds = %if.end.thread.i.i, %call2.i.noexc.i
+if.then7.i.i:                                     ; preds = %if.then.i35.i, %call2.i.noexc.i
   %16 = load ptr, ptr @stderr, align 8
-  %fputc19.i.i = tail call i32 @fputc(i32 9, ptr %16)
+  %fputc11.i.i = tail call i32 @fputc(i32 9, ptr %16)
   %17 = load ptr, ptr @stderr, align 8
   %18 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 2, i64 1, ptr %17) #26
   %19 = load ptr, ptr @stderr, align 8
-  %call10.i41.i = invoke ptr @SSL_CIPHER_get_name(ptr noundef %call2.i40.i)
+  %call10.i42.i = invoke ptr @SSL_CIPHER_get_name(ptr noundef %call2.i41.i)
           to label %call10.i.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
 
 call10.i.noexc.i:                                 ; preds = %if.then7.i.i
-  %call11.i35.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.29, ptr noundef %call10.i41.i) #26
+  %call11.i36.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.29, ptr noundef %call10.i42.i) #26
   %20 = load ptr, ptr %in_group_flags.i32.i, align 8
   %arrayidx15.i.i = getelementptr inbounds i8, ptr %20, i64 %i.016.i.i
   %21 = load i8, ptr %arrayidx15.i.i, align 1
@@ -395,23 +395,23 @@ if.then17.i.i:                                    ; preds = %call10.i.noexc.i
 for.inc.critedge.i.i:                             ; preds = %land.lhs.true.i.i
   %fputc.i.i = tail call i32 @fputc(i32 9, ptr %14)
   %24 = load ptr, ptr @stderr, align 8
-  %call10.c.i42.i = invoke ptr @SSL_CIPHER_get_name(ptr noundef %call2.i40.i)
+  %call10.c.i43.i = invoke ptr @SSL_CIPHER_get_name(ptr noundef %call2.i41.i)
           to label %call10.c.i.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
 
 call10.c.i.noexc.i:                               ; preds = %for.inc.critedge.i.i
-  %call11.c.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.29, ptr noundef %call10.c.i42.i) #26
+  %call11.c.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.29, ptr noundef %call10.c.i43.i) #26
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %call10.c.i.noexc.i, %if.then17.i.i, %call10.i.noexc.i
   %in_group.2.i.i = phi i1 [ true, %call10.i.noexc.i ], [ false, %if.then17.i.i ], [ false, %call10.c.i.noexc.i ]
   %25 = load ptr, ptr %9, align 8
-  %call.i3743.i = invoke i64 @sk_num(ptr noundef %25)
-          to label %call.i37.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
+  %call.i3844.i = invoke i64 @sk_num(ptr noundef %25)
+          to label %call.i38.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
 
-call.i37.noexc.i:                                 ; preds = %for.inc.i.i
-  %inc.i36.i = add nuw i64 %i.016.i.i, 1
-  %cmp.i38.i = icmp ult i64 %inc.i36.i, %call.i3743.i
-  br i1 %cmp.i38.i, label %for.body.i33.i, label %if.then.i.i.i, !llvm.loop !7
+call.i38.noexc.i:                                 ; preds = %for.inc.i.i
+  %inc.i37.i = add nuw i64 %i.016.i.i, 1
+  %cmp.i39.i = icmp ult i64 %inc.i37.i, %call.i3844.i
+  br i1 %cmp.i39.i, label %for.body.i33.i, label %if.then.i.i.i, !llvm.loop !7
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %inc.i.i = add nuw i64 %i.029.i.i, 1
@@ -455,8 +455,8 @@ lor.lhs.false.i.i:                                ; preds = %invoke.cont32.i.i
   %cmp40.not.i.i = icmp eq i32 %32, %conv39.i.i
   br i1 %cmp40.not.i.i, label %for.cond.i.i, label %if.then14.invoke.i.i
 
-if.then.i.i.i:                                    ; preds = %for.cond.i.i, %call.i37.noexc.i, %call14.i.noexc.i, %for.cond.preheader.i.i, %if.then5.i.i
-  %retval.0.ph.i.i = phi i1 [ false, %if.then5.i.i ], [ true, %for.cond.preheader.i.i ], [ false, %call14.i.noexc.i ], [ false, %call.i37.noexc.i ], [ true, %for.cond.i.i ]
+if.then.i.i.i:                                    ; preds = %for.cond.i.i, %call.i38.noexc.i, %call14.i.noexc.i, %for.cond.preheader.i.i, %if.then5.i.i
+  %retval.0.ph.i.i = phi i1 [ false, %if.then5.i.i ], [ true, %for.cond.preheader.i.i ], [ false, %call14.i.noexc.i ], [ false, %call.i38.noexc.i ], [ true, %for.cond.i.i ]
   invoke void @SSL_CTX_free(ptr noundef nonnull %call1.i.i)
           to label %_ZL14TestCipherRuleRK10CipherTest.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -472,13 +472,13 @@ _ZL14TestCipherRuleRK10CipherTest.exit.i:         ; preds = %if.then.i.i.i
   br i1 %retval.0.ph.i.i, label %for.cond.i, label %_ZL15TestCipherRulesv.exit.thread
 
 for.cond4.i:                                      ; preds = %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i
-  %__begin12.0.add.i = add nuw nsw i64 %__begin12.0.idx55.i, 8
+  %__begin12.0.add.i = add nuw nsw i64 %__begin12.0.idx56.i, 8
   %cmp5.not.i = icmp eq i64 %__begin12.0.add.i, 104
   br i1 %cmp5.not.i, label %for.body27.i, label %for.body6.i
 
 for.body6.i:                                      ; preds = %for.cond.i, %for.cond4.i
-  %__begin12.0.idx55.i = phi i64 [ %__begin12.0.add.i, %for.cond4.i ], [ 0, %for.cond.i ]
-  %__begin12.0.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL9kBadRules, i64 %__begin12.0.idx55.i
+  %__begin12.0.idx56.i = phi i64 [ %__begin12.0.add.i, %for.cond4.i ], [ 0, %for.cond.i ]
+  %__begin12.0.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL9kBadRules, i64 %__begin12.0.idx56.i
   %38 = load ptr, ptr %__begin12.0.ptr.i, align 8
   %call7.i = tail call ptr @SSLv23_server_method()
   %call8.i = tail call ptr @SSL_CTX_new(ptr noundef %call7.i)
@@ -524,13 +524,13 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
   br i1 %tobool.not.not.i, label %for.cond4.i, label %_ZL15TestCipherRulesv.exit.thread
 
 for.cond25.i:                                     ; preds = %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i
-  %__begin123.0.add.i = add nuw nsw i64 %__begin123.0.idx56.i, 8
+  %__begin123.0.add.i = add nuw nsw i64 %__begin123.0.idx57.i, 8
   %cmp26.not.i = icmp eq i64 %__begin123.0.add.i, 104
   br i1 %cmp26.not.i, label %lor.lhs.false, label %for.body27.i
 
 for.body27.i:                                     ; preds = %for.cond4.i, %for.cond25.i
-  %__begin123.0.idx56.i = phi i64 [ %__begin123.0.add.i, %for.cond25.i ], [ 0, %for.cond4.i ]
-  %__begin123.0.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL19kMustNotIncludeNull, i64 %__begin123.0.idx56.i
+  %__begin123.0.idx57.i = phi i64 [ %__begin123.0.add.i, %for.cond25.i ], [ 0, %for.cond4.i ]
+  %__begin123.0.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL19kMustNotIncludeNull, i64 %__begin123.0.idx57.i
   %43 = load ptr, ptr %__begin123.0.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ctx.i11.i)
   %call.i12.i = tail call ptr @SSLv23_server_method()

@@ -2720,6 +2720,7 @@ _ZNK4llvm9MemorySSA16getBlockAccessesEPKNS_10BasicBlockE.exit: ; preds = %_ZNK4l
   %58 = lshr i32 %56, 9
   %59 = xor i32 %57, %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %not. = xor i1 %54, true
   br label %61
 
 61:                                               ; preds = %.lr.ph, %160
@@ -2817,6 +2818,7 @@ _ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit: ; preds = %103, %_ZNK4l
 
 _ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit.thread: ; preds = %.lr.ph.i.i.i5.i, %70, %_ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit, %67
   %brmerge = select i1 %54, i1 true, i1 %.02361
+  %.023.mux = select i1 %not., i1 true, i1 %.02361
   br i1 %brmerge, label %_ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit43.thread, label %114
 
 114:                                              ; preds = %_ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit.thread
@@ -2896,7 +2898,7 @@ _ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit43: ; preds = %147, %_ZNK
   br i1 %157, label %160, label %_ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit43.thread
 
 _ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit43.thread: ; preds = %.lr.ph.i.i.i5.i36, %_ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit.thread, %114, %_ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit43
-  %.1 = phi i1 [ %.02361, %_ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit.thread ], [ true, %_ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit43 ], [ true, %114 ], [ true, %.lr.ph.i.i.i5.i36 ]
+  %.1 = phi i1 [ %.023.mux, %_ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit.thread ], [ true, %_ZN4llvm8GVNHoist9firstInBBEPKNS_11InstructionES3_.exit43 ], [ true, %114 ], [ true, %.lr.ph.i.i.i5.i36 ]
   %158 = load ptr, ptr %60, align 8
   %159 = tail call noundef zeroext i1 @_ZN4llvm13MemorySSAUtil19defClobbersUseOrDefEPNS_9MemoryDefEPKNS_14MemoryUseOrDefERNS_9AAResultsE(ptr noundef nonnull %2, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull align 8 dereferenceable(56) %158) #21
   br i1 %159, label %_ZNK4llvm9MemorySSA16getBlockAccessesEPKNS_10BasicBlockE.exit.thread, label %160

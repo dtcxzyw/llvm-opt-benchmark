@@ -2135,6 +2135,7 @@ _nvml_set_freqs.exit.i:                           ; preds = %131, %130
   %168 = trunc i8 %167 to i1
   %.not50.i = xor i1 %168, true
   %brmerge.i = select i1 %.not50.i, i1 true, i1 %.03256.i
+  %.032.mux.i = select i1 %168, i1 true, i1 %.03256.i
   br i1 %brmerge.i, label %173, label %169
 
 169:                                              ; preds = %166
@@ -2144,7 +2145,7 @@ _nvml_set_freqs.exit.i:                           ; preds = %131, %130
   br label %173
 
 173:                                              ; preds = %169, %166
-  %.2.i = phi i1 [ true, %169 ], [ %.03256.i, %166 ]
+  %.2.i = phi i1 [ true, %169 ], [ %.032.mux.i, %166 ]
   call void @slurm_xfree(ptr noundef nonnull %14) #12
   br label %174
 

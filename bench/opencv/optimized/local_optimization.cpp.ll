@@ -2567,7 +2567,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac12GraphCutImpl11refine
   br label %82
 
 82:                                               ; preds = %74, %._crit_edge, %72
-  %.4 = phi i8 [ %.2.lcssa, %72 ], [ %.2.lcssa, %._crit_edge ], [ %spec.select, %74 ]
+  %.4 = phi i8 [ 0, %72 ], [ %.2.lcssa, %._crit_edge ], [ %spec.select, %74 ]
   %83 = add nuw nsw i32 %.02744, 1
   %84 = load i32, ptr %19, align 4
   %85 = icmp slt i32 %83, %84

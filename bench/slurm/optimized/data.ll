@@ -4649,13 +4649,13 @@ define internal fastcc noundef zeroext i1 @_data_match_lists(ptr noundef nonnull
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 65282
-  br i1 %.not, label %6, label %.outer._crit_edge
+  br i1 %.not, label %6, label %.split39.us
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %.not30 = icmp eq i32 %8, 65282
-  br i1 %.not30, label %9, label %.outer._crit_edge
+  br i1 %.not30, label %9, label %.split39.us
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4667,65 +4667,89 @@ define internal fastcc noundef zeroext i1 @_data_match_lists(ptr noundef nonnull
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8
   %.not31 = icmp eq i64 %13, %17
-  br i1 %.not31, label %18, label %.outer._crit_edge
+  br i1 %.not31, label %18, label %.split39.us
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %.outer._crit_edge, label %.outer.split.lr.ph
+  %.fr61 = freeze ptr %20
+  %21 = icmp eq ptr %.fr61, null
+  br i1 %21, label %.split39.us, label %.outer.split.lr.ph
 
 .outer.split.lr.ph:                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %23 = load ptr, ptr %22, align 8
-  br i1 %2, label %.outer.split.us, label %.outer.split
+  br i1 %2, label %.outer.split.us52, label %.outer.split
 
-.outer.split.us:                                  ; preds = %.outer.split.lr.ph, %.outer.us
-  %.0.ph39.us = phi ptr [ %32, %.outer.us ], [ %23, %.outer.split.lr.ph ]
-  %.022.ph38.us = phi ptr [ %30, %.outer.us ], [ %20, %.outer.split.lr.ph ]
-  br label %33
+.outer.split.us52:                                ; preds = %.outer.split.lr.ph, %.outer.us
+  %.0.ph50.us = phi ptr [ %.1.us, %.outer.us ], [ %23, %.outer.split.lr.ph ]
+  %.022.ph49.us = phi ptr [ %.123.us, %.outer.us ], [ %.fr61, %.outer.split.lr.ph ]
+  %.024.ph48.us = phi i1 [ %.125.us, %.outer.us ], [ false, %.outer.split.lr.ph ]
+  br label %37
 
-.split.split.us:                                  ; preds = %33
-  %24 = getelementptr inbounds nuw i8, ptr %.022.ph38.us, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %.0.us, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call zeroext i1 @data_check_match(ptr noundef %25, ptr noundef %27, i1 noundef zeroext true)
-  br i1 %28, label %.outer.us, label %.outer._crit_edge
+24:                                               ; preds = %37
+  %.not34.us = icmp eq ptr %.0.us55, null
+  br i1 %.not34.us, label %37, label %.split.split.us53
 
-.outer.us:                                        ; preds = %.split.split.us
-  %29 = getelementptr inbounds nuw i8, ptr %.022.ph38.us, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %.0.us, i64 8
+.split.split.us53:                                ; preds = %24
+  %25 = getelementptr inbounds nuw i8, ptr %.022.ph49.us, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.us55, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call zeroext i1 @data_check_match(ptr noundef %26, ptr noundef %28, i1 noundef zeroext true)
+  br i1 %29, label %30, label %.outer.us
+
+30:                                               ; preds = %.split.split.us53
+  %31 = getelementptr inbounds nuw i8, ptr %.022.ph49.us, i64 8
   %32 = load ptr, ptr %31, align 8
-  %.not54 = icmp eq ptr %30, null
-  br i1 %.not54, label %.outer._crit_edge, label %.outer.split.us, !llvm.loop !25
+  %33 = getelementptr inbounds nuw i8, ptr %.0.us55, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = freeze ptr %32
+  br label %.outer.us
 
-33:                                               ; preds = %.outer.split.us, %33
-  %.0.us = phi ptr [ null, %33 ], [ %.0.ph39.us, %.outer.split.us ]
-  %.not34.us = icmp eq ptr %.0.us, null
-  br i1 %.not34.us, label %33, label %.split.split.us
+.outer.us:                                        ; preds = %.split.split.us53, %30
+  %.123.us = phi ptr [ %35, %30 ], [ %.022.ph49.us, %.split.split.us53 ]
+  %.1.us = phi ptr [ %34, %30 ], [ %.0.us55, %.split.split.us53 ]
+  %.125.us = xor i1 %29, true
+  %36 = icmp eq ptr %.123.us, null
+  br i1 %36, label %.split39.us, label %.outer.split.us52, !llvm.loop !25
+
+37:                                               ; preds = %.outer.split.us52, %24
+  %.024.us54 = phi i1 [ false, %24 ], [ %.024.ph48.us, %.outer.split.us52 ]
+  %.0.us55 = phi ptr [ null, %24 ], [ %.0.ph50.us, %.outer.split.us52 ]
+  br i1 %.024.us54, label %.split39.us, label %24
 
 .outer.split:                                     ; preds = %.outer.split.lr.ph, %.outer
-  %.0.ph39 = phi ptr [ %42, %.outer ], [ %23, %.outer.split.lr.ph ]
-  %.022.ph38 = phi ptr [ %40, %.outer ], [ %20, %.outer.split.lr.ph ]
-  %34 = getelementptr inbounds nuw i8, ptr %.022.ph38, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %.0.ph39, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call zeroext i1 @data_check_match(ptr noundef %35, ptr noundef %37, i1 noundef zeroext false)
-  br i1 %38, label %.outer, label %.outer._crit_edge
+  %.0.ph50 = phi ptr [ %.1, %.outer ], [ %23, %.outer.split.lr.ph ]
+  %.022.ph49 = phi ptr [ %.123, %.outer ], [ %.fr61, %.outer.split.lr.ph ]
+  %.024.ph48 = phi i1 [ %.125, %.outer ], [ false, %.outer.split.lr.ph ]
+  br i1 %.024.ph48, label %.split39.us, label %.split.split.us
 
-.outer:                                           ; preds = %.outer.split
-  %39 = getelementptr inbounds nuw i8, ptr %.022.ph38, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %.0.ph39, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %.not53 = icmp eq ptr %40, null
-  br i1 %.not53, label %.outer._crit_edge, label %.outer.split, !llvm.loop !25
+.split.split.us:                                  ; preds = %.outer.split
+  %38 = getelementptr inbounds nuw i8, ptr %.022.ph49, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0.ph50, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call zeroext i1 @data_check_match(ptr noundef %39, ptr noundef %41, i1 noundef zeroext false)
+  br i1 %42, label %43, label %.outer
 
-.outer._crit_edge:                                ; preds = %.outer.split, %.outer, %.split.split.us, %.outer.us, %18, %9, %6, %3
-  %.026 = phi i1 [ false, %3 ], [ false, %6 ], [ false, %9 ], [ true, %18 ], [ %28, %.outer.us ], [ %28, %.split.split.us ], [ %38, %.outer ], [ %38, %.outer.split ]
+43:                                               ; preds = %.split.split.us
+  %44 = getelementptr inbounds nuw i8, ptr %.022.ph49, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0.ph50, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = freeze ptr %45
+  br label %.outer
+
+.outer:                                           ; preds = %.split.split.us, %43
+  %.123 = phi ptr [ %48, %43 ], [ %.022.ph49, %.split.split.us ]
+  %.1 = phi ptr [ %47, %43 ], [ %.0.ph50, %.split.split.us ]
+  %.125 = xor i1 %42, true
+  %49 = icmp eq ptr %.123, null
+  br i1 %49, label %.split39.us, label %.outer.split, !llvm.loop !25
+
+.split39.us:                                      ; preds = %.outer, %.outer.split, %.outer.us, %37, %18, %9, %6, %3
+  %.026 = phi i1 [ false, %3 ], [ false, %6 ], [ false, %9 ], [ true, %18 ], [ false, %37 ], [ %29, %.outer.us ], [ %42, %.outer ], [ false, %.outer.split ]
   ret i1 %.026
 }
 

@@ -1727,7 +1727,7 @@ define internal fastcc zeroext i1 @get_actual_variable_range(ptr noundef readonl
   br label %95
 
 95:                                               ; preds = %88, %86, %85
-  %.2 = phi i8 [ %94, %88 ], [ %.1, %86 ], [ %.1, %85 ]
+  %.2 = phi i8 [ %94, %88 ], [ 0, %86 ], [ %.1, %85 ]
   call void @ExecDropSingleTupleTableSlot(ptr noundef %76) #13
   call void @index_close(ptr noundef %75, i32 noundef 0) #13
   call void @table_close(ptr noundef %72, i32 noundef 0) #13
@@ -4139,7 +4139,7 @@ strip_array_coercion.exit:                        ; preds = %.lr.ph.i, %34, %39,
 
 55:                                               ; preds = %50, %54
   %.0177216 = phi i8 [ 0, %50 ], [ 1, %54 ]
-  %.0180212 = phi i8 [ %spec.select, %50 ], [ 0, %54 ]
+  %.0180212 = phi i8 [ 1, %50 ], [ 0, %54 ]
   %56 = tail call double @scalararraysel_containment(ptr noundef %0, ptr noundef %27, ptr noundef %.0.lcssa.i, i32 noundef %30, i1 noundef zeroext %49, i1 noundef zeroext %20, i32 noundef %3) #13
   %57 = fcmp ult double %56, 0.000000e+00
   br i1 %57, label %.thread221, label %227
@@ -8221,12 +8221,12 @@ define dso_local void @btcostestimate(ptr noundef %0, ptr noundef readonly captu
 
 33:                                               ; preds = %.lr.ph313
   %34 = trunc nuw i8 %.0117224309 to i1
-  br i1 %34, label %35, label %.thread.loopexit.loopexit
+  br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %33
   %36 = add nsw i32 %.0115225308, 1
   %.not147 = icmp eq i32 %36, %32
-  br i1 %.not147, label %37, label %.thread.loopexit.loopexit
+  br i1 %.not147, label %37, label %.thread
 
 37:                                               ; preds = %35, %.lr.ph313
   %.2119 = phi i8 [ 0, %35 ], [ %.0117224309, %.lr.ph313 ]
@@ -8483,26 +8483,20 @@ estimate_array_length.exit:                       ; preds = %81, %98, %120
   %151 = load i32, ptr %18, align 4
   %152 = sext i32 %151 to i64
   %153 = icmp slt i64 %indvars.iv.next261, %152
-  br i1 %153, label %.lr.ph313, label %.thread.loopexit.loopexit
+  br i1 %153, label %.lr.ph313, label %..thread.loopexit_crit_edge
 
-.thread.loopexit.loopexit:                        ; preds = %._crit_edge, %35, %33
-  %.0114226.lcssa.ph = phi ptr [ %.0114226307, %33 ], [ %.0114226307, %35 ], [ %.1.lcssa, %._crit_edge ]
-  %.0120223.lcssa.ph = phi i1 [ %.0120223310, %33 ], [ %.0120223310, %35 ], [ %.1121.lcssa, %._crit_edge ]
-  %.0123222.lcssa.ph = phi i1 [ %.0123222311, %33 ], [ %.0123222311, %35 ], [ %.1124.lcssa, %._crit_edge ]
-  %.0126221.lcssa.ph = phi double [ %.0126221312, %33 ], [ %.0126221312, %35 ], [ %.1127.lcssa, %._crit_edge ]
-  %.1118.ph.ph.ph = phi i8 [ %.0117224309, %33 ], [ 0, %35 ], [ %.3.lcssa, %._crit_edge ]
-  %.1116.ph.ph.ph = phi i32 [ %.0115225308, %33 ], [ %36, %35 ], [ %.2, %._crit_edge ]
-  %154 = trunc nuw i8 %.1118.ph.ph.ph to i1
+..thread.loopexit_crit_edge:                      ; preds = %._crit_edge
+  %154 = trunc nuw i8 %.3.lcssa to i1
   %155 = xor i1 %154, true
-  %156 = select i1 %155, i1 true, i1 %.0120223.lcssa.ph
-  %157 = select i1 %156, i1 true, i1 %.0123222.lcssa.ph
+  %156 = select i1 %155, i1 true, i1 %.1121.lcssa
+  %157 = select i1 %156, i1 true, i1 %.1124.lcssa
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph228, %.thread.loopexit.loopexit, %8
-  %.0126.lcssa = phi double [ 1.000000e+00, %8 ], [ 1.000000e+00, %.lr.ph228 ], [ %.0126221.lcssa.ph, %.thread.loopexit.loopexit ]
-  %.0114.lcssa = phi ptr [ null, %8 ], [ null, %.lr.ph228 ], [ %.0114226.lcssa.ph, %.thread.loopexit.loopexit ]
-  %.1118 = phi i1 [ true, %8 ], [ true, %.lr.ph228 ], [ %157, %.thread.loopexit.loopexit ]
-  %.1116 = phi i32 [ 0, %8 ], [ 0, %.lr.ph228 ], [ %.1116.ph.ph.ph, %.thread.loopexit.loopexit ]
+.thread:                                          ; preds = %35, %33, %.lr.ph228, %..thread.loopexit_crit_edge, %8
+  %.0126.lcssa = phi double [ 1.000000e+00, %8 ], [ %.1127.lcssa, %..thread.loopexit_crit_edge ], [ 1.000000e+00, %.lr.ph228 ], [ %.0126221312, %33 ], [ %.0126221312, %35 ]
+  %.0114.lcssa = phi ptr [ null, %8 ], [ %.1.lcssa, %..thread.loopexit_crit_edge ], [ null, %.lr.ph228 ], [ %.0114226307, %33 ], [ %.0114226307, %35 ]
+  %.1118 = phi i1 [ true, %8 ], [ %157, %..thread.loopexit_crit_edge ], [ true, %.lr.ph228 ], [ true, %33 ], [ true, %35 ]
+  %.1116 = phi i32 [ 0, %8 ], [ %.2, %..thread.loopexit_crit_edge ], [ 0, %.lr.ph228 ], [ %.0115225308, %33 ], [ %36, %35 ]
   %158 = getelementptr inbounds nuw i8, ptr %15, i64 169
   %159 = load i8, ptr %158, align 1
   %160 = trunc i8 %159 to i1
@@ -10686,30 +10680,30 @@ define internal fastcc void @get_stats_slot_range(ptr noundef nonnull readonly c
   br i1 %19, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %21
+  %20 = trunc i8 %12 to i1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %22
 
-21:                                               ; preds = %.lr.ph, %34
+22:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.03754 = phi i1 [ false, %.lr.ph ], [ %.1, %34 ]
   %.03853 = phi i1 [ false, %.lr.ph ], [ %.139, %34 ]
-  %.04052 = phi i8 [ %12, %.lr.ph ], [ %.141, %34 ]
+  %.04052 = phi i1 [ %20, %.lr.ph ], [ true, %34 ]
   %.04251 = phi i64 [ %11, %.lr.ph ], [ %.143, %34 ]
   %.04450 = phi i64 [ %10, %.lr.ph ], [ %.145, %34 ]
-  %22 = trunc i8 %.04052 to i1
-  %23 = load ptr, ptr %20, align 8
+  %23 = load ptr, ptr %21, align 8
   %24 = getelementptr i64, ptr %23, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
-  br i1 %22, label %27, label %26
+  br i1 %.04052, label %27, label %26
 
-26:                                               ; preds = %21
+26:                                               ; preds = %22
   store i8 1, ptr %8, align 1
   br label %34
 
-27:                                               ; preds = %21
+27:                                               ; preds = %22
   %28 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %2, i32 noundef %3, i64 noundef %25, i64 noundef %.04450) #13
   %.not48 = icmp ne i64 %28, 0
-  %.pre = load ptr, ptr %20, align 8
+  %.pre = load ptr, ptr %21, align 8
   %.phi.trans.insert = getelementptr i64, ptr %.pre, i64 %indvars.iv
   %.pre60 = load i64, ptr %.phi.trans.insert, align 8
   %.04450..pre60 = select i1 %.not48, i64 %.pre60, i64 %.04450
@@ -10719,7 +10713,7 @@ define internal fastcc void @get_stats_slot_range(ptr noundef nonnull readonly c
   br i1 %.not49, label %34, label %30
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %20, align 8
+  %31 = load ptr, ptr %21, align 8
   %32 = getelementptr i64, ptr %31, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8
   br label %34
@@ -10727,14 +10721,13 @@ define internal fastcc void @get_stats_slot_range(ptr noundef nonnull readonly c
 34:                                               ; preds = %27, %30, %26
   %.145 = phi i64 [ %.04450..pre60, %30 ], [ %.04450..pre60, %27 ], [ %25, %26 ]
   %.143 = phi i64 [ %33, %30 ], [ %.04251, %27 ], [ %25, %26 ]
-  %.141 = phi i8 [ %.04052, %30 ], [ %.04052, %27 ], [ 1, %26 ]
   %.139 = phi i1 [ %.03853., %30 ], [ %.03853., %27 ], [ true, %26 ]
   %.1 = phi i1 [ true, %30 ], [ %.03754, %27 ], [ true, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %17, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %21, label %._crit_edge, !llvm.loop !49
+  br i1 %37, label %22, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %34
   br i1 %.139, label %38, label %41

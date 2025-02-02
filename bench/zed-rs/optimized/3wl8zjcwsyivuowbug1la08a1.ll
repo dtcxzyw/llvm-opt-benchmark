@@ -3153,7 +3153,7 @@ define void @_ZN3rpc4peer4Peer15request_dynamic17hd585c26030350f1dE(ptr dead_on_
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr184drop_in_place$LT$alloc..sync..ArcInner$LT$futures_channel..oneshot..Inner$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$$GT$17h9b1f37cc6d78f1c0E"(ptr noalias noundef nonnull align 8 dereferenceable(512) %13) #25
-          to label %.thread unwind label %28
+          to label %134 unwind label %28
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -3460,7 +3460,7 @@ define void @_ZN3rpc4peer4Peer15request_dynamic17hd585c26030350f1dE(ptr dead_on_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   ret void
 
-130:                                              ; preds = %136, %133, %.body5
+130:                                              ; preds = %137, %133, %.body5
   %131 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24
@@ -3471,19 +3471,19 @@ define void @_ZN3rpc4peer4Peer15request_dynamic17hd585c26030350f1dE(ptr dead_on_
 
 133:                                              ; preds = %132
   invoke void @"_ZN4core3ptr156drop_in_place$LT$futures_channel..oneshot..Sender$LT$$LP$proto..Envelope$C$std..time..Instant$C$futures_channel..oneshot..Sender$LT$$LP$$RP$$GT$$RP$$GT$$GT$17h12c272555bf2a109E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19) #25
-          to label %.thread unwind label %130
+          to label %134 unwind label %130
 
-"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit": ; preds = %132, %.thread, %136
-  %.pn14 = phi { ptr, i32 } [ %.pn15, %136 ], [ %.pn15, %.thread ], [ %eh.lpad-body6, %132 ]
+"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit": ; preds = %134, %137, %132
+  %.pn14 = phi { ptr, i32 } [ %eh.lpad-body6, %132 ], [ %.pn.ph, %137 ], [ %.pn.ph, %134 ]
   resume { ptr, i32 } %.pn14
 
-.thread:                                          ; preds = %133, %26
-  %.pn15 = phi { ptr, i32 } [ %27, %26 ], [ %eh.lpad-body6, %133 ]
-  %134 = load i64, ptr %4, align 8, !range !572, !alias.scope !585, !noundef !9
-  %135 = icmp eq i64 %134, 229
-  br i1 %135, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit", label %136
+134:                                              ; preds = %133, %26
+  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body6, %133 ], [ %27, %26 ]
+  %135 = load i64, ptr %4, align 8, !range !572, !alias.scope !585, !noundef !9
+  %136 = icmp eq i64 %135, 229
+  br i1 %136, label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit", label %137
 
-136:                                              ; preds = %.thread
+137:                                              ; preds = %134
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17h07cedb66aabc670dE.llvm.9708849161435668323"(ptr noalias noundef nonnull align 8 dereferenceable(408) %4)
           to label %"_ZN4core3ptr36drop_in_place$LT$proto..Envelope$GT$17hd6c07f9798380fdcE.exit" unwind label %130
 }

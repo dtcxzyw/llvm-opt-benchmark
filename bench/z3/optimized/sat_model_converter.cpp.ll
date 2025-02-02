@@ -912,7 +912,7 @@ invoke.cont85:                                    ; preds = %_ZNK6vectorI5lboolL
   %cmp87 = icmp eq i32 %spec.select.i, 1
   %brmerge = select i1 %cmp87, i1 true, i1 %cmp80
   %spec.select.mux = select i1 %cmp87, i1 %spec.select, i1 %frombool
-  %.mux = select i1 %cmp87, i8 1, i8 %sat.096
+  %.mux = zext i1 %cmp87 to i8
   br i1 %brmerge, label %for.inc, label %land.lhs.true92
 
 land.lhs.true92:                                  ; preds = %invoke.cont85
@@ -946,7 +946,7 @@ for.inc:                                          ; preds = %invoke.cont85, %if.
   %51 = phi ptr [ %43, %invoke.cont65 ], [ %43, %if.end101 ], [ %43, %land.lhs.true92 ], [ %43, %invoke.cont85 ], [ null, %if.end62 ], [ %16, %if.then.i49 ]
   %index.1 = phi i32 [ %index.094, %invoke.cont65 ], [ %index.094, %if.end101 ], [ %index.094, %land.lhs.true92 ], [ %index.094, %invoke.cont85 ], [ %inc, %if.end62 ], [ %inc, %if.then.i49 ]
   %var_sign.1 = phi i1 [ %var_sign.095, %invoke.cont65 ], [ %var_sign.095, %if.end101 ], [ %var_sign.095, %land.lhs.true92 ], [ %spec.select.mux, %invoke.cont85 ], [ %var_sign.095, %if.end62 ], [ %var_sign.095, %if.then.i49 ]
-  %sat.1 = phi i8 [ %sat.096, %invoke.cont65 ], [ 1, %if.end101 ], [ %sat.096, %land.lhs.true92 ], [ %.mux, %invoke.cont85 ], [ 0, %if.end62 ], [ 0, %if.then.i49 ]
+  %sat.1 = phi i8 [ 1, %invoke.cont65 ], [ 1, %if.end101 ], [ 0, %land.lhs.true92 ], [ %.mux, %invoke.cont85 ], [ 0, %if.end62 ], [ 0, %if.then.i49 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.093, i64 4
   %cmp17.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp17.not, label %for.cond.loopexit, label %for.body18
@@ -1061,7 +1061,7 @@ if.end14:                                         ; preds = %if.end11
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end14, %if.end11, %if.then
-  %sat.1 = phi i8 [ 0, %if.then ], [ %sat.018, %if.end11 ], [ %spec.select10, %if.end14 ]
+  %sat.1 = phi i8 [ 0, %if.then ], [ 1, %if.end11 ], [ %spec.select10, %if.end14 ]
   %ok.3 = phi i1 [ %spec.select, %if.then ], [ %ok.120, %if.end11 ], [ %ok.120, %if.end14 ]
   %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %it.019, i64 4
   %cmp7.not = icmp eq ptr %incdec.ptr19, %add.ptr.i15

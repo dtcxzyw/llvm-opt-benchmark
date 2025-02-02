@@ -1358,7 +1358,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %95, label %_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit, label %100
 
 _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit: ; preds = %122, %118, %112, %100, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread", %94
-  %.4 = phi i8 [ %.2.ph.lcssa14, %94 ], [ %.2.ph.lcssa14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread" ], [ 0, %100 ], [ 0, %112 ], [ 0, %118 ], [ 1, %122 ]
+  %.4 = phi i8 [ 1, %94 ], [ %.2.ph.lcssa14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread" ], [ 0, %100 ], [ 0, %112 ], [ 0, %118 ], [ 1, %122 ]
   %96 = lshr i64 %7, 3
   %97 = and i64 %96, 3
   %98 = add nuw nsw i64 %29, %97

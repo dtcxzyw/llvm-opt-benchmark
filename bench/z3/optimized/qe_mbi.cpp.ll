@@ -2570,7 +2570,7 @@ if.end18:                                         ; preds = %for.body
   br i1 %cmp16.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.body, %if.end18
-  %all_shared.0.lcssa.ph = phi i8 [ %spec.select, %if.end18 ], [ %all_shared.025, %for.body ]
+  %all_shared.0.lcssa.ph = phi i8 [ %spec.select, %if.end18 ], [ 0, %for.body ]
   %.pre30 = load ptr, ptr %m_is_shared, align 8
   br label %for.end
 

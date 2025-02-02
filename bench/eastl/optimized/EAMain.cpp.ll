@@ -578,36 +578,35 @@ if.then9:                                         ; preds = %entry
 
 if.end10:                                         ; preds = %if.then9, %entry
   %argc.0 = phi i32 [ 1, %if.then9 ], [ 0, %entry ]
-  %cmp58 = icmp sgt i64 %call, 0
-  br i1 %cmp58, label %for.cond.preheader, label %while.end50
+  %cmp57 = icmp sgt i64 %call, 0
+  br i1 %cmp57, label %for.cond.preheader, label %while.end50
 
 for.cond.preheader:                               ; preds = %if.end10, %while.end49
-  %isQuoted.062 = phi i8 [ %isQuoted.4, %while.end49 ], [ 0, %if.end10 ]
-  %end.061 = phi ptr [ %end.1, %while.end49 ], [ %add.ptr6, %if.end10 ]
-  %ptr.060 = phi ptr [ %ptr.5.lcssa, %while.end49 ], [ %add.ptr, %if.end10 ]
-  %argc.159 = phi i32 [ %argc.2, %while.end49 ], [ %argc.0, %if.end10 ]
-  %end.06167 = ptrtoint ptr %end.061 to i64
+  %end.060 = phi ptr [ %end.1, %while.end49 ], [ %add.ptr6, %if.end10 ]
+  %ptr.059 = phi ptr [ %ptr.5.lcssa, %while.end49 ], [ %add.ptr, %if.end10 ]
+  %argc.158 = phi i32 [ %argc.2, %while.end49 ], [ %argc.0, %if.end10 ]
+  %end.06064 = ptrtoint ptr %end.060 to i64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end30
-  %ptr.1 = phi ptr [ %incdec.ptr31, %if.end30 ], [ %ptr.060, %for.cond.preheader ]
-  %isQuoted.1 = phi i8 [ %isQuoted.2.lcssa, %if.end30 ], [ %isQuoted.062, %for.cond.preheader ]
+  %ptr.1 = phi ptr [ %incdec.ptr31, %if.end30 ], [ %ptr.059, %for.cond.preheader ]
+  %isQuoted.1 = phi i8 [ 1, %if.end30 ], [ 0, %for.cond.preheader ]
   %quoteStart.0 = phi ptr [ %quoteStart.1.lcssa, %if.end30 ], [ null, %for.cond.preheader ]
-  %cmp1245 = icmp ult ptr %ptr.1, %end.061
-  br i1 %cmp1245, label %land.rhs.preheader, label %while.end
+  %cmp1244 = icmp ult ptr %ptr.1, %end.060
+  br i1 %cmp1244, label %land.rhs.preheader, label %while.end
 
 land.rhs.preheader:                               ; preds = %for.cond
-  %ptr.168 = ptrtoint ptr %ptr.1 to i64
-  %scevgep = getelementptr i8, ptr %ptr.1, i64 %end.06167
-  %0 = sub i64 0, %ptr.168
-  %scevgep69 = getelementptr i8, ptr %scevgep, i64 %0
+  %ptr.165 = ptrtoint ptr %ptr.1 to i64
+  %scevgep = getelementptr i8, ptr %ptr.1, i64 %end.06064
+  %0 = sub i64 0, %ptr.165
+  %scevgep66 = getelementptr i8, ptr %scevgep, i64 %0
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body15
-  %quoteStart.148 = phi ptr [ %quoteStart.2, %while.body15 ], [ %quoteStart.0, %land.rhs.preheader ]
-  %isQuoted.247 = phi i8 [ %isQuoted.3, %while.body15 ], [ %isQuoted.1, %land.rhs.preheader ]
-  %ptr.246 = phi ptr [ %incdec.ptr, %while.body15 ], [ %ptr.1, %land.rhs.preheader ]
-  %1 = load i8, ptr %ptr.246, align 1
+  %quoteStart.147 = phi ptr [ %quoteStart.2, %while.body15 ], [ %quoteStart.0, %land.rhs.preheader ]
+  %isQuoted.246 = phi i8 [ %isQuoted.3, %while.body15 ], [ %isQuoted.1, %land.rhs.preheader ]
+  %ptr.245 = phi ptr [ %incdec.ptr, %while.body15 ], [ %ptr.1, %land.rhs.preheader ]
+  %1 = load i8, ptr %ptr.245, align 1
   %conv = zext i8 %1 to i32
   %call13 = tail call i32 @isspace(i32 noundef %conv) #21
   %tobool14.not = icmp eq i32 %call13, 0
@@ -615,18 +614,18 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body15:                                     ; preds = %land.rhs
   %cmp17 = icmp eq i8 %1, 34
-  %tobool18 = trunc nuw i8 %isQuoted.247 to i1
-  %spec.select41 = select i1 %tobool18, ptr %quoteStart.148, ptr %ptr.246
-  %isQuoted.3 = select i1 %cmp17, i8 1, i8 %isQuoted.247
-  %quoteStart.2 = select i1 %cmp17, ptr %spec.select41, ptr %quoteStart.148
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ptr.246, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep69
+  %tobool18 = trunc nuw i8 %isQuoted.246 to i1
+  %spec.select41 = select i1 %tobool18, ptr %quoteStart.147, ptr %ptr.245
+  %isQuoted.3 = select i1 %cmp17, i8 1, i8 %isQuoted.246
+  %quoteStart.2 = select i1 %cmp17, ptr %spec.select41, ptr %quoteStart.147
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ptr.245, i64 1
+  %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep66
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !13
 
 while.end:                                        ; preds = %land.rhs, %while.body15, %for.cond
-  %ptr.2.lcssa = phi ptr [ %ptr.1, %for.cond ], [ %scevgep69, %while.body15 ], [ %ptr.246, %land.rhs ]
-  %isQuoted.2.lcssa = phi i8 [ %isQuoted.1, %for.cond ], [ %isQuoted.3, %while.body15 ], [ %isQuoted.247, %land.rhs ]
-  %quoteStart.1.lcssa = phi ptr [ %quoteStart.0, %for.cond ], [ %quoteStart.2, %while.body15 ], [ %quoteStart.148, %land.rhs ]
+  %ptr.2.lcssa = phi ptr [ %ptr.1, %for.cond ], [ %scevgep66, %while.body15 ], [ %ptr.245, %land.rhs ]
+  %isQuoted.2.lcssa = phi i8 [ %isQuoted.1, %for.cond ], [ %isQuoted.3, %while.body15 ], [ %isQuoted.246, %land.rhs ]
+  %quoteStart.1.lcssa = phi ptr [ %quoteStart.0, %for.cond ], [ %quoteStart.2, %while.body15 ], [ %quoteStart.147, %land.rhs ]
   %tobool21 = trunc nuw i8 %isQuoted.2.lcssa to i1
   br i1 %tobool21, label %if.then22, label %for.end
 
@@ -639,9 +638,9 @@ if.then22:                                        ; preds = %while.end
 if.then26:                                        ; preds = %if.then22
   %add.ptr27 = getelementptr inbounds nuw i8, ptr %quoteStart.1.lcssa, i64 1
   %sub.ptr.rhs.cast = ptrtoint ptr %quoteStart.1.lcssa to i64
-  %sub.ptr.sub = sub i64 %end.06167, %sub.ptr.rhs.cast
+  %sub.ptr.sub = sub i64 %end.06064, %sub.ptr.rhs.cast
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %quoteStart.1.lcssa, ptr nonnull align 1 %add.ptr27, i64 %sub.ptr.sub, i1 false)
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %end.061, i64 -1
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %end.060, i64 -1
   %add.ptr29 = getelementptr inbounds i8, ptr %ptr.2.lcssa, i64 -2
   %.pre = ptrtoint ptr %incdec.ptr28 to i64
   br label %for.end
@@ -651,49 +650,48 @@ if.end30:                                         ; preds = %if.then22
   br label %for.cond, !llvm.loop !14
 
 for.end:                                          ; preds = %while.end, %if.then26
-  %end.170.pre-phi = phi i64 [ %.pre, %if.then26 ], [ %end.06167, %while.end ]
+  %end.167.pre-phi = phi i64 [ %.pre, %if.then26 ], [ %end.06064, %while.end ]
   %ptr.3 = phi ptr [ %add.ptr29, %if.then26 ], [ %ptr.2.lcssa, %while.end ]
-  %end.1 = phi ptr [ %incdec.ptr28, %if.then26 ], [ %end.061, %while.end ]
-  %isQuoted.4 = phi i8 [ 0, %if.then26 ], [ %isQuoted.2.lcssa, %while.end ]
-  %cmp33.not = icmp eq ptr %ptr.3, %ptr.060
+  %end.1 = phi ptr [ %incdec.ptr28, %if.then26 ], [ %end.060, %while.end ]
+  %cmp33.not = icmp eq ptr %ptr.3, %ptr.059
   br i1 %cmp33.not, label %if.end39, label %if.then34
 
 if.then34:                                        ; preds = %for.end
   store i8 0, ptr %ptr.3, align 1
-  %inc35 = add nsw i32 %argc.159, 1
-  %idxprom36 = sext i32 %argc.159 to i64
+  %inc35 = add nsw i32 %argc.158, 1
+  %idxprom36 = sext i32 %argc.158 to i64
   %arrayidx37 = getelementptr inbounds ptr, ptr %call4, i64 %idxprom36
-  store ptr %ptr.060, ptr %arrayidx37, align 8
+  store ptr %ptr.059, ptr %arrayidx37, align 8
   %incdec.ptr38 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 1
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then34, %for.end
-  %argc.2 = phi i32 [ %inc35, %if.then34 ], [ %argc.159, %for.end ]
+  %argc.2 = phi i32 [ %inc35, %if.then34 ], [ %argc.158, %for.end ]
   %ptr.4 = phi ptr [ %incdec.ptr38, %if.then34 ], [ %ptr.3, %for.end ]
-  %cmp4154 = icmp ult ptr %ptr.4, %end.1
-  br i1 %cmp4154, label %land.rhs42.preheader, label %while.end49
+  %cmp4153 = icmp ult ptr %ptr.4, %end.1
+  br i1 %cmp4153, label %land.rhs42.preheader, label %while.end49
 
 land.rhs42.preheader:                             ; preds = %if.end39
-  %ptr.471 = ptrtoint ptr %ptr.4 to i64
-  %3 = sub i64 %end.170.pre-phi, %ptr.471
-  %scevgep72 = getelementptr i8, ptr %ptr.4, i64 %3
+  %ptr.468 = ptrtoint ptr %ptr.4 to i64
+  %3 = sub i64 %end.167.pre-phi, %ptr.468
+  %scevgep69 = getelementptr i8, ptr %ptr.4, i64 %3
   br label %land.rhs42
 
 land.rhs42:                                       ; preds = %land.rhs42.preheader, %while.body47
-  %ptr.555 = phi ptr [ %incdec.ptr48, %while.body47 ], [ %ptr.4, %land.rhs42.preheader ]
-  %4 = load i8, ptr %ptr.555, align 1
+  %ptr.554 = phi ptr [ %incdec.ptr48, %while.body47 ], [ %ptr.4, %land.rhs42.preheader ]
+  %4 = load i8, ptr %ptr.554, align 1
   %conv43 = zext i8 %4 to i32
   %call44 = tail call i32 @isspace(i32 noundef %conv43) #21
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %while.end49, label %while.body47
 
 while.body47:                                     ; preds = %land.rhs42
-  %incdec.ptr48 = getelementptr inbounds nuw i8, ptr %ptr.555, i64 1
-  %exitcond73.not = icmp eq ptr %incdec.ptr48, %scevgep72
-  br i1 %exitcond73.not, label %while.end49, label %land.rhs42, !llvm.loop !15
+  %incdec.ptr48 = getelementptr inbounds nuw i8, ptr %ptr.554, i64 1
+  %exitcond70.not = icmp eq ptr %incdec.ptr48, %scevgep69
+  br i1 %exitcond70.not, label %while.end49, label %land.rhs42, !llvm.loop !15
 
 while.end49:                                      ; preds = %land.rhs42, %while.body47, %if.end39
-  %ptr.5.lcssa = phi ptr [ %ptr.4, %if.end39 ], [ %scevgep72, %while.body47 ], [ %ptr.555, %land.rhs42 ]
+  %ptr.5.lcssa = phi ptr [ %ptr.4, %if.end39 ], [ %scevgep69, %while.body47 ], [ %ptr.554, %land.rhs42 ]
   %cmp = icmp ult ptr %ptr.5.lcssa, %end.1
   br i1 %cmp, label %for.cond.preheader, label %while.end50, !llvm.loop !16
 

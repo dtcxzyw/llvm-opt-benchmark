@@ -2507,7 +2507,7 @@ slot_getallattrs.exit:                            ; preds = %15, %23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.lr.ph ]
-  %.163 = phi i8 [ %.2, %97 ], [ %.041, %.lr.ph ]
+  %.163 = phi i8 [ %.2, %97 ], [ 0, %.lr.ph ]
   %.04461 = phi i1 [ %.145, %97 ], [ false, %.lr.ph ]
   %.04860 = phi i1 [ %.149, %97 ], [ false, %.lr.ph ]
   %59 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %26, i64 0, i64 %indvars.iv

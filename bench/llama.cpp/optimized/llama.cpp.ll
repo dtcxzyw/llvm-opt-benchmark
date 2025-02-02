@@ -21175,6 +21175,7 @@ if.end243:                                        ; preds = %invoke.cont210, %_Z
 invoke.cont244:                                   ; preds = %if.end243
   %call245.not = xor i1 %call245, true
   %brmerge = select i1 %call245.not, i1 true, i1 %warned.0
+  %warned.0.mux = select i1 %call245, i1 true, i1 %warned.0
   br i1 %brmerge, label %if.end251, label %if.then248
 
 if.then248:                                       ; preds = %invoke.cont244
@@ -21182,7 +21183,7 @@ if.then248:                                       ; preds = %invoke.cont244
           to label %if.end251 unwind label %lpad137.loopexit
 
 if.end251:                                        ; preds = %invoke.cont244, %if.then248
-  %warned.4 = phi i1 [ %warned.0, %invoke.cont244 ], [ true, %if.then248 ]
+  %warned.4 = phi i1 [ %warned.0.mux, %invoke.cont244 ], [ true, %if.then248 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp252, ptr noundef nonnull align 8 dereferenceable(32) %base_name)
           to label %.noexc174 unwind label %lpad137.loopexit
 

@@ -36075,13 +36075,12 @@ if.else.i.i7.i.i63:                               ; preds = %_ZN11mpq_managerILb
           to label %cleanupthread-pre-split unwind label %lpad6.loopexit
 
 cleanupthread-pre-split:                          ; preds = %invoke.cont40, %invoke.cont42, %invoke.cont45, %if.then.i.i.i.i, %call4.i.i.i.i.noexc, %if.then.i.i.i.i.i, %call4.i.i.i.i.i.noexc, %if.else.i.i7.i.i63, %if.then.i.i8.i.i64
-  %found.1.ph = phi i8 [ 1, %if.then.i.i8.i.i64 ], [ 1, %if.else.i.i7.i.i63 ], [ %found.087, %call4.i.i.i.i.i.noexc ], [ %found.087, %if.then.i.i.i.i.i ], [ %found.087, %call4.i.i.i.i.noexc ], [ %found.087, %if.then.i.i.i.i ], [ %found.087, %invoke.cont42 ], [ %found.087, %invoke.cont40 ], [ %found.087, %invoke.cont45 ]
   %.pr = load ptr, ptr %vl, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanupthread-pre-split, %invoke.cont9
   %44 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %10, %invoke.cont9 ]
-  %found.1 = phi i8 [ %found.1.ph, %cleanupthread-pre-split ], [ %found.087, %invoke.cont9 ]
+  %found.1 = phi i8 [ 1, %cleanupthread-pre-split ], [ %found.087, %invoke.cont9 ]
   %tobool.not.i.i = icmp eq ptr %44, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i75
 

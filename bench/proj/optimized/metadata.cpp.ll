@@ -5043,8 +5043,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %77 = icmp eq i64 %69, %76
   br i1 %77, label %.preheader, label %.critedge5
 
-.preheader:                                       ; preds = %62, %88
-  %.04048 = phi i64 [ %102, %88 ], [ 0, %62 ]
+.preheader:                                       ; preds = %62, %87
+  %.04048 = phi i64 [ %101, %87 ], [ 0, %62 ]
   %78 = load ptr, ptr %9, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 48
@@ -5054,93 +5054,93 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
   %86 = ashr exact i64 %85, 4
-  %87 = icmp ult i64 %.04048, %86
-  br i1 %87, label %88, label %.lr.ph
+  %.not58 = icmp ult i64 %.04048, %86
+  br i1 %.not58, label %87, label %.lr.ph
 
-88:                                               ; preds = %.preheader
-  %89 = getelementptr inbounds %"class.dropbox::oxygen::nn.26", ptr %82, i64 %.04048
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %12, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds %"class.dropbox::oxygen::nn.26", ptr %93, i64 %.04048
-  %95 = load ptr, ptr %94, align 8
-  %96 = icmp eq ptr %95, null
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %spec.select = select i1 %96, ptr null, ptr %97
-  %98 = load ptr, ptr %90, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef %spec.select, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %102 = add nuw i64 %.04048, 1
-  br i1 %101, label %.preheader, label %.critedge5, !llvm.loop !80
+87:                                               ; preds = %.preheader
+  %88 = getelementptr inbounds %"class.dropbox::oxygen::nn.26", ptr %82, i64 %.04048
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %12, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds %"class.dropbox::oxygen::nn.26", ptr %92, i64 %.04048
+  %94 = load ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, null
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %spec.select = select i1 %95, ptr null, ptr %96
+  %97 = load ptr, ptr %89, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %100 = tail call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef %spec.select, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %101 = add nuw i64 %.04048, 1
+  br i1 %100, label %.preheader, label %.critedge5, !llvm.loop !80
 
-.lr.ph:                                           ; preds = %.preheader, %113
-  %.03950 = phi i64 [ %127, %113 ], [ 0, %.preheader ]
-  %103 = load ptr, ptr %9, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 64
-  %105 = getelementptr inbounds nuw i8, ptr %103, i64 72
-  %106 = load ptr, ptr %105, align 8
-  %107 = load ptr, ptr %104, align 8
+.lr.ph:                                           ; preds = %.preheader, %111
+  %.03950 = phi i64 [ %125, %111 ], [ 0, %.preheader ]
+  %102 = load ptr, ptr %9, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 64
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 72
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %103, align 8
+  %107 = ptrtoint ptr %105 to i64
   %108 = ptrtoint ptr %106 to i64
-  %109 = ptrtoint ptr %107 to i64
-  %110 = sub i64 %108, %109
-  %111 = ashr exact i64 %110, 4
-  %112 = icmp ult i64 %.03950, %111
-  br i1 %112, label %113, label %.lr.ph55
+  %109 = sub i64 %107, %108
+  %110 = ashr exact i64 %109, 4
+  %.not62 = icmp ult i64 %.03950, %110
+  br i1 %.not62, label %111, label %.lr.ph54
 
-113:                                              ; preds = %.lr.ph
-  %114 = getelementptr inbounds %"class.dropbox::oxygen::nn.42", ptr %107, i64 %.03950
-  %115 = load ptr, ptr %114, align 8
-  %116 = load ptr, ptr %12, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 64
+111:                                              ; preds = %.lr.ph
+  %112 = getelementptr inbounds %"class.dropbox::oxygen::nn.42", ptr %106, i64 %.03950
+  %113 = load ptr, ptr %112, align 8
+  %114 = load ptr, ptr %12, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 64
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds %"class.dropbox::oxygen::nn.42", ptr %116, i64 %.03950
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds %"class.dropbox::oxygen::nn.42", ptr %118, i64 %.03950
-  %120 = load ptr, ptr %119, align 8
-  %121 = icmp eq ptr %120, null
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %spec.select3 = select i1 %121, ptr null, ptr %122
-  %123 = load ptr, ptr %115, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %125 = load ptr, ptr %124, align 8
-  %126 = tail call noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef %spec.select3, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %127 = add nuw i64 %.03950, 1
-  br i1 %126, label %.lr.ph, label %.critedge5, !llvm.loop !81
+  %119 = icmp eq ptr %118, null
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %spec.select3 = select i1 %119, ptr null, ptr %120
+  %121 = load ptr, ptr %113, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %123 = load ptr, ptr %122, align 8
+  %124 = tail call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef %spec.select3, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %125 = add nuw i64 %.03950, 1
+  br i1 %124, label %.lr.ph, label %.critedge5, !llvm.loop !81
 
-.lr.ph55:                                         ; preds = %.lr.ph, %137
-  %.054 = phi i64 [ %151, %137 ], [ 0, %.lr.ph ]
-  %128 = load ptr, ptr %9, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 88
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 96
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %129, align 8
-  %133 = ptrtoint ptr %131 to i64
-  %134 = ptrtoint ptr %132 to i64
-  %135 = sub i64 %133, %134
-  %136 = ashr exact i64 %135, 4
-  %.not66 = icmp uge i64 %.054, %136
-  br i1 %.not66, label %.critedge5, label %137
+.lr.ph54:                                         ; preds = %.lr.ph, %135
+  %.053 = phi i64 [ %149, %135 ], [ 0, %.lr.ph ]
+  %126 = load ptr, ptr %9, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 88
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 96
+  %129 = load ptr, ptr %128, align 8
+  %130 = load ptr, ptr %127, align 8
+  %131 = ptrtoint ptr %129 to i64
+  %132 = ptrtoint ptr %130 to i64
+  %133 = sub i64 %131, %132
+  %134 = ashr exact i64 %133, 4
+  %.not63.not = icmp uge i64 %.053, %134
+  br i1 %.not63.not, label %.critedge5, label %135
 
-137:                                              ; preds = %.lr.ph55
-  %138 = getelementptr inbounds %"class.dropbox::oxygen::nn.62", ptr %132, i64 %.054
-  %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %12, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 88
+135:                                              ; preds = %.lr.ph54
+  %136 = getelementptr inbounds %"class.dropbox::oxygen::nn.62", ptr %130, i64 %.053
+  %137 = load ptr, ptr %136, align 8
+  %138 = load ptr, ptr %12, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 88
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds %"class.dropbox::oxygen::nn.62", ptr %140, i64 %.053
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds %"class.dropbox::oxygen::nn.62", ptr %142, i64 %.054
-  %144 = load ptr, ptr %143, align 8
-  %145 = icmp eq ptr %144, null
-  %146 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %spec.select6 = select i1 %145, ptr null, ptr %146
-  %147 = load ptr, ptr %139, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %149 = load ptr, ptr %148, align 8
-  %150 = tail call noundef zeroext i1 %149(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef %spec.select6, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %151 = add nuw i64 %.054, 1
-  br i1 %150, label %.lr.ph55, label %.critedge5, !llvm.loop !82
+  %143 = icmp eq ptr %142, null
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  %spec.select6 = select i1 %143, ptr null, ptr %144
+  %145 = load ptr, ptr %137, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  %147 = load ptr, ptr %146, align 8
+  %148 = tail call noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef %spec.select6, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %149 = add nuw i64 %.053, 1
+  br i1 %148, label %.lr.ph54, label %.critedge5, !llvm.loop !82
 
-.critedge5:                                       ; preds = %88, %113, %137, %.lr.ph55, %17, %4, %6, %8, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %46, %62
-  %.041 = phi i1 [ false, %62 ], [ false, %46 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %8 ], [ false, %6 ], [ false, %4 ], [ false, %17 ], [ %.not66, %.lr.ph55 ], [ %.not66, %137 ], [ false, %113 ], [ false, %88 ]
+.critedge5:                                       ; preds = %87, %111, %135, %.lr.ph54, %17, %4, %6, %8, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, %46, %62
+  %.041 = phi i1 [ false, %62 ], [ false, %46 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ false, %8 ], [ false, %6 ], [ false, %4 ], [ false, %17 ], [ %.not63.not, %.lr.ph54 ], [ %.not63.not, %135 ], [ false, %111 ], [ false, %87 ]
   ret i1 %.041
 }
 
@@ -5185,14 +5185,14 @@ define noundef zeroext i1 @_ZNK5osgeo4proj8metadata6Extent8containsERKN7dropbox6
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(16) %20)
-  br i1 %30, label %..thread_crit_edge, label %_ZNK5osgeo4proj8metadata14TemporalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+  br i1 %30, label %..thread_crit_edge, label %.thread15
 
 ..thread_crit_edge:                               ; preds = %25
   %.pre = load ptr, ptr %3, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %2, %13
-  %31 = phi ptr [ %.pre, %..thread_crit_edge ], [ %4, %13 ], [ %4, %2 ]
+  %31 = phi ptr [ %.pre, %..thread_crit_edge ], [ %4, %2 ], [ %4, %13 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %34 = load ptr, ptr %33, align 8
@@ -5201,7 +5201,7 @@ define noundef zeroext i1 @_ZNK5osgeo4proj8metadata6Extent8containsERKN7dropbox6
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = icmp eq i64 %38, 16
-  br i1 %39, label %40, label %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread
+  br i1 %39, label %40, label %.thread12
 
 40:                                               ; preds = %.thread
   %41 = load ptr, ptr %1, align 8
@@ -5215,7 +5215,7 @@ define noundef zeroext i1 @_ZNK5osgeo4proj8metadata6Extent8containsERKN7dropbox6
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = icmp eq i64 %50, 16
-  br i1 %51, label %52, label %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread
+  br i1 %51, label %52, label %.thread12
 
 52:                                               ; preds = %40
   %53 = load ptr, ptr %35, align 8
@@ -5235,93 +5235,88 @@ define noundef zeroext i1 @_ZNK5osgeo4proj8metadata6Extent8containsERKN7dropbox6
   %67 = load double, ptr %61, align 8
   %68 = fmul double %64, %67
   %69 = fcmp ugt double %66, %68
-  br i1 %69, label %_ZNK5osgeo4proj8metadata14TemporalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit, label %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+  br i1 %69, label %.thread15, label %70
 
-_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit: ; preds = %52
-  %70 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %71 = load double, ptr %70, align 8
-  %72 = fmul double %58, %71
-  %73 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %74 = load double, ptr %73, align 8
-  %75 = fmul double %64, %74
-  %76 = fcmp oge double %72, %75
-  %77 = zext i1 %76 to i8
-  br i1 %76, label %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread, label %_ZNK5osgeo4proj8metadata14TemporalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+70:                                               ; preds = %52
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %72 = load double, ptr %71, align 8
+  %73 = fmul double %58, %72
+  %74 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %75 = load double, ptr %74, align 8
+  %76 = fmul double %64, %75
+  %77 = fcmp ult double %73, %76
+  br i1 %77, label %.thread15, label %.thread12
 
-_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread: ; preds = %.thread, %40, %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
-  %.112 = phi i8 [ %77, %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit ], [ 1, %40 ], [ 1, %.thread ]
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 88
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 96
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %79, align 8
+.thread12:                                        ; preds = %.thread, %40, %70
+  %78 = getelementptr inbounds nuw i8, ptr %31, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %31, i64 96
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %78, align 8
+  %82 = ptrtoint ptr %80 to i64
   %83 = ptrtoint ptr %81 to i64
-  %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = icmp eq i64 %85, 16
-  br i1 %86, label %87, label %_ZNK5osgeo4proj8metadata14TemporalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+  %84 = sub i64 %82, %83
+  %85 = icmp eq i64 %84, 16
+  br i1 %85, label %86, label %.thread15
 
-87:                                               ; preds = %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread
-  %88 = load ptr, ptr %1, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 88
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 96
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %91, align 8
+86:                                               ; preds = %.thread12
+  %87 = load ptr, ptr %1, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 96
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %90, align 8
+  %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
-  %96 = ptrtoint ptr %94 to i64
-  %97 = sub i64 %95, %96
-  %98 = icmp eq i64 %97, 16
-  br i1 %98, label %99, label %_ZNK5osgeo4proj8metadata14TemporalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+  %96 = sub i64 %94, %95
+  %97 = icmp eq i64 %96, 16
+  br i1 %97, label %98, label %.thread15
 
-99:                                               ; preds = %87
-  %100 = load ptr, ptr %82, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %94, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %106 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %105)
-          to label %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i unwind label %107
+98:                                               ; preds = %86
+  %99 = load ptr, ptr %81, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %93, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %104 = load ptr, ptr %103, align 8
+  %105 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %104)
+          to label %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i unwind label %106
 
-107:                                              ; preds = %99
-  %108 = landingpad { ptr, i32 }
+106:                                              ; preds = %98
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %109 = extractvalue { ptr, i32 } %108, 0
-  tail call void @__clang_call_terminate(ptr %109) #32
+  %108 = extractvalue { ptr, i32 } %107, 0
+  tail call void @__clang_call_terminate(ptr %108) #32
   unreachable
 
-_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %99
-  %110 = icmp slt i32 %106, 1
-  br i1 %110, label %111, label %_ZNK5osgeo4proj8metadata14TemporalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %98
+  %109 = icmp slt i32 %105, 1
+  br i1 %109, label %110, label %.thread15
 
-111:                                              ; preds = %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i
-  %112 = load ptr, ptr %101, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %114 = load ptr, ptr %94, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  %118 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %117)
-          to label %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i unwind label %119
+110:                                              ; preds = %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i
+  %111 = load ptr, ptr %100, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
+  %113 = load ptr, ptr %93, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
+  %117 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %116)
+          to label %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i unwind label %118
 
-119:                                              ; preds = %111
-  %120 = landingpad { ptr, i32 }
+118:                                              ; preds = %110
+  %119 = landingpad { ptr, i32 }
           catch ptr null
-  %121 = extractvalue { ptr, i32 } %120, 0
-  tail call void @__clang_call_terminate(ptr %121) #32
+  %120 = extractvalue { ptr, i32 } %119, 0
+  tail call void @__clang_call_terminate(ptr %120) #32
   unreachable
 
-_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %111
-  %122 = icmp sgt i32 %118, -1
-  %123 = zext i1 %122 to i8
-  br label %_ZNK5osgeo4proj8metadata14TemporalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %110
+  %121 = icmp sgt i32 %117, -1
+  br label %.thread15
 
-_ZNK5osgeo4proj8metadata14TemporalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit: ; preds = %52, %25, %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %87, %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread, %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
-  %.2 = phi i8 [ %.112, %87 ], [ %.112, %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread ], [ %77, %_ZNK5osgeo4proj8metadata14VerticalExtent8containsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit ], [ 0, %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i ], [ %123, %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i ], [ 0, %52 ], [ 0, %25 ]
-  %124 = trunc nuw i8 %.2 to i1
-  ret i1 %124
+.thread15:                                        ; preds = %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %52, %25, %86, %.thread12, %70
+  %.2 = phi i1 [ true, %86 ], [ true, %.thread12 ], [ false, %70 ], [ false, %25 ], [ false, %52 ], [ false, %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i ], [ %121, %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i ]
+  ret i1 %.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5358,14 +5353,14 @@ define noundef zeroext i1 @_ZNK5osgeo4proj8metadata6Extent10intersectsERKN7dropb
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(16) %20)
-  br i1 %30, label %..thread_crit_edge, label %_ZNK5osgeo4proj8metadata14TemporalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+  br i1 %30, label %..thread_crit_edge, label %.thread15
 
 ..thread_crit_edge:                               ; preds = %25
   %.pre = load ptr, ptr %3, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %2, %13
-  %31 = phi ptr [ %.pre, %..thread_crit_edge ], [ %4, %13 ], [ %4, %2 ]
+  %31 = phi ptr [ %.pre, %..thread_crit_edge ], [ %4, %2 ], [ %4, %13 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %34 = load ptr, ptr %33, align 8
@@ -5374,7 +5369,7 @@ define noundef zeroext i1 @_ZNK5osgeo4proj8metadata6Extent10intersectsERKN7dropb
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = icmp eq i64 %38, 16
-  br i1 %39, label %40, label %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread
+  br i1 %39, label %40, label %.thread12
 
 40:                                               ; preds = %.thread
   %41 = load ptr, ptr %1, align 8
@@ -5388,7 +5383,7 @@ define noundef zeroext i1 @_ZNK5osgeo4proj8metadata6Extent10intersectsERKN7dropb
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = icmp eq i64 %50, 16
-  br i1 %51, label %52, label %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread
+  br i1 %51, label %52, label %.thread12
 
 52:                                               ; preds = %40
   %53 = load ptr, ptr %35, align 8
@@ -5409,92 +5404,87 @@ define noundef zeroext i1 @_ZNK5osgeo4proj8metadata6Extent10intersectsERKN7dropb
   %68 = load double, ptr %67, align 8
   %69 = fmul double %64, %68
   %70 = fcmp ugt double %66, %69
-  br i1 %70, label %_ZNK5osgeo4proj8metadata14TemporalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit, label %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+  br i1 %70, label %.thread15, label %71
 
-_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit: ; preds = %52
-  %71 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %72 = load double, ptr %71, align 8
-  %73 = fmul double %58, %72
-  %74 = load double, ptr %61, align 8
-  %75 = fmul double %64, %74
-  %76 = fcmp oge double %73, %75
-  %77 = zext i1 %76 to i8
-  br i1 %76, label %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread, label %_ZNK5osgeo4proj8metadata14TemporalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+71:                                               ; preds = %52
+  %72 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %73 = load double, ptr %72, align 8
+  %74 = fmul double %58, %73
+  %75 = load double, ptr %61, align 8
+  %76 = fmul double %64, %75
+  %77 = fcmp ult double %74, %76
+  br i1 %77, label %.thread15, label %.thread12
 
-_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread: ; preds = %.thread, %40, %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
-  %.112 = phi i8 [ %77, %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit ], [ 1, %40 ], [ 1, %.thread ]
-  %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 88
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 96
-  %81 = load ptr, ptr %80, align 8
-  %82 = load ptr, ptr %79, align 8
+.thread12:                                        ; preds = %.thread, %40, %71
+  %78 = getelementptr inbounds nuw i8, ptr %31, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %31, i64 96
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %78, align 8
+  %82 = ptrtoint ptr %80 to i64
   %83 = ptrtoint ptr %81 to i64
-  %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = icmp eq i64 %85, 16
-  br i1 %86, label %87, label %_ZNK5osgeo4proj8metadata14TemporalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+  %84 = sub i64 %82, %83
+  %85 = icmp eq i64 %84, 16
+  br i1 %85, label %86, label %.thread15
 
-87:                                               ; preds = %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread
-  %88 = load ptr, ptr %1, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 88
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 96
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %91, align 8
+86:                                               ; preds = %.thread12
+  %87 = load ptr, ptr %1, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 96
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %90, align 8
+  %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
-  %96 = ptrtoint ptr %94 to i64
-  %97 = sub i64 %95, %96
-  %98 = icmp eq i64 %97, 16
-  br i1 %98, label %99, label %_ZNK5osgeo4proj8metadata14TemporalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+  %96 = sub i64 %94, %95
+  %97 = icmp eq i64 %96, 16
+  br i1 %97, label %98, label %.thread15
 
-99:                                               ; preds = %87
-  %100 = load ptr, ptr %82, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %102 = load ptr, ptr %101, align 8
-  %103 = load ptr, ptr %94, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
-  %107 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %106)
-          to label %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i unwind label %108
+98:                                               ; preds = %86
+  %99 = load ptr, ptr %81, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %93, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %106 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %105)
+          to label %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i unwind label %107
 
-108:                                              ; preds = %99
-  %109 = landingpad { ptr, i32 }
+107:                                              ; preds = %98
+  %108 = landingpad { ptr, i32 }
           catch ptr null
-  %110 = extractvalue { ptr, i32 } %109, 0
-  tail call void @__clang_call_terminate(ptr %110) #32
+  %109 = extractvalue { ptr, i32 } %108, 0
+  tail call void @__clang_call_terminate(ptr %109) #32
   unreachable
 
-_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %99
-  %111 = icmp slt i32 %107, 1
-  br i1 %111, label %112, label %_ZNK5osgeo4proj8metadata14TemporalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %98
+  %110 = icmp slt i32 %106, 1
+  br i1 %110, label %111, label %.thread15
 
-112:                                              ; preds = %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i
-  %113 = load ptr, ptr %101, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %115 = load ptr, ptr %94, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  %117 = load ptr, ptr %116, align 8
-  %118 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull align 8 dereferenceable(32) %117)
-          to label %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i unwind label %119
+111:                                              ; preds = %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i
+  %112 = load ptr, ptr %100, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %114 = load ptr, ptr %93, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
+  %116 = load ptr, ptr %115, align 8
+  %117 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %116)
+          to label %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i unwind label %118
 
-119:                                              ; preds = %112
-  %120 = landingpad { ptr, i32 }
+118:                                              ; preds = %111
+  %119 = landingpad { ptr, i32 }
           catch ptr null
-  %121 = extractvalue { ptr, i32 } %120, 0
-  tail call void @__clang_call_terminate(ptr %121) #32
+  %120 = extractvalue { ptr, i32 } %119, 0
+  tail call void @__clang_call_terminate(ptr %120) #32
   unreachable
 
-_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %112
-  %122 = icmp sgt i32 %118, -1
-  %123 = zext i1 %122 to i8
-  br label %_ZNK5osgeo4proj8metadata14TemporalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
+_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %111
+  %121 = icmp sgt i32 %117, -1
+  br label %.thread15
 
-_ZNK5osgeo4proj8metadata14TemporalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit: ; preds = %52, %25, %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %87, %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread, %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit
-  %.2 = phi i8 [ %.112, %87 ], [ %.112, %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit.thread ], [ %77, %_ZNK5osgeo4proj8metadata14VerticalExtent10intersectsERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEE.exit ], [ 0, %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i ], [ %123, %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i ], [ 0, %52 ], [ 0, %25 ]
-  %124 = trunc nuw i8 %.2 to i1
-  ret i1 %124
+.thread15:                                        ; preds = %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, %52, %25, %86, %.thread12, %71
+  %.2 = phi i1 [ true, %86 ], [ true, %.thread12 ], [ false, %71 ], [ false, %25 ], [ false, %52 ], [ false, %_ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i ], [ %121, %_ZStgeIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i ]
+  ret i1 %.2
 }
 
 ; Function Attrs: mustprogress uwtable

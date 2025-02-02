@@ -2124,7 +2124,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i: ; preds = %
 
 819:                                              ; preds = %818, %817, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %764
   %.194.i.i = phi ptr [ %.093182.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i ], [ %.093182.i.i, %764 ], [ %772, %817 ], [ %.093182.i.i, %818 ]
-  %.192.i.i = phi i8 [ %.091183.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i ], [ %.091183.i.i, %764 ], [ %.091183.i.i, %817 ], [ %spec.select.i.i, %818 ]
+  %.192.i.i = phi i8 [ 0, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i ], [ %.091183.i.i, %764 ], [ 1, %817 ], [ %spec.select.i.i, %818 ]
   %.188.i.i = phi i32 [ %.087184.i.i, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i ], [ %774, %764 ], [ %.087184.i.i, %817 ], [ %.087184.i.i, %818 ]
   %indvars.iv.next.i205.i = add nuw nsw i64 %indvars.iv.i204.i, 1
   %.not101.i.i = icmp eq i64 %indvars.iv.next.i205.i, %763

@@ -4173,26 +4173,26 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
 12:                                               ; preds = %11
   %13 = tail call i32 @pg_strcasecmp(ptr noundef %1, ptr noundef %2) #13
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.thread.thread, label %18
+  br i1 %14, label %.thread48, label %18
 
 15:                                               ; preds = %11
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #15
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.thread.thread, label %18
+  br i1 %17, label %.thread48, label %18
 
 18:                                               ; preds = %15, %12
   %19 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %19, label %20, label %.thread.thread
+  br i1 %19, label %20, label %.thread48
 
 20:                                               ; preds = %18
   %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.79, ptr noundef %1, ptr noundef %2) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2931, ptr noundef nonnull @__func__.check_usermap) #13
-  br label %.thread.thread
+  br label %.thread48
 
 22:                                               ; preds = %8
   %23 = load ptr, ptr @parsed_ident_lines, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -4201,12 +4201,12 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load i32, ptr %24, align 4
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph88, label %.thread
+  br i1 %29, label %.lr.ph94, label %._crit_edge
 
-.lr.ph88:                                         ; preds = %.lr.ph, %.thread40
-  %indvars.iv87 = phi i64 [ %indvars.iv.next, %.thread40 ], [ 0, %.lr.ph ]
+.lr.ph94:                                         ; preds = %.lr.ph, %.thread40
+  %indvars.iv93 = phi i64 [ %indvars.iv.next, %.thread40 ], [ 0, %.lr.ph ]
   %30 = load ptr, ptr %25, align 8
-  %31 = getelementptr %union.ListCell, ptr %30, i64 %indvars.iv87
+  %31 = getelementptr %union.ListCell, ptr %30, i64 %indvars.iv93
   %32 = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %6)
@@ -4216,7 +4216,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %36, label %143
 
-36:                                               ; preds = %.lr.ph88
+36:                                               ; preds = %.lr.ph94
   %37 = call i32 @get_role_oid(ptr noundef %1, i1 noundef zeroext true) #13
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %39 = load ptr, ptr %38, align 8
@@ -4249,7 +4249,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %57 = load ptr, ptr %56, align 8
   %58 = call i64 @pg_regerror(i32 noundef %52, ptr noundef %57, ptr noundef nonnull %6, i64 noundef 100) #13
   %59 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %59, label %60, label %.thread54
+  br i1 %59, label %60, label %.thread57
 
 60:                                               ; preds = %53
   %61 = call i32 @errcode(i32 noundef 302252162) #13
@@ -4257,7 +4257,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %63, i64 1
   %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.131, ptr noundef %64, ptr noundef nonnull %6) #13
-  br label %.thread54.sink.split
+  br label %.thread57.sink.split
 
 66:                                               ; preds = %42
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -4292,7 +4292,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
 
 85:                                               ; preds = %82
   %86 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %86, label %87, label %.thread54
+  br i1 %86, label %87, label %.thread57
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -4303,7 +4303,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %93 = load ptr, ptr %67, align 8
   %94 = load ptr, ptr %93, align 8
   %95 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.133, ptr noundef %92, ptr noundef %94) #13
-  br label %.thread54.sink.split
+  br label %.thread57.sink.split
 
 96:                                               ; preds = %82
   %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #15
@@ -4362,7 +4362,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   call void @pg_regfree(ptr noundef nonnull %.0.val.i) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6)
-  br i1 %126, label %.thread.thread, label %.thread40
+  br i1 %126, label %.thread48, label %.thread40
 
 130:                                              ; preds = %36
   %131 = load ptr, ptr %39, align 8
@@ -4385,46 +4385,46 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %142 = call fastcc zeroext i1 @check_role(ptr noundef %1, i32 noundef %37, ptr noundef %141, i1 noundef zeroext %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6)
-  br i1 %142, label %.thread.thread, label %.thread40
+  br i1 %142, label %.thread48, label %.thread40
 
 check_ident_usermap.exit:                         ; preds = %124, %127
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6)
-  br i1 %126, label %.thread.thread, label %.thread40
+  br i1 %126, label %.thread48, label %.thread40
 
-.thread54.sink.split:                             ; preds = %60, %87
+.thread57.sink.split:                             ; preds = %60, %87
   %.sink = phi i32 [ 2828, %87 ], [ 2804, %60 ]
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.check_ident_usermap) #13
-  br label %.thread54
+  br label %.thread57
 
-.thread54:                                        ; preds = %.thread54.sink.split, %85, %53
+.thread57:                                        ; preds = %.thread57.sink.split, %85, %53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6)
-  br label %.thread.thread
+  br label %.thread48
 
-143:                                              ; preds = %132, %135, %42, %.lr.ph88
+143:                                              ; preds = %132, %135, %42, %.lr.ph94
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6)
   br label %.thread40
 
 .thread40:                                        ; preds = %129, %138, %check_ident_usermap.exit, %143
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv87, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv93, 1
   %144 = load i32, ptr %24, align 4
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next, %145
-  br i1 %146, label %.lr.ph88, label %.thread
+  br i1 %146, label %.lr.ph94, label %._crit_edge
 
-.thread:                                          ; preds = %.thread40, %.lr.ph, %22
+._crit_edge:                                      ; preds = %.thread40, %.lr.ph, %22
   %147 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %147, label %148, label %.thread.thread
+  br i1 %147, label %148, label %.thread48
 
-148:                                              ; preds = %.thread
+148:                                              ; preds = %._crit_edge
   %149 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.80, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2951, ptr noundef nonnull @__func__.check_usermap) #13
-  br label %.thread.thread
+  br label %.thread48
 
-.thread.thread:                                   ; preds = %check_ident_usermap.exit, %138, %129, %.thread, %148, %.thread54, %20, %18, %15, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %15 ], [ -1, %18 ], [ -1, %20 ], [ -1, %148 ], [ -1, %.thread ], [ -1, %.thread54 ], [ 0, %129 ], [ 0, %138 ], [ 0, %check_ident_usermap.exit ]
+.thread48:                                        ; preds = %129, %138, %check_ident_usermap.exit, %._crit_edge, %148, %.thread57, %20, %18, %15, %12
+  %.0 = phi i32 [ 0, %12 ], [ 0, %15 ], [ -1, %18 ], [ -1, %20 ], [ -1, %148 ], [ -1, %._crit_edge ], [ -1, %.thread57 ], [ 0, %check_ident_usermap.exit ], [ 0, %138 ], [ 0, %129 ]
   ret i32 %.0
 }
 

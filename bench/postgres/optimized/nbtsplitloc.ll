@@ -598,7 +598,7 @@ _bt_afternewitemoff.exit:                         ; preds = %263
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph611, !llvm.loop !7
 
 .loopexit:                                        ; preds = %282, %_bt_afternewitemoff.exit, %._bt_afternewitemoff.exit.thread518_crit_edge, %.preheader, %205, %260, %257, %263, %BTreeTupleIsPosting.exit.i229, %223, %217, %209, %207
-  %.0463 = phi i1 [ true, %207 ], [ false, %209 ], [ false, %217 ], [ false, %223 ], [ false, %BTreeTupleIsPosting.exit.i229 ], [ false, %263 ], [ false, %257 ], [ false, %260 ], [ %47, %205 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread518_crit_edge ], [ true, %_bt_afternewitemoff.exit ], [ false, %282 ]
+  %.0463.shrunk = phi i1 [ true, %207 ], [ false, %209 ], [ false, %217 ], [ false, %223 ], [ false, %BTreeTupleIsPosting.exit.i229 ], [ false, %263 ], [ false, %257 ], [ false, %260 ], [ %47, %205 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread518_crit_edge ], [ true, %_bt_afternewitemoff.exit ], [ false, %282 ]
   %.071 = phi double [ %208, %207 ], [ 5.000000e-01, %209 ], [ 5.000000e-01, %217 ], [ 5.000000e-01, %223 ], [ 5.000000e-01, %BTreeTupleIsPosting.exit.i229 ], [ 5.000000e-01, %263 ], [ 5.000000e-01, %257 ], [ 5.000000e-01, %260 ], [ 0x3FE6666666666666, %205 ], [ 5.000000e-01, %.preheader ], [ %.pre623, %._bt_afternewitemoff.exit.thread518_crit_edge ], [ %270, %_bt_afternewitemoff.exit ], [ 5.000000e-01, %282 ]
   %.sroa.1269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 6
   %.sroa.1269.0.copyload = load i16, ptr %.sroa.1269.0..sroa_idx, align 2
@@ -621,7 +621,7 @@ _bt_afternewitemoff.exit:                         ; preds = %263
 .lr.ph.i:                                         ; preds = %.loopexit
   %287 = fsub double 1.000000e+00, %.071
   %288 = zext nneg i32 %.sroa.136.2 to i64
-  br i1 %.0463, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  br i1 %.0463.shrunk, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]

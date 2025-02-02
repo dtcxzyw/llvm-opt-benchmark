@@ -3250,85 +3250,88 @@ define zeroext i1 @php_execute_script_ex(ptr noundef %0, ptr noundef %1) local_u
 
 61:                                               ; preds = %59, %57
   %.not108 = icmp eq ptr %.0, null
-  br i1 %.not108, label %65, label %62
+  br i1 %.not108, label %.thread115, label %62
 
 62:                                               ; preds = %61
   %63 = call i32 @zend_execute_script(i32 noundef 8, ptr noundef null, ptr noundef nonnull %.0) #29
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %.thread138
+  br i1 %64, label %.thread115, label %68
 
-.thread138:                                       ; preds = %62
-  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
-  br label %72
+.thread115:                                       ; preds = %61, %62
+  %65 = call i32 @zend_execute_script(i32 noundef 8, ptr noundef %1, ptr noundef nonnull %0) #29
+  %66 = icmp eq i32 %65, 0
+  %67 = zext i1 %66 to i8
+  br label %68
 
-65:                                               ; preds = %62, %61
-  %66 = call i32 @zend_execute_script(i32 noundef 8, ptr noundef %1, ptr noundef nonnull %0) #29
-  %67 = icmp eq i32 %66, 0
-  %.not109 = icmp ne ptr %.090, null
-  %brmerge.not = select i1 %.not109, i1 %67, i1 false
-  br i1 %brmerge.not, label %68, label %71
+68:                                               ; preds = %.thread115, %62
+  %.193 = phi i8 [ %67, %.thread115 ], [ 0, %62 ]
+  %.not109 = icmp eq ptr %.090, null
+  br i1 %.not109, label %75, label %69
 
-68:                                               ; preds = %65
-  %69 = call i32 @zend_execute_script(i32 noundef 8, ptr noundef null, ptr noundef nonnull %.090) #29
-  %70 = icmp eq i32 %69, 0
-  br label %71
+69:                                               ; preds = %68
+  %70 = trunc nuw i8 %.193 to i1
+  br i1 %70, label %71, label %75
+
+71:                                               ; preds = %69
+  %72 = call i32 @zend_execute_script(i32 noundef 8, ptr noundef null, ptr noundef nonnull %.090) #29
+  %73 = icmp eq i32 %72, 0
+  %74 = zext i1 %73 to i8
+  br label %75
 
 .thread124:                                       ; preds = %2
   store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
-  br label %75
+  br label %79
 
-71:                                               ; preds = %65, %68
-  %.2.in = phi i1 [ %70, %68 ], [ %67, %65 ]
+75:                                               ; preds = %68, %69, %71
+  %.2 = phi i8 [ %74, %71 ], [ 0, %69 ], [ %.193, %68 ]
   store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
-  br i1 %.not108, label %73, label %72
+  br i1 %.not108, label %77, label %76
 
-72:                                               ; preds = %.thread138, %71
-  %.2.in140 = phi i1 [ false, %.thread138 ], [ %.2.in, %71 ]
+76:                                               ; preds = %75
   call void @zend_destroy_file_handle(ptr noundef nonnull %.0) #29
-  br label %73
+  br label %77
 
-73:                                               ; preds = %72, %71
-  %.2.in141 = phi i1 [ %.2.in140, %72 ], [ %.2.in, %71 ]
-  %.not111 = icmp eq ptr %.090, null
-  br i1 %.not111, label %75, label %74
+77:                                               ; preds = %76, %75
+  br i1 %.not109, label %79, label %78
 
-74:                                               ; preds = %73
+78:                                               ; preds = %77
   call void @zend_destroy_file_handle(ptr noundef nonnull %.090) #29
-  br label %75
+  br label %79
 
-75:                                               ; preds = %.thread124, %74, %73
-  %.2122128.shrunk = phi i1 [ false, %.thread124 ], [ %.2.in141, %74 ], [ %.2.in141, %73 ]
-  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
-  %.not112 = icmp eq ptr %76, null
-  br i1 %.not112, label %85, label %77
+79:                                               ; preds = %.thread124, %78, %77
+  %.2122128 = phi i8 [ 0, %.thread124 ], [ %.2, %78 ], [ %.2, %77 ]
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
+  %.not112 = icmp eq ptr %80, null
+  br i1 %.not112, label %89, label %81
 
-77:                                               ; preds = %75
-  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
+81:                                               ; preds = %79
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
-  %79 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 0) #30
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %84
+  %83 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 0) #30
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %88
 
-81:                                               ; preds = %77
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
-  %83 = call i32 @zend_exception_error(ptr noundef %82, i32 noundef 1) #29
-  br label %84
+85:                                               ; preds = %81
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
+  %87 = call i32 @zend_exception_error(ptr noundef %86, i32 noundef 1) #29
+  br label %88
 
-84:                                               ; preds = %81, %77
-  store ptr %78, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
-  br label %85
-
-85:                                               ; preds = %84, %75
-  %86 = load i8, ptr %8, align 16
-  %.not113 = icmp eq i8 %86, 0
-  br i1 %.not113, label %89, label %87
-
-87:                                               ; preds = %85
-  %88 = call i32 @chdir(ptr noundef nonnull %8) #29
+88:                                               ; preds = %85, %81
+  store ptr %82, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   br label %89
 
-89:                                               ; preds = %87, %85
-  ret i1 %.2122128.shrunk
+89:                                               ; preds = %88, %79
+  %90 = load i8, ptr %8, align 16
+  %.not113 = icmp eq i8 %90, 0
+  br i1 %.not113, label %93, label %91
+
+91:                                               ; preds = %89
+  %92 = call i32 @chdir(ptr noundef nonnull %8) #29
+  br label %93
+
+93:                                               ; preds = %91, %89
+  %94 = trunc nuw i8 %.2122128 to i1
+  ret i1 %94
 }
 
 ; Function Attrs: nounwind

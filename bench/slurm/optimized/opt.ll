@@ -360,62 +360,60 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
 45:                                               ; preds = %42
   %46 = tail call ptr @list_iterator_create(ptr noundef nonnull %44) #16
   %47 = tail call ptr @list_next(ptr noundef %46) #16
-  %.not202332.i = icmp eq ptr %47, null
-  br i1 %.not202332.i, label %.outer._crit_edge.i, label %.lr.ph.i8
+  %.not2022.i = icmp eq ptr %47, null
+  br i1 %.not2022.i, label %._crit_edge.i10, label %.lr.ph.i8
 
-.lr.ph.i8:                                        ; preds = %45, %.lr.ph.split.i9
-  %48 = phi ptr [ %66, %.lr.ph.split.i9 ], [ %47, %45 ]
-  %.014.ph33.i = phi i1 [ %65, %.lr.ph.split.i9 ], [ false, %45 ]
-  br i1 %.014.ph33.i, label %.lr.ph.split.us.i12, label %.lr.ph.split.i9
+.lr.ph.i8:                                        ; preds = %45
+  %48 = icmp sgt i32 %0, -1
+  %49 = zext nneg i32 %0 to i64
+  br i1 %48, label %.lr.ph.split.i13, label %.lr.ph.split.us.i9
 
-.lr.ph.split.us.i12:                              ; preds = %.lr.ph.i8
-  %49 = icmp sgt i32 %0, -1
-  %50 = zext nneg i32 %0 to i64
-  br i1 %49, label %.lr.ph.split.us.i12.split, label %.lr.ph.split.us.i12.split.us
+.lr.ph.split.us.i9:                               ; preds = %.lr.ph.i8, %.lr.ph.split.us.i9
+  %50 = tail call ptr @list_next(ptr noundef %46) #16
+  %.not20.us.i = icmp eq ptr %50, null
+  br i1 %.not20.us.i, label %._crit_edge.i10, label %.lr.ph.split.us.i9, !llvm.loop !9
 
-.lr.ph.split.us.i12.split.us:                     ; preds = %.lr.ph.split.us.i12, %.lr.ph.split.us.i12.split.us
-  %51 = tail call ptr @list_next(ptr noundef %46) #16
-  %.not20.us.i.us = icmp eq ptr %51, null
-  br i1 %.not20.us.i.us, label %.outer._crit_edge.i, label %.lr.ph.split.us.i12.split.us, !llvm.loop !9
+.lr.ph.split.i13:                                 ; preds = %.lr.ph.i8, %.backedge.i
+  %51 = phi ptr [ %54, %.backedge.i ], [ %47, %.lr.ph.i8 ]
+  %.01423.i = phi i1 [ %.014.be.i, %.backedge.i ], [ false, %.lr.ph.i8 ]
+  br i1 %.01423.i, label %55, label %52
 
-.lr.ph.split.us.i12.split:                        ; preds = %.lr.ph.split.us.i12, %63
-  %52 = phi ptr [ %64, %63 ], [ %48, %.lr.ph.split.us.i12 ]
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 144
-  %56 = load ptr, ptr %55, align 8
-  %.not16 = icmp eq ptr %56, null
-  br i1 %.not16, label %63, label %57
+52:                                               ; preds = %.lr.ph.split.i13
+  %53 = icmp eq ptr %43, %51
+  br label %.backedge.i
 
-57:                                               ; preds = %.lr.ph.split.us.i12.split
-  %58 = tail call i64 @bit_size(ptr noundef nonnull %56) #16
-  %59 = icmp sgt i64 %58, %50
-  br i1 %59, label %60, label %63
+.backedge.i:                                      ; preds = %63, %60, %55, %52
+  %.014.be.i = phi i1 [ %53, %52 ], [ true, %63 ], [ true, %60 ], [ true, %55 ]
+  %54 = tail call ptr @list_next(ptr noundef %46) #16
+  %.not20.i = icmp eq ptr %54, null
+  br i1 %.not20.i, label %._crit_edge.i10, label %.lr.ph.split.i13, !llvm.loop !9
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %55, align 8
-  %62 = tail call i32 @bit_test(ptr noundef %61, i64 noundef %50) #16
-  %.not21.us.i = icmp eq i32 %62, 0
-  br i1 %.not21.us.i, label %63, label %.outer._crit_edge.i
+55:                                               ; preds = %.lr.ph.split.i13
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 144
+  %59 = load ptr, ptr %58, align 8
+  %.not26.i14 = icmp eq ptr %59, null
+  br i1 %.not26.i14, label %.backedge.i, label %60
 
-63:                                               ; preds = %60, %57, %.lr.ph.split.us.i12.split
-  %64 = tail call ptr @list_next(ptr noundef %46) #16
-  %.not20.us.i = icmp eq ptr %64, null
-  br i1 %.not20.us.i, label %.outer._crit_edge.i, label %.lr.ph.split.us.i12.split, !llvm.loop !9
+60:                                               ; preds = %55
+  %61 = tail call i64 @bit_size(ptr noundef nonnull %59) #16
+  %62 = icmp sgt i64 %61, %49
+  br i1 %62, label %63, label %.backedge.i
 
-.lr.ph.split.i9:                                  ; preds = %.lr.ph.i8
-  %65 = icmp eq ptr %43, %48
-  %66 = tail call ptr @list_next(ptr noundef %46) #16
-  %.not2023.i = icmp eq ptr %66, null
-  br i1 %.not2023.i, label %.outer._crit_edge.i, label %.lr.ph.i8, !llvm.loop !9
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %58, align 8
+  %65 = tail call i32 @bit_test(ptr noundef %64, i64 noundef %49) #16
+  %.not21.i = icmp eq i32 %65, 0
+  br i1 %.not21.i, label %.backedge.i, label %._crit_edge.i10
 
-.outer._crit_edge.i:                              ; preds = %.lr.ph.split.i9, %.lr.ph.split.us.i12.split.us, %60, %63, %45
-  %.lcssa.i10 = phi ptr [ null, %45 ], [ null, %63 ], [ %52, %60 ], [ null, %.lr.ph.split.us.i12.split.us ], [ null, %.lr.ph.split.i9 ]
+._crit_edge.i10:                                  ; preds = %.lr.ph.split.us.i9, %63, %.backedge.i, %45
+  %.lcssa.i11 = phi ptr [ null, %45 ], [ null, %.backedge.i ], [ %51, %63 ], [ null, %.lr.ph.split.us.i9 ]
   tail call void @list_iterator_destroy(ptr noundef %46) #16
   br label %_get_first_opt.exit
 
-_get_first_opt.exit:                              ; preds = %.outer._crit_edge.i, %42, %._crit_edge.i, %22, %19, %8, %3
-  %storemerge6 = phi ptr [ null, %3 ], [ %.lcssa.i, %._crit_edge.i ], [ null, %22 ], [ @opt, %8 ], [ @opt, %19 ], [ %.lcssa.i10, %.outer._crit_edge.i ], [ null, %42 ]
+_get_first_opt.exit:                              ; preds = %._crit_edge.i10, %42, %._crit_edge.i, %22, %19, %8, %3
+  %storemerge6 = phi ptr [ null, %3 ], [ %.lcssa.i, %._crit_edge.i ], [ null, %22 ], [ @opt, %8 ], [ @opt, %19 ], [ %.lcssa.i11, %._crit_edge.i10 ], [ null, %42 ]
   store ptr %storemerge6, ptr @get_next_opt.opt_last, align 8
   ret ptr %storemerge6
 }

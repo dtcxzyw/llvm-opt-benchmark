@@ -815,57 +815,57 @@ _ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit: ; preds = %45, %_ZNSt6vectorIP
   %.059.lcssa = phi ptr [ null, %124 ], [ %.1, %187 ]
   store i8 %.lcssa, ptr %6, align 1
   %191 = trunc nuw i8 %.lcssa to i1
-  br i1 %191, label %194, label %192
+  br i1 %191, label %195, label %192
 
 192:                                              ; preds = %._crit_edge120
   %193 = call noundef zeroext i1 @_ZN14DependencyScan21RecomputeOutputsDirtyEP4EdgeP4NodePbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %8, ptr noundef %.059.lcssa, ptr noundef nonnull %6, ptr poison)
   %.pre134.pre = load i8, ptr %6, align 1
-  br label %194
+  %194 = trunc i8 %.pre134.pre to i1
+  br label %195
 
-194:                                              ; preds = %192, %._crit_edge120
-  %.pre134 = phi i8 [ %.pre134.pre, %192 ], [ %.lcssa, %._crit_edge120 ]
-  %195 = load ptr, ptr %94, align 8
-  %196 = load ptr, ptr %96, align 8
-  %.not104122 = icmp eq ptr %195, %196
-  %.pre137 = trunc i8 %.pre134 to i1
+195:                                              ; preds = %192, %._crit_edge120
+  %.pre134 = phi i1 [ %194, %192 ], [ true, %._crit_edge120 ]
+  %196 = load ptr, ptr %94, align 8
+  %197 = load ptr, ptr %96, align 8
+  %.not104122 = icmp eq ptr %196, %197
   br i1 %.not104122, label %._crit_edge126, label %.lr.ph125
 
-.lr.ph125:                                        ; preds = %194
-  br i1 %.pre137, label %.lr.ph125.split.us, label %._crit_edge126.thread139
+.lr.ph125:                                        ; preds = %195
+  br i1 %.pre134, label %.lr.ph125.split.us, label %._crit_edge126.thread139
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125, %.lr.ph125.split.us
-  %.sroa.073.0123.us = phi ptr [ %199, %.lr.ph125.split.us ], [ %195, %.lr.ph125 ]
-  %197 = load ptr, ptr %.sroa.073.0123.us, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 52
-  store i8 1, ptr %198, align 4
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.073.0123.us, i64 8
-  %200 = load ptr, ptr %96, align 8
-  %.not104.us = icmp eq ptr %199, %200
+  %.sroa.073.0123.us = phi ptr [ %200, %.lr.ph125.split.us ], [ %196, %.lr.ph125 ]
+  %198 = load ptr, ptr %.sroa.073.0123.us, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 52
+  store i8 1, ptr %199, align 4
+  %200 = getelementptr inbounds nuw i8, ptr %.sroa.073.0123.us, i64 8
+  %201 = load ptr, ptr %96, align 8
+  %.not104.us = icmp eq ptr %200, %201
   br i1 %.not104.us, label %._crit_edge126.thread, label %.lr.ph125.split.us, !llvm.loop !22
 
-._crit_edge126:                                   ; preds = %194
-  br i1 %.pre137, label %._crit_edge126.thread, label %._crit_edge126.thread139
+._crit_edge126:                                   ; preds = %195
+  br i1 %.pre134, label %._crit_edge126.thread, label %._crit_edge126.thread139
 
 ._crit_edge126.thread:                            ; preds = %.lr.ph125.split.us, %._crit_edge126
-  %201 = load ptr, ptr %8, align 8
-  %202 = icmp eq ptr %201, @_ZN5State10kPhonyRuleE
-  br i1 %202, label %203, label %207
+  %202 = load ptr, ptr %8, align 8
+  %203 = icmp eq ptr %202, @_ZN5State10kPhonyRuleE
+  br i1 %203, label %204, label %208
 
-203:                                              ; preds = %._crit_edge126.thread
-  %204 = load ptr, ptr %136, align 8
-  %205 = load ptr, ptr %138, align 8
-  %206 = icmp eq ptr %204, %205
-  br i1 %206, label %._crit_edge126.thread139, label %207
+204:                                              ; preds = %._crit_edge126.thread
+  %205 = load ptr, ptr %136, align 8
+  %206 = load ptr, ptr %138, align 8
+  %207 = icmp eq ptr %205, %206
+  br i1 %207, label %._crit_edge126.thread139, label %208
 
-207:                                              ; preds = %203, %._crit_edge126.thread
+208:                                              ; preds = %204, %._crit_edge126.thread
   store i8 0, ptr %68, align 8
   br label %._crit_edge126.thread139
 
-._crit_edge126.thread139:                         ; preds = %.lr.ph125, %207, %203, %._crit_edge126
+._crit_edge126.thread139:                         ; preds = %.lr.ph125, %208, %204, %._crit_edge126
   store i32 2, ptr %35, align 8
-  %208 = load ptr, ptr %41, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 -8
-  store ptr %209, ptr %41, align 8
+  %209 = load ptr, ptr %41, align 8
+  %210 = getelementptr inbounds i8, ptr %209, i64 -8
+  store ptr %210, ptr %41, align 8
   br label %_ZN4Node15StatIfNecessaryEP13DiskInterfacePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN4Node15StatIfNecessaryEP13DiskInterfacePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %104, %141, %12, %121, %90, %80, %38, %34, %9, %._crit_edge126.thread139, %31

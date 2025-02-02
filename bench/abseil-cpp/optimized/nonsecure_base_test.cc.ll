@@ -617,7 +617,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   br label %for.inc24.i.i.i.i
 
 for.inc24.i.i.i.i:                                ; preds = %if.else.i.i.i.i, %if.then12.i.i.i.i, %for.cond4.preheader.i.i.i.i
-  %__zero.1.i.i.i.i = phi i8 [ %__zero.014.i.i.i.i, %for.cond4.preheader.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then12.i.i.i.i ], [ %spec.select11.i.i.i.i, %if.else.i.i.i.i ]
+  %__zero.1.i.i.i.i = phi i8 [ 0, %for.cond4.preheader.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then12.i.i.i.i ], [ %spec.select11.i.i.i.i, %if.else.i.i.i.i ]
   %inc25.i.i.i.i = add nuw nsw i64 %__i.015.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc25.i.i.i.i, 624
   br i1 %exitcond.not.i.i.i.i, label %for.end26.i.i.i.i, label %for.cond4.preheader.i.i.i.i, !llvm.loop !8
@@ -1443,7 +1443,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   br label %for.inc24.i.i.i.i
 
 for.inc24.i.i.i.i:                                ; preds = %if.else.i.i.i.i, %if.then12.i.i.i.i, %for.cond4.preheader.i.i.i.i
-  %__zero.1.i.i.i.i = phi i8 [ %__zero.014.i.i.i.i, %for.cond4.preheader.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then12.i.i.i.i ], [ %spec.select11.i.i.i.i, %if.else.i.i.i.i ]
+  %__zero.1.i.i.i.i = phi i8 [ 0, %for.cond4.preheader.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then12.i.i.i.i ], [ %spec.select11.i.i.i.i, %if.else.i.i.i.i ]
   %inc25.i.i.i.i = add nuw nsw i64 %__i.015.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc25.i.i.i.i, 624
   br i1 %exitcond.not.i.i.i.i, label %for.end26.i.i.i.i, label %for.cond4.preheader.i.i.i.i, !llvm.loop !8
@@ -1575,7 +1575,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   br label %for.inc24.i.i.i.i
 
 for.inc24.i.i.i.i:                                ; preds = %if.else.i.i.i.i, %if.then12.i.i.i.i, %for.cond4.preheader.i.i.i.i
-  %__zero.1.i.i.i.i = phi i8 [ %__zero.014.i.i.i.i, %for.cond4.preheader.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then12.i.i.i.i ], [ %spec.select11.i.i.i.i, %if.else.i.i.i.i ]
+  %__zero.1.i.i.i.i = phi i8 [ 0, %for.cond4.preheader.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then12.i.i.i.i ], [ %spec.select11.i.i.i.i, %if.else.i.i.i.i ]
   %inc25.i.i.i.i = add nuw nsw i64 %__i.015.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc25.i.i.i.i, 624
   br i1 %exitcond.not.i.i.i.i, label %for.end26.i.i.i.i, label %for.cond4.preheader.i.i.i.i, !llvm.loop !8
@@ -1703,7 +1703,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   br label %for.inc24.i.i.i.i
 
 for.inc24.i.i.i.i:                                ; preds = %if.else.i.i.i.i, %if.then12.i.i.i.i, %for.cond4.preheader.i.i.i.i
-  %__zero.1.i.i.i.i = phi i8 [ %__zero.014.i.i.i.i, %for.cond4.preheader.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then12.i.i.i.i ], [ %spec.select11.i.i.i.i, %if.else.i.i.i.i ]
+  %__zero.1.i.i.i.i = phi i8 [ 0, %for.cond4.preheader.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then12.i.i.i.i ], [ %spec.select11.i.i.i.i, %if.else.i.i.i.i ]
   %inc25.i.i.i.i = add nuw nsw i64 %__i.015.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc25.i.i.i.i, 624
   br i1 %exitcond.not.i.i.i.i, label %for.end26.i.i.i.i, label %for.cond4.preheader.i.i.i.i, !llvm.loop !8
@@ -1752,7 +1752,7 @@ if.else.i.i.i.i22:                                ; preds = %if.then.i.i.i.i20
   br label %for.inc24.i.i.i.i12
 
 for.inc24.i.i.i.i12:                              ; preds = %if.else.i.i.i.i22, %if.then12.i.i.i.i25, %for.cond4.preheader.i.i.i.i5
-  %__zero.1.i.i.i.i13 = phi i8 [ %__zero.014.i.i.i.i7, %for.cond4.preheader.i.i.i.i5 ], [ %spec.select.i.i.i.i27, %if.then12.i.i.i.i25 ], [ %spec.select11.i.i.i.i24, %if.else.i.i.i.i22 ]
+  %__zero.1.i.i.i.i13 = phi i8 [ 0, %for.cond4.preheader.i.i.i.i5 ], [ %spec.select.i.i.i.i27, %if.then12.i.i.i.i25 ], [ %spec.select11.i.i.i.i24, %if.else.i.i.i.i22 ]
   %inc25.i.i.i.i14 = add nuw nsw i64 %__i.015.i.i.i.i6, 1
   %exitcond.not.i.i.i.i15 = icmp eq i64 %inc25.i.i.i.i14, 624
   br i1 %exitcond.not.i.i.i.i15, label %for.end26.i.i.i.i16, label %for.cond4.preheader.i.i.i.i5, !llvm.loop !8
@@ -4454,7 +4454,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   br label %for.inc24.i.i
 
 for.inc24.i.i:                                    ; preds = %if.else.i.i, %if.then12.i.i, %for.cond4.preheader.i.i
-  %__zero.1.i.i = phi i8 [ %__zero.014.i.i, %for.cond4.preheader.i.i ], [ %spec.select.i.i, %if.then12.i.i ], [ %spec.select11.i.i, %if.else.i.i ]
+  %__zero.1.i.i = phi i8 [ 0, %for.cond4.preheader.i.i ], [ %spec.select.i.i, %if.then12.i.i ], [ %spec.select11.i.i, %if.else.i.i ]
   %inc25.i.i = add nuw nsw i64 %__i.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc25.i.i, 624
   br i1 %exitcond.not.i.i, label %for.end26.i.i, label %for.cond4.preheader.i.i, !llvm.loop !66

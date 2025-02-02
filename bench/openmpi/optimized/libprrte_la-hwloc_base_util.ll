@@ -614,7 +614,7 @@ prte_hwloc_base_get_obj_by_type.exit.thread.i:    ; preds = %62, %prte_hwloc_bas
   %51 = add nsw i32 %.01637.i, -1
   %52 = icmp eq i32 %51, 0
   %.not23.i = select i1 %52, i1 true, i1 %.1.lcssa.i
-  br i1 %.not23.i, label %.split41.us.i, label %prte_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge, !llvm.loop !7
+  br i1 %.not23.i, label %.split40.us.i, label %prte_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge, !llvm.loop !7
 
 prte_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge: ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread.i
   %.pr.i.pre = load ptr, ptr @prte_hwloc_topology, align 8
@@ -649,15 +649,15 @@ prte_hwloc_base_get_obj_by_type.exit.thread.i.thread: ; preds = %.preheader.i
   %65 = icmp eq ptr %64, null
   br i1 %65, label %prte_hwloc_base_get_obj_by_type.exit.thread.i, label %.lr.ph.i
 
-.split41.us.i:                                    ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread.i
+.split40.us.i:                                    ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread.i
   br i1 %.1.lcssa.i, label %66, label %fill_cache_line_size.exit
 
-66:                                               ; preds = %.split41.us.i
+66:                                               ; preds = %.split40.us.i
   store i32 %.118.lcssa.i, ptr @prte_cache_line_size, align 4
   br label %fill_cache_line_size.exit
 
-fill_cache_line_size.exit:                        ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread, %66, %.split41.us.i, %43, %39, %8, %prte_hwloc_base_topology_set_flags.exit.thread
-  %.0 = phi i32 [ -8, %prte_hwloc_base_topology_set_flags.exit.thread ], [ 0, %8 ], [ %41, %39 ], [ 0, %43 ], [ 0, %.split41.us.i ], [ 0, %66 ], [ 0, %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread ]
+fill_cache_line_size.exit:                        ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread, %66, %.split40.us.i, %43, %39, %8, %prte_hwloc_base_topology_set_flags.exit.thread
+  %.0 = phi i32 [ -8, %prte_hwloc_base_topology_set_flags.exit.thread ], [ 0, %8 ], [ %41, %39 ], [ 0, %43 ], [ 0, %.split40.us.i ], [ 0, %66 ], [ 0, %prte_hwloc_base_get_obj_by_type.exit.thread.i.thread ]
   ret i32 %.0
 }
 
@@ -893,7 +893,7 @@ prte_hwloc_base_topology_set_flags.exit.thread:   ; preds = %26, %prte_hwloc_bas
 define internal fastcc void @fill_cache_line_size() unnamed_addr #0 {
   %1 = load ptr, ptr @prte_hwloc_topology, align 8
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %.split41.us.thread, label %.preheader
+  br i1 %2, label %.split40.us.thread, label %.preheader
 
 .preheaderthread-pre-split:                       ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread
   %.pr = load ptr, ptr @prte_hwloc_topology, align 8
@@ -927,7 +927,7 @@ prte_hwloc_base_get_obj_by_type.exit.thread:      ; preds = %prte_hwloc_base_get
   %9 = add nsw i32 %.01637, -1
   %10 = icmp eq i32 %9, 0
   %.not23 = select i1 %10, i1 true, i1 %.1.lcssa
-  br i1 %.not23, label %.split41.us, label %.preheaderthread-pre-split, !llvm.loop !7
+  br i1 %.not23, label %.split40.us, label %.preheaderthread-pre-split, !llvm.loop !7
 
 11:                                               ; preds = %prte_hwloc_base_get_obj_by_type.exit
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -953,14 +953,14 @@ prte_hwloc_base_get_obj_by_type.exit.thread:      ; preds = %prte_hwloc_base_get
   %21 = icmp eq ptr %20, null
   br i1 %21, label %prte_hwloc_base_get_obj_by_type.exit.thread, label %.lr.ph
 
-.split41.us:                                      ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread
-  br i1 %.1.lcssa, label %22, label %.split41.us.thread
+.split40.us:                                      ; preds = %prte_hwloc_base_get_obj_by_type.exit.thread
+  br i1 %.1.lcssa, label %22, label %.split40.us.thread
 
-22:                                               ; preds = %.split41.us
+22:                                               ; preds = %.split40.us
   store i32 %.118.lcssa, ptr @prte_cache_line_size, align 4
-  br label %.split41.us.thread
+  br label %.split40.us.thread
 
-.split41.us.thread:                               ; preds = %0, %22, %.split41.us
+.split40.us.thread:                               ; preds = %0, %22, %.split40.us
   ret void
 }
 

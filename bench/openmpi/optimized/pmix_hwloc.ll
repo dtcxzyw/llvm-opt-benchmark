@@ -384,6 +384,7 @@ define i32 @pmix_hwloc_setup_topology(ptr noundef %0, i64 noundef %1) local_unna
   %37 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %18, ptr noundef nonnull @.str.21) #14
   %.not344 = xor i1 %37, true
   %brmerge = select i1 %.not344, i1 true, i1 %.0197345
+  %.0197.mux = select i1 %37, i1 true, i1 %.0197345
   br i1 %brmerge, label %42, label %38
 
 38:                                               ; preds = %36
@@ -396,7 +397,7 @@ define i32 @pmix_hwloc_setup_topology(ptr noundef %0, i64 noundef %1) local_unna
   br label %42
 
 42:                                               ; preds = %36, %20, %38, %29
-  %.1198 = phi i1 [ %.0197345, %20 ], [ true, %29 ], [ false, %38 ], [ %.0197345, %36 ]
+  %.1198 = phi i1 [ %.0197345, %20 ], [ true, %29 ], [ false, %38 ], [ %.0197.mux, %36 ]
   %.1196 = phi i1 [ %.0195346, %20 ], [ %.0195346, %29 ], [ true, %38 ], [ %.0195346, %36 ]
   %.1 = phi i8 [ %23, %20 ], [ %.0194347, %29 ], [ %.0194347, %38 ], [ %.0194347, %36 ]
   %43 = add nuw i64 %.0191348, 1

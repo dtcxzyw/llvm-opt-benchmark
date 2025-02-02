@@ -6559,8 +6559,8 @@ _Z9is_forallPK3ast.exit:                          ; preds = %while.body
   ]
 
 land.lhs.true:                                    ; preds = %_Z9is_forallPK3ast.exit
-  %tobool = trunc i8 %is_positive.0 to i1
-  br i1 %tobool, label %if.then, label %while.end
+  %tobool = trunc nuw i8 %is_positive.0 to i1
+  br i1 %tobool, label %if.then, label %if.then26
 
 if.then:                                          ; preds = %land.lhs.true
   %m_expr.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6573,12 +6573,12 @@ if.end.i:                                         ; preds = %if.then
   %3 = load i32, ptr %m_ref_count.i.i.i, align 4
   %inc.i.i.i = add i32 %3, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
-  %.pre67 = load ptr, ptr %f, align 8
-  %tobool.not.i3.i = icmp eq ptr %.pre67, null
+  %.pre72 = load ptr, ptr %f, align 8
+  %tobool.not.i3.i = icmp eq ptr %.pre72, null
   br i1 %tobool.not.i3.i, label %if.end24, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then, %if.end.i
-  %4 = phi ptr [ %.pre67, %if.end.i ], [ %0, %if.then ]
+  %4 = phi ptr [ %.pre72, %if.end.i ], [ %0, %if.then ]
   %5 = load ptr, ptr %m_manager.i.i43, align 8
   %m_ref_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %m_ref_count.i.i.i.i, align 4
@@ -6592,8 +6592,8 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %if.end24
 
 land.lhs.true9:                                   ; preds = %_Z9is_forallPK3ast.exit
-  %tobool10 = trunc i8 %is_positive.0 to i1
-  br i1 %tobool10, label %while.end, label %if.then11
+  %tobool10 = trunc nuw i8 %is_positive.0 to i1
+  br i1 %tobool10, label %if.end31, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true9
   %m_expr.i20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6606,12 +6606,12 @@ if.end.i25:                                       ; preds = %if.then11
   %8 = load i32, ptr %m_ref_count.i.i.i23, align 4
   %inc.i.i.i24 = add i32 %8, 1
   store i32 %inc.i.i.i24, ptr %m_ref_count.i.i.i23, align 4
-  %.pre66 = load ptr, ptr %f, align 8
-  %tobool.not.i3.i26 = icmp eq ptr %.pre66, null
+  %.pre71 = load ptr, ptr %f, align 8
+  %tobool.not.i3.i26 = icmp eq ptr %.pre71, null
   br i1 %tobool.not.i3.i26, label %if.end24, label %if.then.i.i.i27
 
 if.then.i.i.i27:                                  ; preds = %if.then11, %if.end.i25
-  %9 = phi ptr [ %.pre66, %if.end.i25 ], [ %0, %if.then11 ]
+  %9 = phi ptr [ %.pre71, %if.end.i25 ], [ %0, %if.then11 ]
   %10 = load ptr, ptr %m_manager.i.i43, align 8
   %m_ref_count.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %m_ref_count.i.i.i.i29, align 4
@@ -6659,12 +6659,12 @@ if.end.i40:                                       ; preds = %if.then19
   %19 = load i32, ptr %m_ref_count.i.i.i38, align 4
   %inc.i.i.i39 = add i32 %19, 1
   store i32 %inc.i.i.i39, ptr %m_ref_count.i.i.i38, align 4
-  %.pre65 = load ptr, ptr %f, align 8
-  %tobool.not.i3.i41 = icmp eq ptr %.pre65, null
+  %.pre70 = load ptr, ptr %f, align 8
+  %tobool.not.i3.i41 = icmp eq ptr %.pre70, null
   br i1 %tobool.not.i3.i41, label %if.end24, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %if.then19, %if.end.i40
-  %20 = phi ptr [ %.pre65, %if.end.i40 ], [ %0, %if.then19 ]
+  %20 = phi ptr [ %.pre70, %if.end.i40 ], [ %0, %if.then19 ]
   %21 = load ptr, ptr %m_manager.i.i43, align 8
   %m_ref_count.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %m_ref_count.i.i.i.i44, align 4
@@ -6679,15 +6679,15 @@ if.then2.i.i.i47:                                 ; preds = %if.then.i.i.i42
 
 if.end24:                                         ; preds = %if.then2.i.i.i47, %if.then.i.i.i42, %if.end.i40, %if.then2.i.i.i32, %if.then.i.i.i27, %if.end.i25, %if.then2.i.i.i, %if.then.i.i.i, %if.end.i
   %.sink = phi ptr [ %2, %if.end.i ], [ %2, %if.then.i.i.i ], [ %2, %if.then2.i.i.i ], [ %7, %if.end.i25 ], [ %7, %if.then.i.i.i27 ], [ %7, %if.then2.i.i.i32 ], [ %18, %if.end.i40 ], [ %18, %if.then.i.i.i42 ], [ %18, %if.then2.i.i.i47 ]
-  %is_positive.1 = phi i8 [ %is_positive.0, %if.end.i ], [ %is_positive.0, %if.then.i.i.i ], [ %is_positive.0, %if.then2.i.i.i ], [ %is_positive.0, %if.end.i25 ], [ %is_positive.0, %if.then.i.i.i27 ], [ %is_positive.0, %if.then2.i.i.i32 ], [ %frombool, %if.end.i40 ], [ %frombool, %if.then.i.i.i42 ], [ %frombool, %if.then2.i.i.i47 ]
+  %is_positive.1 = phi i8 [ 1, %if.end.i ], [ 1, %if.then.i.i.i ], [ 1, %if.then2.i.i.i ], [ 0, %if.end.i25 ], [ 0, %if.then.i.i.i27 ], [ 0, %if.then2.i.i.i32 ], [ %frombool, %if.end.i40 ], [ %frombool, %if.then.i.i.i42 ], [ %frombool, %if.then2.i.i.i47 ]
   store ptr %.sink, ptr %f, align 8
   br label %while.body, !llvm.loop !27
 
-while.end:                                        ; preds = %_Z9is_forallPK3ast.exit, %land.lhs.true, %while.body, %land.lhs.true9, %land.lhs.true.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %land.rhs.i.i.i
-  %tobool25 = trunc i8 %is_positive.0 to i1
+while.end:                                        ; preds = %_Z9is_forallPK3ast.exit, %while.body, %land.lhs.true.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %land.rhs.i.i.i
+  %tobool25 = trunc nuw i8 %is_positive.0 to i1
   br i1 %tobool25, label %if.end31, label %if.then26
 
-if.then26:                                        ; preds = %while.end
+if.then26:                                        ; preds = %land.lhs.true, %while.end
   %23 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 8 dereferenceable(976) %23, i32 noundef 0, i32 noundef 8, ptr noundef nonnull %0)
   %tobool.not.i49 = icmp eq ptr %call.i, null
@@ -6722,7 +6722,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61:    ; preds = %if.end.i53, %if.the
   store ptr %call.i, ptr %f, align 8
   br label %if.end31
 
-if.end31:                                         ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61, %while.end
+if.end31:                                         ; preds = %land.lhs.true9, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit61, %while.end
   ret void
 }
 

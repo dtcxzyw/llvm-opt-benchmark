@@ -54581,7 +54581,6 @@ if.else:                                          ; preds = %invoke.cont20
           to label %if.end unwind label %lpad23
 
 if.end:                                           ; preds = %if.else, %invoke.cont26
-  %const_set.1 = phi i8 [ %const_set.0, %invoke.cont26 ], [ 1, %if.else ]
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i106)
           to label %if.end46 unwind label %terminate.lpad.i.i.i123
 
@@ -54635,7 +54634,7 @@ lpad42:                                           ; preds = %if.else39
   br label %ehcleanup164
 
 if.end46:                                         ; preds = %if.else39, %invoke.cont35, %if.end
-  %const_set.2 = phi i8 [ %const_set.1, %if.end ], [ %const_set.0, %invoke.cont35 ], [ %const_set.0, %if.else39 ]
+  %const_set.2 = phi i8 [ 1, %if.end ], [ %const_set.0, %invoke.cont35 ], [ %const_set.0, %if.else39 ]
   %inc = add nuw i32 %i.0, 1
   br label %for.cond, !llvm.loop !1543
 
@@ -58214,7 +58213,6 @@ terminate.lpad.i.i.i228:                          ; preds = %lpad103
   unreachable
 
 if.end107:                                        ; preds = %invoke.cont104, %if.then95
-  %isNeg.3 = phi i8 [ %isNeg.0.lcssa, %if.then95 ], [ 0, %invoke.cont104 ]
   invoke void @_ZN4cvc58internal6theory2bv5utils7mkConstERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp108, ptr noundef nonnull align 8 dereferenceable(24) %constant)
           to label %invoke.cont109 unwind label %lpad68.loopexit.split-lp
 
@@ -58297,7 +58295,7 @@ lpad110:                                          ; preds = %if.else.i.i233, %if
   br label %ehcleanup134
 
 if.end114:                                        ; preds = %if.then13.i.i244, %if.then.i.i238, %invoke.cont111, %invoke.cont93, %if.then88
-  %isNeg.2 = phi i8 [ %lnot90, %if.then88 ], [ %isNeg.0.lcssa, %invoke.cont93 ], [ %isNeg.3, %invoke.cont111 ], [ %isNeg.3, %if.then.i.i238 ], [ %isNeg.3, %if.then13.i.i244 ]
+  %isNeg.2 = phi i8 [ %lnot90, %if.then88 ], [ %isNeg.0.lcssa, %invoke.cont93 ], [ 0, %invoke.cont111 ], [ 0, %if.then.i.i238 ], [ 0, %if.then13.i.i244 ]
   invoke void @_ZN4cvc58internal6theory2bv5utils10mkNaryNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKSt6vectorINS5_IXT_EEESaISA_EE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, i32 noundef 94, ptr noundef nonnull align 8 dereferenceable(24) %children)
           to label %invoke.cont115 unwind label %lpad68.loopexit.split-lp
 

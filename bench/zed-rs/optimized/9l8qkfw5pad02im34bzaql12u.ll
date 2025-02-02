@@ -3773,7 +3773,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.36.2.i.i = phi i32 [ %35, %67 ], [ %86, %.critedge.thread.i.i.i ], [ %.sroa.36.1.i.i, %.noexc13.i ], [ %.sroa.36.1.i.i, %68 ], [ %35, %66 ]
   %.sroa.49.sroa.0.1.i.i = phi i32 [ %.sroa.615.0.copyload, %67 ], [ %47, %.critedge.thread.i.i.i ], [ %47, %.noexc13.i ], [ %47, %68 ], [ %47, %66 ]
   %.sroa.49.sroa.8.1.i.i = phi i32 [ %.sroa.716.0.copyload, %67 ], [ %.sroa.6.0.copyload.i.i, %.critedge.thread.i.i.i ], [ %.sroa.6.0.copyload.i.i, %.noexc13.i ], [ %.sroa.6.0.copyload.i.i, %68 ], [ %.sroa.6.0.copyload.i.i, %66 ]
-  %.sroa.55.1.i.i = phi i8 [ %.sroa.918.0.copyload, %67 ], [ 1, %.critedge.thread.i.i.i ], [ 0, %.noexc13.i ], [ 0, %68 ], [ %.sroa.918.0.copyload, %66 ]
+  %.sroa.55.1.i.i = phi i8 [ %.sroa.918.0.copyload, %67 ], [ 1, %.critedge.thread.i.i.i ], [ 0, %.noexc13.i ], [ 0, %68 ], [ 1, %66 ]
   %.sroa.49.sroa.9.1.i.i = phi float [ %.sroa.817.0.copyload, %67 ], [ %.sroa.946.0.copyload.i.i, %.critedge.thread.i.i.i ], [ %.sroa.946.0.copyload.i.i, %.noexc13.i ], [ %.sroa.946.0.copyload.i.i, %68 ], [ %.sroa.946.0.copyload.i.i, %66 ]
   %87 = call { i32, i32 } @_ZN6editor11display_map12DisplayPoint8to_point17hd08e6c17e555abe1E(i32 noundef %.sroa.4.1.i.i, i32 noundef %.sroa.14.1.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.pre), !noalias !1226
   %88 = call { i32, i32 } @_ZN6editor11display_map12DisplayPoint8to_point17hd08e6c17e555abe1E(i32 noundef %.sroa.24.2.i.i, i32 noundef %.sroa.36.2.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.pre), !noalias !1226
@@ -11807,7 +11807,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.7.0..sroa.7.0.copyload.i.i.i = phi i32 [ %36, %31 ], [ %36, %42 ], [ %.sroa.7.i.i.i.0..sroa.7.i.i.i.0..sroa.7.i.i.i.0..sroa.7.i.i.0..sroa.7.i.i.0..sroa.7.i.0..sroa.7.i.0..sroa.7.0..sroa.7.0.copyload.pre.i.i.i, %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.i.i.i" ]
   %.sroa.4.0..sroa.4.0.copyload.i.i.i = phi i32 [ %37, %31 ], [ %37, %42 ], [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0.copyload.pre.i.i.i, %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.i.i.i" ]
   %44 = phi i8 [ %.pre17.i.i.i, %31 ], [ 13, %42 ], [ %.pre.i.i.i, %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.i.i.i" ]
-  %.sroa.19.0.i.i.i = phi i8 [ %.sroa.918.0.copyload, %31 ], [ %.sroa.918.0.copyload, %42 ], [ %.sroa.19.1.i.i.i, %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.i.i.i" ]
+  %.sroa.19.0.i.i.i = phi i8 [ 1, %31 ], [ 0, %42 ], [ %.sroa.19.1.i.i.i, %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11), !noalias !3104
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !3104
   store i64 %.sroa.011.0.copyload, ptr %10, align 8, !noalias !3104
@@ -11851,7 +11851,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.i.i.i"
 
 "_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.i.i.i": ; preds = %.sink.split.i.i.i.i, %.noexc5.i
-  %.sroa.19.1.i.i.i = phi i8 [ 1, %.sink.split.i.i.i.i ], [ %.sroa.918.0.copyload, %.noexc5.i ]
+  %.sroa.19.1.i.i.i = phi i8 [ 1, %.sink.split.i.i.i.i ], [ 0, %.noexc5.i ]
   %.sink3.i.sroa.phi.i.i.i = phi ptr [ %.sroa.4.i.i.i, %.sink.split.i.i.i.i ], [ %.sroa.10.i.i.i, %.noexc5.i ]
   %.sink2.i.sroa.phi.i.i.i = phi ptr [ %.sroa.7.i.i.i, %.sink.split.i.i.i.i ], [ %.sroa.13.i.i.i, %.noexc5.i ]
   store i32 %50, ptr %.sink3.i.sroa.phi.i.i.i, align 8, !alias.scope !3105, !noalias !3110

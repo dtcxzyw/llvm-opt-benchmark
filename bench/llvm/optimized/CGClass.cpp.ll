@@ -6688,7 +6688,7 @@ _ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thr
 
 _ZN12_GLOBAL__N_126SanitizeDtorCleanupBuilder19PushCleanupForFieldEPKN5clang9FieldDeclE.exit: ; preds = %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i, %336, %334, %308, %.lr.ph168
   %.sroa.9.1 = phi i32 [ %.sroa.9.0165, %.lr.ph168 ], [ %.sroa.9.0165, %308 ], [ %.sroa.9.0165, %336 ], [ %.sroa.9.0165, %334 ], [ %spec.select, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i ]
-  %.sroa.12.1 = phi i8 [ %.sroa.12.0166, %.lr.ph168 ], [ %.sroa.12.0166, %308 ], [ 0, %336 ], [ %.sroa.12.0166, %334 ], [ 1, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i ]
+  %.sroa.12.1 = phi i8 [ %.sroa.12.0166, %.lr.ph168 ], [ %.sroa.12.0166, %308 ], [ 0, %336 ], [ 0, %334 ], [ 1, %_ZL29FieldHasTrivialDestructorBodyRN5clang10ASTContextEPKNS_9FieldDeclE.exit.thread.i ]
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.0133.0164, i64 48
   %.sroa.0.0.copyload.i124 = load i64, ptr %341, align 8
   %342 = tail call noundef i32 @_ZN5clang8QualType20isDestructedTypeImplES0_(i64 %.sroa.0.0.copyload.i124) #13

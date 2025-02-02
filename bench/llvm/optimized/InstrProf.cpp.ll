@@ -4777,13 +4777,13 @@ _ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backERKS0_.exit: ; preds = %64, %
 
 103:                                              ; preds = %92
   %.not32.i.i = icmp eq i32 %99, 63
-  br i1 %.not32.i.i, label %104, label %.sink.split
+  br i1 %.not32.i.i, label %104, label %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit.thread
 
 104:                                              ; preds = %103
   %105 = lshr i64 %94, 1
   %106 = mul i64 %105, %2
   %.not24.i.i = icmp sgt i64 %106, -1
-  br i1 %.not24.i.i, label %107, label %.sink.split
+  br i1 %.not24.i.i, label %107, label %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit.thread
 
 107:                                              ; preds = %104
   %108 = shl nuw i64 %106, 1
@@ -4794,9 +4794,13 @@ _ZNSt6vectorI18InstrProfValueDataSaIS0_EE9push_backERKS0_.exit: ; preds = %64, %
 _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i: ; preds = %107
   %110 = add i64 %108, %2
   %111 = icmp ult i64 %110, %108
-  br i1 %111, label %.sink.split, label %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit
+  br i1 %111, label %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit.thread, label %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit
 
-_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit: ; preds = %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i, %101, %107
+_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit.thread: ; preds = %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i, %103, %104
+  store i64 -1, ptr %95, align 8
+  br label %114
+
+_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit: ; preds = %107, %101, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i
   %.0.i.i58 = phi i64 [ %110, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i ], [ %108, %107 ], [ %102, %101 ]
   %112 = add i64 %.0.i.i58, %96
   %113 = icmp ult i64 %112, %96
@@ -4804,11 +4808,7 @@ _ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_
   store i64 %spec.select.i.i, ptr %95, align 8
   br i1 %113, label %114, label %115
 
-.sink.split:                                      ; preds = %104, %103, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i
-  store i64 -1, ptr %95, align 8
-  br label %114
-
-114:                                              ; preds = %.sink.split, %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit
+114:                                              ; preds = %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit.thread, %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit
   tail call void %3(i64 noundef %4, i32 noundef 18) #28
   br label %115
 

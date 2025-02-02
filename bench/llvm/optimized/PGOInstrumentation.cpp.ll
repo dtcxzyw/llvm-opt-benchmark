@@ -14432,7 +14432,6 @@ _ZNSt10_HashtableIPN4llvm6ComdatESt4pairIKS2_PNS0_11GlobalValueEESaIS7_ENSt8__de
   br label %35
 
 35:                                               ; preds = %26, %33, %28, %24
-  %.2 = phi i8 [ %.05568, %24 ], [ 0, %28 ], [ 0, %33 ], [ 0, %26 ]
   %36 = getelementptr inbounds ptr, ptr %.0.i, i64 %20
   %37 = load ptr, ptr %36, align 8
   %.not65 = icmp eq ptr %37, null
@@ -14460,7 +14459,7 @@ _ZNSt10_HashtableIPN4llvm6ComdatESt4pairIKS2_PNS0_11GlobalValueEESaIS7_ENSt8__de
   br label %46
 
 46:                                               ; preds = %38, %41, %43, %22
-  %.156 = phi i8 [ 1, %22 ], [ %.2, %43 ], [ %.2, %41 ], [ %.2, %38 ]
+  %.156 = phi i8 [ 1, %22 ], [ 0, %43 ], [ 0, %41 ], [ 0, %38 ]
   %.1 = phi i64 [ %.05271, %22 ], [ %.05271, %43 ], [ %20, %41 ], [ %20, %38 ]
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !265

@@ -188,9 +188,9 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -1
   %15 = icmp slt i32 %14, 1
-  br i1 %15, label %.critedge, label %.lr.ph30
+  br i1 %15, label %.critedge, label %.lr.ph28
 
-.lr.ph30:                                         ; preds = %1
+.lr.ph28:                                         ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -203,88 +203,85 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %25 = ptrtoint ptr %2 to i64
   %26 = ptrtoint ptr %3 to i64
   %.pre = load i32, ptr %20, align 4
-  br label %33
+  br label %.outer
 
-.loopexit.loopexit:                               ; preds = %.lr.ph
-  %.pre34 = load i32, ptr %12, align 4
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %33
-  %27 = phi i32 [ %34, %33 ], [ %.pre34, %.loopexit.loopexit ]
-  %28 = phi i32 [ %35, %33 ], [ %56, %.loopexit.loopexit ]
-  %.1.lcssa = phi i8 [ %.029, %33 ], [ %spec.select, %.loopexit.loopexit ]
-  %29 = add i32 %27, -1
+.outer:                                           ; preds = %.loopexit, %.lr.ph28
+  %.ph = phi i32 [ %.pre33, %.loopexit ], [ %13, %.lr.ph28 ]
+  %.ph38 = phi i32 [ %52, %.loopexit ], [ %.pre, %.lr.ph28 ]
+  %indvars.iv30.ph = phi i64 [ %indvars.iv.next31, %.loopexit ], [ 0, %.lr.ph28 ]
+  %27 = add i32 %.ph38, -1
+  %28 = icmp slt i32 %27, 1
+  %29 = add i32 %.ph, -1
   %30 = sext i32 %29 to i64
-  %31 = icmp sge i64 %indvars.iv.next33, %30
-  %32 = trunc nuw i8 %.1.lcssa to i1
-  %.not23 = select i1 %31, i1 true, i1 %32
-  br i1 %.not23, label %._crit_edge, label %33, !llvm.loop !4
+  br label %34
 
-33:                                               ; preds = %.lr.ph30, %.loopexit
-  %34 = phi i32 [ %13, %.lr.ph30 ], [ %27, %.loopexit ]
-  %35 = phi i32 [ %.pre, %.lr.ph30 ], [ %28, %.loopexit ]
-  %indvars.iv32 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next33, %.loopexit ]
-  %.029 = phi i8 [ 0, %.lr.ph30 ], [ %.1.lcssa, %.loopexit ]
-  %36 = getelementptr [0 x %struct.Point], ptr %16, i64 0, i64 %indvars.iv32
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %37 = getelementptr [0 x %struct.Point], ptr %16, i64 0, i64 %indvars.iv.next33
-  %38 = load double, ptr %36, align 8
-  store double %38, ptr %2, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %40 = load double, ptr %39, align 8
-  store double %40, ptr %17, align 8
-  %41 = load double, ptr %37, align 8
-  store double %41, ptr %18, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %43 = load double, ptr %42, align 8
-  store double %43, ptr %19, align 8
-  %44 = add i32 %35, -1
-  %45 = icmp slt i32 %44, 1
-  %46 = trunc nuw i8 %.029 to i1
-  %.not2425 = select i1 %45, i1 true, i1 %46
-  br i1 %.not2425, label %.loopexit, label %.lr.ph
+.loopexit:                                        ; preds = %.lr.ph
+  %.pre33 = load i32, ptr %12, align 4
+  %31 = add i32 %.pre33, -1
+  %32 = sext i32 %31 to i64
+  %33 = icmp sge i64 %indvars.iv.next31, %32
+  %.not23 = select i1 %33, i1 true, i1 %.not
+  br i1 %.not23, label %._crit_edge, label %.outer, !llvm.loop !4
 
-.lr.ph:                                           ; preds = %33, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %33 ]
-  %.127 = phi i8 [ %spec.select, %.lr.ph ], [ %.029, %33 ]
-  %47 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv
+.loopexit.thread:                                 ; preds = %34
+  %.not41 = icmp slt i64 %indvars.iv.next31, %30
+  br i1 %.not41, label %34, label %.critedge, !llvm.loop !4
+
+34:                                               ; preds = %.outer, %.loopexit.thread
+  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.loopexit.thread ], [ %indvars.iv30.ph, %.outer ]
+  %35 = getelementptr [0 x %struct.Point], ptr %16, i64 0, i64 %indvars.iv30
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
+  %36 = getelementptr [0 x %struct.Point], ptr %16, i64 0, i64 %indvars.iv.next31
+  %37 = load double, ptr %35, align 8
+  store double %37, ptr %2, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %39 = load double, ptr %38, align 8
+  store double %39, ptr %17, align 8
+  %40 = load double, ptr %36, align 8
+  store double %40, ptr %18, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %42 = load double, ptr %41, align 8
+  store double %42, ptr %19, align 8
+  br i1 %28, label %.loopexit.thread, label %.lr.ph
+
+.lr.ph:                                           ; preds = %34, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %34 ]
+  %43 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv.next
-  %49 = load double, ptr %47, align 8
-  store double %49, ptr %3, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %51 = load double, ptr %50, align 8
-  store double %51, ptr %22, align 8
-  %52 = load double, ptr %48, align 8
-  store double %52, ptr %23, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %54 = load double, ptr %53, align 8
-  store double %54, ptr %24, align 8
-  %55 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_intersect, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
-  %.not = icmp eq i64 %55, 0
-  %spec.select = select i1 %.not, i8 %.127, i8 1
-  %56 = load i32, ptr %20, align 4
-  %57 = add i32 %56, -1
-  %58 = sext i32 %57 to i64
-  %59 = icmp sge i64 %indvars.iv.next, %58
-  %60 = trunc nuw i8 %spec.select to i1
-  %.not24 = select i1 %59, i1 true, i1 %60
-  br i1 %.not24, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !6
+  %44 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv.next
+  %45 = load double, ptr %43, align 8
+  store double %45, ptr %3, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %47 = load double, ptr %46, align 8
+  store double %47, ptr %22, align 8
+  %48 = load double, ptr %44, align 8
+  store double %48, ptr %23, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %50 = load double, ptr %49, align 8
+  store double %50, ptr %24, align 8
+  %51 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_intersect, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
+  %.not = icmp ne i64 %51, 0
+  %52 = load i32, ptr %20, align 4
+  %53 = add i32 %52, -1
+  %54 = sext i32 %53 to i64
+  %55 = icmp sge i64 %indvars.iv.next, %54
+  %.not24 = select i1 %55, i1 true, i1 %.not
+  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit
-  br i1 %32, label %62, label %.critedge
+  br i1 %.not, label %57, label %.critedge
 
-.critedge:                                        ; preds = %1, %._crit_edge
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %61, align 4
-  br label %64
+.critedge:                                        ; preds = %.loopexit.thread, %1, %._crit_edge
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %56, align 4
+  br label %59
 
-62:                                               ; preds = %._crit_edge
-  %63 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_interpt, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
-  br label %64
+57:                                               ; preds = %._crit_edge
+  %58 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_interpt, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
+  br label %59
 
-64:                                               ; preds = %62, %.critedge
-  %.022 = phi i64 [ %63, %62 ], [ 0, %.critedge ]
+59:                                               ; preds = %57, %.critedge
+  %.022 = phi i64 [ %58, %57 ], [ 0, %.critedge ]
   ret i64 %.022
 }
 

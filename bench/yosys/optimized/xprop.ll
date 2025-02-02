@@ -2281,8 +2281,8 @@ define internal void @_ZN12_GLOBAL__N_19XpropPass7executeESt6vectorINSt7__cxx111
   %.sroa.0998.sroa.16.0.lcssa3113 = phi i64 [ %235, %243 ], [ %235, %._crit_edge ], [ 0, %3 ]
   %.sroa.0998.sroa.14.0.lcssa3112 = phi i64 [ %237, %243 ], [ %237, %._crit_edge ], [ 0, %3 ]
   %.sroa.0998.sroa.12.0.lcssa3111 = phi i8 [ %.sroa.0998.sroa.12.0.lcssa.ph, %243 ], [ %.sroa.0998.sroa.12.0.lcssa.ph, %._crit_edge ], [ 0, %3 ]
-  %.sroa.0998.sroa.9.0.lcssa3110 = phi i8 [ %.sroa.0998.sroa.9.0.lcssa.ph, %243 ], [ %.sroa.0998.sroa.9.0.lcssa.ph, %._crit_edge ], [ 0, %3 ]
-  %.sroa.0998.sroa.7.0.lcssa3109 = phi i8 [ %.sroa.0998.sroa.7.0.lcssa.ph, %243 ], [ %.sroa.0998.sroa.7.0.lcssa.ph, %._crit_edge ], [ 0, %3 ]
+  %.sroa.0998.sroa.9.0.lcssa3110 = phi i64 [ 4294967296, %243 ], [ 0, %._crit_edge ], [ 0, %3 ]
+  %.sroa.0998.sroa.7.0.lcssa3109 = phi i8 [ 0, %243 ], [ %.sroa.0998.sroa.7.0.lcssa.ph, %._crit_edge ], [ 0, %3 ]
   %.sroa.0998.sroa.6.0.lcssa3108 = phi i64 [ %239, %243 ], [ %239, %._crit_edge ], [ 0, %3 ]
   %.sroa.0998.sroa.0.0.lcssa3116 = zext i8 %.sroa.0998.sroa.0.0.lcssa3116.shrunk to i64
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -2372,9 +2372,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %.sroa.0998.sroa.14.0.insert.insert = or disjoint i64 %.sroa.0998.sroa.16.0.lcssa3113, %.sroa.0998.sroa.14.0.lcssa3112
   %.sroa.0998.sroa.12.0.insert.ext = zext nneg i8 %.sroa.0998.sroa.12.0.lcssa3111 to i64
   %.sroa.0998.sroa.12.0.insert.shift = shl nuw nsw i64 %.sroa.0998.sroa.12.0.insert.ext, 40
-  %.sroa.0998.sroa.9.0.insert.ext = zext nneg i8 %.sroa.0998.sroa.9.0.lcssa3110 to i64
-  %.sroa.0998.sroa.9.0.insert.shift = shl nuw nsw i64 %.sroa.0998.sroa.9.0.insert.ext, 32
-  %280 = or disjoint i64 %.sroa.0998.sroa.14.0.insert.insert, %.sroa.0998.sroa.9.0.insert.shift
+  %280 = or disjoint i64 %.sroa.0998.sroa.14.0.insert.insert, %.sroa.0998.sroa.9.0.lcssa3110
   %.sroa.0998.sroa.9.0.insert.insert = or disjoint i64 %280, %.sroa.0998.sroa.12.0.insert.shift
   %.sroa.0998.sroa.7.0.insert.ext = zext nneg i8 %.sroa.0998.sroa.7.0.lcssa3109 to i64
   %.sroa.0998.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.0998.sroa.7.0.insert.ext, 24

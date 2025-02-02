@@ -18406,7 +18406,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit133: ; preds = %138, %1
 158:                                              ; preds = %122, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit133, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
   %.0104 = phi ptr [ %.0175208, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %157, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit133 ], [ null, %122 ]
   %.0103 = phi ptr [ %121, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %156, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit133 ], [ null, %122 ]
-  %.195 = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit133 ], [ %.094211, %122 ]
+  %.195 = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit133 ], [ 0, %122 ]
   %159 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
   br i1 %159, label %165, label %160
 

@@ -737,10 +737,10 @@ define dso_local noundef i32 @_ZNK4llvm15TargetInstrInfo18getInlineAsmLengthEPKc
 13:                                               ; preds = %_ZN4llvm7isSpaceEc.exit.thread, %4
   %.023 = phi i1 [ true, %4 ], [ %.2, %_ZN4llvm7isSpaceEc.exit.thread ]
   %.022 = phi i32 [ 0, %4 ], [ %.1, %_ZN4llvm7isSpaceEc.exit.thread ]
-  %.021 = phi ptr [ %1, %4 ], [ %40, %_ZN4llvm7isSpaceEc.exit.thread ]
+  %.021 = phi ptr [ %1, %4 ], [ %41, %_ZN4llvm7isSpaceEc.exit.thread ]
   %14 = load i8, ptr %.021, align 1
   switch i8 %14, label %15 [
-    i8 0, label %41
+    i8 0, label %42
     i8 10, label %_ZN4llvm7isSpaceEc.exit.thread
   ]
 
@@ -756,8 +756,8 @@ define dso_local noundef i32 @_ZNK4llvm15TargetInstrInfo18getInlineAsmLengthEPKc
   %.val28 = load i64, ptr %12, align 8
   %21 = tail call i32 @strncmp(ptr noundef nonnull readonly %.021, ptr noundef readonly %.val, i64 noundef %.val28) #28
   %22 = icmp ne i32 %21, 0
-  %spec.select = and i1 %22, %.023
-  br i1 %spec.select, label %.thread, label %_ZN4llvm7isSpaceEc.exit.thread
+  %23 = and i1 %.023, %22
+  br i1 %23, label %.thread, label %_ZN4llvm7isSpaceEc.exit.thread
 
 .thread:                                          ; preds = %15, %20
   switch i8 %14, label %_ZN4llvm7isSpaceEc.exit [
@@ -769,62 +769,62 @@ define dso_local noundef i32 @_ZNK4llvm15TargetInstrInfo18getInlineAsmLengthEPKc
   ]
 
 _ZN4llvm7isSpaceEc.exit:                          ; preds = %.thread
-  %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.021, ptr noundef nonnull dereferenceable(7) @.str.2, i64 noundef 6) #28
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %38
+  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.021, ptr noundef nonnull dereferenceable(7) @.str.2, i64 noundef 6) #28
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %39
 
-25:                                               ; preds = %_ZN4llvm7isSpaceEc.exit
-  %26 = getelementptr inbounds nuw i8, ptr %.021, i64 6
-  %27 = call i64 @strtol(ptr noundef nonnull %26, ptr noundef nonnull %5, i32 noundef 10) #26
-  %28 = trunc i64 %27 to i32
-  %29 = tail call i32 @llvm.smax.i32(i32 %28, i32 0)
+26:                                               ; preds = %_ZN4llvm7isSpaceEc.exit
+  %27 = getelementptr inbounds nuw i8, ptr %.021, i64 6
+  %28 = call i64 @strtol(ptr noundef nonnull %27, ptr noundef nonnull %5, i32 noundef 10) #26
+  %29 = trunc i64 %28 to i32
+  %30 = tail call i32 @llvm.smax.i32(i32 %29, i32 0)
   %.promoted = load ptr, ptr %5, align 8
-  br label %30
+  br label %31
 
-30:                                               ; preds = %33, %25
-  %31 = phi ptr [ %34, %33 ], [ %.promoted, %25 ]
-  %32 = load i8, ptr %31, align 1
-  switch i8 %32, label %35 [
+31:                                               ; preds = %34, %26
+  %32 = phi ptr [ %35, %34 ], [ %.promoted, %26 ]
+  %33 = load i8, ptr %32, align 1
+  switch i8 %33, label %36 [
     i8 10, label %.critedge.thread.loopexit
-    i8 32, label %33
-    i8 13, label %33
-    i8 12, label %33
-    i8 11, label %33
-    i8 9, label %33
+    i8 32, label %34
+    i8 13, label %34
+    i8 12, label %34
+    i8 11, label %34
+    i8 9, label %34
     i8 0, label %.critedge.thread.loopexit
   ]
 
-33:                                               ; preds = %30, %30, %30, %30, %30
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  br label %30, !llvm.loop !6
+34:                                               ; preds = %31, %31, %31, %31, %31
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  br label %31, !llvm.loop !6
 
-35:                                               ; preds = %30
-  store ptr %31, ptr %5, align 8
+36:                                               ; preds = %31
+  store ptr %32, ptr %5, align 8
   %.val29 = load ptr, ptr %11, align 8
   %.val30 = load i64, ptr %12, align 8
-  %36 = tail call i32 @strncmp(ptr noundef nonnull readonly %31, ptr noundef readonly %.val29, i64 noundef %.val30) #28
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.critedge.thread, label %38
+  %37 = tail call i32 @strncmp(ptr noundef nonnull readonly %32, ptr noundef readonly %.val29, i64 noundef %.val30) #28
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %.critedge.thread, label %39
 
-.critedge.thread.loopexit:                        ; preds = %30, %30
-  store ptr %31, ptr %5, align 8
+.critedge.thread.loopexit:                        ; preds = %31, %31
+  store ptr %32, ptr %5, align 8
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %35
-  br label %38
+.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %36
+  br label %39
 
-38:                                               ; preds = %35, %.critedge.thread, %_ZN4llvm7isSpaceEc.exit
-  %.0 = phi i32 [ %29, %.critedge.thread ], [ %9, %35 ], [ %9, %_ZN4llvm7isSpaceEc.exit ]
-  %39 = add i32 %.0, %.022
+39:                                               ; preds = %36, %.critedge.thread, %_ZN4llvm7isSpaceEc.exit
+  %.0 = phi i32 [ %30, %.critedge.thread ], [ %9, %36 ], [ %9, %_ZN4llvm7isSpaceEc.exit ]
+  %40 = add i32 %.0, %.022
   br label %_ZN4llvm7isSpaceEc.exit.thread
 
-_ZN4llvm7isSpaceEc.exit.thread:                   ; preds = %.thread, %13, %.thread, %.thread, %.thread, %.thread, %20, %38
-  %.2 = phi i1 [ false, %38 ], [ false, %20 ], [ true, %.thread ], [ true, %.thread ], [ true, %.thread ], [ true, %.thread ], [ true, %.thread ], [ true, %13 ]
-  %.1 = phi i32 [ %39, %38 ], [ %.022, %20 ], [ %.022, %.thread ], [ %.022, %.thread ], [ %.022, %.thread ], [ %.022, %.thread ], [ %.022, %.thread ], [ %.022, %13 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+_ZN4llvm7isSpaceEc.exit.thread:                   ; preds = %.thread, %13, %.thread, %.thread, %.thread, %.thread, %20, %39
+  %.2 = phi i1 [ false, %39 ], [ false, %20 ], [ true, %.thread ], [ true, %.thread ], [ true, %.thread ], [ true, %.thread ], [ true, %.thread ], [ true, %13 ]
+  %.1 = phi i32 [ %40, %39 ], [ %.022, %20 ], [ %.022, %.thread ], [ %.022, %.thread ], [ %.022, %.thread ], [ %.022, %.thread ], [ %.022, %.thread ], [ %.022, %13 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   br label %13, !llvm.loop !7
 
-41:                                               ; preds = %13
+42:                                               ; preds = %13
   ret i32 %.022
 }
 

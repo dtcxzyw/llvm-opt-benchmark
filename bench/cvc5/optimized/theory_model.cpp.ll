@@ -11130,11 +11130,11 @@ lpad216:                                          ; preds = %if.else210
   br label %ehcleanup229
 
 if.end225:                                        ; preds = %if.else.i.i380, %if.then.i5.i, %if.then127, %if.then13.i4.i, %cond.true195, %_ZN4cvc58internal8TypeNodeD2Ev.exit562, %invoke.cont217, %invoke.cont120, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit522
-  %first.2 = phi i8 [ %first.0, %invoke.cont120 ], [ %first.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit522 ], [ %first.0, %invoke.cont217 ], [ 0, %cond.true195 ], [ 0, %_ZN4cvc58internal8TypeNodeD2Ev.exit562 ], [ 0, %if.then13.i4.i ], [ 0, %if.then127 ], [ 0, %if.then.i5.i ], [ 0, %if.else.i.i380 ]
+  %first.2 = phi i8 [ %first.0, %invoke.cont120 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit522 ], [ 0, %invoke.cont217 ], [ 0, %cond.true195 ], [ 0, %_ZN4cvc58internal8TypeNodeD2Ev.exit562 ], [ 0, %if.then13.i4.i ], [ 0, %if.then127 ], [ 0, %if.then.i5.i ], [ 0, %if.else.i.i380 ]
   br label %cleanup226
 
 cleanup226:                                       ; preds = %invoke.cont86, %invoke.cont217, %invoke.cont120, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit522, %if.end225
-  %first.1 = phi i8 [ %first.2, %if.end225 ], [ %first.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit522 ], [ %first.0, %invoke.cont120 ], [ %first.0, %invoke.cont217 ], [ %first.0, %invoke.cont86 ]
+  %first.1 = phi i8 [ %first.2, %if.end225 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit522 ], [ %first.0, %invoke.cont120 ], [ 0, %invoke.cont217 ], [ %first.0, %invoke.cont86 ]
   %cleanup.dest.slot.0 = phi i32 [ 0, %if.end225 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit522 ], [ 1, %invoke.cont120 ], [ 1, %invoke.cont217 ], [ 7, %invoke.cont86 ]
   %70 = load ptr, ptr %n, align 8
   %bf.load.i.i643 = load i64, ptr %70, align 8

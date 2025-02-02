@@ -3053,16 +3053,16 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr noundef
   %28 = lshr i32 %19, 2
   %29 = add nsw i32 %28, -4
   %30 = zext i32 %29 to i64
-  %reass.sub107 = sub nsw i64 %27, %30
-  %31 = add nsw i64 %reass.sub107, 1
-  %.not108 = icmp eq i64 %31, 0
-  br i1 %.not108, label %.loopexit, label %.preheader.lr.ph
+  %reass.sub111 = sub nsw i64 %27, %30
+  %31 = add nsw i64 %reass.sub111, 1
+  %.not112 = icmp eq i64 %31, 0
+  br i1 %.not112, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %18
   %32 = shl i32 %24, 1
   %33 = and i32 %32, -8
-  %reass.sub106 = sub i32 %33, %13
-  %34 = add i32 %reass.sub106, -64
+  %reass.sub110 = sub i32 %33, %13
+  %34 = add i32 %reass.sub110, -64
   %35 = shl i32 255, %34
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3079,126 +3079,126 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr noundef
   %46 = getelementptr i8, ptr %45, i64 -1
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %109
-  %47 = phi i64 [ 0, %.preheader.lr.ph ], [ %111, %109 ]
-  %.076105 = phi i32 [ 0, %.preheader.lr.ph ], [ %110, %109 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %110
+  %47 = phi i64 [ 0, %.preheader.lr.ph ], [ %112, %110 ]
+  %.076109 = phi i32 [ 0, %.preheader.lr.ph ], [ %111, %110 ]
   %48 = getelementptr i8, ptr %36, i64 %47
   br label %49
 
 49:                                               ; preds = %.preheader, %.critedge.thread
-  %.083103 = phi i32 [ 0, %.preheader ], [ %108, %.critedge.thread ]
-  %50 = lshr i32 255, %.083103
+  %.083107 = phi i32 [ 0, %.preheader ], [ %109, %.critedge.thread ]
+  %50 = lshr i32 255, %.083107
   %51 = trunc nuw i32 %50 to i8
-  %52 = ashr exact i32 -256, %.083103
+  %52 = ashr exact i32 -256, %.083107
   %53 = trunc i32 %52 to i8
-  %54 = lshr i32 %41, %.083103
+  %54 = lshr i32 %41, %.083107
   %55 = trunc nuw i32 %54 to i8
-  %56 = sub nuw nsw i32 8, %.083103
+  %56 = sub nuw nsw i32 8, %.083107
   %57 = shl i32 %23, %56
   %58 = trunc i32 %57 to i8
   br label %59
 
-59:                                               ; preds = %49, %93
-  %.077101 = phi i8 [ %53, %49 ], [ %.178, %93 ]
-  %.079100 = phi i8 [ %51, %49 ], [ %.180, %93 ]
-  %.08199 = phi ptr [ %48, %49 ], [ %81, %93 ]
-  %.08298 = phi ptr [ %37, %49 ], [ %100, %93 ]
-  %.not122 = icmp ult ptr %.08298, %39
-  br i1 %.not122, label %60, label %.critedge.thread111
+59:                                               ; preds = %49, %94
+  %.077106 = phi i8 [ %53, %49 ], [ %.178, %94 ]
+  %.079105 = phi i8 [ %51, %49 ], [ %.180, %94 ]
+  %.081104 = phi ptr [ %48, %49 ], [ %82, %94 ]
+  %.082103 = phi ptr [ %37, %49 ], [ %101, %94 ]
+  %60 = icmp ult ptr %.082103, %39
+  br i1 %60, label %61, label %.critedge.thread92
 
-60:                                               ; preds = %59
-  %61 = load i8, ptr %.08298, align 1
-  %62 = zext i8 %61 to i32
-  %63 = lshr i32 %62, %.083103
-  %64 = icmp eq ptr %.08298, %40
-  br i1 %64, label %65, label %73
+61:                                               ; preds = %59
+  %62 = load i8, ptr %.082103, align 1
+  %63 = zext i8 %62 to i32
+  %64 = lshr i32 %63, %.083107
+  %65 = icmp eq ptr %.082103, %40
+  br i1 %65, label %66, label %74
 
-65:                                               ; preds = %60
-  %66 = and i8 %.079100, %55
-  %67 = icmp eq ptr %.08199, %gep
-  br i1 %67, label %68, label %73
+66:                                               ; preds = %61
+  %67 = and i8 %.079105, %55
+  %68 = icmp eq ptr %.081104, %gep
+  br i1 %68, label %69, label %74
 
-68:                                               ; preds = %65
-  %69 = zext i8 %66 to i32
-  %70 = and i32 %69, %43
-  %.not = icmp eq i32 %70, 0
-  br i1 %.not, label %71, label %.critedge.thread
+69:                                               ; preds = %66
+  %70 = zext i8 %67 to i32
+  %71 = and i32 %70, %43
+  %.not = icmp eq i32 %71, 0
+  br i1 %.not, label %72, label %.critedge.thread
 
-71:                                               ; preds = %68
-  %72 = and i8 %66, %44
-  br label %73
+72:                                               ; preds = %69
+  %73 = and i8 %67, %44
+  br label %74
 
-73:                                               ; preds = %65, %71, %60
-  %.180 = phi i8 [ %72, %71 ], [ %66, %65 ], [ %.079100, %60 ]
-  %74 = load i8, ptr %.08199, align 1
-  %75 = zext i8 %74 to i32
-  %76 = xor i32 %63, %75
-  %77 = zext i8 %.180 to i32
-  %78 = and i32 %76, %77
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %.critedge.thread
+74:                                               ; preds = %66, %72, %61
+  %.180 = phi i8 [ %73, %72 ], [ %67, %66 ], [ %.079105, %61 ]
+  %75 = load i8, ptr %.081104, align 1
+  %76 = zext i8 %75 to i32
+  %77 = xor i32 %64, %76
+  %78 = zext i8 %.180 to i32
+  %79 = and i32 %77, %78
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %.critedge.thread
 
-80:                                               ; preds = %73
-  %81 = getelementptr i8, ptr %.08199, i64 1
-  %82 = icmp eq ptr %81, %45
-  br i1 %82, label %.critedge, label %83
+81:                                               ; preds = %74
+  %82 = getelementptr i8, ptr %.081104, i64 1
+  %83 = icmp eq ptr %82, %45
+  br i1 %83, label %.critedge, label %84
 
-83:                                               ; preds = %80
-  %84 = shl nuw nsw i32 %62, %56
-  br i1 %64, label %85, label %93
+84:                                               ; preds = %81
+  %85 = shl nuw nsw i32 %63, %56
+  br i1 %65, label %86, label %94
 
-85:                                               ; preds = %83
-  %86 = and i8 %.077101, %58
-  %87 = icmp eq ptr %81, %46
-  br i1 %87, label %88, label %93
+86:                                               ; preds = %84
+  %87 = and i8 %.077106, %58
+  %88 = icmp eq ptr %82, %46
+  br i1 %88, label %89, label %94
 
-88:                                               ; preds = %85
-  %89 = zext i8 %86 to i32
-  %90 = and i32 %89, %43
-  %.not90 = icmp eq i32 %90, 0
-  br i1 %.not90, label %91, label %.critedge.thread
+89:                                               ; preds = %86
+  %90 = zext i8 %87 to i32
+  %91 = and i32 %90, %43
+  %.not90 = icmp eq i32 %91, 0
+  br i1 %.not90, label %92, label %.critedge.thread
 
-91:                                               ; preds = %88
-  %92 = and i8 %86, %44
-  br label %93
+92:                                               ; preds = %89
+  %93 = and i8 %87, %44
+  br label %94
 
-93:                                               ; preds = %85, %91, %83
-  %.178 = phi i8 [ %92, %91 ], [ %86, %85 ], [ %.077101, %83 ]
-  %94 = load i8, ptr %81, align 1
-  %95 = zext i8 %94 to i32
-  %96 = xor i32 %84, %95
-  %97 = zext i8 %.178 to i32
-  %98 = and i32 %96, %97
-  %99 = icmp eq i32 %98, 0
-  %100 = getelementptr i8, ptr %.08298, i64 1
-  br i1 %99, label %59, label %.critedge.thread, !llvm.loop !32
+94:                                               ; preds = %86, %92, %84
+  %.178 = phi i8 [ %93, %92 ], [ %87, %86 ], [ %.077106, %84 ]
+  %95 = load i8, ptr %82, align 1
+  %96 = zext i8 %95 to i32
+  %97 = xor i32 %85, %96
+  %98 = zext i8 %.178 to i32
+  %99 = and i32 %97, %98
+  %100 = icmp eq i32 %99, 0
+  %101 = getelementptr i8, ptr %.082103, i64 1
+  br i1 %100, label %59, label %.critedge.thread, !llvm.loop !32
 
-.critedge:                                        ; preds = %80
-  %101 = lshr i32 254, %56
-  %102 = and i32 %101, %23
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %.critedge.thread111, label %.critedge.thread
+.critedge:                                        ; preds = %81
+  %102 = lshr i32 254, %56
+  %103 = and i32 %102, %23
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %.critedge.thread92, label %.critedge.thread
 
-.critedge.thread111:                              ; preds = %.critedge, %59
-  %104 = shl i32 %.076105, 3
-  %105 = or disjoint i32 %104, 1
-  %106 = add i32 %105, %.083103
-  %107 = sext i32 %106 to i64
+.critedge.thread92:                               ; preds = %.critedge, %59
+  %105 = shl i32 %.076109, 3
+  %106 = or disjoint i32 %105, 1
+  %107 = add i32 %106, %.083107
+  %108 = sext i32 %107 to i64
   br label %.loopexit
 
-.critedge.thread:                                 ; preds = %93, %88, %68, %73, %.critedge
-  %108 = add nuw nsw i32 %.083103, 1
-  %exitcond.not = icmp eq i32 %108, 8
-  br i1 %exitcond.not, label %109, label %49, !llvm.loop !33
+.critedge.thread:                                 ; preds = %89, %69, %94, %74, %.critedge
+  %109 = add nuw nsw i32 %.083107, 1
+  %exitcond.not = icmp eq i32 %109, 8
+  br i1 %exitcond.not, label %110, label %49, !llvm.loop !33
 
-109:                                              ; preds = %.critedge.thread
-  %110 = add i32 %.076105, 1
-  %111 = sext i32 %110 to i64
-  %112 = icmp ugt i64 %31, %111
-  br i1 %112, label %.preheader, label %.loopexit, !llvm.loop !34
+110:                                              ; preds = %.critedge.thread
+  %111 = add i32 %.076109, 1
+  %112 = sext i32 %111 to i64
+  %113 = icmp ugt i64 %31, %112
+  br i1 %113, label %.preheader, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %109, %18, %16, %1, %.critedge.thread111
-  %.075 = phi i64 [ %107, %.critedge.thread111 ], [ 0, %1 ], [ 1, %16 ], [ 0, %18 ], [ 0, %109 ]
+.loopexit:                                        ; preds = %110, %18, %16, %1, %.critedge.thread92
+  %.075 = phi i64 [ %108, %.critedge.thread92 ], [ 0, %1 ], [ 1, %16 ], [ 0, %18 ], [ 0, %110 ]
   ret i64 %.075
 }
 

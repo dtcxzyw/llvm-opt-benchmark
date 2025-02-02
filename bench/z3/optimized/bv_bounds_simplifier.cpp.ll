@@ -8558,7 +8558,7 @@ while.cond.preheader:                             ; preds = %invoke.cont19
   br i1 %cmp.i.i.i29185, label %land.rhs.i.i.i, label %while.end
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.preheader, %while.body
-  %sign.0187 = phi i8 [ %lnot, %while.body ], [ 0, %while.cond.preheader ]
+  %sign.0187 = phi i1 [ %lnot, %while.body ], [ false, %while.cond.preheader ]
   %t.addr.0186 = phi ptr [ %29, %while.body ], [ %t, %while.cond.preheader ]
   %m_decl.i.i.i.i = getelementptr inbounds nuw i8, ptr %t.addr.0186, i64 16
   %23 = load ptr, ptr %m_decl.i.i.i.i, align 8
@@ -8585,7 +8585,7 @@ land.lhs.true.i:                                  ; preds = %_ZNK11ast_manager6i
 while.body:                                       ; preds = %land.lhs.true.i
   %m_args.i.i = getelementptr inbounds nuw i8, ptr %t.addr.0186, i64 32
   %29 = load ptr, ptr %m_args.i.i, align 8
-  %lnot = xor i8 %sign.0187, 1
+  %lnot = xor i1 %sign.0187, true
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
@@ -8594,7 +8594,7 @@ while.body:                                       ; preds = %land.lhs.true.i
 
 while.end:                                        ; preds = %land.rhs.i.i.i, %while.body, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %land.lhs.true.i, %while.cond.preheader
   %t.addr.0.lcssa = phi ptr [ %t, %while.cond.preheader ], [ %t.addr.0186, %land.lhs.true.i ], [ %t.addr.0186, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %29, %while.body ], [ %t.addr.0186, %land.rhs.i.i.i ]
-  %sign.0.lcssa = phi i8 [ 0, %while.cond.preheader ], [ %sign.0187, %land.lhs.true.i ], [ %sign.0187, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %lnot, %while.body ], [ %sign.0187, %land.rhs.i.i.i ]
+  %sign.0.lcssa = phi i1 [ false, %while.cond.preheader ], [ %sign.0187, %land.lhs.true.i ], [ %sign.0187, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %lnot, %while.body ], [ %sign.0187, %land.rhs.i.i.i ]
   %call27 = invoke noundef zeroext i1 @_ZNK2bv14bv_bounds_base8is_boundEP4exprRS2_RNS_8intervalE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %t.addr.0.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %t1, ptr noundef nonnull align 8 dereferenceable(104) %b)
           to label %invoke.cont26 unwind label %lpad
 
@@ -8602,8 +8602,7 @@ invoke.cont26:                                    ; preds = %while.end
   br i1 %call27, label %if.end29, label %cleanup
 
 if.end29:                                         ; preds = %invoke.cont26
-  %tobool30 = trunc nuw i8 %sign.0.lcssa to i1
-  br i1 %tobool30, label %land.lhs.true31, label %if.end44
+  br i1 %sign.0.lcssa, label %land.lhs.true31, label %if.end44
 
 land.lhs.true31:                                  ; preds = %if.end29
   %30 = load i8, ptr %b, align 8
@@ -8700,7 +8699,7 @@ if.then37:                                        ; preds = %_ZNK2bv12interval_t
           to label %cleanup unwind label %lpad
 
 if.end44:                                         ; preds = %invoke.cont35.thread, %invoke.cont35, %land.lhs.true31, %if.end29
-  %sign.1 = phi i8 [ 0, %invoke.cont35 ], [ %sign.0.lcssa, %land.lhs.true31 ], [ %sign.0.lcssa, %if.end29 ], [ 0, %invoke.cont35.thread ]
+  %sign.1 = phi i1 [ false, %invoke.cont35 ], [ true, %land.lhs.true31 ], [ false, %if.end29 ], [ false, %invoke.cont35.thread ]
   store i8 1, ptr %ctx, align 8
   %i.i41 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %tight.i.i.i42 = getelementptr inbounds nuw i8, ptr %ctx, i64 28
@@ -8991,8 +8990,7 @@ if.end108thread-pre-split:                        ; preds = %if.then78.invoke, %
 
 if.end108:                                        ; preds = %if.end108thread-pre-split, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit91
   %.pre195 = phi ptr [ %.pre195.pr, %if.end108thread-pre-split ], [ %49, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit91 ]
-  %tobool109 = trunc nuw i8 %sign.1 to i1
-  br i1 %tobool109, label %land.lhs.true110, label %if.end121
+  br i1 %sign.1, label %land.lhs.true110, label %if.end121
 
 land.lhs.true110:                                 ; preds = %if.end108
   %cmp.i123.not = icmp eq ptr %.pre195, null

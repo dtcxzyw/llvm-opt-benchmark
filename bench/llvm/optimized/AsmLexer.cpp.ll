@@ -3977,7 +3977,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %120, %126, %130
   br i1 %131, label %132, label %120
 
 132:                                              ; preds = %_ZN4llvm8AsmTokenD2Ev.exit
-  br i1 %switch, label %._ZN4llvm8AsmLexer11getNextCharEv.exit.thread_crit_edge, label %565
+  br i1 %switch, label %._ZN4llvm8AsmLexer11getNextCharEv.exit.thread_crit_edge, label %566
 
 ._ZN4llvm8AsmLexer11getNextCharEv.exit.thread_crit_edge: ; preds = %132
   %.pre = load ptr, ptr %8, align 8
@@ -4133,7 +4133,7 @@ _ZN4llvm8AsmLexer14LexLineCommentEv.exit43:       ; preds = %194, %196
   store i32 64, ptr %204, align 8, !alias.scope !140
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %205, align 8, !alias.scope !140
-  br label %565
+  br label %566
 
 _ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread: ; preds = %139, %154, %146, %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit
   %206 = getelementptr inbounds nuw i8, ptr %135, i64 40
@@ -4163,7 +4163,7 @@ _ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread: ; preds = %139, %154, %14
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %221, align 8
   store i64 0, ptr %220, align 8
-  br label %565
+  br label %566
 
 222:                                              ; preds = %_ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread
   %223 = icmp eq i32 %.0.i541, -1
@@ -4194,7 +4194,7 @@ _ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread: ; preds = %139, %154, %14
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %234, align 8
   store i64 0, ptr %233, align 8
-  br label %565
+  br label %566
 
 .thread:                                          ; preds = %224, %228
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -4211,7 +4211,7 @@ _ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread: ; preds = %139, %154, %14
   %241 = and i8 %240, 1
   store i8 0, ptr %239, align 1
   switch i32 %.0.i541, label %242 [
-    i32 62, label %548
+    i32 62, label %549
     i32 0, label %261
     i32 32, label %261
     i32 9, label %261
@@ -4240,20 +4240,20 @@ _ZN4llvm8AsmLexer18isAtStartOfCommentEPKc.exit.thread: ; preds = %139, %154, %14
     i32 38, label %440
     i32 33, label %453
     i32 37, label %466
-    i32 47, label %522
-    i32 39, label %523
-    i32 34, label %524
-    i32 48, label %525
-    i32 49, label %525
-    i32 50, label %525
-    i32 51, label %525
-    i32 52, label %525
-    i32 53, label %525
-    i32 54, label %525
-    i32 55, label %525
-    i32 56, label %525
-    i32 57, label %525
-    i32 60, label %526
+    i32 47, label %523
+    i32 39, label %524
+    i32 34, label %525
+    i32 48, label %526
+    i32 49, label %526
+    i32 50, label %526
+    i32 51, label %526
+    i32 52, label %526
+    i32 53, label %526
+    i32 54, label %526
+    i32 55, label %526
+    i32 56, label %526
+    i32 57, label %526
+    i32 60, label %527
   ]
 
 242:                                              ; preds = %237
@@ -4270,7 +4270,7 @@ switch.early.test:                                ; preds = %242
 
 244:                                              ; preds = %switch.early.test, %switch.early.test, %242
   call void @_ZN4llvm8AsmLexer13LexIdentifierEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  br label %566
 
 245:                                              ; preds = %switch.early.test
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
@@ -4295,7 +4295,7 @@ switch.early.test:                                ; preds = %242
   store i64 0, ptr %254, align 8, !alias.scope !143
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
-  br label %565
+  br label %566
 
 256:                                              ; preds = %.thread
   store i8 1, ptr %235, align 8
@@ -4312,7 +4312,7 @@ switch.early.test:                                ; preds = %242
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %260, align 8
   store i64 0, ptr %259, align 8
-  br label %565
+  br label %566
 
 261:                                              ; preds = %237, %237, %237
   store i8 %241, ptr %239, align 1
@@ -4342,7 +4342,7 @@ switch.early.test:                                ; preds = %242
   %271 = load ptr, ptr %1, align 8
   %272 = load ptr, ptr %271, align 8
   call void %272(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1) #20
-  br label %565
+  br label %566
 
 273:                                              ; preds = %266
   %274 = ptrtoint ptr %263 to i64
@@ -4357,7 +4357,7 @@ switch.early.test:                                ; preds = %242
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %279, align 8
   store i64 0, ptr %278, align 8
-  br label %565
+  br label %566
 
 280:                                              ; preds = %237
   store i8 1, ptr %238, align 8
@@ -4393,7 +4393,7 @@ switch.early.test:                                ; preds = %242
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %297, align 8
   store i64 0, ptr %296, align 8
-  br label %565
+  br label %566
 
 298:                                              ; preds = %237
   store i8 1, ptr %238, align 8
@@ -4407,7 +4407,7 @@ switch.early.test:                                ; preds = %242
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %301, align 8
   store i64 0, ptr %300, align 8
-  br label %565
+  br label %566
 
 302:                                              ; preds = %237
   store i32 10, ptr %0, align 8
@@ -4419,7 +4419,7 @@ switch.early.test:                                ; preds = %242
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %305, align 8
   store i64 0, ptr %304, align 8
-  br label %565
+  br label %566
 
 306:                                              ; preds = %237
   store i32 12, ptr %0, align 8
@@ -4431,7 +4431,7 @@ switch.early.test:                                ; preds = %242
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %309, align 8
   store i64 0, ptr %308, align 8
-  br label %565
+  br label %566
 
 310:                                              ; preds = %237
   store i32 14, ptr %0, align 8
@@ -4443,7 +4443,7 @@ switch.early.test:                                ; preds = %242
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %313, align 8
   store i64 0, ptr %312, align 8
-  br label %565
+  br label %566
 
 314:                                              ; preds = %237
   store i32 17, ptr %0, align 8
@@ -4455,7 +4455,7 @@ switch.early.test:                                ; preds = %242
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %317, align 8
   store i64 0, ptr %316, align 8
-  br label %565
+  br label %566
 
 318:                                              ; preds = %237
   store i32 18, ptr %0, align 8
@@ -4467,7 +4467,7 @@ switch.early.test:                                ; preds = %242
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %321, align 8
   store i64 0, ptr %320, align 8
-  br label %565
+  br label %566
 
 322:                                              ; preds = %237
   store i32 19, ptr %0, align 8
@@ -4479,7 +4479,7 @@ switch.early.test:                                ; preds = %242
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %325, align 8
   store i64 0, ptr %324, align 8
-  br label %565
+  br label %566
 
 326:                                              ; preds = %237
   store i32 20, ptr %0, align 8
@@ -4491,7 +4491,7 @@ switch.early.test:                                ; preds = %242
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %329, align 8
   store i64 0, ptr %328, align 8
-  br label %565
+  br label %566
 
 330:                                              ; preds = %237
   store i32 21, ptr %0, align 8
@@ -4503,7 +4503,7 @@ switch.early.test:                                ; preds = %242
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %333, align 8
   store i64 0, ptr %332, align 8
-  br label %565
+  br label %566
 
 334:                                              ; preds = %237
   store i32 22, ptr %0, align 8
@@ -4515,7 +4515,7 @@ switch.early.test:                                ; preds = %242
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %337, align 8
   store i64 0, ptr %336, align 8
-  br label %565
+  br label %566
 
 338:                                              ; preds = %237
   store i32 24, ptr %0, align 8
@@ -4527,7 +4527,7 @@ switch.early.test:                                ; preds = %242
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %341, align 8
   store i64 0, ptr %340, align 8
-  br label %565
+  br label %566
 
 342:                                              ; preds = %237
   store i32 26, ptr %0, align 8
@@ -4539,7 +4539,7 @@ switch.early.test:                                ; preds = %242
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %345, align 8
   store i64 0, ptr %344, align 8
-  br label %565
+  br label %566
 
 346:                                              ; preds = %237
   %347 = getelementptr inbounds nuw i8, ptr %1, i64 119
@@ -4558,7 +4558,7 @@ switch.early.test:                                ; preds = %242
 
 356:                                              ; preds = %350
   call void @_ZN4llvm8AsmLexer8LexDigitEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  br label %566
 
 357:                                              ; preds = %350, %346
   %358 = getelementptr inbounds nuw i8, ptr %135, i64 182
@@ -4568,7 +4568,7 @@ switch.early.test:                                ; preds = %242
 
 361:                                              ; preds = %357
   call void @_ZN4llvm8AsmLexer13LexIdentifierEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  br label %566
 
 362:                                              ; preds = %357
   store i32 27, ptr %0, align 8
@@ -4580,7 +4580,7 @@ switch.early.test:                                ; preds = %242
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %365, align 8
   store i64 0, ptr %364, align 8
-  br label %565
+  br label %566
 
 366:                                              ; preds = %237
   %367 = getelementptr inbounds nuw i8, ptr %135, i64 183
@@ -4590,7 +4590,7 @@ switch.early.test:                                ; preds = %242
 
 370:                                              ; preds = %366
   call void @_ZN4llvm8AsmLexer13LexIdentifierEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  br label %566
 
 371:                                              ; preds = %366
   store i32 46, ptr %0, align 8
@@ -4602,7 +4602,7 @@ switch.early.test:                                ; preds = %242
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %374, align 8
   store i64 0, ptr %373, align 8
-  br label %565
+  br label %566
 
 375:                                              ; preds = %237
   %376 = getelementptr inbounds nuw i8, ptr %135, i64 184
@@ -4612,7 +4612,7 @@ switch.early.test:                                ; preds = %242
 
 379:                                              ; preds = %375
   call void @_ZN4llvm8AsmLexer13LexIdentifierEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  br label %566
 
 380:                                              ; preds = %375
   store i32 38, ptr %0, align 8
@@ -4624,7 +4624,7 @@ switch.early.test:                                ; preds = %242
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %383, align 8
   store i64 0, ptr %382, align 8
-  br label %565
+  br label %566
 
 384:                                              ; preds = %237
   %385 = getelementptr inbounds nuw i8, ptr %135, i64 181
@@ -4634,7 +4634,7 @@ switch.early.test:                                ; preds = %242
 
 388:                                              ; preds = %384
   call void @_ZN4llvm8AsmLexer13LexIdentifierEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  br label %566
 
 389:                                              ; preds = %384
   store i32 23, ptr %0, align 8
@@ -4646,7 +4646,7 @@ switch.early.test:                                ; preds = %242
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %392, align 8
   store i64 0, ptr %391, align 8
-  br label %565
+  br label %566
 
 393:                                              ; preds = %237
   store i32 16, ptr %0, align 8
@@ -4658,7 +4658,7 @@ switch.early.test:                                ; preds = %242
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %396, align 8
   store i64 0, ptr %395, align 8
-  br label %565
+  br label %566
 
 397:                                              ; preds = %237
   %398 = load ptr, ptr %6, align 8
@@ -4678,7 +4678,7 @@ switch.early.test:                                ; preds = %242
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %405, align 8
   store i64 0, ptr %404, align 8
-  br label %565
+  br label %566
 
 406:                                              ; preds = %397
   store i32 28, ptr %0, align 8
@@ -4690,7 +4690,7 @@ switch.early.test:                                ; preds = %242
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %409, align 8
   store i64 0, ptr %408, align 8
-  br label %565
+  br label %566
 
 410:                                              ; preds = %237
   %411 = load ptr, ptr %6, align 8
@@ -4710,7 +4710,7 @@ switch.early.test:                                ; preds = %242
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %418, align 8
   store i64 0, ptr %417, align 8
-  br label %565
+  br label %566
 
 419:                                              ; preds = %410
   store i32 13, ptr %0, align 8
@@ -4722,7 +4722,7 @@ switch.early.test:                                ; preds = %242
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %422, align 8
   store i64 0, ptr %421, align 8
-  br label %565
+  br label %566
 
 423:                                              ; preds = %237
   %424 = load ptr, ptr %6, align 8
@@ -4742,7 +4742,7 @@ switch.early.test:                                ; preds = %242
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %431, align 8
   store i64 0, ptr %430, align 8
-  br label %565
+  br label %566
 
 432:                                              ; preds = %423
   store i32 30, ptr %0, align 8
@@ -4754,7 +4754,7 @@ switch.early.test:                                ; preds = %242
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %435, align 8
   store i64 0, ptr %434, align 8
-  br label %565
+  br label %566
 
 436:                                              ; preds = %237
   store i32 32, ptr %0, align 8
@@ -4766,7 +4766,7 @@ switch.early.test:                                ; preds = %242
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %439, align 8
   store i64 0, ptr %438, align 8
-  br label %565
+  br label %566
 
 440:                                              ; preds = %237
   %441 = load ptr, ptr %6, align 8
@@ -4786,7 +4786,7 @@ switch.early.test:                                ; preds = %242
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %448, align 8
   store i64 0, ptr %447, align 8
-  br label %565
+  br label %566
 
 449:                                              ; preds = %440
   store i32 33, ptr %0, align 8
@@ -4798,7 +4798,7 @@ switch.early.test:                                ; preds = %242
   %452 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %452, align 8
   store i64 0, ptr %451, align 8
-  br label %565
+  br label %566
 
 453:                                              ; preds = %237
   %454 = load ptr, ptr %6, align 8
@@ -4818,7 +4818,7 @@ switch.early.test:                                ; preds = %242
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %461, align 8
   store i64 0, ptr %460, align 8
-  br label %565
+  br label %566
 
 462:                                              ; preds = %453
   store i32 35, ptr %0, align 8
@@ -4830,7 +4830,7 @@ switch.early.test:                                ; preds = %242
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 64, ptr %465, align 8
   store i64 0, ptr %464, align 8
-  br label %565
+  br label %566
 
 466:                                              ; preds = %237
   %467 = getelementptr inbounds nuw i8, ptr %1, i64 119
@@ -4847,13 +4847,13 @@ switch.early.test:                                ; preds = %242
 
 474:                                              ; preds = %470
   call void @_ZN4llvm8AsmLexer8LexDigitEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  br label %566
 
 475:                                              ; preds = %470, %466
   %476 = getelementptr inbounds nuw i8, ptr %135, i64 481
   %477 = load i8, ptr %476, align 1
   %478 = trunc i8 %477 to i1
-  br i1 %478, label %479, label %518
+  br i1 %478, label %479, label %519
 
 479:                                              ; preds = %475
   %480 = load ptr, ptr %6, align 8
@@ -4901,154 +4901,156 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i89:    ; preds = %_ZN4llvm12StringSwi
   br i1 %486, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit92
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit92: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit86, %_ZNK4llvm9StringRef11starts_withES0_.exit.i89
+  %487 = phi i1 [ %485, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit86 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i89 ]
+  %.sroa.75.1770 = phi i8 [ %.sroa.75.1, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit86 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i89 ]
   %.not.i.i93 = icmp ult i64 %484, 9
-  %or.cond.i94 = or i1 %.not.i.i93, %485
+  %or.cond.i94 = or i1 %.not.i.i93, %487
   br i1 %or.cond.i94, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i95
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i95:    ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit92
   %bcmp.i.i96 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %480, ptr noundef nonnull dereferenceable(9) @.str.20, i64 9)
-  %487 = icmp eq i32 %bcmp.i.i96, 0
-  br i1 %487, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i101
+  %488 = icmp eq i32 %bcmp.i.i96, 0
+  br i1 %488, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i101
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i101:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i95
   %bcmp.i.i102 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %480, ptr noundef nonnull dereferenceable(9) @.str.21, i64 9)
-  %488 = icmp eq i32 %bcmp.i.i102, 0
-  br i1 %488, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104
+  %489 = icmp eq i32 %bcmp.i.i102, 0
+  br i1 %489, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit92, %_ZNK4llvm9StringRef11starts_withES0_.exit.i101
   %.not.i.i105 = icmp ult i64 %484, 8
-  %or.cond.i106 = or i1 %.not.i.i105, %485
+  %or.cond.i106 = or i1 %.not.i.i105, %487
   br i1 %or.cond.i106, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit110, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i107
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i107:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104
   %bcmp.i.i108 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %480, ptr noundef nonnull dereferenceable(8) @.str.22, i64 8)
-  %489 = icmp eq i32 %bcmp.i.i108, 0
-  br i1 %489, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit110
+  %490 = icmp eq i32 %bcmp.i.i108, 0
+  br i1 %490, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit110
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit110: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107
   %or.cond.i106798 = phi i1 [ true, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ true, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit ]
-  %490 = phi i64 [ %484, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104 ], [ %484, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ 6, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit ]
+  %491 = phi i64 [ %484, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104 ], [ %484, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ 6, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit ]
   %.not.i.i544549769779787797 = phi i1 [ %.not.i.i544549, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104 ], [ %.not.i.i544549, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ false, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit ]
-  %.sroa.75.1770778788796 = phi i8 [ %.sroa.75.1, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104 ], [ %.sroa.75.1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ 0, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit ]
-  %491 = phi i1 [ %485, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104 ], [ %485, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ false, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit ]
+  %.sroa.75.1770778788796 = phi i8 [ %.sroa.75.1770, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104 ], [ %.sroa.75.1770, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ 0, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit ]
+  %492 = phi i1 [ %487, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104 ], [ %487, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ false, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit ]
   %or.cond.i88771777789795 = phi i1 [ %or.cond.i88, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit104 ], [ %or.cond.i88, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ true, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit ]
-  %or.cond.i112 = or i1 %.not.i.i544549769779787797, %491
+  %or.cond.i112 = or i1 %.not.i.i544549769779787797, %492
   br i1 %or.cond.i112, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit122, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i113
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i113:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit110
   %bcmp.i.i114 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %480, ptr noundef nonnull dereferenceable(6) @.str.23, i64 6)
-  %492 = icmp eq i32 %bcmp.i.i114, 0
-  br i1 %492, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i119
+  %493 = icmp eq i32 %bcmp.i.i114, 0
+  br i1 %493, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i119
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i119:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i113
   %bcmp.i.i120 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %480, ptr noundef nonnull dereferenceable(6) @.str.24, i64 6)
-  %493 = icmp eq i32 %bcmp.i.i120, 0
-  br i1 %493, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit122
+  %494 = icmp eq i32 %bcmp.i.i120, 0
+  br i1 %494, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit122
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit122: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit110, %_ZNK4llvm9StringRef11starts_withES0_.exit.i119
   br i1 %or.cond.i106798, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit140, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i125
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i125:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit122
   %bcmp.i.i126 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %480, ptr noundef nonnull dereferenceable(8) @.str.25, i64 8)
-  %494 = icmp eq i32 %bcmp.i.i126, 0
-  br i1 %494, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i131
+  %495 = icmp eq i32 %bcmp.i.i126, 0
+  br i1 %495, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i131
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i131:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i125
   %bcmp.i.i132 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %480, ptr noundef nonnull dereferenceable(8) @.str.26, i64 8)
-  %495 = icmp eq i32 %bcmp.i.i132, 0
-  br i1 %495, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i137
+  %496 = icmp eq i32 %bcmp.i.i132, 0
+  br i1 %496, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i137
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i137:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i131
   %bcmp.i.i138 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %480, ptr noundef nonnull dereferenceable(8) @.str.27, i64 8)
-  %496 = icmp eq i32 %bcmp.i.i138, 0
-  br i1 %496, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit140
+  %497 = icmp eq i32 %bcmp.i.i138, 0
+  br i1 %497, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit140
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit140: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit122, %_ZNK4llvm9StringRef11starts_withES0_.exit.i137
-  %.not.i.i141 = icmp ult i64 %490, 3
-  %or.cond.i142 = or i1 %.not.i.i141, %491
+  %.not.i.i141 = icmp ult i64 %491, 3
+  %or.cond.i142 = or i1 %.not.i.i141, %492
   br i1 %or.cond.i142, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit146, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i143
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i143:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit140
   %bcmp.i.i144 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %480, ptr noundef nonnull dereferenceable(3) @.str.28, i64 3)
-  %497 = icmp eq i32 %bcmp.i.i144, 0
-  br i1 %497, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit146
+  %498 = icmp eq i32 %bcmp.i.i144, 0
+  br i1 %498, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit146
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit146: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit140, %_ZNK4llvm9StringRef11starts_withES0_.exit.i143
   br i1 %or.cond.i112, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit158, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i149
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i149:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit146
   %bcmp.i.i150 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %480, ptr noundef nonnull dereferenceable(6) @.str.29, i64 6)
-  %498 = icmp eq i32 %bcmp.i.i150, 0
-  br i1 %498, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i155
+  %499 = icmp eq i32 %bcmp.i.i150, 0
+  br i1 %499, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i155
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i155:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i149
   %bcmp.i.i156 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %480, ptr noundef nonnull dereferenceable(6) @.str.30, i64 6)
-  %499 = icmp eq i32 %bcmp.i.i156, 0
-  br i1 %499, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit158
+  %500 = icmp eq i32 %bcmp.i.i156, 0
+  br i1 %500, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit158
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit158: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit146, %_ZNK4llvm9StringRef11starts_withES0_.exit.i155
   br i1 %or.cond.i88771777789795, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit164, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i161
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i161:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit158
   %bcmp.i.i162 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %480, ptr noundef nonnull dereferenceable(7) @.str.31, i64 7)
-  %500 = icmp eq i32 %bcmp.i.i162, 0
-  br i1 %500, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit164
+  %501 = icmp eq i32 %bcmp.i.i162, 0
+  br i1 %501, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit164
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit164: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit158, %_ZNK4llvm9StringRef11starts_withES0_.exit.i161
-  %.not.i.i165 = icmp ult i64 %490, 2
-  %or.cond.i166 = or i1 %.not.i.i165, %491
+  %.not.i.i165 = icmp ult i64 %491, 2
+  %or.cond.i166 = or i1 %.not.i.i165, %492
   br i1 %or.cond.i166, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit176, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i167
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i167:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit164
   %bcmp.i.i168 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %480, ptr noundef nonnull dereferenceable(2) @.str.32, i64 2)
-  %501 = icmp eq i32 %bcmp.i.i168, 0
-  br i1 %501, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i173
+  %502 = icmp eq i32 %bcmp.i.i168, 0
+  br i1 %502, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i173
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i173:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i167
   %bcmp.i.i174 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %480, ptr noundef nonnull dereferenceable(2) @.str.33, i64 2)
-  %502 = icmp eq i32 %bcmp.i.i174, 0
-  br i1 %502, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit176
+  %503 = icmp eq i32 %bcmp.i.i174, 0
+  br i1 %503, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit176
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit176: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit164, %_ZNK4llvm9StringRef11starts_withES0_.exit.i173
   br i1 %or.cond.i142, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit182, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i179
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i179:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit176
   %bcmp.i.i180 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %480, ptr noundef nonnull dereferenceable(3) @.str.34, i64 3)
-  %503 = icmp eq i32 %bcmp.i.i180, 0
-  br i1 %503, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit182
+  %504 = icmp eq i32 %bcmp.i.i180, 0
+  br i1 %504, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit182
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit182: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit176, %_ZNK4llvm9StringRef11starts_withES0_.exit.i179
   br i1 %or.cond.i106798, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit194, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i185
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i185:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit182
   %bcmp.i.i186 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %480, ptr noundef nonnull dereferenceable(8) @.str.35, i64 8)
-  %504 = icmp eq i32 %bcmp.i.i186, 0
-  br i1 %504, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i191
+  %505 = icmp eq i32 %bcmp.i.i186, 0
+  br i1 %505, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i191
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i191:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i185
   %bcmp.i.i192 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %480, ptr noundef nonnull dereferenceable(8) @.str.36, i64 8)
-  %505 = icmp eq i32 %bcmp.i.i192, 0
-  br i1 %505, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit194
+  %506 = icmp eq i32 %bcmp.i.i192, 0
+  br i1 %506, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit194
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit194: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit182, %_ZNK4llvm9StringRef11starts_withES0_.exit.i191
-  %.not.i.i195 = icmp ult i64 %490, 5
-  %or.cond.i196 = or i1 %.not.i.i195, %491
+  %.not.i.i195 = icmp ult i64 %491, 5
+  %or.cond.i196 = or i1 %.not.i.i195, %492
   br i1 %or.cond.i196, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit200, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i197
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i197:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit194
   %bcmp.i.i198 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %480, ptr noundef nonnull dereferenceable(5) @.str.37, i64 5)
-  %506 = icmp eq i32 %bcmp.i.i198, 0
-  br i1 %506, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit200
+  %507 = icmp eq i32 %bcmp.i.i198, 0
+  br i1 %507, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit200
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit200: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit194, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197
   br i1 %or.cond.i112, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit206, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i203
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i203:   ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit200
   %bcmp.i.i204 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %480, ptr noundef nonnull dereferenceable(6) @.str.38, i64 6)
-  %507 = icmp eq i32 %bcmp.i.i204, 0
-  %brmerge = or i1 %507, %or.cond.i106798
-  %.mux = select i1 %507, i64 30064771141, i64 30064771120
-  %.mux801 = select i1 %507, i8 1, i8 %.sroa.75.1770778788796
+  %508 = icmp eq i32 %bcmp.i.i204, 0
+  %brmerge = or i1 %508, %or.cond.i106798
+  %.mux = select i1 %508, i64 30064771141, i64 30064771120
+  %.mux801 = select i1 %508, i8 1, i8 %.sroa.75.1770778788796
   br i1 %brmerge, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i209
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit206: ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit200
@@ -5056,183 +5058,183 @@ _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13St
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i209:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i203, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit206
   %bcmp.i.i210 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %480, ptr noundef nonnull dereferenceable(8) @.str.39, i64 8)
-  %508 = icmp eq i32 %bcmp.i.i210, 0
-  br i1 %508, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i215
+  %509 = icmp eq i32 %bcmp.i.i210, 0
+  br i1 %509, label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i215
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i215:   ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i209
   %bcmp.i.i216 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %480, ptr noundef nonnull dereferenceable(8) @.str.40, i64 8)
-  %509 = icmp eq i32 %bcmp.i.i216, 0
-  %spec.select = select i1 %509, i64 38654705735, i64 30064771120
-  %spec.select757 = select i1 %509, i8 1, i8 %.sroa.75.1770778788796
+  %510 = icmp eq i32 %bcmp.i.i216, 0
+  %spec.select = select i1 %510, i64 38654705735, i64 30064771120
+  %spec.select757 = select i1 %510, i8 1, i8 %.sroa.75.1770778788796
   br label %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218
 
 _ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i203, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit206, %_ZNK4llvm9StringRef11starts_withES0_.exit.i215, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197, %_ZNK4llvm9StringRef11starts_withES0_.exit.i191, %_ZNK4llvm9StringRef11starts_withES0_.exit.i185, %_ZNK4llvm9StringRef11starts_withES0_.exit.i179, %_ZNK4llvm9StringRef11starts_withES0_.exit.i173, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167, %_ZNK4llvm9StringRef11starts_withES0_.exit.i161, %_ZNK4llvm9StringRef11starts_withES0_.exit.i155, %_ZNK4llvm9StringRef11starts_withES0_.exit.i149, %_ZNK4llvm9StringRef11starts_withES0_.exit.i143, %_ZNK4llvm9StringRef11starts_withES0_.exit.i137, %_ZNK4llvm9StringRef11starts_withES0_.exit.i131, %_ZNK4llvm9StringRef11starts_withES0_.exit.i125, %_ZNK4llvm9StringRef11starts_withES0_.exit.i119, %_ZNK4llvm9StringRef11starts_withES0_.exit.i113, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107, %_ZNK4llvm9StringRef11starts_withES0_.exit.i101, %_ZNK4llvm9StringRef11starts_withES0_.exit.i95, %_ZNK4llvm9StringRef11starts_withES0_.exit.i89, %_ZNK4llvm9StringRef11starts_withES0_.exit.i83
   %.sroa.50.23 = phi i64 [ 34359738417, %_ZNK4llvm9StringRef11starts_withES0_.exit.i83 ], [ 34359738418, %_ZNK4llvm9StringRef11starts_withES0_.exit.i89 ], [ 42949673011, %_ZNK4llvm9StringRef11starts_withES0_.exit.i95 ], [ 42949673012, %_ZNK4llvm9StringRef11starts_withES0_.exit.i101 ], [ 38654705718, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ 30064771127, %_ZNK4llvm9StringRef11starts_withES0_.exit.i113 ], [ 30064771128, %_ZNK4llvm9StringRef11starts_withES0_.exit.i119 ], [ 38654705721, %_ZNK4llvm9StringRef11starts_withES0_.exit.i125 ], [ 38654705722, %_ZNK4llvm9StringRef11starts_withES0_.exit.i131 ], [ 38654705723, %_ZNK4llvm9StringRef11starts_withES0_.exit.i137 ], [ 17179869237, %_ZNK4llvm9StringRef11starts_withES0_.exit.i143 ], [ 30064771132, %_ZNK4llvm9StringRef11starts_withES0_.exit.i149 ], [ 30064771134, %_ZNK4llvm9StringRef11starts_withES0_.exit.i155 ], [ 34359738431, %_ZNK4llvm9StringRef11starts_withES0_.exit.i161 ], [ 12884901949, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167 ], [ 12884901952, %_ZNK4llvm9StringRef11starts_withES0_.exit.i173 ], [ 17179869249, %_ZNK4llvm9StringRef11starts_withES0_.exit.i179 ], [ 38654705730, %_ZNK4llvm9StringRef11starts_withES0_.exit.i185 ], [ 38654705731, %_ZNK4llvm9StringRef11starts_withES0_.exit.i191 ], [ 25769803844, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197 ], [ %.mux, %_ZNK4llvm9StringRef11starts_withES0_.exit.i203 ], [ 38654705734, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209 ], [ %spec.select, %_ZNK4llvm9StringRef11starts_withES0_.exit.i215 ], [ 30064771120, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit206 ]
   %.sroa.75.23 = phi i8 [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i83 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i89 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i95 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i101 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i107 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i113 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i119 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i125 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i131 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i137 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i143 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i149 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i155 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i161 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i173 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i179 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i185 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i191 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i197 ], [ %.mux801, %_ZNK4llvm9StringRef11starts_withES0_.exit.i203 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i209 ], [ %spec.select757, %_ZNK4llvm9StringRef11starts_withES0_.exit.i215 ], [ %.sroa.75.1770778788796, %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit206 ]
-  %510 = trunc nuw i8 %.sroa.75.23 to i1
-  %spec.select.i = select i1 %510, i64 %.sroa.50.23, i64 4294967333
+  %511 = trunc nuw i8 %.sroa.75.23 to i1
+  %spec.select.i = select i1 %511, i64 %.sroa.50.23, i64 4294967333
   %.sroa.0466.0.extract.trunc = trunc i64 %spec.select.i to i32
   %.not = icmp eq i32 %.sroa.0466.0.extract.trunc, 37
-  br i1 %.not, label %518, label %511
+  br i1 %.not, label %519, label %512
 
-511:                                              ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218
+512:                                              ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218
   %.sroa.2467.0.extract.shift = lshr i64 %spec.select.i, 32
-  %512 = add nuw nsw i64 %.sroa.2467.0.extract.shift, 4294967295
-  %513 = and i64 %512, 4294967295
-  %514 = getelementptr inbounds nuw i8, ptr %480, i64 %513
-  store ptr %514, ptr %6, align 8
+  %513 = add nuw nsw i64 %.sroa.2467.0.extract.shift, 4294967295
+  %514 = and i64 %513, 4294967295
+  %515 = getelementptr inbounds nuw i8, ptr %480, i64 %514
+  store ptr %515, ptr %6, align 8
   store i32 %.sroa.0466.0.extract.trunc, ptr %0, align 8
-  %515 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %133, ptr %515, align 8
+  %516 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %133, ptr %516, align 8
   %.sroa.2.0..sroa_idx.i219 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.2467.0.extract.shift, ptr %.sroa.2.0..sroa_idx.i219, align 8
-  %516 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %517 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 64, ptr %517, align 8
-  store i64 0, ptr %516, align 8
-  br label %565
+  %517 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %518 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 64, ptr %518, align 8
+  store i64 0, ptr %517, align 8
+  br label %566
 
-518:                                              ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, %475
+519:                                              ; preds = %_ZN4llvm12StringSwitchISt4pairINS_8AsmToken9TokenKindEjES4_E10StartsWithENS_13StringLiteralES4_.exit218, %475
   store i32 37, ptr %0, align 8
-  %519 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %133, ptr %519, align 8
+  %520 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %133, ptr %520, align 8
   %.sroa.2.0..sroa_idx.i220 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.2.0..sroa_idx.i220, align 8
-  %520 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %521 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 64, ptr %521, align 8
-  store i64 0, ptr %520, align 8
-  br label %565
-
-522:                                              ; preds = %237
-  store i8 %241, ptr %239, align 1
-  call void @_ZN4llvm8AsmLexer8LexSlashEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %522 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 64, ptr %522, align 8
+  store i64 0, ptr %521, align 8
+  br label %566
 
 523:                                              ; preds = %237
-  call void @_ZN4llvm8AsmLexer14LexSingleQuoteEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  store i8 %241, ptr %239, align 1
+  call void @_ZN4llvm8AsmLexer8LexSlashEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
+  br label %566
 
 524:                                              ; preds = %237
+  call void @_ZN4llvm8AsmLexer14LexSingleQuoteEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
+  br label %566
+
+525:                                              ; preds = %237
   call void @_ZN4llvm8AsmLexer8LexQuoteEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  br label %566
 
-525:                                              ; preds = %237, %237, %237, %237, %237, %237, %237, %237, %237, %237
+526:                                              ; preds = %237, %237, %237, %237, %237, %237, %237, %237, %237, %237
   call void @_ZN4llvm8AsmLexer8LexDigitEv(ptr dead_on_unwind writable sret(%"class.llvm::AsmToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(180) %1)
-  br label %565
+  br label %566
 
-526:                                              ; preds = %237
-  %527 = load ptr, ptr %6, align 8
-  %528 = load i8, ptr %527, align 1
-  switch i8 %528, label %544 [
-    i8 60, label %529
-    i8 61, label %534
-    i8 62, label %539
+527:                                              ; preds = %237
+  %528 = load ptr, ptr %6, align 8
+  %529 = load i8, ptr %528, align 1
+  switch i8 %529, label %545 [
+    i8 60, label %530
+    i8 61, label %535
+    i8 62, label %540
   ]
 
-529:                                              ; preds = %526
-  %530 = getelementptr inbounds nuw i8, ptr %527, i64 1
-  store ptr %530, ptr %6, align 8
+530:                                              ; preds = %527
+  %531 = getelementptr inbounds nuw i8, ptr %528, i64 1
+  store ptr %531, ptr %6, align 8
   store i32 41, ptr %0, align 8
-  %531 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %133, ptr %531, align 8
+  %532 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %133, ptr %532, align 8
   %.sroa.2.0..sroa_idx.i221 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2, ptr %.sroa.2.0..sroa_idx.i221, align 8
-  %532 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %533 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 64, ptr %533, align 8
-  store i64 0, ptr %532, align 8
-  br label %565
+  %533 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %534 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 64, ptr %534, align 8
+  store i64 0, ptr %533, align 8
+  br label %566
 
-534:                                              ; preds = %526
-  %535 = getelementptr inbounds nuw i8, ptr %527, i64 1
-  store ptr %535, ptr %6, align 8
+535:                                              ; preds = %527
+  %536 = getelementptr inbounds nuw i8, ptr %528, i64 1
+  store ptr %536, ptr %6, align 8
   store i32 40, ptr %0, align 8
-  %536 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %133, ptr %536, align 8
+  %537 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %133, ptr %537, align 8
   %.sroa.2.0..sroa_idx.i222 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2, ptr %.sroa.2.0..sroa_idx.i222, align 8
-  %537 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %538 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 64, ptr %538, align 8
-  store i64 0, ptr %537, align 8
-  br label %565
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %539 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 64, ptr %539, align 8
+  store i64 0, ptr %538, align 8
+  br label %566
 
-539:                                              ; preds = %526
-  %540 = getelementptr inbounds nuw i8, ptr %527, i64 1
-  store ptr %540, ptr %6, align 8
+540:                                              ; preds = %527
+  %541 = getelementptr inbounds nuw i8, ptr %528, i64 1
+  store ptr %541, ptr %6, align 8
   store i32 42, ptr %0, align 8
-  %541 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %133, ptr %541, align 8
+  %542 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %133, ptr %542, align 8
   %.sroa.2.0..sroa_idx.i223 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2, ptr %.sroa.2.0..sroa_idx.i223, align 8
-  %542 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %543 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 64, ptr %543, align 8
-  store i64 0, ptr %542, align 8
-  br label %565
+  %543 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %544 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 64, ptr %544, align 8
+  store i64 0, ptr %543, align 8
+  br label %566
 
-544:                                              ; preds = %526
+545:                                              ; preds = %527
   store i32 39, ptr %0, align 8
-  %545 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %133, ptr %545, align 8
+  %546 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %133, ptr %546, align 8
   %.sroa.2.0..sroa_idx.i224 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.2.0..sroa_idx.i224, align 8
-  %546 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %547 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 64, ptr %547, align 8
-  store i64 0, ptr %546, align 8
-  br label %565
+  %547 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %548 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 64, ptr %548, align 8
+  store i64 0, ptr %547, align 8
+  br label %566
 
-548:                                              ; preds = %237
-  %549 = load ptr, ptr %6, align 8
-  %550 = load i8, ptr %549, align 1
-  switch i8 %550, label %561 [
-    i8 62, label %551
-    i8 61, label %556
+549:                                              ; preds = %237
+  %550 = load ptr, ptr %6, align 8
+  %551 = load i8, ptr %550, align 1
+  switch i8 %551, label %562 [
+    i8 62, label %552
+    i8 61, label %557
   ]
 
-551:                                              ; preds = %548
-  %552 = getelementptr inbounds nuw i8, ptr %549, i64 1
-  store ptr %552, ptr %6, align 8
+552:                                              ; preds = %549
+  %553 = getelementptr inbounds nuw i8, ptr %550, i64 1
+  store ptr %553, ptr %6, align 8
   store i32 45, ptr %0, align 8
-  %553 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %133, ptr %553, align 8
+  %554 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %133, ptr %554, align 8
   %.sroa.2.0..sroa_idx.i225 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2, ptr %.sroa.2.0..sroa_idx.i225, align 8
-  %554 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %555 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 64, ptr %555, align 8
-  store i64 0, ptr %554, align 8
-  br label %565
+  %555 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 64, ptr %556, align 8
+  store i64 0, ptr %555, align 8
+  br label %566
 
-556:                                              ; preds = %548
-  %557 = getelementptr inbounds nuw i8, ptr %549, i64 1
-  store ptr %557, ptr %6, align 8
+557:                                              ; preds = %549
+  %558 = getelementptr inbounds nuw i8, ptr %550, i64 1
+  store ptr %558, ptr %6, align 8
   store i32 44, ptr %0, align 8
-  %558 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %133, ptr %558, align 8
+  %559 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %133, ptr %559, align 8
   %.sroa.2.0..sroa_idx.i226 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2, ptr %.sroa.2.0..sroa_idx.i226, align 8
-  %559 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %560 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 64, ptr %560, align 8
-  store i64 0, ptr %559, align 8
-  br label %565
+  %560 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %561 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 64, ptr %561, align 8
+  store i64 0, ptr %560, align 8
+  br label %566
 
-561:                                              ; preds = %548
+562:                                              ; preds = %549
   store i32 43, ptr %0, align 8
-  %562 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %133, ptr %562, align 8
+  %563 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %133, ptr %563, align 8
   %.sroa.2.0..sroa_idx.i227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.2.0..sroa_idx.i227, align 8
-  %563 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %564 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 64, ptr %564, align 8
-  store i64 0, ptr %563, align 8
-  br label %565
+  %564 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %565 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 64, ptr %565, align 8
+  store i64 0, ptr %564, align 8
+  br label %566
 
-565:                                              ; preds = %132, %561, %556, %551, %544, %539, %534, %529, %525, %524, %523, %522, %518, %511, %474, %462, %457, %449, %444, %436, %432, %427, %419, %414, %406, %401, %393, %389, %388, %380, %379, %371, %370, %362, %361, %356, %342, %338, %334, %330, %326, %322, %318, %314, %310, %306, %302, %298, %290, %273, %270, %257, %245, %244, %230, %211, %_ZN4llvm8AsmLexer14LexLineCommentEv.exit43
+566:                                              ; preds = %132, %562, %557, %552, %545, %540, %535, %530, %526, %525, %524, %523, %519, %512, %474, %462, %457, %449, %444, %436, %432, %427, %419, %414, %406, %401, %393, %389, %388, %380, %379, %371, %370, %362, %361, %356, %342, %338, %334, %330, %326, %322, %318, %314, %310, %306, %302, %298, %290, %273, %270, %257, %245, %244, %230, %211, %_ZN4llvm8AsmLexer14LexLineCommentEv.exit43
   ret void
 }
 

@@ -4235,8 +4235,8 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit: ; preds = %51, %_Z
   resume { ptr, i32 } %108
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
-  %.sroa.019.0.lcssa = phi i8 [ %28, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ], [ %53, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %.sroa.019.030, %.lr.ph ]
-  %.sroa.9.0.lcssa = phi i8 [ %29, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ], [ %55, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %.sroa.9.031, %.lr.ph ]
+  %.sroa.019.0.lcssa = phi i8 [ %28, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ], [ %53, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ 1, %.lr.ph ]
+  %.sroa.9.0.lcssa = phi i8 [ %29, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ], [ %55, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ 1, %.lr.ph ]
   %109 = load ptr, ptr %33, align 8
   %.not.i.i.i9 = icmp eq ptr %109, null
   br i1 %.not.i.i.i9, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit, label %110

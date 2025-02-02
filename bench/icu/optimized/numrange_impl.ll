@@ -1851,7 +1851,7 @@ if.end43:                                         ; preds = %if.end38
 
 sw.epilog:                                        ; preds = %if.end, %if.end38, %if.end6, %sw.bb, %if.end43
   %collapseInner.0 = phi i1 [ %call47, %if.end43 ], [ false, %sw.bb ], [ false, %if.end6 ], [ false, %if.end38 ], [ false, %if.end ]
-  %collapseMiddle.0 = phi i8 [ %collapseMiddle.1, %if.end43 ], [ 0, %sw.bb ], [ 0, %if.end6 ], [ %collapseMiddle.1, %if.end38 ], [ 0, %if.end ]
+  %collapseMiddle.0 = phi i8 [ 1, %if.end43 ], [ 0, %sw.bb ], [ 0, %if.end6 ], [ %collapseMiddle.1, %if.end38 ], [ 0, %if.end ]
   %collapseOuter.0.shrunk = phi i1 [ true, %if.end43 ], [ false, %sw.bb ], [ true, %if.end6 ], [ true, %if.end38 ], [ false, %if.end ]
   %fString.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   store i32 0, ptr %lengthPrefix, align 4

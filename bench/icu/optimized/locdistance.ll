@@ -1139,7 +1139,7 @@ if.end37.sink.split:                              ; preds = %for.cond25, %if.els
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end37.sink.split, %if.else
-  %star.2 = phi i8 [ %star.1, %if.else ], [ %star.2.ph, %if.end37.sink.split ]
+  %star.2 = phi i8 [ 1, %if.else ], [ %star.2.ph, %if.end37.sink.split ]
   %d.0 = phi i32 [ 0, %if.else ], [ %call.i.i53, %if.end37.sink.split ]
   %cmp38 = icmp sgt i32 %d.0, %threshold
   br i1 %cmp38, label %return, label %if.else40
@@ -1183,7 +1183,7 @@ if.else59:                                        ; preds = %if.then54
 
 if.end65:                                         ; preds = %if.else40, %if.else52, %if.else59
   %regionDistance.3 = phi i32 [ %regionDistance.0, %if.else52 ], [ %spec.select36, %if.else59 ], [ %spec.select, %if.else40 ]
-  %star.3 = phi i8 [ %star.0, %if.else52 ], [ 1, %if.else59 ], [ %star.2, %if.else40 ]
+  %star.3 = phi i8 [ 1, %if.else52 ], [ 1, %if.else59 ], [ %star.2, %if.else40 ]
   %18 = load i8, ptr %desiredPartitions.addr.0, align 1
   %cmp68.not = icmp eq i8 %18, 0
   br i1 %cmp68.not, label %return, label %if.then69

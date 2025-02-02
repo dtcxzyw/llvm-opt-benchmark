@@ -23229,7 +23229,6 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exi
   br label %common.resume
 
 78:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit, %72
-  %.sroa.10.2 = phi i8 [ %.sroa.10.1, %72 ], [ 1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit ]
   %79 = load ptr, ptr %.02230, align 8
   %80 = icmp eq ptr %.031, null
   br i1 %80, label %81, label %83
@@ -23256,7 +23255,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exi
   br label %89
 
 89:                                               ; preds = %87, %84
-  %.sroa.10.3 = phi i8 [ %.sroa.10.2, %84 ], [ %.sroa.10.1, %87 ]
+  %.sroa.10.3 = phi i8 [ 1, %84 ], [ %.sroa.10.1, %87 ]
   %.123 = phi ptr [ %79, %84 ], [ %88, %87 ]
   %.1 = phi ptr [ %.031, %84 ], [ %.02230, %87 ]
   %90 = icmp ugt ptr %.123, inttoptr (i64 63 to ptr)

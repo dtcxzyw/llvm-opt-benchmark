@@ -1361,7 +1361,7 @@ gistMakeUnionKey.exit:                            ; preds = %125, %126
   br label %146
 
 146:                                              ; preds = %135, %145, %137, %gistMakeUnionKey.exit
-  %.1 = phi i8 [ %.03145, %gistMakeUnionKey.exit ], [ %.03145, %135 ], [ 1, %145 ], [ %.03145, %137 ]
+  %.1 = phi i8 [ 1, %gistMakeUnionKey.exit ], [ 0, %135 ], [ 1, %145 ], [ 0, %137 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %147 = load ptr, ptr %16, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 10

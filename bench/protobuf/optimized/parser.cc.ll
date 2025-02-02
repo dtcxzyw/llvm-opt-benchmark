@@ -1404,7 +1404,7 @@ invoke.cont133.i:                                 ; preds = %_ZN4absl12lts_20230
 
 cleanup135.i:                                     ; preds = %cleanup124.i.thread, %invoke.cont133.i, %cleanup124.i, %cleanup104.i, %cleanup83.i, %if.else63.i121
   %switch16.i124 = phi i1 [ true, %invoke.cont133.i ], [ false, %cleanup83.i ], [ false, %cleanup104.i ], [ false, %cleanup124.i ], [ false, %if.else63.i121 ], [ false, %cleanup124.i.thread ]
-  %has_comma.1.i125 = phi i8 [ %frombool.i132, %invoke.cont133.i ], [ %has_comma.0.i107, %cleanup83.i ], [ %has_comma.0.i107, %cleanup104.i ], [ %has_comma.0.i107, %cleanup124.i ], [ %has_comma.0.i107, %if.else63.i121 ], [ %has_comma.0.i107, %cleanup124.i.thread ]
+  %has_comma.1.i125 = phi i8 [ %frombool.i132, %invoke.cont133.i ], [ 1, %cleanup83.i ], [ 1, %cleanup104.i ], [ 1, %cleanup124.i ], [ 1, %if.else63.i121 ], [ 1, %cleanup124.i.thread ]
   %68 = load i64, ptr %key.i95, align 8, !noalias !11
   %cmp.i.i.i.i133.i = icmp eq i64 %68, 0
   br i1 %cmp.i.i.i.i133.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i139.i, label %if.else.i.i134.i
@@ -3369,7 +3369,7 @@ invoke.cont130.i:                                 ; preds = %_ZN4absl12lts_20230
 
 cleanup132.i:                                     ; preds = %.noexc368, %if.else63.i, %invoke.cont130.i, %cleanup121.i, %cleanup101.i, %cleanup81.i
   %switch16.i = phi i1 [ true, %invoke.cont130.i ], [ false, %cleanup81.i ], [ false, %cleanup101.i ], [ false, %cleanup121.i ], [ false, %if.else63.i ], [ false, %.noexc368 ]
-  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont130.i ], [ %has_comma.0.i, %cleanup81.i ], [ %has_comma.0.i, %cleanup101.i ], [ %has_comma.0.i, %cleanup121.i ], [ %has_comma.0.i, %if.else63.i ], [ %has_comma.0.i, %.noexc368 ]
+  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont130.i ], [ 1, %cleanup81.i ], [ 1, %cleanup101.i ], [ 1, %cleanup121.i ], [ 1, %if.else63.i ], [ 1, %.noexc368 ]
   %331 = load i64, ptr %key.i, align 8
   %cmp.i.i.i.i332 = icmp eq i64 %331, 0
   br i1 %cmp.i.i.i.i332, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -4716,7 +4716,7 @@ invoke.cont130.i142:                              ; preds = %_ZN4absl12lts_20230
 
 cleanup132.i121:                                  ; preds = %cleanup121.i140.thread, %invoke.cont130.i142, %cleanup121.i140, %cleanup101.i138, %cleanup81.i137, %if.else63.i118
   %switch16.i122 = phi i1 [ true, %invoke.cont130.i142 ], [ false, %cleanup81.i137 ], [ false, %cleanup101.i138 ], [ false, %cleanup121.i140 ], [ false, %if.else63.i118 ], [ false, %cleanup121.i140.thread ]
-  %has_comma.1.i123 = phi i8 [ %frombool.i143, %invoke.cont130.i142 ], [ %has_comma.0.i104, %cleanup81.i137 ], [ %has_comma.0.i104, %cleanup101.i138 ], [ %has_comma.0.i104, %cleanup121.i140 ], [ %has_comma.0.i104, %if.else63.i118 ], [ %has_comma.0.i104, %cleanup121.i140.thread ]
+  %has_comma.1.i123 = phi i8 [ %frombool.i143, %invoke.cont130.i142 ], [ 1, %cleanup81.i137 ], [ 1, %cleanup101.i138 ], [ 1, %cleanup121.i140 ], [ 1, %if.else63.i118 ], [ 1, %cleanup121.i140.thread ]
   %70 = load i64, ptr %key.i92, align 8, !noalias !88
   %cmp.i.i.i.i133.i = icmp eq i64 %70, 0
   br i1 %cmp.i.i.i.i133.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i139.i, label %if.else.i.i134.i
@@ -6601,7 +6601,7 @@ invoke.cont130.i:                                 ; preds = %_ZN4absl12lts_20230
 
 cleanup132.i:                                     ; preds = %.noexc406, %if.else63.i, %invoke.cont130.i, %cleanup121.i, %cleanup101.i, %cleanup81.i
   %switch16.i = phi i1 [ true, %invoke.cont130.i ], [ false, %cleanup81.i ], [ false, %cleanup101.i ], [ false, %cleanup121.i ], [ false, %if.else63.i ], [ false, %.noexc406 ]
-  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont130.i ], [ %has_comma.0.i, %cleanup81.i ], [ %has_comma.0.i, %cleanup101.i ], [ %has_comma.0.i, %cleanup121.i ], [ %has_comma.0.i, %if.else63.i ], [ %has_comma.0.i, %.noexc406 ]
+  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont130.i ], [ 1, %cleanup81.i ], [ 1, %cleanup101.i ], [ 1, %cleanup121.i ], [ 1, %if.else63.i ], [ 1, %.noexc406 ]
   %348 = load i64, ptr %key.i, align 8
   %cmp.i.i.i.i367 = icmp eq i64 %348, 0
   br i1 %cmp.i.i.i.i367, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -11903,7 +11903,7 @@ invoke.cont132:                                   ; preds = %_ZN4absl12lts_20230
 
 cleanup134:                                       ; preds = %if.else63, %cleanup123, %cleanup103, %cleanup82, %invoke.cont132
   %switch16 = phi i1 [ true, %invoke.cont132 ], [ false, %cleanup82 ], [ false, %cleanup103 ], [ false, %cleanup123 ], [ false, %if.else63 ]
-  %has_comma.1 = phi i8 [ %frombool, %invoke.cont132 ], [ %has_comma.0, %cleanup82 ], [ %has_comma.0, %cleanup103 ], [ %has_comma.0, %cleanup123 ], [ %has_comma.0, %if.else63 ]
+  %has_comma.1 = phi i8 [ %frombool, %invoke.cont132 ], [ 1, %cleanup82 ], [ 1, %cleanup103 ], [ 1, %cleanup123 ], [ 1, %if.else63 ]
   %45 = load i64, ptr %key, align 8
   %cmp.i.i.i.i122 = icmp eq i64 %45, 0
   br i1 %cmp.i.i.i.i122, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i128, label %if.else.i.i123
@@ -15307,7 +15307,7 @@ invoke.cont132.i:                                 ; preds = %_ZN4absl12lts_20230
 
 cleanup134.i:                                     ; preds = %if.else63.i, %invoke.cont132.i, %cleanup123.i, %cleanup103.i, %cleanup82.i
   %switch16.i = phi i1 [ true, %invoke.cont132.i ], [ false, %cleanup82.i ], [ false, %cleanup103.i ], [ false, %cleanup123.i ], [ false, %if.else63.i ]
-  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont132.i ], [ %has_comma.0.i, %cleanup82.i ], [ %has_comma.0.i, %cleanup103.i ], [ %has_comma.0.i, %cleanup123.i ], [ %has_comma.0.i, %if.else63.i ]
+  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont132.i ], [ 1, %cleanup82.i ], [ 1, %cleanup103.i ], [ 1, %cleanup123.i ], [ 1, %if.else63.i ]
   %158 = load i64, ptr %key.i, align 8
   %cmp.i.i.i.i20 = icmp eq i64 %158, 0
   br i1 %cmp.i.i.i.i20, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -25739,7 +25739,7 @@ invoke.cont130:                                   ; preds = %_ZN4absl12lts_20230
 
 cleanup132:                                       ; preds = %if.else63, %cleanup121, %cleanup101, %cleanup81, %invoke.cont130
   %switch16 = phi i1 [ true, %invoke.cont130 ], [ false, %cleanup81 ], [ false, %cleanup101 ], [ false, %cleanup121 ], [ false, %if.else63 ]
-  %has_comma.1 = phi i8 [ %frombool, %invoke.cont130 ], [ %has_comma.0, %cleanup81 ], [ %has_comma.0, %cleanup101 ], [ %has_comma.0, %cleanup121 ], [ %has_comma.0, %if.else63 ]
+  %has_comma.1 = phi i8 [ %frombool, %invoke.cont130 ], [ 1, %cleanup81 ], [ 1, %cleanup101 ], [ 1, %cleanup121 ], [ 1, %if.else63 ]
   %45 = load i64, ptr %key, align 8
   %cmp.i.i.i.i122 = icmp eq i64 %45, 0
   br i1 %cmp.i.i.i.i122, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i128, label %if.else.i.i123
@@ -27907,7 +27907,7 @@ invoke.cont130.i:                                 ; preds = %_ZN4absl12lts_20230
 
 cleanup132.i:                                     ; preds = %if.else63.i, %invoke.cont130.i, %cleanup121.i, %cleanup101.i, %cleanup81.i
   %switch16.i = phi i1 [ true, %invoke.cont130.i ], [ false, %cleanup81.i ], [ false, %cleanup101.i ], [ false, %cleanup121.i ], [ false, %if.else63.i ]
-  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont130.i ], [ %has_comma.0.i, %cleanup81.i ], [ %has_comma.0.i, %cleanup101.i ], [ %has_comma.0.i, %cleanup121.i ], [ %has_comma.0.i, %if.else63.i ]
+  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont130.i ], [ 1, %cleanup81.i ], [ 1, %cleanup101.i ], [ 1, %cleanup121.i ], [ 1, %if.else63.i ]
   %110 = load i64, ptr %key.i, align 8
   %cmp.i.i.i.i20 = icmp eq i64 %110, 0
   br i1 %cmp.i.i.i.i20, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i

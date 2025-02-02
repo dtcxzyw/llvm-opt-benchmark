@@ -4094,7 +4094,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %23, %25
   br label %.critedge
 
 .critedge:                                        ; preds = %48, %.critedge2, %61
-  %.1 = phi i8 [ 0, %.critedge2 ], [ %.089183, %61 ], [ %.089183, %48 ]
+  %.1 = phi i8 [ 0, %.critedge2 ], [ 1, %61 ], [ 0, %48 ]
   %63 = load i32, ptr %13, align 4
   %64 = and i32 %63, 134217727
   %.not108176 = icmp eq i32 %64, 0

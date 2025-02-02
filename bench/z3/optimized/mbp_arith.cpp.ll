@@ -5758,18 +5758,18 @@ lpad140:                                          ; preds = %if.then.i311
   br label %ehcleanup179
 
 for.end:                                          ; preds = %_ZNSt4pairIP4expr8rationalED2Ev.exit
-  %.pre647 = load ptr, ptr %nums, align 8
-  %cmp.i.i313 = icmp eq ptr %.pre647, null
+  %.pre646 = load ptr, ptr %nums, align 8
+  %cmp.i.i313 = icmp eq ptr %.pre646, null
   br i1 %cmp.i.i313, label %invoke.cont146, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.end
-  %arrayidx.i.i314 = getelementptr inbounds i8, ptr %.pre647, i64 -4
+  %arrayidx.i.i314 = getelementptr inbounds i8, ptr %.pre646, i64 -4
   %104 = load i32, ptr %arrayidx.i.i314, align 4
   %105 = zext i32 %104 to i64
   br label %invoke.cont146
 
 invoke.cont146:                                   ; preds = %invoke.cont119, %if.end.i.i, %for.end
-  %106 = phi ptr [ %.pre647, %if.end.i.i ], [ null, %for.end ], [ null, %invoke.cont119 ]
+  %106 = phi ptr [ %.pre646, %if.end.i.i ], [ null, %for.end ], [ null, %invoke.cont119 ]
   %retval.0.i.i = phi i64 [ %105, %if.end.i.i ], [ 0, %for.end ], [ 0, %invoke.cont119 ]
   %add.ptr.i315 = getelementptr inbounds nuw %"struct.std::pair", ptr %106, i64 %retval.0.i.i
   invoke void @_ZSt4sortIPSt4pairIP4expr8rationalEN3mbp20arith_project_plugin3imp14compare_secondEEvT_SA_T0_(ptr noundef %106, ptr noundef %add.ptr.i315)
@@ -5939,19 +5939,19 @@ _ZN3mapI8rationalP4exprNS0_9hash_procENS0_7eq_procEEC2ERKS3_RKS4_.exit: ; preds 
   br label %land.rhs
 
 for.cond202:                                      ; preds = %_ZN8rationalD2Ev.exit390
-  %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
+  %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
   br i1 %found_eq.1, label %cleanup249.thread, label %land.rhs, !llvm.loop !25
 
 land.rhs:                                         ; preds = %_ZN3mapI8rationalP4exprNS0_9hash_procENS0_7eq_procEEC2ERKS3_RKS4_.exit, %for.cond202
-  %indvars.iv643 = phi i64 [ 0, %_ZN3mapI8rationalP4exprNS0_9hash_procENS0_7eq_procEEC2ERKS3_RKS4_.exit ], [ %indvars.iv.next644, %for.cond202 ]
-  %ty.2628 = phi i32 [ 2, %_ZN3mapI8rationalP4exprNS0_9hash_procENS0_7eq_procEEC2ERKS3_RKS4_.exit ], [ %ty.3, %for.cond202 ]
+  %indvars.iv642 = phi i64 [ 0, %_ZN3mapI8rationalP4exprNS0_9hash_procENS0_7eq_procEEC2ERKS3_RKS4_.exit ], [ %indvars.iv.next643, %for.cond202 ]
+  %ty.2627 = phi i32 [ 2, %_ZN3mapI8rationalP4exprNS0_9hash_procENS0_7eq_procEEC2ERKS3_RKS4_.exit ], [ %ty.3, %for.cond202 ]
   %127 = load i32, ptr %m_num_args.i359, align 8
   %128 = zext i32 %127 to i64
-  %cmp209 = icmp samesign ult i64 %indvars.iv643, %128
+  %cmp209 = icmp samesign ult i64 %indvars.iv642, %128
   br i1 %cmp209, label %invoke.cont216, label %cleanup249.thread
 
 invoke.cont216:                                   ; preds = %land.rhs
-  %arrayidx.i362 = getelementptr inbounds nuw [0 x ptr], ptr %m_args.i349, i64 0, i64 %indvars.iv643
+  %arrayidx.i362 = getelementptr inbounds nuw [0 x ptr], ptr %m_args.i349, i64 0, i64 %indvars.iv642
   %129 = load ptr, ptr %arrayidx.i362, align 8
   store ptr %129, ptr %arg1, align 8
   store i32 0, ptr %r215, align 8
@@ -6026,7 +6026,7 @@ if.else237:                                       ; preds = %call.i.noexc
 
 cleanup240:                                       ; preds = %invoke.cont235, %if.else237, %invoke.cont224
   %found_eq.1 = phi i1 [ false, %invoke.cont224 ], [ true, %invoke.cont235 ], [ false, %if.else237 ]
-  %ty.3 = phi i32 [ %ty.2628, %invoke.cont224 ], [ 0, %invoke.cont235 ], [ %ty.2628, %if.else237 ]
+  %ty.3 = phi i32 [ %ty.2627, %invoke.cont224 ], [ 0, %invoke.cont235 ], [ %ty.2627, %if.else237 ]
   %136 = load ptr, ptr %val217, align 8
   %tobool.not.i.i378 = icmp eq ptr %136, null
   br i1 %tobool.not.i.i378, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit386, label %if.then.i.i.i379
@@ -6082,7 +6082,7 @@ ehcleanup245:                                     ; preds = %ehcleanup241, %lpad
   br label %ehcleanup362
 
 cleanup249.thread:                                ; preds = %for.cond202, %land.rhs
-  %ty.2.lcssa = phi i32 [ %ty.3, %for.cond202 ], [ %ty.2628, %land.rhs ]
+  %ty.2.lcssa = phi i32 [ %ty.3, %for.cond202 ], [ %ty.2627, %land.rhs ]
   call void @_ZN3mapI8rationalP4exprNS0_9hash_procENS0_7eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %values) #21
   br label %if.end355
 
@@ -6138,8 +6138,8 @@ if.then275:                                       ; preds = %invoke.cont271
   %add.ptr.i421.idx = shl nuw nsw i64 %idx.ext.i420, 3
   %152 = getelementptr inbounds nuw i8, ptr %lit.addr.0532, i64 %add.ptr.i421.idx
   %add.ptr.i421.ptr = getelementptr inbounds nuw i8, ptr %152, i64 32
-  %cmp283.not629 = icmp eq i32 %151, 0
-  br i1 %cmp283.not629, label %cleanup361, label %for.body284.lr.ph
+  %cmp283.not628 = icmp eq i32 %151, 0
+  br i1 %cmp283.not628, label %cleanup361, label %for.body284.lr.ph
 
 for.body284.lr.ph:                                ; preds = %if.then275
   %m_args.i417.ptr = getelementptr inbounds nuw i8, ptr %lit.addr.0532, i64 32
@@ -6147,8 +6147,8 @@ for.body284.lr.ph:                                ; preds = %if.then275
   br label %for.body284
 
 for.body284:                                      ; preds = %for.body284.lr.ph, %for.inc291
-  %__begin10.0630 = phi ptr [ %m_args.i417.ptr, %for.body284.lr.ph ], [ %incdec.ptr292, %for.inc291 ]
-  %153 = load ptr, ptr %__begin10.0630, align 8
+  %__begin10.0629 = phi ptr [ %m_args.i417.ptr, %for.body284.lr.ph ], [ %incdec.ptr292, %for.inc291 ]
+  %153 = load ptr, ptr %__begin10.0629, align 8
   %154 = load ptr, ptr %this, align 8
   %call288 = invoke noundef ptr @_Z6mk_notR11ast_managerP4expr(ptr noundef nonnull align 8 dereferenceable(976) %154, ptr noundef %153)
           to label %invoke.cont287 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -6198,7 +6198,7 @@ for.inc291:                                       ; preds = %.noexc428, %lor.lhs
   %162 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %162, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  %incdec.ptr292 = getelementptr inbounds nuw i8, ptr %__begin10.0630, i64 8
+  %incdec.ptr292 = getelementptr inbounds nuw i8, ptr %__begin10.0629, i64 8
   %cmp283.not = icmp eq ptr %incdec.ptr292, %add.ptr.i421.ptr
   br i1 %cmp283.not, label %cleanup361, label %for.body284
 
@@ -6219,21 +6219,21 @@ if.then300:                                       ; preds = %invoke.cont296
   %add.ptr.i446.idx = shl nuw nsw i64 %idx.ext.i445, 3
   %166 = getelementptr inbounds nuw i8, ptr %lit.addr.0532, i64 %add.ptr.i446.idx
   %add.ptr.i446.ptr = getelementptr inbounds nuw i8, ptr %166, i64 32
-  %cmp308.not631 = icmp eq i32 %165, 0
-  br i1 %cmp308.not631, label %cleanup361, label %for.body309.preheader
+  %cmp308.not630 = icmp eq i32 %165, 0
+  br i1 %cmp308.not630, label %cleanup361, label %for.body309.preheader
 
 for.body309.preheader:                            ; preds = %if.then300
   %m_args.i442.ptr = getelementptr inbounds nuw i8, ptr %lit.addr.0532, i64 32
   br label %for.body309
 
 for.cond307:                                      ; preds = %invoke.cont311
-  %incdec.ptr318 = getelementptr inbounds nuw i8, ptr %__begin11.0632, i64 8
+  %incdec.ptr318 = getelementptr inbounds nuw i8, ptr %__begin11.0631, i64 8
   %cmp308.not = icmp eq ptr %incdec.ptr318, %add.ptr.i446.ptr
   br i1 %cmp308.not, label %cleanup361, label %for.body309
 
 for.body309:                                      ; preds = %for.body309.preheader, %for.cond307
-  %__begin11.0632 = phi ptr [ %incdec.ptr318, %for.cond307 ], [ %m_args.i442.ptr, %for.body309.preheader ]
-  %167 = load ptr, ptr %__begin11.0632, align 8
+  %__begin11.0631 = phi ptr [ %incdec.ptr318, %for.cond307 ], [ %m_args.i442.ptr, %for.body309.preheader ]
+  %167 = load ptr, ptr %__begin11.0631, align 8
   %call312 = invoke noundef zeroext i1 @_ZN15model_evaluator7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %eval, ptr noundef %167)
           to label %invoke.cont311 unwind label %lpad7.loopexit.split-lp.loopexit
 
@@ -6262,21 +6262,21 @@ if.then326:                                       ; preds = %invoke.cont322
   %add.ptr.i464.idx = shl nuw nsw i64 %idx.ext.i463, 3
   %173 = getelementptr inbounds nuw i8, ptr %lit.addr.0532, i64 %add.ptr.i464.idx
   %add.ptr.i464.ptr = getelementptr inbounds nuw i8, ptr %173, i64 32
-  %cmp334.not633 = icmp eq i32 %172, 0
-  br i1 %cmp334.not633, label %cleanup361, label %for.body335.preheader
+  %cmp334.not632 = icmp eq i32 %172, 0
+  br i1 %cmp334.not632, label %cleanup361, label %for.body335.preheader
 
 for.body335.preheader:                            ; preds = %if.then326
   %m_args.i460.ptr = getelementptr inbounds nuw i8, ptr %lit.addr.0532, i64 32
   br label %for.body335
 
 for.cond333:                                      ; preds = %invoke.cont337
-  %incdec.ptr347 = getelementptr inbounds nuw i8, ptr %__begin12.0634, i64 8
+  %incdec.ptr347 = getelementptr inbounds nuw i8, ptr %__begin12.0633, i64 8
   %cmp334.not = icmp eq ptr %incdec.ptr347, %add.ptr.i464.ptr
   br i1 %cmp334.not, label %cleanup361, label %for.body335
 
 for.body335:                                      ; preds = %for.body335.preheader, %for.cond333
-  %__begin12.0634 = phi ptr [ %incdec.ptr347, %for.cond333 ], [ %m_args.i460.ptr, %for.body335.preheader ]
-  %174 = load ptr, ptr %__begin12.0634, align 8
+  %__begin12.0633 = phi ptr [ %incdec.ptr347, %for.cond333 ], [ %m_args.i460.ptr, %for.body335.preheader ]
+  %174 = load ptr, ptr %__begin12.0633, align 8
   %call338 = invoke noundef zeroext i1 @_ZN15model_evaluator8is_falseEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %eval, ptr noundef %174)
           to label %invoke.cont337 unwind label %lpad7.loopexit
 

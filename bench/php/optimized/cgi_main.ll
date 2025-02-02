@@ -3436,33 +3436,33 @@ define internal noundef i32 @sapi_cgi_send_headers(ptr noundef %0) #0 {
   br i1 %63, label %.lr.ph92.us, label %.lr.ph92
 
 .lr.ph92.us:                                      ; preds = %.lr.ph92.lr.ph, %.outer.us
-  %.1.ph101.us = phi ptr [ %81, %.outer.us ], [ %62, %.lr.ph92.lr.ph ]
+  %.1.ph100.us = phi ptr [ %81, %.outer.us ], [ %62, %.lr.ph92.lr.ph ]
   %.141.ph99.us = phi i1 [ %.242.us, %.outer.us ], [ %.040, %.lr.ph92.lr.ph ]
   br label %64
 
 64:                                               ; preds = %.lr.ph92.us, %77
-  %.191.us = phi ptr [ %.1.ph101.us, %.lr.ph92.us ], [ %78, %77 ]
+  %.191.us = phi ptr [ %.1.ph100.us, %.lr.ph92.us ], [ %78, %77 ]
   %65 = getelementptr inbounds nuw i8, ptr %.191.us, i64 8
   %66 = load i64, ptr %65, align 8
-  %.not59.us102 = icmp eq i64 %66, 0
-  br i1 %.not59.us102, label %.outer.us, label %67
+  %.not59.us101 = icmp eq i64 %66, 0
+  br i1 %.not59.us101, label %.outer.us, label %67
 
 67:                                               ; preds = %64
   %68 = icmp ugt i64 %66, 7
-  %.pre116.pre = load ptr, ptr %.191.us, align 8
+  %.pre115.pre = load ptr, ptr %.191.us, align 8
   br i1 %68, label %69, label %.outer.us.sink.split
 
 69:                                               ; preds = %67
-  %70 = call i32 @strncasecmp(ptr noundef %.pre116.pre, ptr noundef nonnull @.str.57, i64 noundef 7) #29
+  %70 = call i32 @strncasecmp(ptr noundef %.pre115.pre, ptr noundef nonnull @.str.57, i64 noundef 7) #29
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %.split.us104, label %72
+  br i1 %71, label %.split.us103, label %72
 
 72:                                               ; preds = %69
   %73 = icmp ugt i64 %66, 13
   br i1 %73, label %74, label %.outer.us.sink.split
 
 74:                                               ; preds = %72
-  %75 = call i32 @strncasecmp(ptr noundef %.pre116.pre, ptr noundef nonnull @.str.61, i64 noundef 13) #29
+  %75 = call i32 @strncasecmp(ptr noundef %.pre115.pre, ptr noundef nonnull @.str.61, i64 noundef 13) #29
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %.outer.us.sink.split
 
@@ -3471,32 +3471,32 @@ define internal noundef i32 @sapi_cgi_send_headers(ptr noundef %0) #0 {
   %.not58.us = icmp eq ptr %78, null
   br i1 %.not58.us, label %.outer._crit_edge, label %64
 
-.split.us104:                                     ; preds = %69
+.split.us103:                                     ; preds = %69
   br i1 %.141.ph99.us, label %.outer.us, label %.outer.us.sink.split
 
-.outer.us.sink.split:                             ; preds = %72, %74, %67, %.split.us104
-  %.242.us.ph = phi i1 [ true, %.split.us104 ], [ %.141.ph99.us, %67 ], [ %.141.ph99.us, %74 ], [ %.141.ph99.us, %72 ]
-  %79 = call i64 @php_output_write_unbuffered(ptr noundef %.pre116.pre, i64 noundef %66) #28
+.outer.us.sink.split:                             ; preds = %72, %74, %67, %.split.us103
+  %.242.us.ph = phi i1 [ true, %.split.us103 ], [ %.141.ph99.us, %67 ], [ %.141.ph99.us, %74 ], [ %.141.ph99.us, %72 ]
+  %79 = call i64 @php_output_write_unbuffered(ptr noundef %.pre115.pre, i64 noundef %66) #28
   %80 = call i64 @php_output_write_unbuffered(ptr noundef nonnull @.str.60, i64 noundef 2) #28
   br label %.outer.us
 
-.outer.us:                                        ; preds = %64, %.outer.us.sink.split, %.split.us104
-  %.242.us = phi i1 [ true, %.split.us104 ], [ %.242.us.ph, %.outer.us.sink.split ], [ %.141.ph99.us, %64 ]
+.outer.us:                                        ; preds = %64, %.outer.us.sink.split, %.split.us103
+  %.242.us = phi i1 [ true, %.split.us103 ], [ %.242.us.ph, %.outer.us.sink.split ], [ %.141.ph99.us, %64 ]
   %81 = call ptr @zend_llist_get_next_ex(ptr noundef %0, ptr noundef nonnull %2) #28
   %.not5890.us = icmp eq ptr %81, null
   br i1 %.not5890.us, label %.outer._crit_edge, label %.lr.ph92.us
 
 .lr.ph92:                                         ; preds = %.lr.ph92.lr.ph, %.outer
-  %.1.ph101 = phi ptr [ %91, %.outer ], [ %62, %.lr.ph92.lr.ph ]
+  %.1.ph100 = phi ptr [ %91, %.outer ], [ %62, %.lr.ph92.lr.ph ]
   %.141.ph99 = phi i1 [ %.242, %.outer ], [ %.040, %.lr.ph92.lr.ph ]
-  %82 = getelementptr inbounds nuw i8, ptr %.1.ph101, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.1.ph100, i64 8
   %83 = load i64, ptr %82, align 8
   %.not59.us = icmp eq i64 %83, 0
   br i1 %.not59.us, label %.outer, label %84
 
 84:                                               ; preds = %.lr.ph92
   %85 = icmp ugt i64 %83, 7
-  %.pre = load ptr, ptr %.1.ph101, align 8
+  %.pre = load ptr, ptr %.1.ph100, align 8
   br i1 %85, label %86, label %.outer.sink.split
 
 86:                                               ; preds = %84

@@ -1299,8 +1299,8 @@ if.end247:                                        ; preds = %_ZNKSt8functionIFvl
   store i64 0, ptr %newMapsNeeded, align 8
   %numSizes = getelementptr inbounds nuw i8, ptr %mix, i64 96
   %50 = load i32, ptr %numSizes, align 4
-  %cmp249278 = icmp sgt i32 %50, 0
-  br i1 %cmp249278, label %for.body250.lr.ph, label %return
+  %cmp249282 = icmp sgt i32 %50, 0
+  br i1 %cmp249282, label %for.body250.lr.ph, label %return
 
 for.body250.lr.ph:                                ; preds = %if.end247
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1439,8 +1439,8 @@ land.lhs.true260:                                 ; preds = %_ZN8facebook5velox1
   %or.cond = select i1 %cmp261, i1 true, i1 %cmp264
   %76 = load i32, ptr %injectedFailure_.i405, align 8
   %cmp.i.not = icmp eq i32 %76, 3
-  %or.cond257 = select i1 %or.cond, i1 %cmp.i.not, i1 false
-  br i1 %or.cond257, label %if.end.i, label %for.inc311
+  %or.cond261 = select i1 %or.cond, i1 %cmp.i.not, i1 false
+  br i1 %or.cond261, label %if.end.i, label %for.inc311
 
 if.end.i:                                         ; preds = %land.lhs.true260
   %isPersistentFailureInjection_.i = getelementptr inbounds nuw i8, ptr %this, i64 68
@@ -1452,7 +1452,7 @@ if.then2.i:                                       ; preds = %if.end.i
   store i32 0, ptr %injectedFailure_.i405, align 8
   br label %if.then270
 
-if.then270:                                       ; preds = %_ZN8facebook5velox10ClockTimerD2Ev.exit.i, %"_ZN8facebook5velox6memory5Stats14recordAllocateIZNS1_13MmapAllocator33allocateNonContiguousWithoutRetryEmRNS1_10AllocationESt8functionIFvlbEEmE3$_0EEvliT_.exit", %if.end.i, %if.then2.i
+if.then270:                                       ; preds = %"_ZN8facebook5velox6memory5Stats14recordAllocateIZNS1_13MmapAllocator33allocateNonContiguousWithoutRetryEmRNS1_10AllocationESt8functionIFvlbEEmE3$_0EEvliT_.exit", %_ZN8facebook5velox10ClockTimerD2Ev.exit.i, %if.end.i, %if.then2.i
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %retval.i.sroa.0.0.insert.ext.i222 = and i64 %indvars.iv, 4294967295
   %78 = load i32, ptr %arrayidx.i.i214, align 4, !noalias !25

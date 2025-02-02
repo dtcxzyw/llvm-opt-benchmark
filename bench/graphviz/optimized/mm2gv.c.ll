@@ -542,7 +542,7 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
 
 133:                                              ; preds = %129, %131, %.lr.ph
   %.2149 = phi double [ %132, %131 ], [ %.114838, %.lr.ph ], [ %126, %129 ]
-  %.2 = phi i8 [ %.139, %131 ], [ %.139, %.lr.ph ], [ 0, %129 ]
+  %.2 = phi i8 [ 0, %131 ], [ %.139, %.lr.ph ], [ 0, %129 ]
   %134 = call double @llvm.maxnum.f64(double %126, double %.115437)
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, 1
   %135 = load i32, ptr %119, align 4
@@ -590,7 +590,7 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
 
 153:                                              ; preds = %149, %151, %144
   %.4151 = phi double [ %152, %151 ], [ %.315045, %144 ], [ %145, %149 ]
-  %.4 = phi i8 [ %.346, %151 ], [ %.346, %144 ], [ 0, %149 ]
+  %.4 = phi i8 [ 0, %151 ], [ %.346, %144 ], [ 0, %149 ]
   %154 = call double @llvm.maxnum.f64(double %145, double %.215544)
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count

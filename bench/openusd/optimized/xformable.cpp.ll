@@ -4012,7 +4012,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35UsdGeomXformOpTypes_St
           to label %180 unwind label %173
 
 180:                                              ; preds = %172, %179, %175
-  %.1 = phi i8 [ 1, %172 ], [ %.017, %179 ], [ %.017, %175 ]
+  %.1 = phi i8 [ 1, %172 ], [ 1, %179 ], [ 0, %175 ]
   %181 = add nuw i64 %.016, 1
   br label %.preheader, !llvm.loop !16
 

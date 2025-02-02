@@ -13720,7 +13720,7 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   %115 = icmp ult i64 %114, %112
   br i1 %115, label %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit.thread, label %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit
 
-_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit: ; preds = %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i, %105, %111
+_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit: ; preds = %111, %105, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i
   %.0.i.i109 = phi i64 [ %114, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i ], [ %112, %111 ], [ %106, %105 ]
   %116 = add i64 %.0.i.i109, %99
   %117 = icmp ult i64 %116, %99
@@ -13767,8 +13767,8 @@ _ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_
   %141 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef nonnull %35, i64 noundef %spec.select, i1 noundef zeroext false) #24
   br label %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit.thread
 
-_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit.thread: ; preds = %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i, %108, %107, %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit, %98, %89, %.preheader, %63, %65, %27, %.loopexit, %6, %139
-  %.0 = phi ptr [ %141, %139 ], [ null, %6 ], [ null, %.loopexit ], [ null, %27 ], [ null, %65 ], [ null, %63 ], [ null, %.preheader ], [ null, %89 ], [ null, %98 ], [ null, %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit ], [ null, %107 ], [ null, %108 ], [ null, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i ]
+_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit.thread: ; preds = %108, %107, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i, %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit, %98, %89, %.preheader, %63, %65, %27, %.loopexit, %6, %139
+  %.0 = phi ptr [ %141, %139 ], [ null, %6 ], [ null, %.loopexit ], [ null, %27 ], [ null, %65 ], [ null, %63 ], [ null, %.preheader ], [ null, %89 ], [ null, %98 ], [ null, %_ZN4llvm21SaturatingMultiplyAddImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_S2_Pb.exit ], [ null, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i ], [ null, %107 ], [ null, %108 ]
   ret ptr %.0
 }
 

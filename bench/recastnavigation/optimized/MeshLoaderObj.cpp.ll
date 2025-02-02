@@ -325,7 +325,7 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
   br label %50
 
 50:                                               ; preds = %45, %43, %41, %.lr.ph.i, %.lr.ph.i
-  %.119.i = phi i8 [ %.01824.i, %43 ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %41 ], [ 0, %45 ]
+  %.119.i = phi i8 [ 1, %43 ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %41 ], [ 0, %45 ]
   %.117.i = phi i1 [ false, %43 ], [ false, %.lr.ph.i ], [ false, %.lr.ph.i ], [ %not..i, %41 ], [ %49, %45 ]
   %.1.i = phi i32 [ %.01526.i, %43 ], [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %41 ], [ %46, %45 ]
   %51 = icmp uge ptr %40, %31

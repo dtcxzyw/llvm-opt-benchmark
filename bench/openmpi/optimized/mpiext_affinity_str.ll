@@ -1205,13 +1205,13 @@ build_map.exit:                                   ; preds = %39, %.critedge61.i,
   %86 = trunc nuw nsw i64 %indvars.iv67 to i32
   br label %87
 
-87:                                               ; preds = %.preheader.us, %149
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %149 ]
-  %.151.us = phi i1 [ %.02453.us, %.preheader.us ], [ %.2.us, %149 ]
+87:                                               ; preds = %.preheader.us, %147
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %147 ]
+  %.151.us = phi i1 [ %.02453.us, %.preheader.us ], [ %.2.us, %147 ]
   %88 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
   %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %91, label %149
+  br i1 %90, label %91, label %147
 
 91:                                               ; preds = %87
   br i1 %.151.us, label %96, label %92
@@ -1230,8 +1230,8 @@ build_map.exit:                                   ; preds = %39, %.critedge61.i,
   br label %.outer.i.us
 
 .outer.i.us:                                      ; preds = %.thread.i.us, %96
-  %.034.ph.i.us = phi i64 [ %143, %.thread.i.us ], [ 0, %96 ]
-  %.02832.ph.i.us = phi i8 [ %.2.i.us, %.thread.i.us ], [ 1, %96 ]
+  %.034.ph.i.us = phi i64 [ %141, %.thread.i.us ], [ 0, %96 ]
+  %.02832.ph.i.us = phi i1 [ false, %.thread.i.us ], [ true, %96 ]
   br label %98
 
 98:                                               ; preds = %105, %.outer.i.us
@@ -1249,7 +1249,7 @@ build_map.exit:                                   ; preds = %39, %.critedge61.i,
   br label %105
 
 104:                                              ; preds = %98
-  br i1 %.not.i.us, label %126, label %105
+  br i1 %.not.i.us, label %125, label %105
 
 105:                                              ; preds = %104, %103
   %.1.i31.us = phi i32 [ %.02733.i.us, %104 ], [ %spec.select.i.us, %103 ]
@@ -1262,102 +1262,99 @@ build_map.exit:                                   ; preds = %39, %.critedge61.i,
   br i1 %108, label %109, label %bitmap2rangestr.exit.us
 
 109:                                              ; preds = %107
-  %110 = trunc nuw i8 %.02832.ph.i.us to i1
-  br i1 %110, label %115, label %111
+  br i1 %.02832.ph.i.us, label %114, label %110
 
-111:                                              ; preds = %109
-  %112 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret) #15
-  %113 = sub i64 1023, %112
-  %114 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret, ptr noundef nonnull @.str.2, i64 noundef %113) #14
-  br label %115
+110:                                              ; preds = %109
+  %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret) #15
+  %112 = sub i64 1023, %111
+  %113 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret, ptr noundef nonnull @.str.2, i64 noundef %112) #14
+  br label %114
 
-115:                                              ; preds = %111, %109
-  %116 = icmp eq i32 %.1.i31.us, 31
-  br i1 %116, label %119, label %117
+114:                                              ; preds = %110, %109
+  %115 = icmp eq i32 %.1.i31.us, 31
+  br i1 %115, label %118, label %116
 
-117:                                              ; preds = %115
-  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1022, ptr noundef nonnull @.str.4, i32 noundef %.1.i31.us, i32 noundef 31) #14
-  br label %121
+116:                                              ; preds = %114
+  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1022, ptr noundef nonnull @.str.4, i32 noundef %.1.i31.us, i32 noundef 31) #14
+  br label %120
 
-119:                                              ; preds = %115
-  %120 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1022, ptr noundef nonnull @.str.3, i32 noundef 31) #14
-  br label %121
+118:                                              ; preds = %114
+  %119 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1022, ptr noundef nonnull @.str.3, i32 noundef 31) #14
+  br label %120
 
-121:                                              ; preds = %119, %117
-  %122 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret) #15
-  %123 = getelementptr inbounds i8, ptr @bitmap2rangestr.ret, i64 %122
-  %124 = sub i64 1024, %122
-  %125 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %123, i64 noundef %124, ptr noundef nonnull @.str.5, ptr noundef nonnull %4) #14
+120:                                              ; preds = %118, %116
+  %121 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret) #15
+  %122 = getelementptr inbounds i8, ptr @bitmap2rangestr.ret, i64 %121
+  %123 = sub i64 1024, %121
+  %124 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %122, i64 noundef %123, ptr noundef nonnull @.str.5, ptr noundef nonnull %4) #14
   br label %bitmap2rangestr.exit.us
 
-126:                                              ; preds = %104
-  %127 = trunc nuw i8 %.02832.ph.i.us to i1
-  br i1 %127, label %132, label %128
+125:                                              ; preds = %104
+  br i1 %.02832.ph.i.us, label %130, label %126
 
-128:                                              ; preds = %126
-  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret) #15
-  %130 = sub i64 1023, %129
-  %131 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret, ptr noundef nonnull @.str.2, i64 noundef %130) #14
-  br label %132
+126:                                              ; preds = %125
+  %127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret) #15
+  %128 = sub i64 1023, %127
+  %129 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret, ptr noundef nonnull @.str.2, i64 noundef %128) #14
+  br label %130
 
-132:                                              ; preds = %128, %126
-  %.2.i.us = phi i8 [ %.02832.ph.i.us, %128 ], [ 0, %126 ]
-  %133 = add nsw i32 %99, -1
-  %134 = icmp eq i32 %.02733.i.us, %133
-  br i1 %134, label %137, label %135
+130:                                              ; preds = %126, %125
+  %131 = add nsw i32 %99, -1
+  %132 = icmp eq i32 %.02733.i.us, %131
+  br i1 %132, label %135, label %133
 
-135:                                              ; preds = %132
-  %136 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1022, ptr noundef nonnull @.str.4, i32 noundef %.02733.i.us, i32 noundef %133) #14
+133:                                              ; preds = %130
+  %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1022, ptr noundef nonnull @.str.4, i32 noundef %.02733.i.us, i32 noundef %131) #14
   br label %.thread.i.us
 
-137:                                              ; preds = %132
-  %138 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1022, ptr noundef nonnull @.str.3, i32 noundef %.02733.i.us) #14
+135:                                              ; preds = %130
+  %136 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1022, ptr noundef nonnull @.str.3, i32 noundef %.02733.i.us) #14
   br label %.thread.i.us
 
-.thread.i.us:                                     ; preds = %137, %135
-  %139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret) #15
-  %140 = getelementptr inbounds i8, ptr @bitmap2rangestr.ret, i64 %139
-  %141 = sub i64 1024, %139
-  %142 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %140, i64 noundef %141, ptr noundef nonnull @.str.5, ptr noundef nonnull %4) #14
-  %143 = add nuw nsw i64 %.034.i.us, 1
-  %exitcond.not37.i.us = icmp eq i64 %143, 32
+.thread.i.us:                                     ; preds = %135, %133
+  %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret) #15
+  %138 = getelementptr inbounds i8, ptr @bitmap2rangestr.ret, i64 %137
+  %139 = sub i64 1024, %137
+  %140 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %138, i64 noundef %139, ptr noundef nonnull @.str.5, ptr noundef nonnull %4) #14
+  %141 = add nuw nsw i64 %.034.i.us, 1
+  %exitcond.not37.i.us = icmp eq i64 %141, 32
   br i1 %exitcond.not37.i.us, label %bitmap2rangestr.exit.us, label %.outer.i.us, !llvm.loop !19
 
-bitmap2rangestr.exit.us:                          ; preds = %.thread.i.us, %121, %107
+bitmap2rangestr.exit.us:                          ; preds = %.thread.i.us, %120, %107
   call void @llvm.lifetime.end.p0(i64 1023, ptr nonnull %4)
-  %144 = trunc nuw nsw i64 %indvars.iv to i32
-  %145 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1022, ptr noundef nonnull @.str.1, i32 noundef %86, i32 noundef %144, ptr noundef nonnull @bitmap2rangestr.ret) #14
-  %146 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
-  %147 = sub i64 1023, %146
-  %148 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull %5, i64 noundef %147) #14
-  br label %149
+  %142 = trunc nuw nsw i64 %indvars.iv to i32
+  %143 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1022, ptr noundef nonnull @.str.1, i32 noundef %86, i32 noundef %142, ptr noundef nonnull @bitmap2rangestr.ret) #14
+  %144 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
+  %145 = sub i64 1023, %144
+  %146 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull %5, i64 noundef %145) #14
+  br label %147
 
-149:                                              ; preds = %bitmap2rangestr.exit.us, %87
+147:                                              ; preds = %bitmap2rangestr.exit.us, %87
   %.2.us = phi i1 [ false, %bitmap2rangestr.exit.us ], [ %.151.us, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %87, !llvm.loop !20
 
-._crit_edge.us:                                   ; preds = %149
+._crit_edge.us:                                   ; preds = %147
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count69
   br i1 %exitcond70.not, label %._crit_edge55, label %.preheader.us, !llvm.loop !21
 
 ._crit_edge55:                                    ; preds = %._crit_edge.us, %build_map.exit
-  %150 = load ptr, ptr %18, align 8
-  %.not30 = icmp eq ptr %150, null
-  br i1 %.not30, label %152, label %151
+  %148 = load ptr, ptr %18, align 8
+  %.not30 = icmp eq ptr %148, null
+  br i1 %.not30, label %150, label %149
 
-151:                                              ; preds = %._crit_edge55
-  call void @free(ptr noundef nonnull %150) #14
-  br label %152
+149:                                              ; preds = %._crit_edge55
+  call void @free(ptr noundef nonnull %148) #14
+  br label %150
 
-152:                                              ; preds = %151, %._crit_edge55
+150:                                              ; preds = %149, %._crit_edge55
   call void @free(ptr noundef nonnull %18) #14
   br label %build_map.exit.thread
 
-build_map.exit.thread:                            ; preds = %hwloc_get_nbobjs_by_type.exit63.i, %27, %152, %3
-  %.0 = phi i32 [ -45, %3 ], [ 0, %152 ], [ -2, %hwloc_get_nbobjs_by_type.exit63.i ], [ 39, %27 ]
+build_map.exit.thread:                            ; preds = %hwloc_get_nbobjs_by_type.exit63.i, %27, %150, %3
+  %.0 = phi i32 [ -45, %3 ], [ 0, %150 ], [ -2, %hwloc_get_nbobjs_by_type.exit63.i ], [ 39, %27 ]
   ret i32 %.0
 }
 

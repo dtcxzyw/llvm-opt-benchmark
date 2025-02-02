@@ -2169,8 +2169,8 @@ _Z11PointToNamePKw.exit:                          ; preds = %.preheader, %89
 170:                                              ; preds = %151
   store i32 0, ptr %11, align 16
   %171 = load i32, ptr %5, align 16
-  %.not157 = icmp eq i32 %171, 0
-  br i1 %.not157, label %._crit_edge, label %.lr.ph
+  %.not156 = icmp eq i32 %171, 0
+  br i1 %.not156, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %170, %227
   %172 = phi i32 [ %230, %227 ], [ %171, %170 ]

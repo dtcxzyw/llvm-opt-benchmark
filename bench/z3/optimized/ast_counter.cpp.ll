@@ -471,7 +471,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 for.inc:                                          ; preds = %land.lhs.true, %for.body, %if.then
   %5 = phi i32 [ %.pre, %if.then ], [ %3, %for.body ], [ %3, %land.lhs.true ]
-  %found.1 = phi i8 [ 1, %if.then ], [ %found.015, %for.body ], [ %found.015, %land.lhs.true ]
+  %found.1 = phi i8 [ 1, %if.then ], [ %found.015, %for.body ], [ 1, %land.lhs.true ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.014, i64 16
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i
   br i1 %cmp.not2.i.i, label %_ZN14core_hashtableI17default_map_entryIjiEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE8iteratorppEv.exit, label %land.rhs.i.i
@@ -546,15 +546,14 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %.pre.i = load i32, ptr %m_data.i.i.i, align 4
   %cmp5.i = icmp ule i32 %.pre.i, %3
   %or.cond.not.i = select i1 %tobool.i, i1 %cmp5.i, i1 false
-  br i1 %or.cond.not.i, label %for.inc.i, label %if.then.i
-
-if.then.i:                                        ; preds = %land.lhs.true.i
+  %spec.select = select i1 %or.cond.not.i, i32 %max_pos.0, i32 %.pre.i
+  %spec.select4 = select i1 %or.cond.not.i, i32 %3, i32 %.pre.i
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then.i, %land.lhs.true.i, %for.body.i
-  %max_pos.1 = phi i32 [ %max_pos.0, %land.lhs.true.i ], [ %.pre.i, %if.then.i ], [ %max_pos.0, %for.body.i ]
-  %5 = phi i32 [ %3, %land.lhs.true.i ], [ %.pre.i, %if.then.i ], [ %3, %for.body.i ]
-  %found.1.i = phi i8 [ %found.015.i, %land.lhs.true.i ], [ 1, %if.then.i ], [ %found.015.i, %for.body.i ]
+for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
+  %max_pos.1 = phi i32 [ %max_pos.0, %for.body.i ], [ %spec.select, %land.lhs.true.i ]
+  %5 = phi i32 [ %3, %for.body.i ], [ %spec.select4, %land.lhs.true.i ]
+  %found.1.i = phi i8 [ %found.015.i, %for.body.i ], [ 1, %land.lhs.true.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.014.i, i64 16
   %cmp.not2.i.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.not2.i.i.i, label %_ZNK7counter16get_max_positiveERj.exit, label %land.rhs.i.i.i

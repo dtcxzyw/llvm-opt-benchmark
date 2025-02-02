@@ -3361,7 +3361,7 @@ if.end83:                                         ; preds = %for.inc, %invoke.co
   %visit.sroa.26.2 = phi ptr [ %visit.sroa.26.0.ph404, %invoke.cont47 ], [ %visit.sroa.26.0.ph404, %if.else ], [ %visit.sroa.26.0.ph404, %if.else71 ], [ %visit.sroa.26.0.ph404, %invoke.cont79 ], [ %visit.sroa.26.4, %invoke.cont57 ], [ %visit.sroa.26.5, %for.inc ]
   %visit.sroa.10.2 = phi ptr [ %add.ptr.i.i13, %invoke.cont47 ], [ %add.ptr.i.i13, %if.else ], [ %add.ptr.i.i13, %if.else71 ], [ %add.ptr.i.i13, %invoke.cont79 ], [ %visit.sroa.10.4, %invoke.cont57 ], [ %visit.sroa.10.5, %for.inc ]
   %visit.sroa.0.3 = phi ptr [ %visit.sroa.0.1.ph406, %invoke.cont47 ], [ %visit.sroa.0.1.ph406, %if.else ], [ %visit.sroa.0.1.ph406, %if.else71 ], [ %visit.sroa.0.1.ph406, %invoke.cont79 ], [ %visit.sroa.0.8, %invoke.cont57 ], [ %visit.sroa.0.9, %for.inc ]
-  %foundAssumption.2 = phi i8 [ %frombool, %invoke.cont47 ], [ %foundAssumption.0392, %if.else ], [ %foundAssumption.0392, %if.else71 ], [ %foundAssumption.0392, %invoke.cont79 ], [ %foundAssumption.0392, %invoke.cont57 ], [ %foundAssumption.0392, %for.inc ]
+  %foundAssumption.2 = phi i8 [ %frombool, %invoke.cont47 ], [ 1, %if.else ], [ %foundAssumption.0392, %if.else71 ], [ %foundAssumption.0392, %invoke.cont79 ], [ %foundAssumption.0392, %invoke.cont57 ], [ %foundAssumption.0392, %for.inc ]
   %cmp.i.i390 = icmp eq ptr %visit.sroa.0.3, %visit.sroa.10.2
   br i1 %cmp.i.i390, label %while.end.loopexit416, label %while.body.lr.ph, !llvm.loop !29
 

@@ -266,17 +266,17 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
 
 24:                                               ; preds = %95, %2
   %25 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c1f3941ec2bd292E"(ptr nonnull align 8 %10)
-          to label %26 unwind label %.thread.loopexit
+          to label %26 unwind label %.loopexit78
 
-.thread.loopexit:                                 ; preds = %95, %89, %83, %80, %78, %31, %24
+.loopexit78:                                      ; preds = %24, %31, %78, %80, %83, %89, %95
   %lpad.loopexit80 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread77
+  br label %98
 
-.thread.loopexit.split-lp:                        ; preds = %36
+.loopexit.split-lp79:                             ; preds = %36
   %lpad.loopexit.split-lp81 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread77
+  br label %98
 
 26:                                               ; preds = %24
   %27 = icmp eq ptr %25, null
@@ -295,11 +295,11 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
   store ptr %33, ptr %8, align 8
   store i64 %35, ptr %23, align 8
   invoke void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hc22c4347b8e02ed8E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %9, ptr nonnull align 8 %8)
-          to label %78 unwind label %.thread.loopexit
+          to label %78 unwind label %.loopexit78
 
 36:                                               ; preds = %28
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.b95dc7aa883b92930dc6d4a070cf2145.7, i64 39, ptr nonnull align 8 @anon.b95dc7aa883b92930dc6d4a070cf2145.8) #11
-          to label %41 unwind label %.thread.loopexit.split-lp
+          to label %41 unwind label %.loopexit.split-lp79
 
 37:                                               ; preds = %28
   store i64 0, ptr %7, align 8
@@ -321,7 +321,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
 42:                                               ; preds = %65
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %99
 
 43:                                               ; preds = %37
   %44 = extractvalue { ptr, ptr } %40, 0
@@ -368,7 +368,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
   %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$cranelift_isle..lexer..Lexer$GT$17hdac9e6ff9de070d8E"(ptr nonnull align 16 %4) #12
-          to label %98 unwind label %69
+          to label %99 unwind label %69
 
 61:                                               ; preds = %51
   %62 = load i64, ptr %3, align 8, !range !5, !noundef !3
@@ -394,7 +394,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
   call void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$std..path..PathBuf$C$alloc..string..String$RP$$GT$$GT$17h4d36bd23dca79c0bE"(ptr align 8 %1)
   ret void
 
-69:                                               ; preds = %.thread73, %98, %.thread77, %.thread59, %77, %59
+69:                                               ; preds = %.thread74, %99, %98, %.thread59, %77, %59
   %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
@@ -429,17 +429,17 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
 
 .thread59:                                        ; preds = %77
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h63c624d36dd224c0E"(ptr nonnull align 8 %7) #12
-          to label %.thread77 unwind label %69
+          to label %98 unwind label %69
 
 78:                                               ; preds = %31
   %79 = invoke { ptr, i64 } @"_ZN96_$LT$alloc..sync..Arc$LT$str$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h5a7c1d87675cef46E"(ptr nonnull align 8 %9)
-          to label %80 unwind label %.thread.loopexit
+          to label %80 unwind label %.loopexit78
 
 80:                                               ; preds = %78
   %81 = extractvalue { ptr, i64 } %79, 0
   %82 = extractvalue { ptr, i64 } %79, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17had35883f674cadacE"(ptr nonnull align 8 %12, ptr %81, i64 %82)
-          to label %83 unwind label %.thread.loopexit
+          to label %83 unwind label %.loopexit78
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -447,7 +447,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
   %86 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %87 = load i64, ptr %86, align 8, !noundef !3
   %88 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15copy_from_slice17hd0067f0f2bd66e0dE"(ptr nonnull align 1 %85, i64 %87)
-          to label %89 unwind label %.thread.loopexit
+          to label %89 unwind label %.loopexit78
 
 89:                                               ; preds = %83
   %90 = extractvalue { ptr, i64 } %88, 0
@@ -456,30 +456,30 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
   call void @llvm.assume(i1 %92)
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %94 = invoke { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17hac69941297c7a339E"(ptr nonnull %93, i64 %91)
-          to label %95 unwind label %.thread.loopexit
+          to label %95 unwind label %.loopexit78
 
 95:                                               ; preds = %89
   %96 = extractvalue { ptr, i64 } %94, 0
   %97 = extractvalue { ptr, i64 } %94, 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17had35883f674cadacE"(ptr nonnull align 8 %11, ptr %96, i64 %97)
-          to label %24 unwind label %.thread.loopexit
+          to label %24 unwind label %.loopexit78
 
-.thread77:                                        ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %.thread59
-  %.pn5358 = phi { ptr, i32 } [ %lpad.phi, %.thread59 ], [ %lpad.loopexit80, %.thread.loopexit ], [ %lpad.loopexit.split-lp81, %.thread.loopexit.split-lp ]
+98:                                               ; preds = %.loopexit78, %.loopexit.split-lp79, %.thread59
+  %.pn53.ph = phi { ptr, i32 } [ %lpad.phi, %.thread59 ], [ %lpad.loopexit80, %.loopexit78 ], [ %lpad.loopexit.split-lp81, %.loopexit.split-lp79 ]
   invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17hc373ccf807d99c22E"(ptr nonnull align 8 %11) #12
-          to label %.thread73 unwind label %69
+          to label %.thread74 unwind label %69
 
-98:                                               ; preds = %59, %42, %.thread73
-  %.pn535775 = phi { ptr, i32 } [ %.pn5358, %.thread73 ], [ %60, %59 ], [ %lpad.thr_comm.split-lp, %42 ]
+99:                                               ; preds = %59, %42, %.thread74
+  %.pn535776 = phi { ptr, i32 } [ %.pn53.ph, %.thread74 ], [ %60, %59 ], [ %lpad.thr_comm.split-lp, %42 ]
   invoke void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$std..path..PathBuf$C$alloc..string..String$RP$$GT$$GT$17h4d36bd23dca79c0bE"(ptr align 8 %1) #12
+          to label %100 unwind label %69
+
+.thread74:                                        ; preds = %98
+  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17hc373ccf807d99c22E"(ptr nonnull align 8 %12) #12
           to label %99 unwind label %69
 
-.thread73:                                        ; preds = %.thread77
-  invoke void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17hc373ccf807d99c22E"(ptr nonnull align 8 %12) #12
-          to label %98 unwind label %69
-
-99:                                               ; preds = %98
-  resume { ptr, i32 } %.pn535775
+100:                                              ; preds = %99
+  resume { ptr, i32 } %.pn535776
 }
 
 ; Function Attrs: nonlazybind uwtable

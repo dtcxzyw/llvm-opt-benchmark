@@ -12813,7 +12813,6 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   br label %31
 
 31:                                               ; preds = %23, %29, %25, %21
-  %.2 = phi i8 [ %.05568, %21 ], [ 0, %25 ], [ 0, %29 ], [ 0, %23 ]
   %32 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
   %33 = load ptr, ptr %32, align 8
   %.not65 = icmp eq ptr %33, null
@@ -12841,7 +12840,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   br label %42
 
 42:                                               ; preds = %34, %37, %39, %19
-  %.156 = phi i8 [ 1, %19 ], [ %.2, %39 ], [ %.2, %37 ], [ %.2, %34 ]
+  %.156 = phi i8 [ 1, %19 ], [ 0, %39 ], [ 0, %37 ], [ 0, %34 ]
   %.1 = phi i64 [ %.05271, %19 ], [ %.05271, %39 ], [ %17, %37 ], [ %17, %34 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99

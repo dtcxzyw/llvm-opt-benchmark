@@ -1516,7 +1516,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %2
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i80
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i80:             ; preds = %18, %27, %25
-  %.20 = phi i8 [ %.0, %27 ], [ %.0, %25 ], [ 1, %18 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1539,7 +1538,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i80:             ; preds = %18, %27, %25
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit82"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit82": ; preds = %39, %37, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit"
-  %.1 = phi i8 [ %.0, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit" ], [ %.20, %37 ], [ %.20, %39 ]
+  %.1 = phi i8 [ %.0, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit" ], [ 1, %37 ], [ 1, %39 ]
   %42 = and i32 %0, 4
   %.not22.i = icmp eq i32 %42, 0
   br i1 %.not22.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit85", label %43
@@ -1567,7 +1566,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i80:             ; preds = %18, %27, %25
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i83
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i83:             ; preds = %43, %52, %50
-  %.21 = phi i8 [ %.1, %52 ], [ %.1, %50 ], [ 1, %43 ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1590,7 +1588,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i83:             ; preds = %43, %52, %50
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit85"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit85": ; preds = %64, %62, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit82"
-  %.2 = phi i8 [ %.1, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit82" ], [ %.21, %62 ], [ %.21, %64 ]
+  %.2 = phi i8 [ %.1, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit82" ], [ 1, %62 ], [ 1, %64 ]
   %67 = and i32 %0, 8
   %.not23.i = icmp eq i32 %67, 0
   br i1 %.not23.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit88", label %68
@@ -1618,7 +1616,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i83:             ; preds = %43, %52, %50
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i86
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i86:             ; preds = %68, %77, %75
-  %.22 = phi i8 [ %.2, %77 ], [ %.2, %75 ], [ 1, %68 ]
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1641,7 +1638,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i86:             ; preds = %68, %77, %75
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit88"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit88": ; preds = %89, %87, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit85"
-  %.3 = phi i8 [ %.2, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit85" ], [ %.22, %87 ], [ %.22, %89 ]
+  %.3 = phi i8 [ %.2, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit85" ], [ 1, %87 ], [ 1, %89 ]
   %92 = and i32 %0, 16
   %.not24.i = icmp eq i32 %92, 0
   br i1 %.not24.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit91", label %93
@@ -1669,7 +1666,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i86:             ; preds = %68, %77, %75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i89
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i89:             ; preds = %93, %102, %100
-  %.23 = phi i8 [ %.3, %102 ], [ %.3, %100 ], [ 1, %93 ]
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1692,7 +1688,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i89:             ; preds = %93, %102, %100
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit91"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit91": ; preds = %114, %112, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit88"
-  %.4 = phi i8 [ %.3, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit88" ], [ %.23, %112 ], [ %.23, %114 ]
+  %.4 = phi i8 [ %.3, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit88" ], [ 1, %112 ], [ 1, %114 ]
   %117 = and i32 %0, 32
   %.not25.i = icmp eq i32 %117, 0
   br i1 %.not25.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit94", label %118
@@ -1720,7 +1716,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i89:             ; preds = %93, %102, %100
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i92
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i92:             ; preds = %118, %127, %125
-  %.24 = phi i8 [ %.4, %127 ], [ %.4, %125 ], [ 1, %118 ]
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1743,7 +1738,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i92:             ; preds = %118, %127, %125
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit94"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit94": ; preds = %139, %137, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit91"
-  %.5 = phi i8 [ %.4, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit91" ], [ %.24, %137 ], [ %.24, %139 ]
+  %.5 = phi i8 [ %.4, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit91" ], [ 1, %137 ], [ 1, %139 ]
   %142 = and i32 %0, 64
   %.not26.i = icmp eq i32 %142, 0
   br i1 %.not26.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit97", label %143
@@ -1771,7 +1766,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i92:             ; preds = %118, %127, %125
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i95
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i95:             ; preds = %143, %152, %150
-  %.25 = phi i8 [ %.5, %152 ], [ %.5, %150 ], [ 1, %143 ]
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1794,7 +1788,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i95:             ; preds = %143, %152, %150
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit97"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit97": ; preds = %164, %162, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit94"
-  %.6 = phi i8 [ %.5, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit94" ], [ %.25, %162 ], [ %.25, %164 ]
+  %.6 = phi i8 [ %.5, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit94" ], [ 1, %162 ], [ 1, %164 ]
   %167 = and i32 %0, 128
   %.not27.i = icmp eq i32 %167, 0
   br i1 %.not27.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit100", label %168
@@ -1822,7 +1816,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i95:             ; preds = %143, %152, %150
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i98
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i98:             ; preds = %168, %177, %175
-  %.26 = phi i8 [ %.6, %177 ], [ %.6, %175 ], [ 1, %168 ]
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1845,7 +1838,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i98:             ; preds = %168, %177, %175
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit100"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit100": ; preds = %189, %187, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit97"
-  %.7 = phi i8 [ %.6, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit97" ], [ %.26, %187 ], [ %.26, %189 ]
+  %.7 = phi i8 [ %.6, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit97" ], [ 1, %187 ], [ 1, %189 ]
   %192 = and i32 %0, 256
   %.not28.i = icmp eq i32 %192, 0
   br i1 %.not28.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit103", label %193
@@ -1873,7 +1866,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i98:             ; preds = %168, %177, %175
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i101
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i101:            ; preds = %193, %202, %200
-  %.27 = phi i8 [ %.7, %202 ], [ %.7, %200 ], [ 1, %193 ]
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %205 = load ptr, ptr %204, align 8
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1896,7 +1888,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i101:            ; preds = %193, %202, %200
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit103"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit103": ; preds = %214, %212, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit100"
-  %.8 = phi i8 [ %.7, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit100" ], [ %.27, %212 ], [ %.27, %214 ]
+  %.8 = phi i8 [ %.7, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit100" ], [ 1, %212 ], [ 1, %214 ]
   %217 = and i32 %0, 512
   %.not29.i = icmp eq i32 %217, 0
   br i1 %.not29.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit106", label %218
@@ -1924,7 +1916,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i101:            ; preds = %193, %202, %200
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i104
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i104:            ; preds = %218, %227, %225
-  %.28 = phi i8 [ %.8, %227 ], [ %.8, %225 ], [ 1, %218 ]
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %230 = load ptr, ptr %229, align 8
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1947,7 +1938,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i104:            ; preds = %218, %227, %225
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit106"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit106": ; preds = %239, %237, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit103"
-  %.9 = phi i8 [ %.8, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit103" ], [ %.28, %237 ], [ %.28, %239 ]
+  %.9 = phi i8 [ %.8, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit103" ], [ 1, %237 ], [ 1, %239 ]
   %242 = and i32 %0, 1024
   %.not30.i = icmp eq i32 %242, 0
   br i1 %.not30.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit109", label %243
@@ -1975,7 +1966,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i104:            ; preds = %218, %227, %225
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i107
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i107:            ; preds = %243, %252, %250
-  %.29 = phi i8 [ %.9, %252 ], [ %.9, %250 ], [ 1, %243 ]
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1998,7 +1988,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i107:            ; preds = %243, %252, %250
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit109"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit109": ; preds = %264, %262, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit106"
-  %.10 = phi i8 [ %.9, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit106" ], [ %.29, %262 ], [ %.29, %264 ]
+  %.10 = phi i8 [ %.9, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit106" ], [ 1, %262 ], [ 1, %264 ]
   %267 = and i32 %0, 2048
   %.not31.i = icmp eq i32 %267, 0
   br i1 %.not31.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit112", label %268
@@ -2026,7 +2016,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i107:            ; preds = %243, %252, %250
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i110
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i110:            ; preds = %268, %277, %275
-  %.30 = phi i8 [ %.10, %277 ], [ %.10, %275 ], [ 1, %268 ]
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %280 = load ptr, ptr %279, align 8
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2049,7 +2038,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i110:            ; preds = %268, %277, %275
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit112"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit112": ; preds = %289, %287, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit109"
-  %.11 = phi i8 [ %.10, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit109" ], [ %.30, %287 ], [ %.30, %289 ]
+  %.11 = phi i8 [ %.10, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit109" ], [ 1, %287 ], [ 1, %289 ]
   %292 = and i32 %0, 4096
   %.not32.i = icmp eq i32 %292, 0
   br i1 %.not32.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit115", label %293
@@ -2077,7 +2066,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i110:            ; preds = %268, %277, %275
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i113
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i113:            ; preds = %293, %302, %300
-  %.31 = phi i8 [ %.11, %302 ], [ %.11, %300 ], [ 1, %293 ]
   %304 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2100,7 +2088,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i113:            ; preds = %293, %302, %300
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit115"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit115": ; preds = %314, %312, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit112"
-  %.12 = phi i8 [ %.11, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit112" ], [ %.31, %312 ], [ %.31, %314 ]
+  %.12 = phi i8 [ %.11, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit112" ], [ 1, %312 ], [ 1, %314 ]
   %317 = and i32 %0, 8192
   %.not33.i = icmp eq i32 %317, 0
   br i1 %.not33.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit118", label %318
@@ -2128,7 +2116,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i113:            ; preds = %293, %302, %300
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i116
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i116:            ; preds = %318, %327, %325
-  %.32 = phi i8 [ %.12, %327 ], [ %.12, %325 ], [ 1, %318 ]
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %330 = load ptr, ptr %329, align 8
   %331 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2151,7 +2138,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i116:            ; preds = %318, %327, %325
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit118"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit118": ; preds = %339, %337, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit115"
-  %.13 = phi i8 [ %.12, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit115" ], [ %.32, %337 ], [ %.32, %339 ]
+  %.13 = phi i8 [ %.12, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit115" ], [ 1, %337 ], [ 1, %339 ]
   %342 = and i32 %0, 16384
   %.not34.i = icmp eq i32 %342, 0
   br i1 %.not34.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit121", label %343
@@ -2179,7 +2166,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i116:            ; preds = %318, %327, %325
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i119
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i119:            ; preds = %343, %352, %350
-  %.33 = phi i8 [ %.13, %352 ], [ %.13, %350 ], [ 1, %343 ]
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %355 = load ptr, ptr %354, align 8
   %356 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2202,7 +2188,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i119:            ; preds = %343, %352, %350
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit121"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit121": ; preds = %364, %362, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit118"
-  %.14 = phi i8 [ %.13, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit118" ], [ %.33, %362 ], [ %.33, %364 ]
+  %.14 = phi i8 [ %.13, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit118" ], [ 1, %362 ], [ 1, %364 ]
   %367 = and i32 %0, 32768
   %.not35.i = icmp eq i32 %367, 0
   br i1 %.not35.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit124", label %368
@@ -2230,7 +2216,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i119:            ; preds = %343, %352, %350
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i122
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i122:            ; preds = %368, %377, %375
-  %.34 = phi i8 [ %.14, %377 ], [ %.14, %375 ], [ 1, %368 ]
   %379 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %380 = load ptr, ptr %379, align 8
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2253,7 +2238,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i122:            ; preds = %368, %377, %375
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit124"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit124": ; preds = %389, %387, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit121"
-  %.15 = phi i8 [ %.14, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit121" ], [ %.34, %387 ], [ %.34, %389 ]
+  %.15 = phi i8 [ %.14, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit121" ], [ 1, %387 ], [ 1, %389 ]
   %392 = and i32 %0, 65536
   %.not36.i = icmp eq i32 %392, 0
   br i1 %.not36.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit127", label %393
@@ -2281,7 +2266,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i122:            ; preds = %368, %377, %375
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i125
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i125:            ; preds = %393, %402, %400
-  %.35 = phi i8 [ %.15, %402 ], [ %.15, %400 ], [ 1, %393 ]
   %404 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %405 = load ptr, ptr %404, align 8
   %406 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2304,7 +2288,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i125:            ; preds = %393, %402, %400
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit127"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit127": ; preds = %414, %412, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit124"
-  %.16 = phi i8 [ %.15, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit124" ], [ %.35, %412 ], [ %.35, %414 ]
+  %.16 = phi i8 [ %.15, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit124" ], [ 1, %412 ], [ 1, %414 ]
   %417 = and i32 %0, 131072
   %.not37.i = icmp eq i32 %417, 0
   br i1 %.not37.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit130", label %418
@@ -2332,7 +2316,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i125:            ; preds = %393, %402, %400
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i128
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i128:            ; preds = %418, %427, %425
-  %.36 = phi i8 [ %.16, %427 ], [ %.16, %425 ], [ 1, %418 ]
   %429 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %430 = load ptr, ptr %429, align 8
   %431 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2355,7 +2338,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i128:            ; preds = %418, %427, %425
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit130"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit130": ; preds = %439, %437, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit127"
-  %.17 = phi i8 [ %.16, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit127" ], [ %.36, %437 ], [ %.36, %439 ]
+  %.17 = phi i8 [ %.16, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit127" ], [ 1, %437 ], [ 1, %439 ]
   %442 = and i32 %0, 262144
   %.not38.i = icmp eq i32 %442, 0
   br i1 %.not38.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit133", label %443
@@ -2383,7 +2366,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i128:            ; preds = %418, %427, %425
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i131
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i131:            ; preds = %443, %452, %450
-  %.37 = phi i8 [ %.17, %452 ], [ %.17, %450 ], [ 1, %443 ]
   %454 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %455 = load ptr, ptr %454, align 8
   %456 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2406,7 +2388,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i131:            ; preds = %443, %452, %450
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit133"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit133": ; preds = %464, %462, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit130"
-  %.18 = phi i8 [ %.17, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit130" ], [ %.37, %462 ], [ %.37, %464 ]
+  %.18 = phi i8 [ %.17, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit130" ], [ 1, %462 ], [ 1, %464 ]
   %467 = and i32 %0, 524288
   %.not39.i = icmp eq i32 %467, 0
   br i1 %.not39.i, label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit136", label %468
@@ -2434,7 +2416,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i131:            ; preds = %443, %452, %450
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i134
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i134:            ; preds = %468, %477, %475
-  %.38 = phi i8 [ %.18, %477 ], [ %.18, %475 ], [ 1, %468 ]
   %479 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %480 = load ptr, ptr %479, align 8
   %481 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2457,7 +2438,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i134:            ; preds = %468, %477, %475
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit136"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit136": ; preds = %489, %487, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit133"
-  %.19 = phi i8 [ %.18, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit133" ], [ %.38, %487 ], [ %.38, %489 ]
+  %.19 = phi i8 [ %.18, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit133" ], [ 1, %487 ], [ 1, %489 ]
   %492 = and i32 %0, 1048576
   %.not40.i = icmp eq i32 %492, 0
   br i1 %.not40.i, label %_ZN5clang5index35applyForEachSymbolRoleInterruptibleEjN4llvm12function_refIFbNS0_10SymbolRoleEEEE.exit, label %493
@@ -2773,7 +2754,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %2
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i1
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i1:              ; preds = %19, %28, %26
-  %.8 = phi i8 [ %.0, %28 ], [ %.0, %26 ], [ 1, %19 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2796,7 +2776,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i1:              ; preds = %19, %28, %26
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit3"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit3": ; preds = %40, %38, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit"
-  %.1 = phi i8 [ %.0, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit" ], [ %.8, %38 ], [ %.8, %40 ]
+  %.1 = phi i8 [ %.0, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit" ], [ 1, %38 ], [ 1, %40 ]
   %43 = and i32 %3, 4
   %.not10.i = icmp eq i32 %43, 0
   br i1 %.not10.i, label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit6", label %44
@@ -2824,7 +2804,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i1:              ; preds = %19, %28, %26
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i4
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i4:              ; preds = %44, %53, %51
-  %.9 = phi i8 [ %.1, %53 ], [ %.1, %51 ], [ 1, %44 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2847,7 +2826,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i4:              ; preds = %44, %53, %51
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit6"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit6": ; preds = %65, %63, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit3"
-  %.2 = phi i8 [ %.1, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit3" ], [ %.9, %63 ], [ %.9, %65 ]
+  %.2 = phi i8 [ %.1, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit3" ], [ 1, %63 ], [ 1, %65 ]
   %68 = and i32 %3, 8
   %.not11.i = icmp eq i32 %68, 0
   br i1 %.not11.i, label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit9", label %69
@@ -2875,7 +2854,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i4:              ; preds = %44, %53, %51
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i7
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i7:              ; preds = %69, %78, %76
-  %.10 = phi i8 [ %.2, %78 ], [ %.2, %76 ], [ 1, %69 ]
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2898,7 +2876,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i7:              ; preds = %69, %78, %76
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit9"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit9": ; preds = %90, %88, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit6"
-  %.3 = phi i8 [ %.2, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit6" ], [ %.10, %88 ], [ %.10, %90 ]
+  %.3 = phi i8 [ %.2, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit6" ], [ 1, %88 ], [ 1, %90 ]
   %93 = and i32 %3, 16
   %.not12.i = icmp eq i32 %93, 0
   br i1 %.not12.i, label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit12", label %94
@@ -2926,7 +2904,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i7:              ; preds = %69, %78, %76
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i10
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i10:             ; preds = %94, %103, %101
-  %.11 = phi i8 [ %.3, %103 ], [ %.3, %101 ], [ 1, %94 ]
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2949,7 +2926,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i10:             ; preds = %94, %103, %101
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit12"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit12": ; preds = %115, %113, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit9"
-  %.4 = phi i8 [ %.3, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit9" ], [ %.11, %113 ], [ %.11, %115 ]
+  %.4 = phi i8 [ %.3, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit9" ], [ 1, %113 ], [ 1, %115 ]
   %118 = and i32 %3, 32
   %.not13.i = icmp eq i32 %118, 0
   br i1 %.not13.i, label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit15", label %119
@@ -2977,7 +2954,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i10:             ; preds = %94, %103, %101
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i13
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i13:             ; preds = %119, %128, %126
-  %.12 = phi i8 [ %.4, %128 ], [ %.4, %126 ], [ 1, %119 ]
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3000,7 +2976,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i13:             ; preds = %119, %128, %126
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit15"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit15": ; preds = %140, %138, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit12"
-  %.5 = phi i8 [ %.4, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit12" ], [ %.12, %138 ], [ %.12, %140 ]
+  %.5 = phi i8 [ %.4, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit12" ], [ 1, %138 ], [ 1, %140 ]
   %143 = and i32 %3, 64
   %.not14.i = icmp eq i32 %143, 0
   br i1 %.not14.i, label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit18", label %144
@@ -3028,7 +3004,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i13:             ; preds = %119, %128, %126
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i16
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i16:             ; preds = %144, %153, %151
-  %.13 = phi i8 [ %.5, %153 ], [ %.5, %151 ], [ 1, %144 ]
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3051,7 +3026,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i16:             ; preds = %144, %153, %151
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit18"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit18": ; preds = %165, %163, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit15"
-  %.6 = phi i8 [ %.5, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit15" ], [ %.13, %163 ], [ %.13, %165 ]
+  %.6 = phi i8 [ %.5, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit15" ], [ 1, %163 ], [ 1, %165 ]
   %168 = and i32 %3, 128
   %.not15.i = icmp eq i32 %168, 0
   br i1 %.not15.i, label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit21", label %169
@@ -3079,7 +3054,6 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i16:             ; preds = %144, %153, %151
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i19
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i19:             ; preds = %169, %178, %176
-  %.14 = phi i8 [ %.6, %178 ], [ %.6, %176 ], [ 1, %169 ]
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3102,7 +3076,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i19:             ; preds = %169, %178, %176
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit21"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit21": ; preds = %190, %188, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit18"
-  %.7 = phi i8 [ %.6, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit18" ], [ %.14, %188 ], [ %.14, %190 ]
+  %.7 = phi i8 [ %.6, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit18" ], [ 1, %188 ], [ 1, %190 ]
   %193 = and i32 %3, 256
   %.not16.i = icmp eq i32 %193, 0
   br i1 %.not16.i, label %_ZN5clang5index26applyForEachSymbolPropertyEtN4llvm12function_refIFvNS0_14SymbolPropertyEEEE.exit, label %194

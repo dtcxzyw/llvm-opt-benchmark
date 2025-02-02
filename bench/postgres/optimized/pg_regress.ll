@@ -1989,7 +1989,6 @@ create_role.exit:                                 ; preds = %._crit_edge.i
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %696, %691
-  %.1138.i = phi i8 [ 0, %696 ], [ %.0137.i, %691 ]
   %.1135.i = phi i32 [ %700, %696 ], [ %.0134.i, %691 ]
   br i1 %683, label %705, label %703
 
@@ -1999,7 +1998,7 @@ thread-pre-split.i:                               ; preds = %696, %691
   br label %703
 
 703:                                              ; preds = %701, %thread-pre-split.i
-  %.2139.i = phi i8 [ %.1138.i, %thread-pre-split.i ], [ 1, %701 ]
+  %.2139.i = phi i8 [ 0, %thread-pre-split.i ], [ 1, %701 ]
   %.2136.i = phi i32 [ %.1135.i, %thread-pre-split.i ], [ %.0134.i, %701 ]
   %.2.i = phi ptr [ %.1.i, %thread-pre-split.i ], [ %spec.select154.i, %701 ]
   %704 = getelementptr i8, ptr %.0131.i, i64 1

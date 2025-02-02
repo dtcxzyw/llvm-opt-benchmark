@@ -7305,9 +7305,9 @@ while.cond.preheader.i:                           ; preds = %bdrv_backing_overri
   %options.i = getelementptr inbounds nuw i8, ptr %bs, i64 16856
   br label %while.cond.outer.i.outer
 
-while.cond.outer.i.outer:                         ; preds = %land.lhs.true50.i, %while.cond.preheader.i
-  %option_name.0.ph.i.ph = phi ptr [ %retval.0.i.i, %land.lhs.true50.i ], [ null, %while.cond.preheader.i ]
-  %found_any.0.ph.i.ph = phi i8 [ %spec.select27.i, %land.lhs.true50.i ], [ 0, %while.cond.preheader.i ]
+while.cond.outer.i.outer:                         ; preds = %while.cond.outer.i.outer.backedge, %while.cond.preheader.i
+  %option_name.0.ph.i.ph = phi ptr [ null, %while.cond.preheader.i ], [ %retval.0.i.i, %while.cond.outer.i.outer.backedge ]
+  %found_any.0.ph.i.ph = phi i8 [ 0, %while.cond.preheader.i ], [ %found_any.0.ph.i.ph.be, %while.cond.outer.i.outer.backedge ]
   %tobool44.i = trunc nuw i8 %found_any.0.ph.i.ph to i1
   br label %while.cond.outer.i
 
@@ -7426,19 +7426,23 @@ if.end43.i:                                       ; preds = %if.end43.loopexit.i
   %brmerge.i = select i1 %tobool44.i, i1 true, i1 %option_given.0.i
   br i1 %brmerge.i, label %while.cond.outer.i.backedge, label %land.lhs.true47.i
 
+while.cond.outer.i.backedge:                      ; preds = %if.end43.i, %if.else17.i
+  br label %while.cond.outer.i, !llvm.loop !28
+
 land.lhs.true47.i:                                ; preds = %if.end43.i
   %30 = load ptr, ptr %retval.0.i.i, align 8
   %call48.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(7) @.str.20) #30
   %tobool49.not.i = icmp eq i32 %call48.i, 0
-  br i1 %tobool49.not.i, label %while.cond.outer.i.backedge, label %land.lhs.true50.i
-
-while.cond.outer.i.backedge:                      ; preds = %land.lhs.true47.i, %if.end43.i, %if.else17.i
-  br label %while.cond.outer.i, !llvm.loop !28
+  br i1 %tobool49.not.i, label %while.cond.outer.i.outer.backedge, label %land.lhs.true50.i
 
 land.lhs.true50.i:                                ; preds = %land.lhs.true47.i
   %call51.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(9) @.str.5) #30
   %tobool52.not.i = icmp eq i32 %call51.i, 0
   %spec.select27.i = select i1 %tobool52.not.i, i8 %found_any.0.ph.i.ph, i8 1
+  br label %while.cond.outer.i.outer.backedge
+
+while.cond.outer.i.outer.backedge:                ; preds = %land.lhs.true50.i, %land.lhs.true47.i
+  %found_any.0.ph.i.ph.be = phi i8 [ 0, %land.lhs.true47.i ], [ %spec.select27.i, %land.lhs.true50.i ]
   br label %while.cond.outer.i.outer, !llvm.loop !28
 
 while.end.i:                                      ; preds = %land.lhs.true6.i.i, %if.end4.i.i

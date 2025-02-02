@@ -3955,17 +3955,17 @@ define internal void @"_ZN73_$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_com
   %6 = load i8, ptr %5, align 8, !range !433, !noundef !4
   switch i8 %6, label %default.unreachable59 [
     i8 0, label %8
-    i8 1, label %63
-    i8 2, label %64
+    i8 1, label %58
+    i8 2, label %59
   ]
 
 default.unreachable59:                            ; preds = %3
   unreachable
 
-7:                                                ; preds = %53, %55, %60
-  %.sroa.033.0 = phi i64 [ 2, %60 ], [ 0, %53 ], [ 1, %55 ]
-  %.sroa.4.0 = phi ptr [ %62, %60 ], [ %37, %53 ], [ %37, %55 ]
-  %.sroa.7.0 = phi ptr [ undef, %60 ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.59, %53 ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.60, %55 ]
+7:                                                ; preds = %53, %54, %55
+  %.sroa.033.0 = phi i64 [ 2, %55 ], [ 0, %53 ], [ 1, %54 ]
+  %.sroa.4.0 = phi ptr [ %57, %55 ], [ %37, %53 ], [ %37, %54 ]
+  %.sroa.7.0 = phi ptr [ undef, %55 ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.59, %53 ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.60, %54 ]
   store i64 %.sroa.033.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -4006,7 +4006,7 @@ default.unreachable59:                            ; preds = %3
 29:                                               ; preds = %8
   %30 = load i32, ptr %4, align 8, !range !371, !alias.scope !533, !noalias !536, !noundef !4
   %trunc.i = trunc nuw i32 %30 to i1
-  br i1 %trunc.i, label %60, label %31
+  br i1 %trunc.i, label %55, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -4034,7 +4034,7 @@ default.unreachable59:                            ; preds = %3
   %42 = landingpad { ptr, i32 }
           cleanup
   %43 = invoke noundef i32 @close(i32 noundef %35)
-          to label %.body unwind label %44
+          to label %"_ZN4core3ptr48drop_in_place$LT$wasi_common..sync..dir..Dir$GT$17h31be2a4462bed8c4E.exit27" unwind label %44
 
 44:                                               ; preds = %41
   %45 = landingpad { ptr, i32 }
@@ -4043,7 +4043,7 @@ default.unreachable59:                            ; preds = %3
   unreachable
 
 46:                                               ; preds = %31
-  br i1 %38, label %47, label %55
+  br i1 %38, label %47, label %54
 
 47:                                               ; preds = %46
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 4, i64 noundef 4) #25
@@ -4068,40 +4068,26 @@ default.unreachable59:                            ; preds = %3
   store i32 %35, ptr %37, align 4
   br label %7
 
-.body:                                            ; preds = %41
-  %54 = icmp eq i32 %33, 0
-  br i1 %54, label %"_ZN4core3ptr48drop_in_place$LT$wasi_common..sync..dir..Dir$GT$17h31be2a4462bed8c4E.exit27", label %58
-
-55:                                               ; preds = %46
+54:                                               ; preds = %46
   store i32 %35, ptr %37, align 4
   br label %7
 
-56:                                               ; preds = %58
-  %57 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22
-  unreachable
-
-58:                                               ; preds = %.body
-  %59 = invoke noundef i32 @close(i32 noundef %35)
-          to label %"_ZN4core3ptr48drop_in_place$LT$wasi_common..sync..dir..Dir$GT$17h31be2a4462bed8c4E.exit27" unwind label %56
-
-60:                                               ; preds = %29
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %62 = load ptr, ptr %61, align 8, !alias.scope !533, !noalias !536, !nonnull !4, !noundef !4
+55:                                               ; preds = %29
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %57 = load ptr, ptr %56, align 8, !alias.scope !533, !noalias !536, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %7
 
-"_ZN4core3ptr48drop_in_place$LT$wasi_common..sync..dir..Dir$GT$17h31be2a4462bed8c4E.exit27": ; preds = %.body, %48, %27, %58
-  %.pn.pn = phi { ptr, i32 } [ %42, %58 ], [ %28, %27 ], [ %49, %48 ], [ %42, %.body ]
+"_ZN4core3ptr48drop_in_place$LT$wasi_common..sync..dir..Dir$GT$17h31be2a4462bed8c4E.exit27": ; preds = %41, %48, %27
+  %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %49, %48 ], [ %42, %41 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn.pn
 
-63:                                               ; preds = %3
+58:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e3d9daafcce16016cc0c68d602f6e14.63) #25
   unreachable
 
-64:                                               ; preds = %3
+59:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4e3d9daafcce16016cc0c68d602f6e14.63) #25
   unreachable
 }

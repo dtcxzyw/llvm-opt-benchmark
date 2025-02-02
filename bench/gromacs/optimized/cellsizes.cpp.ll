@@ -2209,17 +2209,17 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %56
 
 56:                                               ; preds = %.lr.ph86, %70
-  %indvars.iv149 = phi i64 [ %30, %.lr.ph86 ], [ %indvars.iv.next150, %70 ]
+  %indvars.iv150 = phi i64 [ %30, %.lr.ph86 ], [ %indvars.iv.next151, %70 ]
   %.025785 = phi float [ 0.000000e+00, %.lr.ph86 ], [ %.1258, %70 ]
-  %57 = trunc nsw i64 %indvars.iv149 to i32
+  %57 = trunc nsw i64 %indvars.iv150 to i32
   %58 = sdiv i32 %57, 64
   %.sext36 = sext i32 %58 to i64
   %59 = getelementptr inbounds i64, ptr %55, i64 %.sext36
-  %60 = and i64 %indvars.iv149, -9223372036854775745
+  %60 = and i64 %indvars.iv150, -9223372036854775745
   %61 = icmp ugt i64 %60, -9223372036854775808
   %storemerge.idx.i.i.i.i.i276 = select i1 %61, i64 -8, i64 0
   %storemerge.i.i.i.i.i277 = getelementptr inbounds i8, ptr %59, i64 %storemerge.idx.i.i.i.i.i276
-  %62 = and i64 %indvars.iv149, 63
+  %62 = and i64 %indvars.iv150, 63
   %63 = shl nuw i64 1, %62
   %64 = load i64, ptr %storemerge.i.i.i.i.i277, align 8
   %65 = and i64 %64, %63
@@ -2227,16 +2227,16 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not42, label %66, label %70
 
 66:                                               ; preds = %56
-  %67 = getelementptr inbounds float, ptr %38, i64 %indvars.iv149
+  %67 = getelementptr inbounds float, ptr %38, i64 %indvars.iv150
   %68 = load float, ptr %67, align 4
   %69 = fadd float %.025785, %68
   br label %70
 
 70:                                               ; preds = %56, %66
   %.1258 = phi float [ %69, %66 ], [ %.025785, %56 ]
-  %indvars.iv.next150 = add nsw i64 %indvars.iv149, 1
-  %exitcond153.not = icmp eq i64 %indvars.iv.next150, %24
-  br i1 %exitcond153.not, label %._crit_edge, label %56, !llvm.loop !33
+  %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
+  %exitcond154.not = icmp eq i64 %indvars.iv.next151, %24
+  br i1 %exitcond154.not, label %._crit_edge, label %56, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %70
   %71 = uitofp nneg i32 %.0250 to float
@@ -2246,23 +2246,23 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %._crit_edge, %.lr.ph91._crit_edge
-  %indvars.iv154 = phi i64 [ %indvars.iv.next155, %.lr.ph91._crit_edge ], [ %30, %._crit_edge ]
+  %indvars.iv155 = phi i64 [ %indvars.iv.next156, %.lr.ph91._crit_edge ], [ %30, %._crit_edge ]
   %.125189 = phi i32 [ %.2, %.lr.ph91._crit_edge ], [ %.0250, %._crit_edge ]
   %75 = load ptr, ptr %3, align 8
-  %76 = trunc nsw i64 %indvars.iv154 to i32
+  %76 = trunc nsw i64 %indvars.iv155 to i32
   %77 = sdiv i32 %76, 64
   %.sext38 = sext i32 %77 to i64
   %78 = getelementptr inbounds i64, ptr %75, i64 %.sext38
-  %79 = and i64 %indvars.iv154, -9223372036854775745
+  %79 = and i64 %indvars.iv155, -9223372036854775745
   %80 = icmp ugt i64 %79, -9223372036854775808
   %storemerge.idx.i.i.i.i.i280 = select i1 %80, i64 -8, i64 0
   %storemerge.i.i.i.i.i281 = getelementptr inbounds i8, ptr %78, i64 %storemerge.idx.i.i.i.i.i280
-  %81 = and i64 %indvars.iv154, 63
+  %81 = and i64 %indvars.iv155, 63
   %82 = shl nuw i64 1, %81
   %83 = load i64, ptr %storemerge.i.i.i.i.i281, align 8
   %84 = and i64 %83, %82
   %.not41 = icmp eq i64 %84, 0
-  %85 = getelementptr inbounds float, ptr %38, i64 %indvars.iv154
+  %85 = getelementptr inbounds float, ptr %38, i64 %indvars.iv155
   %86 = load float, ptr %85, align 4
   br i1 %.not41, label %87, label %.lr.ph91._crit_edge
 
@@ -2272,7 +2272,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %37, label %95, label %89
 
 89:                                               ; preds = %87
-  %90 = icmp eq i64 %indvars.iv154, 0
+  %90 = icmp eq i64 %indvars.iv155, 0
   br i1 %90, label %96, label %91
 
 91:                                               ; preds = %89
@@ -2304,21 +2304,21 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %105 = phi float [ %97, %99 ], [ %88, %96 ], [ %86, %.lr.ph91 ]
   %.2 = phi i32 [ %104, %99 ], [ %.125189, %96 ], [ %.125189, %.lr.ph91 ]
   %106 = load ptr, ptr %11, align 8
-  %107 = getelementptr inbounds float, ptr %106, i64 %indvars.iv154
+  %107 = getelementptr inbounds float, ptr %106, i64 %indvars.iv155
   %108 = load float, ptr %107, align 4
   %109 = fadd float %108, %105
-  %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
-  %110 = getelementptr inbounds float, ptr %106, i64 %indvars.iv.next155
+  %indvars.iv.next156 = add nsw i64 %indvars.iv155, 1
+  %110 = getelementptr inbounds float, ptr %106, i64 %indvars.iv.next156
   store float %109, ptr %110, align 4
-  %exitcond158.not = icmp eq i64 %indvars.iv.next155, %24
-  br i1 %exitcond158.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !34
+  %exitcond159.not = icmp eq i64 %indvars.iv.next156, %24
+  br i1 %exitcond159.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !34
 
 ._crit_edge92:                                    ; preds = %.lr.ph91._crit_edge
   %111 = icmp sgt i32 %.2, %.0250
   br i1 %111, label %.preheader53, label %._crit_edge92.thread, !llvm.loop !35
 
 ._crit_edge92.thread:                             ; preds = %.preheader53, %._crit_edge92
-  %.1251.lcssa196 = phi i32 [ %.2, %._crit_edge92 ], [ %.0250, %.preheader53 ]
+  %.1251.lcssa197 = phi i32 [ %.2, %._crit_edge92 ], [ %.0250, %.preheader53 ]
   %112 = load ptr, ptr %11, align 8
   %113 = getelementptr inbounds float, ptr %112, i64 %24
   %114 = load float, ptr %113, align 4
@@ -2368,7 +2368,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   resume { ptr, i32 } %141
 
 142:                                              ; preds = %._crit_edge92.thread
-  %143 = icmp sgt i32 %.1251.lcssa196, 0
+  %143 = icmp sgt i32 %.1251.lcssa197, 0
   %144 = icmp sgt i32 %.0.val.tr, 0
   %or.cond = or i1 %144, %143
   %145 = icmp slt i32 %.4.val.tr.ph, %35
@@ -2389,39 +2389,39 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.loopexit51
-  %indvars.iv170 = phi i64 [ %152, %.lr.ph106.preheader ], [ %indvars.iv.next171.pre-phi, %.loopexit51 ]
-  %indvars.iv165 = phi i32 [ %.0.val.tr, %.lr.ph106.preheader ], [ %indvars.iv.next166, %.loopexit51 ]
-  %indvars.iv159 = phi i64 [ %151, %.lr.ph106.preheader ], [ %indvars.iv.next160, %.loopexit51 ]
-  %153 = sext i32 %indvars.iv165 to i64
+  %indvars.iv171 = phi i64 [ %152, %.lr.ph106.preheader ], [ %indvars.iv.next172.pre-phi, %.loopexit51 ]
+  %indvars.iv166 = phi i32 [ %.0.val.tr, %.lr.ph106.preheader ], [ %indvars.iv.next167, %.loopexit51 ]
+  %indvars.iv160 = phi i64 [ %151, %.lr.ph106.preheader ], [ %indvars.iv.next161, %.loopexit51 ]
+  %153 = sext i32 %indvars.iv166 to i64
   %154 = load ptr, ptr %21, align 8
-  %155 = getelementptr inbounds float, ptr %154, i64 %indvars.iv170
+  %155 = getelementptr inbounds float, ptr %154, i64 %indvars.iv171
   %156 = load float, ptr %155, align 4
-  %157 = add nsw i64 %indvars.iv170, -1
+  %157 = add nsw i64 %indvars.iv171, -1
   %158 = getelementptr inbounds float, ptr %154, i64 %157
   %159 = load float, ptr %158, align 4
   %160 = fadd float %156, %159
   %161 = fmul float %160, 5.000000e-01
   %162 = load ptr, ptr %11, align 8
-  %163 = getelementptr inbounds float, ptr %162, i64 %indvars.iv170
+  %163 = getelementptr inbounds float, ptr %162, i64 %indvars.iv171
   %164 = load float, ptr %163, align 4
   %165 = fcmp olt float %164, %161
   br i1 %165, label %166, label %.lr.ph106..loopexit52_crit_edge
 
 .lr.ph106..loopexit52_crit_edge:                  ; preds = %.lr.ph106
-  %.pre193 = add nsw i64 %indvars.iv170, 1
+  %.pre194 = add nsw i64 %indvars.iv171, 1
   br label %.loopexit52
 
 166:                                              ; preds = %.lr.ph106
   store float %161, ptr %163, align 4
-  %167 = add nsw i64 %indvars.iv170, 1
+  %167 = add nsw i64 %indvars.iv171, 1
   %168 = icmp slt i64 %167, %24
   br i1 %168, label %.lr.ph98, label %.loopexit52
 
 .lr.ph98:                                         ; preds = %166, %178
-  %indvars.iv161 = phi i64 [ %indvars.iv.next162, %178 ], [ %indvars.iv159, %166 ]
-  %.0255.in95.in = phi i64 [ %indvars.iv161, %178 ], [ %indvars.iv170, %166 ]
+  %indvars.iv162 = phi i64 [ %indvars.iv.next163, %178 ], [ %indvars.iv160, %166 ]
+  %.0255.in95.in = phi i64 [ %indvars.iv162, %178 ], [ %indvars.iv171, %166 ]
   %169 = load ptr, ptr %11, align 8
-  %170 = getelementptr inbounds float, ptr %169, i64 %indvars.iv161
+  %170 = getelementptr inbounds float, ptr %169, i64 %indvars.iv162
   %171 = load float, ptr %170, align 4
   %sext = shl i64 %.0255.in95.in, 32
   %172 = ashr exact i64 %sext, 30
@@ -2436,22 +2436,22 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %178
 
 178:                                              ; preds = %.lr.ph98, %177
-  %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next162 to i32
-  %exitcond164.not = icmp eq i32 %.4.val.tr.ph, %lftr.wideiv
-  br i1 %exitcond164.not, label %.loopexit52, label %.lr.ph98, !llvm.loop !36
+  %indvars.iv.next163 = add nsw i64 %indvars.iv162, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next163 to i32
+  %exitcond165.not = icmp eq i32 %.4.val.tr.ph, %lftr.wideiv
+  br i1 %exitcond165.not, label %.loopexit52, label %.lr.ph98, !llvm.loop !36
 
 .loopexit52:                                      ; preds = %178, %.lr.ph106..loopexit52_crit_edge, %166
-  %indvars.iv.next171.pre-phi = phi i64 [ %.pre193, %.lr.ph106..loopexit52_crit_edge ], [ %167, %166 ], [ %167, %178 ]
+  %indvars.iv.next172.pre-phi = phi i64 [ %.pre194, %.lr.ph106..loopexit52_crit_edge ], [ %167, %166 ], [ %167, %178 ]
   %179 = load ptr, ptr %21, align 8
-  %180 = getelementptr inbounds float, ptr %179, i64 %indvars.iv170
+  %180 = getelementptr inbounds float, ptr %179, i64 %indvars.iv171
   %181 = load float, ptr %180, align 4
-  %182 = getelementptr inbounds float, ptr %179, i64 %indvars.iv.next171.pre-phi
+  %182 = getelementptr inbounds float, ptr %179, i64 %indvars.iv.next172.pre-phi
   %183 = load float, ptr %182, align 4
   %184 = fadd float %181, %183
   %185 = fmul float %184, 5.000000e-01
   %186 = load ptr, ptr %11, align 8
-  %187 = getelementptr inbounds float, ptr %186, i64 %indvars.iv170
+  %187 = getelementptr inbounds float, ptr %186, i64 %indvars.iv171
   %188 = load float, ptr %187, align 4
   %189 = fcmp ogt float %188, %185
   br i1 %189, label %190, label %.loopexit51
@@ -2462,9 +2462,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not273.not99, label %.lr.ph102, label %.loopexit51
 
 .lr.ph102:                                        ; preds = %190, %199
-  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %199 ], [ %153, %190 ]
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %199 ], [ %153, %190 ]
   %191 = load ptr, ptr %11, align 8
-  %192 = getelementptr float, ptr %191, i64 %indvars.iv167
+  %192 = getelementptr float, ptr %191, i64 %indvars.iv168
   %193 = load float, ptr %192, align 4
   %194 = getelementptr i8, ptr %192, i64 4
   %195 = load float, ptr %194, align 4
@@ -2477,16 +2477,16 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %199
 
 199:                                              ; preds = %.lr.ph102, %198
-  %indvars.iv.next168 = add nsw i64 %indvars.iv167, -1
-  %.not273.not = icmp sgt i64 %indvars.iv.next168, %30
+  %indvars.iv.next169 = add nsw i64 %indvars.iv168, -1
+  %.not273.not = icmp sgt i64 %indvars.iv.next169, %30
   br i1 %.not273.not, label %.lr.ph102, label %.loopexit51, !llvm.loop !37
 
 .loopexit51:                                      ; preds = %199, %190, %.loopexit52
-  %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
-  %indvars.iv.next166 = add i32 %indvars.iv165, 1
-  %lftr.wideiv174 = trunc i64 %indvars.iv.next171.pre-phi to i32
-  %exitcond175.not = icmp eq i32 %.4.val.tr.ph, %lftr.wideiv174
-  br i1 %exitcond175.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !38
+  %indvars.iv.next161 = add nsw i64 %indvars.iv160, 1
+  %indvars.iv.next167 = add i32 %indvars.iv166, 1
+  %lftr.wideiv175 = trunc i64 %indvars.iv.next172.pre-phi to i32
+  %exitcond176.not = icmp eq i32 %.4.val.tr.ph, %lftr.wideiv175
+  br i1 %exitcond176.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !38
 
 ._crit_edge107:                                   ; preds = %.loopexit51
   br i1 %22, label %.lr.ph115.preheader, label %.loopexit
@@ -2500,32 +2500,32 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %or.cond123, label %.thread34, label %.loopexit
 
 .thread34:                                        ; preds = %.thread, %.thread34
-  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.thread34 ], [ %30, %.thread ]
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.thread34 ], [ %30, %.thread ]
   %201 = load ptr, ptr %11, align 8
-  %202 = getelementptr inbounds float, ptr %201, i64 %indvars.iv183
+  %202 = getelementptr inbounds float, ptr %201, i64 %indvars.iv184
   %203 = load float, ptr %202, align 4
   %204 = load ptr, ptr %23, align 8
-  %205 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %204, i64 %indvars.iv183
+  %205 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %204, i64 %indvars.iv184
   store float %203, ptr %205, align 4
-  %indvars.iv.next184 = add nsw i64 %indvars.iv183, 1
+  %indvars.iv.next185 = add nsw i64 %indvars.iv184, 1
   %206 = load ptr, ptr %11, align 8
-  %207 = getelementptr inbounds float, ptr %206, i64 %indvars.iv.next184
+  %207 = getelementptr inbounds float, ptr %206, i64 %indvars.iv.next185
   %208 = load float, ptr %207, align 4
   %209 = load ptr, ptr %23, align 8
-  %210 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %209, i64 %indvars.iv183, i32 1
+  %210 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %209, i64 %indvars.iv184, i32 1
   store float %208, ptr %210, align 4
-  %exitcond190.not = icmp eq i64 %indvars.iv.next184, %24
-  br i1 %exitcond190.not, label %.loopexit, label %.thread34, !llvm.loop !39
+  %exitcond191.not = icmp eq i64 %indvars.iv.next185, %24
+  br i1 %exitcond191.not, label %.loopexit, label %.thread34, !llvm.loop !39
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %242
-  %indvars.iv176 = phi i64 [ %200, %.lr.ph115.preheader ], [ %indvars.iv.next177, %242 ]
+  %indvars.iv177 = phi i64 [ %200, %.lr.ph115.preheader ], [ %indvars.iv.next178, %242 ]
   %.0113 = phi i1 [ false, %.lr.ph115.preheader ], [ %.1, %242 ]
   %.sroa.14.0112 = phi i32 [ %.4.val.tr.ph, %.lr.ph115.preheader ], [ %.sroa.14.1, %242 ]
   %.sroa.014.0111 = phi i32 [ %.0.val.tr, %.lr.ph115.preheader ], [ %.sroa.014.2, %242 ]
   %211 = load ptr, ptr %23, align 8
-  %212 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %211, i64 %indvars.iv176
+  %212 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %211, i64 %indvars.iv177
   %213 = load ptr, ptr %11, align 8
-  %214 = getelementptr inbounds float, ptr %213, i64 %indvars.iv176
+  %214 = getelementptr inbounds float, ptr %213, i64 %indvars.iv177
   %215 = load float, ptr %214, align 4
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %217 = load float, ptr %216, align 4
@@ -2538,8 +2538,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %brmerge, label %227, label %222
 
 222:                                              ; preds = %.lr.ph115
-  %223 = getelementptr inbounds float, ptr %213, i64 %indvars.iv176
-  %224 = trunc nsw i64 %indvars.iv176 to i32
+  %223 = getelementptr inbounds float, ptr %213, i64 %indvars.iv177
+  %224 = trunc nsw i64 %indvars.iv177 to i32
   %225 = fadd float %217, %220
   %226 = fmul float %225, 5.000000e-01
   store float %226, ptr %223, align 4
@@ -2553,9 +2553,11 @@ tailrecurse.backedge:                             ; preds = %222, %244
 227:                                              ; preds = %.lr.ph115
   %brmerge40 = select i1 %218, i1 true, i1 %221
   %brmerge50 = select i1 %brmerge40, i1 true, i1 %.0113
-  %228 = trunc nsw i64 %indvars.iv176 to i32
+  %228 = trunc nsw i64 %indvars.iv177 to i32
   %.0252.mux.mux = select i1 %218, i32 %228, i32 %.sroa.14.0112
-  %.mux.mux = select i1 %.not274, i1 %.0113, i1 false
+  %not. = xor i1 %221, true
+  %.mux = select i1 %not., i1 true, i1 %.0113
+  %.mux.mux = select i1 %.not274, i1 %.mux, i1 false
   br i1 %brmerge50, label %242, label %229
 
 229:                                              ; preds = %227
@@ -2569,17 +2571,17 @@ tailrecurse.backedge:                             ; preds = %222, %244
   %235 = getelementptr inbounds float, ptr %213, i64 %232
   store float %234, ptr %235, align 4
   tail call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, i32 %.sroa.014.0111, i32 %.sroa.14.0112)
-  %.pre191 = load ptr, ptr %23, align 8
-  %.pre192 = load ptr, ptr %11, align 8
+  %.pre192 = load ptr, ptr %23, align 8
+  %.pre193 = load ptr, ptr %11, align 8
   br label %236
 
 236:                                              ; preds = %231, %229
-  %237 = phi ptr [ %.pre192, %231 ], [ %213, %229 ]
-  %238 = phi ptr [ %.pre191, %231 ], [ %211, %229 ]
+  %237 = phi ptr [ %.pre193, %231 ], [ %213, %229 ]
+  %238 = phi ptr [ %.pre192, %231 ], [ %211, %229 ]
   %.sroa.014.1 = phi i32 [ %.sroa.14.0112, %231 ], [ %.sroa.014.0111, %229 ]
-  %239 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %238, i64 %indvars.iv176, i32 3
+  %239 = getelementptr inbounds %"struct.RowCoordinator::Bounds", ptr %238, i64 %indvars.iv177, i32 3
   %240 = load float, ptr %239, align 4
-  %241 = getelementptr inbounds float, ptr %237, i64 %indvars.iv176
+  %241 = getelementptr inbounds float, ptr %237, i64 %indvars.iv177
   store float %240, ptr %241, align 4
   tail call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext false, i64 noundef %6, float noundef %7, i32 %.sroa.014.1, i32 %228)
   br label %242
@@ -2588,10 +2590,10 @@ tailrecurse.backedge:                             ; preds = %222, %244
   %.sroa.014.2 = phi i32 [ %228, %236 ], [ %.sroa.014.0111, %227 ]
   %.sroa.14.1 = phi i32 [ %.4.val.tr.ph, %236 ], [ %.0252.mux.mux, %227 ]
   %.1 = phi i1 [ true, %236 ], [ %.mux.mux, %227 ]
-  %indvars.iv.next177 = add nsw i64 %indvars.iv176, 1
-  %lftr.wideiv178 = trunc i64 %indvars.iv.next177 to i32
-  %exitcond179.not = icmp eq i32 %.4.val.tr.ph, %lftr.wideiv178
-  br i1 %exitcond179.not, label %._crit_edge116, label %.lr.ph115, !llvm.loop !40
+  %indvars.iv.next178 = add nsw i64 %indvars.iv177, 1
+  %lftr.wideiv179 = trunc i64 %indvars.iv.next178 to i32
+  %exitcond180.not = icmp eq i32 %.4.val.tr.ph, %lftr.wideiv179
+  br i1 %exitcond180.not, label %._crit_edge116, label %.lr.ph115, !llvm.loop !40
 
 ._crit_edge116:                                   ; preds = %242
   %243 = icmp slt i32 %.sroa.14.1, %.4.val.tr.ph

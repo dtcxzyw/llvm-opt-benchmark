@@ -395,7 +395,6 @@ define ptr @plpgsql_compile(ptr noundef readonly captures(none) %0, i1 noundef z
 
 29:                                               ; preds = %delete_function.exit.thread, %18
   %.032 = phi ptr [ %27, %18 ], [ null, %delete_function.exit.thread ]
-  %.0 = phi i8 [ 0, %18 ], [ %.153, %delete_function.exit.thread ]
   %.not35 = icmp eq ptr %.032, null
   br i1 %.not35, label %30, label %plpgsql_HashTableLookup.exit.thread48
 
@@ -413,7 +412,6 @@ plpgsql_HashTableLookup.exit:                     ; preds = %30
   br i1 %.not36, label %.thread61, label %plpgsql_HashTableLookup.exit.thread48
 
 plpgsql_HashTableLookup.exit.thread48:            ; preds = %29, %plpgsql_HashTableLookup.exit
-  %.153 = phi i8 [ 1, %plpgsql_HashTableLookup.exit ], [ %.0, %29 ]
   %.13352 = phi ptr [ %34, %plpgsql_HashTableLookup.exit ], [ %.032, %29 ]
   %35 = getelementptr inbounds nuw i8, ptr %.13352, i64 12
   %36 = load i32, ptr %35, align 4
@@ -462,22 +460,20 @@ delete_function.exit:                             ; preds = %plpgsql_HashTableDe
   call void @plpgsql_free_function_memory(ptr noundef nonnull %.13352) #10
   %.pr = load i64, ptr %56, align 8
   %.not37 = icmp eq i64 %.pr, 0
-  br i1 %.not37, label %split, label %delete_function.exit.thread
+  br i1 %.not37, label %59, label %delete_function.exit.thread
 
 delete_function.exit.thread:                      ; preds = %plpgsql_HashTableDelete.exit.i, %delete_function.exit
-  %59 = trunc nuw i8 %.153 to i1
-  br i1 %59, label %.thread61, label %29
+  br i1 %.not35, label %.thread61, label %29
 
-split:                                            ; preds = %delete_function.exit
-  %.pre = trunc nuw i8 %.153 to i1
-  br i1 %.pre, label %.thread61, label %60
+59:                                               ; preds = %delete_function.exit
+  br i1 %.not35, label %.thread61, label %60
 
-60:                                               ; preds = %split
+60:                                               ; preds = %59
   call fastcc void @compute_function_hashkey(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %9, i1 noundef zeroext %1)
   br label %.thread61
 
-.thread61:                                        ; preds = %delete_function.exit.thread, %30, %plpgsql_HashTableLookup.exit, %60, %split
-  %.2.ph64 = phi ptr [ %.13352, %60 ], [ %.13352, %split ], [ null, %plpgsql_HashTableLookup.exit ], [ null, %30 ], [ null, %delete_function.exit.thread ]
+.thread61:                                        ; preds = %30, %delete_function.exit.thread, %plpgsql_HashTableLookup.exit, %60, %59
+  %.2.ph64 = phi ptr [ %.13352, %60 ], [ %.13352, %59 ], [ null, %plpgsql_HashTableLookup.exit ], [ null, %delete_function.exit.thread ], [ null, %30 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)

@@ -12250,7 +12250,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i: ;
   br i1 %.not7481, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit
-  %.04083 = phi i8 [ %spec.select, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ], [ 1, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i ]
+  %.04083 = phi i1 [ %spec.select, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i ]
   %.sroa.066.082 = phi ptr [ %.sroa.0.0.i.i.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ], [ %.sroa.0.0.i.i.i.i.i.i.i.i48, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i ]
   %48 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.066.082, i32 28, ptr noundef nonnull %24, i1 noundef zeroext false, i1 noundef zeroext true) #29
   %.not75 = icmp eq i32 %48, -1
@@ -12259,7 +12259,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i: ;
 49:                                               ; preds = %.lr.ph
   %50 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.066.082, i32 28, ptr noundef nonnull %24, i1 noundef zeroext false) #29
   %.not76 = icmp eq i32 %50, -1
-  %spec.select = select i1 %.not76, i8 %.04083, i8 0
+  %spec.select = select i1 %.not76, i1 %.04083, i1 false
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.066.082, align 8
   %51 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %52 = inttoptr i64 %51 to ptr
@@ -12292,103 +12292,101 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit: ; preds =
   br i1 %.not74, label %.thread, label %.lr.ph
 
 62:                                               ; preds = %.lr.ph
-  %63 = trunc nuw i8 %.04083 to i1
-  br i1 %63, label %64, label %.loopexit
+  br i1 %.04083, label %63, label %.loopexit
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %66 = load ptr, ptr %65, align 8
-  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %65) #29
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
-  %.not4484 = icmp eq i64 %67, 0
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %65 = load ptr, ptr %64, align 8
+  %66 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #29
+  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %.not4484 = icmp eq i64 %66, 0
   br i1 %.not4484, label %.loopexit, label %.lr.ph87
 
-.lr.ph87:                                         ; preds = %64, %.lr.ph87
-  %.386 = phi i8 [ %spec.select45, %.lr.ph87 ], [ %.04083, %64 ]
-  %.04185 = phi ptr [ %71, %.lr.ph87 ], [ %66, %64 ]
-  %69 = load ptr, ptr %.04185, align 8
-  %70 = call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10MCRegisterENS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(288) %69, i32 28, i64 -1) #29
-  %spec.select45 = select i1 %70, i8 0, i8 %.386
-  %71 = getelementptr inbounds nuw i8, ptr %.04185, i64 8
-  %.not44 = icmp eq ptr %71, %68
+.lr.ph87:                                         ; preds = %63, %.lr.ph87
+  %.386 = phi i8 [ %spec.select45, %.lr.ph87 ], [ 1, %63 ]
+  %.04185 = phi ptr [ %70, %.lr.ph87 ], [ %65, %63 ]
+  %68 = load ptr, ptr %.04185, align 8
+  %69 = call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10MCRegisterENS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(288) %68, i32 28, i64 -1) #29
+  %spec.select45 = select i1 %69, i8 0, i8 %.386
+  %70 = getelementptr inbounds nuw i8, ptr %.04185, i64 8
+  %.not44 = icmp eq ptr %70, %67
   br i1 %.not44, label %.loopexit, label %.lr.ph87
 
-.loopexit:                                        ; preds = %.lr.ph87, %64, %62
-  %.2 = phi i8 [ %.04083, %62 ], [ %.04083, %64 ], [ %spec.select45, %.lr.ph87 ]
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store ptr %.sroa.066.082, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %74 = and i8 %.2, 1
-  store i8 %74, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 455
-  %78 = load i8, ptr %77, align 1
-  %79 = trunc i8 %78 to i1
-  %80 = select i1 %79, i32 4890, i32 4885
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.066.082, i64 68
-  %82 = load i16, ptr %81, align 4
-  %83 = zext i16 %82 to i32
-  %84 = icmp eq i32 %80, %83
-  br i1 %84, label %85, label %.thread
+.loopexit:                                        ; preds = %.lr.ph87, %63, %62
+  %.2 = phi i8 [ 0, %62 ], [ 1, %63 ], [ %spec.select45, %.lr.ph87 ]
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store ptr %.sroa.066.082, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store i8 %.2, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 455
+  %76 = load i8, ptr %75, align 1
+  %77 = trunc i8 %76 to i1
+  %78 = select i1 %77, i32 4890, i32 4885
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.066.082, i64 68
+  %80 = load i16, ptr %79, align 4
+  %81 = zext i16 %80 to i32
+  %82 = icmp eq i32 %78, %81
+  br i1 %82, label %83, label %.thread
 
-85:                                               ; preds = %.loopexit
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.066.082, i64 40
-  %87 = load i24, ptr %86, align 8
-  %88 = icmp eq i24 %87, 3
-  br i1 %88, label %89, label %.thread
+83:                                               ; preds = %.loopexit
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.066.082, i64 40
+  %85 = load i24, ptr %84, align 8
+  %86 = icmp eq i24 %85, 3
+  br i1 %86, label %87, label %.thread
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.066.082, i64 32
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  %93 = call noundef zeroext i1 @_ZNK4llvm14MachineOperand13isIdenticalToERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %92) #29
-  br i1 %93, label %94, label %.thread
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.066.082, i64 32
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %91 = call noundef zeroext i1 @_ZNK4llvm14MachineOperand13isIdenticalToERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %90) #29
+  br i1 %91, label %92, label %.thread
 
-94:                                               ; preds = %89
-  %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %97 = load i64, ptr %96, align 8
-  %98 = and i64 %97, -2
-  %switch = icmp eq i64 %98, 4
-  br i1 %switch, label %99, label %.thread
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %5, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %95 = load i64, ptr %94, align 8
+  %96 = and i64 %95, -2
+  %switch = icmp eq i64 %96, 4
+  br i1 %switch, label %97, label %.thread
 
-99:                                               ; preds = %94
-  %100 = load ptr, ptr %90, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %100, i64 32, i1 false)
-  %102 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 1, ptr %102, align 8
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %88, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %98, i64 32, i1 false)
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 1, ptr %100, align 8
   %.sroa.360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.360.0..sroa_idx, i8 0, i64 16, i1 false)
-  %103 = load i64, ptr %96, align 8
-  %104 = icmp eq i64 %103, 5
-  %105 = zext i1 %104 to i32
-  store i32 %105, ptr %2, align 8
+  %101 = load i64, ptr %94, align 8
+  %102 = icmp eq i64 %101, 5
+  %103 = zext i1 %102 to i32
+  store i32 %103, ptr %2, align 8
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i, %94, %.loopexit, %85, %89, %12, %4, %99
-  %.0 = phi i1 [ false, %99 ], [ true, %4 ], [ true, %12 ], [ true, %89 ], [ true, %85 ], [ true, %.loopexit ], [ true, %94 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
-  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #29
-  %107 = load ptr, ptr %6, align 8
-  %108 = icmp eq ptr %107, %8
-  br i1 %108, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit, label %109
+.thread:                                          ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i, %92, %.loopexit, %83, %87, %12, %4, %97
+  %.0 = phi i1 [ false, %97 ], [ true, %4 ], [ true, %12 ], [ true, %87 ], [ true, %83 ], [ true, %.loopexit ], [ true, %92 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
+  %104 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #29
+  %105 = load ptr, ptr %6, align 8
+  %106 = icmp eq ptr %105, %8
+  br i1 %106, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit, label %107
 
-109:                                              ; preds = %.thread
-  call void @free(ptr noundef %107) #29
+107:                                              ; preds = %.thread
+  call void @free(ptr noundef %105) #29
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %.thread, %109
-  %110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #29
-  %111 = load ptr, ptr %5, align 8
-  %112 = icmp eq ptr %111, %7
-  br i1 %112, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit, label %113
+_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %.thread, %107
+  %108 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %5) #29
+  %109 = load ptr, ptr %5, align 8
+  %110 = icmp eq ptr %109, %7
+  br i1 %110, label %_ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit, label %111
 
-113:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
-  call void @free(ptr noundef %111) #29
+111:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit
+  call void @free(ptr noundef %109) #29
   br label %_ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit, %113
+_ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit, %111
   ret i1 %.0
 }
 
@@ -16043,7 +16041,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12X86InstrInfo20optimizeCompareIns
   %.0.in.i.i.i = select i1 %25, ptr %30, ptr %34
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i.i, label %.loopexit426, label %35
+  br i1 %.not.i.i.i, label %.loopexit434, label %35
 
 35:                                               ; preds = %20
   %36 = load i32, ptr %.0.i.i.i, align 8
@@ -16056,7 +16054,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12X86InstrInfo20optimizeCompareIns
   %storemerge.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i, i64 24
   %storemerge.i.i.i.i = load ptr, ptr %storemerge.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %storemerge.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %.loopexit426, label %38
+  br i1 %.not.i.i.i.i, label %.loopexit434, label %38
 
 38:                                               ; preds = %.critedge2.i.i.i.i
   %39 = load i32, ptr %storemerge.i.i.i.i, align 8
@@ -16064,7 +16062,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12X86InstrInfo20optimizeCompareIns
   %or.cond.not.i.i.i.i = icmp eq i32 %40, 0
   br i1 %or.cond.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, label %.critedge2.i.i.i.i, !llvm.loop !310
 
-.loopexit426:                                     ; preds = %.critedge2.i.i.i.i, %20
+.loopexit434:                                     ; preds = %.critedge2.i.i.i.i, %20
   switch i16 %19, label %41 [
     i16 4739, label %52
     i16 4741, label %52
@@ -16092,41 +16090,41 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12X86InstrInfo20optimizeCompareIns
     i16 4769, label %51
   ]
 
-41:                                               ; preds = %.loopexit426
+41:                                               ; preds = %.loopexit434
   unreachable
 
-42:                                               ; preds = %.loopexit426, %.loopexit426
+42:                                               ; preds = %.loopexit434, %.loopexit434
   br label %52
 
-43:                                               ; preds = %.loopexit426, %.loopexit426
+43:                                               ; preds = %.loopexit434, %.loopexit434
   br label %52
 
-44:                                               ; preds = %.loopexit426, %.loopexit426
+44:                                               ; preds = %.loopexit434, %.loopexit434
   br label %52
 
-45:                                               ; preds = %.loopexit426, %.loopexit426
+45:                                               ; preds = %.loopexit434, %.loopexit434
   br label %.critedge239
 
-46:                                               ; preds = %.loopexit426, %.loopexit426
+46:                                               ; preds = %.loopexit434, %.loopexit434
   br label %.critedge239
 
-47:                                               ; preds = %.loopexit426, %.loopexit426
+47:                                               ; preds = %.loopexit434, %.loopexit434
   br label %.critedge239
 
-48:                                               ; preds = %.loopexit426, %.loopexit426
+48:                                               ; preds = %.loopexit434, %.loopexit434
   br label %.critedge239
 
-49:                                               ; preds = %.loopexit426, %.loopexit426
+49:                                               ; preds = %.loopexit434, %.loopexit434
   br label %.critedge239
 
-50:                                               ; preds = %.loopexit426, %.loopexit426
+50:                                               ; preds = %.loopexit434, %.loopexit434
   br label %.critedge239
 
-51:                                               ; preds = %.loopexit426, %.loopexit426
+51:                                               ; preds = %.loopexit434, %.loopexit434
   br label %.critedge239
 
-52:                                               ; preds = %.loopexit426, %.loopexit426, %44, %43, %42
-  %.0193.neg = phi i64 [ -1288, %44 ], [ -1261, %43 ], [ -1270, %42 ], [ -1279, %.loopexit426 ], [ -1279, %.loopexit426 ]
+52:                                               ; preds = %.loopexit434, %.loopexit434, %44, %43, %42
+  %.0193.neg = phi i64 [ -1288, %44 ], [ -1261, %43 ], [ -1270, %42 ], [ -1279, %.loopexit434 ], [ -1279, %.loopexit434 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %54, i64 %.0193.neg
@@ -16136,8 +16134,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12X86InstrInfo20optimizeCompareIns
   store i32 0, ptr %56, align 8
   br label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit
 
-.critedge239:                                     ; preds = %.loopexit426, %.loopexit426, %45, %46, %47, %48, %49, %50, %51
-  %.0193.ph.neg = phi i64 [ -1271, %45 ], [ -1262, %46 ], [ -1289, %47 ], [ -1277, %48 ], [ -1268, %49 ], [ -1259, %50 ], [ -1286, %51 ], [ -1280, %.loopexit426 ], [ -1280, %.loopexit426 ]
+.critedge239:                                     ; preds = %.loopexit434, %.loopexit434, %45, %46, %47, %48, %49, %50, %51
+  %.0193.ph.neg = phi i64 [ -1271, %45 ], [ -1262, %46 ], [ -1289, %47 ], [ -1277, %48 ], [ -1268, %49 ], [ -1259, %50 ], [ -1286, %51 ], [ -1280, %.loopexit434 ], [ -1280, %.loopexit434 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %58, i64 %.0193.ph.neg
@@ -16195,24 +16193,24 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i: ; p
 _ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i, %_ZN4llvm17MachineBasicBlock6rbeginEv.exit
   %.0210 = phi ptr [ %244, %_ZN4llvm17MachineBasicBlock6rbeginEv.exit ], [ %69, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i ]
   %.sroa.0114.0 = phi ptr [ %.sroa.0.0.i.i.i.i263, %_ZN4llvm17MachineBasicBlock6rbeginEv.exit ], [ %.sroa.0.0.i.i.i.i.i.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i ]
-  %.0205 = phi i32 [ %.1206450555, %_ZN4llvm17MachineBasicBlock6rbeginEv.exit ], [ 18, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i ]
-  %.0200 = phi ptr [ %.1201441556, %_ZN4llvm17MachineBasicBlock6rbeginEv.exit ], [ null, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i ]
+  %.0205 = phi i32 [ %.1206458563, %_ZN4llvm17MachineBasicBlock6rbeginEv.exit ], [ 18, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i ]
+  %.0200 = phi ptr [ %.1201449564, %_ZN4llvm17MachineBasicBlock6rbeginEv.exit ], [ null, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i ]
   %82 = getelementptr inbounds nuw i8, ptr %.0210, i64 48
-  %.not478 = icmp eq ptr %.sroa.0114.0, %82
-  br i1 %.not478, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread, label %.lr.ph
+  %.not486 = icmp eq ptr %.sroa.0114.0, %82
+  br i1 %.not486, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit
-  %.1201481 = phi ptr [ %.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ], [ %.0200, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit ]
-  %.1206480 = phi i32 [ %.4209, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ], [ %.0205, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit ]
-  %.sroa.0328.0479 = phi ptr [ %.sroa.0.0.i.i.i.i258, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ], [ %.sroa.0114.0, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit ]
-  %83 = icmp eq ptr %.sroa.0328.0479, %67
+  %.1201489 = phi ptr [ %.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ], [ %.0200, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit ]
+  %.1206488 = phi i32 [ %.4209, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ], [ %.0205, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit ]
+  %.sroa.0328.0487 = phi ptr [ %.sroa.0.0.i.i.i.i258, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ], [ %.sroa.0114.0, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit ]
+  %83 = icmp eq ptr %.sroa.0328.0487, %67
   br i1 %83, label %84, label %198
 
 84:                                               ; preds = %.lr.ph
   br i1 %64, label %85, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 68
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 68
   %87 = load i16, ptr %86, align 4
   switch i16 %87, label %98 [
     i16 624, label %88
@@ -16220,7 +16218,7 @@ _ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt1
   ]
 
 88:                                               ; preds = %85, %85
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 160
   %92 = load i32, ptr %91, align 8
@@ -16411,148 +16409,148 @@ _ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt1
     i16 4928, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
     i16 4937, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
     i16 4934, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
-    i16 845, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 847, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 804, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 811, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 763, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 770, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 882, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 885, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 860, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 863, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 819, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 822, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 778, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 781, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 893, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 896, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 855, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 857, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 814, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 816, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 773, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 775, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 888, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 890, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22190, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22192, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22149, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22156, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22108, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22115, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22227, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22230, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22205, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22208, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22164, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22167, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22123, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22126, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22238, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22241, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22200, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22202, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22159, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22161, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22118, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22120, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22233, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 22235, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2951, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2953, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2910, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2917, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2868, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2875, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2988, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2991, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2966, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2969, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2925, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2928, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2883, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2886, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2999, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 3002, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2961, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2963, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2920, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2922, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2878, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2880, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2994, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 2996, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 906, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 903, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 912, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 909, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 985, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 982, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 991, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 988, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1001, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 998, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1007, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1004, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1013, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1010, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1019, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1016, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 951, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 950, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 953, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 952, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 955, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 954, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 957, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 956, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 959, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 958, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 961, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 960, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 963, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 962, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 965, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 964, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 967, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 966, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 969, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 968, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 979, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 978, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 981, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 980, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 995, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 994, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 997, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 996, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1090, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1087, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1096, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 1093, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 4846, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 4845, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 4848, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 4847, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 4941, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 4940, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 4943, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 4942, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-    i16 937, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568
-    i16 943, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568
-    i16 934, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568
-    i16 940, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568
-    i16 947, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568
-    i16 946, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568
-    i16 949, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568
-    i16 948, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568
+    i16 845, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 847, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 804, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 811, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 763, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 770, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 882, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 885, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 860, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 863, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 819, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 822, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 778, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 781, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 893, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 896, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 855, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 857, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 814, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 816, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 773, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 775, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 888, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 890, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22190, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22192, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22149, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22156, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22108, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22115, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22227, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22230, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22205, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22208, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22164, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22167, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22123, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22126, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22238, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22241, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22200, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22202, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22159, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22161, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22118, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22120, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22233, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 22235, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2951, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2953, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2910, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2917, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2868, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2875, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2988, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2991, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2966, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2969, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2925, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2928, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2883, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2886, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2999, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 3002, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2961, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2963, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2920, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2922, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2878, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2880, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2994, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 2996, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 906, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 903, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 912, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 909, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 985, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 982, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 991, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 988, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1001, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 998, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1007, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1004, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1013, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1010, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1019, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1016, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 951, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 950, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 953, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 952, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 955, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 954, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 957, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 956, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 959, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 958, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 961, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 960, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 963, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 962, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 965, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 964, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 967, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 966, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 969, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 968, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 979, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 978, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 981, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 980, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 995, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 994, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 997, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 996, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1090, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1087, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1096, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 1093, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 4846, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 4845, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 4848, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 4847, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 4941, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 4940, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 4943, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 4942, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+    i16 937, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576
+    i16 943, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576
+    i16 934, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576
+    i16 940, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576
+    i16 947, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576
+    i16 946, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576
+    i16 949, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576
+    i16 948, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576
   ]
 
 99:                                               ; preds = %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 16
   %.val22.i = load ptr, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 32
   %.val23.i = load ptr, ptr %101, align 8
   %102 = getelementptr i8, ptr %.val22.i, i64 24
   %.val22.val.i = load i64, ptr %102, align 8
@@ -16563,13 +16561,13 @@ _ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt1
   %106 = load i64, ptr %105, align 8
   %107 = trunc i64 %106 to i32
   %108 = and i32 %104, %107
-  %.not410 = icmp eq i32 %108, 0
-  br i1 %.not410, label %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit.thread359, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
+  %.not418 = icmp eq i32 %108, 0
+  br i1 %.not418, label %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit.thread359, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
 
 109:                                              ; preds = %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 16
   %.val.i = load ptr, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 32
   %.val19.i = load ptr, ptr %111, align 8
   %112 = getelementptr i8, ptr %.val.i, i64 24
   %.val.val.i = load i64, ptr %112, align 8
@@ -16580,13 +16578,13 @@ _ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt1
   %116 = load i64, ptr %115, align 8
   %117 = trunc i64 %116 to i32
   %118 = and i32 %114, %117
-  %.not409 = icmp eq i32 %118, 0
-  br i1 %.not409, label %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit.thread359, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
+  %.not417 = icmp eq i32 %118, 0
+  br i1 %.not417, label %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit.thread359, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
 
 _ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit: ; preds = %98, %98, %98, %98, %98, %98, %98, %98
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 16
   %.val20.i = load ptr, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 32
   %.val21.i = load ptr, ptr %120, align 8
   %121 = getelementptr i8, ptr %.val20.i, i64 24
   %.val20.val.i = load i64, ptr %121, align 8
@@ -16617,7 +16615,7 @@ _ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit.thread359: ; preds = %98,
   br i1 %133, label %134, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 32
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 36
   %138 = load i32, ptr %137, align 4
@@ -16651,7 +16649,7 @@ _ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit.thread359: ; preds = %98,
   br i1 %152, label %.thread55.i, label %164
 
 .thread55.i:                                      ; preds = %151, %128
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 32
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 48
   %156 = load i64, ptr %155, align 8
@@ -16674,7 +16672,7 @@ _ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit.thread359: ; preds = %98,
   %.1.i = phi ptr [ %163, %160 ], [ %141, %151 ]
   %165 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 24
   %168 = load ptr, ptr %167, align 8
   %.not37.i = icmp eq ptr %166, %168
   br i1 %.not37.i, label %169, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit
@@ -16714,7 +16712,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i: ;
   %183 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i.i251, i64 8
   %184 = load ptr, ptr %183, align 8
   %.not4650.i = icmp eq ptr %184, %67
-  br i1 %.not4650.i, label %.loopexit425, label %.lr.ph.i
+  br i1 %.not4650.i, label %.loopexit433, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i
   %.sroa.040.051.i = phi ptr [ %197, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ], [ %184, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ]
@@ -16750,18 +16748,18 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   %196 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
   %197 = load ptr, ptr %196, align 8
   %.not46.i = icmp eq ptr %197, %67
-  br i1 %.not46.i, label %.loopexit425, label %.lr.ph.i
+  br i1 %.not46.i, label %.loopexit433, label %.lr.ph.i
 
 198:                                              ; preds = %.lr.ph
-  %199 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0328.0479, i32 28, ptr noundef nonnull %81, i1 noundef zeroext false, i1 noundef zeroext true) #29
-  %.not407 = icmp eq i32 %199, -1
-  br i1 %.not407, label %226, label %200
+  %199 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0328.0487, i32 28, ptr noundef nonnull %81, i1 noundef zeroext false, i1 noundef zeroext true) #29
+  %.not415 = icmp eq i32 %199, -1
+  br i1 %.not415, label %226, label %200
 
 200:                                              ; preds = %198
   br i1 %64, label %201, label %.critedge
 
 201:                                              ; preds = %200
-  %202 = getelementptr i8, ptr %.sroa.0328.0479, i64 68
+  %202 = getelementptr i8, ptr %.sroa.0328.0487, i64 68
   %.val = load i16, ptr %202, align 4
   switch i16 %.val, label %.critedge [
     i16 2816, label %207
@@ -16809,7 +16807,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
 
 207:                                              ; preds = %201, %201, %201, %201, %201, %201, %201, %201, %201, %201, %206, %205, %204, %203
   %.0.i255.ph = phi i32 [ 2, %203 ], [ 4, %204 ], [ 4, %205 ], [ 2, %206 ], [ 3, %201 ], [ 3, %201 ], [ 3, %201 ], [ 3, %201 ], [ 3, %201 ], [ 3, %201 ], [ 3, %201 ], [ 3, %201 ], [ 3, %201 ], [ 3, %201 ]
-  %208 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 32
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 32
   %211 = load i32, ptr %210, align 8
@@ -16824,29 +16822,29 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i: ; preds
   br i1 %217, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373, label %.critedge
 
 .critedge:                                        ; preds = %201, %214, %207, %200
-  %.3208 = phi i32 [ %.0.i255.ph, %214 ], [ %.0.i255.ph, %207 ], [ %.1206480, %200 ], [ 18, %201 ]
-  %218 = call noundef zeroext i1 @_ZNK4llvm12X86InstrInfo20isRedundantFlagInstrERKNS_12MachineInstrENS_8RegisterES4_llS3_PbPl(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0328.0479, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %.3208 = phi i32 [ %.0.i255.ph, %214 ], [ %.0.i255.ph, %207 ], [ %.1206488, %200 ], [ 18, %201 ]
+  %218 = call noundef zeroext i1 @_ZNK4llvm12X86InstrInfo20isRedundantFlagInstrERKNS_12MachineInstrENS_8RegisterES4_llS3_PbPl(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %2, i32 %3, i64 noundef %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0328.0487, ptr noundef nonnull %8, ptr noundef nonnull %9)
   br i1 %218, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373, label %219
 
 219:                                              ; preds = %.critedge
-  %.not223 = icmp eq ptr %.1201481, null
+  %.not223 = icmp eq ptr %.1201489, null
   br i1 %.not223, label %220, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit
 
 220:                                              ; preds = %219
-  %221 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0479, i64 68
+  %221 = getelementptr inbounds nuw i8, ptr %.sroa.0328.0487, i64 68
   %222 = load i16, ptr %221, align 4
   %223 = icmp eq i16 %222, 340
   br i1 %223, label %224, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit
 
 224:                                              ; preds = %220
-  %225 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0328.0479, i32 28, ptr noundef nonnull %81, i1 noundef zeroext true, i1 noundef zeroext false) #29
-  %.not408 = icmp eq i32 %225, -1
-  br i1 %.not408, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, label %226
+  %225 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0328.0487, i32 28, ptr noundef nonnull %81, i1 noundef zeroext true, i1 noundef zeroext false) #29
+  %.not416 = icmp eq i32 %225, -1
+  br i1 %.not416, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, label %226
 
 226:                                              ; preds = %224, %198
-  %.4209 = phi i32 [ %.1206480, %198 ], [ %.3208, %224 ]
-  %.2 = phi ptr [ %.1201481, %198 ], [ %.sroa.0328.0479, %224 ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0328.0479, align 8
+  %.4209 = phi i32 [ %.1206488, %198 ], [ %.3208, %224 ]
+  %.2 = phi ptr [ %.1201489, %198 ], [ %.sroa.0328.0487, %224 ]
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0328.0487, align 8
   %227 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
   %228 = inttoptr i64 %227 to ptr
   %.0.copyload.i.i.i.i.i.i.i.i.i.i256 = load i64, ptr %228, align 8
@@ -16877,25 +16875,25 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit: ; preds =
   %.not = icmp eq ptr %.sroa.0.0.i.i.i.i258, %82
   br i1 %.not, label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread, label %.lr.ph
 
-_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506: ; preds = %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98
+_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514: ; preds = %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98
   br label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
 
-_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568: ; preds = %98, %98, %98, %98, %98, %98, %98, %98
+_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576: ; preds = %98, %98, %98, %98, %98, %98, %98, %98
   br label %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
 
-_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373: ; preds = %214, %.critedge, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit, %109, %99, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506
-  %.1347.ph = phi i1 [ true, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506 ], [ false, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %99 ], [ false, %109 ], [ false, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ false, %.critedge ], [ false, %214 ]
-  %.1343.ph = phi i1 [ false, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506 ], [ true, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %99 ], [ false, %109 ], [ false, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ false, %.critedge ], [ false, %214 ]
-  %.2207.ph = phi i32 [ %.1206480, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506 ], [ %.1206480, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %98 ], [ %.1206480, %99 ], [ %.1206480, %109 ], [ %.1206480, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ %.0.i255.ph, %214 ], [ %.3208, %.critedge ]
-  %.1203.ph = phi i8 [ 0, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506 ], [ 0, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %99 ], [ 0, %109 ], [ 0, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ 1, %214 ], [ 0, %.critedge ]
-  %.1198.ph = phi ptr [ null, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506 ], [ null, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %99 ], [ null, %109 ], [ null, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ null, %214 ], [ %.sroa.0328.0479, %.critedge ]
-  %.1196.ph = phi ptr [ %.sroa.0328.0479, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit506 ], [ %.sroa.0328.0479, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit568 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %98 ], [ %.sroa.0328.0479, %99 ], [ %.sroa.0328.0479, %109 ], [ %.sroa.0328.0479, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ %.sroa.0328.0479, %214 ], [ null, %.critedge ]
+_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373: ; preds = %214, %.critedge, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit, %109, %99, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %98, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514
+  %.1347.ph = phi i1 [ true, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514 ], [ false, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %99 ], [ false, %109 ], [ false, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ false, %.critedge ], [ false, %214 ]
+  %.1343.ph = phi i1 [ false, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514 ], [ true, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %98 ], [ false, %99 ], [ false, %109 ], [ false, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ false, %.critedge ], [ false, %214 ]
+  %.2207.ph = phi i32 [ %.1206488, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514 ], [ %.1206488, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %98 ], [ %.1206488, %99 ], [ %.1206488, %109 ], [ %.1206488, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ %.0.i255.ph, %214 ], [ %.3208, %.critedge ]
+  %.1203.ph = phi i8 [ 0, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514 ], [ 0, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %98 ], [ 0, %99 ], [ 0, %109 ], [ 0, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ 1, %214 ], [ 0, %.critedge ]
+  %.1198.ph = phi ptr [ null, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514 ], [ null, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %98 ], [ null, %99 ], [ null, %109 ], [ null, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ null, %214 ], [ %.sroa.0328.0487, %.critedge ]
+  %.1196.ph = phi ptr [ %.sroa.0328.0487, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit514 ], [ %.sroa.0328.0487, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373.loopexit576 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %98 ], [ %.sroa.0328.0487, %99 ], [ %.sroa.0328.0487, %109 ], [ %.sroa.0328.0487, %_ZL16isDefConvertibleRKN4llvm12MachineInstrERbS3_.exit ], [ %.sroa.0328.0487, %214 ], [ null, %.critedge ]
   %238 = icmp ne ptr %.1196.ph, null
-  br label %.loopexit425
+  br label %.loopexit433
 
 _ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread: ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit
-  %.1201441556 = phi ptr [ %.0200, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit ], [ %.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
-  %.1206450555 = phi i32 [ %.0205, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit ], [ %.4209, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
+  %.1201449564 = phi ptr [ %.0200, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit ], [ %.2, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
+  %.1206458563 = phi i32 [ %.0205, %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit ], [ %.4209, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit ]
   %239 = getelementptr inbounds nuw i8, ptr %.0210, i64 64
   %240 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %239) #29
   %241 = and i64 %240, 4294967295
@@ -16936,12 +16934,12 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   %.sroa.0.0.i.i.i.i263 = phi ptr [ %247, %242 ], [ %247, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i264 ], [ %253, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i266 ]
   br label %_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb1EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit, !llvm.loop !311
 
-.loopexit425:                                     ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
+.loopexit433:                                     ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373
   %257 = phi i1 [ %238, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ]
   %.1196386 = phi ptr [ %.1196.ph, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373 ], [ %.1.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ %.1.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ]
   %.1198385 = phi ptr [ %.1198.ph, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373 ], [ null, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ null, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ]
   %.1203384 = phi i8 [ %.1203.ph, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373 ], [ 0, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ 0, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ]
-  %.2207383 = phi i32 [ %.2207.ph, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373 ], [ %.1206480, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ %.1206480, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ]
+  %.2207383 = phi i32 [ %.2207.ph, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373 ], [ %.1206488, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ %.1206488, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ]
   %.1343382 = phi i1 [ %.1343.ph, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ]
   %.1347381 = phi i1 [ %.1347.ph, %_ZL22findRedundantFlagInstrRN4llvm12MachineInstrES1_PKNS_19MachineRegisterInfoEPPS0_PKNS_18TargetRegisterInfoERbSA_.exit.thread373 ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ true, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i ]
   %258 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -16949,9 +16947,9 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   %259 = call ptr @_ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE(ptr nonnull %1, i64 noundef 1)
   %260 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %261 = icmp eq ptr %259, %260
-  br i1 %261, label %.thread403, label %.lr.ph485
+  br i1 %261, label %.thread411, label %.lr.ph493
 
-.lr.ph485:                                        ; preds = %.loopexit425
+.lr.ph493:                                        ; preds = %.loopexit433
   %.1347381.not = xor i1 %.1347381, true
   %brmerge = or i1 %.1343382, %.1347381.not
   %262 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -16970,23 +16968,23 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   %274 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %275
 
-275:                                              ; preds = %.lr.ph485, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
-  %.2204484 = phi i8 [ %.1203384, %.lr.ph485 ], [ %.4, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
-  %.sroa.0318.0483 = phi ptr [ %259, %.lr.ph485 ], [ %418, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
-  %276 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0318.0483, i32 28, ptr noundef nonnull %81, i1 noundef zeroext false, i1 noundef zeroext true) #29
+275:                                              ; preds = %.lr.ph493, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
+  %.2204492 = phi i8 [ %.1203384, %.lr.ph493 ], [ %.4, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
+  %.sroa.0318.0491 = phi ptr [ %259, %.lr.ph493 ], [ %417, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
+  %276 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0318.0491, i32 28, ptr noundef nonnull %81, i1 noundef zeroext false, i1 noundef zeroext true) #29
   %277 = icmp ne i32 %276, -1
-  %278 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0318.0483, i32 28, ptr noundef nonnull %81, i1 noundef zeroext false) #29
+  %278 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0318.0491, i32 28, ptr noundef nonnull %81, i1 noundef zeroext false) #29
   %279 = icmp eq i32 %278, -1
   %brmerge.not = and i1 %277, %279
-  br i1 %brmerge.not, label %.loopexit418, label %280
+  br i1 %brmerge.not, label %.loopexit426, label %280
 
 280:                                              ; preds = %275
   %281 = and i32 %278, %276
   %brmerge243.not = icmp eq i32 %281, -1
-  br i1 %brmerge243.not, label %407, label %282
+  br i1 %brmerge243.not, label %406, label %282
 
 282:                                              ; preds = %280
-  %283 = getelementptr inbounds nuw i8, ptr %.sroa.0318.0483, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %.sroa.0318.0491, i64 16
   %284 = load ptr, ptr %283, align 8
   %285 = call noundef i32 @_ZN4llvm3X8620getCondSrcNoFromDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(32) %284)
   %286 = icmp slt i32 %285, 0
@@ -16997,7 +16995,7 @@ _ZN4llvm3X8613getCondFromMIERKNS_12MachineInstrE.exit: ; preds = %282
   %288 = load i8, ptr %287, align 4
   %289 = zext i8 %288 to i32
   %290 = add nuw nsw i32 %285, %289
-  %291 = getelementptr inbounds nuw i8, ptr %.sroa.0318.0483, i64 32
+  %291 = getelementptr inbounds nuw i8, ptr %.sroa.0318.0491, i64 32
   %292 = load ptr, ptr %291, align 8
   %293 = zext nneg i32 %290 to i64
   %294 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %292, i64 %293, i32 3
@@ -17046,8 +17044,8 @@ _ZN4llvm3X8613getCondFromMIERKNS_12MachineInstrE.exit.thread: ; preds = %282
   br i1 %.1343382, label %.thread, label %307
 
 307:                                              ; preds = %304, %303, %306, %305
-  %308 = trunc nuw i8 %.2204484 to i1
-  br i1 %308, label %309, label %401
+  %308 = trunc nuw i8 %.2204492 to i1
+  br i1 %308, label %309, label %.thread403
 
 309:                                              ; preds = %307
   switch i32 %296, label %.thread [
@@ -17259,287 +17257,288 @@ _ZN4llvm5APIntD2Ev.exit278:                       ; preds = %388, %384
 _ZN4llvm5APIntD2Ev.exit279:                       ; preds = %397, %393
   br i1 %394, label %.thread, label %401
 
-401:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit279, %400, %_ZN4llvm5APIntD2Ev.exit278, %391, %_ZN4llvm5APIntD2Ev.exit277, %382, %_ZN4llvm5APIntD2Ev.exit276, %373, %363, %_ZN4llvm5APIntD2Ev.exit275, %362, %352, %_ZN4llvm5APIntD2Ev.exit, %351, %309, %313, %316, %307, %310
-  %.0.i274388395 = phi i32 [ 5, %310 ], [ %296, %307 ], [ %.0.i274389, %313 ], [ %.0.i274389, %316 ], [ %296, %309 ], [ 12, %351 ], [ 12, %_ZN4llvm5APIntD2Ev.exit ], [ 2, %352 ], [ 13, %362 ], [ 13, %_ZN4llvm5APIntD2Ev.exit275 ], [ 3, %363 ], [ 15, %373 ], [ 15, %_ZN4llvm5APIntD2Ev.exit276 ], [ 7, %382 ], [ 7, %_ZN4llvm5APIntD2Ev.exit277 ], [ 14, %391 ], [ 14, %_ZN4llvm5APIntD2Ev.exit278 ], [ 6, %400 ], [ 6, %_ZN4llvm5APIntD2Ev.exit279 ]
-  %.0351 = phi i32 [ %311, %310 ], [ 18, %307 ], [ %314, %313 ], [ 18, %316 ], [ %.2207383, %309 ], [ 14, %351 ], [ 14, %_ZN4llvm5APIntD2Ev.exit ], [ 6, %352 ], [ 15, %362 ], [ 15, %_ZN4llvm5APIntD2Ev.exit275 ], [ 7, %363 ], [ 13, %373 ], [ 13, %_ZN4llvm5APIntD2Ev.exit276 ], [ 3, %382 ], [ 3, %_ZN4llvm5APIntD2Ev.exit277 ], [ 12, %391 ], [ 12, %_ZN4llvm5APIntD2Ev.exit278 ], [ 2, %400 ], [ 2, %_ZN4llvm5APIntD2Ev.exit279 ]
-  %.5 = phi i8 [ %.2204484, %310 ], [ %.2204484, %307 ], [ 1, %313 ], [ %.2204484, %316 ], [ %.2204484, %309 ], [ 1, %351 ], [ 1, %_ZN4llvm5APIntD2Ev.exit ], [ 1, %352 ], [ 1, %362 ], [ 1, %_ZN4llvm5APIntD2Ev.exit275 ], [ 1, %363 ], [ 1, %373 ], [ 1, %_ZN4llvm5APIntD2Ev.exit276 ], [ 1, %382 ], [ 1, %_ZN4llvm5APIntD2Ev.exit277 ], [ 1, %391 ], [ 1, %_ZN4llvm5APIntD2Ev.exit278 ], [ 1, %400 ], [ 1, %_ZN4llvm5APIntD2Ev.exit279 ]
+401:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit279, %400, %_ZN4llvm5APIntD2Ev.exit278, %391, %_ZN4llvm5APIntD2Ev.exit277, %382, %_ZN4llvm5APIntD2Ev.exit276, %373, %363, %_ZN4llvm5APIntD2Ev.exit275, %362, %352, %_ZN4llvm5APIntD2Ev.exit, %351, %309, %313, %316, %310
+  %.0.i274388395 = phi i32 [ 5, %310 ], [ %.0.i274389, %313 ], [ %.0.i274389, %316 ], [ %296, %309 ], [ 12, %351 ], [ 12, %_ZN4llvm5APIntD2Ev.exit ], [ 2, %352 ], [ 13, %362 ], [ 13, %_ZN4llvm5APIntD2Ev.exit275 ], [ 3, %363 ], [ 15, %373 ], [ 15, %_ZN4llvm5APIntD2Ev.exit276 ], [ 7, %382 ], [ 7, %_ZN4llvm5APIntD2Ev.exit277 ], [ 14, %391 ], [ 14, %_ZN4llvm5APIntD2Ev.exit278 ], [ 6, %400 ], [ 6, %_ZN4llvm5APIntD2Ev.exit279 ]
+  %.0351 = phi i32 [ %311, %310 ], [ %314, %313 ], [ 18, %316 ], [ %.2207383, %309 ], [ 14, %351 ], [ 14, %_ZN4llvm5APIntD2Ev.exit ], [ 6, %352 ], [ 15, %362 ], [ 15, %_ZN4llvm5APIntD2Ev.exit275 ], [ 7, %363 ], [ 13, %373 ], [ 13, %_ZN4llvm5APIntD2Ev.exit276 ], [ 3, %382 ], [ 3, %_ZN4llvm5APIntD2Ev.exit277 ], [ 12, %391 ], [ 12, %_ZN4llvm5APIntD2Ev.exit278 ], [ 2, %400 ], [ 2, %_ZN4llvm5APIntD2Ev.exit279 ]
+  %.5 = phi i8 [ 1, %310 ], [ 1, %313 ], [ %.2204492, %316 ], [ 1, %309 ], [ 1, %351 ], [ 1, %_ZN4llvm5APIntD2Ev.exit ], [ 1, %352 ], [ 1, %362 ], [ 1, %_ZN4llvm5APIntD2Ev.exit275 ], [ 1, %363 ], [ 1, %373 ], [ 1, %_ZN4llvm5APIntD2Ev.exit276 ], [ 1, %382 ], [ 1, %_ZN4llvm5APIntD2Ev.exit277 ], [ 1, %391 ], [ 1, %_ZN4llvm5APIntD2Ev.exit278 ], [ 1, %400 ], [ 1, %_ZN4llvm5APIntD2Ev.exit279 ]
   %402 = trunc nuw i8 %.5 to i1
   %.not232 = icmp ne i32 %.0351, %.0.i274388395
   %or.cond.not = select i1 %402, i1 %.not232, i1 false
-  br i1 %or.cond.not, label %403, label %404
+  br i1 %or.cond.not, label %403, label %.thread403
 
 403:                                              ; preds = %401
-  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_12MachineInstrENS_3X868CondCodeEELb1EE9push_backES6_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull %.sroa.0318.0483, i32 %.0351)
-  br label %404
+  call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_12MachineInstrENS_3X868CondCodeEELb1EE9push_backES6_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull %.sroa.0318.0491, i32 %.0351)
+  br label %.thread403
 
-404:                                              ; preds = %403, %401
-  br i1 %277, label %.loopexit418, label %405
+.thread403:                                       ; preds = %307, %403, %401
+  %.5410 = phi i8 [ 1, %403 ], [ %.5, %401 ], [ 0, %307 ]
+  br i1 %277, label %.loopexit426, label %404
 
-405:                                              ; preds = %404
-  %406 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0318.0483, i32 28, ptr noundef nonnull %81, i1 noundef zeroext true) #29
-  %.not413 = icmp eq i32 %406, -1
-  br i1 %.not413, label %407, label %.loopexit418
+404:                                              ; preds = %.thread403
+  %405 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0318.0491, i32 28, ptr noundef nonnull %81, i1 noundef zeroext true) #29
+  %.not421 = icmp eq i32 %405, -1
+  br i1 %.not421, label %406, label %.loopexit426
 
-407:                                              ; preds = %280, %405
-  %.4 = phi i8 [ %.5, %405 ], [ %.2204484, %280 ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i283 = load i64, ptr %.sroa.0318.0483, align 8
-  %408 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i283, 4
-  %.not.i.i.i284 = icmp eq i64 %408, 0
+406:                                              ; preds = %280, %404
+  %.4 = phi i8 [ %.5410, %404 ], [ %.2204492, %280 ]
+  %.0.copyload.i.i.i.i.i.i.i.i.i283 = load i64, ptr %.sroa.0318.0491, align 8
+  %407 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i283, 4
+  %.not.i.i.i284 = icmp eq i64 %407, 0
   br i1 %.not.i.i.i284, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
 
-_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i: ; preds = %407
-  %409 = getelementptr inbounds nuw i8, ptr %.sroa.0318.0483, i64 44
-  %410 = load i32, ptr %409, align 4
-  %411 = and i32 %410, 8
-  %.not34.i.i.i = icmp eq i32 %411, 0
+_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i: ; preds = %406
+  %408 = getelementptr inbounds nuw i8, ptr %.sroa.0318.0491, i64 44
+  %409 = load i32, ptr %408, align 4
+  %410 = and i32 %409, 8
+  %.not34.i.i.i = icmp eq i32 %410, 0
   br i1 %.not34.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i
 
 _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i
-  %.sroa.0.15.i.i.i = phi ptr [ %413, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ], [ %.sroa.0318.0483, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ]
-  %412 = getelementptr inbounds nuw i8, ptr %.sroa.0.15.i.i.i, i64 8
-  %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds nuw i8, ptr %413, i64 44
-  %415 = load i32, ptr %414, align 4
-  %416 = and i32 %415, 8
-  %.not3.i.i.i = icmp eq i32 %416, 0
+  %.sroa.0.15.i.i.i = phi ptr [ %412, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ], [ %.sroa.0318.0491, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ]
+  %411 = getelementptr inbounds nuw i8, ptr %.sroa.0.15.i.i.i, i64 8
+  %412 = load ptr, ptr %411, align 8
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 44
+  %414 = load i32, ptr %413, align 4
+  %415 = and i32 %414, 8
+  %.not3.i.i.i = icmp eq i32 %415, 0
   br i1 %.not3.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, !llvm.loop !161
 
-_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, %407, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.0318.0483, %407 ], [ %.sroa.0318.0483, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ], [ %413, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ]
-  %417 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
-  %418 = load ptr, ptr %417, align 8
-  %419 = icmp eq ptr %418, %260
-  br i1 %419, label %.thread403, label %275
+_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, %406, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i
+  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.0318.0491, %406 ], [ %.sroa.0318.0491, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ], [ %412, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ]
+  %416 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
+  %417 = load ptr, ptr %416, align 8
+  %418 = icmp eq ptr %417, %260
+  br i1 %418, label %.thread411, label %275
 
-.thread403:                                       ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %.loopexit425
-  %.2204.lcssa = phi i8 [ %.1203384, %.loopexit425 ], [ %.4, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
-  %420 = trunc nuw i8 %.2204.lcssa to i1
-  %or.cond = select i1 %257, i1 true, i1 %420
-  br i1 %or.cond, label %.thread406, label %.loopexit418
+.thread411:                                       ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, %.loopexit433
+  %.2204.lcssa = phi i8 [ %.1203384, %.loopexit433 ], [ %.4, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ]
+  %419 = trunc nuw i8 %.2204.lcssa to i1
+  %or.cond = select i1 %257, i1 true, i1 %419
+  br i1 %or.cond, label %.thread414, label %.loopexit426
 
-.thread406:                                       ; preds = %.thread403
-  %421 = getelementptr inbounds nuw i8, ptr %69, i64 112
-  %422 = load ptr, ptr %421, align 8
-  %423 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %421) #29
-  %424 = getelementptr inbounds ptr, ptr %422, i64 %423
-  %.not233488 = icmp eq i64 %423, 0
-  br i1 %.not233488, label %.loopexit418, label %.lr.ph490
+.thread414:                                       ; preds = %.thread411
+  %420 = getelementptr inbounds nuw i8, ptr %69, i64 112
+  %421 = load ptr, ptr %420, align 8
+  %422 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %420) #29
+  %423 = getelementptr inbounds ptr, ptr %421, i64 %422
+  %.not233496 = icmp eq i64 %422, 0
+  br i1 %.not233496, label %.loopexit426, label %.lr.ph498
 
-425:                                              ; preds = %.lr.ph490
-  %426 = getelementptr inbounds nuw i8, ptr %.0213489, i64 8
-  %.not233 = icmp eq ptr %426, %424
-  br i1 %.not233, label %.loopexit418, label %.lr.ph490
+424:                                              ; preds = %.lr.ph498
+  %425 = getelementptr inbounds nuw i8, ptr %.0213497, i64 8
+  %.not233 = icmp eq ptr %425, %423
+  br i1 %.not233, label %.loopexit426, label %.lr.ph498
 
-.lr.ph490:                                        ; preds = %.thread406, %425
-  %.0213489 = phi ptr [ %426, %425 ], [ %422, %.thread406 ]
-  %427 = load ptr, ptr %.0213489, align 8
-  %428 = call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10MCRegisterENS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(288) %427, i32 28, i64 -1) #29
-  br i1 %428, label %.thread, label %425
+.lr.ph498:                                        ; preds = %.thread414, %424
+  %.0213497 = phi ptr [ %425, %424 ], [ %421, %.thread414 ]
+  %426 = load ptr, ptr %.0213497, align 8
+  %427 = call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10MCRegisterENS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(288) %426, i32 28, i64 -1) #29
+  br i1 %427, label %.thread, label %424
 
-.loopexit418:                                     ; preds = %275, %405, %404, %425, %.thread403, %.thread406
-  %429 = select i1 %257, ptr %.1196386, ptr %.1198385
-  %430 = getelementptr inbounds nuw i8, ptr %429, i64 24
-  %431 = load ptr, ptr %430, align 8
-  %.not234 = icmp eq ptr %.1201481, null
-  br i1 %.not234, label %458, label %432
+.loopexit426:                                     ; preds = %275, %404, %.thread403, %424, %.thread411, %.thread414
+  %428 = select i1 %257, ptr %.1196386, ptr %.1198385
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 24
+  %430 = load ptr, ptr %429, align 8
+  %.not234 = icmp eq ptr %.1201489, null
+  br i1 %.not234, label %457, label %431
 
-432:                                              ; preds = %.loopexit418
-  %.not235 = icmp eq ptr %69, %431
-  br i1 %.not235, label %433, label %.thread
+431:                                              ; preds = %.loopexit426
+  %.not235 = icmp eq ptr %69, %430
+  br i1 %.not235, label %432, label %.thread
 
-433:                                              ; preds = %432
-  %434 = getelementptr inbounds nuw i8, ptr %431, i64 48
-  %.not415491 = icmp eq ptr %429, %434
-  br i1 %.not415491, label %.loopexit, label %.lr.ph493
+432:                                              ; preds = %431
+  %433 = getelementptr inbounds nuw i8, ptr %430, i64 48
+  %.not423499 = icmp eq ptr %428, %433
+  br i1 %.not423499, label %.loopexit, label %.lr.ph501
 
-.lr.ph493:                                        ; preds = %433, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298
-  %.sroa.0308.0492 = phi ptr [ %.sroa.0.0.i.i.i.i291, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298 ], [ %429, %433 ]
-  %435 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0308.0492, i32 28, ptr noundef nonnull %81, i1 noundef zeroext false) #29
-  %.not416 = icmp eq i32 %435, -1
-  br i1 %.not416, label %436, label %445
+.lr.ph501:                                        ; preds = %432, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298
+  %.sroa.0308.0500 = phi ptr [ %.sroa.0.0.i.i.i.i291, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298 ], [ %428, %432 ]
+  %434 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0308.0500, i32 28, ptr noundef nonnull %81, i1 noundef zeroext false) #29
+  %.not424 = icmp eq i32 %434, -1
+  br i1 %.not424, label %435, label %444
 
-436:                                              ; preds = %.lr.ph493
-  %437 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0308.0492, i32 28, ptr noundef nonnull %81, i1 noundef zeroext false, i1 noundef zeroext true) #29
-  %.not417 = icmp eq i32 %437, -1
-  br i1 %.not417, label %445, label %438
+435:                                              ; preds = %.lr.ph501
+  %436 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0308.0500, i32 28, ptr noundef nonnull %81, i1 noundef zeroext false, i1 noundef zeroext true) #29
+  %.not425 = icmp eq i32 %436, -1
+  br i1 %.not425, label %444, label %437
 
-438:                                              ; preds = %436
-  %439 = getelementptr inbounds nuw i8, ptr %.1201481, i64 24
-  %440 = load ptr, ptr %439, align 8
-  %441 = call noundef ptr @_ZN4llvm17MachineBasicBlock6removeEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(288) %440, ptr noundef nonnull %.1201481)
-  %442 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0492, i64 24
-  %443 = load ptr, ptr %442, align 8
-  %444 = call ptr @_ZN4llvm17MachineBasicBlock6insertENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS2_(ptr noundef nonnull align 8 dereferenceable(288) %443, ptr nonnull %.sroa.0308.0492, ptr noundef nonnull %.1201481)
+437:                                              ; preds = %435
+  %438 = getelementptr inbounds nuw i8, ptr %.1201489, i64 24
+  %439 = load ptr, ptr %438, align 8
+  %440 = call noundef ptr @_ZN4llvm17MachineBasicBlock6removeEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(288) %439, ptr noundef nonnull %.1201489)
+  %441 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0500, i64 24
+  %442 = load ptr, ptr %441, align 8
+  %443 = call ptr @_ZN4llvm17MachineBasicBlock6insertENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS2_(ptr noundef nonnull align 8 dereferenceable(288) %442, ptr nonnull %.sroa.0308.0500, ptr noundef nonnull %.1201489)
   br label %.loopexit
 
-445:                                              ; preds = %.lr.ph493, %436
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i288 = load i64, ptr %.sroa.0308.0492, align 8
-  %446 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i288, -8
-  %447 = inttoptr i64 %446 to ptr
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i289 = load i64, ptr %447, align 8
-  %448 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i289, 4
-  %.not.i.i.i.i290 = icmp eq i64 %448, 0
+444:                                              ; preds = %.lr.ph501, %435
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i288 = load i64, ptr %.sroa.0308.0500, align 8
+  %445 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i288, -8
+  %446 = inttoptr i64 %445 to ptr
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i289 = load i64, ptr %446, align 8
+  %447 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i289, 4
+  %.not.i.i.i.i290 = icmp eq i64 %447, 0
   br i1 %.not.i.i.i.i290, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i292, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298
 
-_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i292: ; preds = %445
-  %449 = getelementptr inbounds nuw i8, ptr %447, i64 44
-  %450 = load i32, ptr %449, align 4
-  %451 = and i32 %450, 4
-  %.not45.i.i.i.i293 = icmp eq i32 %451, 0
+_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i292: ; preds = %444
+  %448 = getelementptr inbounds nuw i8, ptr %446, i64 44
+  %449 = load i32, ptr %448, align 4
+  %450 = and i32 %449, 4
+  %.not45.i.i.i.i293 = icmp eq i32 %450, 0
   br i1 %.not45.i.i.i.i293, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i294
 
 _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i294: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i292, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i294
-  %.sroa.0.16.i.i.i.i295 = phi ptr [ %453, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i294 ], [ %447, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i292 ]
+  %.sroa.0.16.i.i.i.i295 = phi ptr [ %452, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i294 ], [ %446, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i292 ]
   %.0.copyload.i.i.i.i.i.i1.i.i.i.i296 = load i64, ptr %.sroa.0.16.i.i.i.i295, align 8
-  %452 = and i64 %.0.copyload.i.i.i.i.i.i1.i.i.i.i296, -8
-  %453 = inttoptr i64 %452 to ptr
-  %454 = getelementptr inbounds nuw i8, ptr %453, i64 44
-  %455 = load i32, ptr %454, align 4
-  %456 = and i32 %455, 4
-  %.not4.i.i.i.i297 = icmp eq i32 %456, 0
+  %451 = and i64 %.0.copyload.i.i.i.i.i.i1.i.i.i.i296, -8
+  %452 = inttoptr i64 %451 to ptr
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 44
+  %454 = load i32, ptr %453, align 4
+  %455 = and i32 %454, 4
+  %.not4.i.i.i.i297 = icmp eq i32 %455, 0
   br i1 %.not4.i.i.i.i297, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i294, !llvm.loop !11
 
-_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i294, %445, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i292
-  %.sroa.0.0.i.i.i.i291 = phi ptr [ %447, %445 ], [ %447, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i292 ], [ %453, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i294 ]
-  %.not415 = icmp eq ptr %.sroa.0.0.i.i.i.i291, %434
-  br i1 %.not415, label %.thread, label %.lr.ph493, !llvm.loop !312
+_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i294, %444, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i292
+  %.sroa.0.0.i.i.i.i291 = phi ptr [ %446, %444 ], [ %446, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i292 ], [ %452, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i294 ]
+  %.not423 = icmp eq ptr %.sroa.0.0.i.i.i.i291, %433
+  br i1 %.not423, label %.thread, label %.lr.ph501, !llvm.loop !312
 
-.loopexit:                                        ; preds = %433, %438
-  %.sroa.0308.0430 = phi ptr [ %.sroa.0308.0492, %438 ], [ %429, %433 ]
-  %457 = icmp eq ptr %.sroa.0308.0430, %434
-  br i1 %457, label %.thread, label %458
+.loopexit:                                        ; preds = %432, %437
+  %.sroa.0308.0438 = phi ptr [ %.sroa.0308.0500, %437 ], [ %428, %432 ]
+  %456 = icmp eq ptr %.sroa.0308.0438, %433
+  br i1 %456, label %.thread, label %457
 
-458:                                              ; preds = %.loopexit, %.loopexit418
-  %459 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %429, i32 28, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #29
-  %460 = icmp eq i32 %459, -1
-  %461 = getelementptr inbounds nuw i8, ptr %429, i64 32
-  %462 = load ptr, ptr %461, align 8
-  %463 = zext i32 %459 to i64
-  %464 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %462, i64 %463
-  %465 = select i1 %460, ptr null, ptr %464
-  %466 = load i32, ptr %465, align 8
-  %467 = and i32 %466, -67108865
-  store i32 %467, ptr %465, align 8
+457:                                              ; preds = %.loopexit, %.loopexit426
+  %458 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %428, i32 28, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #29
+  %459 = icmp eq i32 %458, -1
+  %460 = getelementptr inbounds nuw i8, ptr %428, i64 32
+  %461 = load ptr, ptr %460, align 8
+  %462 = zext i32 %458 to i64
+  %463 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %461, i64 %462
+  %464 = select i1 %459, ptr null, ptr %463
+  %465 = load i32, ptr %464, align 8
+  %466 = and i32 %465, -67108865
+  store i32 %466, ptr %464, align 8
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #29
-  %468 = load ptr, ptr %10, align 8
-  %469 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
-  %470 = getelementptr inbounds %"struct.std::pair.560", ptr %468, i64 %469
-  %.not236495 = icmp eq i64 %469, 0
-  br i1 %.not236495, label %.preheader, label %.lr.ph497
+  %467 = load ptr, ptr %10, align 8
+  %468 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #29
+  %469 = getelementptr inbounds %"struct.std::pair.560", ptr %467, i64 %468
+  %.not236503 = icmp eq i64 %468, 0
+  br i1 %.not236503, label %.preheader, label %.lr.ph505
 
-.preheader:                                       ; preds = %.lr.ph497, %458
-  %.not237498 = icmp eq ptr %69, %431
-  br i1 %.not237498, label %.thread, label %.lr.ph500
+.preheader:                                       ; preds = %.lr.ph505, %457
+  %.not237506 = icmp eq ptr %69, %430
+  br i1 %.not237506, label %.thread, label %.lr.ph508
 
-.lr.ph497:                                        ; preds = %458, %.lr.ph497
-  %.0199496 = phi ptr [ %485, %.lr.ph497 ], [ %468, %458 ]
-  %471 = load ptr, ptr %.0199496, align 8
-  %472 = getelementptr inbounds nuw i8, ptr %471, i64 16
-  %473 = load ptr, ptr %472, align 8
-  %474 = getelementptr inbounds nuw i8, ptr %473, i64 2
-  %475 = load i16, ptr %474, align 2
-  %476 = zext i16 %475 to i64
-  %477 = add nuw nsw i64 %476, 4294967295
-  %478 = getelementptr inbounds nuw i8, ptr %471, i64 32
-  %479 = load ptr, ptr %478, align 8
-  %480 = and i64 %477, 4294967295
-  %481 = getelementptr inbounds nuw i8, ptr %.0199496, i64 8
-  %482 = load i32, ptr %481, align 8
-  %483 = zext i32 %482 to i64
-  %484 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %479, i64 %480, i32 3
-  store i64 %483, ptr %484, align 8
-  %485 = getelementptr inbounds nuw i8, ptr %.0199496, i64 16
-  %.not236 = icmp eq ptr %485, %470
-  br i1 %.not236, label %.preheader, label %.lr.ph497
+.lr.ph505:                                        ; preds = %457, %.lr.ph505
+  %.0199504 = phi ptr [ %484, %.lr.ph505 ], [ %467, %457 ]
+  %470 = load ptr, ptr %.0199504, align 8
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 16
+  %472 = load ptr, ptr %471, align 8
+  %473 = getelementptr inbounds nuw i8, ptr %472, i64 2
+  %474 = load i16, ptr %473, align 2
+  %475 = zext i16 %474 to i64
+  %476 = add nuw nsw i64 %475, 4294967295
+  %477 = getelementptr inbounds nuw i8, ptr %470, i64 32
+  %478 = load ptr, ptr %477, align 8
+  %479 = and i64 %476, 4294967295
+  %480 = getelementptr inbounds nuw i8, ptr %.0199504, i64 8
+  %481 = load i32, ptr %480, align 8
+  %482 = zext i32 %481 to i64
+  %483 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %478, i64 %479, i32 3
+  store i64 %482, ptr %483, align 8
+  %484 = getelementptr inbounds nuw i8, ptr %.0199504, i64 16
+  %.not236 = icmp eq ptr %484, %469
+  br i1 %.not236, label %.preheader, label %.lr.ph505
 
-.lr.ph500:                                        ; preds = %.preheader, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit
-  %.0194499 = phi ptr [ %518, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit ], [ %69, %.preheader ]
-  %486 = call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10MCRegisterENS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(288) %.0194499, i32 28, i64 -1) #29
-  br i1 %486, label %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit, label %487
+.lr.ph508:                                        ; preds = %.preheader, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit
+  %.0194507 = phi ptr [ %517, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit ], [ %69, %.preheader ]
+  %485 = call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10MCRegisterENS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(288) %.0194507, i32 28, i64 -1) #29
+  br i1 %485, label %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit, label %486
 
-487:                                              ; preds = %.lr.ph500
-  %488 = getelementptr inbounds nuw i8, ptr %.0194499, i64 184
-  %489 = getelementptr inbounds nuw i8, ptr %.0194499, i64 192
-  %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds nuw i8, ptr %.0194499, i64 200
-  %492 = load ptr, ptr %491, align 8
-  %.not.i.i.i299 = icmp eq ptr %490, %492
-  br i1 %.not.i.i.i299, label %496, label %493
+486:                                              ; preds = %.lr.ph508
+  %487 = getelementptr inbounds nuw i8, ptr %.0194507, i64 184
+  %488 = getelementptr inbounds nuw i8, ptr %.0194507, i64 192
+  %489 = load ptr, ptr %488, align 8
+  %490 = getelementptr inbounds nuw i8, ptr %.0194507, i64 200
+  %491 = load ptr, ptr %490, align 8
+  %.not.i.i.i299 = icmp eq ptr %489, %491
+  br i1 %.not.i.i.i299, label %495, label %492
 
-493:                                              ; preds = %487
-  store i16 28, ptr %490, align 8
-  %.sroa.34.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %490, i64 8
+492:                                              ; preds = %486
+  store i16 28, ptr %489, align 8
+  %.sroa.34.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %489, i64 8
   store i64 -1, ptr %.sroa.34.0..sroa_idx.i, align 8
-  %494 = load ptr, ptr %489, align 8
-  %495 = getelementptr inbounds nuw i8, ptr %494, i64 16
-  store ptr %495, ptr %489, align 8
+  %493 = load ptr, ptr %488, align 8
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 16
+  store ptr %494, ptr %488, align 8
   br label %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit
 
-496:                                              ; preds = %487
-  %497 = load ptr, ptr %488, align 8
-  %498 = ptrtoint ptr %490 to i64
-  %499 = ptrtoint ptr %497 to i64
-  %500 = sub i64 %498, %499
-  %501 = icmp eq i64 %500, 9223372036854775792
-  br i1 %501, label %502, label %_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
+495:                                              ; preds = %486
+  %496 = load ptr, ptr %487, align 8
+  %497 = ptrtoint ptr %489 to i64
+  %498 = ptrtoint ptr %496 to i64
+  %499 = sub i64 %497, %498
+  %500 = icmp eq i64 %499, 9223372036854775792
+  br i1 %500, label %501, label %_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
-502:                                              ; preds = %496
+501:                                              ; preds = %495
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.44) #30
   unreachable
 
-_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %496
-  %503 = ashr exact i64 %500, 4
-  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %503, i64 1)
-  %504 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %503
-  %505 = icmp ult i64 %504, %503
-  %506 = call i64 @llvm.umin.i64(i64 %504, i64 576460752303423487)
-  %507 = select i1 %505, i64 576460752303423487, i64 %506
-  %.not.i.i.i.i.i = icmp ne i64 %507, 0
+_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %495
+  %502 = ashr exact i64 %499, 4
+  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %502, i64 1)
+  %503 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %502
+  %504 = icmp ult i64 %503, %502
+  %505 = call i64 @llvm.umin.i64(i64 %503, i64 576460752303423487)
+  %506 = select i1 %504, i64 576460752303423487, i64 %505
+  %.not.i.i.i.i.i = icmp ne i64 %506, 0
   call void @llvm.assume(i1 %.not.i.i.i.i.i)
-  %508 = shl nuw nsw i64 %507, 4
-  %509 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %508) #31
-  %510 = getelementptr inbounds i8, ptr %509, i64 %500
-  store i16 28, ptr %510, align 8
-  %.sroa.34.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %510, i64 8
+  %507 = shl nuw nsw i64 %506, 4
+  %508 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %507) #31
+  %509 = getelementptr inbounds i8, ptr %508, i64 %499
+  store i16 28, ptr %509, align 8
+  %.sroa.34.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %509, i64 8
   store i64 -1, ptr %.sroa.34.0..sroa_idx5.i, align 8
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %497, %490
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %496, %489
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi ptr [ %512, %.lr.ph.i.i.i.i.i.i.i ], [ %509, %_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %511, %.lr.ph.i.i.i.i.i.i.i ], [ %497, %_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.012.i.i.i.i.i.i.i = phi ptr [ %511, %.lr.ph.i.i.i.i.i.i.i ], [ %508, %_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %510, %.lr.ph.i.i.i.i.i.i.i ], [ %496, %_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !313
-  %511 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 16
-  %512 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i.i300 = icmp eq ptr %511, %490
+  %510 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 16
+  %511 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i.i300 = icmp eq ptr %510, %489
   br i1 %.not.i.i.i.i.i.i.i300, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !317
 
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %509, %_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %512, %.lr.ph.i.i.i.i.i.i.i ]
-  %513 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
-  %.not.i23.i.i.i.i = icmp eq ptr %497, null
-  br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %514
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %508, %_ZNKSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %511, %.lr.ph.i.i.i.i.i.i.i ]
+  %512 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %.not.i23.i.i.i.i = icmp eq ptr %496, null
+  br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %513
 
-514:                                              ; preds = %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %497, i64 noundef %500) #32
+513:                                              ; preds = %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %496, i64 noundef %499) #32
   br label %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
-_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %514, %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i
-  store ptr %509, ptr %488, align 8
-  store ptr %513, ptr %489, align 8
-  %515 = getelementptr inbounds nuw %"struct.llvm::MachineBasicBlock::RegisterMaskPair", ptr %509, i64 %507
-  store ptr %515, ptr %491, align 8
+_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %513, %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i
+  store ptr %508, ptr %487, align 8
+  store ptr %512, ptr %488, align 8
+  %514 = getelementptr inbounds nuw %"struct.llvm::MachineBasicBlock::RegisterMaskPair", ptr %508, i64 %506
+  store ptr %514, ptr %490, align 8
   br label %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit
 
-_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit: ; preds = %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %493, %.lr.ph500
-  %516 = getelementptr inbounds nuw i8, ptr %.0194499, i64 64
+_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit: ; preds = %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %492, %.lr.ph508
+  %515 = getelementptr inbounds nuw i8, ptr %.0194507, i64 64
+  %516 = load ptr, ptr %515, align 8
   %517 = load ptr, ptr %516, align 8
-  %518 = load ptr, ptr %517, align 8
-  %.not237 = icmp eq ptr %518, %431
-  br i1 %.not237, label %.thread, label %.lr.ph500, !llvm.loop !318
+  %.not237 = icmp eq ptr %517, %430
+  br i1 %.not237, label %.thread, label %.lr.ph508, !llvm.loop !318
 
-.thread:                                          ; preds = %304, %303, %303, %303, %303, %303, %392, %383, %374, %365, %354, %343, %_ZN4llvm3X8613getCondFromMIERKNS_12MachineInstrE.exit.thread, %400, %391, %382, %373, %362, %351, %317, %_ZN4llvm5APIntD2Ev.exit279, %_ZN4llvm5APIntD2Ev.exit278, %_ZN4llvm5APIntD2Ev.exit277, %_ZN4llvm5APIntD2Ev.exit276, %363, %_ZN4llvm5APIntD2Ev.exit275, %352, %_ZN4llvm5APIntD2Ev.exit, %313, %309, %306, %305, %297, %.lr.ph490, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit, %.preheader, %.loopexit, %432
-  %.1 = phi i1 [ false, %432 ], [ false, %.loopexit ], [ true, %.preheader ], [ true, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit ], [ false, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298 ], [ false, %.lr.ph490 ], [ false, %297 ], [ false, %305 ], [ false, %306 ], [ false, %309 ], [ false, %313 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %352 ], [ false, %_ZN4llvm5APIntD2Ev.exit275 ], [ false, %363 ], [ false, %_ZN4llvm5APIntD2Ev.exit276 ], [ false, %_ZN4llvm5APIntD2Ev.exit277 ], [ false, %_ZN4llvm5APIntD2Ev.exit278 ], [ false, %_ZN4llvm5APIntD2Ev.exit279 ], [ false, %317 ], [ false, %351 ], [ false, %362 ], [ false, %373 ], [ false, %382 ], [ false, %391 ], [ false, %400 ], [ false, %_ZN4llvm3X8613getCondFromMIERKNS_12MachineInstrE.exit.thread ], [ false, %343 ], [ false, %354 ], [ false, %365 ], [ false, %374 ], [ false, %383 ], [ false, %392 ], [ false, %303 ], [ false, %303 ], [ false, %303 ], [ false, %303 ], [ false, %303 ], [ false, %304 ]
+.thread:                                          ; preds = %304, %303, %303, %303, %303, %303, %392, %383, %374, %365, %354, %343, %_ZN4llvm3X8613getCondFromMIERKNS_12MachineInstrE.exit.thread, %400, %391, %382, %373, %362, %351, %317, %_ZN4llvm5APIntD2Ev.exit279, %_ZN4llvm5APIntD2Ev.exit278, %_ZN4llvm5APIntD2Ev.exit277, %_ZN4llvm5APIntD2Ev.exit276, %363, %_ZN4llvm5APIntD2Ev.exit275, %352, %_ZN4llvm5APIntD2Ev.exit, %313, %309, %306, %305, %297, %.lr.ph498, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit, %.preheader, %.loopexit, %431
+  %.1 = phi i1 [ false, %431 ], [ false, %.loopexit ], [ true, %.preheader ], [ true, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit ], [ false, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit298 ], [ false, %.lr.ph498 ], [ false, %297 ], [ false, %305 ], [ false, %306 ], [ false, %309 ], [ false, %313 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %352 ], [ false, %_ZN4llvm5APIntD2Ev.exit275 ], [ false, %363 ], [ false, %_ZN4llvm5APIntD2Ev.exit276 ], [ false, %_ZN4llvm5APIntD2Ev.exit277 ], [ false, %_ZN4llvm5APIntD2Ev.exit278 ], [ false, %_ZN4llvm5APIntD2Ev.exit279 ], [ false, %317 ], [ false, %351 ], [ false, %362 ], [ false, %373 ], [ false, %382 ], [ false, %391 ], [ false, %400 ], [ false, %_ZN4llvm3X8613getCondFromMIERKNS_12MachineInstrE.exit.thread ], [ false, %343 ], [ false, %354 ], [ false, %365 ], [ false, %374 ], [ false, %383 ], [ false, %392 ], [ false, %303 ], [ false, %303 ], [ false, %303 ], [ false, %303 ], [ false, %303 ], [ false, %304 ]
   call void @_ZN4llvm11SmallVectorISt4pairIPNS_12MachineInstrENS_3X868CondCodeEELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #29
   br label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit
 

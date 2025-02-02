@@ -3344,7 +3344,7 @@ ehcleanup79:                                      ; preds = %ehcleanup77, %lpad6
   br label %ehcleanup82
 
 if.end81:                                         ; preds = %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, %invoke.cont37, %if.else61, %invoke.cont45, %invoke.cont55
-  %inQuotes.1 = phi i8 [ %inQuotes.068, %if.else61 ], [ %inQuotes.068, %invoke.cont45 ], [ 1, %invoke.cont55 ], [ %inQuotes.068, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ 0, %invoke.cont37 ]
+  %inQuotes.1 = phi i8 [ 1, %if.else61 ], [ 1, %invoke.cont45 ], [ 1, %invoke.cont55 ], [ 0, %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ 0, %invoke.cont37 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #25
   %28 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %28

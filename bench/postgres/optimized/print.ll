@@ -2402,7 +2402,6 @@ print_separator.exit56:                           ; preds = %43, %45, %46
   br i1 %.not49, label %49, label %print_separator.exit56._crit_edge
 
 49:                                               ; preds = %print_separator.exit56, %23
-  %.3 = phi i8 [ 0, %print_separator.exit56 ], [ %.170, %23 ]
   %50 = load ptr, ptr %21, align 8
   %51 = load i32, ptr %22, align 8
   %52 = urem i32 %.04568, %51
@@ -2461,7 +2460,7 @@ print_separator.exit58:                           ; preds = %63, %65, %66
   br label %print_separator.exit60
 
 print_separator.exit60:                           ; preds = %83, %82, %80, %print_separator.exit58
-  %.4 = phi i8 [ 1, %print_separator.exit58 ], [ %.3, %80 ], [ %.3, %82 ], [ %.3, %83 ]
+  %.4 = phi i8 [ 1, %print_separator.exit58 ], [ 0, %80 ], [ 0, %82 ], [ 0, %83 ]
   %85 = getelementptr i8, ptr %.04469, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not48 = icmp eq ptr %86, null
@@ -2702,7 +2701,6 @@ print_separator.exit67._crit_edge86:              ; preds = %print_separator.exi
 
 68:                                               ; preds = %print_separator.exit67._crit_edge86, %52
   %69 = phi ptr [ %.pre, %print_separator.exit67._crit_edge86 ], [ %53, %52 ]
-  %.3 = phi i8 [ 0, %print_separator.exit67._crit_edge86 ], [ %.180, %52 ]
   %70 = tail call i32 @fputs(ptr noundef %69, ptr noundef %1)
   %71 = add i32 %.04881, 1
   %72 = load i32, ptr %51, align 8
@@ -2732,7 +2730,7 @@ print_separator.exit67._crit_edge86:              ; preds = %print_separator.exi
   br label %print_separator.exit69
 
 print_separator.exit69:                           ; preds = %84, %83, %81, %68
-  %.4 = phi i8 [ 1, %68 ], [ %.3, %81 ], [ %.3, %83 ], [ %.3, %84 ]
+  %.4 = phi i8 [ 1, %68 ], [ 0, %81 ], [ 0, %83 ], [ 0, %84 ]
   %86 = getelementptr i8, ptr %.15179, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not58 = icmp eq ptr %87, null

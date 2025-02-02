@@ -4254,14 +4254,13 @@ _ZN4llvm9StringRefC2EPKc.exit.i66:                ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit69
 
 _ZN4llvm11raw_ostreamlsEPKc.exit69:               ; preds = %156, %155, %153, %_ZN4llvm11raw_ostreamlsEc.exit, %135
-  %.2 = phi i8 [ %.0190, %135 ], [ 1, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 1, %153 ], [ 1, %155 ], [ 1, %156 ]
   %159 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
   store i64 0, ptr %122, align 8
   br label %160
 
 160:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit69
   %.145 = phi ptr [ %.044189, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ %.sroa.0181.0188, %_ZN4llvm11raw_ostreamlsEPKc.exit69 ]
-  %.1 = phi i8 [ %.0190, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ %.2, %_ZN4llvm11raw_ostreamlsEPKc.exit69 ]
+  %.1 = phi i8 [ %.0190, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit69 ]
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.0181.0188, i64 16
   %.not5.i3.i = icmp eq ptr %161, %118
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EELb1EEppEv.exit, label %.lr.ph.i4.i

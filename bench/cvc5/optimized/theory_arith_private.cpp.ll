@@ -46030,7 +46030,7 @@ invoke.cont602:                                   ; preds = %for.body.i.i.i.i266
           to label %cond.end668 unwind label %lpad537.loopexit.split-lp
 
 if.else652:                                       ; preds = %while.end507, %lor.lhs.false, %cond.end523
-  %emmittedConflictOrSplit.23923 = phi i8 [ %emmittedConflictOrSplit.1, %lor.lhs.false ], [ %emmittedConflictOrSplit.1, %cond.end523 ], [ 1, %while.end507 ]
+  %emmittedConflictOrSplit.23923 = phi i8 [ 0, %lor.lhs.false ], [ 1, %cond.end523 ], [ 1, %while.end507 ]
   %d_newPropTime654 = getelementptr inbounds nuw i8, ptr %this, i64 8888
   call void @_ZN4cvc58internal9CodeTimerC1ERNS0_9TimerStatEb(ptr noundef nonnull align 8 dereferenceable(9) %codeTimer1, ptr noundef nonnull align 8 dereferenceable(8) %d_newPropTime654, i1 noundef zeroext false)
   %_M_start.i.i2965 = getelementptr inbounds nuw i8, ptr %this, i64 1200
@@ -46309,12 +46309,10 @@ ehcleanup817:                                     ; preds = %lpad810, %lpad780
 
 if.end819:                                        ; preds = %invoke.cont809
   call void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp808) #32
-  %spec.select = zext i1 %call6.i3402 to i8
   call void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %possibleLemma) #32
   br i1 %call6.i3402, label %if.end875, label %if.then821
 
 if.then821:                                       ; preds = %land.lhs.true767, %invoke.cont770, %invoke.cont776, %if.end819.thread3996, %if.end819
-  %emmittedConflictOrSplit.83995 = phi i8 [ %spec.select, %if.end819 ], [ 0, %if.end819.thread3996 ], [ 0, %invoke.cont776 ], [ 0, %invoke.cont770 ], [ 0, %land.lhs.true767 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !347)
   %call.i.i.i34043409 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables20getNumberOfVariablesEv(ptr noundef nonnull align 8 dereferenceable(568) %d_partialModel.i.i)
           to label %call.i.i.i3404.noexc unwind label %lpad719.loopexit.split-lp.loopexit.split-lp
@@ -46406,7 +46404,7 @@ cond.true848.lr.ph:                               ; preds = %invoke.cont835
   br label %cond.true848
 
 cond.true848:                                     ; preds = %cond.true848.lr.ph, %_ZN4cvc58internal9TrustNodeD2Ev.exit3506
-  %emmittedConflictOrSplit.123977 = phi i8 [ %emmittedConflictOrSplit.83995, %cond.true848.lr.ph ], [ %spec.select3947, %_ZN4cvc58internal9TrustNodeD2Ev.exit3506 ]
+  %emmittedConflictOrSplit.123977 = phi i8 [ 0, %cond.true848.lr.ph ], [ %spec.select3947, %_ZN4cvc58internal9TrustNodeD2Ev.exit3506 ]
   %__begin6.sroa.0.03976 = phi ptr [ %265, %cond.true848.lr.ph ], [ %incdec.ptr.i3507, %_ZN4cvc58internal9TrustNodeD2Ev.exit3506 ]
   %267 = load i32, ptr %__begin6.sroa.0.03976, align 8
   store i32 %267, ptr %agg.tmp862, align 8
@@ -46503,7 +46501,7 @@ if.end873.loopexit:                               ; preds = %_ZN4cvc58internal9T
 if.end873:                                        ; preds = %invoke.cont822.thread, %if.end873.loopexit, %invoke.cont835, %invoke.cont822
   %_M_finish.i.i4001 = phi ptr [ %_M_finish.i.i, %invoke.cont822 ], [ %_M_finish.i.i, %invoke.cont835 ], [ %_M_finish.i.i, %if.end873.loopexit ], [ %_M_finish.i.i3999, %invoke.cont822.thread ]
   %277 = phi ptr [ %.pre3989, %invoke.cont822 ], [ %265, %invoke.cont835 ], [ %.pre3991, %if.end873.loopexit ], [ null, %invoke.cont822.thread ]
-  %emmittedConflictOrSplit.11 = phi i8 [ %emmittedConflictOrSplit.83995, %invoke.cont822 ], [ %emmittedConflictOrSplit.83995, %invoke.cont835 ], [ %spec.select3947, %if.end873.loopexit ], [ %emmittedConflictOrSplit.83995, %invoke.cont822.thread ]
+  %emmittedConflictOrSplit.11 = phi i8 [ 0, %invoke.cont822 ], [ 0, %invoke.cont835 ], [ %spec.select3947, %if.end873.loopexit ], [ 0, %invoke.cont822.thread ]
   %278 = load ptr, ptr %_M_finish.i.i4001, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %277, %278
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i3509
@@ -46561,7 +46559,7 @@ ehcleanup874:                                     ; preds = %lpad826.loopexit, %
   br label %ehcleanup940
 
 if.end875:                                        ; preds = %invoke.cont760, %if.then.i.i.i3511, %invoke.cont.i, %if.end819
-  %emmittedConflictOrSplit.10 = phi i8 [ %spec.select, %if.end819 ], [ %emmittedConflictOrSplit.11, %invoke.cont.i ], [ %emmittedConflictOrSplit.11, %if.then.i.i.i3511 ], [ 1, %invoke.cont760 ]
+  %emmittedConflictOrSplit.10 = phi i8 [ 1, %if.end819 ], [ %emmittedConflictOrSplit.11, %invoke.cont.i ], [ %emmittedConflictOrSplit.11, %if.then.i.i.i3511 ], [ 1, %invoke.cont760 ]
   %call877 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont876 unwind label %lpad719.loopexit.split-lp.loopexit.split-lp
 

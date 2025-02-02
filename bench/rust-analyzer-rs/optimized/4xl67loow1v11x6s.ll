@@ -1790,9 +1790,9 @@ define hidden { i64, ptr } @_ZN6object4read4coff7section12SectionTable15section_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
   %17 = load i64, ptr %6, align 8, !range !112, !alias.scope !286, !noalias !289, !noundef !7
   %18 = icmp eq i64 %17, 0
-  %.val3.i.i.i.i.i = load i64, ptr %12, align 8, !noalias !276
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val3.i.i.i.i.i, %3
-  %or.cond.i.i.i.i = select i1 %18, i1 %.not.i.i.i.i.i.i.i.i, i1 false
+  %.val7.i.i.i.i.i = load i64, ptr %12, align 8, !noalias !276
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %.val7.i.i.i.i.i, %3
+  %or.cond.i.i.i.i = select i1 %18, i1 %.not.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h77379663aff575f1E.exit.i.i.i", label %"_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h77379663aff575f1E.exit.thread.i.i.i"
 
 "_ZN6object4read4coff7section12SectionTable15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h77379663aff575f1E.exit.thread.i.i.i": ; preds = %14

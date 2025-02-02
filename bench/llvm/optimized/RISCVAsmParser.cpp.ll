@@ -23951,7 +23951,7 @@ _ZN12_GLOBAL__N_114RISCVAsmParser15convertToMCInstEjRN4llvm6MCInstEjRKNS1_15Smal
 _ZN4llvm14SmallBitVector3setEjj.exit:             ; preds = %271, %1367, %1370, %.thread810, %_ZNK4llvm13FeatureBitset5countEv.exit160, %1390, %2069, %1400
   %.sroa.0.5 = phi i64 [ %.sroa.0.2, %.thread810 ], [ %.sroa.0.2, %1367 ], [ %.sroa.0.2, %1370 ], [ %.sroa.0.4, %2069 ], [ %.sroa.0.4, %1400 ], [ %.sroa.0.4, %_ZNK4llvm13FeatureBitset5countEv.exit160 ], [ %.sroa.0.4, %1390 ], [ %.sroa.0.2, %271 ]
   %.4 = phi i32 [ %.0110884, %.thread810 ], [ %.0110884, %1367 ], [ %.3, %1370 ], [ %2068, %2069 ], [ %1399, %1400 ], [ %.0110884, %_ZNK4llvm13FeatureBitset5countEv.exit160 ], [ %.0110884, %1390 ], [ %.0110884, %271 ]
-  %.1108 = phi i8 [ %.0107885, %.thread810 ], [ %.0107885, %1367 ], [ %.0107885, %1370 ], [ 1, %2069 ], [ 1, %1400 ], [ %.0107885, %_ZNK4llvm13FeatureBitset5countEv.exit160 ], [ %.0107885, %1390 ], [ %.0107885, %271 ]
+  %.1108 = phi i8 [ 1, %.thread810 ], [ 0, %1367 ], [ 0, %1370 ], [ 1, %2069 ], [ 1, %1400 ], [ %.0107885, %_ZNK4llvm13FeatureBitset5countEv.exit160 ], [ %.0107885, %1390 ], [ %.0107885, %271 ]
   %.1104 = phi i1 [ %.0103886, %.thread810 ], [ %.0103886, %1367 ], [ %.0103886, %1370 ], [ %.0103886, %2069 ], [ %.0103886, %1400 ], [ true, %_ZNK4llvm13FeatureBitset5countEv.exit160 ], [ true, %1390 ], [ %.0103886, %271 ]
   %2112 = getelementptr inbounds nuw i8, ptr %.0116882, i64 14
   %.not = icmp eq ptr %2112, %.sroa.3.0.i.i

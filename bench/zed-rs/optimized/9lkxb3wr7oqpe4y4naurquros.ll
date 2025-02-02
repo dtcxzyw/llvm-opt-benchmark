@@ -10752,6 +10752,8 @@ _ZN10async_task5utils14abort_on_panic17h14751d3a69653c44E.exit: ; preds = %195
   %.sroa.019.0.v = select i1 %210, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %210, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %210, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %219, label %211
 
 211:                                              ; preds = %.preheader
@@ -10781,7 +10783,7 @@ _ZN10async_task5utils14abort_on_panic17h14751d3a69653c44E.exit: ; preds = %195
   br label %219
 
 219:                                              ; preds = %.preheader, %218
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %.preheader ], [ true, %218 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %.preheader ], [ true, %218 ]
   %220 = cmpxchg weak ptr %19, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %221 = extractvalue { i64, i1 } %220, 1
   %222 = extractvalue { i64, i1 } %220, 0
@@ -11725,6 +11727,8 @@ _ZN10async_task5utils14abort_on_panic17h08f23845bf0cff8bE.exit: ; preds = %192
   %.sroa.021.0.v = select i1 %207, i64 -11, i64 -4
   %.sroa.021.0 = and i64 %.sroa.021.0.v, %.sroa.022.1
   %brmerge = select i1 %207, i1 true, i1 %.sroa.018.0
+  %not. = xor i1 %207, true
+  %.sroa.018.0.mux = select i1 %not., i1 true, i1 %.sroa.018.0
   br i1 %brmerge, label %216, label %208
 
 208:                                              ; preds = %.preheader
@@ -11754,7 +11758,7 @@ _ZN10async_task5utils14abort_on_panic17h08f23845bf0cff8bE.exit: ; preds = %192
   br label %216
 
 216:                                              ; preds = %.preheader, %215
-  %.sroa.018.1 = phi i1 [ %.sroa.018.0, %.preheader ], [ true, %215 ]
+  %.sroa.018.1 = phi i1 [ %.sroa.018.0.mux, %.preheader ], [ true, %215 ]
   %217 = cmpxchg weak ptr %19, i64 %.sroa.022.1, i64 %.sroa.021.0 acq_rel acquire, align 8
   %218 = extractvalue { i64, i1 } %217, 1
   %219 = extractvalue { i64, i1 } %217, 0
@@ -12642,6 +12646,8 @@ _ZN10async_task5utils14abort_on_panic17h51e9456f65f6962eE.exit: ; preds = %184
   %.sroa.015.0.v = select i1 %198, i64 -11, i64 -4
   %.sroa.015.0 = and i64 %.sroa.015.0.v, %.sroa.016.1
   %brmerge = select i1 %198, i1 true, i1 %.sroa.011.0
+  %not. = xor i1 %198, true
+  %.sroa.011.0.mux = select i1 %not., i1 true, i1 %.sroa.011.0
   br i1 %brmerge, label %204, label %199
 
 199:                                              ; preds = %196
@@ -12669,7 +12675,7 @@ _ZN10async_task5utils14abort_on_panic17h51e9456f65f6962eE.exit: ; preds = %184
   br label %204
 
 204:                                              ; preds = %196, %203
-  %.sroa.011.1 = phi i1 [ %.sroa.011.0, %196 ], [ true, %203 ]
+  %.sroa.011.1 = phi i1 [ %.sroa.011.0.mux, %196 ], [ true, %203 ]
   %205 = cmpxchg weak ptr %15, i64 %.sroa.016.1, i64 %.sroa.015.0 acq_rel acquire, align 8
   %206 = extractvalue { i64, i1 } %205, 1
   %207 = extractvalue { i64, i1 } %205, 0
@@ -13631,6 +13637,8 @@ _ZN10async_task5utils14abort_on_panic17hf813e5e70d00aec0E.exit: ; preds = %193
   %.sroa.019.0.v = select i1 %208, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %208, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %208, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %216, label %209
 
 209:                                              ; preds = %.preheader
@@ -13663,7 +13671,7 @@ _ZN10async_task5utils14abort_on_panic17hf813e5e70d00aec0E.exit: ; preds = %193
   br label %216
 
 216:                                              ; preds = %.preheader, %215
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %.preheader ], [ true, %215 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %.preheader ], [ true, %215 ]
   %217 = cmpxchg weak ptr %19, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %218 = extractvalue { i64, i1 } %217, 1
   %219 = extractvalue { i64, i1 } %217, 0
@@ -14531,6 +14539,8 @@ _ZN10async_task5utils14abort_on_panic17h5ecc8264ad02a470E.exit: ; preds = %165
   %.sroa.030.0.v = select i1 %181, i64 -11, i64 -4
   %.sroa.030.0 = and i64 %.sroa.030.0.v, %.sroa.031.1
   %brmerge = select i1 %181, i1 true, i1 %.sroa.026.0
+  %not. = xor i1 %181, true
+  %.sroa.026.0.mux = select i1 %not., i1 true, i1 %.sroa.026.0
   br i1 %brmerge, label %205, label %182
 
 182:                                              ; preds = %179
@@ -14595,7 +14605,7 @@ _ZN10async_task5utils14abort_on_panic17h5ecc8264ad02a470E.exit: ; preds = %165
   br label %205
 
 205:                                              ; preds = %179, %204
-  %.sroa.026.1 = phi i1 [ %.sroa.026.0, %179 ], [ true, %204 ]
+  %.sroa.026.1 = phi i1 [ %.sroa.026.0.mux, %179 ], [ true, %204 ]
   %206 = cmpxchg weak ptr %15, i64 %.sroa.031.1, i64 %.sroa.030.0 acq_rel acquire, align 8
   %207 = extractvalue { i64, i1 } %206, 1
   %208 = extractvalue { i64, i1 } %206, 0
@@ -15513,6 +15523,8 @@ _ZN10async_task5utils14abort_on_panic17hd626eba08dcb61a8E.exit: ; preds = %173
   %.sroa.019.0.v = select i1 %188, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %188, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %188, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %196, label %189
 
 189:                                              ; preds = %.preheader
@@ -15545,7 +15557,7 @@ _ZN10async_task5utils14abort_on_panic17hd626eba08dcb61a8E.exit: ; preds = %173
   br label %196
 
 196:                                              ; preds = %.preheader, %195
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %.preheader ], [ true, %195 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %.preheader ], [ true, %195 ]
   %197 = cmpxchg weak ptr %19, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %198 = extractvalue { i64, i1 } %197, 1
   %199 = extractvalue { i64, i1 } %197, 0
@@ -16446,6 +16458,8 @@ _ZN10async_task5utils14abort_on_panic17h64346a09073eccb2E.exit: ; preds = %191
   %.sroa.019.0.v = select i1 %205, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %205, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %205, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %211, label %206
 
 206:                                              ; preds = %203
@@ -16473,7 +16487,7 @@ _ZN10async_task5utils14abort_on_panic17h64346a09073eccb2E.exit: ; preds = %191
   br label %211
 
 211:                                              ; preds = %203, %210
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %203 ], [ true, %210 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %203 ], [ true, %210 ]
   %212 = cmpxchg weak ptr %15, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %213 = extractvalue { i64, i1 } %212, 1
   %214 = extractvalue { i64, i1 } %212, 0
@@ -17368,6 +17382,8 @@ _ZN10async_task5utils14abort_on_panic17h0d8dd818828fc6dfE.exit: ; preds = %165
   %.sroa.017.0.v = select i1 %180, i64 -11, i64 -4
   %.sroa.017.0 = and i64 %.sroa.017.0.v, %.sroa.018.1
   %brmerge = select i1 %180, i1 true, i1 %.sroa.013.0
+  %not. = xor i1 %180, true
+  %.sroa.013.0.mux = select i1 %not., i1 true, i1 %.sroa.013.0
   br i1 %brmerge, label %188, label %181
 
 181:                                              ; preds = %.preheader
@@ -17400,7 +17416,7 @@ _ZN10async_task5utils14abort_on_panic17h0d8dd818828fc6dfE.exit: ; preds = %165
   br label %188
 
 188:                                              ; preds = %.preheader, %187
-  %.sroa.013.1 = phi i1 [ %.sroa.013.0, %.preheader ], [ true, %187 ]
+  %.sroa.013.1 = phi i1 [ %.sroa.013.0.mux, %.preheader ], [ true, %187 ]
   %189 = cmpxchg weak ptr %19, i64 %.sroa.018.1, i64 %.sroa.017.0 acq_rel acquire, align 8
   %190 = extractvalue { i64, i1 } %189, 1
   %191 = extractvalue { i64, i1 } %189, 0
@@ -18293,6 +18309,8 @@ _ZN10async_task5utils14abort_on_panic17h1394c05200440ff6E.exit: ; preds = %165
   %.sroa.026.0.v = select i1 %180, i64 -11, i64 -4
   %.sroa.026.0 = and i64 %.sroa.026.0.v, %.sroa.027.1
   %brmerge = select i1 %180, i1 true, i1 %.sroa.022.0
+  %not. = xor i1 %180, true
+  %.sroa.022.0.mux = select i1 %not., i1 true, i1 %.sroa.022.0
   br i1 %brmerge, label %189, label %181
 
 181:                                              ; preds = %.preheader
@@ -18322,7 +18340,7 @@ _ZN10async_task5utils14abort_on_panic17h1394c05200440ff6E.exit: ; preds = %165
   br label %189
 
 189:                                              ; preds = %.preheader, %188
-  %.sroa.022.1 = phi i1 [ %.sroa.022.0, %.preheader ], [ true, %188 ]
+  %.sroa.022.1 = phi i1 [ %.sroa.022.0.mux, %.preheader ], [ true, %188 ]
   %190 = cmpxchg weak ptr %19, i64 %.sroa.027.1, i64 %.sroa.026.0 acq_rel acquire, align 8
   %191 = extractvalue { i64, i1 } %190, 1
   %192 = extractvalue { i64, i1 } %190, 0
@@ -19290,6 +19308,8 @@ _ZN10async_task5utils14abort_on_panic17hd95fb292ee15644eE.exit: ; preds = %203
   %.sroa.031.0.v = select i1 %218, i64 -11, i64 -4
   %.sroa.031.0 = and i64 %.sroa.031.0.v, %.sroa.032.1
   %brmerge = select i1 %218, i1 true, i1 %.sroa.027.0
+  %not. = xor i1 %218, true
+  %.sroa.027.0.mux = select i1 %not., i1 true, i1 %.sroa.027.0
   br i1 %brmerge, label %227, label %219
 
 219:                                              ; preds = %.preheader
@@ -19319,7 +19339,7 @@ _ZN10async_task5utils14abort_on_panic17hd95fb292ee15644eE.exit: ; preds = %203
   br label %227
 
 227:                                              ; preds = %.preheader, %226
-  %.sroa.027.1 = phi i1 [ %.sroa.027.0, %.preheader ], [ true, %226 ]
+  %.sroa.027.1 = phi i1 [ %.sroa.027.0.mux, %.preheader ], [ true, %226 ]
   %228 = cmpxchg weak ptr %19, i64 %.sroa.032.1, i64 %.sroa.031.0 acq_rel acquire, align 8
   %229 = extractvalue { i64, i1 } %228, 1
   %230 = extractvalue { i64, i1 } %228, 0
@@ -20211,6 +20231,8 @@ _ZN10async_task5utils14abort_on_panic17h2effb0d6d0eb1d41E.exit: ; preds = %193
   %.sroa.019.0.v = select i1 %207, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %207, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %207, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %214, label %208
 
 208:                                              ; preds = %205
@@ -20235,7 +20257,7 @@ _ZN10async_task5utils14abort_on_panic17h2effb0d6d0eb1d41E.exit: ; preds = %193
   br label %214
 
 214:                                              ; preds = %205, %213
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %205 ], [ true, %213 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %205 ], [ true, %213 ]
   %215 = cmpxchg weak ptr %15, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %216 = extractvalue { i64, i1 } %215, 1
   %217 = extractvalue { i64, i1 } %215, 0
@@ -21121,6 +21143,8 @@ _ZN10async_task5utils14abort_on_panic17hb97984aa4ed71dd8E.exit: ; preds = %167
   %.sroa.017.0.v = select i1 %182, i64 -11, i64 -4
   %.sroa.017.0 = and i64 %.sroa.017.0.v, %.sroa.018.1
   %brmerge = select i1 %182, i1 true, i1 %.sroa.013.0
+  %not. = xor i1 %182, true
+  %.sroa.013.0.mux = select i1 %not., i1 true, i1 %.sroa.013.0
   br i1 %brmerge, label %191, label %183
 
 183:                                              ; preds = %.preheader
@@ -21150,7 +21174,7 @@ _ZN10async_task5utils14abort_on_panic17hb97984aa4ed71dd8E.exit: ; preds = %167
   br label %191
 
 191:                                              ; preds = %.preheader, %190
-  %.sroa.013.1 = phi i1 [ %.sroa.013.0, %.preheader ], [ true, %190 ]
+  %.sroa.013.1 = phi i1 [ %.sroa.013.0.mux, %.preheader ], [ true, %190 ]
   %192 = cmpxchg weak ptr %19, i64 %.sroa.018.1, i64 %.sroa.017.0 acq_rel acquire, align 8
   %193 = extractvalue { i64, i1 } %192, 1
   %194 = extractvalue { i64, i1 } %192, 0
@@ -22101,6 +22125,8 @@ _ZN10async_task5utils14abort_on_panic17hfba5362fba752e9bE.exit: ; preds = %194
   %.sroa.021.0.v = select i1 %209, i64 -11, i64 -4
   %.sroa.021.0 = and i64 %.sroa.021.0.v, %.sroa.022.1
   %brmerge = select i1 %209, i1 true, i1 %.sroa.018.0
+  %not. = xor i1 %209, true
+  %.sroa.018.0.mux = select i1 %not., i1 true, i1 %.sroa.018.0
   br i1 %brmerge, label %218, label %210
 
 210:                                              ; preds = %.preheader
@@ -22130,7 +22156,7 @@ _ZN10async_task5utils14abort_on_panic17hfba5362fba752e9bE.exit: ; preds = %194
   br label %218
 
 218:                                              ; preds = %.preheader, %217
-  %.sroa.018.1 = phi i1 [ %.sroa.018.0, %.preheader ], [ true, %217 ]
+  %.sroa.018.1 = phi i1 [ %.sroa.018.0.mux, %.preheader ], [ true, %217 ]
   %219 = cmpxchg weak ptr %19, i64 %.sroa.022.1, i64 %.sroa.021.0 acq_rel acquire, align 8
   %220 = extractvalue { i64, i1 } %219, 1
   %221 = extractvalue { i64, i1 } %219, 0
@@ -23042,6 +23068,8 @@ _ZN10async_task5utils14abort_on_panic17h02263b2d861e95deE.exit: ; preds = %196
   %.sroa.016.0.v = select i1 %212, i64 -11, i64 -4
   %.sroa.016.0 = and i64 %.sroa.016.0.v, %.sroa.017.1
   %brmerge = select i1 %212, i1 true, i1 %.sroa.013.0
+  %not. = xor i1 %212, true
+  %.sroa.013.0.mux = select i1 %not., i1 true, i1 %.sroa.013.0
   br i1 %brmerge, label %221, label %213
 
 213:                                              ; preds = %.preheader
@@ -23071,7 +23099,7 @@ _ZN10async_task5utils14abort_on_panic17h02263b2d861e95deE.exit: ; preds = %196
   br label %221
 
 221:                                              ; preds = %.preheader, %220
-  %.sroa.013.1 = phi i1 [ %.sroa.013.0, %.preheader ], [ true, %220 ]
+  %.sroa.013.1 = phi i1 [ %.sroa.013.0.mux, %.preheader ], [ true, %220 ]
   %222 = cmpxchg weak ptr %17, i64 %.sroa.017.1, i64 %.sroa.016.0 acq_rel acquire, align 8
   %223 = extractvalue { i64, i1 } %222, 1
   %224 = extractvalue { i64, i1 } %222, 0
@@ -23971,6 +23999,8 @@ _ZN10async_task5utils14abort_on_panic17h473738976e405df4E.exit: ; preds = %190
   %.sroa.019.0.v = select i1 %204, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %204, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %204, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %210, label %205
 
 205:                                              ; preds = %202
@@ -23998,7 +24028,7 @@ _ZN10async_task5utils14abort_on_panic17h473738976e405df4E.exit: ; preds = %190
   br label %210
 
 210:                                              ; preds = %202, %209
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %202 ], [ true, %209 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %202 ], [ true, %209 ]
   %211 = cmpxchg weak ptr %15, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %212 = extractvalue { i64, i1 } %211, 1
   %213 = extractvalue { i64, i1 } %211, 0
@@ -24892,6 +24922,8 @@ _ZN10async_task5utils14abort_on_panic17h3aae5a8c99ce9025E.exit: ; preds = %163
   %.sroa.026.0.v = select i1 %178, i64 -11, i64 -4
   %.sroa.026.0 = and i64 %.sroa.026.0.v, %.sroa.027.1
   %brmerge = select i1 %178, i1 true, i1 %.sroa.022.0
+  %not. = xor i1 %178, true
+  %.sroa.022.0.mux = select i1 %not., i1 true, i1 %.sroa.022.0
   br i1 %brmerge, label %186, label %179
 
 179:                                              ; preds = %.preheader
@@ -24924,7 +24956,7 @@ _ZN10async_task5utils14abort_on_panic17h3aae5a8c99ce9025E.exit: ; preds = %163
   br label %186
 
 186:                                              ; preds = %.preheader, %185
-  %.sroa.022.1 = phi i1 [ %.sroa.022.0, %.preheader ], [ true, %185 ]
+  %.sroa.022.1 = phi i1 [ %.sroa.022.0.mux, %.preheader ], [ true, %185 ]
   %187 = cmpxchg weak ptr %19, i64 %.sroa.027.1, i64 %.sroa.026.0 acq_rel acquire, align 8
   %188 = extractvalue { i64, i1 } %187, 1
   %189 = extractvalue { i64, i1 } %187, 0
@@ -25786,6 +25818,8 @@ _ZN10async_task5utils14abort_on_panic17h2651778defaa5440E.exit: ; preds = %184
   %.sroa.016.0.v = select i1 %201, i64 -11, i64 -4
   %.sroa.016.0 = and i64 %.sroa.016.0.v, %.sroa.017.1
   %brmerge = select i1 %201, i1 true, i1 %.sroa.013.0
+  %not. = xor i1 %201, true
+  %.sroa.013.0.mux = select i1 %not., i1 true, i1 %.sroa.013.0
   br i1 %brmerge, label %225, label %202
 
 202:                                              ; preds = %199
@@ -25850,7 +25884,7 @@ _ZN10async_task5utils14abort_on_panic17h2651778defaa5440E.exit: ; preds = %184
   br label %225
 
 225:                                              ; preds = %199, %224
-  %.sroa.013.1 = phi i1 [ %.sroa.013.0, %199 ], [ true, %224 ]
+  %.sroa.013.1 = phi i1 [ %.sroa.013.0.mux, %199 ], [ true, %224 ]
   %226 = cmpxchg weak ptr %13, i64 %.sroa.017.1, i64 %.sroa.016.0 acq_rel acquire, align 8
   %227 = extractvalue { i64, i1 } %226, 1
   %228 = extractvalue { i64, i1 } %226, 0
@@ -26769,6 +26803,8 @@ _ZN10async_task5utils14abort_on_panic17h5449a2cedfa33051E.exit: ; preds = %173
   %.sroa.019.0.v = select i1 %188, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %188, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %188, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %196, label %189
 
 189:                                              ; preds = %.preheader
@@ -26801,7 +26837,7 @@ _ZN10async_task5utils14abort_on_panic17h5449a2cedfa33051E.exit: ; preds = %173
   br label %196
 
 196:                                              ; preds = %.preheader, %195
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %.preheader ], [ true, %195 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %.preheader ], [ true, %195 ]
   %197 = cmpxchg weak ptr %19, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %198 = extractvalue { i64, i1 } %197, 1
   %199 = extractvalue { i64, i1 } %197, 0
@@ -27678,6 +27714,8 @@ _ZN10async_task5utils14abort_on_panic17hd04fdda7f2cc4bbaE.exit: ; preds = %188
   %.sroa.016.0.v = select i1 %204, i64 -11, i64 -4
   %.sroa.016.0 = and i64 %.sroa.016.0.v, %.sroa.017.1
   %brmerge = select i1 %204, i1 true, i1 %.sroa.013.0
+  %not. = xor i1 %204, true
+  %.sroa.013.0.mux = select i1 %not., i1 true, i1 %.sroa.013.0
   br i1 %brmerge, label %230, label %205
 
 205:                                              ; preds = %.preheader
@@ -27749,7 +27787,7 @@ _ZN10async_task5utils14abort_on_panic17hd04fdda7f2cc4bbaE.exit: ; preds = %188
   br label %230
 
 230:                                              ; preds = %.preheader, %229
-  %.sroa.013.1 = phi i1 [ %.sroa.013.0, %.preheader ], [ true, %229 ]
+  %.sroa.013.1 = phi i1 [ %.sroa.013.0.mux, %.preheader ], [ true, %229 ]
   %231 = cmpxchg weak ptr %13, i64 %.sroa.017.1, i64 %.sroa.016.0 acq_rel acquire, align 8
   %232 = extractvalue { i64, i1 } %231, 1
   %233 = extractvalue { i64, i1 } %231, 0
@@ -28729,6 +28767,8 @@ _ZN10async_task5utils14abort_on_panic17h76d6b3adc64e02c5E.exit: ; preds = %201
   %.sroa.031.0.v = select i1 %216, i64 -11, i64 -4
   %.sroa.031.0 = and i64 %.sroa.031.0.v, %.sroa.032.1
   %brmerge = select i1 %216, i1 true, i1 %.sroa.027.0
+  %not. = xor i1 %216, true
+  %.sroa.027.0.mux = select i1 %not., i1 true, i1 %.sroa.027.0
   br i1 %brmerge, label %224, label %217
 
 217:                                              ; preds = %.preheader
@@ -28761,7 +28801,7 @@ _ZN10async_task5utils14abort_on_panic17h76d6b3adc64e02c5E.exit: ; preds = %201
   br label %224
 
 224:                                              ; preds = %.preheader, %223
-  %.sroa.027.1 = phi i1 [ %.sroa.027.0, %.preheader ], [ true, %223 ]
+  %.sroa.027.1 = phi i1 [ %.sroa.027.0.mux, %.preheader ], [ true, %223 ]
   %225 = cmpxchg weak ptr %19, i64 %.sroa.032.1, i64 %.sroa.031.0 acq_rel acquire, align 8
   %226 = extractvalue { i64, i1 } %225, 1
   %227 = extractvalue { i64, i1 } %225, 0
@@ -29704,6 +29744,8 @@ _ZN10async_task5utils14abort_on_panic17h58069c34ed27f8ebE.exit: ; preds = %199
   %.sroa.020.0.v = select i1 %214, i64 -11, i64 -4
   %.sroa.020.0 = and i64 %.sroa.020.0.v, %.sroa.021.1
   %brmerge = select i1 %214, i1 true, i1 %.sroa.017.0
+  %not. = xor i1 %214, true
+  %.sroa.017.0.mux = select i1 %not., i1 true, i1 %.sroa.017.0
   br i1 %brmerge, label %223, label %215
 
 215:                                              ; preds = %.preheader
@@ -29733,7 +29775,7 @@ _ZN10async_task5utils14abort_on_panic17h58069c34ed27f8ebE.exit: ; preds = %199
   br label %223
 
 223:                                              ; preds = %.preheader, %222
-  %.sroa.017.1 = phi i1 [ %.sroa.017.0, %.preheader ], [ true, %222 ]
+  %.sroa.017.1 = phi i1 [ %.sroa.017.0.mux, %.preheader ], [ true, %222 ]
   %224 = cmpxchg weak ptr %19, i64 %.sroa.021.1, i64 %.sroa.020.0 acq_rel acquire, align 8
   %225 = extractvalue { i64, i1 } %224, 1
   %226 = extractvalue { i64, i1 } %224, 0
@@ -30654,6 +30696,8 @@ _ZN10async_task5utils14abort_on_panic17h5fa2c8a16ca96cf7E.exit: ; preds = %194
   %.sroa.016.0.v = select i1 %210, i64 -11, i64 -4
   %.sroa.016.0 = and i64 %.sroa.016.0.v, %.sroa.017.1
   %brmerge = select i1 %210, i1 true, i1 %.sroa.013.0
+  %not. = xor i1 %210, true
+  %.sroa.013.0.mux = select i1 %not., i1 true, i1 %.sroa.013.0
   br i1 %brmerge, label %218, label %211
 
 211:                                              ; preds = %.preheader
@@ -30686,7 +30730,7 @@ _ZN10async_task5utils14abort_on_panic17h5fa2c8a16ca96cf7E.exit: ; preds = %194
   br label %218
 
 218:                                              ; preds = %.preheader, %217
-  %.sroa.013.1 = phi i1 [ %.sroa.013.0, %.preheader ], [ true, %217 ]
+  %.sroa.013.1 = phi i1 [ %.sroa.013.0.mux, %.preheader ], [ true, %217 ]
   %219 = cmpxchg weak ptr %17, i64 %.sroa.017.1, i64 %.sroa.016.0 acq_rel acquire, align 8
   %220 = extractvalue { i64, i1 } %219, 1
   %221 = extractvalue { i64, i1 } %219, 0
@@ -31566,6 +31610,8 @@ _ZN10async_task5utils14abort_on_panic17he9709db3efd26ce0E.exit: ; preds = %186
   %.sroa.015.0.v = select i1 %200, i64 -11, i64 -4
   %.sroa.015.0 = and i64 %.sroa.015.0.v, %.sroa.016.1
   %brmerge = select i1 %200, i1 true, i1 %.sroa.011.0
+  %not. = xor i1 %200, true
+  %.sroa.011.0.mux = select i1 %not., i1 true, i1 %.sroa.011.0
   br i1 %brmerge, label %207, label %201
 
 201:                                              ; preds = %198
@@ -31590,7 +31636,7 @@ _ZN10async_task5utils14abort_on_panic17he9709db3efd26ce0E.exit: ; preds = %186
   br label %207
 
 207:                                              ; preds = %198, %206
-  %.sroa.011.1 = phi i1 [ %.sroa.011.0, %198 ], [ true, %206 ]
+  %.sroa.011.1 = phi i1 [ %.sroa.011.0.mux, %198 ], [ true, %206 ]
   %208 = cmpxchg weak ptr %15, i64 %.sroa.016.1, i64 %.sroa.015.0 acq_rel acquire, align 8
   %209 = extractvalue { i64, i1 } %208, 1
   %210 = extractvalue { i64, i1 } %208, 0
@@ -32357,6 +32403,8 @@ _ZN10async_task5utils14abort_on_panic17ha0604515c56486edE.exit: ; preds = %143
   %.sroa.016.0.v = select i1 %157, i64 -11, i64 -4
   %.sroa.016.0 = and i64 %.sroa.016.0.v, %.sroa.017.1
   %brmerge = select i1 %157, i1 true, i1 %.sroa.013.0
+  %not. = xor i1 %157, true
+  %.sroa.013.0.mux = select i1 %not., i1 true, i1 %.sroa.013.0
   br i1 %brmerge, label %167, label %158
 
 158:                                              ; preds = %155
@@ -32390,7 +32438,7 @@ _ZN10async_task5utils14abort_on_panic17ha0604515c56486edE.exit: ; preds = %143
   br label %167
 
 167:                                              ; preds = %155, %166
-  %.sroa.013.1 = phi i1 [ %.sroa.013.0, %155 ], [ true, %166 ]
+  %.sroa.013.1 = phi i1 [ %.sroa.013.0.mux, %155 ], [ true, %166 ]
   %168 = cmpxchg weak ptr %11, i64 %.sroa.017.1, i64 %.sroa.016.0 acq_rel acquire, align 8
   %169 = extractvalue { i64, i1 } %168, 1
   %170 = extractvalue { i64, i1 } %168, 0
@@ -33216,6 +33264,8 @@ _ZN10async_task5utils14abort_on_panic17hd02b5a23f27a425eE.exit: ; preds = %173
   %.sroa.019.0.v = select i1 %188, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %188, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %188, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %196, label %189
 
 189:                                              ; preds = %.preheader
@@ -33248,7 +33298,7 @@ _ZN10async_task5utils14abort_on_panic17hd02b5a23f27a425eE.exit: ; preds = %173
   br label %196
 
 196:                                              ; preds = %.preheader, %195
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %.preheader ], [ true, %195 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %.preheader ], [ true, %195 ]
   %197 = cmpxchg weak ptr %19, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %198 = extractvalue { i64, i1 } %197, 1
   %199 = extractvalue { i64, i1 } %197, 0
@@ -34229,6 +34279,8 @@ _ZN10async_task5utils14abort_on_panic17h357791f33f97c347E.exit: ; preds = %202
   %.sroa.031.0.v = select i1 %217, i64 -11, i64 -4
   %.sroa.031.0 = and i64 %.sroa.031.0.v, %.sroa.032.1
   %brmerge = select i1 %217, i1 true, i1 %.sroa.027.0
+  %not. = xor i1 %217, true
+  %.sroa.027.0.mux = select i1 %not., i1 true, i1 %.sroa.027.0
   br i1 %brmerge, label %225, label %218
 
 218:                                              ; preds = %.preheader
@@ -34261,7 +34313,7 @@ _ZN10async_task5utils14abort_on_panic17h357791f33f97c347E.exit: ; preds = %202
   br label %225
 
 225:                                              ; preds = %.preheader, %224
-  %.sroa.027.1 = phi i1 [ %.sroa.027.0, %.preheader ], [ true, %224 ]
+  %.sroa.027.1 = phi i1 [ %.sroa.027.0.mux, %.preheader ], [ true, %224 ]
   %226 = cmpxchg weak ptr %19, i64 %.sroa.032.1, i64 %.sroa.031.0 acq_rel acquire, align 8
   %227 = extractvalue { i64, i1 } %226, 1
   %228 = extractvalue { i64, i1 } %226, 0
@@ -35212,6 +35264,8 @@ _ZN10async_task5utils14abort_on_panic17h42d18df1b5b5655fE.exit: ; preds = %194
   %.sroa.021.0.v = select i1 %209, i64 -11, i64 -4
   %.sroa.021.0 = and i64 %.sroa.021.0.v, %.sroa.022.1
   %brmerge = select i1 %209, i1 true, i1 %.sroa.018.0
+  %not. = xor i1 %209, true
+  %.sroa.018.0.mux = select i1 %not., i1 true, i1 %.sroa.018.0
   br i1 %brmerge, label %218, label %210
 
 210:                                              ; preds = %.preheader
@@ -35241,7 +35295,7 @@ _ZN10async_task5utils14abort_on_panic17h42d18df1b5b5655fE.exit: ; preds = %194
   br label %218
 
 218:                                              ; preds = %.preheader, %217
-  %.sroa.018.1 = phi i1 [ %.sroa.018.0, %.preheader ], [ true, %217 ]
+  %.sroa.018.1 = phi i1 [ %.sroa.018.0.mux, %.preheader ], [ true, %217 ]
   %219 = cmpxchg weak ptr %19, i64 %.sroa.022.1, i64 %.sroa.021.0 acq_rel acquire, align 8
   %220 = extractvalue { i64, i1 } %219, 1
   %221 = extractvalue { i64, i1 } %219, 0
@@ -36131,6 +36185,8 @@ _ZN10async_task5utils14abort_on_panic17h6019d36d1dc06a28E.exit: ; preds = %192
   %.sroa.019.0.v = select i1 %206, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %206, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %206, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %213, label %207
 
 207:                                              ; preds = %204
@@ -36155,7 +36211,7 @@ _ZN10async_task5utils14abort_on_panic17h6019d36d1dc06a28E.exit: ; preds = %192
   br label %213
 
 213:                                              ; preds = %204, %212
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %204 ], [ true, %212 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %204 ], [ true, %212 ]
   %214 = cmpxchg weak ptr %15, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %215 = extractvalue { i64, i1 } %214, 1
   %216 = extractvalue { i64, i1 } %214, 0
@@ -37107,6 +37163,8 @@ _ZN10async_task5utils14abort_on_panic17h82bc124b0e879a1aE.exit: ; preds = %192
   %.sroa.021.0.v = select i1 %207, i64 -11, i64 -4
   %.sroa.021.0 = and i64 %.sroa.021.0.v, %.sroa.022.1
   %brmerge = select i1 %207, i1 true, i1 %.sroa.018.0
+  %not. = xor i1 %207, true
+  %.sroa.018.0.mux = select i1 %not., i1 true, i1 %.sroa.018.0
   br i1 %brmerge, label %215, label %208
 
 208:                                              ; preds = %.preheader
@@ -37139,7 +37197,7 @@ _ZN10async_task5utils14abort_on_panic17h82bc124b0e879a1aE.exit: ; preds = %192
   br label %215
 
 215:                                              ; preds = %.preheader, %214
-  %.sroa.018.1 = phi i1 [ %.sroa.018.0, %.preheader ], [ true, %214 ]
+  %.sroa.018.1 = phi i1 [ %.sroa.018.0.mux, %.preheader ], [ true, %214 ]
   %216 = cmpxchg weak ptr %19, i64 %.sroa.022.1, i64 %.sroa.021.0 acq_rel acquire, align 8
   %217 = extractvalue { i64, i1 } %216, 1
   %218 = extractvalue { i64, i1 } %216, 0
@@ -38092,6 +38150,8 @@ _ZN10async_task5utils14abort_on_panic17h0aedf296687d98fcE.exit: ; preds = %190
   %.sroa.021.0.v = select i1 %205, i64 -11, i64 -4
   %.sroa.021.0 = and i64 %.sroa.021.0.v, %.sroa.022.1
   %brmerge = select i1 %205, i1 true, i1 %.sroa.018.0
+  %not. = xor i1 %205, true
+  %.sroa.018.0.mux = select i1 %not., i1 true, i1 %.sroa.018.0
   br i1 %brmerge, label %213, label %206
 
 206:                                              ; preds = %.preheader
@@ -38124,7 +38184,7 @@ _ZN10async_task5utils14abort_on_panic17h0aedf296687d98fcE.exit: ; preds = %190
   br label %213
 
 213:                                              ; preds = %.preheader, %212
-  %.sroa.018.1 = phi i1 [ %.sroa.018.0, %.preheader ], [ true, %212 ]
+  %.sroa.018.1 = phi i1 [ %.sroa.018.0.mux, %.preheader ], [ true, %212 ]
   %214 = cmpxchg weak ptr %19, i64 %.sroa.022.1, i64 %.sroa.021.0 acq_rel acquire, align 8
   %215 = extractvalue { i64, i1 } %214, 1
   %216 = extractvalue { i64, i1 } %214, 0
@@ -39011,6 +39071,8 @@ _ZN10async_task5utils14abort_on_panic17h6dd22726519ff4e3E.exit: ; preds = %166
   %.sroa.021.0.v = select i1 %181, i64 -11, i64 -4
   %.sroa.021.0 = and i64 %.sroa.021.0.v, %.sroa.022.1
   %brmerge = select i1 %181, i1 true, i1 %.sroa.018.0
+  %not. = xor i1 %181, true
+  %.sroa.018.0.mux = select i1 %not., i1 true, i1 %.sroa.018.0
   br i1 %brmerge, label %190, label %182
 
 182:                                              ; preds = %.preheader
@@ -39040,7 +39102,7 @@ _ZN10async_task5utils14abort_on_panic17h6dd22726519ff4e3E.exit: ; preds = %166
   br label %190
 
 190:                                              ; preds = %.preheader, %189
-  %.sroa.018.1 = phi i1 [ %.sroa.018.0, %.preheader ], [ true, %189 ]
+  %.sroa.018.1 = phi i1 [ %.sroa.018.0.mux, %.preheader ], [ true, %189 ]
   %191 = cmpxchg weak ptr %19, i64 %.sroa.022.1, i64 %.sroa.021.0 acq_rel acquire, align 8
   %192 = extractvalue { i64, i1 } %191, 1
   %193 = extractvalue { i64, i1 } %191, 0
@@ -39920,6 +39982,8 @@ _ZN10async_task5utils14abort_on_panic17h588bf73df51d0340E.exit: ; preds = %169
   %.sroa.030.0.v = select i1 %184, i64 -11, i64 -4
   %.sroa.030.0 = and i64 %.sroa.030.0.v, %.sroa.031.1
   %brmerge = select i1 %184, i1 true, i1 %.sroa.026.0
+  %not. = xor i1 %184, true
+  %.sroa.026.0.mux = select i1 %not., i1 true, i1 %.sroa.026.0
   br i1 %brmerge, label %210, label %185
 
 185:                                              ; preds = %.preheader
@@ -39991,7 +40055,7 @@ _ZN10async_task5utils14abort_on_panic17h588bf73df51d0340E.exit: ; preds = %169
   br label %210
 
 210:                                              ; preds = %.preheader, %209
-  %.sroa.026.1 = phi i1 [ %.sroa.026.0, %.preheader ], [ true, %209 ]
+  %.sroa.026.1 = phi i1 [ %.sroa.026.0.mux, %.preheader ], [ true, %209 ]
   %211 = cmpxchg weak ptr %15, i64 %.sroa.031.1, i64 %.sroa.030.0 acq_rel acquire, align 8
   %212 = extractvalue { i64, i1 } %211, 1
   %213 = extractvalue { i64, i1 } %211, 0
@@ -41522,6 +41586,8 @@ _ZN10async_task5utils14abort_on_panic17h665d072971c10861E.exit: ; preds = %175
   %.sroa.019.0.v = select i1 %190, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %190, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %190, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %199, label %191
 
 191:                                              ; preds = %.preheader
@@ -41551,7 +41617,7 @@ _ZN10async_task5utils14abort_on_panic17h665d072971c10861E.exit: ; preds = %175
   br label %199
 
 199:                                              ; preds = %.preheader, %198
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %.preheader ], [ true, %198 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %.preheader ], [ true, %198 ]
   %200 = cmpxchg weak ptr %19, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %201 = extractvalue { i64, i1 } %200, 1
   %202 = extractvalue { i64, i1 } %200, 0
@@ -42458,6 +42524,8 @@ _ZN10async_task5utils14abort_on_panic17hd601a3383752abb3E.exit: ; preds = %175
   %.sroa.019.0.v = select i1 %190, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %190, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %190, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %199, label %191
 
 191:                                              ; preds = %.preheader
@@ -42487,7 +42555,7 @@ _ZN10async_task5utils14abort_on_panic17hd601a3383752abb3E.exit: ; preds = %175
   br label %199
 
 199:                                              ; preds = %.preheader, %198
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %.preheader ], [ true, %198 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %.preheader ], [ true, %198 ]
   %200 = cmpxchg weak ptr %19, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %201 = extractvalue { i64, i1 } %200, 1
   %202 = extractvalue { i64, i1 } %200, 0
@@ -43394,6 +43462,8 @@ _ZN10async_task5utils14abort_on_panic17h0af92fe54f958965E.exit: ; preds = %175
   %.sroa.019.0.v = select i1 %190, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %190, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %190, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %199, label %191
 
 191:                                              ; preds = %.preheader
@@ -43423,7 +43493,7 @@ _ZN10async_task5utils14abort_on_panic17h0af92fe54f958965E.exit: ; preds = %175
   br label %199
 
 199:                                              ; preds = %.preheader, %198
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %.preheader ], [ true, %198 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %.preheader ], [ true, %198 ]
   %200 = cmpxchg weak ptr %19, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %201 = extractvalue { i64, i1 } %200, 1
   %202 = extractvalue { i64, i1 } %200, 0
@@ -44395,6 +44465,8 @@ _ZN10async_task5utils14abort_on_panic17hfc4c79a04b1e0bfeE.exit: ; preds = %204
   %.sroa.031.0.v = select i1 %219, i64 -11, i64 -4
   %.sroa.031.0 = and i64 %.sroa.031.0.v, %.sroa.032.1
   %brmerge = select i1 %219, i1 true, i1 %.sroa.027.0
+  %not. = xor i1 %219, true
+  %.sroa.027.0.mux = select i1 %not., i1 true, i1 %.sroa.027.0
   br i1 %brmerge, label %228, label %220
 
 220:                                              ; preds = %.preheader
@@ -44424,7 +44496,7 @@ _ZN10async_task5utils14abort_on_panic17hfc4c79a04b1e0bfeE.exit: ; preds = %204
   br label %228
 
 228:                                              ; preds = %.preheader, %227
-  %.sroa.027.1 = phi i1 [ %.sroa.027.0, %.preheader ], [ true, %227 ]
+  %.sroa.027.1 = phi i1 [ %.sroa.027.0.mux, %.preheader ], [ true, %227 ]
   %229 = cmpxchg weak ptr %19, i64 %.sroa.032.1, i64 %.sroa.031.0 acq_rel acquire, align 8
   %230 = extractvalue { i64, i1 } %229, 1
   %231 = extractvalue { i64, i1 } %229, 0
@@ -45320,6 +45392,8 @@ _ZN10async_task5utils14abort_on_panic17h1d9de116f41d4e86E.exit: ; preds = %164
   %.sroa.021.0.v = select i1 %179, i64 -11, i64 -4
   %.sroa.021.0 = and i64 %.sroa.021.0.v, %.sroa.022.1
   %brmerge = select i1 %179, i1 true, i1 %.sroa.018.0
+  %not. = xor i1 %179, true
+  %.sroa.018.0.mux = select i1 %not., i1 true, i1 %.sroa.018.0
   br i1 %brmerge, label %187, label %180
 
 180:                                              ; preds = %.preheader
@@ -45352,7 +45426,7 @@ _ZN10async_task5utils14abort_on_panic17h1d9de116f41d4e86E.exit: ; preds = %164
   br label %187
 
 187:                                              ; preds = %.preheader, %186
-  %.sroa.018.1 = phi i1 [ %.sroa.018.0, %.preheader ], [ true, %186 ]
+  %.sroa.018.1 = phi i1 [ %.sroa.018.0.mux, %.preheader ], [ true, %186 ]
   %188 = cmpxchg weak ptr %19, i64 %.sroa.022.1, i64 %.sroa.021.0 acq_rel acquire, align 8
   %189 = extractvalue { i64, i1 } %188, 1
   %190 = extractvalue { i64, i1 } %188, 0
@@ -46193,6 +46267,8 @@ _ZN10async_task5utils14abort_on_panic17hd599b14fc64203f2E.exit: ; preds = %182
   %.sroa.019.0.v = select i1 %196, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %196, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %196, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %218, label %197
 
 197:                                              ; preds = %194
@@ -46252,7 +46328,7 @@ _ZN10async_task5utils14abort_on_panic17hd599b14fc64203f2E.exit: ; preds = %182
   br label %218
 
 218:                                              ; preds = %194, %217
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %194 ], [ true, %217 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %194 ], [ true, %217 ]
   %219 = cmpxchg weak ptr %11, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %220 = extractvalue { i64, i1 } %219, 1
   %221 = extractvalue { i64, i1 } %219, 0
@@ -47103,6 +47179,8 @@ _ZN10async_task5utils14abort_on_panic17hfc2280a7878c7839E.exit: ; preds = %185
   %.sroa.019.0.v = select i1 %199, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %199, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %199, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %223, label %200
 
 200:                                              ; preds = %197
@@ -47169,7 +47247,7 @@ _ZN10async_task5utils14abort_on_panic17hfc2280a7878c7839E.exit: ; preds = %185
   br label %223
 
 223:                                              ; preds = %197, %222
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %197 ], [ true, %222 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %197 ], [ true, %222 ]
   %224 = cmpxchg weak ptr %11, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %225 = extractvalue { i64, i1 } %224, 1
   %226 = extractvalue { i64, i1 } %224, 0
@@ -48123,6 +48201,8 @@ _ZN10async_task5utils14abort_on_panic17heee7a88212e11d98E.exit: ; preds = %192
   %.sroa.021.0.v = select i1 %207, i64 -11, i64 -4
   %.sroa.021.0 = and i64 %.sroa.021.0.v, %.sroa.022.1
   %brmerge = select i1 %207, i1 true, i1 %.sroa.018.0
+  %not. = xor i1 %207, true
+  %.sroa.018.0.mux = select i1 %not., i1 true, i1 %.sroa.018.0
   br i1 %brmerge, label %215, label %208
 
 208:                                              ; preds = %.preheader
@@ -48155,7 +48235,7 @@ _ZN10async_task5utils14abort_on_panic17heee7a88212e11d98E.exit: ; preds = %192
   br label %215
 
 215:                                              ; preds = %.preheader, %214
-  %.sroa.018.1 = phi i1 [ %.sroa.018.0, %.preheader ], [ true, %214 ]
+  %.sroa.018.1 = phi i1 [ %.sroa.018.0.mux, %.preheader ], [ true, %214 ]
   %216 = cmpxchg weak ptr %19, i64 %.sroa.022.1, i64 %.sroa.021.0 acq_rel acquire, align 8
   %217 = extractvalue { i64, i1 } %216, 1
   %218 = extractvalue { i64, i1 } %216, 0
@@ -49107,6 +49187,8 @@ _ZN10async_task5utils14abort_on_panic17h8b0dd4a69cbeb4a1E.exit: ; preds = %197
   %.sroa.020.0.v = select i1 %212, i64 -11, i64 -4
   %.sroa.020.0 = and i64 %.sroa.020.0.v, %.sroa.021.1
   %brmerge = select i1 %212, i1 true, i1 %.sroa.017.0
+  %not. = xor i1 %212, true
+  %.sroa.017.0.mux = select i1 %not., i1 true, i1 %.sroa.017.0
   br i1 %brmerge, label %220, label %213
 
 213:                                              ; preds = %.preheader
@@ -49139,7 +49221,7 @@ _ZN10async_task5utils14abort_on_panic17h8b0dd4a69cbeb4a1E.exit: ; preds = %197
   br label %220
 
 220:                                              ; preds = %.preheader, %219
-  %.sroa.017.1 = phi i1 [ %.sroa.017.0, %.preheader ], [ true, %219 ]
+  %.sroa.017.1 = phi i1 [ %.sroa.017.0.mux, %.preheader ], [ true, %219 ]
   %221 = cmpxchg weak ptr %19, i64 %.sroa.021.1, i64 %.sroa.020.0 acq_rel acquire, align 8
   %222 = extractvalue { i64, i1 } %221, 1
   %223 = extractvalue { i64, i1 } %221, 0

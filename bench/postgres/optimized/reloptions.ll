@@ -2645,8 +2645,8 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph85, %192
-  %indvars.iv123 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next124, %192 ]
+12:                                               ; preds = %.lr.ph85, %183
+  %indvars.iv123 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next124, %183 ]
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr i64, ptr %13, i64 %indvars.iv123
   %15 = load i64, ptr %14, align 8
@@ -2657,27 +2657,27 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %20 = add nsw i32 %19, -4
   br i1 %11, label %parse_one_reloption.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %12, %179
-  %indvars.iv = phi i64 [ %indvars.iv.next, %179 ], [ 0, %12 ]
+.lr.ph:                                           ; preds = %12, %170
+  %indvars.iv = phi i64 [ %indvars.iv.next, %170 ], [ 0, %12 ]
   %21 = getelementptr %struct.relopt_value, ptr %2, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %20, %24
-  br i1 %25, label %26, label %179
+  br i1 %25, label %26, label %170
 
 26:                                               ; preds = %.lr.ph
   %27 = sext i32 %24 to i64
   %28 = getelementptr i8, ptr %17, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 61
-  br i1 %30, label %31, label %179
+  br i1 %30, label %31, label %170
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %22, align 8
   %33 = call i32 @strncmp(ptr noundef nonnull %17, ptr noundef %32, i64 noundef %27) #13
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %179
+  br i1 %34, label %35, label %170
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -2714,282 +2714,271 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
   %58 = load ptr, ptr %21, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  switch i32 %60, label %171 [
+  switch i32 %60, label %163 [
     i32 0, label %61
-    i32 1, label %71
-    i32 2, label %102
-    i32 3, label %133
-    i32 4, label %165
+    i32 1, label %70
+    i32 2, label %100
+    i32 3, label %130
+    i32 4, label %157
   ]
 
 61:                                               ; preds = %45
   %62 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %63 = call zeroext i1 @parse_bool(ptr noundef nonnull %49, ptr noundef nonnull %62) #12
-  %64 = zext i1 %63 to i8
   %brmerge91.i = select i1 %.not89.i, i1 true, i1 %63
-  br i1 %brmerge91.i, label %.thread.i, label %65
+  br i1 %brmerge91.i, label %169, label %64
 
-65:                                               ; preds = %61
-  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %66)
-  %67 = call i32 @errcode(i32 noundef 50856066) #12
-  %68 = load ptr, ptr %21, align 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef %69, ptr noundef nonnull %49) #12
+64:                                               ; preds = %61
+  %65 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %65)
+  %66 = call i32 @errcode(i32 noundef 50856066) #12
+  %67 = load ptr, ptr %21, align 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef %68, ptr noundef nonnull %49) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1599, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-71:                                               ; preds = %45
-  %72 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %73 = call zeroext i1 @parse_int(ptr noundef nonnull %49, ptr noundef nonnull %72, i32 noundef 0, ptr noundef null) #12
-  %74 = zext i1 %73 to i8
-  %brmerge93.i = select i1 %.not89.i, i1 true, i1 %73
-  br i1 %brmerge93.i, label %81, label %75
+70:                                               ; preds = %45
+  %71 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %72 = call zeroext i1 @parse_int(ptr noundef nonnull %49, ptr noundef nonnull %71, i32 noundef 0, ptr noundef null) #12
+  %brmerge93.i = select i1 %.not89.i, i1 true, i1 %72
+  br i1 %brmerge93.i, label %79, label %73
 
-75:                                               ; preds = %71
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %76)
-  %77 = call i32 @errcode(i32 noundef 50856066) #12
-  %78 = load ptr, ptr %21, align 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48, ptr noundef %79, ptr noundef nonnull %49) #12
+73:                                               ; preds = %70
+  %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %74)
+  %75 = call i32 @errcode(i32 noundef 50856066) #12
+  %76 = load ptr, ptr %21, align 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48, ptr noundef %77, ptr noundef nonnull %49) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1611, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-81:                                               ; preds = %71
-  br i1 %1, label %82, label %.thread.i
+79:                                               ; preds = %70
+  br i1 %1, label %80, label %169
 
-82:                                               ; preds = %81
-  %83 = load i32, ptr %72, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %58, i64 36
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp slt i32 %83, %85
-  br i1 %86, label %91, label %87
+80:                                               ; preds = %79
+  %81 = load i32, ptr %71, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %58, i64 36
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp slt i32 %81, %83
+  br i1 %84, label %89, label %85
 
-87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %89 = load i32, ptr %88, align 8
-  %90 = icmp sgt i32 %83, %89
-  br i1 %90, label %91, label %.thread.i
+85:                                               ; preds = %80
+  %86 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %87 = load i32, ptr %86, align 8
+  %88 = icmp sgt i32 %81, %87
+  br i1 %88, label %89, label %169
 
-91:                                               ; preds = %87, %82
-  %92 = getelementptr inbounds nuw i8, ptr %58, i64 36
-  %93 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %93)
-  %94 = call i32 @errcode(i32 noundef 50856066) #12
-  %95 = load ptr, ptr %21, align 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, ptr noundef nonnull %49, ptr noundef %96) #12
-  %98 = load i32, ptr %92, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %100 = load i32, ptr %99, align 8
-  %101 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.50, i32 noundef %98, i32 noundef %100) #12
+89:                                               ; preds = %85, %80
+  %90 = getelementptr inbounds nuw i8, ptr %58, i64 36
+  %91 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %91)
+  %92 = call i32 @errcode(i32 noundef 50856066) #12
+  %93 = load ptr, ptr %21, align 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, ptr noundef nonnull %49, ptr noundef %94) #12
+  %96 = load i32, ptr %90, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %98 = load i32, ptr %97, align 8
+  %99 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.50, i32 noundef %96, i32 noundef %98) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1619, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-102:                                              ; preds = %45
-  %103 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %104 = call zeroext i1 @parse_real(ptr noundef nonnull %49, ptr noundef nonnull %103, i32 noundef 0, ptr noundef null) #12
-  %105 = zext i1 %104 to i8
-  %brmerge95.i = select i1 %.not89.i, i1 true, i1 %104
-  br i1 %brmerge95.i, label %112, label %106
+100:                                              ; preds = %45
+  %101 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %102 = call zeroext i1 @parse_real(ptr noundef nonnull %49, ptr noundef nonnull %101, i32 noundef 0, ptr noundef null) #12
+  %brmerge95.i = select i1 %.not89.i, i1 true, i1 %102
+  br i1 %brmerge95.i, label %109, label %103
 
-106:                                              ; preds = %102
-  %107 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %107)
-  %108 = call i32 @errcode(i32 noundef 50856066) #12
-  %109 = load ptr, ptr %21, align 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, ptr noundef %110, ptr noundef nonnull %49) #12
+103:                                              ; preds = %100
+  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %104)
+  %105 = call i32 @errcode(i32 noundef 50856066) #12
+  %106 = load ptr, ptr %21, align 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, ptr noundef %107, ptr noundef nonnull %49) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1631, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-112:                                              ; preds = %102
-  br i1 %1, label %113, label %.thread.i
+109:                                              ; preds = %100
+  br i1 %1, label %110, label %169
 
-113:                                              ; preds = %112
-  %114 = load double, ptr %103, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %116 = load double, ptr %115, align 8
-  %117 = fcmp olt double %114, %116
-  br i1 %117, label %122, label %118
+110:                                              ; preds = %109
+  %111 = load double, ptr %101, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %113 = load double, ptr %112, align 8
+  %114 = fcmp olt double %111, %113
+  br i1 %114, label %119, label %115
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %120 = load double, ptr %119, align 8
-  %121 = fcmp ogt double %114, %120
-  br i1 %121, label %122, label %.thread.i
+115:                                              ; preds = %110
+  %116 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  %117 = load double, ptr %116, align 8
+  %118 = fcmp ogt double %111, %117
+  br i1 %118, label %119, label %169
 
-122:                                              ; preds = %118, %113
-  %123 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %124)
-  %125 = call i32 @errcode(i32 noundef 50856066) #12
-  %126 = load ptr, ptr %21, align 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, ptr noundef nonnull %49, ptr noundef %127) #12
-  %129 = load double, ptr %123, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %131 = load double, ptr %130, align 8
-  %132 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.52, double noundef %129, double noundef %131) #12
+119:                                              ; preds = %115, %110
+  %120 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %121 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %121)
+  %122 = call i32 @errcode(i32 noundef 50856066) #12
+  %123 = load ptr, ptr %21, align 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, ptr noundef nonnull %49, ptr noundef %124) #12
+  %126 = load double, ptr %120, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  %128 = load double, ptr %127, align 8
+  %129 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.52, double noundef %126, double noundef %128) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1639, ptr noundef nonnull @__func__.parse_one_reloption) #12
   unreachable
 
-133:                                              ; preds = %45
-  %134 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %135 = load ptr, ptr %134, align 8
-  %136 = load ptr, ptr %135, align 8
-  %.not86105.i = icmp eq ptr %136, null
-  br i1 %.not86105.i, label %.loopexit.i, label %.lr.ph.i
+130:                                              ; preds = %45
+  %131 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %132 = load ptr, ptr %131, align 8
+  %133 = load ptr, ptr %132, align 8
+  %.not86.not115.i = icmp eq ptr %133, null
+  br i1 %.not86.not115.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %133, %144
-  %137 = phi ptr [ %146, %144 ], [ %136, %133 ]
-  %.079106.i = phi ptr [ %145, %144 ], [ %135, %133 ]
-  %138 = call i32 @pg_strcasecmp(ptr noundef %49, ptr noundef nonnull %137) #12
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %140, label %144
+.lr.ph.i:                                         ; preds = %130, %137
+  %134 = phi ptr [ %139, %137 ], [ %133, %130 ]
+  %.079116.i = phi ptr [ %138, %137 ], [ %132, %130 ]
+  %135 = call i32 @pg_strcasecmp(ptr noundef %49, ptr noundef nonnull %134) #12
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %.loopexit.thread.i, label %137
 
-140:                                              ; preds = %.lr.ph.i
-  %141 = getelementptr inbounds nuw i8, ptr %.079106.i, i64 8
-  %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i32 %142, ptr %143, align 8
-  br label %.loopexit.i
+137:                                              ; preds = %.lr.ph.i
+  %138 = getelementptr i8, ptr %.079116.i, i64 16
+  %139 = load ptr, ptr %138, align 8
+  %.not86.not.i = icmp eq ptr %139, null
+  br i1 %.not86.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
-144:                                              ; preds = %.lr.ph.i
-  %145 = getelementptr i8, ptr %.079106.i, i64 16
-  %146 = load ptr, ptr %145, align 8
-  %.not86.i = icmp eq ptr %146, null
-  br i1 %.not86.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !29
+.loopexit.i:                                      ; preds = %137, %130
+  br i1 %1, label %143, label %.thread101.i
 
-.loopexit.i:                                      ; preds = %144, %140, %133
-  %.1.i = phi i8 [ 1, %140 ], [ 0, %133 ], [ 0, %144 ]
-  %147 = trunc nuw i8 %.1.i to i1
-  br i1 %1, label %148, label %160
-
-148:                                              ; preds = %.loopexit.i
-  br i1 %147, label %.thread.i, label %149
-
-149:                                              ; preds = %148
-  %150 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %150)
-  %151 = call i32 @errcode(i32 noundef 50856066) #12
-  %152 = load ptr, ptr %21, align 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef %153, ptr noundef %49) #12
-  %155 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %156 = load ptr, ptr %155, align 8
-  %.not87.i = icmp eq ptr %156, null
-  br i1 %.not87.i, label %159, label %157
-
-157:                                              ; preds = %149
-  %158 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.54, ptr noundef nonnull %156) #12
-  br label %159
-
-159:                                              ; preds = %157, %149
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1663, ptr noundef nonnull @__func__.parse_one_reloption) #12
-  unreachable
-
-160:                                              ; preds = %.loopexit.i
-  br i1 %147, label %.thread.i, label %161
-
-161:                                              ; preds = %160
-  %162 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %163 = load i32, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i32 %163, ptr %164, align 8
-  br label %.thread.i
-
-165:                                              ; preds = %45
-  %166 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %49, ptr %166, align 8
-  br i1 %1, label %167, label %parse_one_reloption.exit.thread
-
-167:                                              ; preds = %165
-  %168 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %169 = load ptr, ptr %168, align 8
-  %.not.i = icmp eq ptr %169, null
-  br i1 %.not.i, label %parse_one_reloption.exit.thread, label %170
-
-170:                                              ; preds = %167
-  call void %169(ptr noundef nonnull %49) #12
-  br label %parse_one_reloption.exit.thread
-
-171:                                              ; preds = %45
-  %172 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %172)
-  %173 = load ptr, ptr %21, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 28
-  %175 = load i32, ptr %174, align 4
-  %176 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, i32 noundef %175) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1685, ptr noundef nonnull @__func__.parse_one_reloption) #12
-  unreachable
-
-parse_one_reloption.exit.thread:                  ; preds = %165, %167, %170
-  store i8 1, ptr %36, align 8
-  br label %192
-
-.thread.i:                                        ; preds = %161, %160, %148, %118, %112, %87, %81, %61
-  %.0.i = phi i8 [ %.1.i, %160 ], [ %.1.i, %161 ], [ %105, %118 ], [ %105, %112 ], [ %74, %87 ], [ %74, %81 ], [ %64, %61 ], [ %.1.i, %148 ]
-  %177 = trunc nuw i8 %.0.i to i1
-  br i1 %177, label %178, label %parse_one_reloption.exit.thread126
-
-178:                                              ; preds = %.thread.i
+.loopexit.thread.i:                               ; preds = %.lr.ph.i
+  %140 = getelementptr inbounds nuw i8, ptr %.079116.i, i64 8
+  %141 = load i32, ptr %140, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i32 %141, ptr %142, align 8
   store i8 1, ptr %36, align 8
   br label %parse_one_reloption.exit.thread126
 
-parse_one_reloption.exit.thread126:               ; preds = %.thread.i, %178
-  call void @pfree(ptr noundef %49) #12
-  br label %192
+143:                                              ; preds = %.loopexit.i
+  %144 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %144)
+  %145 = call i32 @errcode(i32 noundef 50856066) #12
+  %146 = load ptr, ptr %21, align 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef %147, ptr noundef %49) #12
+  %149 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  %150 = load ptr, ptr %149, align 8
+  %.not87.i = icmp eq ptr %150, null
+  br i1 %.not87.i, label %153, label %151
 
-179:                                              ; preds = %.lr.ph, %26, %31
+151:                                              ; preds = %143
+  %152 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.54, ptr noundef nonnull %150) #12
+  br label %153
+
+153:                                              ; preds = %151, %143
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1663, ptr noundef nonnull @__func__.parse_one_reloption) #12
+  unreachable
+
+.thread101.i:                                     ; preds = %.loopexit.i
+  %154 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %155 = load i32, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i32 %155, ptr %156, align 8
+  br label %parse_one_reloption.exit.thread126
+
+157:                                              ; preds = %45
+  %158 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store ptr %49, ptr %158, align 8
+  br i1 %1, label %159, label %parse_one_reloption.exit.thread
+
+159:                                              ; preds = %157
+  %160 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %161 = load ptr, ptr %160, align 8
+  %.not.i = icmp eq ptr %161, null
+  br i1 %.not.i, label %parse_one_reloption.exit.thread, label %162
+
+162:                                              ; preds = %159
+  call void %161(ptr noundef nonnull %49) #12
+  br label %parse_one_reloption.exit.thread
+
+163:                                              ; preds = %45
+  %164 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %164)
+  %165 = load ptr, ptr %21, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 28
+  %167 = load i32, ptr %166, align 4
+  %168 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, i32 noundef %167) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1685, ptr noundef nonnull @__func__.parse_one_reloption) #12
+  unreachable
+
+169:                                              ; preds = %115, %109, %85, %79, %61
+  %.0.in.i = phi i1 [ %102, %115 ], [ %102, %109 ], [ %72, %85 ], [ %72, %79 ], [ %63, %61 ]
+  br i1 %.0.in.i, label %.thread107.i, label %parse_one_reloption.exit.thread126
+
+.thread107.i:                                     ; preds = %169
+  store i8 1, ptr %36, align 8
+  br label %parse_one_reloption.exit.thread126
+
+parse_one_reloption.exit.thread:                  ; preds = %157, %159, %162
+  store i8 1, ptr %36, align 8
+  br label %183
+
+parse_one_reloption.exit.thread126:               ; preds = %.loopexit.thread.i, %.thread101.i, %169, %.thread107.i
+  call void @pfree(ptr noundef %49) #12
+  br label %183
+
+170:                                              ; preds = %.lr.ph, %26, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %parse_one_reloption.exit, label %.lr.ph, !llvm.loop !30
 
-parse_one_reloption.exit:                         ; preds = %179, %12
-  br i1 %1, label %180, label %192
+parse_one_reloption.exit:                         ; preds = %170, %12
+  br i1 %1, label %171, label %183
 
-180:                                              ; preds = %parse_one_reloption.exit
-  %181 = load ptr, ptr %5, align 8
-  %182 = getelementptr i64, ptr %181, i64 %indvars.iv123
-  %183 = load i64, ptr %182, align 8
-  %184 = inttoptr i64 %183 to ptr
-  %185 = call ptr @text_to_cstring(ptr noundef %184) #12
-  %186 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %185, i32 noundef 61) #13
-  %.not40 = icmp eq ptr %186, null
-  br i1 %.not40, label %188, label %187
+171:                                              ; preds = %parse_one_reloption.exit
+  %172 = load ptr, ptr %5, align 8
+  %173 = getelementptr i64, ptr %172, i64 %indvars.iv123
+  %174 = load i64, ptr %173, align 8
+  %175 = inttoptr i64 %174 to ptr
+  %176 = call ptr @text_to_cstring(ptr noundef %175) #12
+  %177 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %176, i32 noundef 61) #13
+  %.not40 = icmp eq ptr %177, null
+  br i1 %.not40, label %179, label %178
 
-187:                                              ; preds = %180
-  store i8 0, ptr %186, align 1
-  br label %188
+178:                                              ; preds = %171
+  store i8 0, ptr %177, align 1
+  br label %179
 
-188:                                              ; preds = %187, %180
-  %189 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %189)
-  %190 = call i32 @errcode(i32 noundef 50856066) #12
-  %191 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %185) #12
+179:                                              ; preds = %178, %171
+  %180 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %180)
+  %181 = call i32 @errcode(i32 noundef 50856066) #12
+  %182 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %176) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1470, ptr noundef nonnull @__func__.parseRelOptionsInternal) #12
   unreachable
 
-192:                                              ; preds = %parse_one_reloption.exit.thread126, %parse_one_reloption.exit.thread, %parse_one_reloption.exit
+183:                                              ; preds = %parse_one_reloption.exit.thread126, %parse_one_reloption.exit.thread, %parse_one_reloption.exit
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %193 = load i32, ptr %6, align 4
-  %194 = sext i32 %193 to i64
-  %195 = icmp slt i64 %indvars.iv.next124, %194
-  br i1 %195, label %12, label %._crit_edge, !llvm.loop !31
+  %184 = load i32, ptr %6, align 4
+  %185 = sext i32 %184 to i64
+  %186 = icmp slt i64 %indvars.iv.next124, %185
+  br i1 %186, label %12, label %._crit_edge, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %192, %4
-  %196 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %196) #12
+._crit_edge:                                      ; preds = %183, %4
+  %187 = load ptr, ptr %5, align 8
+  call void @pfree(ptr noundef %187) #12
   %.not = icmp eq ptr %8, %7
-  br i1 %.not, label %198, label %197
+  br i1 %.not, label %189, label %188
 
-197:                                              ; preds = %._crit_edge
+188:                                              ; preds = %._crit_edge
   call void @pfree(ptr noundef %8) #12
-  br label %198
+  br label %189
 
-198:                                              ; preds = %197, %._crit_edge
+189:                                              ; preds = %188, %._crit_edge
   ret void
 }
 

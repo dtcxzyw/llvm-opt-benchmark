@@ -1277,7 +1277,7 @@ _ZN12_GLOBAL__N_112ELFAsmParser25parseSunStyleSectionFlagsEv.exit.thread: ; pred
   %.not124440 = phi i1 [ false, %454 ], [ true, %450 ], [ true, %396 ], [ true, %292 ]
   %.not439 = phi i1 [ %.not, %454 ], [ %.not, %450 ], [ true, %396 ], [ true, %292 ]
   %461 = phi i32 [ %451, %454 ], [ %451, %450 ], [ %.0119, %396 ], [ %.0119, %292 ]
-  %.1402431438 = phi i8 [ %.1402, %454 ], [ %.1402, %450 ], [ 0, %396 ], [ 0, %292 ]
+  %.1402431438 = phi i8 [ 0, %454 ], [ %.1402, %450 ], [ 0, %396 ], [ 0, %292 ]
   %.1121432437 = phi i32 [ %.1121, %454 ], [ %.1121, %450 ], [ 0, %396 ], [ 0, %292 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)

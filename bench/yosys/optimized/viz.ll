@@ -31654,7 +31654,7 @@ _ZN12_GLOBAL__N_15Graph4nodeEi.exit661:           ; preds = %5018, %_ZN12_GLOBAL
   br i1 %.not206, label %5054, label %5060
 
 5054:                                             ; preds = %_ZN12_GLOBAL__N_15Graph4nodeEi.exit661, %5048, %5050
-  %.3 = phi i8 [ %.11835048, %5050 ], [ %.11835048, %5048 ], [ 1, %_ZN12_GLOBAL__N_15Graph4nodeEi.exit661 ]
+  %.3 = phi i8 [ 1, %5050 ], [ 0, %5048 ], [ 1, %_ZN12_GLOBAL__N_15Graph4nodeEi.exit661 ]
   %5055 = load ptr, ptr %271, align 8
   %5056 = load i32, ptr %5055, align 4
   %.not207 = icmp sgt i32 %5044, %5056
@@ -31665,13 +31665,13 @@ _ZN12_GLOBAL__N_15Graph4nodeEi.exit661:           ; preds = %5018, %_ZN12_GLOBAL
   br i1 %5058, label %5060, label %5059
 
 5059:                                             ; preds = %5054, %5057
-  %.2186 = phi i8 [ %.11855047, %5057 ], [ 1, %5054 ]
+  %.2186 = phi i8 [ 0, %5057 ], [ 1, %5054 ]
   invoke fastcc void @_ZN12_GLOBAL__N_15Graph5mergeEPNS_9GraphNodeES2_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %.0.i658, ptr noundef nonnull %.0.i660)
           to label %5060 unwind label %.loopexit.split-lp.loopexit.split
 
 5060:                                             ; preds = %5057, %5059, %5050
-  %.3187 = phi i8 [ %.2186, %5059 ], [ %.11855047, %5050 ], [ %.11855047, %5057 ]
-  %.4 = phi i8 [ %.3, %5059 ], [ %.11835048, %5050 ], [ %.3, %5057 ]
+  %.3187 = phi i8 [ %.2186, %5059 ], [ %.11855047, %5050 ], [ 1, %5057 ]
+  %.4 = phi i8 [ %.3, %5059 ], [ 1, %5050 ], [ %.3, %5057 ]
   %indvars.iv.next5459 = add nsw i64 %indvars.iv5458, -1
   %5061 = icmp eq i64 %indvars.iv5458, 0
   br i1 %5061, label %.loopexit3398, label %.lr.ph5051.split

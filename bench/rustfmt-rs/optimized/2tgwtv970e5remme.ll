@@ -5707,7 +5707,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils24is_attrib
   br i1 %35, label %._crit_edge.i.i.i.i, label %38
 
 ._crit_edge.i.i.i.i:                              ; preds = %47, %.lr.ph.i.i.i.i, %30
-  %.064.lcssa.i.i.i.i = phi i8 [ 0, %30 ], [ %.3.i.i.i.i, %47 ], [ %.06448.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.064.lcssa.i.i.i.i = phi i8 [ 0, %30 ], [ %.3.i.i.i.i, %47 ], [ 1, %.lr.ph.i.i.i.i ]
   %.062.lcssa.i.i.i.i = phi i64 [ 0, %30 ], [ %48, %47 ], [ %.06249.i.i.i.i, %.lr.ph.i.i.i.i ]
   %36 = add i64 %.062.lcssa.i.i.i.i, 17
   %37 = icmp ult i64 %36, %21
@@ -5772,7 +5772,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils24is_attrib
   br i1 %63, label %._crit_edge58.i.i.i.i, label %72
 
 ._crit_edge58.i.i.i.i:                            ; preds = %80, %.lr.ph57.i.i.i.i, %._crit_edge.i.i.i.i
-  %.165.lcssa.i.i.i.i = phi i8 [ %.064.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.5.i.i.i.i, %80 ], [ %.16554.i.i.i.i, %.lr.ph57.i.i.i.i ]
+  %.165.lcssa.i.i.i.i = phi i8 [ %.064.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.5.i.i.i.i, %80 ], [ 1, %.lr.ph57.i.i.i.i ]
   %64 = add i64 %21, -17
   %65 = getelementptr inbounds i8, ptr %20, i64 %64
   %.0.copyload.i81.i.i.i.i = load <16 x i8>, ptr %65, align 1, !alias.scope !667, !noalias !671
@@ -5798,7 +5798,7 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils24is_attrib
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %83, %72
-  %.5.i.i.i.i = phi i8 [ %.16554.i.i.i.i, %72 ], [ %85, %83 ]
+  %.5.i.i.i.i = phi i8 [ 0, %72 ], [ %85, %83 ]
   %81 = add i64 %.16355.i.i.i.i, 16
   %.reass.i.i.i.i = add i64 %.16355.i.i.i.i, 33
   %82 = icmp ult i64 %.reass.i.i.i.i, %21
@@ -27769,8 +27769,6 @@ default.unreachable566:                           ; preds = %4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %trunc193 = trunc nuw i8 %92 to i1
-  %anon.435283188f88f97391414eebf75b8265.229.anon.435283188f88f97391414eebf75b8265.23.llvm.11825479963814566850 = select i1 %trunc193, ptr @anon.435283188f88f97391414eebf75b8265.23.llvm.11825479963814566850, ptr @anon.435283188f88f97391414eebf75b8265.229
-  %. = select i1 %trunc193, i64 0, i64 3
   %trunc194 = trunc nuw i8 %94 to i1
   br i1 %trunc194, label %.split, label %.split175
 
@@ -28181,7 +28179,7 @@ _ZN15rustfmt_nightly5utils13rewrite_ident17h7391328317c55cbbE.exit: ; preds = %2
 231:                                              ; preds = %_ZN15rustfmt_nightly5utils13rewrite_ident17h7391328317c55cbbE.exit
   %232 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %233 = load i64, ptr %232, align 8, !noundef !10
-  %234 = add nuw nsw i64 %., 2
+  %234 = select i1 %trunc193, i64 2, i64 5
   %235 = add i64 %234, %216
   %236 = add i64 %235, %222
   %.not547 = icmp ult i64 %233, %236
@@ -28430,7 +28428,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %265
 _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit242: ; preds = %329
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  invoke void @_ZN15rustfmt_nightly7comment34combine_strs_with_missing_comments17h70fdefcabeb70061E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %74, ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull readonly align 1 %anon.435283188f88f97391414eebf75b8265.229.anon.435283188f88f97391414eebf75b8265.23.llvm.11825479963814566850, i64 noundef %., ptr noalias noundef nonnull readonly align 1 %215, i64 noundef %216, i64 %330, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %73, i1 noundef zeroext true)
+  invoke void @_ZN15rustfmt_nightly7comment34combine_strs_with_missing_comments17h70fdefcabeb70061E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %74, ptr noundef nonnull align 8 %2, ptr noalias noundef nonnull readonly align 1 @anon.435283188f88f97391414eebf75b8265.229, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 %215, i64 noundef %216, i64 %330, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %73, i1 noundef zeroext true)
           to label %331 unwind label %292
 
 331:                                              ; preds = %_ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit242

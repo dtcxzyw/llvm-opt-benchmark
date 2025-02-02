@@ -896,7 +896,7 @@ invoke.cont48.if.end52_crit_edge:                 ; preds = %invoke.cont48
 
 if.end52:                                         ; preds = %invoke.cont48.if.end52_crit_edge, %land.lhs.true, %land.lhs.true45, %if.end41
   %7 = phi i32 [ %.pre, %invoke.cont48.if.end52_crit_edge ], [ %6, %land.lhs.true45 ], [ %6, %if.end41 ], [ 4473168, %land.lhs.true ]
-  %need_pad_tag.2 = phi i8 [ 0, %invoke.cont48.if.end52_crit_edge ], [ %need_pad_tag.189, %land.lhs.true45 ], [ %need_pad_tag.189, %if.end41 ], [ %need_pad_tag.189, %land.lhs.true ]
+  %need_pad_tag.2 = phi i8 [ 0, %invoke.cont48.if.end52_crit_edge ], [ 0, %land.lhs.true45 ], [ %need_pad_tag.189, %if.end41 ], [ 0, %land.lhs.true ]
   %call56 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %writer, i32 noundef %7)
           to label %invoke.cont55 unwind label %ehcleanup126.loopexit.split-lp.loopexit
 
@@ -958,7 +958,7 @@ invoke.cont95:                                    ; preds = %if.then94
   br i1 %call96, label %if.end99, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 if.end99:                                         ; preds = %invoke.cont95, %land.lhs.true92, %for.body88
-  %need_pad_value.2 = phi i8 [ 0, %invoke.cont95 ], [ %need_pad_value.193, %land.lhs.true92 ], [ %need_pad_value.193, %for.body88 ]
+  %need_pad_value.2 = phi i8 [ 0, %invoke.cont95 ], [ 0, %land.lhs.true92 ], [ %need_pad_value.193, %for.body88 ]
   %second101 = getelementptr inbounds nuw i8, ptr %it76.sroa.0.092, i64 40
   %call102 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %second101) #15
   %call105 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %second101) #15

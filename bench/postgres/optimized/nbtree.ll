@@ -914,7 +914,7 @@ declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #1
 declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @_bt_parallel_seize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_bt_parallel_seize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -930,7 +930,7 @@ define dso_local zeroext i1 @_bt_parallel_seize(ptr noundef readonly captures(no
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %15
 
-15:                                               ; preds = %26, %2
+15:                                               ; preds = %27, %2
   %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %10, i8 1, ptr nonnull elementtype(i8) %10) #8, !srcloc !9
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %19, label %17
@@ -943,37 +943,37 @@ define dso_local zeroext i1 @_bt_parallel_seize(ptr noundef readonly captures(no
   %20 = load i32, ptr %12, align 8
   %21 = load i32, ptr %13, align 4
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %.thread31, label %23
+  br i1 %22, label %.thread29, label %23
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %11, align 4
-  switch i32 %24, label %.thread [
-    i32 3, label %.thread31
-    i32 1, label %26
+  switch i32 %24, label %25 [
+    i32 3, label %.thread29
+    i32 1, label %27
   ]
 
-.thread:                                          ; preds = %23
+25:                                               ; preds = %23
   store i32 1, ptr %11, align 4
-  %25 = load i32, ptr %9, align 4
-  store i32 %25, ptr %1, align 4
+  %26 = load i32, ptr %9, align 4
+  store i32 %26, ptr %1, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
-  br label %.loopexit.sink.split
+  br label %28
 
-.thread31:                                        ; preds = %19, %23
+.thread29:                                        ; preds = %23, %19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
-  br label %.loopexit.sink.split
+  br label %28
 
-26:                                               ; preds = %23
+27:                                               ; preds = %23
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   store i8 0, ptr %10, align 4
   tail call void @ConditionVariableSleep(ptr noundef nonnull %14, i32 noundef 134217735) #8
   br label %15
 
-.loopexit.sink.split:                             ; preds = %.thread, %.thread31
-  %.pre-phi.ph = phi i1 [ false, %.thread31 ], [ true, %.thread ]
+28:                                               ; preds = %.thread29, %25
+  %.12026 = phi i1 [ true, %25 ], [ false, %.thread29 ]
   store i8 0, ptr %10, align 4
-  %27 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
-  ret i1 %.pre-phi.ph
+  %29 = tail call zeroext i1 @ConditionVariableCancelSleep() #8
+  ret i1 %.12026
 }
 
 declare void @ConditionVariableSleep(ptr noundef, i32 noundef) local_unnamed_addr #1

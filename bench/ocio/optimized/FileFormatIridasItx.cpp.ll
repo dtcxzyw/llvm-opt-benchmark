@@ -802,7 +802,7 @@ if.end82:                                         ; preds = %for.inc, %_ZNSt12_V
   %48 = phi ptr [ %2, %if.else ], [ %1, %if.end.i ], [ %call5.i.i.i.i60, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i ], [ %45, %for.inc ]
   %49 = phi ptr [ %3, %if.else ], [ %3, %if.end.i ], [ %add.ptr.i58, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i ], [ %46, %for.inc ]
   %size3d.1 = phi i32 [ %size3d.0.ph, %if.else ], [ %28, %if.end.i ], [ %28, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i ], [ %size3d.0.ph, %for.inc ]
-  %in3d.1 = phi i8 [ %in3d.0.ph, %if.else ], [ 1, %if.end.i ], [ 1, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i ], [ %in3d.0.ph, %for.inc ]
+  %in3d.1 = phi i8 [ 0, %if.else ], [ 1, %if.end.i ], [ 1, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit.i ], [ %in3d.0.ph, %for.inc ]
   br label %while.cond.outer, !llvm.loop !4
 
 while.end:                                        ; preds = %invoke.cont3

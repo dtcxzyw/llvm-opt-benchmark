@@ -1025,7 +1025,7 @@ _ZNSt10unique_ptrIN4llvm6object6BinaryESt14default_deleteIS2_EED2Ev.exit.sink.sp
 _ZN4llvm8ExpectedISt10unique_ptrINS_6object6BinaryESt14default_deleteIS3_EEED2Ev.exit: ; preds = %272, %.thread, %202, %_ZNSt8optionalISt4pairIjjEE7emplaceIJRS1_EEENSt9enable_ifIX18is_constructible_vIS1_DpT_EES4_E4typeEDpOS6_.exit357, %_ZN4llvm8ExpectedISt4pairIjjEED2Ev.exit, %_ZNSt10unique_ptrIN4llvm6object6BinaryESt14default_deleteIS2_EED2Ev.exit.sink.split.i
   %.sroa.0499.1523 = phi ptr [ %.sroa.0499.0, %_ZN4llvm8ExpectedISt4pairIjjEED2Ev.exit ], [ %.sroa.0499.0, %_ZNSt10unique_ptrIN4llvm6object6BinaryESt14default_deleteIS2_EED2Ev.exit.sink.split.i ], [ %.sroa.0499.0, %_ZNSt8optionalISt4pairIjjEE7emplaceIJRS1_EEENSt9enable_ifIX18is_constructible_vIS1_DpT_EES4_E4typeEDpOS6_.exit357 ], [ %122, %202 ], [ %122, %.thread ], [ %.sroa.0499.0, %272 ]
   %.sroa.0491.1522 = phi ptr [ %.sroa.0491.0, %_ZN4llvm8ExpectedISt4pairIjjEED2Ev.exit ], [ %.sroa.0491.0, %_ZNSt10unique_ptrIN4llvm6object6BinaryESt14default_deleteIS2_EED2Ev.exit.sink.split.i ], [ %122, %_ZNSt8optionalISt4pairIjjEE7emplaceIJRS1_EEENSt9enable_ifIX18is_constructible_vIS1_DpT_EES4_E4typeEDpOS6_.exit357 ], [ %.sroa.0491.0, %202 ], [ %.sroa.0491.0, %.thread ], [ %122, %272 ]
-  %.sroa.10483.1521 = phi i8 [ %.sroa.10483.0, %_ZN4llvm8ExpectedISt4pairIjjEED2Ev.exit ], [ %.sroa.10483.0, %_ZNSt10unique_ptrIN4llvm6object6BinaryESt14default_deleteIS2_EED2Ev.exit.sink.split.i ], [ 1, %_ZNSt8optionalISt4pairIjjEE7emplaceIJRS1_EEENSt9enable_ifIX18is_constructible_vIS1_DpT_EES4_E4typeEDpOS6_.exit357 ], [ %.sroa.10483.0, %202 ], [ 1, %.thread ], [ %.sroa.10483.0, %272 ]
+  %.sroa.10483.1521 = phi i8 [ %.sroa.10483.0, %_ZN4llvm8ExpectedISt4pairIjjEED2Ev.exit ], [ %.sroa.10483.0, %_ZNSt10unique_ptrIN4llvm6object6BinaryESt14default_deleteIS2_EED2Ev.exit.sink.split.i ], [ 1, %_ZNSt8optionalISt4pairIjjEE7emplaceIJRS1_EEENSt9enable_ifIX18is_constructible_vIS1_DpT_EES4_E4typeEDpOS6_.exit357 ], [ 1, %202 ], [ 1, %.thread ], [ 1, %272 ]
   %.sroa.6.1520 = phi i32 [ %.sroa.6.0, %_ZN4llvm8ExpectedISt4pairIjjEED2Ev.exit ], [ %.sroa.6.0, %_ZNSt10unique_ptrIN4llvm6object6BinaryESt14default_deleteIS2_EED2Ev.exit.sink.split.i ], [ %.sroa.6.0.extract.trunc479, %_ZNSt8optionalISt4pairIjjEE7emplaceIJRS1_EEENSt9enable_ifIX18is_constructible_vIS1_DpT_EES4_E4typeEDpOS6_.exit357 ], [ %.sroa.6.0, %202 ], [ %150, %.thread ], [ %.sroa.6.0, %272 ]
   %.sroa.0473.1519 = phi i32 [ %.sroa.0473.0, %_ZN4llvm8ExpectedISt4pairIjjEED2Ev.exit ], [ %.sroa.0473.0, %_ZNSt10unique_ptrIN4llvm6object6BinaryESt14default_deleteIS2_EED2Ev.exit.sink.split.i ], [ %.sroa.0473.0.extract.trunc477, %_ZNSt8optionalISt4pairIjjEE7emplaceIJRS1_EEENSt9enable_ifIX18is_constructible_vIS1_DpT_EES4_E4typeEDpOS6_.exit357 ], [ %.sroa.0473.0, %202 ], [ %149, %.thread ], [ %.sroa.0473.0, %272 ]
   store ptr null, ptr %13, align 8
@@ -1509,7 +1509,7 @@ _ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.i:           ; preds = %3
 _ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i:    ; preds = %3
   %18 = load i8, ptr %14, align 8, !noalias !202
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %_ZN4llvm5ErrorD2Ev.exit9.i, label %_ZN4llvm8ExpectedIjED2Ev.exit4.thread34.i
+  br i1 %19, label %.thread44.i, label %.thread41.i
 
 _ZN4llvm8ExpectedIjED2Ev.exit.i:                  ; preds = %_ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.i
   %20 = load i64, ptr %5, align 8, !noalias !202
@@ -1521,7 +1521,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit.thread.i:           ; preds = %_ZN4llvm8ExpectedIj
   %.sroa.12.16.insert.ext.i = zext i32 %21 to i64
   br label %32
 
-_ZN4llvm5ErrorD2Ev.exit9.i:                       ; preds = %_ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i
+.thread44.i:                                      ; preds = %_ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i
   %22 = load i64, ptr %5, align 8, !noalias !202
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1531,12 +1531,12 @@ _ZN4llvm5ErrorD2Ev.exit9.i:                       ; preds = %_ZN4llvm8ExpectedIj
   store ptr %23, ptr %0, align 8, !alias.scope !205
   br label %_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit
 
-_ZN4llvm8ExpectedIjED2Ev.exit4.thread34.i:        ; preds = %_ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i
+.thread41.i:                                      ; preds = %_ZN4llvm8ExpectedIjEC2EOS1_.exit.i.i.thread.i
   %27 = load i32, ptr %4, align 8, !noalias !202
   %.sroa.014.0.insert.ext.i = zext i32 %27 to i64
   %28 = load i32, ptr %5, align 8, !noalias !202
-  %.sroa.12.16.insert.ext52.i = zext i32 %28 to i64
-  %.sroa.2.0.insert.ext.i.i = shl nuw i64 %.sroa.12.16.insert.ext52.i, 32
+  %.sroa.12.16.insert.ext57.i = zext i32 %28 to i64
+  %.sroa.2.0.insert.ext.i.i = shl nuw i64 %.sroa.12.16.insert.ext57.i, 32
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.ext.i.i, %.sroa.014.0.insert.ext.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i8, ptr %29, align 8, !alias.scope !199
@@ -1546,7 +1546,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit4.thread34.i:        ; preds = %_ZN4llvm8ExpectedIj
   br label %_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit
 
 32:                                               ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit.i, %_ZN4llvm8ExpectedIjED2Ev.exit.thread.i
-  %.sroa.12.12433.i = phi i64 [ %.sroa.12.16.insert.ext.i, %_ZN4llvm8ExpectedIjED2Ev.exit.thread.i ], [ %20, %_ZN4llvm8ExpectedIjED2Ev.exit.i ]
+  %.sroa.12.12437.i = phi i64 [ %.sroa.12.16.insert.ext.i, %_ZN4llvm8ExpectedIjED2Ev.exit.thread.i ], [ %20, %_ZN4llvm8ExpectedIjED2Ev.exit.i ]
   store ptr null, ptr %4, align 8, !noalias !199
   %33 = inttoptr i64 %15 to ptr
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1554,19 +1554,19 @@ _ZN4llvm8ExpectedIjED2Ev.exit4.thread34.i:        ; preds = %_ZN4llvm8ExpectedIj
   %36 = or i8 %35, 1
   store i8 %36, ptr %34, align 8, !alias.scope !199
   store ptr %33, ptr %0, align 8, !alias.scope !208
-  %.not.i.i.i.i = icmp ne i64 %.sroa.12.12433.i, 0
+  %.not.i.i.i.i = icmp ne i64 %.sroa.12.12437.i, 0
   %or.cond.not.i = select i1 %17, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond.not.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i, label %_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i: ; preds = %32
-  %37 = inttoptr i64 %.sroa.12.12433.i to ptr
+  %37 = inttoptr i64 %.sroa.12.12437.i to ptr
   %38 = load ptr, ptr %37, align 8, !noalias !199
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !noalias !199
   call void %40(ptr noundef nonnull align 8 dereferenceable(8) %37) #18, !noalias !199
   br label %_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit
 
-_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit:    ; preds = %_ZN4llvm5ErrorD2Ev.exit9.i, %_ZN4llvm8ExpectedIjED2Ev.exit4.thread34.i, %32, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i
+_ZL21getMachoCPUFromTripleN4llvm6TripleE.exit:    ; preds = %.thread44.i, %.thread41.i, %32, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #18

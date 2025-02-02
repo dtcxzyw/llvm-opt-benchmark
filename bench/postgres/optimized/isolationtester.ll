@@ -1791,6 +1791,8 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr noundef readonl
   %117 = load i64, ptr @max_step_wait, align 8
   %118 = icmp sle i64 %116, %117
   %brmerge = select i1 %118, i1 true, i1 %.094.ph.ph
+  %not. = xor i1 %118, true
+  %.094.mux = select i1 %not., i1 true, i1 %.094.ph.ph
   br i1 %brmerge, label %132, label %119
 
 119:                                              ; preds = %109
@@ -1820,7 +1822,7 @@ define internal fastcc noundef zeroext i1 @try_complete_step(ptr noundef readonl
   br label %132
 
 132:                                              ; preds = %109, %119, %131
-  %.195 = phi i1 [ %.not115, %131 ], [ false, %119 ], [ %.094.ph.ph, %109 ]
+  %.195 = phi i1 [ %.not115, %131 ], [ false, %119 ], [ %.094.mux, %109 ]
   %133 = load i64, ptr @max_step_wait, align 8
   %134 = shl nsw i64 %133, 1
   %135 = icmp sgt i64 %116, %134

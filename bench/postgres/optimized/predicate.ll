@@ -4836,24 +4836,25 @@ define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly
 define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %4 = load i32, ptr %3, align 4
-  %5 = and i32 %4, 1
+  %.fr90.i = freeze i32 %4
+  %5 = and i32 %.fr90.i, 1
   %.not.i = icmp eq i32 %5, 0
-  %6 = and i32 %4, 1040
-  %or.cond.i = icmp eq i32 %6, 0
-  %or.cond97.not99.i = or i1 %.not.i, %or.cond.i
-  %7 = and i32 %4, 1024
-  %.not52.not.i = icmp eq i32 %7, 0
-  %or.cond98.i = and i1 %.not52.not.i, %or.cond97.not99.i
-  br i1 %or.cond98.i, label %8, label %.thread77.i
+  %6 = and i32 %.fr90.i, 1040
+  %or.cond.not.i = icmp eq i32 %6, 0
+  %or.cond.i = or i1 %.not.i, %or.cond.not.i
+  %7 = and i32 %.fr90.i, 1024
+  %.not52.not.not.i = icmp eq i32 %7, 0
+  %or.cond88.i = and i1 %.not52.not.not.i, %or.cond.i
+  br i1 %or.cond88.i, label %8, label %.thread77.i
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not53.i = icmp eq ptr %11, null
-  %.not548186.i = icmp eq ptr %11, %9
-  %.not5481.i = select i1 %.not53.i, i1 true, i1 %.not548186.i
-  br i1 %.not5481.i, label %.critedge.i, label %.lr.ph.i
+  %.not548389.i = icmp eq ptr %11, %9
+  %.not5483.i = select i1 %.not53.i, i1 true, i1 %.not548389.i
+  br i1 %.not5483.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -4863,8 +4864,8 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %34
-  %.sroa.016.082.us.i = phi ptr [ %36, %34 ], [ %11, %.lr.ph.i ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.016.082.us.i, i64 40
+  %.sroa.016.084.us.i = phi ptr [ %36, %34 ], [ %11, %.lr.ph.i ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.016.084.us.i, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 156
   %19 = load i32, ptr %18, align 4
@@ -4898,14 +4899,14 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not61.us.i, label %34, label %.thread77.i
 
 34:                                               ; preds = %30, %24, %.lr.ph.split.us.i
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.016.082.us.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.016.084.us.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not54.us.i = icmp eq ptr %36, %9
   br i1 %.not54.us.i, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !40
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %52
-  %.sroa.016.082.i = phi ptr [ %54, %52 ], [ %11, %.lr.ph.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.016.082.i, i64 40
+  %.sroa.016.084.i = phi ptr [ %54, %52 ], [ %11, %.lr.ph.i ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.016.084.i, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 156
   %40 = load i32, ptr %39, align 4
@@ -4942,13 +4943,13 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not61.i, label %52, label %.thread77.i
 
 52:                                               ; preds = %50, %._crit_edge.i, %45, %.lr.ph.split.i
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.016.082.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.016.084.i, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not54.i = icmp eq ptr %54, %9
   br i1 %.not54.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !40
 
 .critedge.i:                                      ; preds = %52, %34, %8
-  %55 = and i32 %4, 2
+  %55 = and i32 %.fr90.i, 2
   %.not62.i = icmp eq i32 %55, 0
   br i1 %.not62.i, label %OnConflict_CheckForSerializationFailure.exit, label %56
 
@@ -4969,17 +4970,17 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %65 = load ptr, ptr %64, align 8
   %.not65.i = icmp eq ptr %65, null
-  %.not668387.i = icmp eq ptr %65, %63
-  %.not6683.i = select i1 %.not65.i, i1 true, i1 %.not668387.i
-  br i1 %.not6683.i, label %OnConflict_CheckForSerializationFailure.exit, label %.lr.ph85.i
+  %.not668591.i = icmp eq ptr %65, %63
+  %.not6685.i = select i1 %.not65.i, i1 true, i1 %.not668591.i
+  br i1 %.not6685.i, label %OnConflict_CheckForSerializationFailure.exit, label %.lr.ph87.i
 
-.lr.ph85.i:                                       ; preds = %62
+.lr.ph87.i:                                       ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %67
 
-67:                                               ; preds = %85, %.lr.ph85.i
-  %.sroa.0.084.i = phi ptr [ %65, %.lr.ph85.i ], [ %87, %85 ]
-  %68 = getelementptr i8, ptr %.sroa.0.084.i, i64 16
+67:                                               ; preds = %85, %.lr.ph87.i
+  %.sroa.0.086.i = phi ptr [ %65, %.lr.ph87.i ], [ %87, %85 ]
+  %68 = getelementptr i8, ptr %.sroa.0.086.i, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 156
   %71 = load i32, ptr %70, align 4
@@ -5012,7 +5013,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not71.i, label %85, label %.thread77.i
 
 85:                                               ; preds = %81, %75, %67
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.084.i, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.086.i, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not66.i = icmp eq ptr %87, %63
   br i1 %.not66.i, label %OnConflict_CheckForSerializationFailure.exit, label %67, !llvm.loop !41
@@ -5036,7 +5037,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   unreachable
 
 98:                                               ; preds = %.thread77.i
-  %99 = and i32 %4, 2
+  %99 = and i32 %.fr90.i, 2
   %.not72.i = icmp eq i32 %99, 0
   br i1 %.not72.i, label %110, label %100
 
@@ -5056,12 +5057,12 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   unreachable
 
 110:                                              ; preds = %98
-  %111 = or i32 %4, 8
+  %111 = or i32 %.fr90.i, 8
   store i32 %111, ptr %3, align 4
   br label %OnConflict_CheckForSerializationFailure.exit
 
 OnConflict_CheckForSerializationFailure.exit:     ; preds = %85, %.critedge.i, %56, %62, %110
-  %112 = phi i32 [ %4, %.critedge.i ], [ %4, %56 ], [ %4, %62 ], [ %111, %110 ], [ %4, %85 ]
+  %112 = phi i32 [ %.fr90.i, %.critedge.i ], [ %.fr90.i, %56 ], [ %.fr90.i, %62 ], [ %111, %110 ], [ %.fr90.i, %85 ]
   %113 = load ptr, ptr @OldCommittedSxact, align 8
   %114 = icmp eq ptr %0, %113
   br i1 %114, label %115, label %117

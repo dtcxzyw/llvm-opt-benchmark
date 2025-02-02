@@ -20079,7 +20079,6 @@ _ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionRe
   br label %119
 
 119:                                              ; preds = %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit, %67
-  %.2 = phi i8 [ %.080, %67 ], [ 1, %_ZL20CalculateHiddenNamesRKN5clang21CodeCompletionContextEPNS_20CodeCompletionResultEjRNS_10ASTContextERN4llvm9StringSetINS7_20BumpPtrAllocatorImplINS7_15MallocAllocatorELm4096ELm4096ELm128EEEEE.exit ]
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.056.079, i64 20
   %121 = load i32, ptr %120, align 4
   %.not = icmp eq i32 %121, 501
@@ -20349,7 +20348,7 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit
 
 _ZN5clang20CodeCompletionResultD2Ev.exit:         ; preds = %260, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i, %_ZN4llvm9StringRefC2EPKc.exit, %62
-  %.1 = phi i8 [ %.080, %62 ], [ %.2, %_ZN4llvm9StringRefC2EPKc.exit ], [ %.2, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %.2, %260 ]
+  %.1 = phi i8 [ %.080, %62 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit ], [ 1, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i ], [ 1, %260 ]
   %265 = getelementptr inbounds nuw i8, ptr %.sroa.056.079, i64 40
   %.not73 = icmp eq ptr %265, %36
   br i1 %.not73, label %._crit_edge, label %62, !llvm.loop !331

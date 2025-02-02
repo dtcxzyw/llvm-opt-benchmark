@@ -4210,7 +4210,7 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   invoke void %56(ptr noalias noundef nonnull align 8 dereferenceable(8) %57, ptr noundef %59, i64 noundef %61)
           to label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit40" unwind label %62
 
-62:                                               ; preds = %91, %70, %54, %.thread100
+62:                                               ; preds = %91, %70, %54, %.noexc52
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #26
@@ -4289,7 +4289,7 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   tail call void %81(ptr noalias noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %84, i64 noundef %86)
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit49"
 
-.thread74:                                        ; preds = %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit40.thread", %70, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit40"
+.thread74:                                        ; preds = %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit40.thread", %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit40", %70
   %.pn29.ph = phi { ptr, i32 } [ %.pn27, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit40" ], [ %.pn27, %70 ], [ %18, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hbddde224c61e7ae1E.exit40.thread" ]
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 296
   call void @llvm.experimental.noalias.scope.decl(metadata !1104)
@@ -4298,17 +4298,17 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   %88 = load ptr, ptr %87, align 8, !alias.scope !1113, !nonnull !7, !noundef !7
   %89 = atomicrmw sub ptr %88, i64 1 release, align 8, !noalias !1113
   %90 = icmp eq i64 %89, 1
-  br i1 %90, label %91, label %.thread100
+  br i1 %90, label %91, label %.noexc52
 
 91:                                               ; preds = %.thread74
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hb5ae3b2b2ac0b331E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %87)
-          to label %.thread100 unwind label %62
+          to label %.noexc52 unwind label %62
 
-92:                                               ; preds = %.thread100
+92:                                               ; preds = %.noexc52
   resume { ptr, i32 } %.pn29.ph
 
-.thread100:                                       ; preds = %91, %.thread74
+.noexc52:                                         ; preds = %91, %.thread74
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$reqwest..async_impl..request..Request$C$reqwest..error..Error$GT$$GT$17h376b39e72d5c3f50E"(ptr noalias noundef align 8 dereferenceable(296) %1) #27
           to label %92 unwind label %62
 }

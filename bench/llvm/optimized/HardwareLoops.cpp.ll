@@ -1008,7 +1008,6 @@ _ZN4llvm15ScalarEvolution10getAddExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj.exit.i.i
   br i1 %120, label %.thread, label %144
 
 .thread:                                          ; preds = %114, %119
-  %.sroa.62.060 = phi i8 [ %89, %119 ], [ 1, %114 ]
   %121 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %118) #16
   %.not14.i.i = icmp eq ptr %121, null
   br i1 %.not14.i.i, label %144, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i
@@ -1047,12 +1046,12 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i:   ; preds = %.thread
 _ZN4llvm10BasicBlock13getTerminatorEv.exit17.i.i: ; preds = %138, %133
   %.0.i.i16.i.i = phi ptr [ null, %133 ], [ %spec.select.i.i15.i.i, %138 ]
   %143 = call noundef zeroext i1 @_ZNK4llvm12SCEVExpander16isSafeToExpandAtEPKNS_4SCEVEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(816) %32, ptr noundef nonnull %105, ptr noundef %.0.i.i16.i.i) #16
-  %spec.select = select i1 %143, i8 %.sroa.62.060, i8 0
+  %spec.select = zext i1 %143 to i8
   %spec.select65 = select i1 %143, ptr %134, ptr %118
   br label %144
 
 144:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit17.i.i, %.thread61, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i, %.thread, %119
-  %.sroa.62.1 = phi i8 [ %.sroa.62.060, %.thread ], [ %.sroa.62.060, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i ], [ %89, %119 ], [ 0, %.thread61 ], [ %spec.select, %_ZN4llvm10BasicBlock13getTerminatorEv.exit17.i.i ]
+  %.sroa.62.1 = phi i8 [ 1, %.thread ], [ 1, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i ], [ %89, %119 ], [ 0, %.thread61 ], [ %spec.select, %_ZN4llvm10BasicBlock13getTerminatorEv.exit17.i.i ]
   %.012.i.i = phi ptr [ %118, %.thread ], [ %118, %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i ], [ %118, %119 ], [ %113, %.thread61 ], [ %spec.select65, %_ZN4llvm10BasicBlock13getTerminatorEv.exit17.i.i ]
   %145 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 48
   %146 = load ptr, ptr %145, align 8

@@ -10068,7 +10068,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %72, %76
   br i1 %exitcond.not.i, label %compatible_tupdescs.exit, label %.lr.ph.i, !llvm.loop !7
 
 compatible_tupdescs.exit:                         ; preds = %115, %110, %105, %102, %93, %.lr.ph.i, %.preheader.i, %expanded_record_get_tupdesc.exit, %64, %67, %58
-  %.2 = phi i8 [ %.1107, %58 ], [ 1, %67 ], [ 1, %64 ], [ 0, %expanded_record_get_tupdesc.exit ], [ 1, %.preheader.i ], [ 1, %115 ], [ 0, %105 ], [ 0, %110 ], [ 0, %93 ], [ 0, %102 ], [ 0, %.lr.ph.i ]
+  %.2 = phi i8 [ 0, %58 ], [ 1, %67 ], [ 1, %64 ], [ 0, %expanded_record_get_tupdesc.exit ], [ 1, %.preheader.i ], [ 1, %115 ], [ 0, %105 ], [ 0, %110 ], [ 0, %93 ], [ 0, %102 ], [ 0, %.lr.ph.i ]
   %116 = load ptr, ptr %32, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 80
   %118 = load i64, ptr %117, align 8
@@ -10084,7 +10084,7 @@ compatible_tupdescs.exit:                         ; preds = %115, %110, %105, %1
 
 124:                                              ; preds = %51, %compatible_tupdescs.exit, %119
   %.270 = phi i64 [ %.169106, %51 ], [ %118, %compatible_tupdescs.exit ], [ %.169106, %119 ]
-  %.3 = phi i8 [ %.1107, %51 ], [ %.2, %compatible_tupdescs.exit ], [ %.1107, %119 ]
+  %.3 = phi i8 [ 1, %51 ], [ %.2, %compatible_tupdescs.exit ], [ %.1107, %119 ]
   %125 = load ptr, ptr %21, align 8
   %.not.i91 = icmp eq ptr %125, null
   br i1 %.not.i91, label %127, label %126

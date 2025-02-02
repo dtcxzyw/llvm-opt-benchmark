@@ -13038,13 +13038,12 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit17: ; preds = %37, %41
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %33, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit17
-  %.2.ph = phi i8 [ %.142, %33 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit17 ]
   %.pr = load i64, ptr %.sroa.025.037, align 8
   br label %47
 
 47:                                               ; preds = %35, %thread-pre-split
   %48 = phi i64 [ %.pr, %thread-pre-split ], [ %36, %35 ]
-  %.2 = phi i8 [ %.2.ph, %thread-pre-split ], [ %.142, %35 ]
+  %.2 = phi i8 [ 0, %thread-pre-split ], [ 1, %35 ]
   %49 = add i64 %48, -112
   %or.cond.i.i = icmp ult i64 %49, 32
   br i1 %or.cond.i.i, label %_ZNK4llvm12DIExpression11ExprOperand14appendToVectorERNS_15SmallVectorImplImEE.exit, label %50
@@ -13278,13 +13277,12 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %37, %41
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %33, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit
-  %.1.ph = phi i8 [ %.01048, %33 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit ]
   %.pr = load i64, ptr %.sroa.025.047, align 8
   br label %47
 
 47:                                               ; preds = %35, %thread-pre-split
   %48 = phi i64 [ %.pr, %thread-pre-split ], [ %36, %35 ]
-  %.1 = phi i8 [ %.1.ph, %thread-pre-split ], [ %.01048, %35 ]
+  %.1 = phi i8 [ 0, %thread-pre-split ], [ 1, %35 ]
   %49 = add i64 %48, -112
   %or.cond.i.i = icmp ult i64 %49, 32
   br i1 %or.cond.i.i, label %_ZNK4llvm12DIExpression11ExprOperand14appendToVectorERNS_15SmallVectorImplImEE.exit, label %50
@@ -14214,7 +14212,7 @@ _ZNK4llvm12DIExpression11ExprOperand14appendToVectorERNS_15SmallVectorImplImEE.e
   br label %64
 
 64:                                               ; preds = %_ZNK4llvm12DIExpression11ExprOperand14appendToVectorERNS_15SmallVectorImplImEE.exit, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35, %16
-  %.225 = phi i8 [ %.12472, %_ZNK4llvm12DIExpression11ExprOperand14appendToVectorERNS_15SmallVectorImplImEE.exit ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35 ], [ %.12472, %16 ]
+  %.225 = phi i8 [ %.12472, %_ZNK4llvm12DIExpression11ExprOperand14appendToVectorERNS_15SmallVectorImplImEE.exit ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35 ], [ 1, %16 ]
   %.222 = phi i1 [ %.12160, %_ZNK4llvm12DIExpression11ExprOperand14appendToVectorERNS_15SmallVectorImplImEE.exit ], [ %.02073, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35 ], [ %.02073, %16 ]
   %.2 = phi i32 [ %.174, %_ZNK4llvm12DIExpression11ExprOperand14appendToVectorERNS_15SmallVectorImplImEE.exit ], [ %.174, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35 ], [ %20, %16 ]
   %65 = load i64, ptr %.sroa.051.071, align 8

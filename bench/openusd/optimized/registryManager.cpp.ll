@@ -4545,7 +4545,7 @@ _ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5
   br label %38
 
 38:                                               ; preds = %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5countERKS5_.exit.i, %16, %13
-  %.1.i = phi i8 [ %.023.i, %13 ], [ %.023.i, %16 ], [ %37, %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5countERKS5_.exit.i ]
+  %.1.i = phi i8 [ 1, %13 ], [ 0, %16 ], [ %37, %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5countERKS5_.exit.i ]
   %39 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_4listINS_12_GLOBAL__N_122Tf_RegistryManagerImpl18_RegistrationValueESaISA_EEENS_6TfHashESt8equal_toIS6_ESaISt4pairIKS6_SC_EEEixERSH_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.018.024.i, i64 40
   %41 = load ptr, ptr %40, align 8

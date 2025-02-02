@@ -178,7 +178,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   br i1 %85, label %._crit_edge.i.i, label %88
 
 ._crit_edge.i.i:                                  ; preds = %96, %.lr.ph.i.i, %71
-  %.061.lcssa.i.i = phi i8 [ 0, %71 ], [ %.3.i.i, %96 ], [ %.06183.i.i, %.lr.ph.i.i ]
+  %.061.lcssa.i.i = phi i8 [ 0, %71 ], [ %.3.i.i, %96 ], [ 1, %.lr.ph.i.i ]
   %.060.lcssa.i.i = phi i64 [ 0, %71 ], [ %97, %96 ], [ %.06084.i.i, %.lr.ph.i.i ]
   %86 = add i64 %.060.lcssa.i.i, %64
   %87 = icmp ult i64 %86, %2
@@ -239,7 +239,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   br i1 %114, label %._crit_edge93.i.i, label %119
 
 ._crit_edge93.i.i:                                ; preds = %122, %113, %._crit_edge.i.i
-  %.162.lcssa.i.i = phi i8 [ %.061.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %122 ], [ %.16289.i.i, %113 ]
+  %.162.lcssa.i.i = phi i8 [ %.061.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %122 ], [ 1, %113 ]
   %115 = sub i64 %2, %55
   %116 = add i64 %115, -16
   %117 = call i16 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h2dcdf40f6408753fE"(ptr nonnull align 8 %9, i64 %116)
@@ -252,7 +252,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %125, %119
-  %.5.i.i = phi i8 [ %.16289.i.i, %119 ], [ %127, %125 ]
+  %.5.i.i = phi i8 [ 0, %119 ], [ %127, %125 ]
   %123 = add i64 %.190.i.i, 16
   %.reass.i.i = add i64 %invariant.op.i.i, %.190.i.i
   %124 = icmp ult i64 %.reass.i.i, %2

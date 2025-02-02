@@ -10494,7 +10494,6 @@ _ZN5arith6solver14reset_evidenceEv.exit:          ; preds = %_ZN6vectorISt4pairI
   br label %if.end30
 
 if.end30:                                         ; preds = %_ZN5arith6solver14reset_evidenceEv.exit, %if.end24
-  %first.2 = phi i8 [ 0, %_ZN5arith6solver14reset_evidenceEv.exit ], [ %first.0, %if.end24 ]
   %51 = load ptr, ptr %ctx.i, align 8
   %52 = load ptr, ptr %m_unassigned_bounds.i, align 8
   %arrayidx.i.i.i32 = getelementptr inbounds nuw i32, ptr %52, i64 %idxprom.i
@@ -10552,7 +10551,7 @@ _ZN5arith6solver22updt_unassigned_boundsEii.exit: ; preds = %lor.lhs.false.i.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end18, %for.body, %_ZN5arith6solver22updt_unassigned_boundsEii.exit
-  %first.1 = phi i8 [ %first.0, %for.body ], [ %first.0, %if.end18 ], [ %first.2, %_ZN5arith6solver22updt_unassigned_boundsEii.exit ]
+  %first.1 = phi i8 [ %first.0, %for.body ], [ %first.0, %if.end18 ], [ 0, %_ZN5arith6solver22updt_unassigned_boundsEii.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !55
 

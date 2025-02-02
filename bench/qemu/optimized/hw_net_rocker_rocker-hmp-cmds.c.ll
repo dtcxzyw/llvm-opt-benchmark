@@ -702,13 +702,12 @@ if.then100:                                       ; preds = %if.then98
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then100, %if.then98
-  %16 = phi ptr [ %15, %if.then98 ], [ %.pre, %if.then100 ]
-  %set.2 = phi i8 [ %set.0, %if.then98 ], [ 1, %if.then100 ]
+  %16 = phi ptr [ %.pre, %if.then100 ], [ %15, %if.then98 ]
   %call104 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, ptr noundef %16) #4
   br label %if.end105
 
 if.end105:                                        ; preds = %if.end102, %if.end96
-  %set.1 = phi i8 [ %set.2, %if.end102 ], [ %set.0, %if.end96 ]
+  %set.1 = phi i8 [ 1, %if.end102 ], [ %set.0, %if.end96 ]
   %set_eth_dst = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load ptr, ptr %set_eth_dst, align 8
   %tobool106.not = icmp eq ptr %17, null

@@ -3872,7 +3872,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %83, %81
   br label %92
 
 92:                                               ; preds = %87, %85
-  %.3 = phi i8 [ %.2, %85 ], [ %spec.select, %87 ]
+  %.3 = phi i8 [ 1, %85 ], [ %spec.select, %87 ]
   %93 = load volatile ptr, ptr %.023.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %.not.i47 = icmp eq ptr %93, null
@@ -3969,7 +3969,7 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_fir
 _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit: ; preds = %115, %110, %.thread, %116, %118
   %.1.ph90 = phi i1 [ true, %118 ], [ true, %116 ], [ true, %.thread ], [ false, %110 ], [ false, %115 ]
   %.1.i62.ph87 = phi i64 [ %.1.i63, %118 ], [ %.1.i63, %116 ], [ %.1.i63, %.thread ], [ %55, %110 ], [ %55, %115 ]
-  %.156 = phi i8 [ 0, %118 ], [ %.461, %116 ], [ %.461, %.thread ], [ %.2, %110 ], [ %.2, %115 ]
+  %.156 = phi i8 [ 0, %118 ], [ 0, %116 ], [ %.461, %.thread ], [ %.2, %110 ], [ %.2, %115 ]
   %.not44 = icmp eq ptr %5, null
   br i1 %.not44, label %130, label %125
 

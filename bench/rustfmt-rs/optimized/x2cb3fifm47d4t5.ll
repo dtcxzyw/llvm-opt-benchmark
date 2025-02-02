@@ -21372,23 +21372,23 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$rustc_ast..ast..Visibility$GT$$GT$17h2fa6746016c9f8bbE"(ptr noalias noundef align 8 dereferenceable(32) %7) #59
-          to label %.thread29 unwind label %62
+          to label %64 unwind label %62
 
-62:                                               ; preds = %65, %61
+62:                                               ; preds = %66, %61
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7bbd4fcd6f160435E() #58
   unreachable
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..lists..ListItem$GT$$GT$17h17c69c910b121241E.exit": ; preds = %.thread29, %65
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..lists..ListItem$GT$$GT$17h17c69c910b121241E.exit": ; preds = %64, %66
   resume { ptr, i32 } %lpad.thr_comm
 
-.thread29:                                        ; preds = %61
+64:                                               ; preds = %61
   %.pre = load i64, ptr %8, align 8, !range !411, !alias.scope !6257
-  %64 = icmp eq i64 %.pre, -9223372036854775807
-  br i1 %64, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..lists..ListItem$GT$$GT$17h17c69c910b121241E.exit", label %65
+  %65 = icmp eq i64 %.pre, -9223372036854775807
+  br i1 %65, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..lists..ListItem$GT$$GT$17h17c69c910b121241E.exit", label %66
 
-65:                                               ; preds = %.thread29
+66:                                               ; preds = %64
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rustfmt_nightly..lists..ListItem$GT$17h4db76af09fa8be5dE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8)
           to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..lists..ListItem$GT$$GT$17h17c69c910b121241E.exit" unwind label %62
 }

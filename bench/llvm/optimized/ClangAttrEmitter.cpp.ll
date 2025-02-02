@@ -9711,6 +9711,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit170.thread287.i: ; preds = %_ZN4llvmeqENS_9Stri
   %.val79.i = load i8, ptr %3347, align 1
   %3348 = trunc i8 %.val79.i to i1
   %brmerge.i = select i1 %3348, i1 true, i1 %.061296.i
+  %not..i = xor i1 %3348, true
+  %.061.mux.i = select i1 %not..i, i1 true, i1 %.061296.i
   br i1 %brmerge.i, label %.thread289.i, label %3349
 
 3349:                                             ; preds = %.lr.ph.i580
@@ -9810,7 +9812,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit189.i:            ; preds = %3398, %3396
   br label %.thread289.i
 
 .thread289.i:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit189.i, %3352, %3349, %.lr.ph.i580
-  %.162.i = phi i1 [ %.061296.i, %.lr.ph.i580 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit189.i ], [ true, %3352 ], [ true, %3349 ]
+  %.162.i = phi i1 [ %.061.mux.i, %.lr.ph.i580 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit189.i ], [ true, %3352 ], [ true, %3349 ]
   %.not290.i = icmp eq ptr %3346, %.val88.i
   br i1 %.not290.i, label %._crit_edge.i581, label %.lr.ph.i580
 
@@ -23531,7 +23533,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit216:              ; preds = %741, %743
   br label %766
 
 766:                                              ; preds = %756, %750, %.lr.ph.i217
-  %.123.i = phi i8 [ %.02249.i, %.lr.ph.i217 ], [ %.02249.i, %750 ], [ %spec.select.i, %756 ]
+  %.123.i = phi i8 [ %.02249.i, %.lr.ph.i217 ], [ 1, %750 ], [ %spec.select.i, %756 ]
   %.121.i = phi i32 [ %.02050.i, %.lr.ph.i217 ], [ %754, %750 ], [ %754, %756 ]
   %.118.i = phi i32 [ %.01751.i, %.lr.ph.i217 ], [ %.219.i, %750 ], [ %.219.i, %756 ]
   %.1.i = phi i32 [ %.052.i, %.lr.ph.i217 ], [ %.2.i, %750 ], [ %.2.i, %756 ]

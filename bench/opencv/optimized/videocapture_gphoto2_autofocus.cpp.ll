@@ -677,33 +677,33 @@ common.resume:                                    ; preds = %45, %135, %453
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.preheader137
-  %lpad.loopexit138 = landingpad { ptr, i32 }
-          cleanup
-  br label %.loopexit.split-lp
-
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.invoke, %277, %279, %284, %290, %_ZL12correctFocusbR10FocusStated.exit, %341, %343, %.thread155, %349, %357, %359, %366, %_ZlsRSoR10FocusState.exit, %379, %381, %383, %385, %389, %394, %295, %.noexc62, %.noexc63, %368, %.noexc65, %.noexc66, %.noexc67, %.noexc68, %.noexc69, %.noexc70, %.noexc71
-  %lpad.loopexit142 = landingpad { ptr, i32 }
-          cleanup
-  br label %.loopexit.split-lp
-
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %269
-  %lpad.loopexit144 = landingpad { ptr, i32 }
-          cleanup
-  br label %.loopexit.split-lp
-
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.i, %.noexc55
+.loopexit.split-lp.loopexit:                      ; preds = %.preheader146
   %lpad.loopexit147 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.preheader149
-  %lpad.loopexit150 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.invoke, %277, %279, %284, %290, %_ZL12correctFocusbR10FocusStated.exit, %341, %343, %.thread164, %349, %357, %359, %366, %_ZlsRSoR10FocusState.exit, %379, %381, %383, %385, %389, %394, %295, %.noexc62, %.noexc63, %368, %.noexc65, %.noexc66, %.noexc67, %.noexc68, %.noexc69, %.noexc70, %.noexc71
+  %lpad.loopexit151 = landingpad { ptr, i32 }
+          cleanup
+  br label %.loopexit.split-lp
+
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %269
+  %lpad.loopexit153 = landingpad { ptr, i32 }
+          cleanup
+  br label %.loopexit.split-lp
+
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.i, %.noexc55
+  %lpad.loopexit156 = landingpad { ptr, i32 }
+          cleanup
+  br label %.loopexit.split-lp
+
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.preheader158
+  %lpad.loopexit159 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.noexc59, %.noexc58, %265, %258, %.noexc51, %.noexc50, %235, %.noexc47, %.noexc46, %.noexc45, %.noexc44, %228, %451, %449, %447, %445, %443, %441, %439, %435, %433, %431, %429, %427, %424, %422, %420, %226, %224, %222, %219, %213, %211, %209, %207, %203, %201, %199, %197, %195, %191, %189, %187, %185, %178, %176, %172, %168
-  %lpad.loopexit.split-lp151 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp160 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -844,17 +844,17 @@ common.resume:                                    ; preds = %45, %135, %453
 _ZL8showHelpPKcb.exit53:                          ; preds = %.noexc51
   %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @GlobalArgs, i64 68), align 4
   %240 = icmp eq i32 %239, 0
-  br i1 %240, label %.preheader149, label %_ZL16findMinFocusStepRN2cv12VideoCaptureEji.exit
+  br i1 %240, label %.preheader158, label %_ZL16findMinFocusStepRN2cv12VideoCaptureEji.exit
 
-.preheader149:                                    ; preds = %_ZL8showHelpPKcb.exit53, %.noexc54
+.preheader158:                                    ; preds = %_ZL8showHelpPKcb.exit53, %.noexc54
   %241 = load ptr, ptr %28, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 104
   %243 = load ptr, ptr %242, align 8
   %244 = invoke noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef -3.276700e+04)
           to label %.noexc54 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc54:                                         ; preds = %.preheader149
-  br i1 %244, label %.preheader149, label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.i, !llvm.loop !5
+.noexc54:                                         ; preds = %.preheader158
+  br i1 %244, label %.preheader158, label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.i, !llvm.loop !5
 
 _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.i:   ; preds = %.noexc54, %.noexc56
   %.020.i = phi i32 [ %.1.i, %.noexc56 ], [ 0, %.noexc54 ]
@@ -935,7 +935,7 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit:     ; preds = %_ZL13focusDriveEndR
   %.sroa.57.0 = phi double [ %.sroa.57.2, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0.000000e+00, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
   %.sroa.52.0 = phi double [ %.sroa.52.2, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0.000000e+00, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
   %.028 = phi i8 [ %.230, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 1, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
-  %.026 = phi i1 [ %.127133, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ true, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
+  %.026 = phi i1 [ %.127126, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ true, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
   %.017 = phi i32 [ %395, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
   %trunc = trunc i32 %.017 to i8
   switch i8 %trunc, label %277 [
@@ -963,13 +963,13 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit:     ; preds = %_ZL13focusDriveEndR
           to label %286 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 286:                                              ; preds = %284, %282
-  %287 = trunc i8 %.028 to i1
+  %287 = trunc nuw i8 %.028 to i1
   %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @GlobalArgs, i64 76), align 4
   %288 = trunc i8 %.pre to i1
   br i1 %287, label %289, label %347
 
 289:                                              ; preds = %286
-  br i1 %288, label %.thread155, label %290
+  br i1 %288, label %.thread164, label %290
 
 290:                                              ; preds = %289
   %291 = invoke fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnull align 8 dereferenceable(96) %30)
@@ -1078,7 +1078,7 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
   %339 = add nsw i32 %338, -1
   store i32 %339, ptr getelementptr inbounds nuw (i8, ptr @GlobalArgs, i64 72), align 8
   %340 = icmp slt i32 %338, 2
-  br i1 %340, label %341, label %.thread157
+  br i1 %340, label %341, label %.thread
 
 341:                                              ; preds = %337
   %342 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.6)
@@ -1087,20 +1087,20 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
 343:                                              ; preds = %341
   %344 = shl nsw i32 %.sroa.23.1, 2
   %345 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %342, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %.thread unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.thread128 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 346:                                              ; preds = %335
   store i32 5, ptr getelementptr inbounds nuw (i8, ptr @GlobalArgs, i64 72), align 8
-  br label %.thread157
+  br label %.thread
 
 347:                                              ; preds = %286
-  br i1 %288, label %.thread155, label %.thread
+  br i1 %288, label %.thread164, label %.thread128
 
-.thread155:                                       ; preds = %289, %347
+.thread164:                                       ; preds = %289, %347
   %348 = invoke fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnull align 8 dereferenceable(96) %30)
           to label %349 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-349:                                              ; preds = %.thread155
+349:                                              ; preds = %.thread164
   %350 = sitofp i32 %.sroa.23.1 to double
   %351 = invoke noundef zeroext i1 @_ZN2cv12VideoCapture3setEid(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef %350)
           to label %352 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1124,35 +1124,34 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
           to label %361 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 361:                                              ; preds = %359, %353
-  br i1 %287, label %.thread157, label %.thread
+  br i1 %287, label %.thread, label %.thread128
 
-.thread:                                          ; preds = %347, %343, %361
-  %.127135 = phi i1 [ %.026, %361 ], [ %334, %343 ], [ %.026, %347 ]
-  %.129132 = phi i8 [ %.028, %361 ], [ 0, %343 ], [ %.028, %347 ]
-  %.sroa.52.1127 = phi double [ %.sroa.52.0, %361 ], [ %291, %343 ], [ %.sroa.52.0, %347 ]
-  %.sroa.57.1126 = phi double [ %.sroa.57.0, %361 ], [ %.sroa.57.3, %343 ], [ %.sroa.57.0, %347 ]
-  %.sroa.42.1121 = phi i32 [ %.sroa.42.0, %361 ], [ %.sroa.42.4, %343 ], [ %.sroa.42.0, %347 ]
-  %.sroa.33.1118 = phi i32 [ %.sroa.33.0, %361 ], [ %.sroa.33.5, %343 ], [ %.sroa.33.0, %347 ]
-  %.sroa.13.1115 = phi i32 [ %.sroa.13.0, %361 ], [ %.sroa.13.4, %343 ], [ %.sroa.13.0, %347 ]
-  %.sroa.083.1112 = phi i32 [ %.sroa.083.0, %361 ], [ %344, %343 ], [ %.sroa.083.0, %347 ]
+.thread128:                                       ; preds = %347, %343, %361
+  %.127144 = phi i1 [ %.026, %361 ], [ %334, %343 ], [ %.026, %347 ]
+  %.sroa.52.1142 = phi double [ %.sroa.52.0, %361 ], [ %291, %343 ], [ %.sroa.52.0, %347 ]
+  %.sroa.57.1141 = phi double [ %.sroa.57.0, %361 ], [ %.sroa.57.3, %343 ], [ %.sroa.57.0, %347 ]
+  %.sroa.42.1140 = phi i32 [ %.sroa.42.0, %361 ], [ %.sroa.42.4, %343 ], [ %.sroa.42.0, %347 ]
+  %.sroa.33.1139 = phi i32 [ %.sroa.33.0, %361 ], [ %.sroa.33.5, %343 ], [ %.sroa.33.0, %347 ]
+  %.sroa.13.1138 = phi i32 [ %.sroa.13.0, %361 ], [ %.sroa.13.4, %343 ], [ %.sroa.13.0, %347 ]
+  %.sroa.083.1137 = phi i32 [ %.sroa.083.0, %361 ], [ %344, %343 ], [ %.sroa.083.0, %347 ]
   %362 = load i8, ptr getelementptr inbounds nuw (i8, ptr @GlobalArgs, i64 76), align 4
   %363 = trunc i8 %362 to i1
-  br i1 %363, label %.thread157, label %391
+  br i1 %363, label %.thread, label %391
 
-.thread157:                                       ; preds = %337, %346, %.thread, %361
-  %.127134 = phi i1 [ %.127135, %.thread ], [ %.026, %361 ], [ true, %346 ], [ %334, %337 ]
-  %.129131 = phi i8 [ %.129132, %.thread ], [ %.028, %361 ], [ %.028, %346 ], [ %.028, %337 ]
-  %.sroa.52.1128 = phi double [ %.sroa.52.1127, %.thread ], [ %.sroa.52.0, %361 ], [ %291, %346 ], [ %291, %337 ]
-  %.sroa.57.1125 = phi double [ %.sroa.57.1126, %.thread ], [ %.sroa.57.0, %361 ], [ %.sroa.57.3, %346 ], [ %.sroa.57.3, %337 ]
-  %.sroa.42.1122 = phi i32 [ %.sroa.42.1121, %.thread ], [ %.sroa.42.0, %361 ], [ %.sroa.42.4, %346 ], [ %.sroa.42.4, %337 ]
-  %.sroa.33.1119 = phi i32 [ %.sroa.33.1118, %.thread ], [ %.sroa.33.0, %361 ], [ %.sroa.33.5, %346 ], [ %.sroa.33.5, %337 ]
-  %.sroa.13.1116 = phi i32 [ %.sroa.13.1115, %.thread ], [ %.sroa.13.0, %361 ], [ %.sroa.13.4, %346 ], [ %.sroa.13.4, %337 ]
-  %.sroa.083.1113 = phi i32 [ %.sroa.083.1112, %.thread ], [ %.sroa.083.0, %361 ], [ %.sroa.083.4, %346 ], [ %.sroa.083.4, %337 ]
+.thread:                                          ; preds = %346, %337, %.thread128, %361
+  %.127127 = phi i1 [ %.127144, %.thread128 ], [ %.026, %361 ], [ %334, %337 ], [ true, %346 ]
+  %.129125 = phi i8 [ 0, %.thread128 ], [ 1, %361 ], [ 1, %337 ], [ 1, %346 ]
+  %.sroa.52.1122 = phi double [ %.sroa.52.1142, %.thread128 ], [ %.sroa.52.0, %361 ], [ %291, %337 ], [ %291, %346 ]
+  %.sroa.57.1121 = phi double [ %.sroa.57.1141, %.thread128 ], [ %.sroa.57.0, %361 ], [ %.sroa.57.3, %337 ], [ %.sroa.57.3, %346 ]
+  %.sroa.42.1118 = phi i32 [ %.sroa.42.1140, %.thread128 ], [ %.sroa.42.0, %361 ], [ %.sroa.42.4, %337 ], [ %.sroa.42.4, %346 ]
+  %.sroa.33.1116 = phi i32 [ %.sroa.33.1139, %.thread128 ], [ %.sroa.33.0, %361 ], [ %.sroa.33.5, %337 ], [ %.sroa.33.5, %346 ]
+  %.sroa.13.1114 = phi i32 [ %.sroa.13.1138, %.thread128 ], [ %.sroa.13.0, %361 ], [ %.sroa.13.4, %337 ], [ %.sroa.13.4, %346 ]
+  %.sroa.083.1112 = phi i32 [ %.sroa.083.1137, %.thread128 ], [ %.sroa.083.0, %361 ], [ %.sroa.083.4, %337 ], [ %.sroa.083.4, %346 ]
   %364 = load i8, ptr getelementptr inbounds nuw (i8, ptr @GlobalArgs, i64 77), align 1
   %365 = trunc i8 %364 to i1
   br i1 %365, label %366, label %391
 
-366:                                              ; preds = %.thread157
+366:                                              ; preds = %.thread
   %367 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.7)
           to label %368 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1161,7 +1160,7 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
           to label %.noexc65 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc65:                                         ; preds = %368
-  %370 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %369, double noundef %.sroa.52.1128)
+  %370 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %369, double noundef %.sroa.52.1122)
           to label %.noexc66 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc66:                                         ; preds = %.noexc65
@@ -1169,7 +1168,7 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
           to label %.noexc67 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc67:                                         ; preds = %.noexc66
-  %372 = mul nsw i32 %.sroa.083.1113, %.sroa.13.1116
+  %372 = mul nsw i32 %.sroa.083.1112, %.sroa.13.1114
   %373 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %371, i32 noundef %372)
           to label %.noexc68 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1178,7 +1177,7 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
           to label %.noexc69 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc69:                                         ; preds = %.noexc68
-  %375 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %374, i32 noundef %.sroa.33.1119)
+  %375 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %374, i32 noundef %.sroa.33.1116)
           to label %.noexc70 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc70:                                         ; preds = %.noexc69
@@ -1186,7 +1185,7 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
           to label %.noexc71 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc71:                                         ; preds = %.noexc70
-  %377 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %376, i32 noundef %.sroa.42.1122)
+  %377 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %376, i32 noundef %.sroa.42.1118)
           to label %_ZlsRSoR10FocusState.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZlsRSoR10FocusState.exit:                        ; preds = %.noexc71
@@ -1215,15 +1214,15 @@ _ZlsRSoR10FocusState.exit:                        ; preds = %.noexc71
   %390 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %388, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %391 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-391:                                              ; preds = %389, %.thread157, %.thread
-  %.127133 = phi i1 [ %.127134, %389 ], [ %.127134, %.thread157 ], [ %.127135, %.thread ]
-  %.129130 = phi i8 [ %.129131, %389 ], [ %.129131, %.thread157 ], [ %.129132, %.thread ]
-  %.sroa.52.1129 = phi double [ %.sroa.52.1128, %389 ], [ %.sroa.52.1128, %.thread157 ], [ %.sroa.52.1127, %.thread ]
-  %.sroa.57.1124 = phi double [ %.sroa.57.1125, %389 ], [ %.sroa.57.1125, %.thread157 ], [ %.sroa.57.1126, %.thread ]
-  %.sroa.42.1123 = phi i32 [ %.sroa.42.1122, %389 ], [ %.sroa.42.1122, %.thread157 ], [ %.sroa.42.1121, %.thread ]
-  %.sroa.33.1120 = phi i32 [ %.sroa.33.1119, %389 ], [ %.sroa.33.1119, %.thread157 ], [ %.sroa.33.1118, %.thread ]
-  %.sroa.13.1117 = phi i32 [ %.sroa.13.1116, %389 ], [ %.sroa.13.1116, %.thread157 ], [ %.sroa.13.1115, %.thread ]
-  %.sroa.083.1114 = phi i32 [ %.sroa.083.1113, %389 ], [ %.sroa.083.1113, %.thread157 ], [ %.sroa.083.1112, %.thread ]
+391:                                              ; preds = %389, %.thread, %.thread128
+  %.127126 = phi i1 [ %.127127, %389 ], [ %.127127, %.thread ], [ %.127144, %.thread128 ]
+  %.129124 = phi i8 [ %.129125, %389 ], [ %.129125, %.thread ], [ 0, %.thread128 ]
+  %.sroa.52.1123 = phi double [ %.sroa.52.1122, %389 ], [ %.sroa.52.1122, %.thread ], [ %.sroa.52.1142, %.thread128 ]
+  %.sroa.57.1120 = phi double [ %.sroa.57.1121, %389 ], [ %.sroa.57.1121, %.thread ], [ %.sroa.57.1141, %.thread128 ]
+  %.sroa.42.1119 = phi i32 [ %.sroa.42.1118, %389 ], [ %.sroa.42.1118, %.thread ], [ %.sroa.42.1140, %.thread128 ]
+  %.sroa.33.1117 = phi i32 [ %.sroa.33.1116, %389 ], [ %.sroa.33.1116, %.thread ], [ %.sroa.33.1139, %.thread128 ]
+  %.sroa.13.1115 = phi i32 [ %.sroa.13.1114, %389 ], [ %.sroa.13.1114, %.thread ], [ %.sroa.13.1138, %.thread128 ]
+  %.sroa.083.1113 = phi i32 [ %.sroa.083.1112, %389 ], [ %.sroa.083.1112, %.thread ], [ %.sroa.083.1137, %.thread128 ]
   %392 = load ptr, ptr @windowOriginal, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %392, ptr noundef nonnull align 1 dereferenceable(1) %34)
@@ -1250,7 +1249,7 @@ _ZlsRSoR10FocusState.exit:                        ; preds = %.noexc71
     i32 107, label %.invoke
     i32 106, label %405
     i32 44, label %.preheader
-    i32 46, label %.preheader137
+    i32 46, label %.preheader146
     i32 114, label %414
     i32 102, label %415
   ]
@@ -1289,32 +1288,32 @@ _ZlsRSoR10FocusState.exit:                        ; preds = %.noexc71
 .noexc73:                                         ; preds = %.preheader
   br i1 %409, label %.preheader, label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74, !llvm.loop !5
 
-.preheader137:                                    ; preds = %396, %.noexc75
+.preheader146:                                    ; preds = %396, %.noexc75
   %410 = load ptr, ptr %28, align 8
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 104
   %412 = load ptr, ptr %411, align 8
   %413 = invoke noundef zeroext i1 %412(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef 3.276700e+04)
           to label %.noexc75 unwind label %.loopexit.split-lp.loopexit
 
-.noexc75:                                         ; preds = %.preheader137
-  br i1 %413, label %.preheader137, label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74, !llvm.loop !5
+.noexc75:                                         ; preds = %.preheader146
+  br i1 %413, label %.preheader146, label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74, !llvm.loop !5
 
 414:                                              ; preds = %396
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74
 
 415:                                              ; preds = %396
-  %416 = xor i8 %.129130, 1
+  %416 = xor i8 %.129124, 1
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74
 
 _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74:   ; preds = %.noexc75, %.noexc73, %.invoke, %415, %414, %396
-  %.sroa.083.2 = phi i32 [ %.sroa.083.1114, %396 ], [ %.sroa.083.1114, %415 ], [ 1024, %414 ], [ %.sroa.083.1114, %.invoke ], [ %.sroa.083.1114, %.noexc73 ], [ %.sroa.083.1114, %.noexc75 ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.1117, %396 ], [ %.sroa.13.1117, %415 ], [ 1, %414 ], [ %.sroa.13.1117, %.invoke ], [ %.sroa.13.1117, %.noexc73 ], [ %.sroa.13.1117, %.noexc75 ]
+  %.sroa.083.2 = phi i32 [ %.sroa.083.1113, %396 ], [ %.sroa.083.1113, %415 ], [ 1024, %414 ], [ %.sroa.083.1113, %.invoke ], [ %.sroa.083.1113, %.noexc73 ], [ %.sroa.083.1113, %.noexc75 ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.1115, %396 ], [ %.sroa.13.1115, %415 ], [ 1, %414 ], [ %.sroa.13.1115, %.invoke ], [ %.sroa.13.1115, %.noexc73 ], [ %.sroa.13.1115, %.noexc75 ]
   %.sroa.23.2 = phi i32 [ %.sroa.23.1, %396 ], [ %.sroa.23.1, %415 ], [ 0, %414 ], [ %.sroa.23.1, %.invoke ], [ %.sroa.23.1, %.noexc73 ], [ %.sroa.23.1, %.noexc75 ]
-  %.sroa.33.2 = phi i32 [ %.sroa.33.1120, %396 ], [ %.sroa.33.1120, %415 ], [ 0, %414 ], [ %.sroa.33.1120, %.invoke ], [ %.sroa.33.1120, %.noexc73 ], [ %.sroa.33.1120, %.noexc75 ]
-  %.sroa.42.2 = phi i32 [ %.sroa.42.1123, %396 ], [ %.sroa.42.1123, %415 ], [ 0, %414 ], [ %.sroa.42.1123, %.invoke ], [ %.sroa.42.1123, %.noexc73 ], [ %.sroa.42.1123, %.noexc75 ]
-  %.sroa.57.2 = phi double [ %.sroa.57.1124, %396 ], [ %.sroa.57.1124, %415 ], [ 0.000000e+00, %414 ], [ %.sroa.57.1124, %.invoke ], [ %.sroa.57.1124, %.noexc73 ], [ %.sroa.57.1124, %.noexc75 ]
-  %.sroa.52.2 = phi double [ %.sroa.52.1129, %396 ], [ %.sroa.52.1129, %415 ], [ 0.000000e+00, %414 ], [ %.sroa.52.1129, %.invoke ], [ %.sroa.52.1129, %.noexc73 ], [ %.sroa.52.1129, %.noexc75 ]
-  %.230 = phi i8 [ %.129130, %396 ], [ %416, %415 ], [ 1, %414 ], [ %.129130, %.invoke ], [ %.129130, %.noexc73 ], [ %.129130, %.noexc75 ]
+  %.sroa.33.2 = phi i32 [ %.sroa.33.1117, %396 ], [ %.sroa.33.1117, %415 ], [ 0, %414 ], [ %.sroa.33.1117, %.invoke ], [ %.sroa.33.1117, %.noexc73 ], [ %.sroa.33.1117, %.noexc75 ]
+  %.sroa.42.2 = phi i32 [ %.sroa.42.1119, %396 ], [ %.sroa.42.1119, %415 ], [ 0, %414 ], [ %.sroa.42.1119, %.invoke ], [ %.sroa.42.1119, %.noexc73 ], [ %.sroa.42.1119, %.noexc75 ]
+  %.sroa.57.2 = phi double [ %.sroa.57.1120, %396 ], [ %.sroa.57.1120, %415 ], [ 0.000000e+00, %414 ], [ %.sroa.57.1120, %.invoke ], [ %.sroa.57.1120, %.noexc73 ], [ %.sroa.57.1120, %.noexc75 ]
+  %.sroa.52.2 = phi double [ %.sroa.52.1123, %396 ], [ %.sroa.52.1123, %415 ], [ 0.000000e+00, %414 ], [ %.sroa.52.1123, %.invoke ], [ %.sroa.52.1123, %.noexc73 ], [ %.sroa.52.1123, %.noexc75 ]
+  %.230 = phi i8 [ %.129124, %396 ], [ %416, %415 ], [ 1, %414 ], [ %.129124, %.invoke ], [ %.129124, %.noexc73 ], [ %.129124, %.noexc75 ]
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit, !llvm.loop !8
 
 417:                                              ; preds = %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit, %353, %281
@@ -1392,7 +1391,7 @@ _ZL8showHelpPKcb.exit49:                          ; preds = %.noexc47, %417, %45
   br label %_ZL8showHelpPKcb.exit
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %402, %184
-  %.pn37 = phi { ptr, i32 } [ %.pn33.pn, %402 ], [ %.pn, %184 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit138, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit142, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit144, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit147, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit150, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp151, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn37 = phi { ptr, i32 } [ %.pn33.pn, %402 ], [ %.pn, %184 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit147, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit151, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit153, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit156, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit159, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp160, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #12
   call void @_ZN2cv11VideoWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %29) #12
   br label %453

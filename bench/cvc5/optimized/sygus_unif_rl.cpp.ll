@@ -10497,7 +10497,7 @@ ehcleanup77:                                      ; preds = %ehcleanup75, %lpad4
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %cond) #27
   br label %ehcleanup90
 
-if.then81:                                        ; preds = %for.end, %for.body
+if.then81:                                        ; preds = %for.body, %for.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i362)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i363)
   %78 = load ptr, ptr %_M_parent.i.i.i.i.i364, align 8

@@ -1842,8 +1842,8 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   store i16 0, ptr %992, align 2
   store i16 0, ptr %993, align 4
   %1001 = load i32, ptr %998, align 8
-  %.not33.i111 = icmp eq i32 %1001, 0
-  br i1 %.not33.i111, label %.thread, label %.lr.ph.i34.preheader.preheader
+  %.not33.i112 = icmp eq i32 %1001, 0
+  br i1 %.not33.i112, label %.thread, label %.lr.ph.i34.preheader.preheader
 
 .lr.ph.i34.preheader.preheader:                   ; preds = %997
   %.sroa.9.0.extract.shift.i = lshr i48 %.0.copyload, 32
@@ -1853,14 +1853,26 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %.sroa.0.0.extract.trunc.i = trunc i48 %.0.copyload to i16
   br label %.lr.ph.i34
 
+.lr.ph.i34thread-pre-split:                       ; preds = %1318
+  %.val.i.pr = load i16, ptr %993, align 4
+  br label %.lr.ph.i34.backedge
+
+.lr.ph.i34.backedge:                              ; preds = %.lr.ph.i34thread-pre-split, %.backedge.i42
+  %.val.i.be = phi i16 [ %.val.i.pr, %.lr.ph.i34thread-pre-split ], [ 0, %.backedge.i42 ]
+  %indvars.iv.i35.be = phi i64 [ %indvars.iv.next.i43, %.lr.ph.i34thread-pre-split ], [ 0, %.backedge.i42 ]
+  %.sroa.0.123.i.be = phi i16 [ %.sroa.0.3.i, %.lr.ph.i34thread-pre-split ], [ %.sroa.0.0.be.i, %.backedge.i42 ]
+  %.sroa.6.122.i.be = phi i16 [ %.sroa.6.3.i, %.lr.ph.i34thread-pre-split ], [ %.sroa.6.0.be.i, %.backedge.i42 ]
+  %.sroa.9.119.i.be = phi i16 [ %.sroa.9.3.i, %.lr.ph.i34thread-pre-split ], [ %.sroa.9.0.be.i, %.backedge.i42 ]
+  br label %.lr.ph.i34, !llvm.loop !26
+
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34.backedge, %.lr.ph.i34.preheader.preheader
+  %.val.i = phi i16 [ 0, %.lr.ph.i34.preheader.preheader ], [ %.val.i.be, %.lr.ph.i34.backedge ]
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.i34.preheader.preheader ], [ %indvars.iv.i35.be, %.lr.ph.i34.backedge ]
   %.sroa.0.123.i = phi i16 [ %.sroa.0.0.extract.trunc.i, %.lr.ph.i34.preheader.preheader ], [ %.sroa.0.123.i.be, %.lr.ph.i34.backedge ]
   %.sroa.6.122.i = phi i16 [ %.sroa.6.0.extract.trunc.i, %.lr.ph.i34.preheader.preheader ], [ %.sroa.6.122.i.be, %.lr.ph.i34.backedge ]
   %.sroa.9.119.i = phi i16 [ %.sroa.9.0.extract.trunc.i, %.lr.ph.i34.preheader.preheader ], [ %.sroa.9.119.i.be, %.lr.ph.i34.backedge ]
   %1002 = load ptr, ptr %999, align 8
   %1003 = getelementptr %struct.GinScanKeyData, ptr %1002, i64 %indvars.iv.i35
-  %.val.i = load i16, ptr %993, align 4
   %1004 = icmp eq i16 %.val.i, -1
   br i1 %1004, label %1005, label %1014
 
@@ -2001,7 +2013,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %1069 = load i32, ptr %1034, align 8
   %1070 = zext i32 %1069 to i64
   %1071 = icmp samesign ult i64 %indvars.iv.next.i.i39, %1070
-  br i1 %1071, label %1037, label %._crit_edge.i.i40, !llvm.loop !26
+  br i1 %1071, label %1037, label %._crit_edge.i.i40, !llvm.loop !27
 
 ._crit_edge.i.i40:                                ; preds = %1068
   br i1 %.192.i.i, label %._crit_edge.thread.i.i, label %._crit_edge._crit_edge.i.i
@@ -2170,7 +2182,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %1142 = load i32, ptr %1100, align 8
   %1143 = zext i32 %1142 to i64
   %1144 = icmp samesign ult i64 %indvars.iv.next215.i.i, %1143
-  br i1 %1144, label %1110, label %._crit_edge195.i.i, !llvm.loop !27
+  br i1 %1144, label %1110, label %._crit_edge195.i.i, !llvm.loop !28
 
 ._crit_edge195.i.i:                               ; preds = %1141, %1099
   %.sroa.21.3.lcssa.i.i = phi i16 [ %.sroa.21.2.i.i, %1099 ], [ %.sroa.21.4.i.i, %1141 ]
@@ -2257,7 +2269,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %1188 = load i32, ptr %1003, align 8
   %1189 = zext i32 %1188 to i64
   %1190 = icmp samesign ult i64 %indvars.iv.next217.i.i, %1189
-  br i1 %1190, label %1156, label %._crit_edge204.i.i, !llvm.loop !28
+  br i1 %1190, label %1156, label %._crit_edge204.i.i, !llvm.loop !29
 
 ._crit_edge204.i.i:                               ; preds = %1187
   %1191 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2362,7 +2374,7 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %1246 = load i32, ptr %1003, align 8
   %1247 = zext i32 %1246 to i64
   %1248 = icmp samesign ult i64 %indvars.iv.next219.i.i, %1247
-  br i1 %1248, label %1214, label %._crit_edge209.i.i, !llvm.loop !29
+  br i1 %1248, label %1214, label %._crit_edge209.i.i, !llvm.loop !30
 
 ._crit_edge209.i.i:                               ; preds = %1245, %1200
   %1249 = getelementptr inbounds nuw i8, ptr %1003, i64 64
@@ -2535,23 +2547,16 @@ keyGetItem.exit.i:                                ; preds = %1259, %1197, %1075,
   %.sroa.9.3.i = phi i16 [ %.sroa.9.2.i, %1286 ], [ %.sroa.9.2.i, %1302 ], [ %.sroa.9.2.i, %1300 ], [ %.sroa.9.119.i, %1010 ]
   %.sroa.6.3.i = phi i16 [ %.sroa.6.2.i, %1286 ], [ %.sroa.6.2.i, %1302 ], [ %.sroa.6.2.i, %1300 ], [ %.sroa.6.122.i, %1010 ]
   %.sroa.0.3.i = phi i16 [ %.sroa.0.2.i, %1286 ], [ %.sroa.0.2.i, %1302 ], [ %.sroa.0.2.i, %1300 ], [ %.sroa.0.123.i, %1010 ]
-  %.147.i = phi i1 [ true, %1286 ], [ %1317, %1302 ], [ %1301, %1300 ], [ true, %1010 ]
+  %.147.shrunk.i = phi i1 [ true, %1286 ], [ %1317, %1302 ], [ %1301, %1300 ], [ true, %1010 ]
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i35, 1
   %1319 = load i32, ptr %998, align 8
   %1320 = zext i32 %1319 to i64
   %1321 = icmp samesign ult i64 %indvars.iv.next.i43, %1320
-  %1322 = select i1 %1321, i1 %.147.i, i1 false
-  br i1 %1322, label %.lr.ph.i34.backedge, label %.loopexit2.i
-
-.lr.ph.i34.backedge:                              ; preds = %1318, %.backedge.i42
-  %indvars.iv.i35.be = phi i64 [ %indvars.iv.next.i43, %1318 ], [ 0, %.backedge.i42 ]
-  %.sroa.0.123.i.be = phi i16 [ %.sroa.0.3.i, %1318 ], [ %.sroa.0.0.be.i, %.backedge.i42 ]
-  %.sroa.6.122.i.be = phi i16 [ %.sroa.6.3.i, %1318 ], [ %.sroa.6.0.be.i, %.backedge.i42 ]
-  %.sroa.9.119.i.be = phi i16 [ %.sroa.9.3.i, %1318 ], [ %.sroa.9.0.be.i, %.backedge.i42 ]
-  br label %.lr.ph.i34, !llvm.loop !30
+  %1322 = select i1 %1321, i1 %.147.shrunk.i, i1 false
+  br i1 %1322, label %.lr.ph.i34thread-pre-split, label %.loopexit2.i, !llvm.loop !31
 
 .loopexit2.i:                                     ; preds = %1318
-  br i1 %.147.i, label %.loopexit2.thread.i, label %.backedge.i42
+  br i1 %.147.shrunk.i, label %.loopexit2.thread.i, label %.backedge.i42
 
 .backedge.i42:                                    ; preds = %.loopexit2.i, %1267
   %1323 = phi i32 [ %1319, %.loopexit2.i ], [ %.pre, %1267 ]
@@ -2579,8 +2584,8 @@ keyGetItem.exit.i:                                ; preds = %1259, %1197, %1075,
   %1328 = trunc i8 %1327 to i1
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next41.i, %1320
-  %or.cond255 = select i1 %1328, i1 true, i1 %exitcond.not.i45
-  br i1 %or.cond255, label %.loopexit, label %1325, !llvm.loop !31
+  %or.cond257 = select i1 %1328, i1 true, i1 %exitcond.not.i45
+  br i1 %or.cond257, label %.loopexit, label %1325, !llvm.loop !32
 
 .loopexit:                                        ; preds = %1325, %.loopexit2.thread.i
   %.1.ph.ph = phi i1 [ false, %.loopexit2.thread.i ], [ %1328, %1325 ]
@@ -2914,7 +2919,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
 
 38:                                               ; preds = %.critedge.us
   store i16 0, ptr %13, align 4
-  br label %.split.us, !llvm.loop !32
+  br label %.split.us, !llvm.loop !33
 
 .split:                                           ; preds = %.backedge97, %54
   %39 = phi ptr [ %51, %54 ], [ %.pre130, %.backedge97 ]
@@ -2957,7 +2962,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
 
 54:                                               ; preds = %.critedge
   store i16 0, ptr %13, align 4
-  br label %.split, !llvm.loop !32
+  br label %.split, !llvm.loop !33
 
 .critedge2:                                       ; preds = %32, %48, %.split112.us
   %55 = load i8, ptr %20, align 2
@@ -3023,7 +3028,7 @@ define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0
   %83 = getelementptr [0 x i16], ptr %70, i64 0, i64 %82
   %84 = load i16, ptr %83, align 2
   %.not74 = icmp ugt i16 %84, %.sroa.11.0.extract.trunc
-  br i1 %.not74, label %.loopexit95.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not74, label %.loopexit95.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit95.loopexit:                             ; preds = %.lr.ph
   %.pre131 = load i32, ptr %58, align 4
@@ -3401,7 +3406,7 @@ BufferGetPage.exit64.i:                           ; preds = %236, %230, %216
 289:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.backedge.i.backedge, label %.lr.ph.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %.backedge.i.backedge, label %.lr.ph.i, !llvm.loop !35
 
 entryLoadMoreItems.exit:                          ; preds = %177, %225, %287, %288
   %290 = load i8, ptr %118, align 2
@@ -3409,7 +3414,7 @@ entryLoadMoreItems.exit:                          ; preds = %177, %225, %287, %2
   br i1 %291, label %292, label %.backedge158
 
 .backedge158:                                     ; preds = %entryLoadMoreItems.exit, %293
-  br label %171, !llvm.loop !35
+  br label %171, !llvm.loop !36
 
 292:                                              ; preds = %entryLoadMoreItems.exit
   store i16 -1, ptr %109, align 2
@@ -3576,3 +3581,4 @@ attributes #10 = { cold nounwind }
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
 !35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}

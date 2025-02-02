@@ -669,7 +669,7 @@ if.then.i:                                        ; preds = %do.body2.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %do.body2.i
-  %is_multiplex.1.i = phi i8 [ %is_multiplex.0.i, %do.body2.i ], [ %frombool.i, %if.then.i ]
+  %is_multiplex.1.i = phi i8 [ 1, %do.body2.i ], [ %frombool.i, %if.then.i ]
   %12 = load ptr, ptr %buffer.i, align 8
   %13 = load i32, ptr %buffer_size.i, align 4
   %conv.i = zext i32 %13 to i64

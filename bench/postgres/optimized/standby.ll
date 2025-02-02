@@ -500,7 +500,7 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br label %69
 
 69:                                               ; preds = %68, %66, %65
-  %.3 = phi i8 [ 1, %68 ], [ %.140, %66 ], [ %.140, %65 ]
+  %.3 = phi i8 [ 1, %68 ], [ 0, %66 ], [ %.140, %65 ]
   br i1 %59, label %70, label %74
 
 70:                                               ; preds = %69
@@ -513,8 +513,8 @@ WaitExceedsMaxStandbyDelay.exit:                  ; preds = %GetStandbyLimitTime
   br label %74
 
 74:                                               ; preds = %69, %70, %73, %54, %49
-  %.234 = phi i8 [ %.13339, %54 ], [ 1, %73 ], [ %.13339, %70 ], [ %.13339, %69 ], [ %.13339, %49 ]
-  %.2 = phi i8 [ %.140, %54 ], [ %.3, %73 ], [ %.3, %70 ], [ %.3, %69 ], [ %.140, %49 ]
+  %.234 = phi i8 [ 1, %54 ], [ 1, %73 ], [ 0, %70 ], [ %.13339, %69 ], [ %.13339, %49 ]
+  %.2 = phi i8 [ 1, %54 ], [ %.3, %73 ], [ %.3, %70 ], [ %.3, %69 ], [ %.140, %49 ]
   %75 = load i64, ptr %.045, align 4
   %76 = call zeroext i1 @VirtualXactLock(i64 %75, i1 noundef zeroext false) #7
   br i1 %76, label %._crit_edge, label %.lr.ph, !llvm.loop !8

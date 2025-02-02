@@ -420,7 +420,7 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.lr.ph185.us
 
 ._crit_edge186.split.us.us.loopexit:              ; preds = %.lr.ph185.us
-  %46 = trunc nsw i64 %indvars.iv.next207 to i32
+  %46 = trunc nsw i64 %indvars.iv.next206 to i32
   br label %._crit_edge186.split.us.us
 
 ._crit_edge186.split.us.us:                       ; preds = %._crit_edge186.split.us.us.loopexit, %.lr.ph192.split.us
@@ -430,9 +430,9 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not162.us, label %._crit_edge193, label %.lr.ph192.split.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph185.us.preheader, %.lr.ph185.us
-  %indvars.iv206 = phi i64 [ %45, %.lr.ph185.us.preheader ], [ %indvars.iv.next207, %.lr.ph185.us ]
+  %indvars.iv205 = phi i64 [ %45, %.lr.ph185.us.preheader ], [ %indvars.iv.next206, %.lr.ph185.us ]
   %.0144183.us.us = phi ptr [ %44, %.lr.ph185.us.preheader ], [ %61, %.lr.ph185.us ]
-  %48 = getelementptr inbounds i32, ptr %.0143, i64 %indvars.iv206
+  %48 = getelementptr inbounds i32, ptr %.0143, i64 %indvars.iv205
   store i32 %43, ptr %48, align 4
   %49 = load i32, ptr %.0144183.us.us, align 8
   %50 = and i32 %49, 3
@@ -445,12 +445,12 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i32, ptr %.0142, i64 %indvars.iv206
+  %59 = getelementptr inbounds i32, ptr %.0142, i64 %indvars.iv205
   store i32 %58, ptr %59, align 4
   store double 1.000000e+00, ptr %5, align 8
-  %60 = getelementptr inbounds double, ptr %.0141, i64 %indvars.iv206
+  %60 = getelementptr inbounds double, ptr %.0141, i64 %indvars.iv205
   store double 1.000000e+00, ptr %60, align 8
-  %indvars.iv.next207 = add nsw i64 %indvars.iv206, 1
+  %indvars.iv.next206 = add nsw i64 %indvars.iv205, 1
   %61 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.0144183.us.us) #20
   %.not172.us.us = icmp eq ptr %61, null
   br i1 %.not172.us.us, label %._crit_edge186.split.us.us.loopexit, label %.lr.ph185.us
@@ -543,10 +543,10 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 97:                                               ; preds = %93, %91
   %98 = call ptr @agfstnode(ptr noundef nonnull %0) #20
-  %.not201 = icmp eq ptr %98, null
-  br i1 %.not201, label %.critedge, label %.lr.ph198
+  %.not200 = icmp eq ptr %98, null
+  br i1 %.not200, label %.critedge, label %.lr.ph197
 
-.lr.ph198:                                        ; preds = %97, %179
+.lr.ph197:                                        ; preds = %97, %179
   %.2140194 = phi ptr [ %180, %179 ], [ %98, %97 ]
   %99 = getelementptr inbounds nuw i8, ptr %.2140194, i64 16
   %100 = load ptr, ptr %99, align 8
@@ -554,12 +554,12 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   %102 = load i32, ptr %101, align 8
   %103 = call ptr @agxget(ptr noundef nonnull %.2140194, ptr noundef nonnull %90) #20
   %.not166 = icmp eq ptr %103, null
-  br i1 %.not166, label %._crit_edge199.thread, label %104
+  br i1 %.not166, label %._crit_edge198.thread, label %104
 
-104:                                              ; preds = %.lr.ph198
+104:                                              ; preds = %.lr.ph197
   %105 = load i8, ptr %103, align 1
   %.not167 = icmp eq i8 %105, 0
-  br i1 %.not167, label %._crit_edge199.thread, label %106
+  br i1 %.not167, label %._crit_edge198.thread, label %106
 
 106:                                              ; preds = %104
   switch i32 %1, label %179 [
@@ -677,7 +677,7 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   store double %172, ptr %175, align 8
   br label %179
 
-._crit_edge199.thread:                            ; preds = %104, %.lr.ph198
+._crit_edge198.thread:                            ; preds = %104, %.lr.ph197
   %176 = call ptr @agnameof(ptr noundef nonnull %.2140194) #20
   %177 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.12, ptr noundef %176) #20
   %178 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.2140194) #20
@@ -688,12 +688,12 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   %180 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.2140194) #20
   %181 = icmp ne ptr %180, null
   %182 = and i1 %181, %.4
-  br i1 %182, label %.lr.ph198, label %._crit_edge199
+  br i1 %182, label %.lr.ph197, label %._crit_edge198
 
-._crit_edge199:                                   ; preds = %179
+._crit_edge198:                                   ; preds = %179
   br i1 %.4, label %.critedge, label %183
 
-183:                                              ; preds = %._crit_edge199.thread, %._crit_edge199
+183:                                              ; preds = %._crit_edge198.thread, %._crit_edge198
   %184 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %184) #20
   store ptr null, ptr %2, align 8
@@ -704,7 +704,7 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   %187 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef %186) #20
   br label %.critedge
 
-.critedge:                                        ; preds = %97, %._crit_edge193, %185, %._crit_edge199, %183
+.critedge:                                        ; preds = %97, %._crit_edge193, %185, %._crit_edge198, %183
   %188 = icmp eq i32 %3, 0
   br i1 %188, label %.thread, label %190
 

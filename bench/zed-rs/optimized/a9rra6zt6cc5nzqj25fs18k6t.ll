@@ -4700,57 +4700,19 @@ define hidden void @_ZN4core9core_arch4simd5i8x165splat17hcd45f5c0ef7060adE.llvm
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17hea4738d989c47e19E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17hea4738d989c47e19E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !293, !noundef !16
   %trunc = trunc nuw i8 %2 to i1
-  br i1 %trunc, label %6, label %3
+  br i1 %trunc, label %thread-pre-split, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit"
 
-thread-pre-split:                                 ; preds = %6
-  %.pr = load i8, ptr %0, align 8
-  br label %3
-
-3:                                                ; preds = %thread-pre-split, %1
-  %4 = phi i8 [ %.pr, %thread-pre-split ], [ %2, %1 ]
-  %trunc1 = trunc nuw i8 %4 to i1
-  %5 = icmp eq i8 %4, 0
-  %or.cond = or i1 %5, %trunc1
-  br i1 %or.cond, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit", label %14
-
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !nonnull !16, !noundef !16
-  invoke void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17h002f286158a6087aE.llvm.7219230611176236013"(ptr noundef nonnull %8)
-          to label %thread-pre-split unwind label %9
-
-9:                                                ; preds = %6
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  %11 = load i8, ptr %0, align 8, !range !293, !noundef !16
-  %12 = trunc nuw i8 %11 to i1
-  %13 = icmp eq i8 %11, 0
-  %or.cond5 = or i1 %13, %12
-  br i1 %or.cond5, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit4", label %16
-
-"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit": ; preds = %14, %3
-  ret void
-
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h506140cf65dbfacfE.llvm.14628675508167347910"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
+thread-pre-split:                                 ; preds = %1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !nonnull !16, !noundef !16
+  tail call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$6detach17h002f286158a6087aE.llvm.7219230611176236013"(ptr noundef nonnull %4)
   br label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit"
 
-"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit4": ; preds = %16, %9
-  resume { ptr, i32 } %10
-
-16:                                               ; preds = %9
-  invoke void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h506140cf65dbfacfE.llvm.14628675508167347910"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-          to label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit4" unwind label %17
-
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #38
-  unreachable
+"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17ha921f4638648779aE.llvm.7219230611176236013.exit": ; preds = %1, %thread-pre-split
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable

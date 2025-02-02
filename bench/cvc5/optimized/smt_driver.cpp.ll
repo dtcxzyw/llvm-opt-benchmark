@@ -578,7 +578,7 @@ invoke.cont35:                                    ; preds = %land.lhs.true
 if.then38:                                        ; preds = %invoke.cont35
   %20 = load ptr, ptr %d_smt, align 8
   invoke void @_ZN4cvc58internal3smt9SmtSolver10finishInitEv(ptr noundef nonnull align 8 dereferenceable(1216) %20)
-          to label %do.body unwind label %lpad.loopexit, !llvm.loop !7
+          to label %do.body unwind label %lpad.loopexit
 
 lpad47:                                           ; preds = %invoke.cont50, %invoke.cont48, %catch
   %21 = landingpad { ptr, i32 }
@@ -1370,7 +1370,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i12
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont, %if.then.i.i6, %if.then13.i.i12
   %inc = add i64 %i.015, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 lpad:                                             ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %11 = landingpad { ptr, i32 }
@@ -1641,7 +1641,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i
   %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %__n.025.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.025.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont11, !llvm.loop !9
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont11, !llvm.loop !8
 
 invoke.cont11:                                    ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
   ret void
@@ -1968,4 +1968,3 @@ attributes #19 = { builtin allocsize(0) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}

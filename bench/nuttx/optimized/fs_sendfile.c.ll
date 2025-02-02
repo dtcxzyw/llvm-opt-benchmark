@@ -99,11 +99,11 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 no
   br i1 %41, label %.preheader.i, label %.critedge.thread.i, !llvm.loop !8
 
 .critedge.thread.i:                               ; preds = %40
-  %.not102.i = icmp ult i64 %.4.i, %3
-  br i1 %.not102.i, label %.preheader81.i, label %.critedge.thread.thread.i, !llvm.loop !9
+  %.not105.i = icmp ult i64 %.4.i, %3
+  br i1 %.not105.i, label %.preheader81.i, label %.critedge.thread.thread.i, !llvm.loop !9
 
 .critedge.thread.thread.i:                        ; preds = %.critedge.thread.i, %24, %.preheader81.split.us.i, %30, %.preheader81.split.i, %37
-  %.26096.i = phi i64 [ %31, %37 ], [ %.05887.fr.i, %.preheader81.split.i ], [ %26, %30 ], [ %.4.i, %.critedge.thread.i ], [ %22, %24 ], [ 0, %.preheader81.split.us.i ]
+  %.26099.i = phi i64 [ %31, %37 ], [ %.05887.fr.i, %.preheader81.split.i ], [ %26, %30 ], [ %.4.i, %.critedge.thread.i ], [ %22, %24 ], [ 0, %.preheader81.split.us.i ]
   tail call void @free(ptr noundef %19)
   br i1 %.not.i, label %copyfile.exit, label %42
 
@@ -121,11 +121,11 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 no
   %48 = tail call i32 @file_seek(ptr noundef %1, i32 noundef %.061.i, i32 noundef 0) #5
   %49 = icmp slt i32 %48, 0
   %50 = sext i32 %48 to i64
-  %spec.select.i = select i1 %49, i64 %50, i64 %.26096.i
+  %spec.select.i = select i1 %49, i64 %50, i64 %.26099.i
   br label %copyfile.exit
 
 copyfile.exit:                                    ; preds = %47, %45, %.critedge.thread.thread.i, %18, %16, %10, %4
-  %.0 = phi i64 [ 0, %4 ], [ %11, %10 ], [ %17, %16 ], [ %46, %45 ], [ -12, %18 ], [ %.26096.i, %.critedge.thread.thread.i ], [ %spec.select.i, %47 ]
+  %.0 = phi i64 [ 0, %4 ], [ %11, %10 ], [ %17, %16 ], [ %46, %45 ], [ -12, %18 ], [ %.26099.i, %.critedge.thread.thread.i ], [ %spec.select.i, %47 ]
   ret i64 %.0
 }
 

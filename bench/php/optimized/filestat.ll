@@ -1191,7 +1191,7 @@ thread-pre-split:                                 ; preds = %17
 
 .thread291.thread:                                ; preds = %26
   %.not220311 = icmp eq i64 %27, 0
-  br i1 %.not220311, label %47, label %.thread320
+  br i1 %.not220311, label %47, label %.thread319
 
 47:                                               ; preds = %.thread291.thread, %.thread291
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1202,7 +1202,7 @@ thread-pre-split:                                 ; preds = %17
   br i1 %.3245, label %50, label %.critedge231
 
 50:                                               ; preds = %49
-  br i1 %.0197.ph, label %.thread320, label %.critedge233
+  br i1 %.0197.ph, label %.thread319, label %.critedge233
 
 .critedge231:                                     ; preds = %49
   %51 = load i64, ptr %4, align 8
@@ -1212,7 +1212,7 @@ thread-pre-split:                                 ; preds = %17
   store i64 %51, ptr %6, align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %51, ptr %53, align 8
-  br label %.thread320
+  br label %.thread319
 
 .critedge233:                                     ; preds = %50
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.3) #16
@@ -1226,22 +1226,22 @@ thread-pre-split:                                 ; preds = %17
   store i64 %51, ptr %57, align 8
   %58 = load i64, ptr %5, align 8
   store i64 %58, ptr %6, align 8
-  br label %.thread320
+  br label %.thread319
 
-.thread320:                                       ; preds = %.thread291.thread, %50, %52, %56
-  %.0197.ph312319 = phi i1 [ false, %56 ], [ true, %52 ], [ true, %50 ], [ true, %.thread291.thread ]
+.thread319:                                       ; preds = %.thread291.thread, %50, %52, %56
   %.0196.ph313316 = phi i1 [ false, %56 ], [ false, %52 ], [ true, %50 ], [ true, %.thread291.thread ]
+  %.0197282.not.not = phi i1 [ false, %56 ], [ true, %52 ], [ true, %50 ], [ true, %.thread291.thread ]
   %.0179 = phi ptr [ %6, %56 ], [ %6, %52 ], [ null, %50 ], [ null, %.thread291.thread ]
   %59 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %28, ptr noundef null, i32 noundef 0) #16
   %.not221 = icmp eq ptr %59, @php_plain_files_wrapper
   br i1 %.not221, label %60, label %63
 
-60:                                               ; preds = %.thread320
+60:                                               ; preds = %.thread319
   %61 = call i32 @strncasecmp(ptr noundef nonnull @.str, ptr noundef nonnull %28, i64 noundef 7) #17
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %.thread307, label %82
 
-63:                                               ; preds = %.thread320
+63:                                               ; preds = %.thread319
   %.not224 = icmp eq ptr %59, null
   br i1 %.not224, label %72, label %.thread307
 
@@ -1267,8 +1267,8 @@ thread-pre-split:                                 ; preds = %17
   br label %108
 
 72:                                               ; preds = %.thread307, %63
-  %brmerge.demorgan = and i1 %.0197.ph312319, %.0196.ph313316
-  br i1 %brmerge.demorgan, label %75, label %73
+  %brmerge.not = and i1 %.0197282.not.not, %.0196.ph313316
+  br i1 %brmerge.not, label %75, label %73
 
 73:                                               ; preds = %72
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #16

@@ -573,7 +573,7 @@ define noundef range(i32 -1, 3) i32 @_ZN3g2o27OptimizationAlgorithmDogleg5solveE
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(64) %5, i1 noundef zeroext false)
-  br i1 %11, label %12, label %832
+  br i1 %11, label %12, label %834
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -804,8 +804,8 @@ _ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6Stri
 
 149:                                              ; preds = %142, %._crit_edge.i.i.i.i.i, %_ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE11squaredNormEv.exit
   %.072.i.i.i.i.i = phi <2 x double> [ %148, %142 ], [ %140, %._crit_edge.i.i.i.i.i ], [ %117, %_ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE11squaredNormEv.exit ]
-  %shift505 = shufflevector <2 x double> %.072.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %150 = fadd <2 x double> %.072.i.i.i.i.i, %shift505
+  %shift504 = shufflevector <2 x double> %.072.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %150 = fadd <2 x double> %.072.i.i.i.i.i, %shift504
   %151 = extractelement <2 x double> %150, i64 0
   %152 = icmp slt i64 %80, %63
   br i1 %152, label %.lr.ph83.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotINS_3MapIKS2_Li0ENS_6StrideILi0ELi0EEEEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSB_17scalar_product_opIdSF_EEE10ReturnTypeERKNS0_ISD_EE.exit
@@ -947,8 +947,8 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal17sca
 
 220:                                              ; preds = %215, %._crit_edge.i.i.i.i.i74, %196
   %.072.i.i.i.i.i68 = phi <2 x double> [ %219, %215 ], [ %213, %._crit_edge.i.i.i.i.i74 ], [ %198, %196 ]
-  %shift506 = shufflevector <2 x double> %.072.i.i.i.i.i68, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %221 = fadd <2 x double> %.072.i.i.i.i.i68, %shift506
+  %shift505 = shufflevector <2 x double> %.072.i.i.i.i.i68, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %221 = fadd <2 x double> %.072.i.i.i.i.i68, %shift505
   %222 = extractelement <2 x double> %221, i64 0
   %223 = icmp slt i64 %195, %188
   br i1 %223, label %.lr.ph83.i.i.i.i.i70, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit
@@ -1070,7 +1070,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit: ; pred
 
 286:                                              ; preds = %279
   store double 1.000000e+03, ptr %237, align 8
-  br label %832
+  br label %834
 
 287:                                              ; preds = %279, %268
   br i1 %260, label %.loopexit, label %.critedge460
@@ -1140,8 +1140,8 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit: ; pred
 
 323:                                              ; preds = %318, %._crit_edge.i.i.i.i.i92, %299
   %.072.i.i.i.i.i85 = phi <2 x double> [ %322, %318 ], [ %316, %._crit_edge.i.i.i.i.i92 ], [ %301, %299 ]
-  %shift507 = shufflevector <2 x double> %.072.i.i.i.i.i85, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %324 = fadd <2 x double> %.072.i.i.i.i.i85, %shift507
+  %shift506 = shufflevector <2 x double> %.072.i.i.i.i.i85, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %324 = fadd <2 x double> %.072.i.i.i.i.i85, %shift506
   %325 = extractelement <2 x double> %324, i64 0
   %326 = icmp slt i64 %298, %292
   br i1 %326, label %.lr.ph83.i.i.i.i.i87, label %_ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE4normEv.exit
@@ -1402,8 +1402,8 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_13CwiseBinaryOpINS_8internal20sca
 
 458:                                              ; preds = %451, %._crit_edge.i.i.i.i.i139, %422
   %.072.i.i.i.i.i133 = phi <2 x double> [ %457, %451 ], [ %449, %._crit_edge.i.i.i.i.i139 ], [ %425, %422 ]
-  %shift508 = shufflevector <2 x double> %.072.i.i.i.i.i133, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %459 = fadd <2 x double> %.072.i.i.i.i.i133, %shift508
+  %shift507 = shufflevector <2 x double> %.072.i.i.i.i.i133, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %459 = fadd <2 x double> %.072.i.i.i.i.i133, %shift507
   %460 = extractelement <2 x double> %459, i64 0
   %461 = icmp slt i64 %421, %413
   br i1 %461, label %.lr.ph83.i.i.i.i.i135, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit
@@ -1469,8 +1469,8 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
 
 492:                                              ; preds = %487, %._crit_edge.i.i.i.i157, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit
   %.072.i.i.i.i150 = phi <2 x double> [ %491, %487 ], [ %485, %._crit_edge.i.i.i.i157 ], [ %470, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit ]
-  %shift509 = shufflevector <2 x double> %.072.i.i.i.i150, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %493 = fadd <2 x double> %.072.i.i.i.i150, %shift509
+  %shift508 = shufflevector <2 x double> %.072.i.i.i.i150, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %493 = fadd <2 x double> %.072.i.i.i.i150, %shift508
   %494 = extractelement <2 x double> %493, i64 0
   %495 = icmp slt i64 %421, %413
   br i1 %495, label %.lr.ph83.i.i.i.i152, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
@@ -1566,8 +1566,8 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
 
 540:                                              ; preds = %535, %._crit_edge.i.i.i.i176, %516
   %.072.i.i.i.i169 = phi <2 x double> [ %539, %535 ], [ %533, %._crit_edge.i.i.i.i176 ], [ %518, %516 ]
-  %shift510 = shufflevector <2 x double> %.072.i.i.i.i169, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %541 = fadd <2 x double> %.072.i.i.i.i169, %shift510
+  %shift509 = shufflevector <2 x double> %.072.i.i.i.i169, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %541 = fadd <2 x double> %.072.i.i.i.i169, %shift509
   %542 = extractelement <2 x double> %541, i64 0
   %543 = icmp slt i64 %515, %507
   br i1 %543, label %.lr.ph83.i.i.i.i171, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit186
@@ -1659,8 +1659,8 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
 
 590:                                              ; preds = %585, %._crit_edge.i.i.i.i196, %566
   %.072.i.i.i.i189 = phi <2 x double> [ %589, %585 ], [ %583, %._crit_edge.i.i.i.i196 ], [ %568, %566 ]
-  %shift511 = shufflevector <2 x double> %.072.i.i.i.i189, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %591 = fadd <2 x double> %.072.i.i.i.i189, %shift511
+  %shift510 = shufflevector <2 x double> %.072.i.i.i.i189, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %591 = fadd <2 x double> %.072.i.i.i.i189, %shift510
   %592 = extractelement <2 x double> %591, i64 0
   %593 = icmp slt i64 %565, %.pre403
   br i1 %593, label %.lr.ph83.i.i.i.i191, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit206
@@ -1844,8 +1844,8 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit218: ; p
 
 692:                                              ; preds = %685, %._crit_edge.i.i.i.i.i227, %657
   %.072.i.i.i.i.i221 = phi <2 x double> [ %691, %685 ], [ %683, %._crit_edge.i.i.i.i.i227 ], [ %660, %657 ]
-  %shift512 = shufflevector <2 x double> %.072.i.i.i.i.i221, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %693 = fadd <2 x double> %.072.i.i.i.i.i221, %shift512
+  %shift511 = shufflevector <2 x double> %.072.i.i.i.i.i221, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %693 = fadd <2 x double> %.072.i.i.i.i.i221, %shift511
   %694 = extractelement <2 x double> %693, i64 0
   %695 = icmp slt i64 %656, %648
   br i1 %695, label %.lr.ph83.i.i.i.i.i223, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit236
@@ -1919,8 +1919,8 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20Scala
 
 736:                                              ; preds = %729, %._crit_edge.i.i.i.i.i246, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit236
   %.072.i.i.i.i.i240 = phi <2 x double> [ %735, %729 ], [ %727, %._crit_edge.i.i.i.i.i246 ], [ %705, %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE3dotIS2_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENS6_17scalar_product_opIdSA_EEE10ReturnTypeERKNS0_IS8_EE.exit236 ]
-  %shift513 = shufflevector <2 x double> %.072.i.i.i.i.i240, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %737 = fadd <2 x double> %.072.i.i.i.i.i240, %shift513
+  %shift512 = shufflevector <2 x double> %.072.i.i.i.i.i240, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %737 = fadd <2 x double> %.072.i.i.i.i.i240, %shift512
   %738 = extractelement <2 x double> %737, i64 0
   %739 = icmp slt i64 %656, %648
   br i1 %739, label %.lr.ph83.i.i.i.i.i242, label %_ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE3dotIS3_EENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSB_17scalar_product_opIdSF_EEE10ReturnTypeERKNS0_ISD_EE.exit
@@ -1968,10 +1968,10 @@ _ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6Stri
   %765 = fcmp olt double %764, 0x3D719799812DEA11
   %.048 = select i1 %765, double 0x3D719799812DEA11, double %753
   %766 = fdiv double %763, %.048
-  %767 = fcmp ogt double %766, 0.000000e+00
+  %767 = fcmp ule double %766, 0.000000e+00
   %768 = load ptr, ptr %38, align 8
   %769 = load ptr, ptr %768, align 8
-  %. = select i1 %767, i64 136, i64 128
+  %. = select i1 %767, i64 128, i64 136
   %770 = getelementptr inbounds nuw i8, ptr %769, i64 %.
   %771 = load ptr, ptr %770, align 8
   tail call void %771(ptr noundef nonnull align 8 dereferenceable(409) %768)
@@ -2040,8 +2040,8 @@ _ZNK5Eigen10MatrixBaseINS_3MapIKNS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6Stri
 
 806:                                              ; preds = %801, %._crit_edge.i.i.i.i.i264, %782
   %.072.i.i.i.i.i257 = phi <2 x double> [ %805, %801 ], [ %799, %._crit_edge.i.i.i.i.i264 ], [ %784, %782 ]
-  %shift514 = shufflevector <2 x double> %.072.i.i.i.i.i257, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %807 = fadd <2 x double> %.072.i.i.i.i.i257, %shift514
+  %shift513 = shufflevector <2 x double> %.072.i.i.i.i.i257, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %807 = fadd <2 x double> %.072.i.i.i.i.i257, %shift513
   %808 = extractelement <2 x double> %807, i64 0
   %809 = icmp slt i64 %781, %774
   br i1 %809, label %.lr.ph83.i.i.i.i.i259, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit274
@@ -2090,19 +2090,19 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE4normEv.exit274: ; p
 829:                                              ; preds = %.sink.split, %824
   %.pre406 = load i32, ptr %235, align 8
   %.pre407 = load ptr, ptr %244, align 8
-  %.phi.trans.insert408 = getelementptr inbounds nuw i8, ptr %.pre407, i64 40
-  %.pre409 = load i32, ptr %.phi.trans.insert408, align 4
-  %830 = icmp sge i32 %.pre406, %.pre409
-  %or.cond.not = select i1 %767, i1 true, i1 %830
-  br i1 %or.cond.not, label %.critedge, label %245, !llvm.loop !26
+  %830 = getelementptr inbounds nuw i8, ptr %.pre407, i64 40
+  %831 = load i32, ptr %830, align 4
+  %832 = icmp slt i32 %.pre406, %831
+  %or.cond = select i1 %767, i1 %832, i1 false
+  br i1 %or.cond, label %245, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %829
-  %831 = icmp ne i32 %.pre406, %.pre409
-  %brmerge65.not = and i1 %767, %831
-  %spec.select = select i1 %brmerge65.not, i32 1, i32 2
-  br label %832
+  %833 = icmp eq i32 %.pre406, %831
+  %brmerge65 = or i1 %767, %833
+  %spec.select = select i1 %brmerge65, i32 2, i32 1
+  br label %834
 
-832:                                              ; preds = %.critedge, %7, %286
+834:                                              ; preds = %.critedge, %7, %286
   %.0 = phi i32 [ -1, %286 ], [ -1, %7 ], [ %spec.select, %.critedge ]
   ret i32 %.0
 }

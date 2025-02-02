@@ -122,7 +122,7 @@ if.then9:                                         ; preds = %if.then8
   br i1 %tobool10, label %return, label %for.inc
 
 for.inc:                                          ; preds = %land.rhs.i.i, %for.body, %if.then8, %_ZNK11ast_manager6is_iteEPK4expr.exit, %land.lhs.true, %if.then9
-  %found_ite.1 = phi i8 [ %found_ite.08, %land.lhs.true ], [ %found_ite.08, %if.then9 ], [ %found_ite.08, %_ZNK11ast_manager6is_iteEPK4expr.exit ], [ 1, %if.then8 ], [ %found_ite.08, %for.body ], [ %found_ite.08, %land.rhs.i.i ]
+  %found_ite.1 = phi i8 [ %found_ite.08, %land.lhs.true ], [ 1, %if.then9 ], [ %found_ite.08, %_ZNK11ast_manager6is_iteEPK4expr.exit ], [ 1, %if.then8 ], [ %found_ite.08, %for.body ], [ %found_ite.08, %land.rhs.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
@@ -540,7 +540,7 @@ if.then9.i:                                       ; preds = %if.then8.i
   br i1 %tobool10.i, label %return, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then9.i, %if.then8.i, %land.lhs.true.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %land.rhs.i.i.i, %for.body.i
-  %found_ite.1.i = phi i8 [ %found_ite.08.i, %land.lhs.true.i ], [ %found_ite.08.i, %if.then9.i ], [ %found_ite.08.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ 1, %if.then8.i ], [ %found_ite.08.i, %for.body.i ], [ %found_ite.08.i, %land.rhs.i.i.i ]
+  %found_ite.1.i = phi i8 [ %found_ite.08.i, %land.lhs.true.i ], [ 1, %if.then9.i ], [ %found_ite.08.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ 1, %if.then8.i ], [ %found_ite.08.i, %for.body.i ], [ %found_ite.08.i, %land.rhs.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit, label %for.body.i, !llvm.loop !4

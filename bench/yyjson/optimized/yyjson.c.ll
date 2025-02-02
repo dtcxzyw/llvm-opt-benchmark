@@ -4967,7 +4967,7 @@ if.end18.i:                                       ; preds = %while.body.i, %if.t
   %iter.i.sroa.0.3 = phi i64 [ %iter.i.sroa.0.1152, %if.end.i118 ], [ %inc.i, %if.then12.i ], [ %inc.i, %land.rhs.i ], [ %inc.i, %while.body.i ]
   %iter.i.sroa.8.2 = phi i64 [ %dec21.i, %if.end.i118 ], [ %iter.i.sroa.8.1153, %if.then12.i ], [ %iter.i.sroa.8.1153, %land.rhs.i ], [ %iter.i.sroa.8.1153, %while.body.i ]
   %iter.i.sroa.14.3 = phi ptr [ %iter.i.sroa.14.1154, %if.end.i118 ], [ %17, %if.then12.i ], [ %17, %land.rhs.i ], [ %17, %while.body.i ]
-  %replaced.i.1 = phi i8 [ %replaced.i.0155, %if.end.i118 ], [ 1, %if.then12.i ], [ %replaced.i.0155, %land.rhs.i ], [ %replaced.i.0155, %while.body.i ]
+  %replaced.i.1 = phi i8 [ 1, %if.end.i118 ], [ 1, %if.then12.i ], [ %replaced.i.0155, %land.rhs.i ], [ %replaced.i.0155, %while.body.i ]
   %cmp.i101 = icmp ult i64 %iter.i.sroa.0.3, %iter.i.sroa.8.2
   br i1 %cmp.i101, label %yyjson_mut_obj_iter_next.exit, label %while.end.i.loopexit162, !llvm.loop !37
 

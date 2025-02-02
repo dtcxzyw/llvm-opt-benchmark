@@ -3966,10 +3966,10 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br i1 %.not50.not, label %.preheader, label %38
 
 .preheader:                                       ; preds = %27
-  %.not148 = icmp eq i64 %23, 9223372036854775807
-  br i1 %.not148, label %.thread, label %.lr.ph146
+  %.not146 = icmp eq i64 %23, 9223372036854775807
+  br i1 %.not146, label %.thread, label %.lr.ph144
 
-.lr.ph146:                                        ; preds = %.preheader
+.lr.ph144:                                        ; preds = %.preheader
   %30 = icmp eq i32 %12, 1000000000
   %31 = add i64 %spec.select.i.i, %3
   %32 = add i64 %spec.select.i.i62, %7
@@ -3988,9 +3988,9 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57
   unreachable
 
-39:                                               ; preds = %.lr.ph146, %._crit_edge142
-  %.sroa.035.0145 = phi i64 [ 0, %.lr.ph146 ], [ %40, %._crit_edge142 ]
-  %40 = add nuw nsw i64 %.sroa.035.0145, 1
+39:                                               ; preds = %.lr.ph144, %._crit_edge140
+  %.sroa.035.0143 = phi i64 [ 0, %.lr.ph144 ], [ %40, %._crit_edge140 ]
+  %40 = add nuw nsw i64 %.sroa.035.0143, 1
   br i1 %30, label %.lr.ph.preheader, label %41
 
 41:                                               ; preds = %39
@@ -4004,29 +4004,29 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br i1 %.sroa.029.0, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %39, %41
-  %48 = sub nsw i64 0, %.sroa.035.0145
+  %48 = sub nsw i64 0, %.sroa.035.0143
   br label %.lr.ph
 
 .thread.sink.split:                               ; preds = %144, %106
-  %.sink161 = phi i64 [ %107, %106 ], [ %145, %144 ]
-  %.sink159 = phi i64 [ %108, %106 ], [ %146, %144 ]
+  %.sink159 = phi i64 [ %107, %106 ], [ %145, %144 ]
+  %.sink157 = phi i64 [ %108, %106 ], [ %146, %144 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink161, ptr %49, align 8
+  store i64 %.sink159, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink159, ptr %50, align 8
+  store i64 %.sink157, ptr %50, align 8
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge142, %41, %.thread.sink.split, %.preheader
-  %.sink = phi i64 [ 0, %.preheader ], [ 1, %.thread.sink.split ], [ 0, %41 ], [ 0, %._crit_edge142 ]
+.thread:                                          ; preds = %._crit_edge140, %41, %.thread.sink.split, %.preheader
+  %.sink = phi i64 [ 0, %.preheader ], [ 1, %.thread.sink.split ], [ 0, %41 ], [ 0, %._crit_edge140 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %134
-  %not..sroa.14101.0133 = phi i64 [ 1, %134 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.7100.0131 = phi i64 [ %.sroa.7100.1, %134 ], [ %.sroa.035.0145, %.lr.ph.preheader ]
-  %51 = sub i64 %.sroa.7100.0131, %not..sroa.14101.0133
+  %not..sroa.14101.0132 = phi i64 [ 1, %134 ], [ 0, %.lr.ph.preheader ]
+  %.sroa.7100.0131 = phi i64 [ %.sroa.7100.1, %134 ], [ %.sroa.035.0143, %.lr.ph.preheader ]
+  %51 = sub i64 %.sroa.7100.0131, %not..sroa.14101.0132
   %.not.i.not.not.i = icmp sgt i64 %51, %.sroa.7100.0131
-  br i1 %.not.i.not.not.i, label %.lr.ph141.preheader, label %53
+  br i1 %.not.i.not.not.i, label %.lr.ph139.preheader, label %53
 
 52:                                               ; preds = %53
   unreachable
@@ -4036,7 +4036,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   switch i8 %54, label %52 [
     i8 0, label %57
     i8 1, label %55
-    i8 -1, label %.lr.ph141.preheader
+    i8 -1, label %.lr.ph139.preheader
   ]
 
 55:                                               ; preds = %53
@@ -4047,76 +4047,76 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   %.sroa.7100.1 = phi i64 [ %56, %55 ], [ %51, %53 ]
   %.sroa.11.1 = phi i1 [ false, %55 ], [ true, %53 ]
   %58 = icmp eq i64 %51, %48
-  br i1 %58, label %._crit_edge150, label %109
+  br i1 %58, label %._crit_edge148, label %109
 
-._crit_edge150:                                   ; preds = %57
-  %.pre155 = add i64 %51, 1
+._crit_edge148:                                   ; preds = %57
+  %.pre153 = add i64 %51, 1
   br label %110
 
-.lr.ph141:                                        ; preds = %.lr.ph141.preheader, %98
-  %not..sroa.17110.0139 = phi i64 [ 1, %98 ], [ 0, %.lr.ph141.preheader ]
-  %.sroa.7109.0137 = phi i64 [ %.sroa.7109.1, %98 ], [ %.sroa.035.0145, %.lr.ph141.preheader ]
-  %59 = sub i64 %.sroa.7109.0137, %not..sroa.17110.0139
-  %.not.i.not.not.i64 = icmp sgt i64 %59, %.sroa.7109.0137
-  br i1 %.not.i.not.not.i64, label %._crit_edge142, label %61
+.lr.ph139:                                        ; preds = %.lr.ph139.preheader, %98
+  %not..sroa.17110.0137 = phi i64 [ 1, %98 ], [ 0, %.lr.ph139.preheader ]
+  %.sroa.7109.0136 = phi i64 [ %.sroa.7109.1, %98 ], [ %.sroa.035.0143, %.lr.ph139.preheader ]
+  %59 = sub i64 %.sroa.7109.0136, %not..sroa.17110.0137
+  %.not.i.not.not.i64 = icmp sgt i64 %59, %.sroa.7109.0136
+  br i1 %.not.i.not.not.i64, label %._crit_edge140, label %61
 
 60:                                               ; preds = %61
   unreachable
 
-61:                                               ; preds = %.lr.ph141
+61:                                               ; preds = %.lr.ph139
   %62 = call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %59, i64 %48)
   switch i8 %62, label %60 [
     i8 0, label %65
     i8 1, label %63
-    i8 -1, label %._crit_edge142
+    i8 -1, label %._crit_edge140
   ]
 
 63:                                               ; preds = %61
   %64 = add i64 %59, -1
   br label %65
 
-._crit_edge142:                                   ; preds = %98, %61, %.lr.ph141
-  %exitcond.not = icmp eq i64 %.sroa.035.0145, %23
+._crit_edge140:                                   ; preds = %98, %61, %.lr.ph139
+  %exitcond.not = icmp eq i64 %.sroa.035.0143, %23
   br i1 %exitcond.not, label %.thread, label %39
 
 65:                                               ; preds = %63, %61
   %.sroa.7109.1 = phi i64 [ %64, %63 ], [ %59, %61 ]
   %.sroa.12.1 = phi i1 [ false, %63 ], [ true, %61 ]
   %66 = icmp eq i64 %59, %48
-  br i1 %66, label %._crit_edge152, label %67
+  br i1 %66, label %._crit_edge150, label %67
 
-._crit_edge152:                                   ; preds = %65
+._crit_edge150:                                   ; preds = %65
   %.pre = add i64 %59, 1
   br label %68
 
 67:                                               ; preds = %65
-  %.not56 = icmp eq i64 %59, %.sroa.035.0145
-  %.pre153 = add i64 %59, -1
-  br i1 %.not56, label %._crit_edge151, label %74
+  %.not56 = icmp eq i64 %59, %.sroa.035.0143
+  %.pre151 = add i64 %59, -1
+  br i1 %.not56, label %._crit_edge149, label %74
 
-68:                                               ; preds = %._crit_edge152, %74
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge152 ], [ %77, %74 ]
+68:                                               ; preds = %._crit_edge150, %74
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge150 ], [ %77, %74 ]
   %69 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre-phi, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22)
   %70 = load i64, ptr %69, align 8, !noundef !4
   br label %81
 
-._crit_edge151:                                   ; preds = %67, %74
-  %71 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre153, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21)
+._crit_edge149:                                   ; preds = %67, %74
+  %71 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21)
   %72 = load i64, ptr %71, align 8, !noundef !4
   %73 = add i64 %72, 1
   br label %81
 
 74:                                               ; preds = %67
-  %75 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre153, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19)
+  %75 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %.pre151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19)
   %76 = load i64, ptr %75, align 8, !noundef !4
   %77 = add i64 %59, 1
   %78 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20)
   %79 = load i64, ptr %78, align 8, !noundef !4
   %80 = icmp ult i64 %76, %79
-  br i1 %80, label %68, label %._crit_edge151
+  br i1 %80, label %68, label %._crit_edge149
 
-81:                                               ; preds = %._crit_edge151, %68
-  %.sroa.019.0 = phi i64 [ %70, %68 ], [ %73, %._crit_edge151 ]
+81:                                               ; preds = %._crit_edge149, %68
+  %.sroa.019.0 = phi i64 [ %70, %68 ], [ %73, %._crit_edge149 ]
   %82 = sub i64 %.sroa.019.0, %59
   %83 = icmp ult i64 %.sroa.019.0, %spec.select.i.i
   %84 = icmp ult i64 %82, %spec.select.i.i62
@@ -4169,13 +4169,13 @@ _ZN7similar10algorithms5utils17common_suffix_len17hdb919b2e6898b496E.exit: ; pre
 96:                                               ; preds = %85
   %97 = sub i64 %59, %17
   %.sroa.018.0 = call i64 @llvm.abs.i64(i64 %97, i1 false)
-  %.not57 = icmp sgt i64 %.sroa.018.0, %.sroa.035.0145
+  %.not57 = icmp sgt i64 %.sroa.018.0, %.sroa.035.0143
   br i1 %.not57, label %98, label %99
 
 98:                                               ; preds = %96, %99, %85
   %.not.i63 = icmp slt i64 %.sroa.7109.1, %48
   %or.cond128 = select i1 %.sroa.12.1, i1 true, i1 %.not.i63
-  br i1 %or.cond128, label %._crit_edge142, label %.lr.ph141
+  br i1 %or.cond128, label %._crit_edge140, label %.lr.ph139
 
 99:                                               ; preds = %96
   %100 = sub i64 0, %97
@@ -4193,33 +4193,33 @@ _ZN7similar10algorithms5utils17common_suffix_len17hdb919b2e6898b496E.exit: ; pre
   br label %.thread.sink.split
 
 109:                                              ; preds = %57
-  %.not53 = icmp eq i64 %51, %.sroa.035.0145
-  %.pre157 = add i64 %51, -1
-  br i1 %.not53, label %._crit_edge149, label %116
+  %.not53 = icmp eq i64 %51, %.sroa.035.0143
+  %.pre155 = add i64 %51, -1
+  br i1 %.not53, label %._crit_edge147, label %116
 
-110:                                              ; preds = %._crit_edge150, %116
-  %.pre-phi156 = phi i64 [ %.pre155, %._crit_edge150 ], [ %119, %116 ]
-  %111 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre-phi156, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29)
+110:                                              ; preds = %._crit_edge148, %116
+  %.pre-phi154 = phi i64 [ %.pre153, %._crit_edge148 ], [ %119, %116 ]
+  %111 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre-phi154, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29)
   %112 = load i64, ptr %111, align 8, !noundef !4
   br label %123
 
-._crit_edge149:                                   ; preds = %109, %116
-  %113 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre157, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28)
+._crit_edge147:                                   ; preds = %109, %116
+  %113 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28)
   %114 = load i64, ptr %113, align 8, !noundef !4
   %115 = add i64 %114, 1
   br label %123
 
 116:                                              ; preds = %109
-  %117 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre157, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26)
+  %117 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %.pre155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26)
   %118 = load i64, ptr %117, align 8, !noundef !4
   %119 = add i64 %51, 1
   %120 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %119, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27)
   %121 = load i64, ptr %120, align 8, !noundef !4
   %122 = icmp ult i64 %118, %121
-  br i1 %122, label %110, label %._crit_edge149
+  br i1 %122, label %110, label %._crit_edge147
 
-123:                                              ; preds = %._crit_edge149, %110
-  %.sroa.09.0 = phi i64 [ %112, %110 ], [ %115, %._crit_edge149 ]
+123:                                              ; preds = %._crit_edge147, %110
+  %.sroa.09.0 = phi i64 [ %112, %110 ], [ %115, %._crit_edge147 ]
   %124 = sub i64 %.sroa.09.0, %51
   %125 = icmp ult i64 %.sroa.09.0, %spec.select.i.i
   %126 = icmp ult i64 %124, %spec.select.i.i62
@@ -4242,15 +4242,15 @@ _ZN7similar10algorithms5utils17common_suffix_len17hdb919b2e6898b496E.exit: ; pre
 134:                                              ; preds = %135, %137, %127
   %.not.i = icmp slt i64 %.sroa.7100.1, %48
   %or.cond = select i1 %.sroa.11.1, i1 true, i1 %.not.i
-  br i1 %or.cond, label %.lr.ph141.preheader, label %.lr.ph
+  br i1 %or.cond, label %.lr.ph139.preheader, label %.lr.ph
 
-.lr.ph141.preheader:                              ; preds = %.lr.ph, %53, %134
-  br label %.lr.ph141
+.lr.ph139.preheader:                              ; preds = %.lr.ph, %53, %134
+  br label %.lr.ph139
 
 135:                                              ; preds = %127
   %136 = sub i64 %51, %17
   %.sroa.015.0 = call i64 @llvm.abs.i64(i64 %136, i1 false)
-  %.not54.not = icmp slt i64 %.sroa.015.0, %.sroa.035.0145
+  %.not54.not = icmp slt i64 %.sroa.015.0, %.sroa.035.0143
   br i1 %.not54.not, label %137, label %134
 
 137:                                              ; preds = %135
@@ -4302,10 +4302,10 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br i1 %.not50.not, label %.preheader, label %34
 
 .preheader:                                       ; preds = %25
-  %.not148 = icmp eq i64 %21, 9223372036854775807
-  br i1 %.not148, label %.thread, label %.lr.ph146
+  %.not146 = icmp eq i64 %21, 9223372036854775807
+  br i1 %.not146, label %.thread, label %.lr.ph144
 
-.lr.ph146:                                        ; preds = %.preheader
+.lr.ph144:                                        ; preds = %.preheader
   %28 = icmp eq i32 %10, 1000000000
   %29 = add i64 %spec.select.i.i, %2
   %30 = add i64 %spec.select.i.i62, %5
@@ -4322,9 +4322,9 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57
   unreachable
 
-35:                                               ; preds = %.lr.ph146, %._crit_edge142
-  %.sroa.035.0145 = phi i64 [ 0, %.lr.ph146 ], [ %36, %._crit_edge142 ]
-  %36 = add nuw nsw i64 %.sroa.035.0145, 1
+35:                                               ; preds = %.lr.ph144, %._crit_edge140
+  %.sroa.035.0143 = phi i64 [ 0, %.lr.ph144 ], [ %36, %._crit_edge140 ]
+  %36 = add nuw nsw i64 %.sroa.035.0143, 1
   br i1 %28, label %.lr.ph.preheader, label %37
 
 37:                                               ; preds = %35
@@ -4338,29 +4338,29 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   br i1 %.sroa.029.0, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %35, %37
-  %44 = sub nsw i64 0, %.sroa.035.0145
+  %44 = sub nsw i64 0, %.sroa.035.0143
   br label %.lr.ph
 
 .thread.sink.split:                               ; preds = %140, %102
-  %.sink161 = phi i64 [ %103, %102 ], [ %141, %140 ]
-  %.sink159 = phi i64 [ %104, %102 ], [ %142, %140 ]
+  %.sink159 = phi i64 [ %103, %102 ], [ %141, %140 ]
+  %.sink157 = phi i64 [ %104, %102 ], [ %142, %140 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink161, ptr %45, align 8
+  store i64 %.sink159, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink159, ptr %46, align 8
+  store i64 %.sink157, ptr %46, align 8
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge142, %37, %.thread.sink.split, %.preheader
-  %.sink = phi i64 [ 0, %.preheader ], [ 1, %.thread.sink.split ], [ 0, %37 ], [ 0, %._crit_edge142 ]
+.thread:                                          ; preds = %._crit_edge140, %37, %.thread.sink.split, %.preheader
+  %.sink = phi i64 [ 0, %.preheader ], [ 1, %.thread.sink.split ], [ 0, %37 ], [ 0, %._crit_edge140 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %130
-  %not..sroa.14101.0133 = phi i64 [ 1, %130 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.7100.0131 = phi i64 [ %.sroa.7100.1, %130 ], [ %.sroa.035.0145, %.lr.ph.preheader ]
-  %47 = sub i64 %.sroa.7100.0131, %not..sroa.14101.0133
+  %not..sroa.14101.0132 = phi i64 [ 1, %130 ], [ 0, %.lr.ph.preheader ]
+  %.sroa.7100.0131 = phi i64 [ %.sroa.7100.1, %130 ], [ %.sroa.035.0143, %.lr.ph.preheader ]
+  %47 = sub i64 %.sroa.7100.0131, %not..sroa.14101.0132
   %.not.i.not.not.i = icmp sgt i64 %47, %.sroa.7100.0131
-  br i1 %.not.i.not.not.i, label %.lr.ph141.preheader, label %49
+  br i1 %.not.i.not.not.i, label %.lr.ph139.preheader, label %49
 
 48:                                               ; preds = %49
   unreachable
@@ -4370,7 +4370,7 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   switch i8 %50, label %48 [
     i8 0, label %53
     i8 1, label %51
-    i8 -1, label %.lr.ph141.preheader
+    i8 -1, label %.lr.ph139.preheader
   ]
 
 51:                                               ; preds = %49
@@ -4381,76 +4381,76 @@ define internal fastcc void @_ZN7similar10algorithms5myers17find_middle_snake17h
   %.sroa.7100.1 = phi i64 [ %52, %51 ], [ %47, %49 ]
   %.sroa.11.1 = phi i1 [ false, %51 ], [ true, %49 ]
   %54 = icmp eq i64 %47, %44
-  br i1 %54, label %._crit_edge150, label %105
+  br i1 %54, label %._crit_edge148, label %105
 
-._crit_edge150:                                   ; preds = %53
-  %.pre155 = add i64 %47, 1
+._crit_edge148:                                   ; preds = %53
+  %.pre153 = add i64 %47, 1
   br label %106
 
-.lr.ph141:                                        ; preds = %.lr.ph141.preheader, %94
-  %not..sroa.17110.0139 = phi i64 [ 1, %94 ], [ 0, %.lr.ph141.preheader ]
-  %.sroa.7109.0137 = phi i64 [ %.sroa.7109.1, %94 ], [ %.sroa.035.0145, %.lr.ph141.preheader ]
-  %55 = sub i64 %.sroa.7109.0137, %not..sroa.17110.0139
-  %.not.i.not.not.i64 = icmp sgt i64 %55, %.sroa.7109.0137
-  br i1 %.not.i.not.not.i64, label %._crit_edge142, label %57
+.lr.ph139:                                        ; preds = %.lr.ph139.preheader, %94
+  %not..sroa.17110.0137 = phi i64 [ 1, %94 ], [ 0, %.lr.ph139.preheader ]
+  %.sroa.7109.0136 = phi i64 [ %.sroa.7109.1, %94 ], [ %.sroa.035.0143, %.lr.ph139.preheader ]
+  %55 = sub i64 %.sroa.7109.0136, %not..sroa.17110.0137
+  %.not.i.not.not.i64 = icmp sgt i64 %55, %.sroa.7109.0136
+  br i1 %.not.i.not.not.i64, label %._crit_edge140, label %57
 
 56:                                               ; preds = %57
   unreachable
 
-57:                                               ; preds = %.lr.ph141
+57:                                               ; preds = %.lr.ph139
   %58 = call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %55, i64 %44)
   switch i8 %58, label %56 [
     i8 0, label %61
     i8 1, label %59
-    i8 -1, label %._crit_edge142
+    i8 -1, label %._crit_edge140
   ]
 
 59:                                               ; preds = %57
   %60 = add i64 %55, -1
   br label %61
 
-._crit_edge142:                                   ; preds = %94, %57, %.lr.ph141
-  %exitcond.not = icmp eq i64 %.sroa.035.0145, %21
+._crit_edge140:                                   ; preds = %94, %57, %.lr.ph139
+  %exitcond.not = icmp eq i64 %.sroa.035.0143, %21
   br i1 %exitcond.not, label %.thread, label %35
 
 61:                                               ; preds = %59, %57
   %.sroa.7109.1 = phi i64 [ %60, %59 ], [ %55, %57 ]
   %.sroa.12.1 = phi i1 [ false, %59 ], [ true, %57 ]
   %62 = icmp eq i64 %55, %44
-  br i1 %62, label %._crit_edge152, label %63
+  br i1 %62, label %._crit_edge150, label %63
 
-._crit_edge152:                                   ; preds = %61
+._crit_edge150:                                   ; preds = %61
   %.pre = add i64 %55, 1
   br label %64
 
 63:                                               ; preds = %61
-  %.not56 = icmp eq i64 %55, %.sroa.035.0145
-  %.pre153 = add i64 %55, -1
-  br i1 %.not56, label %._crit_edge151, label %70
+  %.not56 = icmp eq i64 %55, %.sroa.035.0143
+  %.pre151 = add i64 %55, -1
+  br i1 %.not56, label %._crit_edge149, label %70
 
-64:                                               ; preds = %._crit_edge152, %70
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge152 ], [ %73, %70 ]
+64:                                               ; preds = %._crit_edge150, %70
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge150 ], [ %73, %70 ]
   %65 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre-phi, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22)
   %66 = load i64, ptr %65, align 8, !noundef !4
   br label %77
 
-._crit_edge151:                                   ; preds = %63, %70
-  %67 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre153, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21)
+._crit_edge149:                                   ; preds = %63, %70
+  %67 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21)
   %68 = load i64, ptr %67, align 8, !noundef !4
   %69 = add i64 %68, 1
   br label %77
 
 70:                                               ; preds = %63
-  %71 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre153, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19)
+  %71 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19)
   %72 = load i64, ptr %71, align 8, !noundef !4
   %73 = add i64 %55, 1
   %74 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20)
   %75 = load i64, ptr %74, align 8, !noundef !4
   %76 = icmp ult i64 %72, %75
-  br i1 %76, label %64, label %._crit_edge151
+  br i1 %76, label %64, label %._crit_edge149
 
-77:                                               ; preds = %._crit_edge151, %64
-  %.sroa.019.0 = phi i64 [ %66, %64 ], [ %69, %._crit_edge151 ]
+77:                                               ; preds = %._crit_edge149, %64
+  %.sroa.019.0 = phi i64 [ %66, %64 ], [ %69, %._crit_edge149 ]
   %78 = sub i64 %.sroa.019.0, %55
   %79 = icmp ult i64 %.sroa.019.0, %spec.select.i.i
   %80 = icmp ult i64 %78, %spec.select.i.i62
@@ -4501,13 +4501,13 @@ _ZN7similar10algorithms5utils17common_suffix_len17he6e25c6a5861e2f2E.exit: ; pre
 92:                                               ; preds = %81
   %93 = sub i64 %55, %15
   %.sroa.018.0 = call i64 @llvm.abs.i64(i64 %93, i1 false)
-  %.not57 = icmp sgt i64 %.sroa.018.0, %.sroa.035.0145
+  %.not57 = icmp sgt i64 %.sroa.018.0, %.sroa.035.0143
   br i1 %.not57, label %94, label %95
 
 94:                                               ; preds = %92, %95, %81
   %.not.i63 = icmp slt i64 %.sroa.7109.1, %44
   %or.cond128 = select i1 %.sroa.12.1, i1 true, i1 %.not.i63
-  br i1 %or.cond128, label %._crit_edge142, label %.lr.ph141
+  br i1 %or.cond128, label %._crit_edge140, label %.lr.ph139
 
 95:                                               ; preds = %92
   %96 = sub i64 0, %93
@@ -4525,33 +4525,33 @@ _ZN7similar10algorithms5utils17common_suffix_len17he6e25c6a5861e2f2E.exit: ; pre
   br label %.thread.sink.split
 
 105:                                              ; preds = %53
-  %.not53 = icmp eq i64 %47, %.sroa.035.0145
-  %.pre157 = add i64 %47, -1
-  br i1 %.not53, label %._crit_edge149, label %112
+  %.not53 = icmp eq i64 %47, %.sroa.035.0143
+  %.pre155 = add i64 %47, -1
+  br i1 %.not53, label %._crit_edge147, label %112
 
-106:                                              ; preds = %._crit_edge150, %112
-  %.pre-phi156 = phi i64 [ %.pre155, %._crit_edge150 ], [ %115, %112 ]
-  %107 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi156, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29)
+106:                                              ; preds = %._crit_edge148, %112
+  %.pre-phi154 = phi i64 [ %.pre153, %._crit_edge148 ], [ %115, %112 ]
+  %107 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi154, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29)
   %108 = load i64, ptr %107, align 8, !noundef !4
   br label %119
 
-._crit_edge149:                                   ; preds = %105, %112
-  %109 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre157, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28)
+._crit_edge147:                                   ; preds = %105, %112
+  %109 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28)
   %110 = load i64, ptr %109, align 8, !noundef !4
   %111 = add i64 %110, 1
   br label %119
 
 112:                                              ; preds = %105
-  %113 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre157, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26)
+  %113 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26)
   %114 = load i64, ptr %113, align 8, !noundef !4
   %115 = add i64 %47, 1
   %116 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %115, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27)
   %117 = load i64, ptr %116, align 8, !noundef !4
   %118 = icmp ult i64 %114, %117
-  br i1 %118, label %106, label %._crit_edge149
+  br i1 %118, label %106, label %._crit_edge147
 
-119:                                              ; preds = %._crit_edge149, %106
-  %.sroa.09.0 = phi i64 [ %108, %106 ], [ %111, %._crit_edge149 ]
+119:                                              ; preds = %._crit_edge147, %106
+  %.sroa.09.0 = phi i64 [ %108, %106 ], [ %111, %._crit_edge147 ]
   %120 = sub i64 %.sroa.09.0, %47
   %121 = icmp ult i64 %.sroa.09.0, %spec.select.i.i
   %122 = icmp ult i64 %120, %spec.select.i.i62
@@ -4574,15 +4574,15 @@ _ZN7similar10algorithms5utils17common_suffix_len17he6e25c6a5861e2f2E.exit: ; pre
 130:                                              ; preds = %131, %133, %123
   %.not.i = icmp slt i64 %.sroa.7100.1, %44
   %or.cond = select i1 %.sroa.11.1, i1 true, i1 %.not.i
-  br i1 %or.cond, label %.lr.ph141.preheader, label %.lr.ph
+  br i1 %or.cond, label %.lr.ph139.preheader, label %.lr.ph
 
-.lr.ph141.preheader:                              ; preds = %.lr.ph, %49, %130
-  br label %.lr.ph141
+.lr.ph139.preheader:                              ; preds = %.lr.ph, %49, %130
+  br label %.lr.ph139
 
 131:                                              ; preds = %123
   %132 = sub i64 %47, %15
   %.sroa.015.0 = call i64 @llvm.abs.i64(i64 %132, i1 false)
-  %.not54.not = icmp slt i64 %.sroa.015.0, %.sroa.035.0145
+  %.not54.not = icmp slt i64 %.sroa.015.0, %.sroa.035.0143
   br i1 %.not54.not, label %133, label %130
 
 133:                                              ; preds = %131
@@ -5035,10 +5035,10 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
   br i1 %.not50.not.i, label %.preheader.i, label %63
 
 .preheader.i:                                     ; preds = %55
-  %.not148.i = icmp eq i64 %51, 9223372036854775807
-  br i1 %.not148.i, label %.loopexit, label %.lr.ph146.i
+  %.not146.i = icmp eq i64 %51, 9223372036854775807
+  br i1 %.not146.i, label %.loopexit, label %.lr.ph144.i
 
-.lr.ph146.i:                                      ; preds = %.preheader.i
+.lr.ph144.i:                                      ; preds = %.preheader.i
   %58 = icmp eq i32 %10, 1000000000
   %59 = add i64 %spec.select.i.i62.i, %21
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -5054,9 +5054,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57, !noalias !1614
   unreachable
 
-64:                                               ; preds = %._crit_edge142.i, %.lr.ph146.i
-  %.sroa.035.0145.i = phi i64 [ 0, %.lr.ph146.i ], [ %65, %._crit_edge142.i ]
-  %65 = add nuw nsw i64 %.sroa.035.0145.i, 1
+64:                                               ; preds = %._crit_edge140.i, %.lr.ph144.i
+  %.sroa.035.0143.i = phi i64 [ 0, %.lr.ph144.i ], [ %65, %._crit_edge140.i ]
+  %65 = add nuw nsw i64 %.sroa.035.0143.i, 1
   br i1 %58, label %.lr.ph.preheader.i, label %66
 
 66:                                               ; preds = %64
@@ -5070,16 +5070,16 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
   br i1 %.sroa.029.0.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %66, %64
-  %73 = sub nsw i64 0, %.sroa.035.0145.i
-  %.pre155.i = sub nsw i64 1, %.sroa.035.0145.i
+  %73 = sub nsw i64 0, %.sroa.035.0143.i
+  %.pre153.i = sub nsw i64 1, %.sroa.035.0143.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %155, %.lr.ph.preheader.i
-  %not..sroa.14101.0133.i = phi i64 [ 1, %155 ], [ 0, %.lr.ph.preheader.i ]
-  %.sroa.7100.0131.i = phi i64 [ %.sroa.7100.1.i, %155 ], [ %.sroa.035.0145.i, %.lr.ph.preheader.i ]
-  %74 = sub i64 %.sroa.7100.0131.i, %not..sroa.14101.0133.i
+  %not..sroa.14101.0132.i = phi i64 [ 1, %155 ], [ 0, %.lr.ph.preheader.i ]
+  %.sroa.7100.0131.i = phi i64 [ %.sroa.7100.1.i, %155 ], [ %.sroa.035.0143.i, %.lr.ph.preheader.i ]
+  %74 = sub i64 %.sroa.7100.0131.i, %not..sroa.14101.0132.i
   %.not.i.not.not.i.i = icmp sgt i64 %74, %.sroa.7100.0131.i
-  br i1 %.not.i.not.not.i.i, label %.lr.ph141.preheader.i, label %76
+  br i1 %.not.i.not.not.i.i, label %.lr.ph139.preheader.i, label %76
 
 75:                                               ; preds = %76
   unreachable
@@ -5089,83 +5089,83 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit: ; pre
   switch i8 %77, label %75 [
     i8 0, label %80
     i8 1, label %78
-    i8 -1, label %.lr.ph141.preheader.i
+    i8 -1, label %.lr.ph139.preheader.i
   ]
 
 78:                                               ; preds = %76
   %79 = add i64 %74, -1
   br label %80
 
-.lr.ph141.preheader.i:                            ; preds = %155, %76, %.lr.ph.i
-  %.pre.i = sub nsw i64 1, %.sroa.035.0145.i
-  br label %.lr.ph141.i
+.lr.ph139.preheader.i:                            ; preds = %155, %76, %.lr.ph.i
+  %.pre.i = sub nsw i64 1, %.sroa.035.0143.i
+  br label %.lr.ph139.i
 
 80:                                               ; preds = %78, %76
   %.sroa.7100.1.i = phi i64 [ %79, %78 ], [ %74, %76 ]
   %.sroa.11.1.i = phi i1 [ false, %78 ], [ true, %76 ]
   %81 = icmp eq i64 %74, %73
-  br i1 %81, label %._crit_edge150.i, label %131
+  br i1 %81, label %._crit_edge148.i, label %131
 
-.lr.ph141.i:                                      ; preds = %120, %.lr.ph141.preheader.i
-  %not..sroa.17110.0139.i = phi i64 [ 1, %120 ], [ 0, %.lr.ph141.preheader.i ]
-  %.sroa.7109.0137.i = phi i64 [ %.sroa.7109.1.i, %120 ], [ %.sroa.035.0145.i, %.lr.ph141.preheader.i ]
-  %82 = sub i64 %.sroa.7109.0137.i, %not..sroa.17110.0139.i
-  %.not.i.not.not.i64.i = icmp sgt i64 %82, %.sroa.7109.0137.i
-  br i1 %.not.i.not.not.i64.i, label %._crit_edge142.i, label %84
+.lr.ph139.i:                                      ; preds = %120, %.lr.ph139.preheader.i
+  %not..sroa.17110.0137.i = phi i64 [ 1, %120 ], [ 0, %.lr.ph139.preheader.i ]
+  %.sroa.7109.0136.i = phi i64 [ %.sroa.7109.1.i, %120 ], [ %.sroa.035.0143.i, %.lr.ph139.preheader.i ]
+  %82 = sub i64 %.sroa.7109.0136.i, %not..sroa.17110.0137.i
+  %.not.i.not.not.i64.i = icmp sgt i64 %82, %.sroa.7109.0136.i
+  br i1 %.not.i.not.not.i64.i, label %._crit_edge140.i, label %84
 
 83:                                               ; preds = %84
   unreachable
 
-84:                                               ; preds = %.lr.ph141.i
+84:                                               ; preds = %.lr.ph139.i
   %85 = call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %82, i64 %73)
   switch i8 %85, label %83 [
     i8 0, label %88
     i8 1, label %86
-    i8 -1, label %._crit_edge142.i
+    i8 -1, label %._crit_edge140.i
   ]
 
 86:                                               ; preds = %84
   %87 = add i64 %82, -1
   br label %88
 
-._crit_edge142.i:                                 ; preds = %120, %84, %.lr.ph141.i
-  %exitcond.not.i = icmp eq i64 %.sroa.035.0145.i, %51
+._crit_edge140.i:                                 ; preds = %120, %84, %.lr.ph139.i
+  %exitcond.not.i = icmp eq i64 %.sroa.035.0143.i, %51
   br i1 %exitcond.not.i, label %.loopexit, label %64
 
 88:                                               ; preds = %86, %84
   %.sroa.7109.1.i = phi i64 [ %87, %86 ], [ %82, %84 ]
   %.sroa.12.1.i = phi i1 [ false, %86 ], [ true, %84 ]
   %89 = icmp eq i64 %82, %73
-  br i1 %89, label %._crit_edge152.i, label %90
+  br i1 %89, label %._crit_edge150.i, label %90
 
 90:                                               ; preds = %88
-  %.not56.i = icmp eq i64 %82, %.sroa.035.0145.i
-  %.pre153.i = add i64 %82, -1
-  br i1 %.not56.i, label %._crit_edge151.i, label %96
+  %.not56.i = icmp eq i64 %82, %.sroa.035.0143.i
+  %.pre151.i = add i64 %82, -1
+  br i1 %.not56.i, label %._crit_edge149.i, label %96
 
-._crit_edge152.i:                                 ; preds = %88, %96
+._crit_edge150.i:                                 ; preds = %88, %96
   %.pre-phi.i = phi i64 [ %99, %96 ], [ %.pre.i, %88 ]
   %91 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre-phi.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22), !noalias !1614
   %92 = load i64, ptr %91, align 8, !noalias !1614, !noundef !4
   br label %103
 
-._crit_edge151.i:                                 ; preds = %96, %90
-  %93 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre153.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21), !noalias !1614
+._crit_edge149.i:                                 ; preds = %96, %90
+  %93 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21), !noalias !1614
   %94 = load i64, ptr %93, align 8, !noalias !1614, !noundef !4
   %95 = add i64 %94, 1
   br label %103
 
 96:                                               ; preds = %90
-  %97 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre153.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19), !noalias !1614
+  %97 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19), !noalias !1614
   %98 = load i64, ptr %97, align 8, !noalias !1614, !noundef !4
   %99 = add i64 %82, 1
   %100 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20), !noalias !1614
   %101 = load i64, ptr %100, align 8, !noalias !1614, !noundef !4
   %102 = icmp ult i64 %98, %101
-  br i1 %102, label %._crit_edge152.i, label %._crit_edge151.i
+  br i1 %102, label %._crit_edge150.i, label %._crit_edge149.i
 
-103:                                              ; preds = %._crit_edge151.i, %._crit_edge152.i
-  %.sroa.019.0.i = phi i64 [ %92, %._crit_edge152.i ], [ %95, %._crit_edge151.i ]
+103:                                              ; preds = %._crit_edge149.i, %._crit_edge150.i
+  %.sroa.019.0.i = phi i64 [ %92, %._crit_edge150.i ], [ %95, %._crit_edge149.i ]
   %104 = sub i64 %.sroa.019.0.i, %82
   %105 = icmp ult i64 %.sroa.019.0.i, %spec.select.i.i.i
   %106 = icmp ult i64 %104, %spec.select.i.i62.i
@@ -5216,13 +5216,13 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i: ; p
 118:                                              ; preds = %107
   %119 = sub i64 %82, %45
   %.sroa.018.0.i = call i64 @llvm.abs.i64(i64 %119, i1 false)
-  %.not57.i = icmp sgt i64 %.sroa.018.0.i, %.sroa.035.0145.i
+  %.not57.i = icmp sgt i64 %.sroa.018.0.i, %.sroa.035.0143.i
   br i1 %.not57.i, label %120, label %121
 
 120:                                              ; preds = %121, %118, %107
   %.not.i63.i = icmp slt i64 %.sroa.7109.1.i, %73
   %or.cond128.i = select i1 %.sroa.12.1.i, i1 true, i1 %.not.i63.i
-  br i1 %or.cond128.i, label %._crit_edge142.i, label %.lr.ph141.i
+  br i1 %or.cond128.i, label %._crit_edge140.i, label %.lr.ph139.i
 
 121:                                              ; preds = %118
   %122 = sub i64 0, %119
@@ -5240,33 +5240,33 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i: ; p
   br label %_ZN7similar10algorithms5myers17find_middle_snake17h9a5c4a39818ab546E.exit
 
 131:                                              ; preds = %80
-  %.not53.i = icmp eq i64 %74, %.sroa.035.0145.i
-  %.pre157.i = add i64 %74, -1
-  br i1 %.not53.i, label %._crit_edge149.i, label %137
+  %.not53.i = icmp eq i64 %74, %.sroa.035.0143.i
+  %.pre155.i = add i64 %74, -1
+  br i1 %.not53.i, label %._crit_edge147.i, label %137
 
-._crit_edge150.i:                                 ; preds = %80, %137
-  %.pre-phi156.i = phi i64 [ %140, %137 ], [ %.pre155.i, %80 ]
-  %132 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi156.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29), !noalias !1614
+._crit_edge148.i:                                 ; preds = %80, %137
+  %.pre-phi154.i = phi i64 [ %140, %137 ], [ %.pre153.i, %80 ]
+  %132 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi154.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29), !noalias !1614
   %133 = load i64, ptr %132, align 8, !noalias !1614, !noundef !4
   br label %144
 
-._crit_edge149.i:                                 ; preds = %137, %131
-  %134 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre157.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28), !noalias !1614
+._crit_edge147.i:                                 ; preds = %137, %131
+  %134 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28), !noalias !1614
   %135 = load i64, ptr %134, align 8, !noalias !1614, !noundef !4
   %136 = add i64 %135, 1
   br label %144
 
 137:                                              ; preds = %131
-  %138 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre157.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26), !noalias !1614
+  %138 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26), !noalias !1614
   %139 = load i64, ptr %138, align 8, !noalias !1614, !noundef !4
   %140 = add i64 %74, 1
   %141 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27), !noalias !1614
   %142 = load i64, ptr %141, align 8, !noalias !1614, !noundef !4
   %143 = icmp ult i64 %139, %142
-  br i1 %143, label %._crit_edge150.i, label %._crit_edge149.i
+  br i1 %143, label %._crit_edge148.i, label %._crit_edge147.i
 
-144:                                              ; preds = %._crit_edge149.i, %._crit_edge150.i
-  %.sroa.09.0.i = phi i64 [ %133, %._crit_edge150.i ], [ %136, %._crit_edge149.i ]
+144:                                              ; preds = %._crit_edge147.i, %._crit_edge148.i
+  %.sroa.09.0.i = phi i64 [ %133, %._crit_edge148.i ], [ %136, %._crit_edge147.i ]
   %145 = sub i64 %.sroa.09.0.i, %74
   %146 = icmp ult i64 %.sroa.09.0.i, %spec.select.i.i.i
   %147 = icmp ult i64 %145, %spec.select.i.i62.i
@@ -5289,12 +5289,12 @@ _ZN7similar10algorithms5utils17common_suffix_len17hab0d03a85e25104bE.exit.i: ; p
 155:                                              ; preds = %158, %156, %148
   %.not.i.i = icmp slt i64 %.sroa.7100.1.i, %73
   %or.cond.i28 = select i1 %.sroa.11.1.i, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i28, label %.lr.ph141.preheader.i, label %.lr.ph.i
+  br i1 %or.cond.i28, label %.lr.ph139.preheader.i, label %.lr.ph.i
 
 156:                                              ; preds = %148
   %157 = sub i64 %74, %45
   %.sroa.015.0.i = call i64 @llvm.abs.i64(i64 %157, i1 false)
-  %.not54.not.i = icmp slt i64 %.sroa.015.0.i, %.sroa.035.0145.i
+  %.not54.not.i = icmp slt i64 %.sroa.015.0.i, %.sroa.035.0143.i
   br i1 %.not54.not.i, label %158, label %155
 
 158:                                              ; preds = %156
@@ -5358,7 +5358,7 @@ _ZN7similar10algorithms5myers17find_middle_snake17h9a5c4a39818ab546E.exit: ; pre
   call void @_ZN7similar10algorithms5myers7conquer17h578e6ed0fe33a5c4E.llvm.3131922965131222458(ptr noalias noundef nonnull align 8 dereferenceable(200) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %.sroa.4.0, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %.sroa.6.0, i64 noundef %30, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   br label %35
 
-.loopexit:                                        ; preds = %._crit_edge142.i, %66, %.preheader.i
+.loopexit:                                        ; preds = %._crit_edge140.i, %66, %.preheader.i
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i50 = load i64, ptr %174, align 8, !alias.scope !1627
   %.sroa.4.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6116,10 +6116,10 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
   br i1 %.not50.not.i, label %.preheader.i, label %63
 
 .preheader.i:                                     ; preds = %55
-  %.not148.i = icmp eq i64 %51, 9223372036854775807
-  br i1 %.not148.i, label %.loopexit, label %.lr.ph146.i
+  %.not146.i = icmp eq i64 %51, 9223372036854775807
+  br i1 %.not146.i, label %.loopexit, label %.lr.ph144.i
 
-.lr.ph146.i:                                      ; preds = %.preheader.i
+.lr.ph144.i:                                      ; preds = %.preheader.i
   %58 = icmp eq i32 %10, 1000000000
   %59 = add i64 %spec.select.i.i62.i, %21
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
@@ -6135,9 +6135,9 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0181e6fc4a3301d43b7fc73f7920d318.17, i64 noundef 35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.18) #57, !noalias !1733
   unreachable
 
-64:                                               ; preds = %._crit_edge142.i, %.lr.ph146.i
-  %.sroa.035.0145.i = phi i64 [ 0, %.lr.ph146.i ], [ %65, %._crit_edge142.i ]
-  %65 = add nuw nsw i64 %.sroa.035.0145.i, 1
+64:                                               ; preds = %._crit_edge140.i, %.lr.ph144.i
+  %.sroa.035.0143.i = phi i64 [ 0, %.lr.ph144.i ], [ %65, %._crit_edge140.i ]
+  %65 = add nuw nsw i64 %.sroa.035.0143.i, 1
   br i1 %58, label %.lr.ph.preheader.i, label %66
 
 66:                                               ; preds = %64
@@ -6151,16 +6151,16 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
   br i1 %.sroa.029.0.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %66, %64
-  %73 = sub nsw i64 0, %.sroa.035.0145.i
-  %.pre155.i = sub nsw i64 1, %.sroa.035.0145.i
+  %73 = sub nsw i64 0, %.sroa.035.0143.i
+  %.pre153.i = sub nsw i64 1, %.sroa.035.0143.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %155, %.lr.ph.preheader.i
-  %not..sroa.14101.0133.i = phi i64 [ 1, %155 ], [ 0, %.lr.ph.preheader.i ]
-  %.sroa.7100.0131.i = phi i64 [ %.sroa.7100.1.i, %155 ], [ %.sroa.035.0145.i, %.lr.ph.preheader.i ]
-  %74 = sub i64 %.sroa.7100.0131.i, %not..sroa.14101.0133.i
+  %not..sroa.14101.0132.i = phi i64 [ 1, %155 ], [ 0, %.lr.ph.preheader.i ]
+  %.sroa.7100.0131.i = phi i64 [ %.sroa.7100.1.i, %155 ], [ %.sroa.035.0143.i, %.lr.ph.preheader.i ]
+  %74 = sub i64 %.sroa.7100.0131.i, %not..sroa.14101.0132.i
   %.not.i.not.not.i.i = icmp sgt i64 %74, %.sroa.7100.0131.i
-  br i1 %.not.i.not.not.i.i, label %.lr.ph141.preheader.i, label %76
+  br i1 %.not.i.not.not.i.i, label %.lr.ph139.preheader.i, label %76
 
 75:                                               ; preds = %76
   unreachable
@@ -6170,83 +6170,83 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit: ; pre
   switch i8 %77, label %75 [
     i8 0, label %80
     i8 1, label %78
-    i8 -1, label %.lr.ph141.preheader.i
+    i8 -1, label %.lr.ph139.preheader.i
   ]
 
 78:                                               ; preds = %76
   %79 = add i64 %74, -1
   br label %80
 
-.lr.ph141.preheader.i:                            ; preds = %155, %76, %.lr.ph.i
-  %.pre.i = sub nsw i64 1, %.sroa.035.0145.i
-  br label %.lr.ph141.i
+.lr.ph139.preheader.i:                            ; preds = %155, %76, %.lr.ph.i
+  %.pre.i = sub nsw i64 1, %.sroa.035.0143.i
+  br label %.lr.ph139.i
 
 80:                                               ; preds = %78, %76
   %.sroa.7100.1.i = phi i64 [ %79, %78 ], [ %74, %76 ]
   %.sroa.11.1.i = phi i1 [ false, %78 ], [ true, %76 ]
   %81 = icmp eq i64 %74, %73
-  br i1 %81, label %._crit_edge150.i, label %131
+  br i1 %81, label %._crit_edge148.i, label %131
 
-.lr.ph141.i:                                      ; preds = %120, %.lr.ph141.preheader.i
-  %not..sroa.17110.0139.i = phi i64 [ 1, %120 ], [ 0, %.lr.ph141.preheader.i ]
-  %.sroa.7109.0137.i = phi i64 [ %.sroa.7109.1.i, %120 ], [ %.sroa.035.0145.i, %.lr.ph141.preheader.i ]
-  %82 = sub i64 %.sroa.7109.0137.i, %not..sroa.17110.0139.i
-  %.not.i.not.not.i64.i = icmp sgt i64 %82, %.sroa.7109.0137.i
-  br i1 %.not.i.not.not.i64.i, label %._crit_edge142.i, label %84
+.lr.ph139.i:                                      ; preds = %120, %.lr.ph139.preheader.i
+  %not..sroa.17110.0137.i = phi i64 [ 1, %120 ], [ 0, %.lr.ph139.preheader.i ]
+  %.sroa.7109.0136.i = phi i64 [ %.sroa.7109.1.i, %120 ], [ %.sroa.035.0143.i, %.lr.ph139.preheader.i ]
+  %82 = sub i64 %.sroa.7109.0136.i, %not..sroa.17110.0137.i
+  %.not.i.not.not.i64.i = icmp sgt i64 %82, %.sroa.7109.0136.i
+  br i1 %.not.i.not.not.i64.i, label %._crit_edge140.i, label %84
 
 83:                                               ; preds = %84
   unreachable
 
-84:                                               ; preds = %.lr.ph141.i
+84:                                               ; preds = %.lr.ph139.i
   %85 = call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %82, i64 %73)
   switch i8 %85, label %83 [
     i8 0, label %88
     i8 1, label %86
-    i8 -1, label %._crit_edge142.i
+    i8 -1, label %._crit_edge140.i
   ]
 
 86:                                               ; preds = %84
   %87 = add i64 %82, -1
   br label %88
 
-._crit_edge142.i:                                 ; preds = %120, %84, %.lr.ph141.i
-  %exitcond.not.i = icmp eq i64 %.sroa.035.0145.i, %51
+._crit_edge140.i:                                 ; preds = %120, %84, %.lr.ph139.i
+  %exitcond.not.i = icmp eq i64 %.sroa.035.0143.i, %51
   br i1 %exitcond.not.i, label %.loopexit, label %64
 
 88:                                               ; preds = %86, %84
   %.sroa.7109.1.i = phi i64 [ %87, %86 ], [ %82, %84 ]
   %.sroa.12.1.i = phi i1 [ false, %86 ], [ true, %84 ]
   %89 = icmp eq i64 %82, %73
-  br i1 %89, label %._crit_edge152.i, label %90
+  br i1 %89, label %._crit_edge150.i, label %90
 
 90:                                               ; preds = %88
-  %.not56.i = icmp eq i64 %82, %.sroa.035.0145.i
-  %.pre153.i = add i64 %82, -1
-  br i1 %.not56.i, label %._crit_edge151.i, label %96
+  %.not56.i = icmp eq i64 %82, %.sroa.035.0143.i
+  %.pre151.i = add i64 %82, -1
+  br i1 %.not56.i, label %._crit_edge149.i, label %96
 
-._crit_edge152.i:                                 ; preds = %88, %96
+._crit_edge150.i:                                 ; preds = %88, %96
   %.pre-phi.i = phi i64 [ %99, %96 ], [ %.pre.i, %88 ]
   %91 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre-phi.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.22), !noalias !1733
   %92 = load i64, ptr %91, align 8, !noalias !1733, !noundef !4
   br label %103
 
-._crit_edge151.i:                                 ; preds = %96, %90
-  %93 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre153.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21), !noalias !1733
+._crit_edge149.i:                                 ; preds = %96, %90
+  %93 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.21), !noalias !1733
   %94 = load i64, ptr %93, align 8, !noalias !1733, !noundef !4
   %95 = add i64 %94, 1
   br label %103
 
 96:                                               ; preds = %90
-  %97 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre153.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19), !noalias !1733
+  %97 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %.pre151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.19), !noalias !1733
   %98 = load i64, ptr %97, align 8, !noalias !1733, !noundef !4
   %99 = add i64 %82, 1
   %100 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i64 noundef %99, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.20), !noalias !1733
   %101 = load i64, ptr %100, align 8, !noalias !1733, !noundef !4
   %102 = icmp ult i64 %98, %101
-  br i1 %102, label %._crit_edge152.i, label %._crit_edge151.i
+  br i1 %102, label %._crit_edge150.i, label %._crit_edge149.i
 
-103:                                              ; preds = %._crit_edge151.i, %._crit_edge152.i
-  %.sroa.019.0.i = phi i64 [ %92, %._crit_edge152.i ], [ %95, %._crit_edge151.i ]
+103:                                              ; preds = %._crit_edge149.i, %._crit_edge150.i
+  %.sroa.019.0.i = phi i64 [ %92, %._crit_edge150.i ], [ %95, %._crit_edge149.i ]
   %104 = sub i64 %.sroa.019.0.i, %82
   %105 = icmp ult i64 %.sroa.019.0.i, %spec.select.i.i.i
   %106 = icmp ult i64 %104, %spec.select.i.i62.i
@@ -6297,13 +6297,13 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i: ; p
 118:                                              ; preds = %107
   %119 = sub i64 %82, %45
   %.sroa.018.0.i = call i64 @llvm.abs.i64(i64 %119, i1 false)
-  %.not57.i = icmp sgt i64 %.sroa.018.0.i, %.sroa.035.0145.i
+  %.not57.i = icmp sgt i64 %.sroa.018.0.i, %.sroa.035.0143.i
   br i1 %.not57.i, label %120, label %121
 
 120:                                              ; preds = %121, %118, %107
   %.not.i63.i = icmp slt i64 %.sroa.7109.1.i, %73
   %or.cond128.i = select i1 %.sroa.12.1.i, i1 true, i1 %.not.i63.i
-  br i1 %or.cond128.i, label %._crit_edge142.i, label %.lr.ph141.i
+  br i1 %or.cond128.i, label %._crit_edge140.i, label %.lr.ph139.i
 
 121:                                              ; preds = %118
   %122 = sub i64 0, %119
@@ -6321,33 +6321,33 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i: ; p
   br label %_ZN7similar10algorithms5myers17find_middle_snake17hf2d8c683c6b0e29bE.exit
 
 131:                                              ; preds = %80
-  %.not53.i = icmp eq i64 %74, %.sroa.035.0145.i
-  %.pre157.i = add i64 %74, -1
-  br i1 %.not53.i, label %._crit_edge149.i, label %137
+  %.not53.i = icmp eq i64 %74, %.sroa.035.0143.i
+  %.pre155.i = add i64 %74, -1
+  br i1 %.not53.i, label %._crit_edge147.i, label %137
 
-._crit_edge150.i:                                 ; preds = %80, %137
-  %.pre-phi156.i = phi i64 [ %140, %137 ], [ %.pre155.i, %80 ]
-  %132 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi156.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29), !noalias !1733
+._crit_edge148.i:                                 ; preds = %80, %137
+  %.pre-phi154.i = phi i64 [ %140, %137 ], [ %.pre153.i, %80 ]
+  %132 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre-phi154.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.29), !noalias !1733
   %133 = load i64, ptr %132, align 8, !noalias !1733, !noundef !4
   br label %144
 
-._crit_edge149.i:                                 ; preds = %137, %131
-  %134 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre157.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28), !noalias !1733
+._crit_edge147.i:                                 ; preds = %137, %131
+  %134 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.28), !noalias !1733
   %135 = load i64, ptr %134, align 8, !noalias !1733, !noundef !4
   %136 = add i64 %135, 1
   br label %144
 
 137:                                              ; preds = %131
-  %138 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre157.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26), !noalias !1733
+  %138 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %.pre155.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.26), !noalias !1733
   %139 = load i64, ptr %138, align 8, !noalias !1733, !noundef !4
   %140 = add i64 %74, 1
   %141 = call noundef align 8 dereferenceable(8) ptr @"_ZN86_$LT$similar..algorithms..myers..V$u20$as$u20$core..ops..index..Index$LT$isize$GT$$GT$5index17h4f7293a541fbcb85E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, i64 noundef %140, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.0181e6fc4a3301d43b7fc73f7920d318.27), !noalias !1733
   %142 = load i64, ptr %141, align 8, !noalias !1733, !noundef !4
   %143 = icmp ult i64 %139, %142
-  br i1 %143, label %._crit_edge150.i, label %._crit_edge149.i
+  br i1 %143, label %._crit_edge148.i, label %._crit_edge147.i
 
-144:                                              ; preds = %._crit_edge149.i, %._crit_edge150.i
-  %.sroa.09.0.i = phi i64 [ %133, %._crit_edge150.i ], [ %136, %._crit_edge149.i ]
+144:                                              ; preds = %._crit_edge147.i, %._crit_edge148.i
+  %.sroa.09.0.i = phi i64 [ %133, %._crit_edge148.i ], [ %136, %._crit_edge147.i ]
   %145 = sub i64 %.sroa.09.0.i, %74
   %146 = icmp ult i64 %.sroa.09.0.i, %spec.select.i.i.i
   %147 = icmp ult i64 %145, %spec.select.i.i62.i
@@ -6370,12 +6370,12 @@ _ZN7similar10algorithms5utils17common_suffix_len17h39818cca41be917eE.exit.i: ; p
 155:                                              ; preds = %158, %156, %148
   %.not.i.i = icmp slt i64 %.sroa.7100.1.i, %73
   %or.cond.i28 = select i1 %.sroa.11.1.i, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i28, label %.lr.ph141.preheader.i, label %.lr.ph.i
+  br i1 %or.cond.i28, label %.lr.ph139.preheader.i, label %.lr.ph.i
 
 156:                                              ; preds = %148
   %157 = sub i64 %74, %45
   %.sroa.015.0.i = call i64 @llvm.abs.i64(i64 %157, i1 false)
-  %.not54.not.i = icmp slt i64 %.sroa.015.0.i, %.sroa.035.0145.i
+  %.not54.not.i = icmp slt i64 %.sroa.015.0.i, %.sroa.035.0143.i
   br i1 %.not54.not.i, label %158, label %155
 
 158:                                              ; preds = %156
@@ -6439,7 +6439,7 @@ _ZN7similar10algorithms5myers17find_middle_snake17hf2d8c683c6b0e29bE.exit: ; pre
   call void @_ZN7similar10algorithms5myers7conquer17hb51380b256121c48E.llvm.3131922965131222458(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %.sroa.4.0, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef %.sroa.6.0, i64 noundef %30, ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 %9, i32 noundef %10)
   br label %35
 
-.loopexit:                                        ; preds = %._crit_edge142.i, %66, %.preheader.i
+.loopexit:                                        ; preds = %._crit_edge140.i, %66, %.preheader.i
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i50 = load i64, ptr %174, align 8, !alias.scope !1746
   %.sroa.4.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %0, i64 72

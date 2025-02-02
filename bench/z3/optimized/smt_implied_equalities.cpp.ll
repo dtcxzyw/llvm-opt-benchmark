@@ -3000,7 +3000,7 @@ lpad.loopexit.split-lp411.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke
   br label %ehcleanup
 
 for.cond15:                                       ; preds = %for.cond15.preheader, %for.inc44
-  %indvars.iv449 = phi i64 [ %indvars.iv.next450, %for.inc44 ], [ 0, %for.cond15.preheader ]
+  %indvars.iv448 = phi i64 [ %indvars.iv.next449, %for.inc44 ], [ 0, %for.cond15.preheader ]
   %terms.val = load ptr, ptr %terms, align 8
   %cmp.i = icmp eq ptr %terms.val, null
   br i1 %cmp.i, label %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit, label %if.end.i
@@ -3013,11 +3013,11 @@ if.end.i:                                         ; preds = %for.cond15
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit: ; preds = %for.cond15, %if.end.i
   %retval.0.i = phi i64 [ %30, %if.end.i ], [ 0, %for.cond15 ]
-  %cmp18 = icmp samesign ult i64 %indvars.iv449, %retval.0.i
+  %cmp18 = icmp samesign ult i64 %indvars.iv448, %retval.0.i
   br i1 %cmp18, label %invoke.cont25, label %for.end46
 
 invoke.cont25:                                    ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit
-  %arrayidx.i75 = getelementptr inbounds nuw %"struct.(anonymous namespace)::get_implied_equalities_impl::term_id", ptr %terms.val, i64 %indvars.iv449
+  %arrayidx.i75 = getelementptr inbounds nuw %"struct.(anonymous namespace)::get_implied_equalities_impl::term_id", ptr %terms.val, i64 %indvars.iv448
   %31 = load ptr, ptr %arrayidx.i75, align 8
   %32 = load ptr, ptr %m_nodes.i.i, align 8
   %33 = load ptr, ptr %args, align 8
@@ -3068,7 +3068,7 @@ invoke.cont35:                                    ; preds = %invoke.cont27, %if.
 
 invoke.cont37:                                    ; preds = %invoke.cont35
   %terms.val42 = load ptr, ptr %terms, align 8
-  %arrayidx.i86 = getelementptr inbounds nuw %"struct.(anonymous namespace)::get_implied_equalities_impl::term_id", ptr %terms.val42, i64 %indvars.iv449
+  %arrayidx.i86 = getelementptr inbounds nuw %"struct.(anonymous namespace)::get_implied_equalities_impl::term_id", ptr %terms.val42, i64 %indvars.iv448
   %tobool.not.i = icmp eq ptr %call38, null
   br i1 %tobool.not.i, label %if.end.i90, label %_ZN11ast_manager7inc_refEP3ast.exit.i87
 
@@ -3100,7 +3100,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 for.inc44:                                        ; preds = %if.then.i.i.i, %if.end.i90, %if.then2.i.i.i
   store ptr %call38, ptr %arrayidx.i86, align 8
-  %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
+  %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   br label %for.cond15, !llvm.loop !21
 
 for.end46:                                        ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit
@@ -3375,13 +3375,13 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %for.body74
   br i1 %cmp.not.i, label %for.inc76, label %while.cond.i.i.preheader
 
 while.cond.i.i.preheader:                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %for.body74
-  %.ph563 = phi ptr [ null, %for.body74 ], [ %84, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
+  %.ph562 = phi ptr [ null, %for.body74 ], [ %84, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %retval.0.i16.i.i.ph = phi i32 [ 0, %for.body74 ], [ %85, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %add10.i.ph = add nuw nsw i32 %shr.i, 1
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %.noexc128
-  %86 = phi ptr [ %.pr.pre.i.i, %.noexc128 ], [ %.ph563, %while.cond.i.i.preheader ]
+  %86 = phi ptr [ %.pr.pre.i.i, %.noexc128 ], [ %.ph562, %while.cond.i.i.preheader ]
   %cmp.i10.i.i = icmp eq ptr %86, null
   br i1 %cmp.i10.i.i, label %if.then.i344, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -3580,7 +3580,7 @@ for.cond102.preheader:                            ; preds = %invoke.cont96
   br label %for.cond102
 
 for.cond102:                                      ; preds = %for.cond102.preheader, %for.inc187
-  %indvars.iv455 = phi i64 [ 0, %for.cond102.preheader ], [ %indvars.iv.next456, %for.inc187 ]
+  %indvars.iv454 = phi i64 [ 0, %for.cond102.preheader ], [ %indvars.iv.next455, %for.inc187 ]
   %terms.val40 = load ptr, ptr %terms, align 8
   %cmp.i140 = icmp eq ptr %terms.val40, null
   br i1 %cmp.i140, label %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit144, label %if.end.i141
@@ -3593,11 +3593,11 @@ if.end.i141:                                      ; preds = %for.cond102
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit144: ; preds = %for.cond102, %if.end.i141
   %retval.0.i143 = phi i64 [ %102, %if.end.i141 ], [ 0, %for.cond102 ]
-  %cmp105 = icmp samesign ult i64 %indvars.iv455, %retval.0.i143
+  %cmp105 = icmp samesign ult i64 %indvars.iv454, %retval.0.i143
   br i1 %cmp105, label %for.body106, label %for.end189
 
 for.body106:                                      ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit144
-  %arrayidx.i146 = getelementptr inbounds nuw %"struct.(anonymous namespace)::get_implied_equalities_impl::term_id", ptr %terms.val40, i64 %indvars.iv455
+  %arrayidx.i146 = getelementptr inbounds nuw %"struct.(anonymous namespace)::get_implied_equalities_impl::term_id", ptr %terms.val40, i64 %indvars.iv454
   %103 = load ptr, ptr %arrayidx.i146, align 8
   %104 = load ptr, ptr %model, align 8
   invoke void @_ZN5modelclEP4expr(ptr nonnull sret(%class.obj_ref.37) align 8 %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(160) %104, ptr noundef %103)
@@ -4060,7 +4060,7 @@ invoke.cont121:                                   ; preds = %invoke.cont117
   br i1 %call122, label %if.end125, label %if.then123
 
 if.then123:                                       ; preds = %invoke.cont121
-  %178 = trunc nuw i64 %indvars.iv455 to i32
+  %178 = trunc nuw i64 %indvars.iv454 to i32
   %shr.i185 = lshr i32 %178, 5
   %179 = load ptr, ptr %non_values, align 8
   %cmp.i.i186 = icmp eq ptr %179, null
@@ -4213,12 +4213,12 @@ lpad95.loopexit.split-lp.loopexit:                ; preds = %land.lhs.true42.i.i
   br label %ehcleanup203
 
 lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %invoke.cont156, %invoke.cont152, %invoke.cont162, %invoke.cont160, %invoke.cont158, %for.body141
-  %lpad.loopexit467 = landingpad { ptr, i32 }
+  %lpad.loopexit466 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup203
 
 lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %if.then169
-  %lpad.loopexit.split-lp468 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp467 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup203
 
@@ -4228,12 +4228,12 @@ lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds =
   br label %ehcleanup203
 
 lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %if.end.i371, %if.then.i374
-  %lpad.loopexit531 = landingpad { ptr, i32 }
+  %lpad.loopexit530 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup203
 
 lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %if.then.i267, %if.then.i.i239, %invoke.cont117, %for.body106
-  %lpad.loopexit.split-lp532 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp531 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup203
 
@@ -4310,20 +4310,20 @@ terminate.lpad.i.i247:                            ; preds = %if.then.i.i.i246
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %invoke.cont135, %if.then.i.i.i246
   %202 = load ptr, ptr %call136, align 8
-  %cmp.i248524 = icmp eq ptr %202, null
-  br i1 %cmp.i248524, label %if.then.i267, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread
+  %cmp.i248523 = icmp eq ptr %202, null
+  br i1 %cmp.i248523, label %if.then.i267, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.thread:           ; preds = %_ZN7svectorIjjED2Ev.exit, %for.inc179
   %203 = phi ptr [ %220, %for.inc179 ], [ %202, %_ZN7svectorIjjED2Ev.exit ]
-  %indvars.iv452525 = phi i64 [ %indvars.iv.next453, %for.inc179 ], [ 0, %_ZN7svectorIjjED2Ev.exit ]
+  %indvars.iv451524 = phi i64 [ %indvars.iv.next452, %for.inc179 ], [ 0, %_ZN7svectorIjjED2Ev.exit ]
   %arrayidx.i250 = getelementptr inbounds i8, ptr %203, i64 -4
   %204 = load i32, ptr %arrayidx.i250, align 4
   %205 = zext i32 %204 to i64
-  %cmp140389 = icmp samesign ult i64 %indvars.iv452525, %205
+  %cmp140389 = icmp samesign ult i64 %indvars.iv451524, %205
   br i1 %cmp140389, label %for.body141, label %lor.lhs.false.i
 
 for.body141:                                      ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread
-  %arrayidx.i253 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv452525
+  %arrayidx.i253 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv451524
   %206 = load i32, ptr %arrayidx.i253, align 4
   %terms.val46 = load ptr, ptr %terms, align 8
   %idxprom.i254 = zext i32 %206 to i64
@@ -4369,10 +4369,10 @@ invoke.cont167:                                   ; preds = %invoke.cont162
 
 if.then169:                                       ; preds = %invoke.cont167
   %terms.val45 = load ptr, ptr %terms, align 8
-  %id = getelementptr inbounds nuw %"struct.(anonymous namespace)::get_implied_equalities_impl::term_id", ptr %terms.val45, i64 %indvars.iv455, i32 1
+  %id = getelementptr inbounds nuw %"struct.(anonymous namespace)::get_implied_equalities_impl::term_id", ptr %terms.val45, i64 %indvars.iv454, i32 1
   %215 = load i32, ptr %id, align 8
   %216 = load ptr, ptr %call136, align 8
-  %arrayidx.i261 = getelementptr inbounds nuw i32, ptr %216, i64 %indvars.iv452525
+  %arrayidx.i261 = getelementptr inbounds nuw i32, ptr %216, i64 %indvars.iv451524
   %217 = load i32, ptr %arrayidx.i261, align 4
   %idxprom.i262 = zext i32 %217 to i64
   %id176 = getelementptr inbounds nuw %"struct.(anonymous namespace)::get_implied_equalities_impl::term_id", ptr %terms.val45, i64 %idxprom.i262, i32 1
@@ -4387,7 +4387,7 @@ lpad134:                                          ; preds = %invoke.cont128
   br label %ehcleanup203
 
 for.inc179:                                       ; preds = %invoke.cont167
-  %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452525, 1
+  %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451524, 1
   %220 = load ptr, ptr %call136, align 8
   %cmp.i248 = icmp eq ptr %220, null
   br i1 %cmp.i248, label %if.then.i267, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread, !llvm.loop !31
@@ -4413,7 +4413,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %.
   %idx.ext.i.pre-phi = phi i64 [ %205, %lor.lhs.false.i ], [ %.pre, %.noexc269 ]
   %222 = phi ptr [ %203, %lor.lhs.false.i ], [ %.pre.i268, %.noexc269 ]
   %add.ptr.i = getelementptr inbounds nuw i32, ptr %222, i64 %idx.ext.i.pre-phi
-  %223 = trunc nuw i64 %indvars.iv455 to i32
+  %223 = trunc nuw i64 %indvars.iv454 to i32
   store i32 %223, ptr %add.ptr.i, align 4
   %224 = load ptr, ptr %call136, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %224, i64 -4
@@ -4423,7 +4423,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %.
   br label %for.inc187
 
 for.inc187:                                       ; preds = %if.then169, %_ZN6vectorIjLb0EjE9push_backERKj.exit, %_ZN8uint_set6insertEj.exit223
-  %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
+  %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   br label %for.cond102, !llvm.loop !32
 
 for.end189:                                       ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit144
@@ -4678,7 +4678,7 @@ cleanup.cont:                                     ; preds = %if.then.i.i.i.i336,
   ret void
 
 ehcleanup203:                                     ; preds = %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad95.loopexit, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad95.loopexit.split-lp.loopexit, %cleanup.action.i360, %ehcleanup.i365, %lpad134
-  %.pn = phi { ptr, i32 } [ %219, %lpad134 ], [ %184, %ehcleanup.i365 ], [ %185, %cleanup.action.i360 ], [ %lpad.loopexit, %lpad95.loopexit ], [ %lpad.loopexit391, %lpad95.loopexit.split-lp.loopexit ], [ %lpad.loopexit402, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit467, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp468, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit531, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp532, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %219, %lpad134 ], [ %184, %ehcleanup.i365 ], [ %185, %cleanup.action.i360 ], [ %lpad.loopexit, %lpad95.loopexit ], [ %lpad.loopexit391, %lpad95.loopexit.split-lp.loopexit ], [ %lpad.loopexit402, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit466, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp467, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit530, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp531, %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %p) #17
   call void @_ZN7obj_mapI4expr7svectorIjjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %vals_map) #17
   br label %ehcleanup205

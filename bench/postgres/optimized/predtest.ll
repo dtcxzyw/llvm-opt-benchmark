@@ -2153,13 +2153,13 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 9
   %25 = load i8, ptr %24, align 1
   %26 = trunc i8 %25 to i1
-  br i1 %26, label %146, label %31
+  br i1 %26, label %145, label %31
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %29 = load i8, ptr %28, align 4
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %146, label %31
+  br i1 %30, label %145, label %31
 
 31:                                               ; preds = %23, %27, %19
   %32 = call ptr @get_op_btree_interpretation(i32 noundef %1) #6
@@ -2223,6 +2223,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %64 = getelementptr [6 x [6 x i16]], ptr @BT_refute_table, i64 0, i64 %59, i64 %62
   %.pn109.pn.us.us = load i8, ptr %63, align 1
   %.5112.in.us.us = or i8 %.pn109.pn.us.us, %.2125.us.us149
+  %.5112.us.us = and i8 %.5112.in.us.us, 1
   %.0.us.us = load i16, ptr %64, align 2
   switch i16 %.0.us.us, label %72 [
     i16 0, label %.thread114.us.us
@@ -2259,7 +2260,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %80, label %.thread, label %.thread114.us.us
 
 .thread114.us.us:                                 ; preds = %78, %77, %65, %53, %.lr.ph151
-  %.4.us.us = phi i8 [ %.2125.us.us149, %.lr.ph151 ], [ %.5112.in.us.us, %53 ], [ %.5112.in.us.us, %78 ], [ %.5112.in.us.us, %77 ], [ %.5112.in.us.us, %65 ]
+  %.4.us.us = phi i8 [ %.2125.us.us149, %.lr.ph151 ], [ %.5112.us.us, %53 ], [ %.5112.us.us, %78 ], [ %.5112.us.us, %77 ], [ %.5112.us.us, %65 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %81 = load i32, ptr %37, align 4
   %82 = sext i32 %81 to i64
@@ -2311,6 +2312,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %110 = getelementptr [6 x [6 x i16]], ptr @BT_implic_table, i64 0, i64 %105, i64 %108
   %.pn109.pn = load i8, ptr %109, align 1
   %.5112.in = or i8 %.pn109.pn, %.2125184
+  %.5112 = and i8 %.5112.in, 1
   %.0 = load i16, ptr %110, align 2
   switch i16 %.0, label %118 [
     i16 0, label %.thread114
@@ -2347,7 +2349,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br i1 %126, label %.thread, label %.thread114
 
 .thread114:                                       ; preds = %111, %99, %124, %123, %.lr.ph185
-  %.4 = phi i8 [ %.2125184, %.lr.ph185 ], [ %.5112.in, %99 ], [ %.5112.in, %124 ], [ %.5112.in, %123 ], [ %.5112.in, %111 ]
+  %.4 = phi i8 [ %.2125184, %.lr.ph185 ], [ %.5112, %99 ], [ %.5112, %124 ], [ %.5112, %123 ], [ %.5112, %111 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv183, 1
   %127 = load i32, ptr %37, align 4
   %128 = sext i32 %127 to i64
@@ -2365,10 +2367,10 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
 .thread:                                          ; preds = %._crit_edge126.split, %124, %._crit_edge126.split.us.us, %78, %.lr.ph134.split.split.preheader, %.lr.ph134.split.split.us.preheader, %31, %33
   %.085170 = phi ptr [ null, %33 ], [ null, %31 ], [ %34, %.lr.ph134.split.split.us.preheader ], [ %34, %.lr.ph134.split.split.preheader ], [ %34, %78 ], [ %34, %._crit_edge126.split.us.us ], [ %34, %124 ], [ %34, %._crit_edge126.split ]
   %.183 = phi i32 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph134.split.split.us.preheader ], [ 0, %.lr.ph134.split.split.preheader ], [ %.580.us.us, %78 ], [ 0, %._crit_edge126.split.us.us ], [ %.580, %124 ], [ 0, %._crit_edge126.split ]
-  %.1 = phi i8 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph134.split.split.us.preheader ], [ 0, %.lr.ph134.split.split.preheader ], [ %.5112.in.us.us, %78 ], [ %split127.us.us, %._crit_edge126.split.us.us ], [ %.5112.in, %124 ], [ %.2125.lcssa, %._crit_edge126.split ]
+  %.1 = phi i8 [ 0, %33 ], [ 0, %31 ], [ 0, %.lr.ph134.split.split.us.preheader ], [ 0, %.lr.ph134.split.split.preheader ], [ %.5112.us.us, %78 ], [ %split127.us.us, %._crit_edge126.split.us.us ], [ %.5112, %124 ], [ %.2125.lcssa, %._crit_edge126.split ]
   call void @list_free_deep(ptr noundef %.085170) #6
   call void @list_free_deep(ptr noundef %32) #6
-  %133 = trunc i8 %.1 to i1
+  %133 = trunc nuw i8 %.1 to i1
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %.thread
@@ -2378,29 +2380,28 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   br label %136
 
 136:                                              ; preds = %134, %.thread
-  %.6 = phi i8 [ %.1, %.thread ], [ %spec.select100, %134 ]
-  %137 = and i8 %.6, 1
-  br i1 %2, label %138, label %142
+  %.6 = phi i8 [ 0, %.thread ], [ %spec.select100, %134 ]
+  br i1 %2, label %137, label %141
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 %.183, ptr %139, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %16, i64 11
-  store i8 %137, ptr %140, align 1
-  %141 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  store i8 1, ptr %141, align 1
-  br label %146
+137:                                              ; preds = %136
+  %138 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 %.183, ptr %138, align 4
+  %139 = getelementptr inbounds nuw i8, ptr %16, i64 11
+  store i8 %.6, ptr %139, align 1
+  %140 = getelementptr inbounds nuw i8, ptr %16, i64 9
+  store i8 1, ptr %140, align 1
+  br label %145
 
-142:                                              ; preds = %136
-  %143 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 %.183, ptr %143, align 4
-  %144 = getelementptr inbounds nuw i8, ptr %16, i64 10
-  store i8 %137, ptr %144, align 2
-  %145 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i8 1, ptr %145, align 4
-  br label %146
+141:                                              ; preds = %136
+  %142 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i32 %.183, ptr %142, align 4
+  %143 = getelementptr inbounds nuw i8, ptr %16, i64 10
+  store i8 %.6, ptr %143, align 2
+  %144 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i8 1, ptr %144, align 4
+  br label %145
 
-146:                                              ; preds = %138, %142, %23, %27
+145:                                              ; preds = %137, %141, %23, %27
   ret ptr %16
 }
 

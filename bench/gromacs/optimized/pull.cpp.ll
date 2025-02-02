@@ -5453,7 +5453,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
   br label %69
 
 69:                                               ; preds = %.loopexit72, %60, %64, %68
-  %.1 = phi i8 [ %.076, %.loopexit72 ], [ 1, %68 ], [ %.076, %64 ], [ %.076, %60 ]
+  %.1 = phi i8 [ 1, %.loopexit72 ], [ 1, %68 ], [ 0, %64 ], [ 0, %60 ]
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.067.075, i64 272
   %.not70 = icmp eq ptr %70, %17
   br i1 %.not70, label %._crit_edge.loopexit, label %.lr.ph77

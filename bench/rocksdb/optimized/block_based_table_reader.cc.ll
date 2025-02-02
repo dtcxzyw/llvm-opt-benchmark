@@ -24079,7 +24079,7 @@ invoke.cont120:                                   ; preds = %return.i
   br i1 %or.cond.not, label %for.cond127, label %if.end180
 
 for.cond127:                                      ; preds = %invoke.cont120, %.noexc274
-  %done.3 = phi i8 [ %done.5, %.noexc274 ], [ %done.0, %invoke.cont120 ]
+  %done.3 = phi i8 [ %done.5, %.noexc274 ], [ 0, %invoke.cont120 ]
   %does_referenced_key_exist.1 = phi i1 [ %does_referenced_key_exist.4, %.noexc274 ], [ false, %invoke.cont120 ]
   %referenced_data_size.1 = phi i64 [ %referenced_data_size.4, %.noexc274 ], [ 0, %invoke.cont120 ]
   %88 = load i32, ptr %current_.i, align 4
@@ -24473,7 +24473,7 @@ if.end201:                                        ; preds = %if.end196, %land.lh
   br label %cleanup205
 
 cleanup205:                                       ; preds = %invoke.cont117, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i138, %invoke.cont106, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i, %if.end201, %invoke.cont176
-  %done.1 = phi i8 [ %done.4, %invoke.cont176 ], [ %done.2, %if.end201 ], [ %done.0, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i ], [ %done.0, %invoke.cont106 ], [ %done.0, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i138 ], [ %done.0, %invoke.cont117 ]
+  %done.1 = phi i8 [ %done.4, %invoke.cont176 ], [ %done.2, %if.end201 ], [ 0, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i ], [ 0, %invoke.cont106 ], [ 0, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i138 ], [ 0, %invoke.cont117 ]
   %cleanup.dest.slot.0 = phi i1 [ false, %invoke.cont176 ], [ %not.tobool202, %if.end201 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i ], [ false, %invoke.cont106 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i138 ], [ false, %invoke.cont117 ]
   %151 = load ptr, ptr %state_.i94, align 8
   %cmp.not.i.i315 = icmp eq ptr %151, null

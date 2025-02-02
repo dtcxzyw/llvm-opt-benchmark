@@ -138,7 +138,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   br label %for.inc24.i.i
 
 for.inc24.i.i:                                    ; preds = %if.else.i.i, %if.then12.i.i, %for.end.i.i
-  %__zero.1.i.i = phi i8 [ %__zero.015.i.i, %for.end.i.i ], [ %spec.select.i.i, %if.then12.i.i ], [ %spec.select11.i.i, %if.else.i.i ]
+  %__zero.1.i.i = phi i8 [ 0, %for.end.i.i ], [ %spec.select.i.i, %if.then12.i.i ], [ %spec.select11.i.i, %if.else.i.i ]
   %inc25.i.i = add nuw nsw i64 %__i.016.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc25.i.i, 312
   br i1 %exitcond.not.i.i, label %for.end26.i.i, label %for.cond4.preheader.i.i, !llvm.loop !9

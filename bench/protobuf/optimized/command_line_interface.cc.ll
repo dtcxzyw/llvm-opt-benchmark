@@ -2832,7 +2832,7 @@ lpad57:                                           ; preds = %lpad57.loopexit.spl
   br label %ehcleanup
 
 if.end73:                                         ; preds = %invoke.cont72, %land.lhs.true, %invoke.cont69
-  %crossed_offset.1 = phi i8 [ %crossed_offset.059, %land.lhs.true ], [ 1, %invoke.cont72 ], [ %crossed_offset.059, %invoke.cont69 ]
+  %crossed_offset.1 = phi i8 [ 1, %land.lhs.true ], [ 1, %invoke.cont72 ], [ %crossed_offset.059, %invoke.cont69 ]
   %to_add.1 = phi i64 [ %to_add.060, %land.lhs.true ], [ %add, %invoke.cont72 ], [ %to_add.060, %invoke.cont69 ]
   %call2.i.i.i42 = invoke noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull @_ZN6google8protobuf5Arena16DefaultConstructINS0_28GeneratedCodeInfo_AnnotationEEEPvPS1_)
           to label %invoke.cont74 unwind label %lpad57.loopexit

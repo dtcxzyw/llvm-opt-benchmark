@@ -5725,64 +5725,58 @@ _ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i: ; preds =
 
 _ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread.i.i.i: ; preds = %135, %128, %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i, %130, %114, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.thread.i.i
   %137 = tail call fastcc i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfIN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef %2)
-  %.sroa.3.0.extract.shift.i.i.i = lshr i64 %137, 32
-  %138 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i to i1
-  br i1 %138, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit, label %139
+  %.not.i6.i.i = icmp samesign ult i64 %137, 4294967296
+  br i1 %.not.i6.i.i, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
-139:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread.i.i.i
-  %140 = tail call i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEJEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %2, i64 %1)
-  %.sroa.3.0.extract.shift7.i.i.i = lshr i64 %140, 32
-  br label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
+_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit: ; preds = %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread.i.i.i
+  %138 = tail call i64 @_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEJEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %2, i64 %1)
+  %139 = and i64 %138, 4294967296
+  %.not154 = icmp eq i64 %139, 0
+  br i1 %.not154, label %140, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread
 
-_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit: ; preds = %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread.i.i.i, %139
-  %.sroa.3.0.in.i.i.i = phi i64 [ %.sroa.3.0.extract.shift.i.i.i, %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread.i.i.i ], [ %.sroa.3.0.extract.shift7.i.i.i, %139 ]
-  %.sroa.0.0.in.i.i.i = phi i64 [ %137, %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread.i.i.i ], [ %140, %139 ]
-  %141 = trunc i64 %.sroa.3.0.in.i.i.i to i1
-  br i1 %141, label %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread, label %142
-
-_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread: ; preds = %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.i.i, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
-  %.sroa.056.0.extract.trunc82 = phi i64 [ %.sroa.0.0.in.i.i.i, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit ], [ 4, %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i ], [ 0, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.i.i ]
+_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread: ; preds = %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread.i.i.i, %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.i.i, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
+  %.sroa.056.0.extract.trunc82 = phi i64 [ %138, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit ], [ 4, %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.i.i.i ], [ 0, %_ZNK5clang4Decl7hasAttrINS_24CFReturnsNotRetainedAttrEEEbv.exit.i.i ], [ %137, %_ZNK5clang4Decl7hasAttrINS_24OSReturnsNotRetainedAttrEEEbv.exit.thread.i.i.i ]
   %.sroa.2.0.insert.ext.i52 = shl i64 %.sroa.056.0.extract.trunc82, 32
   %.sroa.0.0.insert.insert.i54 = or disjoint i64 %.sroa.2.0.insert.ext.i52, 2
   br label %.loopexit
 
-142:                                              ; preds = %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
-  %143 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %144 = load i32, ptr %143, align 4
-  %145 = and i32 %144, 124
-  %146 = icmp ne i32 %145, 32
+140:                                              ; preds = %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %142 = load i32, ptr %141, align 4
+  %143 = and i32 %142, 124
+  %144 = icmp ne i32 %143, 32
   %.not84 = icmp eq ptr %2, null
-  %.not = or i1 %.not84, %146
-  br i1 %.not, label %.loopexit, label %147
+  %.not = or i1 %.not84, %144
+  br i1 %.not, label %.loopexit, label %145
 
-147:                                              ; preds = %142
-  %148 = tail call { ptr, ptr } @_ZNK5clang13CXXMethodDecl18overridden_methodsEv(ptr noundef nonnull align 8 dereferenceable(168) %2) #16
-  %149 = extractvalue { ptr, ptr } %148, 0
-  %150 = extractvalue { ptr, ptr } %148, 1
-  %.not26105 = icmp eq ptr %149, %150
+145:                                              ; preds = %140
+  %146 = tail call { ptr, ptr } @_ZNK5clang13CXXMethodDecl18overridden_methodsEv(ptr noundef nonnull align 8 dereferenceable(168) %2) #16
+  %147 = extractvalue { ptr, ptr } %146, 0
+  %148 = extractvalue { ptr, ptr } %146, 1
+  %.not26105 = icmp eq ptr %147, %148
   br i1 %.not26105, label %.loopexit, label %.lr.ph
 
-151:                                              ; preds = %.lr.ph
-  %152 = getelementptr inbounds nuw i8, ptr %.0106, i64 8
-  %.not26 = icmp eq ptr %152, %150
+149:                                              ; preds = %.lr.ph
+  %150 = getelementptr inbounds nuw i8, ptr %.0106, i64 8
+  %.not26 = icmp eq ptr %150, %148
   br i1 %.not26, label %.loopexit.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %147, %151
-  %.0106 = phi ptr [ %152, %151 ], [ %149, %147 ]
-  %153 = load ptr, ptr %.0106, align 8
-  %154 = tail call { i64, i8 } @_ZN5clang4ento20RetainSummaryManager27getRetEffectFromAnnotationsENS_8QualTypeEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, i64 %1, ptr noundef %153)
-  %.fca.1.extract = extractvalue { i64, i8 } %154, 1
-  %155 = trunc nuw i8 %.fca.1.extract to i1
-  br i1 %155, label %.loopexit.loopexit, label %151
+.lr.ph:                                           ; preds = %145, %149
+  %.0106 = phi ptr [ %150, %149 ], [ %147, %145 ]
+  %151 = load ptr, ptr %.0106, align 8
+  %152 = tail call { i64, i8 } @_ZN5clang4ento20RetainSummaryManager27getRetEffectFromAnnotationsENS_8QualTypeEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, i64 %1, ptr noundef %151)
+  %.fca.1.extract = extractvalue { i64, i8 } %152, 1
+  %153 = trunc nuw i8 %.fca.1.extract to i1
+  br i1 %153, label %.loopexit.loopexit, label %149
 
-.loopexit.loopexit:                               ; preds = %151, %.lr.ph
-  %.sroa.5.0.ph = phi i8 [ %.fca.1.extract, %.lr.ph ], [ 0, %151 ]
-  %.fca.0.extract.le = extractvalue { i64, i8 } %154, 0
+.loopexit.loopexit:                               ; preds = %149, %.lr.ph
+  %.sroa.5.0.ph = phi i8 [ 1, %.lr.ph ], [ 0, %149 ]
+  %.fca.0.extract.le = extractvalue { i64, i8 } %152, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %147, %142, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread, %32
-  %.sroa.066.0 = phi i64 [ %34, %32 ], [ %.sroa.0.0.insert.insert.i28, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ %.sroa.0.0.insert.insert.i54, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ undef, %142 ], [ undef, %147 ], [ %.fca.0.extract.le, %.loopexit.loopexit ]
-  %.sroa.5.0 = phi i8 [ 1, %32 ], [ 1, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ 1, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ 0, %142 ], [ 0, %147 ], [ %.sroa.5.0.ph, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %145, %140, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread, %32
+  %.sroa.066.0 = phi i64 [ %34, %32 ], [ %.sroa.0.0.insert.insert.i28, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ %.sroa.0.0.insert.insert.i54, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ undef, %140 ], [ undef, %145 ], [ %.fca.0.extract.le, %.loopexit.loopexit ]
+  %.sroa.5.0 = phi i8 [ 1, %32 ], [ 1, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_21CFReturnsRetainedAttrENS_21OSReturnsRetainedAttrEJN12_GLOBAL__N_130GeneralizedReturnsRetainedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ 1, %_ZN5clang4ento20RetainSummaryManager19hasAnyEnabledAttrOfINS_24CFReturnsNotRetainedAttrENS_24OSReturnsNotRetainedAttrEJN12_GLOBAL__N_133GeneralizedReturnsNotRetainedAttrENS_24NSReturnsNotRetainedAttrENS_25NSReturnsAutoreleasedAttrEEEESt8optionalINS0_7ObjKindEEPKNS_4DeclENS_8QualTypeE.exit.thread ], [ 0, %140 ], [ 0, %145 ], [ %.sroa.5.0.ph, %.loopexit.loopexit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.066.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.5.0, 1
   ret { i64, i8 } %.fca.1.insert

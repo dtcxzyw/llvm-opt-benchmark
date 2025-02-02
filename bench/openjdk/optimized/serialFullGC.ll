@@ -4486,14 +4486,13 @@ _ZN9Compacter19find_next_live_addrEPP12HeapWordImplS2_.exit: ; preds = %_ZN9Comp
   br label %258
 
 258:                                              ; preds = %257, %255
-  %.3 = phi i8 [ %.03368, %255 ], [ 1, %257 ]
   store ptr %.0.i, ptr %.03269, align 8
   br label %_ZN9Compacter5allocEm.exit52
 
 _ZN9Compacter5allocEm.exit52:                     ; preds = %238, %229, %._crit_edge.i45, %258, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit
   %.sroa.4.1 = phi i1 [ %.sroa.4.066, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ false, %258 ], [ true, %._crit_edge.i45 ], [ true, %229 ], [ true, %238 ]
   %.sroa.0.1 = phi i64 [ %.sroa.0.067, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.sroa.0.067, %258 ], [ %215, %._crit_edge.i45 ], [ %215, %229 ], [ %215, %238 ]
-  %.134 = phi i8 [ %.03368, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.3, %258 ], [ %.03368, %._crit_edge.i45 ], [ %.03368, %229 ], [ %.03368, %238 ]
+  %.134 = phi i8 [ %.03368, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ 1, %258 ], [ %.03368, %._crit_edge.i45 ], [ %.03368, %229 ], [ %.03368, %238 ]
   %.1 = phi ptr [ %141, %_ZN9Compacter11forward_objEP7oopDescPP12HeapWordImpl.exit ], [ %.0.i, %258 ], [ %.0.i, %._crit_edge.i45 ], [ %.0.i, %229 ], [ %.0.i, %238 ]
   %259 = icmp ult ptr %.1, %11
   br i1 %259, label %37, label %._crit_edge, !llvm.loop !17

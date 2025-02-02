@@ -676,7 +676,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i: ; preds = %42
   %45 = trunc nuw i8 %.0.i to i1
-  br i1 %45, label %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.thread.i, label %46
+  br i1 %45, label %.thread191.i, label %46
 
 46:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i
   %47 = load i32, ptr %41, align 8
@@ -685,7 +685,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i: ; preds 
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 %49
   %51 = load ptr, ptr %50, align 8
   %.not24.i = icmp eq ptr %51, null
-  br i1 %.not24.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.thread.i, label %52
+  br i1 %.not24.i, label %.thread85.i, label %52
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -698,208 +698,208 @@ _ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i: ; preds 
   %59 = lshr i8 %58, 5
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.thread.i
 
-_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.thread.i: ; preds = %52, %46, %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i, %42, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread.i
-  %.1.i = phi i8 [ %.0.i, %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i ], [ %59, %52 ], [ %.0.i, %46 ], [ %.0.i, %42 ], [ %.0.i, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread.i ]
+_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.thread.i: ; preds = %52, %42, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread.i
+  %.1.i = phi i8 [ %59, %52 ], [ %.0.i, %42 ], [ %.0.i, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread.i ]
   %60 = trunc i8 %.1.i to i1
-  br i1 %60, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %61
+  br i1 %60, label %.thread191.i, label %.thread85.i
 
-61:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.thread.i
-  %62 = tail call noundef zeroext i1 @_ZNK5clang4ento9CallEvent17isGlobalCFunctionEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr null, i64 0) #17
-  br i1 %62, label %63, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+.thread85.i:                                      ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.thread.i, %46
+  %61 = tail call noundef zeroext i1 @_ZNK5clang4ento9CallEvent17isGlobalCFunctionEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr null, i64 0) #17
+  br i1 %61, label %62, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %1, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
-  %66 = load ptr, ptr %65, align 8
-  %67 = tail call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(72) %1) #17
-  %.not.i.i.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %68
+62:                                               ; preds = %.thread85.i
+  %63 = load ptr, ptr %1, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call noundef ptr %65(ptr noundef nonnull align 8 dereferenceable(72) %1) #17
+  %.not.i.i.i.i = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %67
 
-68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 28
-  %70 = load i32, ptr %69, align 4
-  %71 = and i32 %70, 127
-  %72 = add nsw i32 %71, -15
-  %73 = icmp ult i32 %72, 63
-  br i1 %73, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 28
+  %69 = load i32, ptr %68, align 4
+  %70 = and i32 %69, 127
+  %71 = add nsw i32 %70, -15
+  %72 = icmp ult i32 %71, 63
+  br i1 %72, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i.i: ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %75 = load i64, ptr %74, align 8
-  %76 = and i64 %75, 7
-  %77 = icmp ne i64 %76, 0
-  %78 = and i64 %75, -8
-  %.not25.i = icmp eq i64 %78, 0
-  %or.cond.i = or i1 %77, %.not25.i
-  br i1 %or.cond.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %79
+_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i.i: ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  %74 = load i64, ptr %73, align 8
+  %75 = and i64 %74, 7
+  %76 = icmp ne i64 %75, 0
+  %77 = and i64 %74, -8
+  %.not25.i = icmp eq i64 %77, 0
+  %or.cond.i = or i1 %76, %.not25.i
+  br i1 %or.cond.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %78
 
-79:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i.i
-  %80 = inttoptr i64 %78 to ptr
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load i64, ptr %82, align 8
-  %85 = and i64 %84, 4294967295
-  %trunc.i = trunc i64 %84 to i32
+78:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i.i
+  %79 = inttoptr i64 %77 to ptr
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %83 = load i64, ptr %81, align 8
+  %84 = and i64 %83, 4294967295
+  %trunc.i = trunc i64 %83 to i32
   switch i32 %trunc.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit45.i [
     i32 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
     i32 5, label %_ZN4llvmeqENS_9StringRefES0_.exit.i34.i
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %79
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %83, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
-  %86 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %86, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %78
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %82, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+  %85 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %85, label %.thread191.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i34.i:          ; preds = %79
-  %bcmp.i.i35.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %83, ptr noundef nonnull dereferenceable(5) @.str.2, i64 5)
-  %87 = icmp eq i32 %bcmp.i.i35.i, 0
-  br i1 %87, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i
+_ZN4llvmeqENS_9StringRefES0_.exit.i34.i:          ; preds = %78
+  %bcmp.i.i35.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %82, ptr noundef nonnull dereferenceable(5) @.str.2, i64 5)
+  %86 = icmp eq i32 %bcmp.i.i35.i, 0
+  br i1 %86, label %.thread191.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i42.i:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i34.i
-  %bcmp.i.i43.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %83, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
-  %88 = icmp eq i32 %bcmp.i.i43.i, 0
-  br i1 %88, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+  %bcmp.i.i43.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %82, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
+  %87 = icmp eq i32 %bcmp.i.i43.i, 0
+  br i1 %87, label %.thread191.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit45.i: ; preds = %79
-  %.not.i.i49.i = icmp eq i64 %85, 6
+_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit45.i: ; preds = %78
+  %.not.i.i49.i = icmp eq i64 %84, 6
   br i1 %.not.i.i49.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i50.i, label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit61.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i50.i:          ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit45.i
-  %bcmp.i.i51.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %83, ptr noundef nonnull dereferenceable(6) @.str.4, i64 6)
-  %89 = icmp eq i32 %bcmp.i.i51.i, 0
-  br i1 %89, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i58.i
+  %bcmp.i.i51.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %82, ptr noundef nonnull dereferenceable(6) @.str.4, i64 6)
+  %88 = icmp eq i32 %bcmp.i.i51.i, 0
+  br i1 %88, label %.thread191.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i58.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i58.i:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i50.i
-  %bcmp.i.i59.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %83, ptr noundef nonnull dereferenceable(6) @.str.5, i64 6)
-  %90 = icmp eq i32 %bcmp.i.i59.i, 0
-  br i1 %90, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+  %bcmp.i.i59.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %82, ptr noundef nonnull dereferenceable(6) @.str.5, i64 6)
+  %89 = icmp eq i32 %bcmp.i.i59.i, 0
+  br i1 %89, label %.thread191.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit61.i: ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit45.i
-  switch i32 %trunc.i, label %94 [
+  switch i32 %trunc.i, label %93 [
     i32 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i66.i
     i32 8, label %_ZN4llvmeqENS_9StringRefES0_.exit.i74.i
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i66.i:          ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit61.i
-  %bcmp.i.i67.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %83, ptr noundef nonnull dereferenceable(7) @.str.6, i64 7)
-  %91 = icmp eq i32 %bcmp.i.i67.i, 0
-  br i1 %91, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+  %bcmp.i.i67.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %82, ptr noundef nonnull dereferenceable(7) @.str.6, i64 7)
+  %90 = icmp eq i32 %bcmp.i.i67.i, 0
+  br i1 %90, label %.thread191.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i74.i:          ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit61.i
-  %bcmp.i.i75.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %83, ptr noundef nonnull dereferenceable(8) @.str.7, i64 8)
-  %92 = icmp eq i32 %bcmp.i.i75.i, 0
-  br i1 %92, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i82.i
+  %bcmp.i.i75.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %82, ptr noundef nonnull dereferenceable(8) @.str.7, i64 8)
+  %91 = icmp eq i32 %bcmp.i.i75.i, 0
+  br i1 %91, label %.thread191.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i82.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i82.i:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i74.i
-  %bcmp.i.i83.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %83, ptr noundef nonnull dereferenceable(8) @.str.8, i64 8)
-  %93 = icmp eq i32 %bcmp.i.i83.i, 0
-  br i1 %93, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i98.i
+  %bcmp.i.i83.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %82, ptr noundef nonnull dereferenceable(8) @.str.8, i64 8)
+  %92 = icmp eq i32 %bcmp.i.i83.i, 0
+  br i1 %92, label %.thread191.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i98.i
 
-94:                                               ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit61.i
-  %.not.i.i89.i = icmp eq i64 %85, 9
-  br i1 %.not.i.i89.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i90.i, label %97
+93:                                               ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit61.i
+  %.not.i.i89.i = icmp eq i64 %84, 9
+  br i1 %.not.i.i89.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i90.i, label %96
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i90.i:          ; preds = %94
-  %bcmp.i.i91.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %83, ptr noundef nonnull dereferenceable(9) @.str.9, i64 9)
-  %95 = icmp eq i32 %bcmp.i.i91.i, 0
-  br i1 %95, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.i90.i:          ; preds = %93
+  %bcmp.i.i91.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %82, ptr noundef nonnull dereferenceable(9) @.str.9, i64 9)
+  %94 = icmp eq i32 %bcmp.i.i91.i, 0
+  br i1 %94, label %.thread191.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i98.i:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i82.i
-  %bcmp.i.i99.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %83, ptr noundef nonnull dereferenceable(8) @.str.10, i64 8)
-  %96 = icmp eq i32 %bcmp.i.i99.i, 0
-  br i1 %96, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+  %bcmp.i.i99.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %82, ptr noundef nonnull dereferenceable(8) @.str.10, i64 8)
+  %95 = icmp eq i32 %bcmp.i.i99.i, 0
+  br i1 %95, label %.thread191.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-97:                                               ; preds = %94
-  switch i32 %trunc.i, label %102 [
+96:                                               ; preds = %93
+  switch i32 %trunc.i, label %101 [
     i32 12, label %_ZN4llvmeqENS_9StringRefES0_.exit.i106.i
     i32 13, label %_ZN4llvmeqENS_9StringRefES0_.exit.i114.i
     i32 14, label %_ZN4llvmeqENS_9StringRefES0_.exit.i122.i
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i106.i:         ; preds = %97
-  %bcmp.i.i107.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %83, ptr noundef nonnull dereferenceable(12) @.str.11, i64 12)
-  %98 = icmp eq i32 %bcmp.i.i107.i, 0
-  br i1 %98, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.i106.i:         ; preds = %96
+  %bcmp.i.i107.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %82, ptr noundef nonnull dereferenceable(12) @.str.11, i64 12)
+  %97 = icmp eq i32 %bcmp.i.i107.i, 0
+  br i1 %97, label %.thread191.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i114.i:         ; preds = %97
-  %bcmp.i.i115.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %83, ptr noundef nonnull dereferenceable(13) @.str.12, i64 13)
-  %99 = icmp eq i32 %bcmp.i.i115.i, 0
-  br i1 %99, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.i114.i:         ; preds = %96
+  %bcmp.i.i115.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %82, ptr noundef nonnull dereferenceable(13) @.str.12, i64 13)
+  %98 = icmp eq i32 %bcmp.i.i115.i, 0
+  br i1 %98, label %.thread191.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i122.i:         ; preds = %97
-  %bcmp.i.i123.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %83, ptr noundef nonnull dereferenceable(14) @.str.13, i64 14)
-  %100 = icmp eq i32 %bcmp.i.i123.i, 0
-  br i1 %100, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i130.i
+_ZN4llvmeqENS_9StringRefES0_.exit.i122.i:         ; preds = %96
+  %bcmp.i.i123.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %82, ptr noundef nonnull dereferenceable(14) @.str.13, i64 14)
+  %99 = icmp eq i32 %bcmp.i.i123.i, 0
+  br i1 %99, label %.thread191.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i130.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i130.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i122.i
-  %bcmp.i.i131.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %83, ptr noundef nonnull dereferenceable(14) @.str.14, i64 14)
-  %101 = icmp eq i32 %bcmp.i.i131.i, 0
-  br i1 %101, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+  %bcmp.i.i131.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %82, ptr noundef nonnull dereferenceable(14) @.str.14, i64 14)
+  %100 = icmp eq i32 %bcmp.i.i131.i, 0
+  br i1 %100, label %.thread191.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-102:                                              ; preds = %97
-  %.not.i.i137.i = icmp eq i64 %85, 26
+101:                                              ; preds = %96
+  %.not.i.i137.i = icmp eq i64 %84, 26
   br i1 %.not.i.i137.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i138.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i138.i:         ; preds = %102
-  %bcmp.i.i139.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) %83, ptr noundef nonnull dereferenceable(26) @.str.15, i64 26)
-  %103 = icmp eq i32 %bcmp.i.i139.i, 0
-  br i1 %103, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i146.i
+_ZN4llvmeqENS_9StringRefES0_.exit.i138.i:         ; preds = %101
+  %bcmp.i.i139.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) %82, ptr noundef nonnull dereferenceable(26) @.str.15, i64 26)
+  %102 = icmp eq i32 %bcmp.i.i139.i, 0
+  br i1 %102, label %.thread191.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i146.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i146.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i138.i
-  %bcmp.i.i147.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) %83, ptr noundef nonnull dereferenceable(26) @.str.16, i64 26)
-  %104 = icmp eq i32 %bcmp.i.i147.i, 0
-  br i1 %104, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.i
+  %bcmp.i.i147.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) %82, ptr noundef nonnull dereferenceable(26) @.str.16, i64 26)
+  %103 = icmp eq i32 %bcmp.i.i147.i, 0
+  br i1 %103, label %.thread191.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i154.i
 
-_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i146.i
-  %bcmp.i.i155.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) %83, ptr noundef nonnull dereferenceable(26) @.str.17, i64 26)
-  %105 = icmp eq i32 %bcmp.i.i155.i, 0
-  br i1 %105, label %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+_ZN4llvmeqENS_9StringRefES0_.exit.i154.i:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i146.i
+  %bcmp.i.i155.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) %82, ptr noundef nonnull dereferenceable(26) @.str.17, i64 26)
+  %104 = icmp eq i32 %bcmp.i.i155.i, 0
+  br i1 %104, label %.thread191.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.thread.i, %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i146.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i138.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i130.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i122.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i114.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i106.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i98.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i90.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i82.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i74.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i66.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i58.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i50.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i34.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 56
-  %109 = load ptr, ptr %108, align 8
-  %.not.i.i159.i = icmp eq ptr %109, null
+.thread191.i:                                     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i154.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i146.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i138.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i130.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i122.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i114.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i106.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i98.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i90.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i82.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i74.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i66.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i58.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i50.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i34.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.thread.i, %_ZN4llvm16dyn_cast_or_nullIN5clang8CallExprEKNS1_4ExprEEEDaPT0_.exit.i
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
+  %108 = load ptr, ptr %107, align 8
+  %.not.i.i159.i = icmp eq ptr %108, null
   br i1 %.not.i.i159.i, label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i: ; preds = %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i
-  tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %109) #17
-  %110 = load ptr, ptr %106, align 8
-  tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %109) #17
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i: ; preds = %.thread191.i
+  tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #17
+  %109 = load ptr, ptr %105, align 8
+  tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #17
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  %.pre.i.i = load ptr, ptr %106, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 1, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %112, i64 48, i1 false)
-  %.not.i163.i = icmp eq ptr %110, null
-  %spec.select.i.i = select i1 %.not.i163.i, ptr %.pre.i.i, ptr %110
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %114 = load ptr, ptr %113, align 8
-  tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %109) #17
+  %.pre.i.i = load ptr, ptr %105, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i8 1, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %111, i64 48, i1 false)
+  %.not.i163.i = icmp eq ptr %109, null
+  %spec.select.i.i = select i1 %.not.i163.i, ptr %.pre.i.i, ptr %109
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %113 = load ptr, ptr %112, align 8
+  tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %109) #17
-  store ptr %109, ptr %4, align 8
-  %115 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull %spec.select.i.i, i1 noundef zeroext true) #17
-  %116 = load ptr, ptr %4, align 8
-  %.not.i.i3.i.i.i = icmp eq ptr %116, null
-  br i1 %.not.i.i3.i.i.i, label %118, label %117
+  tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #17
+  store ptr %108, ptr %4, align 8
+  %114 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull %spec.select.i.i, i1 noundef zeroext true) #17
+  %115 = load ptr, ptr %4, align 8
+  %.not.i.i3.i.i.i = icmp eq ptr %115, null
+  br i1 %.not.i.i3.i.i.i, label %117, label %116
 
-117:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %116) #17
-  br label %118
+116:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %115) #17
+  br label %117
 
-118:                                              ; preds = %117, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
+117:                                              ; preds = %116, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %109) #17
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %109) #17
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %109) #17
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #17
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #17
   br label %_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %61, %63, %68, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i58.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i66.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i90.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i98.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i106.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i114.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i130.i, %102, %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.i, %_ZNK5clang4ento9CallEvent19getCalleeIdentifierEv.exit.thread.thread222.i, %118
+_ZNK12_GLOBAL__N_123NoReturnFunctionChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit: ; preds = %.thread85.i, %62, %67, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i42.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i58.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i66.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i90.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i98.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i106.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i114.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i130.i, %101, %_ZN4llvmeqENS_9StringRefES0_.exit.i154.i, %.thread191.i, %117
   ret void
 }
 

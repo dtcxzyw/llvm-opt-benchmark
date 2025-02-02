@@ -2833,9 +2833,9 @@ define internal fastcc ptr @build_index_paths(ptr noundef %0, ptr noundef %1, pt
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %118 = load ptr, ptr %117, align 8
   %.not.i.not = icmp eq ptr %118, null
-  br i1 %.not.i.not, label %.thread197, label %.lr.ph81.i
+  br i1 %.not.i.not, label %.thread197, label %.lr.ph82.i
 
-.lr.ph81.i:                                       ; preds = %116
+.lr.ph82.i:                                       ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2845,12 +2845,12 @@ define internal fastcc ptr @build_index_paths(ptr noundef %0, ptr noundef %1, pt
   %125 = icmp sgt i32 %124, 0
   br i1 %125, label %.lr.ph335, label %match_pathkeys_to_index.exit.thread377
 
-.lr.ph335:                                        ; preds = %.lr.ph81.i, %.thread62.i
-  %.sroa.422.080.i334 = phi i32 [ %219, %.thread62.i ], [ 0, %.lr.ph81.i ]
-  %.1333 = phi ptr [ %218, %.thread62.i ], [ null, %.lr.ph81.i ]
-  %.1177332 = phi ptr [ %217, %.thread62.i ], [ null, %.lr.ph81.i ]
+.lr.ph335:                                        ; preds = %.lr.ph82.i, %.thread60.i
+  %.sroa.422.081.i334 = phi i32 [ %219, %.thread60.i ], [ 0, %.lr.ph82.i ]
+  %.1333 = phi ptr [ %218, %.thread60.i ], [ null, %.lr.ph82.i ]
+  %.1177332 = phi ptr [ %217, %.thread60.i ], [ null, %.lr.ph82.i ]
   %126 = load ptr, ptr %120, align 8
-  %127 = zext nneg i32 %.sroa.422.080.i334 to i64
+  %127 = zext nneg i32 %.sroa.422.081.i334 to i64
   %128 = getelementptr %union.ListCell, ptr %126, i64 %127
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 20
@@ -2876,9 +2876,9 @@ define internal fastcc ptr @build_index_paths(ptr noundef %0, ptr noundef %1, pt
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %144 = load ptr, ptr %143, align 8
   %.not45.i = icmp eq ptr %144, null
-  br i1 %.not45.i, label %match_pathkeys_to_index.exit, label %.lr.ph77.i
+  br i1 %.not45.i, label %match_pathkeys_to_index.exit, label %.lr.ph78.i
 
-.lr.ph77.i:                                       ; preds = %142
+.lr.ph78.i:                                       ; preds = %142
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %147 = getelementptr inbounds nuw i8, ptr %129, i64 16
@@ -2886,10 +2886,10 @@ define internal fastcc ptr @build_index_paths(ptr noundef %0, ptr noundef %1, pt
   %149 = icmp sgt i32 %148, 0
   br i1 %149, label %.lr.ph327, label %match_pathkeys_to_index.exit
 
-.lr.ph327:                                        ; preds = %.lr.ph77.i, %.loopexit.i
-  %indvars.iv99.i326 = phi i64 [ %indvars.iv.next100.i, %.loopexit.i ], [ 0, %.lr.ph77.i ]
+.lr.ph327:                                        ; preds = %.lr.ph78.i, %.loopexit.i
+  %indvars.iv100.i326 = phi i64 [ %indvars.iv.next101.i, %.loopexit.i ], [ 0, %.lr.ph78.i ]
   %150 = load ptr, ptr %146, align 8
-  %151 = getelementptr %union.ListCell, ptr %150, i64 %indvars.iv99.i326
+  %151 = getelementptr %union.ListCell, ptr %150, i64 %indvars.iv100.i326
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = load ptr, ptr %153, align 8
@@ -2978,12 +2978,12 @@ get_rightop.exit.i.i:                             ; preds = %list_length.exit.i.
 
 198:                                              ; preds = %196
   %199 = tail call zeroext i1 @contain_volatile_functions(ptr noundef nonnull %182) #7
-  br i1 %199, label %201, label %.thread102.i
+  br i1 %199, label %201, label %.thread103.i
 
-.thread102.i:                                     ; preds = %198
+.thread103.i:                                     ; preds = %198
   %200 = tail call i32 @get_op_opfamily_sortfamily(i32 noundef %187, i32 noundef %168) #7
-  %.not.i105.not.i = icmp eq i32 %200, %165
-  br i1 %.not.i105.not.i, label %.thread62.i, label %match_clause_to_ordering_op.exit.thread.i
+  %.not.i106.not.i = icmp eq i32 %200, %165
+  br i1 %.not.i106.not.i, label %.thread60.i, label %match_clause_to_ordering_op.exit.thread.i
 
 201:                                              ; preds = %198, %196, %193
   %202 = tail call zeroext i1 @match_index_to_operand(ptr noundef nonnull %182, i32 noundef %194, ptr noundef nonnull readonly %2)
@@ -3018,18 +3018,18 @@ match_clause_to_ordering_op.exit.thread56.i:      ; preds = %210
   %215 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %182, ptr nonnull %177) #7
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 32
   store ptr %215, ptr %216, align 8
-  br label %.thread62.i
+  br label %.thread60.i
 
-.thread62.i:                                      ; preds = %.thread102.i, %match_clause_to_ordering_op.exit.thread56.i
-  %.0.i59.i = phi ptr [ %212, %match_clause_to_ordering_op.exit.thread56.i ], [ %164, %.thread102.i ]
+.thread60.i:                                      ; preds = %.thread103.i, %match_clause_to_ordering_op.exit.thread56.i
+  %.0.i59.i = phi ptr [ %212, %match_clause_to_ordering_op.exit.thread56.i ], [ %164, %.thread103.i ]
   %217 = tail call ptr @lappend(ptr noundef %.1177332, ptr noundef nonnull %.0.i59.i) #7
   %218 = tail call ptr @lappend_int(ptr noundef %.1333, i32 noundef %194) #7
-  %219 = add nuw nsw i32 %.sroa.422.080.i334, 1
+  %219 = add nuw nsw i32 %.sroa.422.081.i334, 1
   %220 = load i32, ptr %119, align 4
   %221 = icmp slt i32 %219, %220
   br i1 %221, label %.lr.ph335, label %match_pathkeys_to_index.exit
 
-match_clause_to_ordering_op.exit.thread.i:        ; preds = %210, %207, %205, %203, %201, %.thread102.i, %189, %get_rightop.exit.i.i, %list_length.exit.i.i.i, %174, %is_opclause.exit.i.i, %.lr.ph.split.i
+match_clause_to_ordering_op.exit.thread.i:        ; preds = %210, %207, %205, %203, %201, %.thread103.i, %189, %get_rightop.exit.i.i, %list_length.exit.i.i.i, %174, %is_opclause.exit.i.i, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %222 = load i32, ptr %18, align 8
   %223 = sext i32 %222 to i64
@@ -3037,20 +3037,20 @@ match_clause_to_ordering_op.exit.thread.i:        ; preds = %210, %207, %205, %2
   br i1 %224, label %.lr.ph.splitthread-pre-split.i, label %.loopexit.i, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %match_clause_to_ordering_op.exit.thread.i, %.lr.ph.i, %.preheader.i, %.lr.ph327
-  %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i326, 1
+  %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i326, 1
   %225 = load i32, ptr %145, align 4
   %226 = sext i32 %225 to i64
-  %227 = icmp slt i64 %indvars.iv.next100.i, %226
+  %227 = icmp slt i64 %indvars.iv.next101.i, %226
   br i1 %227, label %.lr.ph327, label %match_pathkeys_to_index.exit
 
-match_pathkeys_to_index.exit:                     ; preds = %142, %136, %132, %.lr.ph335, %.thread62.i, %.lr.ph77.i, %.loopexit.i
-  %.1177252 = phi ptr [ %.1177332, %.loopexit.i ], [ %.1177332, %.lr.ph77.i ], [ %.1177332, %142 ], [ %.1177332, %136 ], [ %.1177332, %132 ], [ %.1177332, %.lr.ph335 ], [ %217, %.thread62.i ]
-  %.1250 = phi ptr [ %.1333, %.loopexit.i ], [ %.1333, %.lr.ph77.i ], [ %.1333, %142 ], [ %.1333, %136 ], [ %.1333, %132 ], [ %.1333, %.lr.ph335 ], [ %218, %.thread62.i ]
+match_pathkeys_to_index.exit:                     ; preds = %142, %136, %132, %.lr.ph335, %.thread60.i, %.lr.ph78.i, %.loopexit.i
+  %.1177252 = phi ptr [ %.1177332, %.loopexit.i ], [ %.1177332, %.lr.ph78.i ], [ %.1177332, %142 ], [ %.1177332, %136 ], [ %.1177332, %132 ], [ %.1177332, %.lr.ph335 ], [ %217, %.thread60.i ]
+  %.1250 = phi ptr [ %.1333, %.loopexit.i ], [ %.1333, %.lr.ph78.i ], [ %.1333, %142 ], [ %.1333, %136 ], [ %.1333, %132 ], [ %.1333, %.lr.ph335 ], [ %218, %.thread60.i ]
   %.pr = load ptr, ptr %117, align 8
   %.not.i158 = icmp eq ptr %.pr, null
   br i1 %.not.i158, label %list_length.exit.thread, label %list_length.exit
 
-match_pathkeys_to_index.exit.thread377:           ; preds = %.lr.ph81.i
+match_pathkeys_to_index.exit.thread377:           ; preds = %.lr.ph82.i
   %.pr380 = load ptr, ptr %117, align 8
   %.not.i158381 = icmp eq ptr %.pr380, null
   br i1 %.not.i158381, label %.thread197, label %list_length.exit.thread390

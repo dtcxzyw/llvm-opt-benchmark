@@ -4512,21 +4512,21 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8Root
   br i1 %.not49, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread, %149
-  %.sroa.7.0 = phi i8 [ 1, %149 ], [ 0, %.thread ], [ 0, %.lr.ph ]
+  %.sroa.7.0 = phi i64 [ 1, %149 ], [ 0, %.thread ], [ 0, %.lr.ph ]
   br i1 %.not80, label %.loopexit.thread, label %159
 
 159:                                              ; preds = %154, %.loopexit
   %.sroa.033.072 = phi i32 [ 0, %154 ], [ %spec.select, %.loopexit ]
-  %.sroa.7.071 = phi i8 [ 1, %154 ], [ %.sroa.7.0, %.loopexit ]
+  %.sroa.7.071 = phi i64 [ 1, %154 ], [ %.sroa.7.0, %.loopexit ]
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %3, %154, %.loopexit, %159
   %.sroa.15.sroa.1.070 = phi i32 [ %spec.select47, %159 ], [ %spec.select47, %.loopexit ], [ %spec.select47, %154 ], [ 0, %3 ]
   %.sroa.033.069 = phi i32 [ %.sroa.033.072, %159 ], [ %spec.select, %.loopexit ], [ 0, %154 ], [ 0, %3 ]
-  %.sroa.7.068 = phi i8 [ %.sroa.7.071, %159 ], [ %.sroa.7.0, %.loopexit ], [ 1, %154 ], [ 0, %3 ]
+  %.sroa.7.068 = phi i64 [ %.sroa.7.071, %159 ], [ %.sroa.7.0, %.loopexit ], [ 1, %154 ], [ 0, %3 ]
   %160 = phi i64 [ 1099511627776, %159 ], [ 0, %.loopexit ], [ 0, %154 ], [ 0, %3 ]
-  %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.068 to i64
-  %.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.7.0.insert.ext, 32
+  %.sroa.7.0.insert.ext = shl nuw nsw i64 %.sroa.7.068, 32
+  %.sroa.7.0.insert.shift = and i64 %.sroa.7.0.insert.ext, 1095216660480
   %.sroa.7.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %160
   %.sroa.033.0.insert.ext = zext i32 %.sroa.033.069 to i64
   %.sroa.033.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.insert, %.sroa.033.0.insert.ext

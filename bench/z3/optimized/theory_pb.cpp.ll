@@ -17712,7 +17712,7 @@ terminate.lpad.i274:                              ; preds = %invoke.cont109
   unreachable
 
 for.cond112:                                      ; preds = %invoke.cont109, %for.inc138
-  %indvars.iv356 = phi i64 [ %indvars.iv.next357, %for.inc138 ], [ 0, %invoke.cont109 ]
+  %indvars.iv355 = phi i64 [ %indvars.iv.next356, %for.inc138 ], [ 0, %invoke.cont109 ]
   %110 = load i32, ptr %m_lit.i.i.i, align 4
   %111 = and i32 %110, 1
   %idxprom.i.i278 = zext nneg i32 %111 to i64
@@ -17729,12 +17729,12 @@ if.end.i.i281:                                    ; preds = %for.cond112
 
 invoke.cont113:                                   ; preds = %if.end.i.i281, %for.cond112
   %retval.0.i.i283 = phi i64 [ %114, %if.end.i.i281 ], [ 0, %for.cond112 ]
-  %cmp115 = icmp samesign ult i64 %indvars.iv356, %retval.0.i.i283
+  %cmp115 = icmp samesign ult i64 %indvars.iv355, %retval.0.i.i283
   br i1 %cmp115, label %invoke.cont123, label %for.end140
 
 invoke.cont123:                                   ; preds = %invoke.cont113
   %115 = load ptr, ptr %ctx.i196, align 8
-  %arrayidx.i2.i290 = getelementptr inbounds nuw %"struct.std::pair", ptr %112, i64 %indvars.iv356
+  %arrayidx.i2.i290 = getelementptr inbounds nuw %"struct.std::pair", ptr %112, i64 %indvars.iv355
   %retval.sroa.0.0.copyload.i291 = load i32, ptr %arrayidx.i2.i290, align 8
   %m_assignment.i.i292 = getelementptr inbounds nuw i8, ptr %115, i64 9392
   %116 = load ptr, ptr %m_assignment.i.i292, align 8
@@ -17745,7 +17745,7 @@ invoke.cont123:                                   ; preds = %invoke.cont113
   br i1 %cmp125, label %invoke.cont126, label %for.inc138
 
 invoke.cont126:                                   ; preds = %invoke.cont123
-  %second.i.i301 = getelementptr inbounds nuw %"struct.std::pair", ptr %112, i64 %indvars.iv356, i32 1
+  %second.i.i301 = getelementptr inbounds nuw %"struct.std::pair", ptr %112, i64 %indvars.iv355, i32 1
   %118 = load ptr, ptr %deficit, align 8
   %bf.load.i.i.i304 = load i8, ptr %m_kind.i.i252, align 4
   %bf.clear.i.i.i305 = and i8 %bf.load.i.i.i304, 1
@@ -17775,15 +17775,15 @@ invoke.cont128:                                   ; preds = %if.else.i.i307
 
 invoke.cont128.if.then130_crit_edge:              ; preds = %invoke.cont128
   %.pre = load i32, ptr %m_lit.i.i.i, align 4
-  %.pre360 = and i32 %.pre, 1
-  %.pre361 = zext nneg i32 %.pre360 to i64
+  %.pre359 = and i32 %.pre, 1
+  %.pre360 = zext nneg i32 %.pre359 to i64
   br label %if.then130
 
 if.then130:                                       ; preds = %invoke.cont128.if.then130_crit_edge, %if.then.i.i315
-  %idxprom.i.i322.pre-phi = phi i64 [ %.pre361, %invoke.cont128.if.then130_crit_edge ], [ %idxprom.i.i278, %if.then.i.i315 ]
+  %idxprom.i.i322.pre-phi = phi i64 [ %.pre360, %invoke.cont128.if.then130_crit_edge ], [ %idxprom.i.i278, %if.then.i.i315 ]
   %arrayidx.i.i323 = getelementptr inbounds nuw [2 x %"struct.smt::theory_pb::arg_t"], ptr %m_args.i.i.i, i64 0, i64 %idxprom.i.i322.pre-phi
   %121 = load ptr, ptr %arrayidx.i.i323, align 8
-  %arrayidx.i2.i325 = getelementptr inbounds nuw %"struct.std::pair", ptr %121, i64 %indvars.iv356
+  %arrayidx.i2.i325 = getelementptr inbounds nuw %"struct.std::pair", ptr %121, i64 %indvars.iv355
   %retval.sroa.0.0.copyload.i326 = load i32, ptr %arrayidx.i2.i325, align 8
   invoke void @_ZN3smt9theory_pb10add_assignERNS0_4ineqERK7svectorIN3sat7literalEjES5_(ptr noundef nonnull align 8 dereferenceable(968) %this, ptr noundef nonnull align 8 dereferenceable(212) %1, ptr noundef nonnull align 8 dereferenceable(8) %m_literals.i.i189, i32 %retval.sroa.0.0.copyload.i326)
           to label %for.inc138 unwind label %lpad102.loopexit
@@ -17811,7 +17811,7 @@ lpad108:                                          ; preds = %if.else.i.i266
   br label %ehcleanup
 
 for.inc138:                                       ; preds = %if.then.i.i315, %invoke.cont123, %invoke.cont128, %if.then130
-  %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
+  %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   br label %for.cond112, !llvm.loop !125
 
 for.end140:                                       ; preds = %invoke.cont113
@@ -19369,13 +19369,13 @@ if.end.i.i:                                       ; preds = %land.rhs
 invoke.cont3:                                     ; preds = %if.end.i.i, %land.rhs
   %retval.0.i.i = phi i64 [ %6, %if.end.i.i ], [ 0, %land.rhs ]
   %cmp = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
-  %.pre49 = load ptr, ptr %ctx, align 8
+  %.pre48 = load ptr, ptr %ctx, align 8
   br i1 %cmp, label %invoke.cont7, label %for.end
 
 invoke.cont7:                                     ; preds = %invoke.cont3
   %arrayidx.i2.i = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i2.i, align 8
-  %m_assignment.i.i = getelementptr inbounds nuw i8, ptr %.pre49, i64 9392
+  %m_assignment.i.i = getelementptr inbounds nuw i8, ptr %.pre48, i64 9392
   %7 = load ptr, ptr %m_assignment.i.i, align 8
   %idxprom.i.i.i = zext i32 %retval.sroa.0.0.copyload.i to i64
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %idxprom.i.i.i
@@ -19463,7 +19463,7 @@ for.inc.for.end_crit_edge:                        ; preds = %call4.i.i.noexc, %i
   br label %for.end
 
 for.end:                                          ; preds = %invoke.cont3, %for.inc.for.end_crit_edge
-  %18 = phi ptr [ %.pre, %for.inc.for.end_crit_edge ], [ %.pre49, %invoke.cont3 ]
+  %18 = phi ptr [ %.pre, %for.inc.for.end_crit_edge ], [ %.pre48, %invoke.cont3 ]
   %m_trail_stack.i = getelementptr inbounds nuw i8, ptr %18, i64 10008
   %m_region.i = getelementptr inbounds nuw i8, ptr %18, i64 8952
   %call.i.i41 = invoke noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef 24)

@@ -8980,27 +8980,18 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN51_$LT$T$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h01c1d761f953fd7cE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #21 {
+"_ZN91_$LT$wasmtime_environ..component..translate..adapt..Def$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ecc0adcbe92a6feE.llvm.3269599604001853466.exit":
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2644)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2647)
-  %3 = load i32, ptr %0, align 4, !range !1563, !alias.scope !2644, !noalias !2647, !noundef !16
-  %4 = load i32, ptr %1, align 4, !range !1563, !alias.scope !2647, !noalias !2644, !noundef !16
-  %5 = icmp eq i32 %3, %4
-  br i1 %5, label %.sink.split.i, label %"_ZN91_$LT$wasmtime_environ..component..translate..adapt..Def$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ecc0adcbe92a6feE.llvm.3269599604001853466.exit"
-
-.sink.split.i:                                    ; preds = %2
-  %trunc.i = trunc nuw i32 %3 to i1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %2 = load i32, ptr %0, align 4, !range !1563, !alias.scope !2644, !noalias !2647, !noundef !16
+  %3 = load i32, ptr %1, align 4, !range !1563, !alias.scope !2647, !noalias !2644, !noundef !16
+  %4 = icmp eq i32 %2, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = icmp eq i32 %3, 0
-  %.sink.i = xor i1 %8, %trunc.i
-  tail call void @llvm.assume(i1 %.sink.i)
-  %9 = load i32, ptr %6, align 4, !alias.scope !2644, !noalias !2647, !noundef !16
-  %10 = load i32, ptr %7, align 4, !alias.scope !2647, !noalias !2644, !noundef !16
-  %11 = icmp eq i32 %9, %10
-  br label %"_ZN91_$LT$wasmtime_environ..component..translate..adapt..Def$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ecc0adcbe92a6feE.llvm.3269599604001853466.exit"
-
-"_ZN91_$LT$wasmtime_environ..component..translate..adapt..Def$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ecc0adcbe92a6feE.llvm.3269599604001853466.exit": ; preds = %2, %.sink.split.i
-  %.0.shrunk.i = phi i1 [ false, %2 ], [ %11, %.sink.split.i ]
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %6, %8
+  %.0.shrunk.i = select i1 %4, i1 %9, i1 false
   ret i1 %.0.shrunk.i
 }
 
@@ -14929,17 +14920,17 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   %3 = load i8, ptr %0, align 1, !range !1064, !noundef !16
   %4 = load i8, ptr %1, align 1, !range !1064, !noundef !16
   %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %8
+  br i1 %5, label %.sink.split, label %7
 
 .sink.split:                                      ; preds = %2
   %6 = trunc nuw i8 %4 to i1
   %trunc = trunc nuw i8 %3 to i1
-  %7 = icmp eq i8 %3, 0
-  %spec.select = select i1 %trunc, i1 %6, i1 %7
+  %not.trunc = xor i1 %trunc, true
+  %spec.select = select i1 %not.trunc, i1 true, i1 %6
   tail call void @llvm.assume(i1 %spec.select)
-  br label %8
+  br label %7
 
-8:                                                ; preds = %.sink.split, %2
+7:                                                ; preds = %.sink.split, %2
   ret i1 %5
 }
 
@@ -21607,27 +21598,17 @@ define hidden void @"_ZN87_$LT$wasmtime_environ..component..translate..adapt..De
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @"_ZN91_$LT$wasmtime_environ..component..translate..adapt..Def$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ecc0adcbe92a6feE.llvm.3269599604001853466"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #30 {
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+define hidden noundef zeroext i1 @"_ZN91_$LT$wasmtime_environ..component..translate..adapt..Def$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8ecc0adcbe92a6feE.llvm.3269599604001853466"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #26 {
   %3 = load i32, ptr %0, align 4, !range !1563, !noundef !16
   %4 = load i32, ptr %1, align 4, !range !1563, !noundef !16
   %5 = icmp eq i32 %3, %4
-  br i1 %5, label %.sink.split, label %12
-
-.sink.split:                                      ; preds = %2
-  %trunc = trunc nuw i32 %3 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = icmp eq i32 %3, 0
-  %.sink = xor i1 %8, %trunc
-  tail call void @llvm.assume(i1 %.sink)
-  %9 = load i32, ptr %6, align 4, !noundef !16
-  %10 = load i32, ptr %7, align 4, !noundef !16
-  %11 = icmp eq i32 %9, %10
-  br label %12
-
-12:                                               ; preds = %.sink.split, %2
-  %.0.shrunk = phi i1 [ false, %2 ], [ %11, %.sink.split ]
+  %7 = load i32, ptr %6, align 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %7, %9
+  %.0.shrunk = select i1 %5, i1 %10, i1 false
   ret i1 %.0.shrunk
 }
 

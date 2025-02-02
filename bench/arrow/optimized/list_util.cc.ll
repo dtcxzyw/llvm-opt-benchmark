@@ -227,7 +227,7 @@ if.then17.i.i:                                    ; preds = %if.else.i.i
 
 for.inc.i.i:                                      ; preds = %if.then17.i.i, %if.else.i.i, %if.then10.i.i, %land.lhs.true.i.i, %if.then5.i.i
   %min_offset.sroa.0.1.i.i = phi i32 [ %min_offset.sroa.0.089.i.i, %land.lhs.true.i.i ], [ %min_offset.sroa.0.089.i.i, %if.then5.i.i ], [ %min_offset.sroa.0.089.i.i, %if.else.i.i ], [ %23, %if.then10.i.i ], [ %23, %if.then17.i.i ]
-  %min_offset.sroa.7.1.i.i = phi i8 [ %min_offset.sroa.7.090.i.i, %land.lhs.true.i.i ], [ %min_offset.sroa.7.090.i.i, %if.then5.i.i ], [ %min_offset.sroa.7.090.i.i, %if.else.i.i ], [ 1, %if.then10.i.i ], [ 1, %if.then17.i.i ]
+  %min_offset.sroa.7.1.i.i = phi i8 [ 1, %land.lhs.true.i.i ], [ 1, %if.then5.i.i ], [ 0, %if.else.i.i ], [ 1, %if.then10.i.i ], [ 1, %if.then17.i.i ]
   %inc.i.i = add nuw nsw i64 %i.091.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %17
   br i1 %exitcond.not.i.i, label %if.end69.i.i, label %for.body.i.i, !llvm.loop !4
@@ -336,7 +336,7 @@ if.then58.i.i:                                    ; preds = %if.else55.i.i
 
 for.inc66.i.i:                                    ; preds = %if.then58.i.i, %if.else55.i.i, %if.then48.i.i, %land.lhs.true45.i.i, %if.then42.i.i
   %min_offset.sroa.0.5.i.i = phi i32 [ %min_offset.sroa.0.478.i.i, %land.lhs.true45.i.i ], [ %min_offset.sroa.0.478.i.i, %if.then42.i.i ], [ %min_offset.sroa.0.478.i.i, %if.else55.i.i ], [ %31, %if.then48.i.i ], [ %31, %if.then58.i.i ]
-  %min_offset.sroa.7.5.i.i = phi i8 [ %min_offset.sroa.7.479.i.i, %land.lhs.true45.i.i ], [ %min_offset.sroa.7.479.i.i, %if.then42.i.i ], [ %min_offset.sroa.7.479.i.i, %if.else55.i.i ], [ 1, %if.then48.i.i ], [ 1, %if.then58.i.i ]
+  %min_offset.sroa.7.5.i.i = phi i8 [ 1, %land.lhs.true45.i.i ], [ 1, %if.then42.i.i ], [ 0, %if.else55.i.i ], [ 1, %if.then48.i.i ], [ 1, %if.then58.i.i ]
   %inc67.i.i = add nsw i64 %i33.080.i.i, 1
   %cmp37.i.i = icmp slt i64 %inc67.i.i, %add.i.i
   br i1 %cmp37.i.i, label %for.body38.i.i, label %while.body.loopexit.i.i, !llvm.loop !7
@@ -585,7 +585,7 @@ if.then17.i.i179:                                 ; preds = %if.else.i.i171
 
 for.inc.i.i174:                                   ; preds = %if.then17.i.i179, %if.else.i.i171, %if.then10.i.i186, %land.lhs.true.i.i183, %if.then5.i.i181
   %min_offset.sroa.0.1.i.i175 = phi i64 [ %min_offset.sroa.0.068.i.i, %land.lhs.true.i.i183 ], [ %min_offset.sroa.0.068.i.i, %if.then5.i.i181 ], [ %min_offset.sroa.0.068.i.i, %if.else.i.i171 ], [ %57, %if.then10.i.i186 ], [ %57, %if.then17.i.i179 ]
-  %min_offset.sroa.7.1.i.i176 = phi i8 [ %min_offset.sroa.7.069.i.i, %land.lhs.true.i.i183 ], [ %min_offset.sroa.7.069.i.i, %if.then5.i.i181 ], [ %min_offset.sroa.7.069.i.i, %if.else.i.i171 ], [ 1, %if.then10.i.i186 ], [ 1, %if.then17.i.i179 ]
+  %min_offset.sroa.7.1.i.i176 = phi i8 [ 1, %land.lhs.true.i.i183 ], [ 1, %if.then5.i.i181 ], [ 0, %if.else.i.i171 ], [ 1, %if.then10.i.i186 ], [ 1, %if.then17.i.i179 ]
   %inc.i.i177 = add nuw nsw i64 %i.070.i.i, 1
   %exitcond.not.i.i178 = icmp eq i64 %inc.i.i177, %51
   br i1 %exitcond.not.i.i178, label %_ZN5arrow9list_util8internal12_GLOBAL__N_113MinViewOffsetIlEESt8optionalIlERKNS_9ArraySpanE.exit.i, label %for.body.i.i168, !llvm.loop !11
@@ -694,7 +694,7 @@ if.then58.i.i141:                                 ; preds = %if.else55.i.i133
 
 for.inc66.i.i136:                                 ; preds = %if.then58.i.i141, %if.else55.i.i133, %if.then48.i.i148, %land.lhs.true45.i.i145, %if.then42.i.i143
   %min_offset.sroa.0.5.i.i137 = phi i64 [ %min_offset.sroa.0.457.i.i, %land.lhs.true45.i.i145 ], [ %min_offset.sroa.0.457.i.i, %if.then42.i.i143 ], [ %min_offset.sroa.0.457.i.i, %if.else55.i.i133 ], [ %65, %if.then48.i.i148 ], [ %65, %if.then58.i.i141 ]
-  %min_offset.sroa.7.5.i.i138 = phi i8 [ %min_offset.sroa.7.458.i.i, %land.lhs.true45.i.i145 ], [ %min_offset.sroa.7.458.i.i, %if.then42.i.i143 ], [ %min_offset.sroa.7.458.i.i, %if.else55.i.i133 ], [ 1, %if.then48.i.i148 ], [ 1, %if.then58.i.i141 ]
+  %min_offset.sroa.7.5.i.i138 = phi i8 [ 1, %land.lhs.true45.i.i145 ], [ 1, %if.then42.i.i143 ], [ 0, %if.else55.i.i133 ], [ 1, %if.then48.i.i148 ], [ 1, %if.then58.i.i141 ]
   %inc67.i.i139 = add nsw i64 %i33.059.i.i, 1
   %cmp37.i.i140 = icmp slt i64 %inc67.i.i139, %add.i.i74
   br i1 %cmp37.i.i140, label %for.body38.i.i130, label %while.body.loopexit.i.i75, !llvm.loop !13

@@ -2987,7 +2987,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit100:               ; preds = %.critedge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph212, %_ZN4llvmplERKNS_5TwineES2_.exit100, %268
-  %.1 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit100 ], [ %.068219, %268 ], [ %.068219, %.lr.ph212 ]
+  %.1 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit100 ], [ 0, %268 ], [ %.068219, %.lr.ph212 ]
   %269 = getelementptr inbounds nuw i8, ptr %.069218, i64 8
   %.not73 = icmp eq ptr %269, %250
   br i1 %.not73, label %._crit_edge222, label %253
@@ -3043,7 +3043,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit132:               ; preds = %281
   br label %287
 
 287:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit132, %286, %.lr.ph243
-  %.3 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit132 ], [ %.2241, %286 ], [ %.2241, %.lr.ph243 ]
+  %.3 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit132 ], [ 0, %286 ], [ %.2241, %.lr.ph243 ]
   %288 = getelementptr inbounds nuw i8, ptr %.sroa.0146.0240, i64 8
   %.not190 = icmp eq ptr %288, %273
   br i1 %.not190, label %.loopexit191, label %.lr.ph243

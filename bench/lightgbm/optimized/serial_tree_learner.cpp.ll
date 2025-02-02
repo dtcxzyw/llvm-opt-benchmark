@@ -14828,8 +14828,8 @@ define linkonce_odr void @_ZN8LightGBM27IntermediateLeafConstraints26GoDownToFin
   br label %81
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %12
-  %.tr77.lcssa = phi i32 [ %1, %12 ], [ %156, %tailrecurse ]
-  %.tr84.lcssa = phi i1 [ %8, %12 ], [ %157, %tailrecurse ]
+  %.tr77.lcssa = phi i32 [ %1, %12 ], [ %153, %tailrecurse ]
+  %.tr84.lcssa = phi i1 [ %8, %12 ], [ %154, %tailrecurse ]
   %16 = xor i32 %.tr77.lcssa, -1
   %17 = zext nneg i32 %16 to i64
   %18 = load ptr, ptr %11, align 8
@@ -14954,9 +14954,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 81:                                               ; preds = %.lr.ph, %tailrecurse
-  %82 = phi ptr [ %.pre, %.lr.ph ], [ %152, %tailrecurse ]
-  %.tr8491 = phi i1 [ %8, %.lr.ph ], [ %157, %tailrecurse ]
-  %.tr7790 = phi i32 [ %1, %.lr.ph ], [ %156, %tailrecurse ]
+  %82 = phi ptr [ %.pre, %.lr.ph ], [ %149, %tailrecurse ]
+  %.tr8491 = phi i1 [ %8, %.lr.ph ], [ %154, %tailrecurse ]
+  %.tr7790 = phi i32 [ %1, %.lr.ph ], [ %153, %tailrecurse ]
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %84 = zext nneg i32 %.tr7790 to i64
   %85 = load ptr, ptr %83, align 8
@@ -14990,14 +14990,14 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %umax.i = tail call i64 @llvm.umax.i64(i64 %102, i64 1)
   br label %105
 
-105:                                              ; preds = %138, %.lr.ph.i
-  %.034.i = phi i64 [ 0, %.lr.ph.i ], [ %139, %138 ]
-  %.133.i = phi i8 [ 1, %.lr.ph.i ], [ %.2.i, %138 ]
-  %.12832.i = phi i8 [ 1, %.lr.ph.i ], [ %.3.i, %138 ]
+105:                                              ; preds = %135, %.lr.ph.i
+  %.034.i = phi i64 [ 0, %.lr.ph.i ], [ %136, %135 ]
+  %.133.i = phi i8 [ 1, %.lr.ph.i ], [ %.2.i, %135 ]
+  %.12832.i = phi i8 [ 1, %.lr.ph.i ], [ %.3.i, %135 ]
   %106 = getelementptr inbounds i32, ptr %98, i64 %.034.i
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %107, %87
-  br i1 %108, label %109, label %138
+  br i1 %108, label %109, label %135
 
 109:                                              ; preds = %105
   %110 = getelementptr inbounds i32, ptr %103, i64 %.034.i
@@ -15021,12 +15021,12 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 121:                                              ; preds = %112
   %122 = trunc nuw i8 %.133.i to i1
-  br i1 %122, label %123, label %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
+  br i1 %122, label %123, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 123:                                              ; preds = %121, %112, %109
   %.229.i = phi i8 [ %.12832.i, %109 ], [ %.12832.i, %112 ], [ 0, %121 ]
   %.not20.i = icmp ugt i32 %91, %111
-  br i1 %.not20.i, label %138, label %124
+  br i1 %.not20.i, label %135, label %124
 
 124:                                              ; preds = %123
   %125 = sdiv i64 %.034.i, 64
@@ -15040,74 +15040,64 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %131 = load i64, ptr %storemerge.i.i.i.i.i22.i, align 8
   %132 = and i64 %131, %130
   %.not31.i = icmp eq i64 %132, 0
-  br i1 %.not31.i, label %138, label %133
+  br i1 %.not31.i, label %135, label %133
 
 133:                                              ; preds = %124
   %134 = trunc nuw i8 %.229.i to i1
-  br i1 %134, label %138, label %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread104
+  br i1 %134, label %135, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
-_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread104: ; preds = %133
-  %135 = and i8 %.229.i, 1
-  %136 = icmp eq i8 %135, 0
-  %137 = icmp ne i32 %87, %6
-  %.not108 = icmp ult i32 %91, %10
-  %narrow109 = select i1 %137, i1 true, i1 %.not108
-  br i1 %136, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
-
-138:                                              ; preds = %133, %124, %123, %105
-  %.3.i = phi i8 [ %.229.i, %123 ], [ %.229.i, %133 ], [ %.229.i, %124 ], [ %.12832.i, %105 ]
+135:                                              ; preds = %133, %124, %123, %105
+  %.3.i = phi i8 [ %.229.i, %123 ], [ 1, %133 ], [ %.229.i, %124 ], [ %.12832.i, %105 ]
   %.2.i = phi i8 [ %.133.i, %123 ], [ 0, %133 ], [ %.133.i, %124 ], [ %.133.i, %105 ]
-  %139 = add nuw i64 %.034.i, 1
-  %exitcond.not.i = icmp eq i64 %139, %umax.i
+  %136 = add nuw i64 %.034.i, 1
+  %exitcond.not.i = icmp eq i64 %136, %umax.i
   br i1 %exitcond.not.i, label %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit, label %105, !llvm.loop !70
 
 _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread: ; preds = %81, %.preheader.i
-  %140 = icmp ne i32 %87, %6
-  %or.cond.not96 = or i1 %140, %.not.i.i
+  %137 = icmp ne i32 %87, %6
+  %or.cond.not96 = or i1 %137, %.not.i.i
   %.not97 = icmp ult i32 %91, %10
   %narrow98 = select i1 %or.cond.not96, i1 true, i1 %.not97
-  br label %145
+  br label %142
 
-_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit: ; preds = %121, %138
-  %.027.ph.i = phi i8 [ %.3.i, %138 ], [ 0, %121 ]
-  %.026.ph.i = phi i8 [ %.2.i, %138 ], [ %.133.i, %121 ]
-  %141 = and i8 %.027.ph.i, 1
-  %142 = trunc nuw i8 %.026.ph.i to i1
-  %143 = icmp eq i8 %141, 0
-  %144 = icmp ne i32 %87, %6
+_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit: ; preds = %135
+  %138 = and i8 %.3.i, 1
+  %139 = trunc nuw i8 %.2.i to i1
+  %140 = icmp eq i8 %138, 0
+  %141 = icmp ne i32 %87, %6
   %.not = icmp ult i32 %91, %10
-  %narrow = select i1 %144, i1 true, i1 %.not
-  br i1 %142, label %145, label %151
+  %narrow = select i1 %141, i1 true, i1 %.not
+  br i1 %139, label %142, label %148
 
-145:                                              ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
+142:                                              ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
   %narrow103 = phi i1 [ %narrow98, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %narrow, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
-  %or.cond.not101 = phi i1 [ %or.cond.not96, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %144, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
-  %.027.i100 = phi i1 [ false, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %143, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
+  %or.cond.not101 = phi i1 [ %or.cond.not96, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %141, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
+  %.027.i100 = phi i1 [ false, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread ], [ %140, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ]
   %.not57 = icmp ugt i32 %91, %10
   %.0 = select i1 %or.cond.not101, i1 true, i1 %.not57
-  %146 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %84
-  %149 = load i32, ptr %148, align 4
-  %150 = and i1 %9, %.0
-  tail call void @_ZN8LightGBM27IntermediateLeafConstraints26GoDownToFindLeavesToUpdateEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEEbiRKNS_9SplitInfoEbbjRKS1_ISE_SaISE_EE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %149, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(122) %7, i1 noundef zeroext %.tr8491, i1 noundef zeroext %150, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %143 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i32, ptr %144, i64 %84
+  %146 = load i32, ptr %145, align 4
+  %147 = and i1 %9, %.0
+  tail call void @_ZN8LightGBM27IntermediateLeafConstraints26GoDownToFindLeavesToUpdateEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEEbiRKNS_9SplitInfoEbbjRKS1_ISE_SaISE_EE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %146, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(122) %7, i1 noundef zeroext %.tr8491, i1 noundef zeroext %147, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
   br i1 %.027.i100, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
 
-151:                                              ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
-  br i1 %143, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
+148:                                              ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
+  br i1 %140, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %tailrecurse
 
-tailrecurse:                                      ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread104, %145, %151
-  %narrow102110 = phi i1 [ %narrow103, %145 ], [ %narrow, %151 ], [ %narrow109, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread104 ]
-  %152 = load ptr, ptr %14, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i32, ptr %154, i64 %84
-  %156 = load i32, ptr %155, align 4
-  %157 = and i1 %.tr8491, %narrow102110
-  %158 = icmp slt i32 %156, 0
-  br i1 %158, label %tailrecurse._crit_edge, label %81
+tailrecurse:                                      ; preds = %142, %148
+  %narrow102113 = phi i1 [ %narrow103, %142 ], [ %narrow, %148 ]
+  %149 = load ptr, ptr %14, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 40
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds nuw i32, ptr %151, i64 %84
+  %153 = load i32, ptr %152, align 4
+  %154 = and i1 %.tr8491, %narrow102113
+  %155 = icmp slt i32 %153, 0
+  br i1 %155, label %tailrecurse._crit_edge, label %81
 
-_ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %151, %145, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit.thread104, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %58, %44, %48, %tailrecurse._crit_edge
+_ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %148, %142, %121, %133, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %58, %44, %48, %tailrecurse._crit_edge
   ret void
 }
 
@@ -18883,9 +18873,9 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedLeafConstraints30GoDownToFindCon
   br label %24
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tailrecurse._crit_edge_crit_edge
-  %17 = phi ptr [ %.pre80, %.tailrecurse._crit_edge_crit_edge ], [ %110, %tailrecurse ]
-  %.tr61.lcssa = phi i32 [ %3, %.tailrecurse._crit_edge_crit_edge ], [ %114, %tailrecurse ]
-  %.tr63.lcssa = phi i32 [ %5, %.tailrecurse._crit_edge_crit_edge ], [ %109, %tailrecurse ]
+  %17 = phi ptr [ %.pre80, %.tailrecurse._crit_edge_crit_edge ], [ %111, %tailrecurse ]
+  %.tr61.lcssa = phi i32 [ %3, %.tailrecurse._crit_edge_crit_edge ], [ %115, %tailrecurse ]
+  %.tr63.lcssa = phi i32 [ %5, %.tailrecurse._crit_edge_crit_edge ], [ %110, %tailrecurse ]
   %18 = xor i32 %.tr61.lcssa, -1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 336
   %20 = zext nneg i32 %18 to i64
@@ -18896,11 +18886,11 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tail
   br label %.loopexit
 
 24:                                               ; preds = %.lr.ph, %tailrecurse
-  %25 = phi i32 [ %5, %.lr.ph ], [ %109, %tailrecurse ]
-  %26 = phi ptr [ %.pre, %.lr.ph ], [ %110, %tailrecurse ]
-  %.tr6174 = phi i32 [ %3, %.lr.ph ], [ %114, %tailrecurse ]
+  %25 = phi i32 [ %5, %.lr.ph ], [ %110, %tailrecurse ]
+  %26 = phi ptr [ %.pre, %.lr.ph ], [ %111, %tailrecurse ]
+  %.tr6173 = phi i32 [ %3, %.lr.ph ], [ %115, %tailrecurse ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %28 = zext nneg i32 %.tr6174 to i64
+  %28 = zext nneg i32 %.tr6173 to i64
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds nuw i32, ptr %29, i64 %28
   %31 = load i32, ptr %30, align 4
@@ -18989,15 +18979,15 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tail
   br i1 %78, label %79, label %.loopexit.loopexit.i
 
 79:                                               ; preds = %77, %68, %67, %49
-  %.3.i = phi i8 [ %.229.i, %67 ], [ %.229.i, %77 ], [ %.229.i, %68 ], [ %.12832.i, %49 ]
+  %.3.i = phi i8 [ %.229.i, %67 ], [ 1, %77 ], [ %.229.i, %68 ], [ %.12832.i, %49 ]
   %.2.i = phi i8 [ %.133.i, %67 ], [ 0, %77 ], [ %.133.i, %68 ], [ %.133.i, %49 ]
   %80 = add nuw i64 %.034.i, 1
   %exitcond.not.i = icmp eq i64 %80, %umax.i
   br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %49, !llvm.loop !70
 
 .loopexit.loopexit.i:                             ; preds = %79, %77, %65
-  %.027.ph.i = phi i8 [ %.3.i, %79 ], [ 0, %65 ], [ %.229.i, %77 ]
-  %.026.ph.i = phi i8 [ %.2.i, %79 ], [ %.133.i, %65 ], [ 0, %77 ]
+  %.027.ph.i = phi i8 [ %.3.i, %79 ], [ 0, %65 ], [ 0, %77 ]
+  %.026.ph.i = phi i8 [ %.2.i, %79 ], [ 0, %65 ], [ 0, %77 ]
   %81 = trunc nuw i8 %.026.ph.i to i1
   %82 = trunc nuw i8 %.027.ph.i to i1
   %83 = xor i1 %82, true
@@ -19039,38 +19029,43 @@ _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vector
 _ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit: ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit, %86, %97, %98, %99
   %.sroa.0.0.i = phi i1 [ %.027.i, %99 ], [ true, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ], [ true, %86 ], [ true, %98 ], [ true, %97 ]
   %.not.not.not = phi i1 [ false, %99 ], [ false, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ], [ false, %86 ], [ true, %98 ], [ true, %97 ]
-  %or.cond71 = select i1 %.026.i, i1 %.sroa.0.0.i, i1 false
-  br i1 %or.cond71, label %100, label %107
+  br i1 %.026.i, label %100, label %108
 
 100:                                              ; preds = %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
-  %101 = add i32 %35, 1
-  %.pre78 = tail call i32 @llvm.umin.i32(i32 %6, i32 %101)
-  %102 = select i1 %84, i32 %.pre78, i32 %6
-  %103 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %28
-  %106 = load i32, ptr %105, align 4
-  tail call void @_ZN8LightGBM23AdvancedLeafConstraints30GoDownToFindConstrainingLeavesEiiibjjRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEEPNS_26FeatureMinOrMaxConstraintsEj(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %106, i1 noundef zeroext %4, i32 noundef %25, i32 noundef %102, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10, i32 noundef %11)
-  br label %107
+  br i1 %.sroa.0.0.i, label %101, label %.thread
 
-107:                                              ; preds = %100, %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
+101:                                              ; preds = %100
+  %102 = add i32 %35, 1
+  %.pre78 = tail call i32 @llvm.umin.i32(i32 %6, i32 %102)
+  %103 = select i1 %84, i32 %.pre78, i32 %6
+  %104 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %28
+  %107 = load i32, ptr %106, align 4
+  tail call void @_ZN8LightGBM23AdvancedLeafConstraints30GoDownToFindConstrainingLeavesEiiibjjRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEEPNS_26FeatureMinOrMaxConstraintsEj(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %107, i1 noundef zeroext %4, i32 noundef %25, i32 noundef %103, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10, i32 noundef %11)
+  br label %108
+
+108:                                              ; preds = %101, %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
   %brmerge.not = and i1 %.026.i, %.not.not.not
   %or.cond = select i1 %.027.i, i1 true, i1 %brmerge.not
   br i1 %or.cond, label %.loopexit, label %tailrecurse
 
-tailrecurse:                                      ; preds = %107
-  %108 = add i32 %35, 1
-  %.pre79 = tail call i32 @llvm.umax.i32(i32 %108, i32 %25)
-  %109 = select i1 %84, i32 %.pre79, i32 %25
-  %110 = load ptr, ptr %.phi.trans.insert, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i32, ptr %112, i64 %28
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp slt i32 %114, 0
-  br i1 %115, label %tailrecurse._crit_edge, label %24
+.thread:                                          ; preds = %100
+  br i1 %.not.not.not, label %.loopexit, label %tailrecurse
 
-.loopexit:                                        ; preds = %107, %tailrecurse._crit_edge
+tailrecurse:                                      ; preds = %108, %.thread
+  %109 = add i32 %35, 1
+  %.pre79 = tail call i32 @llvm.umax.i32(i32 %109, i32 %25)
+  %110 = select i1 %84, i32 %.pre79, i32 %25
+  %111 = load ptr, ptr %.phi.trans.insert, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw i32, ptr %113, i64 %28
+  %115 = load i32, ptr %114, align 4
+  %116 = icmp slt i32 %115, 0
+  br i1 %116, label %tailrecurse._crit_edge, label %24
+
+.loopexit:                                        ; preds = %.thread, %108, %tailrecurse._crit_edge
   ret void
 }
 
@@ -19188,7 +19183,7 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedLeafConstraints17UpdateConstrain
 69:                                               ; preds = %58, %53, %61, %.critedge, %32
   %70 = phi i32 [ %.pre154, %53 ], [ %.pre153, %61 ], [ %.pre154, %.critedge ], [ %.pre154, %32 ], [ %.pre154, %58 ]
   %.182 = phi i64 [ %.081139, %53 ], [ %68, %61 ], [ %.081139, %.critedge ], [ %.081139, %32 ], [ %.081139, %58 ]
-  %.3 = phi i8 [ %.2, %53 ], [ 1, %61 ], [ 1, %.critedge ], [ %.2, %32 ], [ 1, %58 ]
+  %.3 = phi i8 [ 1, %53 ], [ 1, %61 ], [ 1, %.critedge ], [ %.2, %32 ], [ 1, %58 ]
   %71 = load ptr, ptr %13, align 8
   %72 = getelementptr inbounds i32, ptr %71, i64 %.182
   %73 = load i32, ptr %72, align 4

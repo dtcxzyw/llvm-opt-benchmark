@@ -1365,7 +1365,7 @@ for.inc109.us.us:                                 ; preds = %for.cond32.for.inc1
   %.pre169173 = phi i32 [ %.pre172, %for.cond32.for.inc109_crit_edge.us.us ], [ %.pre169174, %for.body19.us148.us ]
   %20 = phi i32 [ %.pre172, %for.cond32.for.inc109_crit_edge.us.us ], [ %19, %for.body19.us148.us ]
   %buf.sroa.0.3.lcssa.us.us = phi ptr [ %buf.sroa.0.4.us.us, %for.cond32.for.inc109_crit_edge.us.us ], [ %buf.sroa.0.2135.us.us, %for.body19.us148.us ]
-  %ok.2.lcssa.us.us = phi i8 [ %ok.3.us.le.us, %for.cond32.for.inc109_crit_edge.us.us ], [ %ok.1137.us.us, %for.body19.us148.us ]
+  %ok.2.lcssa.us.us = phi i8 [ %ok.3.us.le.us, %for.cond32.for.inc109_crit_edge.us.us ], [ 0, %for.body19.us148.us ]
   %add112.us150.us = add nsw i32 %20, %y.0136.us149.us
   %cmp18.us151.us = icmp slt i32 %add112.us150.us, %yend
   br i1 %cmp18.us151.us, label %for.body19.us148.us, label %for.cond17.for.inc114_crit_edge.split.us152.us, !llvm.loop !8

@@ -8545,6 +8545,8 @@ pmix_pointer_array_get_item.exit529:              ; preds = %.preheader635, %469
   %452 = load ptr, ptr @prte_default_hostfile, align 8
   %.not435 = icmp eq ptr %452, null
   %brmerge631 = select i1 %.not435, i1 true, i1 %.0350687
+  %not..not435 = xor i1 %.not435, true
+  %.0350.mux = select i1 %not..not435, i1 true, i1 %.0350687
   br i1 %brmerge631, label %469, label %453
 
 453:                                              ; preds = %451
@@ -8585,7 +8587,7 @@ pmix_pointer_array_get_item.exit529:              ; preds = %.preheader635, %469
   br label %469
 
 469:                                              ; preds = %.sink.split, %451, %463, %pmix_pointer_array_get_item.exit529
-  %.1 = phi i1 [ %.0350687, %pmix_pointer_array_get_item.exit529 ], [ %.0350687, %451 ], [ true, %463 ], [ %.0350687, %.sink.split ]
+  %.1 = phi i1 [ %.0350687, %pmix_pointer_array_get_item.exit529 ], [ %.0350.mux, %451 ], [ true, %463 ], [ %.0350687, %.sink.split ]
   %indvars.iv.next747 = add nuw nsw i64 %indvars.iv746, 1
   %470 = load ptr, ptr %385, align 8
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 128

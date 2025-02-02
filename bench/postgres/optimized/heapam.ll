@@ -4471,7 +4471,7 @@ BufferGetPage.exit:                               ; preds = %34, %40
   br label %heap_acquire_tuplock.exit.us
 
 heap_acquire_tuplock.exit.us:                     ; preds = %87, %85, %82
-  %.2.us = phi i8 [ %.0163.us, %82 ], [ %.0163.us, %85 ], [ 1, %87 ]
+  %.2.us = phi i8 [ %.0163.us, %82 ], [ 1, %85 ], [ 1, %87 ]
   %88 = call fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %76, i32 noundef 5, i16 noundef zeroext %78, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %64, i32 noundef 2, ptr noundef null)
   call void @LockBuffer(i32 noundef %32, i32 noundef 2) #11
   %89 = load i32, ptr %11, align 4
@@ -4513,7 +4513,6 @@ heap_acquire_tuplock.exit.us:                     ; preds = %87, %85, %82
   br label %heap_acquire_tuplock.exit157.us
 
 heap_acquire_tuplock.exit157.us:                  ; preds = %107, %105
-  %.5.us = phi i8 [ %.0163.us, %105 ], [ 1, %107 ]
   call void @XactLockTableWait(i32 noundef %76, ptr noundef %0, ptr noundef nonnull %64, i32 noundef 2) #11
   call void @LockBuffer(i32 noundef %32, i32 noundef 2) #11
   %108 = load i32, ptr %11, align 4
@@ -4528,7 +4527,7 @@ heap_acquire_tuplock.exit157.us:                  ; preds = %107, %105
 
 .split.us.backedge:                               ; preds = %110, %112, %118, %91, %93, %99
   %.be = phi i32 [ %89, %99 ], [ %89, %93 ], [ 0, %91 ], [ %108, %118 ], [ %108, %112 ], [ 0, %110 ]
-  %.0163.us.be = phi i8 [ %.2.us, %99 ], [ %.2.us, %93 ], [ %.2.us, %91 ], [ %.5.us, %118 ], [ %.5.us, %112 ], [ %.5.us, %110 ]
+  %.0163.us.be = phi i8 [ %.2.us, %99 ], [ %.2.us, %93 ], [ %.2.us, %91 ], [ 1, %118 ], [ 1, %112 ], [ 1, %110 ]
   br label %.split.us
 
 112:                                              ; preds = %110, %heap_acquire_tuplock.exit157.us
@@ -4606,7 +4605,7 @@ heap_acquire_tuplock.exit157.us:                  ; preds = %107, %105
   br label %UpdateXmaxHintBits.exit
 
 UpdateXmaxHintBits.exit:                          ; preds = %103, %99, %80, %141, %140, %.split209.us
-  %.3 = phi i8 [ %.5.us, %.split209.us ], [ %.5.us, %140 ], [ %.5.us, %141 ], [ %.0163.us, %80 ], [ %.2.us, %99 ], [ %.0163.us, %103 ]
+  %.3 = phi i8 [ 1, %.split209.us ], [ 1, %140 ], [ 1, %141 ], [ %.0163.us, %80 ], [ %.2.us, %99 ], [ %.0163.us, %103 ]
   %142 = load ptr, ptr %61, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 20
   %144 = load i16, ptr %143, align 4
@@ -5124,7 +5123,7 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
   br label %46
 
 46:                                               ; preds = %21, %45, %43, %41, %34
-  %.2.us.us = phi i8 [ %.137.us.us, %43 ], [ 1, %45 ], [ %.137.us.us, %41 ], [ %.137.us.us, %34 ], [ %.137.us.us, %21 ]
+  %.2.us.us = phi i8 [ 0, %43 ], [ 1, %45 ], [ 0, %41 ], [ 0, %34 ], [ 0, %21 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count56
   br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !20
@@ -5185,13 +5184,13 @@ define internal fastcc zeroext i1 @DoesMultiXactIdConflict(i32 noundef %0, i16 n
   br label %78
 
 78:                                               ; preds = %75, %73, %66, %65, %64, %77
-  %.2 = phi i8 [ %.137, %64 ], [ %.137, %65 ], [ %.137, %73 ], [ 1, %77 ], [ %.137, %75 ], [ %.137, %66 ]
+  %.2 = phi i8 [ %.137, %64 ], [ 1, %65 ], [ 0, %73 ], [ 1, %77 ], [ 0, %75 ], [ 0, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %78, %48, %46, %.lr.ph.split.us.split.us, %.preheader
-  %.1.lcssa = phi i8 [ 0, %.preheader ], [ %.137.us.us, %.lr.ph.split.us.split.us ], [ %.2.us.us, %46 ], [ %.137, %48 ], [ %.2, %78 ]
+  %.1.lcssa = phi i8 [ 0, %.preheader ], [ 1, %.lr.ph.split.us.split.us ], [ %.2.us.us, %46 ], [ 1, %48 ], [ %.2, %78 ]
   %79 = load ptr, ptr %5, align 8
   call void @pfree(ptr noundef %79) #11
   %80 = trunc nuw i8 %.1.lcssa to i1
@@ -6235,7 +6234,7 @@ HeapDetermineColumnsInfo.exit:                    ; preds = %.outer.backedge.i, 
   br label %heap_acquire_tuplock.exit
 
 heap_acquire_tuplock.exit:                        ; preds = %176, %174, %171
-  %.3387 = phi i8 [ %.0384, %171 ], [ %.0384, %174 ], [ 1, %176 ]
+  %.3387 = phi i8 [ %.0384, %171 ], [ 1, %174 ], [ 1, %176 ]
   %181 = call fastcc zeroext i1 @Do_MultiXactIdWait(i32 noundef %163, i32 noundef range(i32 0, 6) %.0283, i16 noundef zeroext %165, i1 noundef zeroext false, ptr noundef %0, ptr noundef nonnull %88, i32 noundef 1, ptr noundef nonnull %30)
   %182 = load i32, ptr %30, align 4
   call void @LockBuffer(i32 noundef %56, i32 noundef 2) #11
@@ -6336,7 +6335,6 @@ heap_acquire_tuplock.exit:                        ; preds = %176, %174, %171
   br label %heap_acquire_tuplock.exit340
 
 heap_acquire_tuplock.exit340:                     ; preds = %221, %223
-  %.6 = phi i8 [ %.0384, %221 ], [ 1, %223 ]
   call void @XactLockTableWait(i32 noundef %163, ptr noundef %0, ptr noundef nonnull %88, i32 noundef 1) #11
   call void @LockBuffer(i32 noundef %56, i32 noundef 2) #11
   %228 = load ptr, ptr %85, align 8
@@ -6348,7 +6346,7 @@ heap_acquire_tuplock.exit340:                     ; preds = %221, %223
   br i1 %.not.i341.not, label %233, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %heap_acquire_tuplock.exit340, %233, %heap_acquire_tuplock.exit, %188, %302
-  %.0384.be = phi i8 [ %.1385, %302 ], [ %.3387, %188 ], [ %.3387, %heap_acquire_tuplock.exit ], [ %.6, %233 ], [ %.6, %heap_acquire_tuplock.exit340 ]
+  %.0384.be = phi i8 [ %.1385, %302 ], [ %.3387, %188 ], [ %.3387, %heap_acquire_tuplock.exit ], [ 1, %233 ], [ 1, %heap_acquire_tuplock.exit340 ]
   br label %.backedge
 
 233:                                              ; preds = %heap_acquire_tuplock.exit340
@@ -6393,7 +6391,7 @@ heap_acquire_tuplock.exit340:                     ; preds = %221, %223
 
 .thread401:                                       ; preds = %248, %..thread401_crit_edge
   %253 = phi ptr [ %.pre500, %..thread401_crit_edge ], [ %249, %248 ]
-  %.4406 = phi i8 [ %.2386, %..thread401_crit_edge ], [ %.6, %248 ]
+  %.4406 = phi i8 [ %.2386, %..thread401_crit_edge ], [ 1, %248 ]
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 12
   %255 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %88, ptr noundef nonnull %254) #11
   %. = select i1 %255, i32 4, i32 3
@@ -6404,7 +6402,7 @@ heap_acquire_tuplock.exit340:                     ; preds = %221, %223
   br label %.thread396
 
 .thread396:                                       ; preds = %.thread396.sink.split, %212, %214, %193, %218, %216, %248, %.backedge
-  %.1385 = phi i8 [ %.0384, %.backedge ], [ %.6, %248 ], [ %.0384, %218 ], [ %.0384, %216 ], [ %.2386, %193 ], [ %.2386, %214 ], [ %.2386, %212 ], [ %.2386, %.thread396.sink.split ]
+  %.1385 = phi i8 [ %.0384, %.backedge ], [ 1, %248 ], [ %.0384, %218 ], [ %.0384, %216 ], [ %.2386, %193 ], [ %.2386, %214 ], [ %.2386, %212 ], [ %.2386, %.thread396.sink.split ]
   %.0271 = phi i1 [ false, %.backedge ], [ true, %248 ], [ true, %218 ], [ true, %216 ], [ %170, %193 ], [ %170, %214 ], [ %170, %212 ], [ %170, %.thread396.sink.split ]
   %.0269 = phi i1 [ false, %.backedge ], [ false, %248 ], [ true, %218 ], [ true, %216 ], [ %.1270, %193 ], [ %.1270, %214 ], [ %.1270, %212 ], [ %.1270, %.thread396.sink.split ]
   %.0262 = phi i32 [ %154, %.backedge ], [ 0, %248 ], [ 0, %218 ], [ 0, %216 ], [ 0, %193 ], [ 0, %214 ], [ 0, %212 ], [ 0, %.thread396.sink.split ]

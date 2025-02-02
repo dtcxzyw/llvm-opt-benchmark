@@ -5201,7 +5201,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.us:              ; preds = %61, %63, %56, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSF_RSF_EneERKSB_.exit.thread.us
   %.136.us = phi ptr [ %.035.us, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSF_RSF_EneERKSB_.exit.thread.us ], [ %54, %56 ], [ %54, %63 ], [ %54, %61 ]
-  %.1.us = phi i8 [ %.0.us, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSF_RSF_EneERKSB_.exit.thread.us ], [ %.0.us, %56 ], [ 1, %63 ], [ 1, %61 ]
+  %.1.us = phi i8 [ %.0.us, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSF_RSF_EneERKSB_.exit.thread.us ], [ 1, %56 ], [ 1, %63 ], [ 1, %61 ]
   %65 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %11)
   br label %_ZNK4llvm12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS2_S5_EEE5beginEv.exit.split.us
 
@@ -5383,7 +5383,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %123, %125
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %139, %138, %136, %118, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSF_RSF_EneERKSB_.exit.thread
   %.136 = phi ptr [ %.035, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSF_RSF_EneERKSB_.exit.thread ], [ %116, %118 ], [ %116, %136 ], [ %116, %138 ], [ %116, %139 ]
-  %.1 = phi i8 [ %.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSF_RSF_EneERKSB_.exit.thread ], [ %.0, %118 ], [ 1, %136 ], [ 1, %138 ], [ 1, %139 ]
+  %.1 = phi i8 [ %.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS4_S7_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSF_RSF_EneERKSB_.exit.thread ], [ 1, %118 ], [ 1, %136 ], [ 1, %138 ], [ 1, %139 ]
   %142 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %11)
   br label %_ZNK4llvm12ImmutableMapIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValENS_16ImutKeyValueInfoIS2_S5_EEE5beginEv.exit.split
 
@@ -6153,7 +6153,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN4llvm11raw_ostre
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %79, %_ZN4llvm11raw_ostreamlsEc.exit, %97, %99, %100, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapISt4pairIPKN5clang16CXXConstructExprEPKNS4_15LocationContextEEjNS_16ImutKeyValueInfoISB_jEEEEEESt26bidirectional_iterator_tagKS3_ISB_jElPSI_RSI_EneERKSF_.exit.thread
   %.sroa.3141.1 = phi ptr [ %.sroa.3141.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapISt4pairIPKN5clang16CXXConstructExprEPKNS4_15LocationContextEEjNS_16ImutKeyValueInfoISB_jEEEEEESt26bidirectional_iterator_tagKS3_ISB_jElPSI_RSI_EneERKSF_.exit.thread ], [ %3, %100 ], [ %3, %99 ], [ %3, %97 ], [ %3, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %3, %79 ]
   %.sroa.0140.1 = phi ptr [ %.sroa.0140.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapISt4pairIPKN5clang16CXXConstructExprEPKNS4_15LocationContextEEjNS_16ImutKeyValueInfoISB_jEEEEEESt26bidirectional_iterator_tagKS3_ISB_jElPSI_RSI_EneERKSF_.exit.thread ], [ %76, %100 ], [ %76, %99 ], [ %76, %97 ], [ %76, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %76, %79 ]
-  %.1 = phi i8 [ %.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapISt4pairIPKN5clang16CXXConstructExprEPKNS4_15LocationContextEEjNS_16ImutKeyValueInfoISB_jEEEEEESt26bidirectional_iterator_tagKS3_ISB_jElPSI_RSI_EneERKSF_.exit.thread ], [ 1, %100 ], [ 1, %99 ], [ 1, %97 ], [ 1, %_ZN4llvm11raw_ostreamlsEc.exit ], [ %.0, %79 ]
+  %.1 = phi i8 [ %.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapISt4pairIPKN5clang16CXXConstructExprEPKNS4_15LocationContextEEjNS_16ImutKeyValueInfoISB_jEEEEEESt26bidirectional_iterator_tagKS3_ISB_jElPSI_RSI_EneERKSF_.exit.thread ], [ 1, %100 ], [ 1, %99 ], [ 1, %97 ], [ 1, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 1, %79 ]
   br label %103
 
 103:                                              ; preds = %106, %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -6904,7 +6904,6 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %98, %97, %95, %_ZN4llvm11raw_ostreamlsEc.exit, %77
-  %.2 = phi i8 [ %.0, %77 ], [ 1, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 1, %95 ], [ 1, %97 ], [ 1, %98 ]
   %101 = load ptr, ptr %74, align 8
   %102 = load ptr, ptr %75, align 8
   br label %103
@@ -6912,7 +6911,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %98, %97, %95, %_ZN4
 103:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapISt4pairIPKN5clang16CXXConstructExprEPKNS4_15LocationContextEEjNS_16ImutKeyValueInfoISB_jEEEEEESt26bidirectional_iterator_tagKS3_ISB_jElPSI_RSI_EneERKSF_.exit.thread, %_ZN4llvm11raw_ostreamlsEPKc.exit
   %.sroa.3.1 = phi ptr [ %102, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %.sroa.3.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapISt4pairIPKN5clang16CXXConstructExprEPKNS4_15LocationContextEEjNS_16ImutKeyValueInfoISB_jEEEEEESt26bidirectional_iterator_tagKS3_ISB_jElPSI_RSI_EneERKSF_.exit.thread ]
   %.sroa.0134.1 = phi ptr [ %101, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %.sroa.0134.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapISt4pairIPKN5clang16CXXConstructExprEPKNS4_15LocationContextEEjNS_16ImutKeyValueInfoISB_jEEEEEESt26bidirectional_iterator_tagKS3_ISB_jElPSI_RSI_EneERKSF_.exit.thread ]
-  %.1 = phi i8 [ %.2, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapISt4pairIPKN5clang16CXXConstructExprEPKNS4_15LocationContextEEjNS_16ImutKeyValueInfoISB_jEEEEEESt26bidirectional_iterator_tagKS3_ISB_jElPSI_RSI_EneERKSF_.exit.thread ]
+  %.1 = phi i8 [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit ], [ %.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapISt4pairIPKN5clang16CXXConstructExprEPKNS4_15LocationContextEEjNS_16ImutKeyValueInfoISB_jEEEEEESt26bidirectional_iterator_tagKS3_ISB_jElPSI_RSI_EneERKSF_.exit.thread ]
   br label %104
 
 104:                                              ; preds = %107, %103
@@ -7650,13 +7649,12 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %86, %85, %83, %_ZN4llvm11raw_ostreamlsEc.exit, %65
-  %.2 = phi i8 [ %.0, %65 ], [ 1, %_ZN4llvm11raw_ostreamlsEc.exit ], [ 1, %83 ], [ 1, %85 ], [ 1, %86 ]
   %89 = load ptr, ptr %63, align 8
   br label %90
 
 90:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang15LocationContextEjNS_16ImutKeyValueInfoIS6_jEEEEEESt26bidirectional_iterator_tagKSt4pairIS6_jElPSE_RSE_EneERKSA_.exit.thread, %_ZN4llvm11raw_ostreamlsEPKc.exit
   %.133 = phi ptr [ %.032, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang15LocationContextEjNS_16ImutKeyValueInfoIS6_jEEEEEESt26bidirectional_iterator_tagKSt4pairIS6_jElPSE_RSE_EneERKSA_.exit.thread ], [ %89, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  %.1 = phi i8 [ %.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang15LocationContextEjNS_16ImutKeyValueInfoIS6_jEEEEEESt26bidirectional_iterator_tagKSt4pairIS6_jElPSE_RSE_EneERKSA_.exit.thread ], [ %.2, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.1 = phi i8 [ %.0, %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5clang15LocationContextEjNS_16ImutKeyValueInfoIS6_jEEEEEESt26bidirectional_iterator_tagKSt4pairIS6_jElPSE_RSE_EneERKSA_.exit.thread ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   br label %91
 
 91:                                               ; preds = %94, %90

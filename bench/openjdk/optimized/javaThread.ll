@@ -3005,7 +3005,7 @@ declare void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 
 define hidden void @_ZN10JavaThread30wait_for_object_deoptimizationEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.SpinYield, align 8
   %3 = load i32, ptr @_ZN2os16_processor_countE, align 4
-  %.not15 = icmp eq i32 %3, 1
+  %.not14 = icmp eq i32 %3, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1088
@@ -3016,14 +3016,14 @@ define hidden void @_ZN10JavaThread30wait_for_object_deoptimizationEv(ptr nounde
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !17
   store volatile i32 10, ptr %5, align 4
-  br i1 %.not15, label %27, label %11
+  br i1 %.not14, label %27, label %11
 
 11:                                               ; preds = %1
   call void @_ZN9SpinYieldC1Ejjj(ptr noundef nonnull align 8 dereferenceable(36) %2, i32 noundef 40960, i32 noundef 64, i32 noundef 1000) #21
   %12 = load volatile i32, ptr %6, align 8
   %13 = and i32 %12, 8
-  %.not14 = icmp eq i32 %13, 0
-  br i1 %.not14, label %_ZN13MonitorLockerD2Ev.exit, label %.lr.ph
+  %.not15 = icmp eq i32 %13, 0
+  br i1 %.not15, label %_ZN13MonitorLockerD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %_ZN9SpinYield4waitEv.exit
   %.013 = phi i32 [ %21, %_ZN9SpinYield4waitEv.exit ], [ 0, %11 ]

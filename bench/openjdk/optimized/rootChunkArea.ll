@@ -494,7 +494,7 @@ define hidden noundef ptr @_ZN9metaspace13RootChunkArea5mergeEPNS_9MetachunkEPNS
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 25
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %.lr.ph77, label %._crit_edge
+  br i1 %32, label %.lr.ph76, label %._crit_edge
 
 33:                                               ; preds = %123
   %34 = load ptr, ptr %.045., align 8
@@ -519,7 +519,7 @@ define hidden noundef ptr @_ZN9metaspace13RootChunkArea5mergeEPNS_9MetachunkEPNS
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 25
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %.lr.ph77, label %._crit_edge, !llvm.loop !8
+  br i1 %49, label %.lr.ph76, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33, %.lr.ph.preheader, %14
   %.048.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph.preheader ], [ %.045., %33 ], [ %.045., %.lr.ph ]
@@ -540,8 +540,8 @@ define hidden noundef ptr @_ZN9metaspace13RootChunkArea5mergeEPNS_9MetachunkEPNS
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.7, i64 noundef %52, i32 noundef %54, i64 noundef %56, i32 noundef %58)
   br label %.thread
 
-.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0456976 = phi ptr [ %.045., %.lr.ph ], [ %1, %.lr.ph.preheader ]
+.lr.ph76:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0456875 = phi ptr [ %.045., %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %59 = phi i1 [ %43, %.lr.ph ], [ %26, %.lr.ph.preheader ]
   %60 = phi ptr [ %44, %.lr.ph ], [ %27, %.lr.ph.preheader ]
   %61 = phi ptr [ %45, %.lr.ph ], [ %28, %.lr.ph.preheader ]
@@ -550,7 +550,7 @@ define hidden noundef ptr @_ZN9metaspace13RootChunkArea5mergeEPNS_9MetachunkEPNS
   %.not60 = icmp eq ptr %63, null
   br i1 %.not60, label %72, label %64
 
-64:                                               ; preds = %.lr.ph77
+64:                                               ; preds = %.lr.ph76
   %65 = ptrtoint ptr %60 to i64
   %66 = tail call noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72) %60) #8
   %67 = sext i8 %66 to i32
@@ -562,8 +562,8 @@ define hidden noundef ptr @_ZN9metaspace13RootChunkArea5mergeEPNS_9MetachunkEPNS
   %.pre = load i8, ptr %61, align 8
   br label %72
 
-72:                                               ; preds = %.lr.ph77, %64
-  %73 = phi i8 [ %62, %.lr.ph77 ], [ %.pre, %64 ]
+72:                                               ; preds = %.lr.ph76, %64
+  %73 = phi i8 [ %62, %.lr.ph76 ], [ %.pre, %64 ]
   %74 = sext i8 %73 to i64
   %75 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %2, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %60, i64 40
@@ -612,8 +612,8 @@ _ZN9metaspace19FreeChunkListVector6removeEPNS_9MetachunkE.exit: ; preds = %89, %
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, -1
   store i32 %96, ptr %94, align 4
-  %.045. = select i1 %59, ptr %.0456976, ptr %60
-  %..045 = select i1 %59, ptr %60, ptr %.0456976
+  %.045. = select i1 %59, ptr %.0456875, ptr %60
+  %..045 = select i1 %59, ptr %60, ptr %.0456875
   %97 = getelementptr inbounds nuw i8, ptr %.045., i64 16
   %98 = load i64, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %.045., i64 24

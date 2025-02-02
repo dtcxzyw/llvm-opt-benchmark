@@ -373,10 +373,10 @@ define void @_Z15increaseNstlistP8_IO_FILEP9t_commrecP10t_inputreciPK10gmx_mtop_
 
 25:                                               ; preds = %21
   %.not179 = icmp ne ptr %0, null
-  %brmerge.not226 = and i1 %.not179, %7
+  %brmerge.not227 = and i1 %.not179, %7
   %26 = mul nsw i32 %19, 20
   %27 = icmp slt i32 %23, %26
-  %or.cond = select i1 %brmerge.not226, i1 %27, i1 false
+  %or.cond = select i1 %brmerge.not227, i1 %27, i1 false
   br i1 %or.cond, label %28, label %42
 
 28:                                               ; preds = %25
@@ -418,20 +418,20 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
   br label %44
 
 44:                                               ; preds = %42, %48
-  %.1249 = phi i64 [ 0, %42 ], [ %49, %48 ]
-  %45 = getelementptr inbounds nuw [6 x i32], ptr @_ZL11nstlist_try, i64 0, i64 %.1249
+  %.1250 = phi i64 [ 0, %42 ], [ %49, %48 ]
+  %45 = getelementptr inbounds nuw [6 x i32], ptr @_ZL11nstlist_try, i64 0, i64 %.1250
   %46 = load i32, ptr %45, align 4
   %47 = mul nsw i32 %46, %19
   %.not180 = icmp slt i32 %43, %47
   br i1 %.not180, label %.critedge.thread, label %48
 
 48:                                               ; preds = %44
-  %49 = add nuw nsw i64 %.1249, 1
+  %49 = add nuw nsw i64 %.1250, 1
   %exitcond.not = icmp eq i64 %49, 6
   br i1 %exitcond.not, label %.critedge, label %44, !llvm.loop !5
 
 .critedge.thread:                                 ; preds = %44, %18
-  %.0 = phi i64 [ 0, %18 ], [ %.1249, %44 ]
+  %.0 = phi i64 [ 0, %18 ], [ %.1250, %44 ]
   %50 = load i32, ptr %16, align 4
   switch i32 %50, label %69 [
     i32 0, label %51
@@ -542,8 +542,8 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
   %100 = load i32, ptr %99, align 8
   %101 = icmp ne i32 %100, 0
   %102 = fcmp ogt float %71, 0.000000e+00
-  %or.cond225 = and i1 %102, %101
-  br i1 %or.cond225, label %103, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread
+  %or.cond226 = and i1 %102, %101
+  br i1 %or.cond226, label %103, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread
 
 _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201: ; preds = %97, %97
   %.old = fcmp ogt float %71, 0.000000e+00
@@ -623,7 +623,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
   br i1 %20, label %146, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %145
-  %.pre266 = load i32, ptr %109, align 8
+  %.pre267 = load i32, ptr %109, align 8
   br label %150
 
 146:                                              ; preds = %145
@@ -634,7 +634,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
   br label %150
 
 150:                                              ; preds = %._crit_edge, %146
-  %151 = phi i32 [ %.pre266, %._crit_edge ], [ %149, %146 ]
+  %151 = phi i32 [ %.pre267, %._crit_edge ], [ %149, %146 ]
   %152 = sub nsw i32 %151, %19
   %153 = call noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %4, float noundef %6, ptr noundef nonnull align 8 dereferenceable(856) %2, float noundef %124, i32 noundef %151, i32 noundef %152, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %12)
   %154 = fmul float %153, %153
@@ -645,8 +645,8 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
 
 158:                                              ; preds = %150
   %.val = load ptr, ptr %144, align 8
-  %.not228 = icmp eq ptr %.val, null
-  br i1 %.not228, label %176, label %159
+  %.not229 = icmp eq ptr %.val, null
+  br i1 %.not229, label %176, label %159
 
 159:                                              ; preds = %158
   %160 = call noundef i32 @_Z20inputrec2nboundeddimPK10t_inputrec(ptr noundef nonnull %2)
@@ -719,12 +719,12 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
 185:                                              ; preds = %184
   %186 = fcmp ole float %153, %133
   %or.cond200.not = and i1 %186, %.0153
-  %or.cond231 = and i1 %157, %or.cond200.not
-  br i1 %or.cond231, label %187, label %.thread221
+  %or.cond232 = and i1 %157, %or.cond200.not
+  br i1 %or.cond232, label %187, label %.thread217
 
-.thread221:                                       ; preds = %185
+.thread217:                                       ; preds = %185
   store i32 %.0165, ptr %109, align 8
-  br label %.thread211
+  br label %.thread222
 
 187:                                              ; preds = %185
   %188 = load i32, ptr %109, align 8
@@ -732,16 +732,16 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
   %190 = fcmp olt float %153, %131
   %191 = and i1 %189, %190
   %192 = add nuw nsw i64 %.2, 1
-  br i1 %191, label %145, label %.thread211, !llvm.loop !7
+  br i1 %191, label %145, label %.thread222, !llvm.loop !7
 
 193:                                              ; preds = %184
   %brmerge.not = and i1 %157, %.0153
   %.str.11.mux = select i1 %157, ptr @.str.12, ptr @.str.11
-  br i1 %brmerge.not, label %._crit_edge267, label %194
+  br i1 %brmerge.not, label %..thread222_crit_edge, label %194
 
-._crit_edge267:                                   ; preds = %193
+..thread222_crit_edge:                            ; preds = %193
   %.pre268 = load i32, ptr %109, align 8
-  br label %.thread211
+  br label %.thread222
 
 194:                                              ; preds = %193
   call void (ptr, ...) @_Z11gmx_warningPKcz(ptr noundef nonnull @.str.22, ptr noundef nonnull %.str.11.mux)
@@ -756,18 +756,18 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
   store i32 %110, ptr %109, align 8
   br label %.critedge
 
-.thread211:                                       ; preds = %187, %._crit_edge267, %.thread221
-  %198 = phi i32 [ %.0165, %.thread221 ], [ %.pre268, %._crit_edge267 ], [ %188, %187 ]
-  %.0156208216224 = phi float [ %.0157, %.thread221 ], [ %153, %._crit_edge267 ], [ %153, %187 ]
+.thread222:                                       ; preds = %187, %..thread222_crit_edge, %.thread217
+  %198 = phi i32 [ %.0165, %.thread217 ], [ %.pre268, %..thread222_crit_edge ], [ %188, %187 ]
+  %.0156208216225 = phi float [ %.0157, %.thread217 ], [ %153, %..thread222_crit_edge ], [ %153, %187 ]
   %.not186 = icmp ne i32 %198, %110
   %.pre269 = load float, ptr %141, align 4
-  %199 = fcmp une float %.0156208216224, %.pre269
+  %199 = fcmp une float %.0156208216225, %.pre269
   %or.cond288 = select i1 %.not186, i1 true, i1 %199
   br i1 %or.cond288, label %200, label %.critedge
 
-200:                                              ; preds = %.thread211
+200:                                              ; preds = %.thread222
   %201 = fpext float %.pre269 to double
-  %202 = fpext float %.0156208216224 to double
+  %202 = fpext float %.0156208216225 to double
   %203 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %110, i32 noundef %198, double noundef %201, double noundef %202) #23
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %205 = load i32, ptr %204, align 4
@@ -794,10 +794,10 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
   br label %217
 
 217:                                              ; preds = %215, %214
-  store float %.0156208216224, ptr %141, align 4
+  store float %.0156208216225, ptr %141, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %48, %.thread211, %9, %217, %90, %91, %66, %67, %197, %24
+.critedge:                                        ; preds = %48, %.thread222, %9, %217, %90, %91, %66, %67, %197, %24
   ret void
 
 218:                                              ; preds = %173, %75

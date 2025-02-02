@@ -8805,151 +8805,143 @@ entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %mask, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %mask, align 8
-  %cmp98.not = icmp eq ptr %0, %1
-  br i1 %cmp98.not, label %for.end, label %for.body.lr.ph
+  %cmp102.not = icmp eq ptr %0, %1
+  br i1 %cmp102.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %streaming.not = xor i1 %streaming, true
   %maxHistoryAvailable = getelementptr inbounds nuw i8, ptr %grey, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %2 = phi ptr [ %1, %for.body.lr.ph ], [ %32, %for.inc ]
-  %case_fixed.0106 = phi i1 [ false, %for.body.lr.ph ], [ %case_fixed.1, %for.inc ]
-  %nocase.0105 = phi i1 [ false, %for.body.lr.ph ], [ %nocase.1, %for.inc ]
-  %best_begin.0104 = phi i64 [ 0, %for.body.lr.ph ], [ %best_begin.2, %for.inc ]
-  %best_end.0103 = phi i64 [ 0, %for.body.lr.ph ], [ %best_end.2, %for.inc ]
-  %i.0102 = phi i64 [ 0, %for.body.lr.ph ], [ %end.1, %for.inc ]
-  %begin.0100 = phi i64 [ 0, %for.body.lr.ph ], [ %begin.1, %for.inc ]
-  %best_len.099 = phi i64 [ 0, %for.body.lr.ph ], [ %best_len.2, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"class.ue2::CharReach", ptr %2, i64 %i.0102
-  %3 = load i64, ptr %add.ptr.i, align 8
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
+  %.pre122.pre125 = phi ptr [ %1, %for.body.lr.ph ], [ %.pre122.pre126, %for.inc ]
+  %case_fixed.0110 = phi i1 [ false, %for.body.lr.ph ], [ %case_fixed.1, %for.inc ]
+  %nocase.0109 = phi i1 [ false, %for.body.lr.ph ], [ %nocase.1, %for.inc ]
+  %best_begin.0108 = phi i64 [ 0, %for.body.lr.ph ], [ %best_begin.2, %for.inc ]
+  %best_end.0107 = phi i64 [ 0, %for.body.lr.ph ], [ %best_end.2, %for.inc ]
+  %i.0106 = phi i64 [ 0, %for.body.lr.ph ], [ %end.1, %for.inc ]
+  %begin.0104 = phi i64 [ 0, %for.body.lr.ph ], [ %begin.1, %for.inc ]
+  %best_len.0103 = phi i64 [ 0, %for.body.lr.ph ], [ %best_len.2, %for.inc ]
+  %add.ptr.i = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre122.pre125, i64 %i.0106
+  %2 = load i64, ptr %add.ptr.i, align 8
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
   %arrayidx.i.i44.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
-  %5 = load i64, ptr %arrayidx.i.i44.i.i, align 8
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
-  %add9.i.i = add nuw nsw i64 %6, %4
+  %4 = load i64, ptr %arrayidx.i.i44.i.i, align 8
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4)
+  %add9.i.i = add nuw nsw i64 %5, %3
   %arrayidx.i.i45.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
-  %7 = load i64, ptr %arrayidx.i.i45.i.i, align 8
-  %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
-  %add15.i.i = add nuw nsw i64 %add9.i.i, %8
+  %6 = load i64, ptr %arrayidx.i.i45.i.i, align 8
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %add15.i.i = add nuw nsw i64 %add9.i.i, %7
   %arrayidx.i.i46.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
-  %9 = load i64, ptr %arrayidx.i.i46.i.i, align 8
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
-  %add21.i.i = add nuw nsw i64 %add15.i.i, %10
+  %8 = load i64, ptr %arrayidx.i.i46.i.i, align 8
+  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
+  %add21.i.i = add nuw nsw i64 %add15.i.i, %9
   %cmp3.not = icmp eq i64 %add21.i.i, 1
   br i1 %cmp3.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
   %call5 = tail call noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
   %not.call5 = xor i1 %call5, true
-  %spec.select = zext i1 %not.call5 to i8
+  %.pre122.pre.pre = load ptr, ptr %mask, align 8
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %for.body
-  %fail.0 = phi i8 [ 0, %for.body ], [ %spec.select, %land.lhs.true ]
-  %tobool = trunc nuw i8 %fail.0 to i1
-  %brmerge = or i1 %streaming.not, %tobool
-  %11 = load i32, ptr %maxHistoryAvailable, align 8
-  %add = add i32 %11, 1
+  %.pre122.pre = phi ptr [ %.pre122.pre125, %for.body ], [ %.pre122.pre.pre, %land.lhs.true ]
+  %fail.0 = phi i1 [ false, %for.body ], [ %not.call5, %land.lhs.true ]
+  %10 = load i32, ptr %maxHistoryAvailable, align 8
+  %add = add i32 %10, 1
   %conv = zext i32 %add to i64
-  %cmp9.not = icmp ult i64 %i.0102, %conv
-  %12 = select i1 %brmerge, i1 true, i1 %cmp9.not
-  %fail.1 = select i1 %12, i8 %fail.0, i8 1
-  %tobool14 = trunc nuw i8 %fail.1 to i1
-  %case_fixed.0.not = xor i1 %case_fixed.0106, true
-  %brmerge89 = select i1 %tobool14, i1 true, i1 %case_fixed.0.not
-  br i1 %brmerge89, label %if.end35, label %land.lhs.true17
+  %cmp9.not = icmp uge i64 %i.0106, %conv
+  %fail.0.not = xor i1 %fail.0, true
+  %not.brmerge = and i1 %streaming, %fail.0.not
+  %11 = select i1 %not.brmerge, i1 %cmp9.not, i1 false
+  %tobool14 = or i1 %11, %fail.0
+  br i1 %tobool14, label %if.then37, label %land.lhs.true15
 
-land.lhs.true17:                                  ; preds = %if.end
-  %13 = load ptr, ptr %mask, align 8
-  %add.ptr.i46 = getelementptr inbounds %"class.ue2::CharReach", ptr %13, i64 %i.0102
+land.lhs.true15:                                  ; preds = %if.end
+  br i1 %case_fixed.0110, label %land.lhs.true17, label %if.else
+
+land.lhs.true17:                                  ; preds = %land.lhs.true15
+  %add.ptr.i46 = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre122.pre, i64 %i.0106
   %call19 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i46)
-  br i1 %call19, label %if.then20, label %if.end35
+  %12 = load ptr, ptr %mask, align 8
+  br i1 %call19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %land.lhs.true17
-  %14 = load ptr, ptr %mask, align 8
-  %add.ptr.i47 = getelementptr inbounds %"class.ue2::CharReach", ptr %14, i64 %i.0102
-  %15 = load i64, ptr %add.ptr.i47, align 8
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %15)
+  %add.ptr.i47 = getelementptr inbounds %"class.ue2::CharReach", ptr %12, i64 %i.0106
+  %13 = load i64, ptr %add.ptr.i47, align 8
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
   %arrayidx.i.i44.i.i48 = getelementptr inbounds nuw i8, ptr %add.ptr.i47, i64 8
-  %17 = load i64, ptr %arrayidx.i.i44.i.i48, align 8
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
-  %add9.i.i49 = add nuw nsw i64 %18, %16
+  %15 = load i64, ptr %arrayidx.i.i44.i.i48, align 8
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %15)
+  %add9.i.i49 = add nuw nsw i64 %16, %14
   %arrayidx.i.i45.i.i50 = getelementptr inbounds nuw i8, ptr %add.ptr.i47, i64 16
-  %19 = load i64, ptr %arrayidx.i.i45.i.i50, align 8
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
-  %add15.i.i51 = add nuw nsw i64 %add9.i.i49, %20
+  %17 = load i64, ptr %arrayidx.i.i45.i.i50, align 8
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
+  %add15.i.i51 = add nuw nsw i64 %add9.i.i49, %18
   %arrayidx.i.i46.i.i52 = getelementptr inbounds nuw i8, ptr %add.ptr.i47, i64 24
-  %21 = load i64, ptr %arrayidx.i.i46.i.i52, align 8
-  %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
-  %add21.i.i53 = add nuw nsw i64 %add15.i.i51, %22
-  br i1 %nocase.0105, label %if.end27.thread, label %land.lhs.true29
-
-if.end27.thread:                                  ; preds = %if.then20
-  %cmp25.not = icmp eq i64 %add21.i.i53, 2
-  %spec.select41 = select i1 %cmp25.not, i8 %fail.1, i8 1
-  br label %if.end35
+  %19 = load i64, ptr %arrayidx.i.i46.i.i52, align 8
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
+  %add21.i.i53 = add nuw nsw i64 %add15.i.i51, %20
+  br i1 %nocase.0109, label %if.end35, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %if.then20
-  %cmp32.not = icmp eq i64 %add21.i.i53, 1
-  %spec.select42 = select i1 %cmp32.not, i8 %fail.1, i8 1
-  br label %if.end35
+  %cmp32.not.not = icmp eq i64 %add21.i.i53, 1
+  br i1 %cmp32.not.not, label %if.else, label %if.then37
 
-if.end35:                                         ; preds = %if.end, %if.end27.thread, %land.lhs.true29, %land.lhs.true17
-  %fail.2 = phi i8 [ %fail.1, %if.end ], [ %fail.1, %land.lhs.true17 ], [ %spec.select42, %land.lhs.true29 ], [ %spec.select41, %if.end27.thread ]
-  %tobool36 = trunc nuw i8 %fail.2 to i1
-  br i1 %tobool36, label %if.then37, label %if.else
+if.end35:                                         ; preds = %if.then20
+  %cmp25.not.not = icmp eq i64 %add21.i.i53, 2
+  br i1 %cmp25.not.not, label %if.else, label %if.then37
 
-if.then37:                                        ; preds = %if.end35
-  %sub = sub i64 %i.0102, %begin.0100
-  %cmp38 = icmp ugt i64 %sub, %best_len.099
-  %best_len.1 = tail call i64 @llvm.umax.i64(i64 %sub, i64 %best_len.099)
-  %best_end.1 = select i1 %cmp38, i64 %i.0102, i64 %best_end.0103
-  %best_begin.1 = select i1 %cmp38, i64 %begin.0100, i64 %best_begin.0104
-  %add43 = add nuw i64 %i.0102, 1
-  %.pre = load ptr, ptr %mask, align 8
+if.then37:                                        ; preds = %land.lhs.true29, %if.end, %if.end35
+  %.pre122.pre127 = phi ptr [ %.pre122.pre, %if.end ], [ %12, %if.end35 ], [ %12, %land.lhs.true29 ]
+  %sub = sub i64 %i.0106, %begin.0104
+  %cmp38 = icmp ugt i64 %sub, %best_len.0103
+  %best_len.1 = tail call i64 @llvm.umax.i64(i64 %sub, i64 %best_len.0103)
+  %best_end.1 = select i1 %cmp38, i64 %i.0106, i64 %best_end.0107
+  %best_begin.1 = select i1 %cmp38, i64 %begin.0104, i64 %best_begin.0108
+  %add43 = add nuw i64 %i.0106, 1
   br label %for.inc
 
-if.else:                                          ; preds = %if.end35
-  %add45 = add nuw i64 %i.0102, 1
-  %23 = load ptr, ptr %mask, align 8
-  %add.ptr.i61 = getelementptr inbounds %"class.ue2::CharReach", ptr %23, i64 %i.0102
+if.else:                                          ; preds = %land.lhs.true17, %land.lhs.true29, %land.lhs.true15, %if.end35
+  %21 = phi ptr [ %.pre122.pre, %land.lhs.true15 ], [ %12, %if.end35 ], [ %12, %land.lhs.true29 ], [ %12, %land.lhs.true17 ]
+  %add45 = add nuw i64 %i.0106, 1
+  %add.ptr.i61 = getelementptr inbounds %"class.ue2::CharReach", ptr %21, i64 %i.0106
   %call47 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i61)
-  %.pre117 = load ptr, ptr %mask, align 8
+  %.pre123 = load ptr, ptr %mask, align 8
   br i1 %call47, label %if.then48, label %for.inc
 
 if.then48:                                        ; preds = %if.else
-  %add.ptr.i62 = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre117, i64 %i.0102
-  %24 = load i64, ptr %add.ptr.i62, align 8
-  %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
+  %add.ptr.i62 = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre123, i64 %i.0106
+  %22 = load i64, ptr %add.ptr.i62, align 8
+  %23 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
   %arrayidx.i.i44.i.i63 = getelementptr inbounds nuw i8, ptr %add.ptr.i62, i64 8
-  %26 = load i64, ptr %arrayidx.i.i44.i.i63, align 8
-  %27 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
-  %add9.i.i64 = add nuw nsw i64 %27, %25
+  %24 = load i64, ptr %arrayidx.i.i44.i.i63, align 8
+  %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
+  %add9.i.i64 = add nuw nsw i64 %25, %23
   %arrayidx.i.i45.i.i65 = getelementptr inbounds nuw i8, ptr %add.ptr.i62, i64 16
-  %28 = load i64, ptr %arrayidx.i.i45.i.i65, align 8
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %28)
-  %add15.i.i66 = add nuw nsw i64 %add9.i.i64, %29
+  %26 = load i64, ptr %arrayidx.i.i45.i.i65, align 8
+  %27 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %add15.i.i66 = add nuw nsw i64 %add9.i.i64, %27
   %arrayidx.i.i46.i.i67 = getelementptr inbounds nuw i8, ptr %add.ptr.i62, i64 24
-  %30 = load i64, ptr %arrayidx.i.i46.i.i67, align 8
-  %31 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
-  %add21.i.i68 = add nuw nsw i64 %add15.i.i66, %31
+  %28 = load i64, ptr %arrayidx.i.i46.i.i67, align 8
+  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %28)
+  %add21.i.i68 = add nuw nsw i64 %add15.i.i66, %29
   %cmp51 = icmp eq i64 %add21.i.i68, 2
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then37, %if.then48, %if.else
-  %32 = phi ptr [ %.pre, %if.then37 ], [ %.pre117, %if.then48 ], [ %.pre117, %if.else ]
-  %best_len.2 = phi i64 [ %best_len.1, %if.then37 ], [ %best_len.099, %if.then48 ], [ %best_len.099, %if.else ]
-  %begin.1 = phi i64 [ %add43, %if.then37 ], [ %begin.0100, %if.then48 ], [ %begin.0100, %if.else ]
+  %.pre122.pre126 = phi ptr [ %.pre122.pre127, %if.then37 ], [ %.pre123, %if.then48 ], [ %.pre123, %if.else ]
+  %best_len.2 = phi i64 [ %best_len.1, %if.then37 ], [ %best_len.0103, %if.then48 ], [ %best_len.0103, %if.else ]
+  %begin.1 = phi i64 [ %add43, %if.then37 ], [ %begin.0104, %if.then48 ], [ %begin.0104, %if.else ]
   %end.1 = phi i64 [ %add43, %if.then37 ], [ %add45, %if.then48 ], [ %add45, %if.else ]
-  %best_end.2 = phi i64 [ %best_end.1, %if.then37 ], [ %best_end.0103, %if.then48 ], [ %best_end.0103, %if.else ]
-  %best_begin.2 = phi i64 [ %best_begin.1, %if.then37 ], [ %best_begin.0104, %if.then48 ], [ %best_begin.0104, %if.else ]
-  %nocase.1 = phi i1 [ false, %if.then37 ], [ %cmp51, %if.then48 ], [ %nocase.0105, %if.else ]
-  %case_fixed.1 = phi i1 [ false, %if.then37 ], [ true, %if.then48 ], [ %case_fixed.0106, %if.else ]
-  %33 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %33 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %32 to i64
+  %best_end.2 = phi i64 [ %best_end.1, %if.then37 ], [ %best_end.0107, %if.then48 ], [ %best_end.0107, %if.else ]
+  %best_begin.2 = phi i64 [ %best_begin.1, %if.then37 ], [ %best_begin.0108, %if.then48 ], [ %best_begin.0108, %if.else ]
+  %nocase.1 = phi i1 [ false, %if.then37 ], [ %cmp51, %if.then48 ], [ %nocase.0109, %if.else ]
+  %case_fixed.1 = phi i1 [ false, %if.then37 ], [ true, %if.then48 ], [ %case_fixed.0110, %if.else ]
+  %30 = load ptr, ptr %_M_finish.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %.pre122.pre126 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp = icmp ult i64 %end.1, %sub.ptr.div.i
@@ -8967,31 +8959,31 @@ for.end:                                          ; preds = %for.inc, %entry
   %sub60 = sub i64 %sub.ptr.div.i.lcssa, %end.0.lcssa
   %sub60.fr = freeze i64 %sub60
   %cmp61 = icmp ult i64 %sub60.fr, 32
-  %spec.select90 = select i1 %cmp61, i64 %end.0.lcssa, i64 %best_end.0.lcssa
-  %spec.select91 = select i1 %cmp61, i64 %begin.0.lcssa, i64 %best_begin.0.lcssa
-  %34 = select i1 %cmp58.not, i64 %best_end.0.lcssa, i64 %spec.select90
-  %35 = select i1 %cmp58.not, i64 %best_begin.0.lcssa, i64 %spec.select91
-  %cmp68112 = icmp ult i64 %35, %34
-  br i1 %cmp68112, label %for.body69, label %for.end78
+  %spec.select94 = select i1 %cmp61, i64 %end.0.lcssa, i64 %best_end.0.lcssa
+  %spec.select95 = select i1 %cmp61, i64 %begin.0.lcssa, i64 %best_begin.0.lcssa
+  %31 = select i1 %cmp58.not, i64 %best_end.0.lcssa, i64 %spec.select94
+  %32 = select i1 %cmp58.not, i64 %best_begin.0.lcssa, i64 %spec.select95
+  %cmp68116 = icmp ult i64 %32, %31
+  br i1 %cmp68116, label %for.body69, label %for.end78
 
 for.body69:                                       ; preds = %for.end, %_ZNK3ue29CharReach10find_firstEv.exit
-  %i66.0113 = phi i64 [ %inc77, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %35, %for.end ]
-  %36 = load ptr, ptr %mask, align 8
-  %add.ptr.i74 = getelementptr inbounds %"class.ue2::CharReach", ptr %36, i64 %i66.0113
+  %i66.0117 = phi i64 [ %inc77, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %32, %for.end ]
+  %33 = load ptr, ptr %mask, align 8
+  %add.ptr.i74 = getelementptr inbounds %"class.ue2::CharReach", ptr %33, i64 %i66.0117
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body69
   %i.06.i.i = phi i64 [ 0, %for.body69 ], [ %inc.i.i, %for.inc.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %add.ptr.i74, i64 0, i64 %i.06.i.i
-  %37 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %cmp4.not.i.i = icmp eq i64 %37, 0
+  %34 = load i64, ptr %arrayidx.i.i.i.i, align 8
+  %cmp4.not.i.i = icmp eq i64 %34, 0
   br i1 %cmp4.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %mul.i.i = shl nuw nsw i64 %i.06.i.i, 6
-  %38 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %37, i1 true)
-  %add.i.i = or disjoint i64 %38, %mul.i.i
-  %39 = trunc i64 %add.i.i to i8
+  %35 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %34, i1 true)
+  %add.i.i = or disjoint i64 %35, %mul.i.i
+  %36 = trunc i64 %add.i.i to i8
   br label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -9000,29 +8992,29 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit, label %for.body.i.i, !llvm.loop !195
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.i.i, %if.then.i.i
-  %retval.0.i.i = phi i8 [ %39, %if.then.i.i ], [ 0, %for.inc.i.i ]
-  %40 = load i64, ptr %add.ptr.i74, align 8
-  %41 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %40)
+  %retval.0.i.i = phi i8 [ %36, %if.then.i.i ], [ 0, %for.inc.i.i ]
+  %37 = load i64, ptr %add.ptr.i74, align 8
+  %38 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
   %arrayidx.i.i44.i.i76 = getelementptr inbounds nuw i8, ptr %add.ptr.i74, i64 8
-  %42 = load i64, ptr %arrayidx.i.i44.i.i76, align 8
-  %43 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
-  %add9.i.i77 = add nuw nsw i64 %43, %41
+  %39 = load i64, ptr %arrayidx.i.i44.i.i76, align 8
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %39)
+  %add9.i.i77 = add nuw nsw i64 %40, %38
   %arrayidx.i.i45.i.i78 = getelementptr inbounds nuw i8, ptr %add.ptr.i74, i64 16
-  %44 = load i64, ptr %arrayidx.i.i45.i.i78, align 8
-  %45 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
-  %add15.i.i79 = add nuw nsw i64 %add9.i.i77, %45
+  %41 = load i64, ptr %arrayidx.i.i45.i.i78, align 8
+  %42 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %41)
+  %add15.i.i79 = add nuw nsw i64 %add9.i.i77, %42
   %arrayidx.i.i46.i.i80 = getelementptr inbounds nuw i8, ptr %add.ptr.i74, i64 24
-  %46 = load i64, ptr %arrayidx.i.i46.i.i80, align 8
-  %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %46)
-  %add21.i.i81 = add nuw nsw i64 %add15.i.i79, %47
+  %43 = load i64, ptr %arrayidx.i.i46.i.i80, align 8
+  %44 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %43)
+  %add21.i.i81 = add nuw nsw i64 %add15.i.i79, %44
   %cmp75 = icmp samesign ugt i64 %add21.i.i81, 1
   tail call void @_ZN3ue211ue2_literal9push_backEcb(ptr noundef nonnull align 8 dereferenceable(64) %lit, i8 noundef signext %retval.0.i.i, i1 noundef zeroext %cmp75)
-  %inc77 = add nuw i64 %i66.0113, 1
-  %exitcond.not = icmp eq i64 %inc77, %34
+  %inc77 = add nuw i64 %i66.0117, 1
+  %exitcond.not = icmp eq i64 %inc77, %31
   br i1 %exitcond.not, label %for.end78, label %for.body69, !llvm.loop !285
 
 for.end78:                                        ; preds = %_ZNK3ue29CharReach10find_firstEv.exit, %for.end
-  %cmp.not.i.i = icmp ult i64 %35, 4294967296
+  %cmp.not.i.i = icmp ult i64 %32, 4294967296
   br i1 %cmp.not.i.i, label %_ZN3ue210verify_u32ImEEjT_.exit, label %if.then.i.i82
 
 if.then.i.i82:                                    ; preds = %for.end78
@@ -9035,13 +9027,13 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i82
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i82
-  %48 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception.i.i) #22
-  resume { ptr, i32 } %48
+  resume { ptr, i32 } %45
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %for.end78
-  %conv.i.i = trunc nuw i64 %35 to i32
+  %conv.i.i = trunc nuw i64 %32 to i32
   store i32 %conv.i.i, ptr %offset, align 4
   ret void
 }

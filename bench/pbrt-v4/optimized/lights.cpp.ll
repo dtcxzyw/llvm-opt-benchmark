@@ -20640,11 +20640,11 @@ if.end.i:                                         ; preds = %entry
   %agg.tmp7.sroa.0.0.copyload.i.i57.pre = load <2 x float>, ptr %z.i.i, align 8, !noalias !126
   %agg.tmp7.sroa.2.0.copyload.i.i59.pre = load float, ptr %agg.tmp7.sroa.2.0.z.sroa_idx.i.i, align 8, !noalias !126
   %.pre = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload.i.i57.pre, i64 0
-  %.pre128 = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload.i.i57.pre, i64 1
+  %.pre129 = extractelement <2 x float> %agg.tmp7.sroa.0.0.copyload.i.i57.pre, i64 1
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %entry, %if.end.i
-  %w.sroa.0.4.vec.extract.i16.i.i62.pre-phi = phi float [ %w.sroa.0.4.vec.extract.i16.i.i, %entry ], [ %.pre128, %if.end.i ]
+  %w.sroa.0.4.vec.extract.i16.i.i62.pre-phi = phi float [ %w.sroa.0.4.vec.extract.i16.i.i, %entry ], [ %.pre129, %if.end.i ]
   %w.sroa.0.0.vec.extract.i13.i.i60.pre-phi = phi float [ %w.sroa.0.0.vec.extract.i13.i.i, %entry ], [ %.pre, %if.end.i ]
   %agg.tmp7.sroa.2.0.copyload.i.i59 = phi float [ %agg.tmp7.sroa.2.0.copyload.i.i, %entry ], [ %agg.tmp7.sroa.2.0.copyload.i.i59.pre, %if.end.i ]
   %p0.sroa.0.0 = phi <2 x float> [ zeroinitializer, %entry ], [ %p0.sroa.0.4.vec.insert, %if.end.i ]
@@ -20672,7 +20672,7 @@ invoke.cont16:                                    ; preds = %entry, %if.end.i
   %mul6.i19.i.i65 = fmul float %agg.tmp7.sroa.2.0.copyload.i.i59, %div3.i.i27
   %add7.i20.i.i66 = fadd float %mul6.i19.i.i65, %add.i18.i.i64
   %cmp.i67 = fcmp ugt float %add7.i20.i.i66, 0.000000e+00
-  br i1 %cmp.i67, label %invoke.cont20, label %if.then
+  br i1 %cmp.i67, label %invoke.cont20, label %cleanup
 
 invoke.cont20:                                    ; preds = %invoke.cont16
   %agg.tmp4.sroa.2.0.copyload.i.i48 = load float, ptr %agg.tmp4.sroa.2.0.y.sroa_idx.i.i, align 4, !noalias !126
@@ -20695,13 +20695,9 @@ invoke.cont20:                                    ; preds = %invoke.cont16
   %add7.i.i.i44 = fadd float %mul6.i.i.i43, %add.i.i.i42
   %call.i.i70 = tail call noundef float @atan2f(float noundef %add7.i.i.i44, float noundef %add7.i20.i.i66) #29, !noalias !126
   %call.i10.i71 = tail call noundef float @atan2f(float noundef %add7.i11.i.i55, float noundef %add7.i20.i.i66) #29, !noalias !126
-  br i1 %cmp.i, label %if.then, label %invoke.cont34
+  br i1 %cmp.i, label %cleanup, label %_ZN4pstd8optionalIN4pbrt6Point2IfEEED2Ev.exit103.thread
 
-if.then:                                          ; preds = %invoke.cont16, %invoke.cont20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.result, i8 0, i64 20, i1 false)
-  br label %_ZN4pstd8optionalIN4pbrt6Point2IfEEED2Ev.exit107
-
-invoke.cont34:                                    ; preds = %invoke.cont20
+_ZN4pstd8optionalIN4pbrt6Point2IfEEED2Ev.exit103.thread: ; preds = %invoke.cont20
   %add.i72 = fadd float %call.i.i70, 0x3FF921FB60000000
   %div16.i73 = fdiv float %add.i72, 0x400921FB60000000
   %cmp.i.i74 = fcmp olt float %div16.i73, 0.000000e+00
@@ -20733,8 +20729,12 @@ invoke.cont34:                                    ; preds = %invoke.cont20
   store <2 x float> %retval.sroa.0.4.vec.insert.i10.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 4
   br label %_ZN4pstd8optionalIN4pbrt6Point2IfEEED2Ev.exit107
 
-_ZN4pstd8optionalIN4pbrt6Point2IfEEED2Ev.exit107: ; preds = %invoke.cont34, %if.then
-  %.sink = phi i8 [ 0, %if.then ], [ 1, %invoke.cont34 ]
+cleanup:                                          ; preds = %invoke.cont16, %invoke.cont20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %agg.result, i8 0, i64 20, i1 false)
+  br label %_ZN4pstd8optionalIN4pbrt6Point2IfEEED2Ev.exit107
+
+_ZN4pstd8optionalIN4pbrt6Point2IfEEED2Ev.exit107: ; preds = %cleanup, %_ZN4pstd8optionalIN4pbrt6Point2IfEEED2Ev.exit103.thread
+  %.sink = phi i8 [ 0, %cleanup ], [ 1, %_ZN4pstd8optionalIN4pbrt6Point2IfEEED2Ev.exit103.thread ]
   %10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i8 %.sink, ptr %10, align 4
   ret void

@@ -9381,8 +9381,8 @@ _ZNSt8optionalIN4llvm19ValueLatticeElementEEC2EOS2_.exit: ; preds = %82, %84, %9
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = and i32 %122, 134217727
-  %.not246 = icmp eq i32 %123, 0
-  br i1 %.not246, label %.critedge, label %.lr.ph
+  %.not247 = icmp eq i32 %123, 0
+  br i1 %.not247, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %124 = getelementptr inbounds i8, ptr %2, i64 -8
@@ -9852,8 +9852,8 @@ _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %288, %285
 
 .loopexit:                                        ; preds = %297, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit261, %.loopexit.loopexit.split.loop.exit263, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %317
   %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %317 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %328, %.loopexit.loopexit.split.loop.exit ], [ %329, %.loopexit.loopexit.split.loop.exit261 ], [ %330, %.loopexit.loopexit.split.loop.exit263 ], [ %.02946.i.i.i.i.i, %297 ]
-  %.not247 = icmp eq ptr %.028.i.i.i.i.i, %294
-  br i1 %.not247, label %_ZN4llvm19ValueLatticeElementD2Ev.exit126, label %332
+  %.not233 = icmp eq ptr %.028.i.i.i.i.i, %294
+  br i1 %.not233, label %_ZN4llvm19ValueLatticeElementD2Ev.exit126, label %332
 
 _ZN4llvm19ValueLatticeElementD2Ev.exit126:        ; preds = %275, %272, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i, %.loopexit
   store i16 6, ptr %0, align 8
@@ -9873,10 +9873,10 @@ _ZN4llvm19ValueLatticeElementD2Ev.exit126:        ; preds = %275, %272, %._crit_
   %340 = and i32 %339, 67108863
   %341 = add nsw i32 %340, -1
   %342 = zext i32 %341 to i64
-  %.not233243 = icmp eq i32 %341, 0
-  br i1 %.not233243, label %._crit_edge, label %.lr.ph245
+  %.not234244 = icmp eq i32 %341, 0
+  br i1 %.not234244, label %._crit_edge, label %.lr.ph246
 
-.lr.ph245:                                        ; preds = %332
+.lr.ph246:                                        ; preds = %332
   %343 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %344 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %345 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -9898,9 +9898,9 @@ _ZN4llvm19ValueLatticeElementD2Ev.exit126:        ; preds = %275, %272, %._crit_
   %361 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %362
 
-362:                                              ; preds = %.lr.ph245, %_ZN4llvm5APIntD2Ev.exit150
-  %.sroa.2.0244 = phi i64 [ 0, %.lr.ph245 ], [ %495, %_ZN4llvm5APIntD2Ev.exit150 ]
-  %363 = shl nuw i64 %.sroa.2.0244, 1
+362:                                              ; preds = %.lr.ph246, %_ZN4llvm5APIntD2Ev.exit150
+  %.sroa.2.0245 = phi i64 [ 0, %.lr.ph246 ], [ %495, %_ZN4llvm5APIntD2Ev.exit150 ]
+  %363 = shl nuw i64 %.sroa.2.0245, 1
   %364 = add nuw nsw i64 %363, 2
   %365 = load ptr, ptr %261, align 8
   %366 = and i64 %364, 4294967294
@@ -10048,7 +10048,7 @@ _ZN4llvm19ValueLatticeElementD2Ev.exit141:        ; preds = %_ZN4llvm13ConstantR
   br i1 %388, label %.critedge99, label %421
 
 421:                                              ; preds = %_ZN4llvm19ValueLatticeElementD2Ev.exit141, %_ZN4llvm5APIntD2Ev.exit133
-  %.not.i.i142 = icmp eq i64 %.sroa.2.0244, 4294967294
+  %.not.i.i142 = icmp eq i64 %.sroa.2.0245, 4294967294
   %422 = add nuw nsw i64 %363, 3
   %423 = load ptr, ptr %261, align 8
   %424 = and i64 %422, 4294967295
@@ -10225,9 +10225,9 @@ _ZN4llvm13ConstantRangeD2Ev.exit149:              ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit150
 
 _ZN4llvm5APIntD2Ev.exit150:                       ; preds = %_ZN4llvm13ConstantRangeD2Ev.exit149, %491, %494
-  %495 = add nuw nsw i64 %.sroa.2.0244, 1
-  %.not233 = icmp eq i64 %495, %342
-  br i1 %.not233, label %._crit_edge, label %362
+  %495 = add nuw nsw i64 %.sroa.2.0245, 1
+  %.not234 = icmp eq i64 %495, %342
+  br i1 %.not234, label %._crit_edge, label %362
 
 ._crit_edge:                                      ; preds = %_ZN4llvm5APIntD2Ev.exit150, %332
   %496 = getelementptr inbounds nuw i8, ptr %22, i64 8

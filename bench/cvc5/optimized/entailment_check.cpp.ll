@@ -1100,8 +1100,8 @@ invoke.cont87:                                    ; preds = %if.then85
   %bf.clear.i.i257 = and i32 %bf.load.i.i256, 67108863
   %sub.i.i = sext i1 %cmp.i.i255 to i32
   %cond.i.i = add nsw i32 %bf.clear.i.i257, %sub.i.i
-  %cmp891056.not = icmp eq i32 %cond.i.i, 0
-  br i1 %cmp891056.not, label %if.then180, label %for.body.lr.ph
+  %cmp891057.not = icmp eq i32 %cond.i.i, 0
+  br i1 %cmp891057.not, label %if.then180, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont87
   %d_true = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1112,7 +1112,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont87
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.01057 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.01058 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %41 = load ptr, ptr %n, align 8, !noalias !8
   %d_kind.i.i.i.i259 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -1127,7 +1127,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 invoke.cont92:                                    ; preds = %for.body
   %cmp.i.i265 = icmp eq i32 %call2.i.i.i269, 2
   %inc.i.i = zext i1 %cmp.i.i265 to i32
-  %spec.select.i.i266 = add nuw nsw i32 %i.01057, %inc.i.i
+  %spec.select.i.i266 = add nuw nsw i32 %i.01058, %inc.i.i
   %d_children.i.i = getelementptr inbounds nuw i8, ptr %41, i64 16
   %idxprom.i.i267 = sext i32 %spec.select.i.i266 to i64
   %arrayidx.i.i268 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i267
@@ -1305,12 +1305,12 @@ terminate.lpad.i320:                              ; preds = %if.then13.i.i319
   unreachable
 
 lpad86.loopexit:                                  ; preds = %for.body
-  %lpad.loopexit1041 = landingpad { ptr, i32 }
+  %lpad.loopexit1042 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup399
 
 lpad86.loopexit.split-lp:                         ; preds = %if.then85
-  %lpad.loopexit.split-lp1042 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp1043 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup399
 
@@ -1320,12 +1320,12 @@ lpad96:                                           ; preds = %invoke.cont92
   br label %ehcleanup399
 
 lpad102.loopexit:                                 ; preds = %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %lpad.loopexit1044 = landingpad { ptr, i32 }
+  %lpad.loopexit1045 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup399
 
 lpad102.loopexit.split-lp:                        ; preds = %if.then13.i.i.i, %if.then13.i.i351, %if.then13.i4.i344, %invoke.cont139, %if.then.i.i.i561
-  %lpad.loopexit.split-lp1045 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp1046 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup399
 
@@ -1340,8 +1340,8 @@ invoke.cont113:                                   ; preds = %invoke.cont103
   %cmp.i322 = icmp eq ptr %43, %61
   %62 = load ptr, ptr %d_false, align 8
   %cmp.i323 = icmp eq ptr %43, %62
-  %or.cond1040 = select i1 %cmp.i322, i1 true, i1 %cmp.i323
-  br i1 %or.cond1040, label %if.then117, label %cond.true159
+  %or.cond1041 = select i1 %cmp.i322, i1 true, i1 %cmp.i323
+  br i1 %or.cond1041, label %if.then117, label %cond.true159
 
 if.then117:                                       ; preds = %invoke.cont113
   switch i16 %bf.clear.i, label %if.else131 [
@@ -1407,7 +1407,7 @@ if.then13.i4.i344:                                ; preds = %if.else.i.i341
           to label %if.end398 unwind label %lpad102.loopexit.split-lp
 
 if.else131:                                       ; preds = %if.then117
-  %cmp134 = icmp eq i32 %i.01057, 0
+  %cmp134 = icmp eq i32 %i.01058, 0
   %or.cond = and i1 %cmp132, %cmp134
   br i1 %or.cond, label %invoke.cont139, label %cond.true159
 
@@ -1601,7 +1601,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRK
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i556, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
-  %inc = add nuw i32 %i.01057, 1
+  %inc = add nuw i32 %i.01058, 1
   %exitcond.not = icmp eq i32 %inc, %cond.i.i
   br i1 %exitcond.not, label %if.then180, label %for.body, !llvm.loop !18
 
@@ -2084,7 +2084,7 @@ if.then.i.i.i714:                                 ; preds = %if.end398
   br i1 %reqHasTerm.addr.4, label %land.lhs.true405, label %cond.true445
 
 ehcleanup399:                                     ; preds = %lpad190.loopexit, %lpad190.loopexit.split-lp, %lpad102.loopexit, %lpad102.loopexit.split-lp, %lpad86.loopexit, %lpad86.loopexit.split-lp, %lpad197, %lpad287, %lpad300, %ehcleanup337, %lpad371, %lpad383, %lpad.i.i581, %lpad231, %lpad233, %lpad201, %lpad309, %lpad307, %lpad108, %lpad.i.i, %lpad147, %lpad145, %lpad184, %lpad96
-  %.pn42.pn = phi { ptr, i32 } [ %100, %lpad184 ], [ %59, %lpad96 ], [ %60, %lpad108 ], [ %49, %lpad.i.i ], [ %78, %lpad147 ], [ %77, %lpad145 ], [ %137, %lpad383 ], [ %136, %lpad371 ], [ %.pn40, %ehcleanup337 ], [ %116, %lpad300 ], [ %108, %lpad287 ], [ %101, %lpad197 ], [ %94, %lpad.i.i581 ], [ %102, %lpad201 ], [ %104, %lpad233 ], [ %103, %lpad231 ], [ %118, %lpad309 ], [ %117, %lpad307 ], [ %lpad.loopexit1041, %lpad86.loopexit ], [ %lpad.loopexit.split-lp1042, %lpad86.loopexit.split-lp ], [ %lpad.loopexit1044, %lpad102.loopexit ], [ %lpad.loopexit.split-lp1045, %lpad102.loopexit.split-lp ], [ %lpad.loopexit, %lpad190.loopexit ], [ %lpad.loopexit.split-lp, %lpad190.loopexit.split-lp ]
+  %.pn42.pn = phi { ptr, i32 } [ %100, %lpad184 ], [ %59, %lpad96 ], [ %60, %lpad108 ], [ %49, %lpad.i.i ], [ %78, %lpad147 ], [ %77, %lpad145 ], [ %137, %lpad383 ], [ %136, %lpad371 ], [ %.pn40, %ehcleanup337 ], [ %116, %lpad300 ], [ %108, %lpad287 ], [ %101, %lpad197 ], [ %94, %lpad.i.i581 ], [ %102, %lpad201 ], [ %104, %lpad233 ], [ %103, %lpad231 ], [ %118, %lpad309 ], [ %117, %lpad307 ], [ %lpad.loopexit1042, %lpad86.loopexit ], [ %lpad.loopexit.split-lp1043, %lpad86.loopexit.split-lp ], [ %lpad.loopexit1045, %lpad102.loopexit ], [ %lpad.loopexit.split-lp1046, %lpad102.loopexit.split-lp ], [ %lpad.loopexit, %lpad190.loopexit ], [ %lpad.loopexit.split-lp, %lpad190.loopexit.split-lp ]
   %143 = load ptr, ptr %args, align 8
   %tobool.not.i.i.i715 = icmp eq ptr %143, null
   br i1 %tobool.not.i.i.i715, label %ehcleanup472, label %if.then.i.i.i716

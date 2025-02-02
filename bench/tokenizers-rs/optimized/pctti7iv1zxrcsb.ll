@@ -51556,17 +51556,17 @@ define { ptr, ptr } @"_ZN96_$LT$tokenizers..normalizers..NormalizerWrapper$u20$a
   switch i64 %8, label %9 [
     i64 0, label %10
     i64 1, label %13
-    i64 2, label %23
-    i64 3, label %25
-    i64 4, label %27
-    i64 5, label %29
-    i64 6, label %31
-    i64 7, label %33
-    i64 8, label %51
-    i64 9, label %62
-    i64 10, label %65
-    i64 11, label %67
-    i64 12, label %74
+    i64 2, label %26
+    i64 3, label %28
+    i64 4, label %30
+    i64 5, label %32
+    i64 6, label %34
+    i64 7, label %36
+    i64 8, label %54
+    i64 9, label %65
+    i64 10, label %68
+    i64 11, label %70
+    i64 12, label %77
   ]
 
 9:                                                ; preds = %2
@@ -51588,102 +51588,106 @@ define { ptr, ptr } @"_ZN96_$LT$tokenizers..normalizers..NormalizerWrapper$u20$a
   br i1 %16, label %20, label %.critedge.i
 
 20:                                               ; preds = %13
-  br i1 %19, label %.sink.split.i, label %.critedge.i.thread
+  br i1 %19, label %21, label %.critedge.thread.i
+
+21:                                               ; preds = %20
+  %22 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip17hb7b4eb77b1e6afddE.llvm.12244614425474959946(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext true, i1 noundef zeroext true), !noalias !22051
+  br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
 .critedge.i:                                      ; preds = %13
-  br i1 %19, label %.sink.split.i, label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
+  br i1 %19, label %24, label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-.critedge.i.thread:                               ; preds = %20
-  %21 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip17hb7b4eb77b1e6afddE.llvm.12244614425474959946(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext true, i1 noundef zeroext false), !noalias !22051
+.critedge.thread.i:                               ; preds = %20
+  %23 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip17hb7b4eb77b1e6afddE.llvm.12244614425474959946(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext true, i1 noundef zeroext false), !noalias !22051
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-.sink.split.i:                                    ; preds = %.critedge.i, %20
-  %22 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip17hb7b4eb77b1e6afddE.llvm.12244614425474959946(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %16, i1 noundef zeroext true), !noalias !22051
+24:                                               ; preds = %.critedge.i
+  %25 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7lrstrip17hb7b4eb77b1e6afddE.llvm.12244614425474959946(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext false, i1 noundef zeroext true), !noalias !22051
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-23:                                               ; preds = %2
-  %24 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString6filter17hc23b98e6e71f9e5aE.llvm.12244614425474959946(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+26:                                               ; preds = %2
+  %27 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString6filter17hc23b98e6e71f9e5aE.llvm.12244614425474959946(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-25:                                               ; preds = %2
-  %26 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString3nfc17h90841a4202f2f76dE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+28:                                               ; preds = %2
+  %29 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString3nfc17h90841a4202f2f76dE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-27:                                               ; preds = %2
-  %28 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString3nfd17h8cb789c274503f5aE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+30:                                               ; preds = %2
+  %31 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString3nfd17h8cb789c274503f5aE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-29:                                               ; preds = %2
-  %30 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString4nfkc17h29c8e68e3da2b30cE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+32:                                               ; preds = %2
+  %33 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString4nfkc17h29c8e68e3da2b30cE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-31:                                               ; preds = %2
-  %32 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString4nfkd17he864e58b232dd9cdE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+34:                                               ; preds = %2
+  %35 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString4nfkd17he864e58b232dd9cdE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-33:                                               ; preds = %2
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8, !alias.scope !22056, !noalias !22061, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load i64, ptr %36, align 8, !alias.scope !22056, !noalias !22061, !noundef !4
-  %38 = getelementptr inbounds { i64, [8 x i64] }, ptr %35, i64 %37
-  br label %39
+36:                                               ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = load ptr, ptr %37, align 8, !alias.scope !22056, !noalias !22061, !nonnull !4, !noundef !4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %40 = load i64, ptr %39, align 8, !alias.scope !22056, !noalias !22061, !noundef !4
+  %41 = getelementptr inbounds { i64, [8 x i64] }, ptr %38, i64 %40
+  br label %42
 
-39:                                               ; preds = %41, %33
-  %.sroa.0.0 = phi ptr [ %35, %33 ], [ %42, %41 ]
-  %40 = icmp eq ptr %.sroa.0.0, %38
-  br i1 %40, label %"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit", label %41
+42:                                               ; preds = %44, %36
+  %.sroa.0.0 = phi ptr [ %38, %36 ], [ %45, %44 ]
+  %43 = icmp eq ptr %.sroa.0.0, %41
+  br i1 %43, label %"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit", label %44
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 72
-  %43 = tail call { ptr, ptr } @"_ZN96_$LT$tokenizers..normalizers..NormalizerWrapper$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h12a5559c70585064E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
-  %44 = extractvalue { ptr, ptr } %43, 0
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %39, label %46
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 72
+  %46 = tail call { ptr, ptr } @"_ZN96_$LT$tokenizers..normalizers..NormalizerWrapper$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h12a5559c70585064E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+  %47 = extractvalue { ptr, ptr } %46, 0
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %42, label %49
 
-46:                                               ; preds = %41
-  %47 = extractvalue { ptr, ptr } %43, 1
-  %48 = icmp ne ptr %47, null
-  tail call void @llvm.assume(i1 %48)
+49:                                               ; preds = %44
+  %50 = extractvalue { ptr, ptr } %46, 1
+  %51 = icmp ne ptr %50, null
+  tail call void @llvm.assume(i1 %51)
   br label %"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit"
 
-"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit": ; preds = %39, %46
-  %.sroa.3.0.i = phi ptr [ %47, %46 ], [ undef, %39 ]
-  %.sroa.0.0.i = phi ptr [ %44, %46 ], [ null, %39 ]
-  %49 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %50 = insertvalue { ptr, ptr } %49, ptr %.sroa.3.0.i, 1
+"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit": ; preds = %42, %49
+  %.sroa.3.0.i = phi ptr [ %50, %49 ], [ undef, %42 ]
+  %.sroa.0.0.i = phi ptr [ %47, %49 ], [ null, %42 ]
+  %52 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %53 = insertvalue { ptr, ptr } %52, ptr %.sroa.3.0.i, 1
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-51:                                               ; preds = %2
+54:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !22064
   store i64 0, ptr %4, align 8, !noalias !22064
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %52, align 8, !noalias !22064
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %53, align 8, !noalias !22064
-  %54 = invoke noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString8for_each17hf55c0c6e155e4702E.llvm.12244614425474959946(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit" unwind label %55
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr inttoptr (i64 8 to ptr), ptr %55, align 8, !noalias !22064
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 0, ptr %56, align 8, !noalias !22064
+  %57 = invoke noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString8for_each17hf55c0c6e155e4702E.llvm.12244614425474959946(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+          to label %"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit" unwind label %58
 
-"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$$LP$char$C$isize$RP$$GT$$GT$17hbd108debfb8420daE.exit.i.i": ; preds = %59, %55
-  resume { ptr, i32 } %56
+"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$$LP$char$C$isize$RP$$GT$$GT$17hbd108debfb8420daE.exit.i.i": ; preds = %62, %58
+  resume { ptr, i32 } %59
 
-55:                                               ; preds = %51
-  %56 = landingpad { ptr, i32 }
+58:                                               ; preds = %54
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !22069)
   call void @llvm.experimental.noalias.scope.decl(metadata !22072)
   call void @llvm.experimental.noalias.scope.decl(metadata !22075)
-  %57 = load i64, ptr %4, align 8, !alias.scope !22078, !noalias !22081, !noundef !4
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$$LP$char$C$isize$RP$$GT$$GT$17hbd108debfb8420daE.exit.i.i", label %59
+  %60 = load i64, ptr %4, align 8, !alias.scope !22078, !noalias !22081, !noundef !4
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$$LP$char$C$isize$RP$$GT$$GT$17hbd108debfb8420daE.exit.i.i", label %62
 
-59:                                               ; preds = %55
-  %60 = shl nuw i64 %57, 4
-  %61 = load ptr, ptr %52, align 8, !alias.scope !22078, !noalias !22081, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %61, i64 noundef %60, i64 noundef 8) #34, !noalias !22083
+62:                                               ; preds = %58
+  %63 = shl nuw i64 %60, 4
+  %64 = load ptr, ptr %55, align 8, !alias.scope !22078, !noalias !22081, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %64, i64 noundef %63, i64 noundef 8) #34, !noalias !22083
   br label %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$$LP$char$C$isize$RP$$GT$$GT$17hbd108debfb8420daE.exit.i.i"
 
-"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit": ; preds = %51
+"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit": ; preds = %54
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !22064
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !22064
   call void @_ZN10tokenizers9tokenizer10normalizer16NormalizedString15transform_range17h55aa2843c4cacfc9E(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, i64 noundef 0)
@@ -51691,42 +51695,42 @@ define { ptr, ptr } @"_ZN96_$LT$tokenizers..normalizers..NormalizerWrapper$u20$a
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !22064
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-62:                                               ; preds = %2
-  %63 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString6filter17h88749e1b443bcb61E(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
-  %64 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString3map17hf2e4f8426c45ad9fE(ptr noalias noundef nonnull align 8 dereferenceable(80) %63)
-  br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
-
 65:                                               ; preds = %2
-  %66 = tail call { ptr, ptr } @"_ZN10tokenizers11normalizers11precompiled92_$LT$impl$u20$tokenizers..tokenizer..Normalizer$u20$for$u20$spm_precompiled..Precompiled$GT$9normalize17hf72d35810feb1c46E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+  %66 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString6filter17h88749e1b443bcb61E(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+  %67 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString3map17hf2e4f8426c45ad9fE(ptr noalias noundef nonnull align 8 dereferenceable(80) %66)
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-67:                                               ; preds = %2
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %70 = load ptr, ptr %69, align 8, !alias.scope !22084, !noalias !22089, !nonnull !4, !noundef !4
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %72 = load i64, ptr %71, align 8, !alias.scope !22084, !noalias !22089, !noundef !4
-  %73 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7replace17h74eeaea0a7ee0d69E(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %68, ptr noalias noundef nonnull readonly align 1 %70, i64 noundef %72)
+68:                                               ; preds = %2
+  %69 = tail call { ptr, ptr } @"_ZN10tokenizers11normalizers11precompiled92_$LT$impl$u20$tokenizers..tokenizer..Normalizer$u20$for$u20$spm_precompiled..Precompiled$GT$9normalize17hf72d35810feb1c46E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-74:                                               ; preds = %2
+70:                                               ; preds = %2
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %73 = load ptr, ptr %72, align 8, !alias.scope !22084, !noalias !22089, !nonnull !4, !noundef !4
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %75 = load i64, ptr %74, align 8, !alias.scope !22084, !noalias !22089, !noundef !4
+  %76 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7replace17h74eeaea0a7ee0d69E(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %71, ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %75)
+  br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
+
+77:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22091)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22094)
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %76 = load i64, ptr %75, align 8, !alias.scope !22096, !noalias !22091, !noundef !4
-  %77 = icmp eq i64 %76, 0
-  br i1 %77, label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit", label %78
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %79 = load i64, ptr %78, align 8, !alias.scope !22096, !noalias !22091, !noundef !4
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit", label %81
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %80 = load ptr, ptr %79, align 8, !alias.scope !22099, !noalias !22094, !nonnull !4, !noundef !4
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load i64, ptr %81, align 8, !alias.scope !22099, !noalias !22094, !noundef !4
-  %83 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7prepend17h55c76481609c70aeE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 1 %80, i64 noundef %82), !noalias !22091
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %83 = load ptr, ptr %82, align 8, !alias.scope !22099, !noalias !22094, !nonnull !4, !noundef !4
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %85 = load i64, ptr %84, align 8, !alias.scope !22099, !noalias !22094, !noundef !4
+  %86 = tail call noundef align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenizer10normalizer16NormalizedString7prepend17h55c76481609c70aeE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 1 %83, i64 noundef %85), !noalias !22091
   br label %"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit"
 
-"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit": ; preds = %.critedge.i.thread, %78, %74, %.sink.split.i, %.critedge.i, %67, %65, %62, %"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit", %"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit", %31, %29, %27, %25, %23, %10
-  %.pn = phi { ptr, ptr } [ %73, %67 ], [ %66, %65 ], [ { ptr null, ptr undef }, %62 ], [ { ptr null, ptr undef }, %"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit" ], [ %50, %"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit" ], [ { ptr null, ptr undef }, %31 ], [ { ptr null, ptr undef }, %29 ], [ { ptr null, ptr undef }, %27 ], [ { ptr null, ptr undef }, %25 ], [ { ptr null, ptr undef }, %23 ], [ %12, %10 ], [ { ptr null, ptr undef }, %.critedge.i ], [ { ptr null, ptr undef }, %.sink.split.i ], [ { ptr null, ptr undef }, %74 ], [ { ptr null, ptr undef }, %78 ], [ { ptr null, ptr undef }, %.critedge.i.thread ]
+"_ZN91_$LT$tokenizers..normalizers..strip..Strip$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc7fb62a26c151e89E.exit": ; preds = %81, %77, %24, %.critedge.thread.i, %.critedge.i, %21, %70, %68, %65, %"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit", %"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit", %34, %32, %30, %28, %26, %10
+  %.pn = phi { ptr, ptr } [ %76, %70 ], [ %69, %68 ], [ { ptr null, ptr undef }, %65 ], [ { ptr null, ptr undef }, %"_ZN95_$LT$tokenizers..normalizers..utils..Lowercase$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17hc52ba6ee75dd238bE.exit" ], [ %53, %"_ZN94_$LT$tokenizers..normalizers..utils..Sequence$u20$as$u20$tokenizers..tokenizer..Normalizer$GT$9normalize17h1a8dad7138f34721E.exit" ], [ { ptr null, ptr undef }, %34 ], [ { ptr null, ptr undef }, %32 ], [ { ptr null, ptr undef }, %30 ], [ { ptr null, ptr undef }, %28 ], [ { ptr null, ptr undef }, %26 ], [ %12, %10 ], [ { ptr null, ptr undef }, %21 ], [ { ptr null, ptr undef }, %.critedge.i ], [ { ptr null, ptr undef }, %.critedge.thread.i ], [ { ptr null, ptr undef }, %24 ], [ { ptr null, ptr undef }, %77 ], [ { ptr null, ptr undef }, %81 ]
   ret { ptr, ptr } %.pn
 }
 

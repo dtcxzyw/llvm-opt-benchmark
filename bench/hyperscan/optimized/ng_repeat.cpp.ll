@@ -14538,7 +14538,7 @@ if.then7.i.i.i:                                   ; preds = %if.else5.i.i.i
   br label %invoke.cont50
 
 invoke.cont50:                                    ; preds = %if.then.i.i.i80, %if.then7.i.i.i, %if.else5.i.i.i
-  %src_e.sroa.0.4 = phi i8 [ 1, %if.then7.i.i.i ], [ %src_e.sroa.0.3225, %if.else5.i.i.i ], [ %spec.select, %if.then.i.i.i80 ]
+  %src_e.sroa.0.4 = phi i8 [ 1, %if.then7.i.i.i ], [ 0, %if.else5.i.i.i ], [ %spec.select, %if.then.i.i.i80 ]
   %second47 = getelementptr inbounds i8, ptr %stack.val36226, i64 -224
   %ei.sroa.0.0.copyload69 = load ptr, ptr %second47, align 8
   %ei.sroa.10.0.second47.sroa_idx = getelementptr inbounds i8, ptr %stack.val36226, i64 -216
@@ -23074,7 +23074,7 @@ if.then7.i.i.i:                                   ; preds = %if.else5.i.i.i
   br label %invoke.cont49
 
 invoke.cont49:                                    ; preds = %if.then.i.i.i173, %if.then7.i.i.i, %if.else5.i.i.i
-  %src_e.sroa.0.5 = phi i8 [ 1, %if.then7.i.i.i ], [ %src_e.sroa.0.2855, %if.else5.i.i.i ], [ %spec.select, %if.then.i.i.i173 ]
+  %src_e.sroa.0.5 = phi i8 [ 1, %if.then7.i.i.i ], [ 0, %if.else5.i.i.i ], [ %spec.select, %if.then.i.i.i173 ]
   %second46 = getelementptr inbounds i8, ptr %27, i64 -96
   %ei.sroa.0.0.copyload689 = load ptr, ptr %second46, align 8
   %ei.sroa.11.0.second46.sroa_idx = getelementptr inbounds i8, ptr %27, i64 -88
@@ -23272,7 +23272,7 @@ for.inc.i23.i:                                    ; preds = %for.body21.i.i.i20.
   br i1 %cmp.i.i.i.i.not.i24.i, label %invoke.cont88, label %for.body.i10.i, !llvm.loop !781
 
 invoke.cont88:                                    ; preds = %for.inc.i.i, %for.inc.i23.i, %for.cond19.i.i.i.i, %for.cond.i.i.i.i, %for.cond19.i.i.i16.i, %for.cond.i.i.i25.i, %if.else.i, %if.then4.i, %if.then.i
-  %ei.sroa.67.2 = phi i8 [ %ei.sroa.67.0831, %if.else.i ], [ 1, %if.then4.i ], [ %ei.sroa.67.0831, %if.then.i ], [ %ei.sroa.67.0831, %for.cond.i.i.i25.i ], [ %ei.sroa.67.0831, %for.cond19.i.i.i16.i ], [ 1, %for.cond.i.i.i.i ], [ 1, %for.cond19.i.i.i.i ], [ %ei.sroa.67.0831, %for.inc.i23.i ], [ 1, %for.inc.i.i ]
+  %ei.sroa.67.2 = phi i8 [ 1, %if.else.i ], [ 1, %if.then4.i ], [ 0, %if.then.i ], [ %ei.sroa.67.0831, %for.cond.i.i.i25.i ], [ %ei.sroa.67.0831, %for.cond19.i.i.i16.i ], [ 1, %for.cond.i.i.i.i ], [ 1, %for.cond19.i.i.i.i ], [ %ei.sroa.67.0831, %for.inc.i23.i ], [ 1, %for.inc.i.i ]
   %ei.sroa.43.4 = phi ptr [ %47, %if.else.i ], [ %ei.sroa.43.0832, %if.then4.i ], [ %ei.sroa.43.0832, %if.then.i ], [ %ei.sroa.43.3, %for.cond.i.i.i25.i ], [ %ei.sroa.43.3, %for.cond19.i.i.i16.i ], [ %ei.sroa.43.2, %for.cond.i.i.i.i ], [ %ei.sroa.43.2, %for.cond19.i.i.i.i ], [ %53, %for.inc.i23.i ], [ %46, %for.inc.i.i ]
   %ei.sroa.24.2 = phi ptr [ %ei.sroa.24.0833, %if.else.i ], [ %40, %if.then4.i ], [ %40, %if.then.i ], [ %ei.sroa.24.0833, %for.cond.i.i.i25.i ], [ %ei.sroa.24.0833, %for.cond19.i.i.i16.i ], [ %40, %for.cond.i.i.i.i ], [ %40, %for.cond19.i.i.i.i ], [ %ei.sroa.24.0833, %for.inc.i23.i ], [ %40, %for.inc.i.i ]
   %frombool.i.i.i261 = and i8 %ei.sroa.67.2, 1
@@ -23756,7 +23756,7 @@ for.inc.i23.i580:                                 ; preds = %for.body21.i.i.i20.
 
 if.end128:                                        ; preds = %for.inc.i.i550, %for.inc.i23.i580, %for.inc.i.i.i397, %for.cond19.i.i.i.i543, %for.cond.i.i.i.i552, %for.cond19.i.i.i16.i573, %for.cond.i.i.i25.i582, %for.cond19.i.i.i.i.i390, %for.cond.i.i.i.i.i399, %invoke.cont98, %if.then20.i.i379, %if.then.i525, %if.then4.i530, %if.else.i559
   %ei.sroa.14.1 = phi ptr [ %ei.sroa.14.0830, %if.else.i559 ], [ %ei.sroa.14.0830, %if.then4.i530 ], [ %ei.sroa.14.0830, %if.then.i525 ], [ %83, %if.then20.i.i379 ], [ %83, %invoke.cont98 ], [ %83, %for.cond.i.i.i.i.i399 ], [ %83, %for.cond19.i.i.i.i.i390 ], [ %ei.sroa.14.0830, %for.cond.i.i.i25.i582 ], [ %ei.sroa.14.0830, %for.cond19.i.i.i16.i573 ], [ %ei.sroa.14.0830, %for.cond.i.i.i.i552 ], [ %ei.sroa.14.0830, %for.cond19.i.i.i.i543 ], [ %83, %for.inc.i.i.i397 ], [ %ei.sroa.14.0830, %for.inc.i23.i580 ], [ %ei.sroa.14.0830, %for.inc.i.i550 ]
-  %ei.sroa.67.1 = phi i8 [ %ei.sroa.67.0831, %if.else.i559 ], [ 1, %if.then4.i530 ], [ %ei.sroa.67.0831, %if.then.i525 ], [ 1, %if.then20.i.i379 ], [ 0, %invoke.cont98 ], [ 1, %for.cond.i.i.i.i.i399 ], [ 1, %for.cond19.i.i.i.i.i390 ], [ %ei.sroa.67.0831, %for.cond.i.i.i25.i582 ], [ %ei.sroa.67.0831, %for.cond19.i.i.i16.i573 ], [ 1, %for.cond.i.i.i.i552 ], [ 1, %for.cond19.i.i.i.i543 ], [ 1, %for.inc.i.i.i397 ], [ %ei.sroa.67.0831, %for.inc.i23.i580 ], [ 1, %for.inc.i.i550 ]
+  %ei.sroa.67.1 = phi i8 [ 1, %if.else.i559 ], [ 1, %if.then4.i530 ], [ 0, %if.then.i525 ], [ 1, %if.then20.i.i379 ], [ 0, %invoke.cont98 ], [ 1, %for.cond.i.i.i.i.i399 ], [ 1, %for.cond19.i.i.i.i.i390 ], [ %ei.sroa.67.0831, %for.cond.i.i.i25.i582 ], [ %ei.sroa.67.0831, %for.cond19.i.i.i16.i573 ], [ 1, %for.cond.i.i.i.i552 ], [ 1, %for.cond19.i.i.i.i543 ], [ 1, %for.inc.i.i.i397 ], [ %ei.sroa.67.0831, %for.inc.i23.i580 ], [ 1, %for.inc.i.i550 ]
   %ei.sroa.43.1 = phi ptr [ %99, %if.else.i559 ], [ %ei.sroa.43.0832, %if.then4.i530 ], [ %ei.sroa.43.0832, %if.then.i525 ], [ %84, %if.then20.i.i379 ], [ %84, %invoke.cont98 ], [ %ref.tmp.sroa.7.0.i384, %for.cond.i.i.i.i.i399 ], [ %ref.tmp.sroa.7.0.i384, %for.cond19.i.i.i.i.i390 ], [ %ei.sroa.43.6, %for.cond.i.i.i25.i582 ], [ %ei.sroa.43.6, %for.cond19.i.i.i16.i573 ], [ %ei.sroa.43.5, %for.cond.i.i.i.i552 ], [ %ei.sroa.43.5, %for.cond19.i.i.i.i543 ], [ %91, %for.inc.i.i.i397 ], [ %105, %for.inc.i23.i580 ], [ %98, %for.inc.i.i550 ]
   %ei.sroa.24.1 = phi ptr [ %ei.sroa.24.0833, %if.else.i559 ], [ %92, %if.then4.i530 ], [ %92, %if.then.i525 ], [ %85, %if.then20.i.i379 ], [ %85, %invoke.cont98 ], [ %85, %for.cond.i.i.i.i.i399 ], [ %85, %for.cond19.i.i.i.i.i390 ], [ %ei.sroa.24.0833, %for.cond.i.i.i25.i582 ], [ %ei.sroa.24.0833, %for.cond19.i.i.i16.i573 ], [ %92, %for.cond.i.i.i.i552 ], [ %92, %for.cond19.i.i.i.i543 ], [ %85, %for.inc.i.i.i397 ], [ %ei.sroa.24.0833, %for.inc.i23.i580 ], [ %92, %for.inc.i.i550 ]
   %ei.sroa.11.1 = phi i64 [ %ei.sroa.11.0834, %if.else.i559 ], [ %ei.sroa.11.0834, %if.then4.i530 ], [ %ei.sroa.11.0834, %if.then.i525 ], [ %.pn.i.i, %if.then20.i.i379 ], [ %.pn.i.i, %invoke.cont98 ], [ %.pn.i.i, %for.cond.i.i.i.i.i399 ], [ %.pn.i.i, %for.cond19.i.i.i.i.i390 ], [ %ei.sroa.11.0834, %for.cond.i.i.i25.i582 ], [ %ei.sroa.11.0834, %for.cond19.i.i.i16.i573 ], [ %ei.sroa.11.0834, %for.cond.i.i.i.i552 ], [ %ei.sroa.11.0834, %for.cond19.i.i.i.i543 ], [ %.pn.i.i, %for.inc.i.i.i397 ], [ %ei.sroa.11.0834, %for.inc.i23.i580 ], [ %ei.sroa.11.0834, %for.inc.i.i550 ]

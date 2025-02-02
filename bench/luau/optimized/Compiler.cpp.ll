@@ -9168,7 +9168,7 @@ _ZNSt6vectorIN4Luau8Compiler4LoopESaIS2_EE9push_backEOS2_.exit: ; preds = %25, %
 
 87:                                               ; preds = %63, %75, %80
   %.137 = phi i64 [ %.036210, %75 ], [ %86, %80 ], [ %.036210, %63 ]
-  %.1 = phi i8 [ %.0211, %75 ], [ 1, %80 ], [ %.0211, %63 ]
+  %.1 = phi i8 [ 1, %75 ], [ 1, %80 ], [ %.0211, %63 ]
   %88 = add nuw i64 %.039209, 1
   %89 = load i64, ptr %56, align 8
   %90 = icmp ult i64 %88, %89

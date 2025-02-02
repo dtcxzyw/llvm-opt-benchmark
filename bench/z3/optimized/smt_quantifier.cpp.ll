@@ -3586,7 +3586,7 @@ _ZN6vectorIP10quantifierLb0EjE3endEv.exit21:      ; preds = %if.end53
   br i1 %cmp63.not47, label %for.end75, label %for.body64
 
 for.body64:                                       ; preds = %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21, %for.inc73
-  %result.249 = phi i8 [ %result.3, %for.inc73 ], [ %result.0.lcssa, %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21 ]
+  %result.249 = phi i8 [ %result.3, %for.inc73 ], [ 1, %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21 ]
   %__begin256.048 = phi ptr [ %incdec.ptr74, %for.inc73 ], [ %15, %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21 ]
   %18 = load ptr, ptr %__begin256.048, align 8
   %19 = load ptr, ptr %m_context, align 8
@@ -3633,7 +3633,7 @@ for.inc73:                                        ; preds = %call2.i.i.i.noexc32
   br i1 %cmp63.not, label %for.end75, label %for.body64
 
 for.end75:                                        ; preds = %for.inc73, %if.end53, %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21
-  %result.2.lcssa = phi i8 [ %result.0.lcssa, %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21 ], [ %result.0.lcssa, %if.end53 ], [ %result.3, %for.inc73 ]
+  %result.2.lcssa = phi i8 [ 1, %_ZN6vectorIP10quantifierLb0EjE3endEv.exit21 ], [ 1, %if.end53 ], [ %result.3, %for.inc73 ]
   %m_qi_queue76 = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN3smt8qi_queue11instantiateEv(ptr noundef nonnull align 8 dereferenceable(1048) %m_qi_queue76)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp

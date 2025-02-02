@@ -6322,7 +6322,6 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_to
   br label %if.end168
 
 if.end168:                                        ; preds = %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit598, %if.then156, %cond.true141
-  %is_valid.2 = phi i8 [ 0, %if.then156 ], [ %is_valid.01859, %cond.true141 ], [ 0, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit598 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i599)
   store ptr %unc_vars, ptr %__node_gen.i.i599, align 8
   %call3.i.i.i600 = invoke { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb1EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %unc_vars, ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i599)
@@ -6439,7 +6438,7 @@ if.else.i.i649:                                   ; preds = %_ZN4cvc58internal4e
   br i1 %cmp12.i3.i650, label %if.then13.i4.i373.invoke, label %if.end182
 
 if.end182:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit493, %if.then13.i4.i373.invoke, %invoke.cont115, %if.else.i.i649, %if.then.i5.i654, %invoke.cont176, %if.else.i.i370, %if.then.i5.i375, %if.then89, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit604
-  %is_valid.1 = phi i8 [ %is_valid.2, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit604 ], [ %is_valid.01859, %if.then89 ], [ %is_valid.01859, %if.then.i5.i375 ], [ %is_valid.01859, %if.else.i.i370 ], [ %is_valid.01859, %invoke.cont176 ], [ %is_valid.01859, %if.then.i5.i654 ], [ %is_valid.01859, %if.else.i.i649 ], [ 0, %invoke.cont115 ], [ %is_valid.01859, %if.then13.i4.i373.invoke ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit493 ]
+  %is_valid.1 = phi i8 [ 0, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit604 ], [ %is_valid.01859, %if.then89 ], [ %is_valid.01859, %if.then.i5.i375 ], [ %is_valid.01859, %if.else.i.i370 ], [ %is_valid.01859, %invoke.cont176 ], [ %is_valid.01859, %if.then.i5.i654 ], [ %is_valid.01859, %if.else.i.i649 ], [ 0, %invoke.cont115 ], [ %is_valid.01859, %if.then13.i4.i373.invoke ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit493 ]
   %110 = load ptr, ptr %coeff, align 8
   %bf.load.i.i663 = load i64, ptr %110, align 8
   %111 = and i64 %bf.load.i.i663, 1152920405095219200

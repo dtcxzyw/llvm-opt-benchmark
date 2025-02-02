@@ -4695,7 +4695,7 @@ define internal fastcc void @update_frametailpos(ptr noundef %0) unnamed_addr #0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 582
   %9 = load i8, ptr %8, align 2
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %317, label %11
+  br i1 %10, label %318, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -4714,7 +4714,7 @@ define internal fastcc void @update_frametailpos(ptr noundef %0) unnamed_addr #0
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i64 %20, ptr %21, align 8
-  br label %.sink.split177.sink.split
+  br label %.sink.split176.sink.split
 
 22:                                               ; preds = %11
   %23 = and i32 %7, 1024
@@ -4732,12 +4732,12 @@ define internal fastcc void @update_frametailpos(ptr noundef %0) unnamed_addr #0
   %29 = add i64 %28, 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i64 %29, ptr %30, align 8
-  br label %.sink.split177.sink.split
+  br label %.sink.split176.sink.split
 
 31:                                               ; preds = %24
   %32 = and i32 %7, 10
   %.not145 = icmp eq i32 %32, 0
-  br i1 %.not145, label %.sink.split177, label %33
+  br i1 %.not145, label %.sink.split176, label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 136
@@ -4751,7 +4751,7 @@ define internal fastcc void @update_frametailpos(ptr noundef %0) unnamed_addr #0
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i64 %39, ptr %40, align 8
-  br label %.sink.split177.sink.split
+  br label %.sink.split176.sink.split
 
 41:                                               ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -4800,14 +4800,14 @@ define internal fastcc void @update_frametailpos(ptr noundef %0) unnamed_addr #0
 69:                                               ; preds = %are_peers.exit.thread, %63
   %70 = load ptr, ptr %64, align 8
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.sink.split177.sink.split, label %72
+  br i1 %71, label %.sink.split176.sink.split, label %72
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %74 = load i16, ptr %73, align 4
   %75 = and i16 %74, 2
   %76 = icmp eq i16 %75, 0
-  br i1 %76, label %77, label %.sink.split177.sink.split
+  br i1 %76, label %77, label %.sink.split176.sink.split
 
 77:                                               ; preds = %72
   %78 = load i64, ptr %46, align 8
@@ -4850,11 +4850,11 @@ are_peers.exit:                                   ; preds = %86
   %99 = load ptr, ptr %98, align 8
   %100 = call i64 %99(ptr noundef nonnull %91, ptr noundef nonnull %88, ptr noundef nonnull %3) #8
   store ptr %97, ptr @CurrentMemoryContext, align 8
-  %.not167 = icmp eq i64 %100, 0
+  %.not168 = icmp eq i64 %100, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %101 = load ptr, ptr %95, align 8
   call void @MemoryContextReset(ptr noundef %101) #8
-  br i1 %.not167, label %.sink.split177.sink.split, label %are_peers.exit.thread
+  br i1 %.not168, label %.sink.split176.sink.split, label %are_peers.exit.thread
 
 are_peers.exit.thread:                            ; preds = %81, %are_peers.exit.thread161, %are_peers.exit, %77
   %102 = load i64, ptr %46, align 8
@@ -4864,12 +4864,12 @@ are_peers.exit.thread:                            ; preds = %81, %are_peers.exit
   %104 = load ptr, ptr %42, align 8
   %105 = load ptr, ptr %64, align 8
   %106 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %104, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %105) #8
-  br i1 %106, label %69, label %.sink.split177.sink.split, !llvm.loop !27
+  br i1 %106, label %69, label %.sink.split176.sink.split, !llvm.loop !27
 
 107:                                              ; preds = %22
   %108 = and i32 %7, 20480
   %.not135 = icmp eq i32 %108, 0
-  br i1 %.not135, label %.sink.split177, label %109
+  br i1 %.not135, label %.sink.split176, label %109
 
 109:                                              ; preds = %107
   %110 = and i32 %7, 4
@@ -4895,7 +4895,7 @@ are_peers.exit.thread:                            ; preds = %81, %are_peers.exit
 122:                                              ; preds = %111
   %123 = add i64 %117, 1
   %124 = icmp sgt i64 %119, %123
-  br i1 %124, label %125, label %.sink.split177.sink.split
+  br i1 %124, label %125, label %.sink.split176.sink.split
 
 125:                                              ; preds = %122
   tail call fastcc void @spool_tuples(ptr noundef nonnull %0, i64 noundef %118)
@@ -4903,17 +4903,17 @@ are_peers.exit.thread:                            ; preds = %81, %are_peers.exit
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %128 = load i64, ptr %127, align 8
   %129 = icmp sgt i64 %126, %128
-  br i1 %129, label %.sink.split, label %.sink.split177.sink.split
+  br i1 %129, label %.sink.split, label %.sink.split176.sink.split
 
 .sink.split:                                      ; preds = %125, %111
   %.sink = phi i64 [ 0, %111 ], [ %128, %125 ]
   store i64 %.sink, ptr %120, align 8
-  br label %.sink.split177.sink.split
+  br label %.sink.split176.sink.split
 
 130:                                              ; preds = %109
   %131 = and i32 %7, 2
   %.not137 = icmp eq i32 %131, 0
-  br i1 %.not137, label %226, label %132
+  br i1 %.not137, label %227, label %132
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 144
@@ -4924,7 +4924,7 @@ are_peers.exit.thread:                            ; preds = %81, %are_peers.exit
   %138 = trunc i32 %137 to i8
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %140 = load i8, ptr %139, align 4
-  %not.168 = xor i8 %140, %138
+  %not.169 = xor i8 %140, %138
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -4968,7 +4968,7 @@ are_peers.exit.thread:                            ; preds = %81, %are_peers.exit
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %170 = and i8 %not.168, 1
+  %170 = and i8 %not.169, 1
   %171 = xor i8 %170, 1
   %172 = zext nneg i8 %171 to i64
   %173 = and i8 %140, 1
@@ -4976,17 +4976,17 @@ are_peers.exit.thread:                            ; preds = %81, %are_peers.exit
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 493
   br label %176
 
-176:                                              ; preds = %.thread174, %162
+176:                                              ; preds = %.thread164, %162
   %177 = load ptr, ptr %165, align 8
   %178 = icmp eq ptr %177, null
-  br i1 %178, label %.sink.split177.sink.split, label %179
+  br i1 %178, label %.sink.split176.sink.split, label %179
 
 179:                                              ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %181 = load i16, ptr %180, align 4
   %182 = and i16 %181, 2
   %183 = icmp eq i16 %182, 0
-  br i1 %183, label %184, label %.sink.split177.sink.split
+  br i1 %183, label %184, label %.sink.split176.sink.split
 
 184:                                              ; preds = %179
   %185 = getelementptr inbounds nuw i8, ptr %177, i64 6
@@ -5031,203 +5031,203 @@ slot_getattr.exit152:                             ; preds = %slot_getattr.exit, 
 
 209:                                              ; preds = %slot_getattr.exit152
   %210 = trunc i8 %203 to i1
-  br i1 %210, label %.thread, label %217
+  br i1 %210, label %.thread, label %218
 
 211:                                              ; preds = %slot_getattr.exit152
   %212 = load i8, ptr %175, align 1
   %213 = trunc i8 %212 to i1
-  br i1 %213, label %.thread174, label %216
+  br i1 %213, label %.thread164, label %216
 
 .thread:                                          ; preds = %209
   %214 = load i8, ptr %175, align 1
   %215 = trunc i8 %214 to i1
-  br i1 %215, label %.sink.split177.sink.split, label %.thread174
+  br i1 %215, label %.sink.split176.sink.split, label %.thread164
 
 216:                                              ; preds = %211
-  %.pre = trunc i8 %203 to i1
-  br i1 %.pre, label %.thread174, label %.sink.split177.sink.split
+  %217 = trunc i8 %203 to i1
+  br i1 %217, label %.thread164, label %.sink.split176.sink.split
 
-217:                                              ; preds = %209
-  %218 = load i32, ptr %164, align 8
-  %219 = load i64, ptr %169, align 8
-  %220 = tail call i64 @FunctionCall5Coll(ptr noundef nonnull %163, i32 noundef %218, i64 noundef %195, i64 noundef %207, i64 noundef %219, i64 noundef %172, i64 noundef %174) #8
-  %.not169 = icmp eq i64 %220, 0
-  br i1 %.not169, label %.sink.split177.sink.split, label %.thread174
+218:                                              ; preds = %209
+  %219 = load i32, ptr %164, align 8
+  %220 = load i64, ptr %169, align 8
+  %221 = tail call i64 @FunctionCall5Coll(ptr noundef nonnull %163, i32 noundef %219, i64 noundef %195, i64 noundef %207, i64 noundef %220, i64 noundef %172, i64 noundef %174) #8
+  %.not170 = icmp eq i64 %221, 0
+  br i1 %.not170, label %.sink.split176.sink.split, label %.thread164
 
-.thread174:                                       ; preds = %.thread, %211, %217, %216
-  %221 = load i64, ptr %145, align 8
-  %222 = add i64 %221, 1
-  store i64 %222, ptr %145, align 8
-  tail call fastcc void @spool_tuples(ptr noundef nonnull %0, i64 noundef %222)
-  %223 = load ptr, ptr %141, align 8
-  %224 = load ptr, ptr %165, align 8
-  %225 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %223, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %224) #8
-  br i1 %225, label %176, label %.sink.split177.sink.split, !llvm.loop !28
+.thread164:                                       ; preds = %.thread, %211, %218, %216
+  %222 = load i64, ptr %145, align 8
+  %223 = add i64 %222, 1
+  store i64 %223, ptr %145, align 8
+  tail call fastcc void @spool_tuples(ptr noundef nonnull %0, i64 noundef %223)
+  %224 = load ptr, ptr %141, align 8
+  %225 = load ptr, ptr %165, align 8
+  %226 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %224, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %225) #8
+  br i1 %226, label %176, label %.sink.split176.sink.split, !llvm.loop !28
 
-226:                                              ; preds = %130
-  %227 = and i32 %7, 8
-  %.not138 = icmp eq i32 %227, 0
-  br i1 %.not138, label %.sink.split177, label %228
+227:                                              ; preds = %130
+  %228 = and i32 %7, 8
+  %.not138 = icmp eq i32 %228, 0
+  br i1 %.not138, label %.sink.split176, label %229
 
-228:                                              ; preds = %226
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %230 = load i64, ptr %229, align 8
-  %231 = and i32 %7, 4096
-  %.not139 = icmp eq i32 %231, 0
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %233 = load i64, ptr %232, align 8
-  %234 = sub i64 0, %230
-  %.0.p = select i1 %.not139, i64 %230, i64 %234
-  %.0 = add i64 %233, %.0.p
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %236 = load ptr, ptr %235, align 8
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %238 = load i32, ptr %237, align 8
-  tail call void @tuplestore_select_read_pointer(ptr noundef %236, i32 noundef %238) #8
-  %239 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %240 = load i64, ptr %239, align 8
-  %241 = icmp eq i64 %240, 0
-  br i1 %241, label %242, label %256
+229:                                              ; preds = %227
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %231 = load i64, ptr %230, align 8
+  %232 = and i32 %7, 4096
+  %.not139 = icmp eq i32 %232, 0
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %234 = load i64, ptr %233, align 8
+  %235 = sub i64 0, %231
+  %.0.p = select i1 %.not139, i64 %231, i64 %235
+  %.0 = add i64 %234, %.0.p
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %237 = load ptr, ptr %236, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %239 = load i32, ptr %238, align 8
+  tail call void @tuplestore_select_read_pointer(ptr noundef %237, i32 noundef %239) #8
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %241 = load i64, ptr %240, align 8
+  %242 = icmp eq i64 %241, 0
+  br i1 %242, label %243, label %257
 
-242:                                              ; preds = %228
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %244 = load ptr, ptr %243, align 8
-  %245 = icmp eq ptr %244, null
-  br i1 %245, label %250, label %246
+243:                                              ; preds = %229
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %245 = load ptr, ptr %244, align 8
+  %246 = icmp eq ptr %245, null
+  br i1 %246, label %251, label %247
 
-246:                                              ; preds = %242
-  %247 = getelementptr inbounds nuw i8, ptr %244, i64 4
-  %248 = load i16, ptr %247, align 4
-  %249 = and i16 %248, 2
-  %.not140 = icmp eq i16 %249, 0
-  br i1 %.not140, label %256, label %250
+247:                                              ; preds = %243
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 4
+  %249 = load i16, ptr %248, align 4
+  %250 = and i16 %249, 2
+  %.not140 = icmp eq i16 %250, 0
+  br i1 %.not140, label %257, label %251
 
-250:                                              ; preds = %246, %242
-  %251 = load ptr, ptr %235, align 8
-  %252 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %251, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %244) #8
-  br i1 %252, label %256, label %253
+251:                                              ; preds = %247, %243
+  %252 = load ptr, ptr %236, align 8
+  %253 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %252, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %245) #8
+  br i1 %253, label %257, label %254
 
-253:                                              ; preds = %250
-  %254 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %254)
-  %255 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #8
+254:                                              ; preds = %251
+  %255 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %255)
+  %256 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #8
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1948, ptr noundef nonnull @__func__.update_frametailpos) #8
   unreachable
 
-256:                                              ; preds = %250, %246, %228
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %259 = load ptr, ptr %258, align 8
-  %260 = icmp eq ptr %259, null
-  br i1 %260, label %.critedge150, label %.lr.ph
+257:                                              ; preds = %251, %247, %229
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %260 = load ptr, ptr %259, align 8
+  %261 = icmp eq ptr %260, null
+  br i1 %261, label %.critedge150, label %.lr.ph
 
-.lr.ph:                                           ; preds = %256
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  br label %264
+.lr.ph:                                           ; preds = %257
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  br label %265
 
-264:                                              ; preds = %.lr.ph, %are_peers.exit156.thread
-  %265 = phi ptr [ %259, %.lr.ph ], [ %309, %are_peers.exit156.thread ]
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 4
-  %267 = load i16, ptr %266, align 4
-  %268 = and i16 %267, 2
-  %269 = icmp eq i16 %268, 0
-  br i1 %269, label %270, label %.critedge150
+265:                                              ; preds = %.lr.ph, %are_peers.exit156.thread
+  %266 = phi ptr [ %260, %.lr.ph ], [ %310, %are_peers.exit156.thread ]
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 4
+  %268 = load i16, ptr %267, align 4
+  %269 = and i16 %268, 2
+  %270 = icmp eq i16 %269, 0
+  br i1 %270, label %271, label %.critedge150
 
-270:                                              ; preds = %264
-  %271 = load i64, ptr %257, align 8
-  %272 = icmp sgt i64 %271, %.0
-  br i1 %272, label %.critedge150, label %273
+271:                                              ; preds = %265
+  %272 = load i64, ptr %258, align 8
+  %273 = icmp sgt i64 %272, %.0
+  br i1 %273, label %.critedge150, label %274
 
-273:                                              ; preds = %270
-  %274 = load ptr, ptr %261, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
-  %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 56
-  %278 = load ptr, ptr %277, align 8
-  call void %278(ptr noundef %274, ptr noundef nonnull %265) #8
-  %279 = load i64, ptr %239, align 8
-  %280 = add i64 %279, 1
-  store i64 %280, ptr %239, align 8
-  call fastcc void @spool_tuples(ptr noundef nonnull %0, i64 noundef %280)
-  %281 = load ptr, ptr %235, align 8
-  %282 = load ptr, ptr %258, align 8
-  %283 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %281, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %282) #8
-  br i1 %283, label %284, label %.critedge150
+274:                                              ; preds = %271
+  %275 = load ptr, ptr %262, align 8
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
+  %277 = load ptr, ptr %276, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 56
+  %279 = load ptr, ptr %278, align 8
+  call void %279(ptr noundef %275, ptr noundef nonnull %266) #8
+  %280 = load i64, ptr %240, align 8
+  %281 = add i64 %280, 1
+  store i64 %281, ptr %240, align 8
+  call fastcc void @spool_tuples(ptr noundef nonnull %0, i64 noundef %281)
+  %282 = load ptr, ptr %236, align 8
+  %283 = load ptr, ptr %259, align 8
+  %284 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %282, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %283) #8
+  br i1 %284, label %285, label %.critedge150
 
-284:                                              ; preds = %273
-  %285 = load ptr, ptr %4, align 8
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 136
-  %287 = load i32, ptr %286, align 8
-  %288 = icmp eq i32 %287, 0
-  br i1 %288, label %are_peers.exit156.thread, label %289
+285:                                              ; preds = %274
+  %286 = load ptr, ptr %4, align 8
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 136
+  %288 = load i32, ptr %287, align 8
+  %289 = icmp eq i32 %288, 0
+  br i1 %289, label %are_peers.exit156.thread, label %290
 
-289:                                              ; preds = %284
-  %290 = load ptr, ptr %258, align 8
-  %291 = load ptr, ptr %261, align 8
+290:                                              ; preds = %285
+  %291 = load ptr, ptr %259, align 8
   %292 = load ptr, ptr %262, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %292, i64 24
-  store ptr %291, ptr %293, align 8
-  %294 = getelementptr inbounds nuw i8, ptr %292, i64 16
-  store ptr %290, ptr %294, align 8
-  %295 = load ptr, ptr %263, align 8
+  %293 = load ptr, ptr %263, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 24
+  store ptr %292, ptr %294, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %293, i64 16
+  store ptr %291, ptr %295, align 8
+  %296 = load ptr, ptr %264, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %296 = icmp eq ptr %295, null
-  br i1 %296, label %are_peers.exit156.thread165, label %are_peers.exit156
+  %297 = icmp eq ptr %296, null
+  br i1 %297, label %are_peers.exit156.thread166, label %are_peers.exit156
 
-are_peers.exit156.thread165:                      ; preds = %289
+are_peers.exit156.thread166:                      ; preds = %290
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %297 = getelementptr inbounds nuw i8, ptr %292, i64 40
-  %298 = load ptr, ptr %297, align 8
-  call void @MemoryContextReset(ptr noundef %298) #8
+  %298 = getelementptr inbounds nuw i8, ptr %293, i64 40
+  %299 = load ptr, ptr %298, align 8
+  call void @MemoryContextReset(ptr noundef %299) #8
   br label %are_peers.exit156.thread
 
-are_peers.exit156:                                ; preds = %289
-  %299 = getelementptr inbounds nuw i8, ptr %292, i64 40
-  %300 = load ptr, ptr %299, align 8
-  %301 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %300, ptr @CurrentMemoryContext, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %295, i64 32
-  %303 = load ptr, ptr %302, align 8
-  %304 = call i64 %303(ptr noundef nonnull %295, ptr noundef nonnull %292, ptr noundef nonnull %2) #8
+are_peers.exit156:                                ; preds = %290
+  %300 = getelementptr inbounds nuw i8, ptr %293, i64 40
+  %301 = load ptr, ptr %300, align 8
+  %302 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %301, ptr @CurrentMemoryContext, align 8
-  %.not170 = icmp eq i64 %304, 0
+  %303 = getelementptr inbounds nuw i8, ptr %296, i64 32
+  %304 = load ptr, ptr %303, align 8
+  %305 = call i64 %304(ptr noundef nonnull %296, ptr noundef nonnull %293, ptr noundef nonnull %2) #8
+  store ptr %302, ptr @CurrentMemoryContext, align 8
+  %.not171 = icmp eq i64 %305, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %305 = load ptr, ptr %299, align 8
-  call void @MemoryContextReset(ptr noundef %305) #8
-  br i1 %.not170, label %306, label %are_peers.exit156.thread
+  %306 = load ptr, ptr %300, align 8
+  call void @MemoryContextReset(ptr noundef %306) #8
+  br i1 %.not171, label %307, label %are_peers.exit156.thread
 
-306:                                              ; preds = %are_peers.exit156
-  %307 = load i64, ptr %257, align 8
-  %308 = add i64 %307, 1
-  store i64 %308, ptr %257, align 8
+307:                                              ; preds = %are_peers.exit156
+  %308 = load i64, ptr %258, align 8
+  %309 = add i64 %308, 1
+  store i64 %309, ptr %258, align 8
   br label %are_peers.exit156.thread
 
-are_peers.exit156.thread:                         ; preds = %284, %are_peers.exit156.thread165, %306, %are_peers.exit156
-  %309 = load ptr, ptr %258, align 8
-  %310 = icmp eq ptr %309, null
-  br i1 %310, label %.critedge150, label %264, !llvm.loop !29
+are_peers.exit156.thread:                         ; preds = %285, %are_peers.exit156.thread166, %307, %are_peers.exit156
+  %310 = load ptr, ptr %259, align 8
+  %311 = icmp eq ptr %310, null
+  br i1 %311, label %.critedge150, label %265, !llvm.loop !29
 
-.critedge150:                                     ; preds = %264, %270, %273, %are_peers.exit156.thread, %256
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 24
-  %316 = load ptr, ptr %315, align 8
-  call void %316(ptr noundef %312) #8
-  br label %.sink.split177.sink.split
+.critedge150:                                     ; preds = %265, %271, %274, %are_peers.exit156.thread, %257
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %313 = load ptr, ptr %312, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  %315 = load ptr, ptr %314, align 8
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 24
+  %317 = load ptr, ptr %316, align 8
+  call void %317(ptr noundef %313) #8
+  br label %.sink.split176.sink.split
 
-.sink.split177.sink.split:                        ; preds = %69, %are_peers.exit.thread, %are_peers.exit, %72, %.thread, %176, %.thread174, %217, %216, %179, %26, %.critedge150, %18, %.sink.split, %122, %125, %37
+.sink.split176.sink.split:                        ; preds = %69, %are_peers.exit.thread, %are_peers.exit, %72, %.thread, %176, %.thread164, %218, %216, %179, %26, %.critedge150, %18, %.sink.split, %122, %125, %37
   store i8 1, ptr %8, align 2
-  br label %.sink.split177
+  br label %.sink.split176
 
-.sink.split177:                                   ; preds = %.sink.split177.sink.split, %226, %107, %31
+.sink.split176:                                   ; preds = %.sink.split176.sink.split, %227, %107, %31
   store ptr %16, ptr @CurrentMemoryContext, align 8
-  br label %317
+  br label %318
 
-317:                                              ; preds = %.sink.split177, %1
+318:                                              ; preds = %.sink.split176, %1
   ret void
 }
 

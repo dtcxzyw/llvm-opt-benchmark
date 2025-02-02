@@ -8952,25 +8952,22 @@ define hidden noundef ptr @_ZN10ciTypeFlow15clone_loop_headEPNS_4LoopEPNS_11Stat
   %.not76 = icmp eq ptr %56, null
   br i1 %.not76, label %.loopexit190, label %41, !llvm.loop !44
 
-.preheader:                                       ; preds = %.preheader188, %._crit_edge247
-  %.055256 = phi ptr [ %1, %.preheader188 ], [ %411, %._crit_edge247 ]
-  %.056255 = phi i8 [ 0, %.preheader188 ], [ %.2, %._crit_edge247 ]
-  %.057254 = phi ptr [ %8, %.preheader188 ], [ %.3, %._crit_edge247 ]
-  %.063252 = phi i32 [ 0, %.preheader188 ], [ %.265, %._crit_edge247 ]
-  %57 = trunc nuw i8 %.056255 to i1
-  br i1 %57, label %._crit_edge247.thread, label %.lr.ph246
+.preheader:                                       ; preds = %.preheader188, %410
+  %.055249 = phi ptr [ %1, %.preheader188 ], [ %411, %410 ]
+  %.057248 = phi ptr [ %8, %.preheader188 ], [ %.3, %410 ]
+  %.063246 = phi i32 [ 0, %.preheader188 ], [ %.265, %410 ]
+  br label %57
 
-.lr.ph246:                                        ; preds = %.preheader, %406
-  %.0245 = phi ptr [ %408, %406 ], [ %.055256, %.preheader ]
-  %.1244 = phi i8 [ %.2, %406 ], [ %.056255, %.preheader ]
-  %.158243 = phi ptr [ %.3, %406 ], [ %.057254, %.preheader ]
-  %.164241 = phi i32 [ %.265, %406 ], [ %.063252, %.preheader ]
+57:                                               ; preds = %.preheader, %406
+  %.0245 = phi ptr [ %.055249, %.preheader ], [ %408, %406 ]
+  %.158243 = phi ptr [ %.057248, %.preheader ], [ %.3, %406 ]
+  %.164241 = phi i32 [ %.063246, %.preheader ], [ %.265, %406 ]
   %58 = getelementptr inbounds nuw i8, ptr %.0245, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, %6
   br i1 %60, label %61, label %406
 
-61:                                               ; preds = %.lr.ph246
+61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %.0245, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 88
@@ -9087,11 +9084,11 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18.i128:  ; preds = %113, %_ZNK10ciMetad
   %.sroa.10169.0236 = phi i32 [ %.sroa.10169.2.ph, %.lr.ph ], [ %.sroa.10169.1, %_ZN10ciTypeFlow8SuccIter4nextEv.exit ]
   %.sroa.21173.0237 = load ptr, ptr %.sroa.21173.0237.in, align 8
   %123 = icmp eq ptr %.sroa.21173.0237, %6
-  %.pre274 = load ptr, ptr %76, align 8
+  %.pre267 = load ptr, ptr %76, align 8
   br i1 %123, label %124, label %212
 
 124:                                              ; preds = %122
-  %125 = load i32, ptr %.pre274, align 4
+  %125 = load i32, ptr %.pre267, align 4
   %126 = icmp slt i32 %.sroa.10169.0236, %125
   br i1 %126, label %_ZN10ciTypeFlow8SuccIter8set_succEPNS_5BlockE.exit, label %127
 
@@ -9107,7 +9104,7 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit18.i128:  ; preds = %113, %_ZNK10ciMetad
   br label %_ZN10ciTypeFlow8SuccIter8set_succEPNS_5BlockE.exit
 
 _ZN10ciTypeFlow8SuccIter8set_succEPNS_5BlockE.exit: ; preds = %124, %127, %131
-  %.sink8.i = phi ptr [ %.pre274, %124 ], [ %.pre.i.i, %131 ], [ %129, %127 ]
+  %.sink8.i = phi ptr [ %.pre267, %124 ], [ %.pre.i.i, %131 ], [ %129, %127 ]
   %.sink.i = phi i32 [ %.sroa.10169.0236, %124 ], [ %128, %131 ], [ %128, %127 ]
   %132 = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 8
   %133 = load ptr, ptr %132, align 8
@@ -9288,11 +9285,11 @@ _ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appen
   %210 = sext i32 %208 to i64
   %211 = getelementptr inbounds ptr, ptr %207, i64 %210
   store ptr %160, ptr %211, align 8
-  %.pre273 = load ptr, ptr %76, align 8
+  %.pre266 = load ptr, ptr %76, align 8
   br label %212
 
 212:                                              ; preds = %122, %_ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appendERKS2_.exit
-  %213 = phi ptr [ %.pre274, %122 ], [ %.pre273, %_ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appendERKS2_.exit ]
+  %213 = phi ptr [ %.pre267, %122 ], [ %.pre266, %_ZN26GrowableArrayWithAllocatorIPN10ciTypeFlow5BlockE13GrowableArrayIS2_EE6appendERKS2_.exit ]
   %214 = load i32, ptr %213, align 4
   %215 = add nuw nsw i32 %.sroa.10169.0236, 1
   %216 = icmp slt i32 %215, %214
@@ -9701,33 +9698,30 @@ _ZN10ciTypeFlow8SuccIter4nextEv.exit118:          ; preds = %364, %_ZN10ciTypeFl
   %404 = sitofp i32 %69 to double
   %405 = fcmp olt double %40, %404
   %or.cond = select i1 %38, i1 true, i1 %405
-  %spec.select258 = select i1 %or.cond, i8 1, i8 %.1244
   br label %406
 
-406:                                              ; preds = %.loopexit, %.lr.ph246, %61
-  %.265 = phi i32 [ %.164241, %61 ], [ %.164241, %.lr.ph246 ], [ %69, %.loopexit ]
-  %.3 = phi ptr [ %.158243, %61 ], [ %.158243, %.lr.ph246 ], [ %spec.select, %.loopexit ]
-  %.2 = phi i8 [ %.1244, %61 ], [ %.1244, %.lr.ph246 ], [ %spec.select258, %.loopexit ]
+406:                                              ; preds = %.loopexit, %57, %61
+  %.265 = phi i32 [ %.164241, %61 ], [ %.164241, %57 ], [ %69, %.loopexit ]
+  %.3 = phi ptr [ %.158243, %61 ], [ %.158243, %57 ], [ %spec.select, %.loopexit ]
+  %.2 = phi i1 [ false, %61 ], [ false, %57 ], [ %or.cond, %.loopexit ]
   %407 = getelementptr inbounds nuw i8, ptr %.0245, i64 8
   %408 = load ptr, ptr %407, align 8
   %409 = icmp eq ptr %408, null
-  %410 = trunc nuw i8 %.2 to i1
-  %.not75 = select i1 %409, i1 true, i1 %410
-  br i1 %.not75, label %._crit_edge247, label %.lr.ph246, !llvm.loop !51
+  %.not75 = select i1 %409, i1 true, i1 %.2
+  br i1 %.not75, label %410, label %57, !llvm.loop !51
 
-._crit_edge247:                                   ; preds = %406
-  %411 = load ptr, ptr %.055256, align 8
+410:                                              ; preds = %406
+  %411 = load ptr, ptr %.055249, align 8
   %412 = icmp eq ptr %411, null
-  %.not73 = select i1 %412, i1 true, i1 %410
-  br i1 %.not73, label %._crit_edge247.thread, label %.preheader, !llvm.loop !52
+  %.not73 = select i1 %412, i1 true, i1 %.2
+  br i1 %.not73, label %413, label %.preheader, !llvm.loop !52
 
-._crit_edge247.thread:                            ; preds = %.preheader, %._crit_edge247
-  %.158.lcssa292 = phi ptr [ %.3, %._crit_edge247 ], [ %.057254, %.preheader ]
-  %413 = getelementptr inbounds nuw i8, ptr %.158.lcssa292, i64 104
-  %414 = load ptr, ptr %413, align 8
-  %415 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  store ptr %414, ptr %415, align 8
-  store ptr %19, ptr %413, align 8
+413:                                              ; preds = %410
+  %414 = getelementptr inbounds nuw i8, ptr %.3, i64 104
+  %415 = load ptr, ptr %414, align 8
+  %416 = getelementptr inbounds nuw i8, ptr %19, i64 104
+  store ptr %415, ptr %416, align 8
+  store ptr %19, ptr %414, align 8
   tail call void @_ZN10ciTypeFlow10flow_blockEPNS_5BlockEPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %19, ptr noundef %2, ptr noundef %3)
   ret ptr %19
 }

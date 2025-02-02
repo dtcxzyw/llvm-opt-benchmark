@@ -762,8 +762,8 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h42
   %28 = icmp ne ptr %26, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !174
   %29 = load i64, ptr %14, align 8, !noalias !174, !noundef !4
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %27, %29
-  %or.cond.i.i.i = select i1 %28, i1 %.not.i.i.i.i.i.i.i, i1 false
+  %.not.i.i.i.i.i.i = icmp eq i64 %27, %29
+  %or.cond.i.i.i = select i1 %28, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hd71f0be45bb7e6f2E.exit.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h6251da42c9ccdba1E.exit"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hd71f0be45bb7e6f2E.exit.i.i": ; preds = %15
@@ -841,8 +841,8 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h76
   %28 = icmp ne ptr %26, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !209
   %29 = load i64, ptr %14, align 8, !noalias !209, !noundef !4
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %27, %29
-  %or.cond.i.i.i = select i1 %28, i1 %.not.i.i.i.i.i.i.i, i1 false
+  %.not.i.i.i.i.i.i = icmp eq i64 %27, %29
+  %or.cond.i.i.i = select i1 %28, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hcd13d342ae7f564dE.exit.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf2667ead9af04b53E.exit"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hcd13d342ae7f564dE.exit.i.i": ; preds = %15
@@ -1358,8 +1358,8 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
   %18 = extractvalue { ptr, i64 } %16, 1
   %19 = icmp ne ptr %17, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !286
-  %.not.i.i.i.i.i.i.i.i.us = icmp eq i64 %18, %3
-  %or.cond.i.i.i.i.us = select i1 %19, i1 %.not.i.i.i.i.i.i.i.i.us, i1 false
+  %.not.i.i.i.i.i.i.i.us = icmp eq i64 %18, %3
+  %or.cond.i.i.i.i.us = select i1 %19, i1 %.not.i.i.i.i.i.i.i.us, i1 false
   br i1 %or.cond.i.i.i.i.us, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hcd13d342ae7f564dE.exit.i.i.i.us", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf2667ead9af04b53E.exit.i.us"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hcd13d342ae7f564dE.exit.i.i.i.us": ; preds = %.lr.ph.i.us
@@ -1388,8 +1388,8 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
   %28 = extractvalue { ptr, i64 } %26, 1
   %29 = icmp ne ptr %27, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !286
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %28, %3
-  %or.cond.i.i.i.i = select i1 %29, i1 %.not.i.i.i.i.i.i.i.i, i1 false
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %28, %3
+  %or.cond.i.i.i.i = select i1 %29, i1 %.not.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hcd13d342ae7f564dE.exit.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf2667ead9af04b53E.exit.i"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hcd13d342ae7f564dE.exit.i.i.i": ; preds = %.lr.ph.i
@@ -1443,8 +1443,8 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
   %18 = extractvalue { ptr, i64 } %16, 1
   %19 = icmp ne ptr %17, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !314
-  %.not.i.i.i.i.i.i.i.i.us = icmp eq i64 %18, %3
-  %or.cond.i.i.i.i.us = select i1 %19, i1 %.not.i.i.i.i.i.i.i.i.us, i1 false
+  %.not.i.i.i.i.i.i.i.us = icmp eq i64 %18, %3
+  %or.cond.i.i.i.i.us = select i1 %19, i1 %.not.i.i.i.i.i.i.i.us, i1 false
   br i1 %or.cond.i.i.i.i.us, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hd71f0be45bb7e6f2E.exit.i.i.i.us", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h6251da42c9ccdba1E.exit.i.us"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hd71f0be45bb7e6f2E.exit.i.i.i.us": ; preds = %.lr.ph.i.us
@@ -1473,8 +1473,8 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
   %28 = extractvalue { ptr, i64 } %26, 1
   %29 = icmp ne ptr %27, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !314
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %28, %3
-  %or.cond.i.i.i.i = select i1 %29, i1 %.not.i.i.i.i.i.i.i.i, i1 false
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %28, %3
+  %or.cond.i.i.i.i = select i1 %29, i1 %.not.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hd71f0be45bb7e6f2E.exit.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h6251da42c9ccdba1E.exit.i"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hd71f0be45bb7e6f2E.exit.i.i.i": ; preds = %.lr.ph.i

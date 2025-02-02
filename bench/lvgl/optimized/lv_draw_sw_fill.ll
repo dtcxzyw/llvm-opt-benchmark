@@ -275,12 +275,12 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 .thread179:                                       ; preds = %116, %115, %._crit_edge, %125
   %138 = phi i1 [ false, %._crit_edge ], [ false, %125 ], [ %99, %115 ], [ %99, %116 ]
-  %.1144181.shrunk = phi i1 [ true, %._crit_edge ], [ false, %125 ], [ false, %115 ], [ false, %116 ]
+  %.1144181 = phi i1 [ true, %._crit_edge ], [ false, %125 ], [ false, %115 ], [ false, %116 ]
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %7) #6
   br label %139
 
 139:                                              ; preds = %.thread179, %110
-  %.0143 = phi i1 [ %.1144181.shrunk, %.thread179 ], [ false, %110 ]
+  %.0143 = phi i1 [ %.1144181, %.thread179 ], [ false, %110 ]
   %.0142 = phi i1 [ %138, %.thread179 ], [ %99, %110 ]
   %140 = load i32, ptr %92, align 4, !tbaa !17
   %.not169 = icmp sgt i32 %105, %140

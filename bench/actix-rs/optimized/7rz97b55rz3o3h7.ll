@@ -7783,8 +7783,8 @@ define hidden void @"_ZN142_$LT$awc..client..connector..ConnectorServicePriv$LT$
   store i64 %28, ptr %5, align 8, !noalias !1166
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %30, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1166
-  %.sroa.515.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %.val.i.i.i, ptr %.sroa.515.0..sroa_idx.i, align 8, !noalias !1166
+  %.sroa.514.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %.val.i.i.i, ptr %.sroa.514.0..sroa_idx.i, align 8, !noalias !1166
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %.sroa.3.0.i.i.i.i.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !1166
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32

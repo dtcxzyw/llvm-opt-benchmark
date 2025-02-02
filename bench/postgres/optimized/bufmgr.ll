@@ -6660,7 +6660,6 @@ LockBuffer.exit46:                                ; preds = %39
   br label %55
 
 55:                                               ; preds = %54, %52
-  %.141 = phi i8 [ %.040, %52 ], [ 1, %54 ]
   %.not44 = icmp eq i64 %.0, 0
   br i1 %.not44, label %63, label %56
 
@@ -6688,7 +6687,7 @@ LockBuffer.exit46:                                ; preds = %39
   br label %.thread
 
 .thread:                                          ; preds = %56, %62, %58, %66, %63
-  %.13854 = phi i8 [ %.037, %66 ], [ %.037, %63 ], [ %.037, %58 ], [ 1, %62 ], [ %.037, %56 ]
+  %.13854 = phi i8 [ %.037, %66 ], [ %.037, %63 ], [ 0, %58 ], [ 1, %62 ], [ 1, %56 ]
   %.1 = phi i64 [ %67, %66 ], [ 0, %63 ], [ %.0, %58 ], [ %.0, %62 ], [ %.0, %56 ]
   call void @SetStartupBufferPinWaitBufId(i32 noundef %6) #14
   call void @ResolveRecoveryConflictWithBufferPin() #14
@@ -6700,7 +6699,7 @@ LockBuffer.exit46:                                ; preds = %39
   br label %69
 
 69:                                               ; preds = %68, %.thread
-  %.242 = phi i8 [ %.141, %.thread ], [ %.040, %68 ]
+  %.242 = phi i8 [ 1, %.thread ], [ %.040, %68 ]
   %.239 = phi i8 [ %.13854, %.thread ], [ %.037, %68 ]
   %.2 = phi i64 [ %.1, %.thread ], [ %.0, %68 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)

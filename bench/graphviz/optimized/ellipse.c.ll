@@ -221,8 +221,8 @@ gv_alloc.exit.preheader.i.preheader:              ; preds = %initEllipse.exit
   unreachable
 
 gv_alloc.exit.preheader.i:                        ; preds = %gv_alloc.exit.preheader.i.preheader, %gv_alloc.exit.i
-  %.0114131.i = phi i32 [ %186, %gv_alloc.exit.i ], [ 1, %gv_alloc.exit.preheader.i.preheader ]
-  %160 = sitofp i32 %.0114131.i to double
+  %.0114130.i = phi i32 [ %186, %gv_alloc.exit.i ], [ 1, %gv_alloc.exit.preheader.i.preheader ]
+  %160 = sitofp i32 %.0114130.i to double
   %161 = fdiv double %86, %160
   %162 = fcmp ugt double %161, 0x3FF921FB54442D18
   br i1 %162, label %gv_alloc.exit.i, label %.lr.ph.i
@@ -251,13 +251,13 @@ gv_alloc.exit.preheader.i:                        ; preds = %gv_alloc.exit.prehe
   %181 = fmul double %156, %180
   %182 = fcmp ole double %181, 1.000000e-05
   %183 = add nuw nsw i32 %.0115128.i, 1
-  %184 = icmp ult i32 %183, %.0114131.i
+  %184 = icmp ult i32 %183, %.0114130.i
   %185 = select i1 %182, i1 %184, i1 false
   br i1 %185, label %.lr.ph.i, label %gv_alloc.exit.i
 
 gv_alloc.exit.i:                                  ; preds = %.lr.ph.i, %gv_alloc.exit.preheader.i
   %.1117.i = phi i1 [ false, %gv_alloc.exit.preheader.i ], [ %182, %.lr.ph.i ]
-  %186 = shl i32 %.0114131.i, 1
+  %186 = shl i32 %.0114130.i, 1
   %187 = icmp sgt i32 %186, 1023
   %.not123.i = or i1 %187, %.1117.i
   br i1 %.not123.i, label %188, label %gv_alloc.exit.preheader.i
@@ -314,13 +314,13 @@ lineTo.exit.i:                                    ; preds = %188
   %220 = fmul double %215, %219
   %221 = fdiv double %220, 3.000000e+00
   %222 = icmp sgt i32 %186, 0
-  br i1 %222, label %.lr.ph138.i, label %lineTo.exit._crit_edge.i
+  br i1 %222, label %.lr.ph137.i, label %lineTo.exit._crit_edge.i
 
 lineTo.exit._crit_edge.i:                         ; preds = %lineTo.exit.i
   %.pre.i = load i32, ptr @bufsize, align 4
   br label %271
 
-.lr.ph138.i:                                      ; preds = %lineTo.exit.i
+.lr.ph137.i:                                      ; preds = %lineTo.exit.i
   %223 = fneg double %192
   %224 = fmul double %2, %223
   %225 = fmul double %3, %191
@@ -330,16 +330,16 @@ lineTo.exit._crit_edge.i:                         ; preds = %lineTo.exit.i
   %229 = fneg double %221
   br label %230
 
-230:                                              ; preds = %curveTo.exit.i, %.lr.ph138.i
-  %indvars.iv.i = phi i64 [ 4, %.lr.ph138.i ], [ %indvars.iv.next.i, %curveTo.exit.i ]
-  %231 = phi ptr [ %193, %.lr.ph138.i ], [ %260, %curveTo.exit.i ]
-  %.0137.i = phi double [ %11, %.lr.ph138.i ], [ %232, %curveTo.exit.i ]
-  %.1136.i = phi i32 [ 0, %.lr.ph138.i ], [ %269, %curveTo.exit.i ]
-  %.0118135.i = phi double [ %204, %.lr.ph138.i ], [ %240, %curveTo.exit.i ]
-  %.0119134.i = phi double [ %201, %.lr.ph138.i ], [ %242, %curveTo.exit.i ]
-  %.0120133.i = phi double [ %228, %.lr.ph138.i ], [ %247, %curveTo.exit.i ]
-  %.0121132.i = phi double [ %227, %.lr.ph138.i ], [ %246, %curveTo.exit.i ]
-  %232 = fadd double %190, %.0137.i
+230:                                              ; preds = %curveTo.exit.i, %.lr.ph137.i
+  %indvars.iv.i = phi i64 [ 4, %.lr.ph137.i ], [ %indvars.iv.next.i, %curveTo.exit.i ]
+  %231 = phi ptr [ %193, %.lr.ph137.i ], [ %260, %curveTo.exit.i ]
+  %.0136.i = phi double [ %11, %.lr.ph137.i ], [ %232, %curveTo.exit.i ]
+  %.1135.i = phi i32 [ 0, %.lr.ph137.i ], [ %269, %curveTo.exit.i ]
+  %.0118134.i = phi double [ %204, %.lr.ph137.i ], [ %240, %curveTo.exit.i ]
+  %.0119133.i = phi double [ %201, %.lr.ph137.i ], [ %242, %curveTo.exit.i ]
+  %.0120132.i = phi double [ %228, %.lr.ph137.i ], [ %247, %curveTo.exit.i ]
+  %.0121131.i = phi double [ %227, %.lr.ph137.i ], [ %246, %curveTo.exit.i ]
+  %232 = fadd double %190, %.0136.i
   %233 = tail call double @cos(double noundef %232) #8
   %234 = tail call double @sin(double noundef %232) #8
   %235 = fmul double %2, %233
@@ -355,8 +355,8 @@ lineTo.exit._crit_edge.i:                         ; preds = %lineTo.exit.i
   %245 = fmul double %237, 0.000000e+00
   %246 = fsub double %244, %245
   %247 = tail call double @llvm.fmuladd.f64(double %244, double 0.000000e+00, double %237)
-  %248 = tail call double @llvm.fmuladd.f64(double %221, double %.0121132.i, double %.0118135.i)
-  %249 = tail call double @llvm.fmuladd.f64(double %221, double %.0120133.i, double %.0119134.i)
+  %248 = tail call double @llvm.fmuladd.f64(double %221, double %.0121131.i, double %.0118134.i)
+  %249 = tail call double @llvm.fmuladd.f64(double %221, double %.0120132.i, double %.0119133.i)
   %250 = tail call double @llvm.fmuladd.f64(double %229, double %246, double %240)
   %251 = tail call double @llvm.fmuladd.f64(double %229, double %247, double %242)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
@@ -390,7 +390,7 @@ curveTo.exit.i:                                   ; preds = %254, %230
   store double %240, ptr %267, align 8
   %268 = getelementptr inbounds nuw %struct.pointf_s, ptr %260, i64 %265, i32 1
   store double %242, ptr %268, align 8
-  %269 = add nuw nsw i32 %.1136.i, 1
+  %269 = add nuw nsw i32 %.1135.i, 1
   %exitcond.not.i = icmp eq i32 %269, %186
   br i1 %exitcond.not.i, label %._crit_edge.i, label %230
 

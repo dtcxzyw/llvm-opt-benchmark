@@ -111114,7 +111114,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i: ; preds = %.lr.
   br label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE5eraseES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE5eraseES2_.exit: ; preds = %417, %421, %419, %412, %406, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i, %374, %371, %368, %366
-  %.1.i = phi i8 [ %.018.i, %366 ], [ %spec.select25.i, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i ], [ %.018.i, %374 ], [ %.018.i, %371 ], [ %.018.i, %368 ], [ %spec.select25.i, %406 ], [ %spec.select25.i, %412 ], [ %spec.select25.i, %419 ], [ %spec.select25.i, %421 ], [ %spec.select25.i, %417 ]
+  %.1.i = phi i8 [ 1, %366 ], [ %spec.select25.i, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i ], [ 0, %374 ], [ 0, %371 ], [ 0, %368 ], [ %spec.select25.i, %406 ], [ %spec.select25.i, %412 ], [ %spec.select25.i, %419 ], [ %spec.select25.i, %421 ], [ %spec.select25.i, %417 ]
   %424 = trunc i8 %.017.i to i1
   br i1 %424, label %425, label %427
 

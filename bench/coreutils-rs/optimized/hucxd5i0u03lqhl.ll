@@ -3108,10 +3108,10 @@ define internal fastcc void @_ZN7uu_test6parser6Parser12maybe_boolop17ha2f0036b6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5.i.i.i)
   %19 = load i64, ptr %18, align 8, !range !349, !alias.scope !729, !noalias !730, !noundef !5
   %20 = icmp eq i64 %19, -9223372036854775807
-  %.sink20.i.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink20.i.sroa.gep51 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sink20.i.sroa.gep55 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink20.i.sroa.gep57 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink19.i.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink19.i.sroa.gep51 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink19.i.sroa.gep54 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink19.i.sroa.gep56 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %20, label %21, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h4cdd3c45cbfae493E.exit.i.i"
 
 21:                                               ; preds = %2
@@ -3386,9 +3386,9 @@ default.unreachable1.i:                           ; preds = %92, %87
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !821
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !826
   invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.27, i64 noundef 2)
-          to label %100 unwind label %.thread65
+          to label %100 unwind label %.thread63
 
-.thread65:                                        ; preds = %"_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit.thread", %106, %107, %124, %98
+.thread63:                                        ; preds = %"_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit.thread", %106, %107, %124, %98
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_test..parser..Symbol$GT$17h8d94e6a132b6c7edE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13) #12
@@ -3406,31 +3406,31 @@ default.unreachable1.i:                           ; preds = %92, %87
   br i1 %103, label %104, label %"_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit.thread"
 
 104:                                              ; preds = %100
-  %.val7.i = load i64, ptr %.sink20.i.sroa.gep51, align 8, !alias.scope !831, !noalias !836, !noundef !5
-  %.val9.i = load i64, ptr %.sink20.i.sroa.gep57, align 8, !alias.scope !834, !noalias !837, !noundef !5
+  %.val7.i = load i64, ptr %.sink19.i.sroa.gep51, align 8, !alias.scope !831, !noalias !836, !noundef !5
+  %.val9.i = load i64, ptr %.sink19.i.sroa.gep56, align 8, !alias.scope !834, !noalias !837, !noundef !5
   %.not.i.i.i = icmp eq i64 %.val7.i, %.val9.i
   br i1 %.not.i.i.i, label %"_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit", label %"_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit.thread"
 
 "_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit": ; preds = %104
-  %.val4.i17.i = load ptr, ptr %.sink20.i.sroa.gep55, align 8, !alias.scope !834, !noalias !837, !nonnull !5, !noundef !5
-  %.val.i18.i = load ptr, ptr %.sink20.i.sroa.gep, align 8, !alias.scope !831, !noalias !836, !nonnull !5, !noundef !5
-  %bcmp.i.i12.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i18.i, ptr nonnull readonly align 1 %.val4.i17.i, i64 %.val7.i), !noalias !838
+  %.val4.i16.i = load ptr, ptr %.sink19.i.sroa.gep54, align 8, !alias.scope !834, !noalias !837, !nonnull !5, !noundef !5
+  %.val.i17.i = load ptr, ptr %.sink19.i.sroa.gep, align 8, !alias.scope !831, !noalias !836, !nonnull !5, !noundef !5
+  %bcmp.i.i12.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i17.i, ptr nonnull readonly align 1 %.val4.i16.i, i64 %.val7.i), !noalias !838
   %105 = icmp eq i32 %bcmp.i.i12.i.i, 0
   br i1 %105, label %106, label %"_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit.thread"
 
 "_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit.thread": ; preds = %104, %100, %"_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit"
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_test..parser..Symbol$GT$17h8d94e6a132b6c7edE"(ptr noalias noundef align 8 dereferenceable(40) %7)
-          to label %107 unwind label %.thread65, !noalias !821
+          to label %107 unwind label %.thread63, !noalias !821
 
 106:                                              ; preds = %"_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit"
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_test..parser..Symbol$GT$17h8d94e6a132b6c7edE"(ptr noalias noundef align 8 dereferenceable(40) %7)
-          to label %124 unwind label %.thread65, !noalias !821
+          to label %124 unwind label %.thread63, !noalias !821
 
 107:                                              ; preds = %"_ZN64_$LT$uu_test..parser..Symbol$u20$as$u20$core..cmp..PartialEq$GT$2eq17h898f6414df653cd1E.exit.thread"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !821
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !821
   invoke fastcc void @_ZN7uu_test6parser6Parser4expr17h0a1af31d7099b553E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
-          to label %108 unwind label %.thread65, !noalias !839
+          to label %108 unwind label %.thread63, !noalias !839
 
 108:                                              ; preds = %107
   %109 = load i64, ptr %5, align 8, !range !4, !noalias !821, !noundef !5
@@ -3485,7 +3485,7 @@ default.unreachable1.i:                           ; preds = %92, %87
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !821
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !821
   invoke fastcc void @_ZN7uu_test6parser6Parser4term17hf199f4ffc61be83cE(ptr noalias noundef align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
-          to label %125 unwind label %.thread65, !noalias !839
+          to label %125 unwind label %.thread63, !noalias !839
 
 125:                                              ; preds = %124
   %126 = load i64, ptr %6, align 8, !range !4, !noalias !821, !noundef !5
@@ -3502,7 +3502,7 @@ default.unreachable1.i:                           ; preds = %92, %87
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !821
   br label %123
 
-130:                                              ; preds = %.thread65
+130:                                              ; preds = %.thread63
   %131 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13, !noalias !830
@@ -3513,8 +3513,8 @@ default.unreachable1.i:                           ; preds = %92, %87
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.thread65, %119, %132
-  %eh.lpad-body = phi { ptr, i32 } [ %133, %132 ], [ %99, %.thread65 ], [ %120, %119 ]
+.body:                                            ; preds = %.thread63, %119, %132
+  %eh.lpad-body = phi { ptr, i32 } [ %133, %132 ], [ %99, %.thread63 ], [ %120, %119 ]
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_test..parser..Symbol$GT$17h8d94e6a132b6c7edE"(ptr noalias noundef align 8 dereferenceable(40) %16) #12
           to label %159 unwind label %157
 

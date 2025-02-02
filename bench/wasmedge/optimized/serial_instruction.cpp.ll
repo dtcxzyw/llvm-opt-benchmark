@@ -6296,11 +6296,11 @@ define linkonce_odr hidden void @_ZNK8WasmEdge6Loader10Serializer12serializeS33E
   br label %5
 
 5:                                                ; preds = %11, %3
-  %.022.i = phi i64 [ %1, %3 ], [ %12, %11 ]
+  %.021.i = phi i64 [ %1, %3 ], [ %12, %11 ]
   %.01520.i = phi i32 [ 0, %3 ], [ %17, %11 ]
-  %6 = trunc i64 %.022.i to i8
+  %6 = trunc i64 %.021.i to i8
   %7 = and i8 %6, 127
-  %.not.i = icmp ult i64 %.022.i, 64
+  %.not.i = icmp ult i64 %.021.i, 64
   br i1 %.not.i, label %.thread.i, label %11
 
 .thread.i:                                        ; preds = %5
@@ -6311,9 +6311,9 @@ define linkonce_odr hidden void @_ZNK8WasmEdge6Loader10Serializer12serializeS33E
   br label %.loopexit.i
 
 11:                                               ; preds = %5
-  %12 = ashr i64 %.022.i, 7
+  %12 = ashr i64 %.021.i, 7
   %13 = icmp ne i64 %12, -1
-  %14 = and i64 %.022.i, 64
+  %14 = and i64 %.021.i, 64
   %.not16.i = icmp eq i64 %14, 0
   %or.cond17.i = or i1 %13, %.not16.i
   %masksel.i = select i1 %or.cond17.i, i8 -128, i8 0
@@ -6699,11 +6699,11 @@ define linkonce_odr hidden void @_ZNK8WasmEdge6Loader10Serializer12serializeS32E
   br label %5
 
 5:                                                ; preds = %11, %3
-  %.022.i = phi i32 [ %1, %3 ], [ %12, %11 ]
+  %.021.i = phi i32 [ %1, %3 ], [ %12, %11 ]
   %.01520.i = phi i32 [ 0, %3 ], [ %17, %11 ]
-  %6 = trunc i32 %.022.i to i8
+  %6 = trunc i32 %.021.i to i8
   %7 = and i8 %6, 127
-  %.not.i = icmp ult i32 %.022.i, 64
+  %.not.i = icmp ult i32 %.021.i, 64
   br i1 %.not.i, label %.thread.i, label %11
 
 .thread.i:                                        ; preds = %5
@@ -6714,9 +6714,9 @@ define linkonce_odr hidden void @_ZNK8WasmEdge6Loader10Serializer12serializeS32E
   br label %.loopexit.i
 
 11:                                               ; preds = %5
-  %12 = ashr i32 %.022.i, 7
+  %12 = ashr i32 %.021.i, 7
   %13 = icmp ne i32 %12, -1
-  %14 = and i32 %.022.i, 64
+  %14 = and i32 %.021.i, 64
   %.not16.i = icmp eq i32 %14, 0
   %or.cond17.i = or i1 %13, %.not16.i
   %masksel.i = select i1 %or.cond17.i, i8 -128, i8 0
@@ -6760,11 +6760,11 @@ define linkonce_odr hidden void @_ZNK8WasmEdge6Loader10Serializer12serializeS64E
   br label %5
 
 5:                                                ; preds = %11, %3
-  %.022.i = phi i64 [ %1, %3 ], [ %12, %11 ]
+  %.021.i = phi i64 [ %1, %3 ], [ %12, %11 ]
   %.01520.i = phi i32 [ 0, %3 ], [ %17, %11 ]
-  %6 = trunc i64 %.022.i to i8
+  %6 = trunc i64 %.021.i to i8
   %7 = and i8 %6, 127
-  %.not.i = icmp ult i64 %.022.i, 64
+  %.not.i = icmp ult i64 %.021.i, 64
   br i1 %.not.i, label %.thread.i, label %11
 
 .thread.i:                                        ; preds = %5
@@ -6775,9 +6775,9 @@ define linkonce_odr hidden void @_ZNK8WasmEdge6Loader10Serializer12serializeS64E
   br label %.loopexit.i
 
 11:                                               ; preds = %5
-  %12 = ashr i64 %.022.i, 7
+  %12 = ashr i64 %.021.i, 7
   %13 = icmp ne i64 %12, -1
-  %14 = and i64 %.022.i, 64
+  %14 = and i64 %.021.i, 64
   %.not16.i = icmp eq i64 %14, 0
   %or.cond17.i = or i1 %13, %.not16.i
   %masksel.i = select i1 %or.cond17.i, i8 -128, i8 0

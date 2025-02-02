@@ -125,7 +125,7 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
 27:                                               ; preds = %23, %24, %25
   %.131.us = phi ptr [ %26, %25 ], [ %.03048.us, %24 ], [ %.03048.us, %23 ]
   %.2.us = phi i32 [ %20, %25 ], [ %20, %24 ], [ 0, %23 ]
-  %.1.us = phi i8 [ 0, %25 ], [ 1, %24 ], [ %.050.us, %23 ]
+  %.1.us = phi i8 [ 0, %25 ], [ 1, %24 ], [ 0, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %.23547.us, i64 1
   %29 = load i8, ptr %28, align 1
   %.not41.us = icmp eq i8 %29, 0

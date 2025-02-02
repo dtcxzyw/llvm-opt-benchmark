@@ -3482,11 +3482,13 @@ _ZNK4llvm8MCSymbol11getFragmentEb.exit117:        ; preds = %_ZNK4llvm8MCSymbol1
 
 179:                                              ; preds = %178, %174
   %.285 = phi i1 [ true, %178 ], [ %.083190, %174 ]
+  %.281.not = xor i1 %.281, true
   %180 = select i1 %.281, i1 %.285, i1 false
+  %.285.mux = select i1 %.281.not, i1 %.285, i1 false
   br i1 %180, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread, label %181
 
 181:                                              ; preds = %179, %164
-  %.184 = phi i1 [ %.285, %179 ], [ %.083190, %164 ]
+  %.184 = phi i1 [ %.285.mux, %179 ], [ %.083190, %164 ]
   %.180 = phi i1 [ %.281, %179 ], [ %.079195, %164 ]
   %182 = icmp eq ptr %.082191, %.0149
   br i1 %182, label %184, label %190

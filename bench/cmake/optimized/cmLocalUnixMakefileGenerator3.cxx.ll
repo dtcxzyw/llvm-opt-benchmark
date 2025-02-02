@@ -16167,7 +16167,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.lr.ph
-  %.2161 = phi i8 [ %.1160381, %.lr.ph ], [ %.1160381, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.thread ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+  %.2161 = phi i8 [ 0, %.lr.ph ], [ 1, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.thread ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   %112 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0335.0380) #26
   %.not = icmp eq ptr %112, %94
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph

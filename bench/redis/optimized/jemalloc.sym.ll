@@ -9837,15 +9837,15 @@ sw.epilog.i:                                      ; preds = %for.body.i, %for.bo
   br label %for.body.i, !llvm.loop !22
 
 for.body9.i:                                      ; preds = %sw.epilog24.i, %for.cond6.preheader.i
-  %opts.229.i = phi ptr [ %incdec.ptr2.i, %for.cond6.preheader.i ], [ %incdec.ptr23.i, %sw.epilog24.i ]
-  %16 = load i8, ptr %opts.229.i, align 1
+  %opts.228.i = phi ptr [ %incdec.ptr2.i, %for.cond6.preheader.i ], [ %incdec.ptr23.i, %sw.epilog24.i ]
+  %16 = load i8, ptr %opts.228.i, align 1
   switch i8 %16, label %sw.epilog24.i [
     i8 44, label %sw.bb11.i
     i8 0, label %sw.bb20.i
   ]
 
 sw.bb11.i:                                        ; preds = %for.body9.i
-  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %opts.229.i, i64 1
+  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %opts.228.i, i64 1
   %17 = load i8, ptr %incdec.ptr12.i, align 1
   %cmp14.i = icmp eq i8 %17, 0
   br i1 %cmp14.i, label %if.then16.i, label %if.end17.i
@@ -9862,16 +9862,16 @@ if.end17.i:                                       ; preds = %if.then16.i, %sw.bb
   br label %while.body
 
 sw.bb20.i:                                        ; preds = %for.body9.i
-  %20 = ptrtoint ptr %opts.229.i to i64
+  %20 = ptrtoint ptr %opts.228.i to i64
   %sub21.i = sub i64 %20, %12
   br label %while.body
 
 sw.epilog24.i:                                    ; preds = %for.body9.i
-  %incdec.ptr23.i = getelementptr inbounds nuw i8, ptr %opts.229.i, i64 1
+  %incdec.ptr23.i = getelementptr inbounds nuw i8, ptr %opts.228.i, i64 1
   br label %for.body9.i, !llvm.loop !23
 
 while.body:                                       ; preds = %sw.bb20.i, %if.end17.i
-  %opts.1 = phi ptr [ %opts.229.i, %sw.bb20.i ], [ %incdec.ptr12.i, %if.end17.i ]
+  %opts.1 = phi ptr [ %opts.228.i, %sw.bb20.i ], [ %incdec.ptr12.i, %if.end17.i ]
   %vlen.4 = phi i64 [ %sub21.i, %sw.bb20.i ], [ %sub19.i, %if.end17.i ]
   %cmp16 = icmp eq i64 %sub3.i, 12
   br i1 %cmp16, label %land.lhs.true18, label %if.end54

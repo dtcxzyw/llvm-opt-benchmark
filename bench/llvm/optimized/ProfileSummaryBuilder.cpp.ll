@@ -2024,12 +2024,12 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   br label %_ZN4llvm10sampleprof15FunctionSamples14addHeadSamplesEmm.exit
 
 _ZN4llvm10sampleprof15FunctionSamples14addHeadSamplesEmm.exit: ; preds = %57, %58, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i36, %.else.i.i37
-  %.1.shrunk.i32 = phi i32 [ 10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i36 ], [ %68, %.else.i.i37 ], [ 10, %57 ], [ 10, %58 ]
+  %.1.i32 = phi i32 [ 10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i36 ], [ %68, %.else.i.i37 ], [ 10, %57 ], [ 10, %58 ]
   %.0.i.i33 = phi i64 [ -1, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i36 ], [ %spec.select.i.i.i39, %.else.i.i37 ], [ -1, %57 ], [ -1, %58 ]
   store i64 %.0.i.i33, ptr %49, align 8
-  %69 = icmp ne i32 %.1.shrunk.i32, 0
+  %69 = icmp ne i32 %.1.i32, 0
   %or.cond.i40 = and i1 %46, %69
-  %spec.select = select i1 %or.cond.i40, i32 %.1.shrunk.i32, i32 %.3
+  %spec.select = select i1 %or.cond.i40, i32 %.1.i32, i32 %.3
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 80

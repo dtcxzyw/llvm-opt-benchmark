@@ -1379,7 +1379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit280: ;
   br label %244
 
 244:                                              ; preds = %370, %241
-  %.0132594 = phi i64 [ 0, %241 ], [ %248, %370 ]
+  %.0132592 = phi i64 [ 0, %241 ], [ %248, %370 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #21
   %245 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %.noexc288 unwind label %328
@@ -1399,7 +1399,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit280: ;
   br label %.body290
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit292: ; preds = %.noexc289
-  %248 = add i64 %.0132594, 1
+  %248 = add i64 %.0132592, 1
   store i64 %248, ptr %34, align 8
   invoke void @_ZN12colvarmodule6to_strB5cxx11ERKmmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %34, i64 noundef 0, i64 noundef 0)
           to label %249 unwind label %330
@@ -2502,8 +2502,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit403: ;
   br label %717
 
 580:                                              ; preds = %376
-  %.not = icmp eq i64 %.0136591, %.0132594
-  %.not139 = icmp eq i64 %.0132594, %.0125
+  %.not = icmp eq i64 %.0136591, %.0132592
+  %.not139 = icmp eq i64 %.0132592, %.0125
   %or.cond = select i1 %.not, i1 %.not139, i1 false
   br i1 %or.cond, label %591, label %581
 
@@ -2569,18 +2569,18 @@ _ZNKSt14default_deleteIN15neuralnetworkCV20neuralNetworkComputeEEclEPS1_.exit.i.
 
 _ZNSt10unique_ptrIN15neuralnetworkCV20neuralNetworkComputeESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN15neuralnetworkCV20neuralNetworkComputeEEclEPS1_.exit.i.i.i.i, %593
   store i64 0, ptr %85, align 8
-  %.not596 = icmp eq i64 %.0136591, 0
-  br i1 %.not596, label %._crit_edge, label %.lr.ph
+  %.not594 = icmp eq i64 %.0136591, 0
+  br i1 %.not594, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt10unique_ptrIN15neuralnetworkCV20neuralNetworkComputeESt14default_deleteIS1_EED2Ev.exit
   %595 = getelementptr inbounds nuw i8, ptr %86, i64 16
   br label %596
 
 596:                                              ; preds = %.lr.ph, %671
-  %storemerge595 = phi i64 [ 0, %.lr.ph ], [ %673, %671 ]
+  %storemerge593 = phi i64 [ 0, %.lr.ph ], [ %673, %671 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %595, i8 0, i64 112, i1 false)
   %597 = load ptr, ptr %50, align 8
-  %598 = getelementptr inbounds %"struct.std::pair", ptr %597, i64 %storemerge595, i32 1
+  %598 = getelementptr inbounds %"struct.std::pair", ptr %597, i64 %storemerge593, i32 1
   %599 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairISt8functionIFddEES9_ESt4lessIS5_ESaIS6_IKS5_SA_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15neuralnetworkCV23activation_function_mapB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %598)
           to label %600 unwind label %.loopexit
 

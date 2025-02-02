@@ -12419,6 +12419,8 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %57, %_ZN26GrowableA
   %119 = add nsw i32 %118, -1
   %120 = icmp ne i8 %117, 0
   %brmerge.us = select i1 %120, i1 true, i1 %.03866.us
+  %not. = xor i1 %120, true
+  %.038.mux.us = select i1 %not., i1 true, i1 %.03866.us
   %.mux.us = select i1 %120, i32 %119, i32 255
   br i1 %brmerge.us, label %124, label %121
 
@@ -12428,7 +12430,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %57, %_ZN26GrowableA
   br label %124
 
 124:                                              ; preds = %121, %.split.us
-  %.1.us = phi i1 [ true, %121 ], [ %.03866.us, %.split.us ]
+  %.1.us = phi i1 [ true, %121 ], [ %.038.mux.us, %.split.us ]
   %.0.us = phi i32 [ %123, %121 ], [ %.mux.us, %.split.us ]
   %125 = add i32 %.0.us, %.14165.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

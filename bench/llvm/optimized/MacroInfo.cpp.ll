@@ -1185,13 +1185,13 @@ define dso_local { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr no
 8:                                                ; preds = %2
   %9 = trunc nuw i8 %.sroa.3.037 to i1
   %10 = lshr i8 %4, 3
-  %spec.select48 = select i1 %9, i8 %.sroa.018.038, i8 %10
+  %spec.select = select i1 %9, i8 %.sroa.018.038, i8 %10
   br label %11
 
 11:                                               ; preds = %8, %6
   %.sroa.022.1 = phi i32 [ %.sroa.0.0.copyload.i, %6 ], [ %.sroa.022.036, %8 ]
   %.sroa.3.1 = phi i8 [ %.sroa.3.037, %6 ], [ 1, %8 ]
-  %.sroa.018.1 = phi i8 [ %.sroa.018.038, %6 ], [ %spec.select48, %8 ]
+  %.sroa.018.1 = phi i8 [ %.sroa.018.038, %6 ], [ %spec.select, %8 ]
   %12 = load ptr, ptr %.039, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %2, !llvm.loop !15
@@ -1251,13 +1251,13 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader: ; preds = %4
 16:                                               ; preds = %4
   %17 = trunc nuw i8 %.sroa.3.037.i.i to i1
   %18 = lshr i8 %6, 3
-  %spec.select48.i.i = select i1 %17, i8 %.sroa.018.038.i.i, i8 %18
+  %spec.select.i.i = select i1 %17, i8 %.sroa.018.038.i.i, i8 %18
   br label %19
 
 19:                                               ; preds = %16, %14
   %.sroa.022.1.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %14 ], [ %.sroa.022.036.i.i, %16 ]
   %.sroa.3.1.i.i = phi i8 [ %.sroa.3.037.i.i, %14 ], [ 1, %16 ]
-  %.sroa.018.1.i.i = phi i8 [ %.sroa.018.038.i.i, %14 ], [ %spec.select48.i.i, %16 ]
+  %.sroa.018.1.i.i = phi i8 [ %.sroa.018.038.i.i, %14 ], [ %spec.select.i.i, %16 ]
   %20 = load ptr, ptr %.039.i.i, align 8
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %.loopexit, label %4, !llvm.loop !15
@@ -1323,13 +1323,13 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit19: ; preds = %_ZNK5clang1
 39:                                               ; preds = %.preheader.i
   %40 = trunc nuw i8 %.sroa.3.037.i.i23 to i1
   %41 = lshr i8 %35, 3
-  %spec.select48.i.i38 = select i1 %40, i8 %.sroa.018.038.i.i22, i8 %41
+  %spec.select.i.i38 = select i1 %40, i8 %.sroa.018.038.i.i22, i8 %41
   br label %42
 
 42:                                               ; preds = %39, %37
   %.sroa.022.1.i.i26 = phi i32 [ %.sroa.0.0.copyload.i.i.i25, %37 ], [ %.sroa.022.036.i.i24, %39 ]
   %.sroa.3.1.i.i27 = phi i8 [ %.sroa.3.037.i.i23, %37 ], [ 1, %39 ]
-  %.sroa.018.1.i.i28 = phi i8 [ %.sroa.018.038.i.i22, %37 ], [ %spec.select48.i.i38, %39 ]
+  %.sroa.018.1.i.i28 = phi i8 [ %.sroa.018.038.i.i22, %37 ], [ %spec.select.i.i38, %39 ]
   %43 = load ptr, ptr %.039.i.i21, align 8
   %.not.i1.i = icmp eq ptr %43, null
   br i1 %.not.i1.i, label %.loopexit, label %.preheader.i, !llvm.loop !15

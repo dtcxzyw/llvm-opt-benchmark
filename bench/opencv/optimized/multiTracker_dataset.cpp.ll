@@ -571,7 +571,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %186, label %.lr.ph128, label %.loopexit
 
 .lr.ph128:                                        ; preds = %.preheader121, %247
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %247 ], [ 0, %.preheader121 ]
+  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %247 ], [ 0, %.preheader121 ]
   %187 = phi ptr [ %249, %247 ], [ %180, %.preheader121 ]
   store i32 0, ptr %140, align 8
   store i32 0, ptr %141, align 4
@@ -581,7 +581,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %188 unwind label %229
 
 188:                                              ; preds = %.lr.ph128
-  %189 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %187, i64 %indvars.iv135
+  %189 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %187, i64 %indvars.iv133
   %190 = invoke noundef zeroext i1 @_ZN2cv6legacy8tracking16MultiTracker_Alt9addTargetERKNS_11_InputArrayERKNS_5Rect_IdEENS_3PtrINS1_7TrackerEEE(ptr noundef nonnull align 8 dereferenceable(80) %15, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(32) %189, ptr noundef nonnull %25)
           to label %191 unwind label %231
 
@@ -681,7 +681,7 @@ _ZN2cv3PtrINS_6legacy8tracking7TrackerEED2Ev.exit: ; preds = %191, %209, %222, %
   store i32 50397184, ptr %26, align 8
   store ptr %10, ptr %144, align 8
   %234 = load ptr, ptr @boundingBoxes, align 8
-  %235 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %234, i64 %indvars.iv135
+  %235 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %234, i64 %indvars.iv133
   %236 = load <2 x double>, ptr %235, align 8
   %237 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %236)
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 8
@@ -705,15 +705,15 @@ _ZN2cv3PtrINS_6legacy8tracking7TrackerEED2Ev.exit: ; preds = %191, %209, %222, %
           to label %247 unwind label %255
 
 247:                                              ; preds = %233
-  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %248 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @boundingBoxes, i64 8), align 8
   %249 = load ptr, ptr @boundingBoxes, align 8
   %250 = ptrtoint ptr %248 to i64
   %251 = ptrtoint ptr %249 to i64
   %252 = sub i64 %250, %251
-  %sext141 = shl i64 %252, 27
-  %253 = ashr i64 %sext141, 32
-  %254 = icmp slt i64 %indvars.iv.next136, %253
+  %sext139 = shl i64 %252, 27
+  %253 = ashr i64 %sext139, 32
+  %254 = icmp slt i64 %indvars.iv.next134, %253
   br i1 %254, label %.lr.ph128, label %.loopexit, !llvm.loop !7
 
 255:                                              ; preds = %233
@@ -732,16 +732,16 @@ _ZN2cv3PtrINS_6legacy8tracking7TrackerEED2Ev.exit: ; preds = %191, %209, %222, %
 259:                                              ; preds = %257
   %260 = load i32, ptr %15, align 8
   %261 = icmp sgt i32 %260, 0
-  %or.cond132 = select i1 %258, i1 %261, i1 false
-  br i1 %or.cond132, label %.lr.ph130, label %.loopexit
+  %or.cond142 = select i1 %258, i1 %261, i1 false
+  br i1 %or.cond142, label %.lr.ph130, label %.loopexit
 
 .lr.ph130:                                        ; preds = %259, %276
-  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %276 ], [ 0, %259 ]
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %276 ], [ 0, %259 ]
   store i64 0, ptr %153, align 8
   store i32 50397184, ptr %28, align 8
   store ptr %10, ptr %152, align 8
   %262 = load ptr, ptr %154, align 8
-  %263 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %262, i64 %indvars.iv138
+  %263 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %262, i64 %indvars.iv136
   %264 = load <2 x double>, ptr %263, align 8
   %265 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %264)
   %266 = getelementptr inbounds nuw i8, ptr %263, i64 8
@@ -761,15 +761,15 @@ _ZN2cv3PtrINS_6legacy8tracking7TrackerEED2Ev.exit: ; preds = %191, %209, %222, %
   %.sroa.3.8.insert.ext.i112 = zext i32 %271 to i64
   %.sroa.3.8.insert.insert.i113 = or disjoint i64 %.sroa.5.8.insert.shift.i111, %.sroa.3.8.insert.ext.i112
   %274 = load ptr, ptr %146, align 8
-  %275 = getelementptr inbounds nuw %"class.cv::Scalar_", ptr %274, i64 %indvars.iv138
+  %275 = getelementptr inbounds nuw %"class.cv::Scalar_", ptr %274, i64 %indvars.iv136
   invoke void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_5Rect_IiEERKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %28, i64 %.sroa.0.0.insert.insert.i108, i64 %.sroa.3.8.insert.insert.i113, ptr noundef nonnull align 8 dereferenceable(32) %275, i32 noundef 2, i32 noundef 1, i32 noundef 0)
           to label %276 unwind label %282
 
 276:                                              ; preds = %.lr.ph130
-  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %277 = load i32, ptr %15, align 8
   %278 = sext i32 %277 to i64
-  %279 = icmp slt i64 %indvars.iv.next139, %278
+  %279 = icmp slt i64 %indvars.iv.next137, %278
   br i1 %279, label %.lr.ph130, label %.loopexit, !llvm.loop !8
 
 280:                                              ; preds = %257

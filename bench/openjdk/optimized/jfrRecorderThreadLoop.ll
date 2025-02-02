@@ -131,7 +131,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %24, %27, %25, %21
   call void @_ZN10JfrPostBox14notify_waitersEv(ptr noundef nonnull align 8 dereferenceable(21) %4) #4
   %28 = and i32 %15, 128
   %.not14.not = icmp eq i32 %28, 0
-  br i1 %.not14.not, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %29, !llvm.loop !7
+  br i1 %.not14.not, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %29
 
 29:                                               ; preds = %_ZN13MutexUnlockerD2Ev.exit
   %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -142,7 +142,7 @@ _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %24, %27, %25, %21
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.4)
   br label %32
 
-32:                                               ; preds = %31, %29
+32:                                               ; preds = %29, %31
   call void @_ZN10JfrPostBox22notify_collection_stopEv(ptr noundef nonnull align 8 dereferenceable(21) %4) #4
   br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %33
 
@@ -157,7 +157,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %32, %33
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   br label %37
 
@@ -366,6 +366,4 @@ attributes #4 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145392998}
+!7 = !{i64 2145392998}

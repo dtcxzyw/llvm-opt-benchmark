@@ -11789,6 +11789,7 @@ terminate.lpad.i1363:                             ; preds = %if.then13.i.i1362
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1364: ; preds = %invoke.cont347, %if.then.i.i1356, %if.then13.i.i1362
   %cmp541.not = icmp eq i32 %best.05272, -1
+  %not.cmp541.not = xor i1 %cmp541.not, true
   br label %for.body351
 
 for.body351:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1364, %for.inc
@@ -12790,6 +12791,7 @@ lpad535:                                          ; preds = %if.then13.i4.i1980,
 
 if.end540:                                        ; preds = %if.then13.i.i2000, %if.then.i.i1993, %invoke.cont536, %invoke.cont478, %if.end467
   %brmerge = select i1 %cmp541.not, i1 true, i1 %new_best_set.05266
+  %new_best_set.0.mux = select i1 %not.cmp541.not, i1 true, i1 %new_best_set.05266
   br i1 %brmerge, label %for.inc, label %if.then544
 
 if.then544:                                       ; preds = %if.end540
@@ -12931,7 +12933,7 @@ terminate.lpad.i.i2042:                           ; preds = %ehcleanup593
   unreachable
 
 for.inc:                                          ; preds = %if.end540, %_ZN4cvc58internal8RationalD2Ev.exit2038, %if.then544
-  %new_best_set.2 = phi i1 [ true, %_ZN4cvc58internal8RationalD2Ev.exit2038 ], [ false, %if.then544 ], [ %new_best_set.05266, %if.end540 ]
+  %new_best_set.2 = phi i1 [ true, %_ZN4cvc58internal8RationalD2Ev.exit2038 ], [ false, %if.then544 ], [ %new_best_set.0.mux, %if.end540 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond, label %for.body614, label %for.body351, !llvm.loop !94

@@ -9243,7 +9243,7 @@ for.cond.preheader:                               ; preds = %_ZgtRK8rationalS1_.
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc20
-  %indvars.iv58 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next59, %for.inc20 ]
+  %indvars.iv57 = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next58, %for.inc20 ]
   %7 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %7, null
   br i1 %cmp.i.i, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
@@ -9256,7 +9256,7 @@ if.end.i.i:                                       ; preds = %for.cond
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
   %retval.0.i.i = phi i64 [ %9, %if.end.i.i ], [ 0, %for.cond ]
-  %cmp.not = icmp samesign uge i64 %indvars.iv58, %retval.0.i.i
+  %cmp.not = icmp samesign uge i64 %indvars.iv57, %retval.0.i.i
   br i1 %cmp.not, label %return, label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -9264,7 +9264,7 @@ for.cond3.preheader:                              ; preds = %_ZNK15ref_vector_co
   %cmp.i.i11 = icmp eq ptr %10, null
   %arrayidx.i.i13 = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv58
+  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv57
   br label %land.rhs
 
 land.rhs:                                         ; preds = %for.inc, %for.cond3.preheader
@@ -9290,7 +9290,7 @@ for.body6:                                        ; preds = %_ZNK15ref_vector_co
 
 if.then10:                                        ; preds = %for.body6
   %16 = load ptr, ptr %coeffs1, align 8
-  %arrayidx.i = getelementptr inbounds nuw %class.rational, ptr %16, i64 %indvars.iv58
+  %arrayidx.i = getelementptr inbounds nuw %class.rational, ptr %16, i64 %indvars.iv57
   %17 = load ptr, ptr %coeffs2, align 8
   %arrayidx.i20 = getelementptr inbounds nuw %class.rational, ptr %17, i64 %indvars.iv
   %18 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
@@ -9349,7 +9349,7 @@ for.inc:                                          ; preds = %for.body6
   br label %land.rhs
 
 for.inc20:                                        ; preds = %if.then.i.i.i.i.i50, %if.else.i.i.i27, %_ZgtRK8rationalS1_.exit52
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   br label %for.cond, !llvm.loop !52
 
 return:                                           ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %if.then.i.i.i.i.i50, %if.else.i.i.i27, %_ZgtRK8rationalS1_.exit52, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit15, %if.then.i.i.i.i.i, %if.else.i.i.i, %_ZgtRK8rationalS1_.exit

@@ -1129,7 +1129,7 @@ _ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit33.i: ; preds = 
   br i1 %or.cond.i35.i, label %_ZN4llvm12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i36.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i36.i:  ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i30.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit33.i
-  %.sroa.27.4117.i7 = phi i8 [ %.sroa.27.4117.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit33.i ], [ %.sroa.27.4.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i30.i ]
+  %.sroa.27.4117.i7 = phi i8 [ %.sroa.27.4117.i, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit33.i ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i30.i ]
   %or.cond.i29118.i5 = phi i1 [ true, %_ZN4llvm12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit33.i ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.i30.i ]
   %bcmp.i.i37.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @.str.13, i64 4)
   %15 = icmp eq i32 %bcmp.i.i37.i, 0

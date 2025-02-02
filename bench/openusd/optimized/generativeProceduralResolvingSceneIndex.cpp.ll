@@ -2771,7 +2771,6 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %3
           to label %71 unwind label %49
 
 71:                                               ; preds = %61, %60
-  %.256 = phi i8 [ %.054216, %60 ], [ 1, %61 ]
   %72 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__30HdGpGenerativeProceduralTokensE seq_cst, align 8
   %73 = inttoptr i64 %72 to ptr
   %.not.i.i73 = icmp eq i64 %72, 0
@@ -2969,7 +2968,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14
   br label %180
 
 180:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12emplace_backIJRKNS_7SdfPathERKNS_7TfTokenEEEEvDpOT_.exit, %129, %133
-  %.357 = phi i8 [ %.054216, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12emplace_backIJRKNS_7SdfPathERKNS_7TfTokenEEEEvDpOT_.exit ], [ %.054216, %133 ], [ %.256, %129 ]
+  %.357 = phi i8 [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12emplace_backIJRKNS_7SdfPathERKNS_7TfTokenEEEEvDpOT_.exit ], [ 0, %133 ], [ 1, %129 ]
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath13GetParentPathEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %7, ptr noundef nonnull align 4 dereferenceable(8) %.058214)
           to label %181 unwind label %49
 

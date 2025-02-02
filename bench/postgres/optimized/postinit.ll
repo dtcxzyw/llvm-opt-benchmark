@@ -103,18 +103,18 @@ define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, pt
   %4 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %4) #12
   %5 = load i8, ptr %2, align 1
-  %.not26 = icmp eq i8 %5, 0
-  br i1 %.not26, label %._crit_edge30, label %.lr.ph29
+  %.not27 = icmp eq i8 %5, 0
+  br i1 %.not27, label %._crit_edge31, label %.lr.ph30
 
-.lr.ph29:                                         ; preds = %3, %._crit_edge
-  %.01227 = phi ptr [ %.2.lcssa.ph, %._crit_edge ], [ %2, %3 ]
+.lr.ph30:                                         ; preds = %3, %._crit_edge
+  %.01228 = phi ptr [ %.2.lcssa.ph, %._crit_edge ], [ %2, %3 ]
   call void @resetStringInfo(ptr noundef nonnull %4) #12
   %6 = tail call ptr @__ctype_b_loc() #13
   %7 = load ptr, ptr %6, align 8
   br label %8
 
-8:                                                ; preds = %8, %.lr.ph29
-  %.113 = phi ptr [ %.01227, %.lr.ph29 ], [ %14, %8 ]
+8:                                                ; preds = %8, %.lr.ph30
+  %.113 = phi ptr [ %.01228, %.lr.ph30 ], [ %14, %8 ]
   %9 = load i8, ptr %.113, align 1
   %10 = zext i8 %9 to i64
   %11 = getelementptr i16, ptr %7, i64 %10
@@ -126,11 +126,11 @@ define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, pt
 
 15:                                               ; preds = %8
   %16 = icmp eq i8 %9, 0
-  br i1 %16, label %._crit_edge30, label %.lr.ph
+  br i1 %16, label %._crit_edge31, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %26
   %17 = phi i8 [ %28, %26 ], [ %9, %15 ]
-  %.023 = phi i1 [ %.1, %26 ], [ false, %15 ]
+  %.024 = phi i1 [ %.1, %26 ], [ false, %15 ]
   %.222 = phi ptr [ %27, %26 ], [ %.113, %15 ]
   %18 = load ptr, ptr %6, align 8
   %19 = zext i8 %17 to i64
@@ -141,11 +141,11 @@ define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, pt
   br i1 %.not17, label %24, label %23
 
 23:                                               ; preds = %.lr.ph
-  br i1 %.023, label %.thread, label %._crit_edge
+  br i1 %.024, label %.thread, label %._crit_edge
 
 24:                                               ; preds = %.lr.ph
   %25 = icmp ne i8 %17, 92
-  %or.cond.not = or i1 %25, %.023
+  %or.cond.not = or i1 %25, %.024
   br i1 %or.cond.not, label %.thread, label %26
 
 .thread:                                          ; preds = %23, %24
@@ -171,9 +171,9 @@ define dso_local void @pg_split_opts(ptr noundef writeonly captures(none) %0, pt
   store ptr %30, ptr %34, align 8
   %35 = load i8, ptr %.2.lcssa.ph, align 1
   %.not = icmp eq i8 %35, 0
-  br i1 %.not, label %._crit_edge30, label %.lr.ph29, !llvm.loop !8
+  br i1 %.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !8
 
-._crit_edge30:                                    ; preds = %._crit_edge, %15, %3
+._crit_edge31:                                    ; preds = %._crit_edge, %15, %3
   %36 = load ptr, ptr %4, align 8
   call void @pfree(ptr noundef %36) #12
   ret void

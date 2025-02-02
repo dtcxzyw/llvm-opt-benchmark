@@ -3980,7 +3980,7 @@ DCH_datetime_type.exit:                           ; preds = %.preheader
   br label %1099
 
 1099:                                             ; preds = %1096, %1098, %42
-  %.0176 = phi i8 [ %.1177, %1096 ], [ %.1177, %1098 ], [ 0, %42 ]
+  %.0176 = phi i8 [ 1, %1096 ], [ 0, %1098 ], [ 0, %42 ]
   %.0172 = phi ptr [ %.1, %1096 ], [ null, %1098 ], [ null, %42 ]
   %1100 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %1101 = load i32, ptr %1100, align 4

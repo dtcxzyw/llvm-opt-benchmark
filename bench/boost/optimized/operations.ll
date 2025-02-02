@@ -10055,7 +10055,7 @@ _ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit: ;
   br label %235
 
 118:                                              ; preds = %111, %109, %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit
-  %.122 = phi i8 [ %.021, %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit ], [ 1, %111 ], [ %.021, %109 ]
+  %.122 = phi i8 [ 1, %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit ], [ 1, %111 ], [ 0, %109 ]
   invoke void @_ZN5boost10filesystem6detail15path_algorithms12increment_v4ERNS0_11path_detail13path_iteratorE(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %91 unwind label %.loopexit, !llvm.loop !168
 
@@ -12261,7 +12261,7 @@ _ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit: ;
   br label %235
 
 118:                                              ; preds = %111, %109, %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit
-  %.122 = phi i8 [ %.021, %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit ], [ 1, %111 ], [ %.021, %109 ]
+  %.122 = phi i8 [ 1, %_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathERKS3_.exit ], [ 1, %111 ], [ 0, %109 ]
   invoke void @_ZN5boost10filesystem6detail15path_algorithms12increment_v4ERNS0_11path_detail13path_iteratorE(ptr noundef nonnull align 8 dereferenceable(48) %10)
           to label %91 unwind label %.loopexit, !llvm.loop !187
 

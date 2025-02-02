@@ -4241,12 +4241,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit176:              ; preds = %1222, %1220, %955, 
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit54
 
 _ZN4llvm11raw_ostreamlsEPKc.exit54:               ; preds = %1246, %1244, %1235
-  %.2.i = phi i8 [ %.0107.i431, %1235 ], [ 1, %1244 ], [ 1, %1246 ]
   call fastcc void @_ZN5clang8comments18CommentVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_124CommentASTToXMLConverterEvJEE5visitEPKNS0_7CommentE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1232)
   br label %1249
 
 1249:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit54, %1229
-  %.1.i = phi i8 [ %.2.i, %_ZN4llvm11raw_ostreamlsEPKc.exit54 ], [ %.0107.i431, %1229 ]
+  %.1.i = phi i8 [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit54 ], [ %.0107.i431, %1229 ]
   %indvars.iv.next452 = add nuw nsw i64 %indvars.iv451, 1
   %.not132.i = icmp eq i64 %indvars.iv.next452, %1227
   br i1 %.not132.i, label %._crit_edge435, label %1229, !llvm.loop !20

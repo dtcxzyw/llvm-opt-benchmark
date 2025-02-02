@@ -606,7 +606,7 @@ define hidden void @_ZN10CompileLog16clear_identitiesEv(ptr noundef nonnull writ
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.b76 = load i1, ptr @_ZZN10CompileLog19finish_log_on_errorEP12outputStreamPciE11called_exit, align 1
-  br i1 %.b76, label %67, label %4
+  br i1 %.b76, label %63, label %4
 
 4:                                                ; preds = %3
   store i1 true, ptr @_ZZN10CompileLog19finish_log_on_errorEP12outputStreamPciE11called_exit, align 1
@@ -621,8 +621,8 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   br label %10
 
-10:                                               ; preds = %.lr.ph100, %61
-  %.098 = phi ptr [ %5, %.lr.ph100 ], [ %63, %61 ]
+10:                                               ; preds = %.lr.ph100, %57
+  %.098 = phi ptr [ %5, %.lr.ph100 ], [ %59, %57 ]
   %11 = load ptr, ptr %.098, align 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(152) %.098) #11
@@ -630,7 +630,7 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %14, i32 noundef 0) #11
   %.not77 = icmp eq i32 %15, -1
-  br i1 %.not77, label %61, label %16
+  br i1 %.not77, label %57, label %16
 
 16:                                               ; preds = %10
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.20, i64 noundef 25) #11
@@ -667,9 +667,9 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
 ._crit_edge:                                      ; preds = %26, %.lr.ph, %16
   %31 = tail call i64 @read(i32 noundef %15, ptr noundef nonnull %1, i64 noundef %8) #11
   %32 = icmp sgt i64 %31, 0
-  br i1 %32, label %.lr.ph95, label %._crit_edge96.thread
+  br i1 %32, label %.lr.ph95, label %.critedge102
 
-.loopexit:                                        ; preds = %55
+.loopexit:                                        ; preds = %53
   %33 = tail call i64 @read(i32 noundef %15, ptr noundef nonnull %1, i64 noundef %8) #11
   %34 = icmp sgt i64 %33, 0
   br i1 %34, label %.lr.ph95, label %._crit_edge96, !llvm.loop !11
@@ -677,108 +677,102 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
 .lr.ph95:                                         ; preds = %._crit_edge, %.loopexit
   %35 = phi i64 [ %33, %.loopexit ], [ %31, %._crit_edge ]
   %.06693 = phi i32 [ %.4, %.loopexit ], [ 0, %._crit_edge ]
-  %.06792 = phi i8 [ %.168, %.loopexit ], [ 0, %._crit_edge ]
+  %.06792 = phi i1 [ true, %.loopexit ], [ false, %._crit_edge ]
   store i8 0, ptr %9, align 1
-  %36 = trunc nuw i8 %.06792 to i1
-  br i1 %36, label %38, label %37
+  br i1 %.06792, label %.preheader.preheader, label %36
 
-37:                                               ; preds = %.lr.ph95
+36:                                               ; preds = %.lr.ph95
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.23, i64 noundef 10) #11
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.24, i64 noundef 9) #11
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
-  br label %38
+  br label %.preheader.preheader
 
-38:                                               ; preds = %37, %.lr.ph95
-  %.168 = phi i8 [ %.06792, %.lr.ph95 ], [ 1, %37 ]
+.preheader.preheader:                             ; preds = %36, %.lr.ph95
   br label %.preheader
 
-.preheader:                                       ; preds = %38, %55
-  %.06591 = phi ptr [ %1, %38 ], [ %57, %55 ]
-  %.190 = phi i32 [ %.06693, %38 ], [ %.4, %55 ]
-  %.17189 = phi i64 [ %35, %38 ], [ %56, %55 ]
-  br label %39
+.preheader:                                       ; preds = %.preheader.preheader, %53
+  %.06591 = phi ptr [ %55, %53 ], [ %1, %.preheader.preheader ]
+  %.190 = phi i32 [ %.4, %53 ], [ %.06693, %.preheader.preheader ]
+  %.17189 = phi i64 [ %54, %53 ], [ %35, %.preheader.preheader ]
+  br label %37
 
-39:                                               ; preds = %.preheader, %46
-  %.06488 = phi i64 [ 0, %.preheader ], [ %47, %46 ]
-  %.287 = phi i32 [ %.190, %.preheader ], [ %.3, %46 ]
-  %40 = getelementptr inbounds i8, ptr %.06591, i64 %.06488
-  %41 = load i8, ptr %40, align 1
-  switch i8 %41, label %46 [
-    i8 93, label %42
-    i8 62, label %44
+37:                                               ; preds = %.preheader, %44
+  %.06488 = phi i64 [ 0, %.preheader ], [ %45, %44 ]
+  %.287 = phi i32 [ %.190, %.preheader ], [ %.3, %44 ]
+  %38 = getelementptr inbounds i8, ptr %.06591, i64 %.06488
+  %39 = load i8, ptr %38, align 1
+  switch i8 %39, label %44 [
+    i8 93, label %40
+    i8 62, label %42
   ]
 
-42:                                               ; preds = %39
-  %43 = tail call i32 @llvm.smin.i32(i32 %.287, i32 1)
-  %spec.select = add nsw i32 %43, 1
-  br label %46
+40:                                               ; preds = %37
+  %41 = tail call i32 @llvm.smin.i32(i32 %.287, i32 1)
+  %spec.select = add nsw i32 %41, 1
+  br label %44
 
-44:                                               ; preds = %39
-  %45 = icmp eq i32 %.287, 2
-  br i1 %45, label %48, label %46
+42:                                               ; preds = %37
+  %43 = icmp eq i32 %.287, 2
+  br i1 %43, label %46, label %44
 
-46:                                               ; preds = %42, %39, %44
-  %.3 = phi i32 [ %spec.select, %42 ], [ 0, %44 ], [ 0, %39 ]
-  %47 = add nuw i64 %.06488, 1
-  %exitcond.not = icmp eq i64 %47, %.17189
-  br i1 %exitcond.not, label %.critedge, label %39, !llvm.loop !12
+44:                                               ; preds = %40, %37, %42
+  %.3 = phi i32 [ %spec.select, %40 ], [ 0, %42 ], [ 0, %37 ]
+  %45 = add nuw i64 %.06488, 1
+  %exitcond.not = icmp eq i64 %45, %.17189
+  br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !12
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.06591, i64 noundef %.06488) #11
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %0, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.06591, i64 noundef %.06488) #11
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25, i64 noundef 12) #11
-  br label %55
+  br label %53
 
-.critedge:                                        ; preds = %46
-  %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.06591, i64 noundef %.17189) #11
-  br label %55
+.critedge:                                        ; preds = %44
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.06591, i64 noundef %.17189) #11
+  br label %53
 
-55:                                               ; preds = %.critedge, %48
-  %.06482 = phi i64 [ %.06488, %48 ], [ %.17189, %.critedge ]
-  %.4 = phi i32 [ 0, %48 ], [ %.3, %.critedge ]
-  %56 = sub i64 %.17189, %.06482
-  %57 = getelementptr inbounds i8, ptr %.06591, i64 %.06482
-  %.not79 = icmp eq i64 %56, 0
+53:                                               ; preds = %.critedge, %46
+  %.06482 = phi i64 [ %.06488, %46 ], [ %.17189, %.critedge ]
+  %.4 = phi i32 [ 0, %46 ], [ %.3, %.critedge ]
+  %54 = sub i64 %.17189, %.06482
+  %55 = getelementptr inbounds i8, ptr %.06591, i64 %.06482
+  %.not79 = icmp eq i64 %54, 0
   br i1 %.not79, label %.loopexit, label %.preheader, !llvm.loop !13
 
 ._crit_edge96:                                    ; preds = %.loopexit
-  %58 = trunc nuw i8 %.168 to i1
-  br i1 %58, label %59, label %._crit_edge96.thread
-
-59:                                               ; preds = %._crit_edge96
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.26, i64 noundef 3) #11
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.27, i64 noundef 11) #11
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
-  br label %._crit_edge96.thread
+  br label %.critedge102
 
-._crit_edge96.thread:                             ; preds = %._crit_edge, %59, %._crit_edge96
+.critedge102:                                     ; preds = %._crit_edge, %._crit_edge96
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.28, i64 noundef 18) #11
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
-  %60 = tail call i32 @close(i32 noundef %15) #11
-  br label %61
+  %56 = tail call i32 @close(i32 noundef %15) #11
+  br label %57
 
-61:                                               ; preds = %._crit_edge96.thread, %10
-  %62 = getelementptr inbounds nuw i8, ptr %.098, i64 432
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %.098, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %66 = load ptr, ptr %65, align 8
-  tail call void %66(ptr noundef nonnull align 8 dereferenceable(440) %.098) #11
-  %.not = icmp eq ptr %63, null
+57:                                               ; preds = %.critedge102, %10
+  %58 = getelementptr inbounds nuw i8, ptr %.098, i64 432
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %.098, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = load ptr, ptr %61, align 8
+  tail call void %62(ptr noundef nonnull align 8 dereferenceable(440) %.098) #11
+  %.not = icmp eq ptr %59, null
   br i1 %.not, label %._crit_edge101, label %10, !llvm.loop !14
 
-._crit_edge101:                                   ; preds = %61, %4
+._crit_edge101:                                   ; preds = %57, %4
   store ptr null, ptr @_ZN10CompileLog6_firstE, align 8
-  br label %67
+  br label %63
 
-67:                                               ; preds = %3, %._crit_edge101
+63:                                               ; preds = %3, %._crit_edge101
   ret void
 }
 

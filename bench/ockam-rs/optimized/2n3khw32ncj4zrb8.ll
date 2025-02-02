@@ -29816,8 +29816,8 @@ define noalias noundef nonnull ptr @_ZN14ockam_identity10identities10identities1
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36, !noalias !6196
   unreachable
 
-common.resume:                                    ; preds = %.thread16, %82
-  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %64, %.thread16 ]
+common.resume:                                    ; preds = %89, %82
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %64, %89 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync12Arc$LT$T$GT$3new17ha139ed307e2c9730E.llvm.7889425039173770230.exit": ; preds = %73
@@ -29825,7 +29825,7 @@ common.resume:                                    ; preds = %.thread16, %82
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2), !noalias !6196
   ret ptr %79
 
-86:                                               ; preds = %.thread16, %88
+86:                                               ; preds = %89, %88
   %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
@@ -29833,9 +29833,9 @@ common.resume:                                    ; preds = %.thread16, %82
 
 88:                                               ; preds = %63
   invoke void @"_ZN4core3ptr140drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..identities..storage..change_history_repository..ChangeHistoryRepository$GT$$GT$17hf37dfa85da58350aE.llvm.7889425039173770230"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #35
-          to label %.thread16 unwind label %86
+          to label %89 unwind label %86
 
-.thread16:                                        ; preds = %88
+89:                                               ; preds = %88
   invoke void @"_ZN4core3ptr49drop_in_place$LT$ockam_identity..vault..Vault$GT$17h5e8544edba590cd0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #35
           to label %common.resume unwind label %86
 }

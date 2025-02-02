@@ -904,153 +904,149 @@ define dso_local void @stepd_send_step_complete_msgs(ptr noundef readonly captur
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 128), align 8
   %.not.i = icmp ne ptr %11, null
   %12 = icmp sgt i32 %9, 0
-  %or.cond102 = and i1 %.not.i, %12
-  br i1 %or.cond102, label %.lr.ph.i.preheader, label %.critedge
+  %or.cond93 = and i1 %.not.i, %12
+  br i1 %or.cond93, label %.lr.ph.i.preheader, label %.critedge
 
 .lr.ph.i.preheader:                               ; preds = %.split16
   %zext = and i64 %8, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.sink.split.i
-  %.351 = phi i32 [ %.553, %.sink.split.i ], [ -1, %.lr.ph.i.preheader ]
+  %.350 = phi i32 [ %.552, %.sink.split.i ], [ -1, %.lr.ph.i.preheader ]
   %.2 = phi i32 [ %.3, %.sink.split.i ], [ -1, %.lr.ph.i.preheader ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.sink.split.i ], [ 0, %.lr.ph.i.preheader ]
-  %.023.i = phi i8 [ %.1.i, %.sink.split.i ], [ 0, %.lr.ph.i.preheader ]
+  %.023.i = phi i1 [ %.not18.i, %.sink.split.i ], [ false, %.lr.ph.i.preheader ]
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 128), align 8
   %14 = tail call i32 @bit_test(ptr noundef %13, i64 noundef %indvars.iv.i) #15
-  %.not18.i = icmp eq i32 %14, 0
-  %15 = trunc nuw i8 %.023.i to i1
-  br i1 %.not18.i, label %18, label %16
+  %.not18.i = icmp ne i32 %14, 0
+  br i1 %.not18.i, label %15, label %17
 
-16:                                               ; preds = %.lr.ph.i
-  %17 = trunc nsw i64 %indvars.iv.i to i32
-  %spec.select = select i1 %15, i32 %.351, i32 %17
+15:                                               ; preds = %.lr.ph.i
+  %16 = trunc nsw i64 %indvars.iv.i to i32
+  %spec.select = select i1 %.023.i, i32 %.350, i32 %16
   br label %.sink.split.i
 
-18:                                               ; preds = %.lr.ph.i
-  br i1 %15, label %19, label %.sink.split.i
+17:                                               ; preds = %.lr.ph.i
+  br i1 %.023.i, label %_bit_getrange.exit.thread77, label %.sink.split.i
 
-19:                                               ; preds = %18
-  %20 = trunc nsw i64 %indvars.iv.i to i32
-  %21 = add nsw i32 %20, -1
-  br label %_bit_getrange.exit
+_bit_getrange.exit.thread77:                      ; preds = %17
+  %18 = trunc nsw i64 %indvars.iv.i to i32
+  %19 = add nsw i32 %18, -1
+  br label %.split.preheader
 
-.sink.split.i:                                    ; preds = %16, %18
-  %.553 = phi i32 [ %.351, %18 ], [ %spec.select, %16 ]
-  %.3 = phi i32 [ %.2, %18 ], [ %17, %16 ]
-  %.1.i = phi i8 [ %.023.i, %18 ], [ 1, %16 ]
+.sink.split.i:                                    ; preds = %15, %17
+  %.552 = phi i32 [ %.350, %17 ], [ %spec.select, %15 ]
+  %.3 = phi i32 [ %.2, %17 ], [ %16, %15 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %22 = icmp eq i64 %indvars.iv.next.i, %zext
-  br i1 %22, label %_bit_getrange.exit, label %.lr.ph.i, !llvm.loop !11
+  %20 = icmp eq i64 %indvars.iv.next.i, %zext
+  br i1 %20, label %_bit_getrange.exit, label %.lr.ph.i, !llvm.loop !11
 
-_bit_getrange.exit:                               ; preds = %.sink.split.i, %19
-  %.250 = phi i32 [ %.351, %19 ], [ %.553, %.sink.split.i ]
-  %.147 = phi i32 [ %21, %19 ], [ %.3, %.sink.split.i ]
-  %.020.i = phi i8 [ %.023.i, %19 ], [ %.1.i, %.sink.split.i ]
-  %23 = and i8 %.020.i, 1
-  %24 = icmp eq i8 %23, 0
-  br i1 %24, label %.critedge, label %.split
+_bit_getrange.exit:                               ; preds = %.sink.split.i
+  br i1 %.not18.i, label %.split.preheader, label %.critedge
+
+.split.preheader:                                 ; preds = %_bit_getrange.exit.thread77, %_bit_getrange.exit
+  %.04567.ph = phi i32 [ %.3, %_bit_getrange.exit ], [ %19, %_bit_getrange.exit.thread77 ]
+  %.04766.ph = phi i32 [ %.552, %_bit_getrange.exit ], [ %.350, %_bit_getrange.exit.thread77 ]
+  br label %.split
 
 .thread:                                          ; preds = %5, %7
-  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
-  tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %25, i32 noundef %25)
-  %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step_complete, i64 48)) #15
-  %.not24 = icmp eq i32 %26, 0
-  br i1 %.not24, label %55, label %27
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
+  tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %21, i32 noundef %21)
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step_complete, i64 48)) #15
+  %.not24 = icmp eq i32 %22, 0
+  br i1 %.not24, label %48, label %23
 
-27:                                               ; preds = %.thread
-  %28 = tail call ptr @__errno_location() #16
-  store i32 %26, ptr %28, align 4
+23:                                               ; preds = %.thread
+  %24 = tail call ptr @__errno_location() #16
+  store i32 %22, ptr %24, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.10, i32 noundef 884, ptr noundef nonnull @__func__.stepd_send_step_complete_msgs) #17
   unreachable
 
-.split:                                           ; preds = %_bit_getrange.exit, %_bit_getrange.exit42
-  %.074 = phi i32 [ %34, %_bit_getrange.exit42 ], [ 0, %_bit_getrange.exit ]
-  %.01573 = phi i1 [ %spec.select61, %_bit_getrange.exit42 ], [ false, %_bit_getrange.exit ]
-  %.04672 = phi i32 [ %.5, %_bit_getrange.exit42 ], [ %.147, %_bit_getrange.exit ]
-  %.04871 = phi i32 [ %.755, %_bit_getrange.exit42 ], [ %.250, %_bit_getrange.exit ]
-  %29 = icmp eq i32 %.074, 0
-  %30 = icmp eq i32 %.04871, 0
-  %or.cond = select i1 %29, i1 %30, i1 false
-  %spec.select60 = select i1 %or.cond, i32 -1, i32 %.04871
-  %spec.select61 = select i1 %or.cond, i1 true, i1 %.01573
-  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
-  %32 = add i32 %31, 1
-  %33 = add i32 %32, %spec.select60
-  %34 = add i32 %.04672, 1
-  %35 = add i32 %34, %31
-  tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %33, i32 noundef %35)
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 128), align 8
-  %.not.i25 = icmp ne ptr %36, null
-  %37 = icmp slt i32 %34, %9
-  %or.cond95 = and i1 %.not.i25, %37
-  br i1 %or.cond95, label %.lr.ph.preheader.i31, label %._crit_edge
+.split:                                           ; preds = %.split.backedge, %.split.preheader
+  %.069 = phi i32 [ 0, %.split.preheader ], [ %30, %.split.backedge ]
+  %.01568 = phi i1 [ false, %.split.preheader ], [ %spec.select59, %.split.backedge ]
+  %.04567 = phi i32 [ %.04567.ph, %.split.preheader ], [ %.04567.be, %.split.backedge ]
+  %.04766 = phi i32 [ %.04766.ph, %.split.preheader ], [ %.04766.be, %.split.backedge ]
+  %25 = icmp eq i32 %.069, 0
+  %26 = icmp eq i32 %.04766, 0
+  %or.cond = select i1 %25, i1 %26, i1 false
+  %spec.select58 = select i1 %or.cond, i32 -1, i32 %.04766
+  %spec.select59 = select i1 %or.cond, i1 true, i1 %.01568
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
+  %28 = add i32 %27, 1
+  %29 = add i32 %28, %spec.select58
+  %30 = add i32 %.04567, 1
+  %31 = add i32 %30, %27
+  tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %29, i32 noundef %31)
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 128), align 8
+  %.not.i25 = icmp ne ptr %32, null
+  %33 = icmp slt i32 %30, %9
+  %or.cond86 = and i1 %.not.i25, %33
+  br i1 %or.cond86, label %.lr.ph.preheader.i31, label %._crit_edge
 
 .lr.ph.preheader.i31:                             ; preds = %.split
-  %38 = sext i32 %34 to i64
+  %34 = sext i32 %30 to i64
   br label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.sink.split.i36, %.lr.ph.preheader.i31
-  %.856 = phi i32 [ %spec.select60, %.lr.ph.preheader.i31 ], [ %.10, %.sink.split.i36 ]
-  %.6 = phi i32 [ %.04672, %.lr.ph.preheader.i31 ], [ %.7, %.sink.split.i36 ]
-  %indvars.iv.i33 = phi i64 [ %38, %.lr.ph.preheader.i31 ], [ %indvars.iv.next.i39, %.sink.split.i36 ]
-  %.023.i34 = phi i8 [ 0, %.lr.ph.preheader.i31 ], [ %.1.i38, %.sink.split.i36 ]
-  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 128), align 8
-  %40 = tail call i32 @bit_test(ptr noundef %39, i64 noundef %indvars.iv.i33) #15
-  %.not18.i35 = icmp eq i32 %40, 0
-  %41 = trunc nuw i8 %.023.i34 to i1
-  br i1 %.not18.i35, label %44, label %42
+  %.855 = phi i32 [ %spec.select58, %.lr.ph.preheader.i31 ], [ %.10, %.sink.split.i36 ]
+  %.6 = phi i32 [ %.04567, %.lr.ph.preheader.i31 ], [ %.7, %.sink.split.i36 ]
+  %indvars.iv.i33 = phi i64 [ %34, %.lr.ph.preheader.i31 ], [ %indvars.iv.next.i38, %.sink.split.i36 ]
+  %.023.i34 = phi i1 [ false, %.lr.ph.preheader.i31 ], [ %.not18.i35, %.sink.split.i36 ]
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 128), align 8
+  %36 = tail call i32 @bit_test(ptr noundef %35, i64 noundef %indvars.iv.i33) #15
+  %.not18.i35 = icmp ne i32 %36, 0
+  br i1 %.not18.i35, label %37, label %39
 
-42:                                               ; preds = %.lr.ph.i32
-  %43 = trunc nsw i64 %indvars.iv.i33 to i32
-  %spec.select62 = select i1 %41, i32 %.856, i32 %43
+37:                                               ; preds = %.lr.ph.i32
+  %38 = trunc nsw i64 %indvars.iv.i33 to i32
+  %spec.select60 = select i1 %.023.i34, i32 %.855, i32 %38
   br label %.sink.split.i36
 
-44:                                               ; preds = %.lr.ph.i32
-  br i1 %41, label %45, label %.sink.split.i36
+39:                                               ; preds = %.lr.ph.i32
+  br i1 %.023.i34, label %40, label %.sink.split.i36
 
-45:                                               ; preds = %44
-  %46 = trunc nsw i64 %indvars.iv.i33 to i32
-  %47 = add nsw i32 %46, -1
-  br label %_bit_getrange.exit42
+40:                                               ; preds = %39
+  %41 = trunc nsw i64 %indvars.iv.i33 to i32
+  %42 = add nsw i32 %41, -1
+  br label %.split.backedge
 
-.sink.split.i36:                                  ; preds = %42, %44
-  %.10 = phi i32 [ %.856, %44 ], [ %spec.select62, %42 ]
-  %.7 = phi i32 [ %.6, %44 ], [ %43, %42 ]
-  %.1.i38 = phi i8 [ %.023.i34, %44 ], [ 1, %42 ]
-  %indvars.iv.next.i39 = add nsw i64 %indvars.iv.i33, 1
-  %lftr.wideiv.i40 = trunc i64 %indvars.iv.next.i39 to i32
-  %exitcond.not.i41 = icmp eq i32 %9, %lftr.wideiv.i40
-  br i1 %exitcond.not.i41, label %_bit_getrange.exit42, label %.lr.ph.i32, !llvm.loop !11
+.sink.split.i36:                                  ; preds = %37, %39
+  %.10 = phi i32 [ %.855, %39 ], [ %spec.select60, %37 ]
+  %.7 = phi i32 [ %.6, %39 ], [ %38, %37 ]
+  %indvars.iv.next.i38 = add nsw i64 %indvars.iv.i33, 1
+  %lftr.wideiv.i39 = trunc i64 %indvars.iv.next.i38 to i32
+  %exitcond.not.i40 = icmp eq i32 %9, %lftr.wideiv.i39
+  br i1 %exitcond.not.i40, label %_bit_getrange.exit41, label %.lr.ph.i32, !llvm.loop !11
 
-_bit_getrange.exit42:                             ; preds = %.sink.split.i36, %45
-  %.755 = phi i32 [ %.856, %45 ], [ %.10, %.sink.split.i36 ]
-  %.5 = phi i32 [ %47, %45 ], [ %.7, %.sink.split.i36 ]
-  %.020.i28 = phi i8 [ %.023.i34, %45 ], [ %.1.i38, %.sink.split.i36 ]
-  %48 = and i8 %.020.i28, 1
-  %49 = icmp eq i8 %48, 0
-  br i1 %49, label %._crit_edge, label %.split, !llvm.loop !12
+_bit_getrange.exit41:                             ; preds = %.sink.split.i36
+  br i1 %.not18.i35, label %.split.backedge, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.split, %_bit_getrange.exit42
-  br i1 %spec.select61, label %51, label %.critedge
+.split.backedge:                                  ; preds = %_bit_getrange.exit41, %40
+  %.04567.be = phi i32 [ %.7, %_bit_getrange.exit41 ], [ %42, %40 ]
+  %.04766.be = phi i32 [ %.10, %_bit_getrange.exit41 ], [ %.855, %40 ]
+  br label %.split, !llvm.loop !12
+
+._crit_edge:                                      ; preds = %.split, %_bit_getrange.exit41
+  br i1 %spec.select59, label %44, label %.critedge
 
 .critedge:                                        ; preds = %.split16, %_bit_getrange.exit, %._crit_edge
-  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
-  tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %50, i32 noundef %50)
-  br label %51
+  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
+  tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %43, i32 noundef %43)
+  br label %44
 
-51:                                               ; preds = %._crit_edge, %.critedge
-  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step_complete, i64 48)) #15
-  %.not23 = icmp eq i32 %52, 0
-  br i1 %.not23, label %55, label %53
+44:                                               ; preds = %._crit_edge, %.critedge
+  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step_complete, i64 48)) #15
+  %.not23 = icmp eq i32 %45, 0
+  br i1 %.not23, label %48, label %46
 
-53:                                               ; preds = %51
-  %54 = tail call ptr @__errno_location() #16
-  store i32 %52, ptr %54, align 4
+46:                                               ; preds = %44
+  %47 = tail call ptr @__errno_location() #16
+  store i32 %45, ptr %47, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.10, i32 noundef 906, ptr noundef nonnull @__func__.stepd_send_step_complete_msgs) #17
   unreachable
 
-55:                                               ; preds = %51, %.thread
+48:                                               ; preds = %44, %.thread
   ret void
 }
 
@@ -3790,7 +3786,7 @@ _fork_all_tasks.exit:                             ; preds = %473, %677, %.thread
   br label %1087
 
 1087:                                             ; preds = %1066, %1069, %1070, %1071, %1085, %393
-  %.1158 = phi i8 [ %.3167, %1069 ], [ %.3167, %1066 ], [ %.3162, %1085 ], [ %.3162, %1071 ], [ %.3162, %1070 ], [ 0, %393 ]
+  %.1158 = phi i8 [ %.3167, %1069 ], [ %.3167, %1066 ], [ 1, %1085 ], [ 0, %1071 ], [ %.3162, %1070 ], [ 0, %393 ]
   %.2 = phi i32 [ 4020, %1069 ], [ 4020, %1066 ], [ 0, %1085 ], [ 0, %1071 ], [ %.0.i163, %1070 ], [ -1, %393 ]
   %1088 = load i8, ptr %56, align 1
   %1089 = trunc i8 %1088 to i1

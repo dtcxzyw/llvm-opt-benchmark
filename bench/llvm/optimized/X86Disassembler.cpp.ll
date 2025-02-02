@@ -368,7 +368,7 @@ _ZL4peekPN4llvm15X86Disassembler19InternalInstructionERh.exit203.thread.i: ; pre
 
 .thread334.i:                                     ; preds = %.thread334.i.loopexit, %60
   %103 = phi i64 [ %36, %60 ], [ %5, %.thread334.i.loopexit ]
-  %.0.copyload.i.i348.i = phi i8 [ -13, %60 ], [ -16, %.thread334.i.loopexit ]
+  %.0.copyload.i.i347.i = phi i8 [ -13, %60 ], [ -16, %.thread334.i.loopexit ]
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 0, ptr %104, align 8
   br label %232
@@ -487,14 +487,14 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit231.i: ; pr
   store i8 %155, ptr %159, align 2
   %160 = add i64 %36, 2
   store i64 %160, ptr %17, align 8
-  %.pre366.i = sub i64 %160, %5
-  %.pre-phi369.i = add i64 %.pre366.i, 1
-  %161 = icmp ugt i64 %.pre-phi369.i, %4
+  %.pre365.i = sub i64 %160, %5
+  %.pre-phi368.i = add i64 %.pre365.i, 1
+  %161 = icmp ugt i64 %.pre-phi368.i, %4
   br i1 %161, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i, label %162
 
 162:                                              ; preds = %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit231.i
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 51
-  %164 = getelementptr inbounds i8, ptr %3, i64 %.pre366.i
+  %164 = getelementptr inbounds i8, ptr %3, i64 %.pre365.i
   call void @llvm.assume(i1 true) [ "align"(ptr %164, i64 1) ]
   %.0.copyload.i.i235.i = load i8, ptr %164, align 1
   store i8 %.0.copyload.i.i235.i, ptr %163, align 1
@@ -572,9 +572,9 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit243.i: ; pr
   %197 = load i8, ptr %196, align 1
   %198 = and i8 %197, 56
   %.not176.i = icmp eq i8 %198, 0
-  br i1 %.not176.i, label %._crit_edge354.i, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit250.i
+  br i1 %.not176.i, label %._crit_edge353.i, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit250.i
 
-._crit_edge354.i:                                 ; preds = %195
+._crit_edge353.i:                                 ; preds = %195
   store i64 %36, ptr %17, align 8
   br label %243
 
@@ -587,14 +587,14 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit250.i: ; pr
   store i8 %197, ptr %200, align 2
   %201 = add i64 %36, 2
   store i64 %201, ptr %17, align 8
-  %.pre360.i = sub i64 %201, %5
-  %.pre-phi371.i = add i64 %.pre360.i, 1
-  %202 = icmp ugt i64 %.pre-phi371.i, %4
+  %.pre359.i = sub i64 %201, %5
+  %.pre-phi370.i = add i64 %.pre359.i, 1
+  %202 = icmp ugt i64 %.pre-phi370.i, %4
   br i1 %202, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit255.i, label %203
 
 203:                                              ; preds = %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit250.i
   %204 = getelementptr inbounds nuw i8, ptr %12, i64 51
-  %205 = getelementptr inbounds i8, ptr %3, i64 %.pre360.i
+  %205 = getelementptr inbounds i8, ptr %3, i64 %.pre359.i
   call void @llvm.assume(i1 true) [ "align"(ptr %205, i64 1) ]
   %.0.copyload.i.i254.i = load i8, ptr %205, align 1
   store i8 %.0.copyload.i.i254.i, ptr %204, align 1
@@ -659,7 +659,7 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit262.i: ; pr
   %234 = phi i8 [ %33, %.thread334.i ], [ %106, %220 ]
   %235 = phi i8 [ %34, %.thread334.i ], [ %107, %220 ]
   %236 = phi i64 [ %103, %.thread334.i ], [ %36, %220 ]
-  %.1294322337.i = phi i8 [ %.0.copyload.i.i348.i, %.thread334.i ], [ %.0.copyload.i.i.i, %220 ]
+  %.1294322337.i = phi i8 [ %.0.copyload.i.i347.i, %.thread334.i ], [ %.0.copyload.i.i.i, %220 ]
   %237 = and i8 %.1294322337.i, -16
   %238 = icmp eq i8 %237, 64
   %spec.select.i263.i = and i1 %30, %238
@@ -679,14 +679,14 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit262.i: ; pr
   store i64 %236, ptr %17, align 8
   br label %243
 
-243:                                              ; preds = %242, %219, %216, %._crit_edge354.i, %192, %189, %182, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i, %157, %129, %119
-  %.pre8995 = phi i32 [ 0, %242 ], [ 4, %219 ], [ 4, %216 ], [ 0, %._crit_edge354.i ], [ 1, %192 ], [ 1, %189 ], [ 0, %182 ], [ 2, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ 0, %157 ], [ 3, %129 ], [ 0, %119 ]
-  %244 = phi i8 [ %233, %242 ], [ %105, %219 ], [ %105, %216 ], [ %105, %._crit_edge354.i ], [ %105, %192 ], [ %105, %189 ], [ %105, %182 ], [ %105, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ %105, %157 ], [ %105, %129 ], [ %105, %119 ]
-  %245 = phi i64 [ %236, %242 ], [ %207, %219 ], [ %207, %216 ], [ %36, %._crit_edge354.i ], [ %185, %192 ], [ %185, %189 ], [ %36, %182 ], [ %168, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ %36, %157 ], [ %132, %129 ], [ %36, %119 ]
-  %246 = phi i8 [ 0, %242 ], [ %197, %219 ], [ %197, %216 ], [ 0, %._crit_edge354.i ], [ %180, %192 ], [ %180, %189 ], [ 0, %182 ], [ %155, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ 0, %157 ], [ %.0.copyload.i.i211.i, %129 ], [ 0, %119 ]
-  %247 = phi i8 [ %234, %242 ], [ 1, %219 ], [ %106, %216 ], [ %106, %._crit_edge354.i ], [ 1, %192 ], [ %106, %189 ], [ %106, %182 ], [ %106, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ %106, %157 ], [ %106, %129 ], [ %106, %119 ]
-  %248 = phi i8 [ %235, %242 ], [ %107, %219 ], [ %107, %216 ], [ %107, %._crit_edge354.i ], [ %107, %192 ], [ %107, %189 ], [ %107, %182 ], [ %107, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ %107, %157 ], [ %107, %129 ], [ %107, %119 ]
-  %249 = phi i8 [ 0, %242 ], [ %217, %219 ], [ %217, %216 ], [ 0, %._crit_edge354.i ], [ %190, %192 ], [ %190, %189 ], [ 0, %182 ], [ 0, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ 0, %157 ], [ 0, %129 ], [ 0, %119 ]
+243:                                              ; preds = %242, %219, %216, %._crit_edge353.i, %192, %189, %182, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i, %157, %129, %119
+  %.pre8995 = phi i32 [ 0, %242 ], [ 4, %219 ], [ 4, %216 ], [ 0, %._crit_edge353.i ], [ 1, %192 ], [ 1, %189 ], [ 0, %182 ], [ 2, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ 0, %157 ], [ 3, %129 ], [ 0, %119 ]
+  %244 = phi i8 [ %233, %242 ], [ %105, %219 ], [ %105, %216 ], [ %105, %._crit_edge353.i ], [ %105, %192 ], [ %105, %189 ], [ %105, %182 ], [ %105, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ %105, %157 ], [ %105, %129 ], [ %105, %119 ]
+  %245 = phi i64 [ %236, %242 ], [ %207, %219 ], [ %207, %216 ], [ %36, %._crit_edge353.i ], [ %185, %192 ], [ %185, %189 ], [ %36, %182 ], [ %168, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ %36, %157 ], [ %132, %129 ], [ %36, %119 ]
+  %246 = phi i8 [ 0, %242 ], [ %197, %219 ], [ %197, %216 ], [ 0, %._crit_edge353.i ], [ %180, %192 ], [ %180, %189 ], [ 0, %182 ], [ %155, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ 0, %157 ], [ %.0.copyload.i.i211.i, %129 ], [ 0, %119 ]
+  %247 = phi i8 [ %234, %242 ], [ 1, %219 ], [ %106, %216 ], [ %106, %._crit_edge353.i ], [ 1, %192 ], [ %106, %189 ], [ %106, %182 ], [ %106, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ %106, %157 ], [ %106, %129 ], [ %106, %119 ]
+  %248 = phi i8 [ %235, %242 ], [ %107, %219 ], [ %107, %216 ], [ %107, %._crit_edge353.i ], [ %107, %192 ], [ %107, %189 ], [ %107, %182 ], [ %107, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ %107, %157 ], [ %107, %129 ], [ %107, %119 ]
+  %249 = phi i8 [ 0, %242 ], [ %217, %219 ], [ %217, %216 ], [ 0, %._crit_edge353.i ], [ %190, %192 ], [ %190, %189 ], [ 0, %182 ], [ 0, %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit236.i ], [ 0, %157 ], [ 0, %129 ], [ 0, %119 ]
   switch i32 %19, label %_ZL12readPrefixesPN4llvm15X86Disassembler19InternalInstructionE.exit [
     i32 0, label %250
     i32 1, label %259

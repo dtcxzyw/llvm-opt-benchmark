@@ -16634,7 +16634,6 @@ _ZN32pxrInternal_v0_24__pxrReserved__8GfBBox3d9SetMatrixERKNS_10GfMatrix4dE.exit
   br i1 %.not605, label %.loopexit613, label %.lr.ph
 
 .loopexit613:                                     ; preds = %1701, %_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dES2_.exit, %1691
-  %.2144 = phi i8 [ %.0142636, %1691 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix4dES2_.exit ], [ 1, %1701 ]
   store i32 0, ptr %1661, align 8
   store ptr null, ptr %1662, align 8
   store ptr %1661, ptr %1663, align 8
@@ -16843,7 +16842,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d8_FindMinERNS_7GfVec3dERKS1_.exit
   unreachable
 
 _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S2_EEED2Ev.exit: ; preds = %._crit_edge, %.critedge175, %1682
-  %.1143 = phi i8 [ %.0142636, %1682 ], [ %.0142636, %.critedge175 ], [ %.2144, %._crit_edge ]
+  %.1143 = phi i8 [ %.0142636, %1682 ], [ %.0142636, %.critedge175 ], [ 1, %._crit_edge ]
   %1764 = getelementptr inbounds nuw i8, ptr %.sroa.0545.0635, i64 224
   %.not603 = icmp eq ptr %1764, %1650
   br i1 %.not603, label %._crit_edge639, label %1672

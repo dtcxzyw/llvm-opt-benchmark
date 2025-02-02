@@ -5894,7 +5894,7 @@ land.lhs.true:                                    ; preds = %if.then48
   br label %if.end53
 
 if.end53:                                         ; preds = %land.lhs.true, %if.then48
-  %best.1 = phi i8 [ %best.0241, %if.then48 ], [ %spec.select, %land.lhs.true ]
+  %best.1 = phi i8 [ 0, %if.then48 ], [ %spec.select, %land.lhs.true ]
   %loadedv54 = trunc nuw i8 %worst.0242 to i1
   br i1 %loadedv54, label %land.lhs.true55, label %if.end60
 
@@ -5906,7 +5906,7 @@ land.lhs.true55:                                  ; preds = %if.end53
   br label %if.end60
 
 if.end60:                                         ; preds = %land.lhs.true55, %if.end53
-  %worst.1 = phi i8 [ %worst.0242, %if.end53 ], [ %spec.select42, %land.lhs.true55 ]
+  %worst.1 = phi i8 [ 0, %if.end53 ], [ %spec.select42, %land.lhs.true55 ]
   %inc61 = add i64 %currentClubs.0243, 1
   br label %for.inc63
 

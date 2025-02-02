@@ -506,7 +506,7 @@ if.then18.i:                                      ; preds = %if.else.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then18.i, %if.else.i, %_ZN3ue210verify_u32IlEEjT_.exit.i
-  %infinite_max_width.1.i = phi i8 [ %infinite_max_width.018.i, %if.else.i ], [ %infinite_max_width.018.i, %if.then18.i ], [ 1, %_ZN3ue210verify_u32IlEEjT_.exit.i ]
+  %infinite_max_width.1.i = phi i8 [ 1, %if.else.i ], [ 0, %if.then18.i ], [ 1, %_ZN3ue210verify_u32IlEEjT_.exit.i ]
   %incdec.ptr.i.i59 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.015.i, i64 8
   %cmp.i.not.i60 = icmp eq ptr %incdec.ptr.i.i59, %tamaInfo.val20
   br i1 %cmp.i.not.i60, label %for.end.i, label %for.body.i51

@@ -5337,12 +5337,12 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet31
 _ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit: ; preds = %17, %24
   %27 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__14Usd_HasDefaultIiSt10shared_ptrINS_8Usd_ClipEEEENS_22Usd_DefaultValueResultERKT0_RKNS_7SdfPathEPT_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef null)
   %.not.i.not = icmp eq i32 %27, 0
-  br i1 %.not.i.not, label %40, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit.thread
+  br i1 %.not.i.not, label %.lr.ph, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit.thread: ; preds = %24, %5, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit
   %28 = load ptr, ptr %13, align 8
   %29 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS_7SdfPathEdPdS4_(ptr noundef nonnull align 8 dereferenceable(208) %28, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %2, ptr noundef %3, ptr noundef %4)
-  br i1 %29, label %.critedge54, label %30
+  br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit.thread
   store ptr @.str.3, ptr %6, align 8
@@ -5355,104 +5355,100 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt1
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %34, align 8
   %35 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %6, ptr noundef nonnull @.str.9, ptr noundef null)
-  br i1 %35, label %.critedge54, label %.thread76
+  br i1 %35, label %.thread, label %.thread76
 
-.critedge54:                                      ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit.thread, %30
+.thread:                                          ; preds = %30, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit.thread
   %36 = load double, ptr %3, align 8
   %37 = load double, ptr %4, align 8
   %38 = fcmp une double %36, %37
   %39 = fcmp ule double %2, %37
   %narrow = or i1 %38, %39
-  br label %40
+  br i1 %narrow, label %.thread76, label %.lr.ph85
 
-40:                                               ; preds = %.critedge54, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit
-  %.050 = phi i1 [ %narrow, %.critedge54 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit ]
-  %.048 = phi i1 [ true, %.critedge54 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  br i1 %.048, label %.critedge.split, label %.outer.split
+.lr.ph:                                           ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  br label %.backedge
 
-.outer.split:                                     ; preds = %40, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64
-  %.049 = phi i64 [ %46, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64 ], [ %10, %40 ]
-  %46 = add i64 %.049, -1
-  %.not = icmp eq i64 %.049, 0
-  br i1 %.not, label %.critedge.split, label %47
+.backedge:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64, %.lr.ph
+  %.04979 = phi i64 [ %10, %.lr.ph ], [ %45, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64 ]
+  %45 = add i64 %.04979, -1
+  %.not.not = icmp eq i64 %.04979, 0
+  br i1 %.not.not, label %.lr.ph85, label %46
 
-47:                                               ; preds = %.outer.split
-  %48 = load ptr, ptr %11, align 8
-  %49 = getelementptr inbounds %"class.std::shared_ptr", ptr %48, i64 %46
-  %50 = load i8, ptr %14, align 8
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread
+46:                                               ; preds = %.backedge
+  %47 = load ptr, ptr %11, align 8
+  %48 = getelementptr inbounds %"class.std::shared_ptr", ptr %47, i64 %45
+  %49 = load i8, ptr %14, align 8
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %41, align 8
-  %54 = load ptr, ptr %49, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 112
-  %56 = load double, ptr %55, align 8
-  %57 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip9IsBlockedERKNS_7SdfPathEd(ptr noundef nonnull align 8 dereferenceable(208) %53, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %56)
-  br i1 %57, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64, label %58
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %40, align 8
+  %53 = load ptr, ptr %48, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 112
+  %55 = load double, ptr %54, align 8
+  %56 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip9IsBlockedERKNS_7SdfPathEd(ptr noundef nonnull align 8 dereferenceable(208) %52, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %55)
+  br i1 %56, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64, label %57
 
-58:                                               ; preds = %52
-  %59 = load ptr, ptr %49, align 8
-  %60 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip22HasAuthoredTimeSamplesERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(208) %59, ptr noundef nonnull align 4 dereferenceable(8) %1)
-  br i1 %60, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64
+57:                                               ; preds = %51
+  %58 = load ptr, ptr %48, align 8
+  %59 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip22HasAuthoredTimeSamplesERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(208) %58, ptr noundef nonnull align 4 dereferenceable(8) %1)
+  br i1 %59, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64
 
-_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64: ; preds = %52, %58
-  %61 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__14Usd_HasDefaultIiSt10shared_ptrINS_8Usd_ClipEEEENS_22Usd_DefaultValueResultERKT0_RKNS_7SdfPathEPT_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef null)
-  %.not.i63.not = icmp eq i32 %61, 0
-  br i1 %.not.i63.not, label %.outer.split, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread, !llvm.loop !56
+_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64: ; preds = %51, %57
+  %60 = tail call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__14Usd_HasDefaultIiSt10shared_ptrINS_8Usd_ClipEEEENS_22Usd_DefaultValueResultERKT0_RKNS_7SdfPathEPT_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef null)
+  %.not.i63.not = icmp eq i32 %60, 0
+  br i1 %.not.i63.not, label %.backedge, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread, !llvm.loop !56
 
-_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread: ; preds = %58, %47, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64
-  %62 = load ptr, ptr %49, align 8
-  %63 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS_7SdfPathEdPdS4_(ptr noundef nonnull align 8 dereferenceable(208) %62, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  br i1 %63, label %.critedge56, label %64
+_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread: ; preds = %57, %46, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64
+  %61 = load ptr, ptr %48, align 8
+  %62 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip31GetBracketingTimeSamplesForPathERKNS_7SdfPathEdPdS4_(ptr noundef nonnull align 8 dereferenceable(208) %61, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  br i1 %62, label %.backedge.thread, label %63
 
-64:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread
+63:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread
   store ptr @.str.3, ptr %9, align 8
-  store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet31GetBracketingTimeSamplesForPathERKNS_7SdfPathEdPdS4_, ptr %42, align 8
-  store i64 535, ptr %43, align 8
-  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet31GetBracketingTimeSamplesForPathERKNS_7SdfPathEdPdS4_, ptr %44, align 8
-  store i8 0, ptr %45, align 8
-  %65 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %9, ptr noundef nonnull @.str.10, ptr noundef null)
-  br i1 %65, label %.critedge56, label %.thread76
+  store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet31GetBracketingTimeSamplesForPathERKNS_7SdfPathEdPdS4_, ptr %41, align 8
+  store i64 535, ptr %42, align 8
+  store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet31GetBracketingTimeSamplesForPathERKNS_7SdfPathEdPdS4_, ptr %43, align 8
+  store i8 0, ptr %44, align 8
+  %64 = call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33) %9, ptr noundef nonnull @.str.10, ptr noundef null)
+  br i1 %64, label %.backedge.thread, label %.thread76
 
-.critedge56:                                      ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread, %64
-  %66 = load double, ptr %8, align 8
-  store double %66, ptr %3, align 8
-  br label %.critedge.split
+.backedge.thread:                                 ; preds = %63, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit64.thread
+  %65 = load double, ptr %8, align 8
+  store double %65, ptr %3, align 8
+  br label %.lr.ph85
 
-.critedge.split:                                  ; preds = %.outer.split, %40, %.critedge56
-  %.1.ph108 = phi i1 [ true, %.critedge56 ], [ true, %40 ], [ false, %.outer.split ]
-  br i1 %.050, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.critedge.split
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
+.lr.ph85:                                         ; preds = %.backedge, %.backedge.thread, %.thread
+  %.1.lcssa90 = phi i1 [ true, %.thread ], [ true, %.backedge.thread ], [ false, %.backedge ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %68
 
-68:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit68, %.lr.ph
-  %.04782.in = phi i64 [ %10, %.lr.ph ], [ %.04782, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit68 ]
-  %.04782 = add i64 %.04782.in, 1
-  %69 = load ptr, ptr %67, align 8
+68:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit68, %.lr.ph85
+  %.04784.in = phi i64 [ %10, %.lr.ph85 ], [ %.04784, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit68 ]
+  %.04784 = add i64 %.04784.in, 1
+  %69 = load ptr, ptr %66, align 8
   %70 = load ptr, ptr %11, align 8
   %71 = ptrtoint ptr %69 to i64
   %72 = ptrtoint ptr %70 to i64
   %73 = sub i64 %71, %72
   %74 = ashr exact i64 %73, 4
-  %75 = icmp ult i64 %.04782, %74
+  %75 = icmp ult i64 %.04784, %74
   br i1 %75, label %76, label %.critedge2
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds %"class.std::shared_ptr", ptr %70, i64 %.04782
+  %77 = getelementptr inbounds %"class.std::shared_ptr", ptr %70, i64 %.04784
   %78 = load i8, ptr %14, align 8
   %79 = trunc i8 %78 to i1
-  br i1 %79, label %80, label %._crit_edge.loopexit
+  br i1 %79, label %80, label %._crit_edge
 
 80:                                               ; preds = %76
-  %81 = load ptr, ptr %41, align 8
+  %81 = load ptr, ptr %67, align 8
   %82 = load ptr, ptr %77, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 112
   %84 = load double, ptr %83, align 8
@@ -5462,30 +5458,27 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt1
 86:                                               ; preds = %80
   %87 = load ptr, ptr %77, align 8
   %88 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip22HasAuthoredTimeSamplesERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(208) %87, ptr noundef nonnull align 4 dereferenceable(8) %1)
-  br i1 %88, label %._crit_edge.loopexit, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit68
+  br i1 %88, label %._crit_edge, label %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit68
 
 _ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit68: ; preds = %80, %86
-  %89 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__14Usd_HasDefaultIiSt10shared_ptrINS_8Usd_ClipEEEENS_22Usd_DefaultValueResultERKT0_RKNS_7SdfPathEPT_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef null)
+  %89 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__14Usd_HasDefaultIiSt10shared_ptrINS_8Usd_ClipEEEENS_22Usd_DefaultValueResultERKT0_RKNS_7SdfPathEPT_(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef null)
   %.not.i67.not = icmp eq i32 %89, 0
-  br i1 %.not.i67.not, label %68, label %._crit_edge.loopexit, !llvm.loop !57
+  br i1 %.not.i67.not, label %68, label %._crit_edge, !llvm.loop !57
 
 .critedge2:                                       ; preds = %68
-  br i1 %.1.ph108, label %90, label %97
+  br i1 %.1.lcssa90, label %90, label %97
 
 90:                                               ; preds = %.critedge2
   %91 = load double, ptr %3, align 8
   store double %91, ptr %4, align 8
   br label %.thread76
 
-._crit_edge.loopexit:                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit68, %76, %86
+._crit_edge:                                      ; preds = %86, %76, %_ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt10shared_ptrINS_8Usd_ClipEERKNS_7SdfPathE.exit68
   %92 = load ptr, ptr %77, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 120
   %94 = load double, ptr %93, align 8
   store double %94, ptr %4, align 8
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge.split
-  br i1 %.1.ph108, label %.thread76, label %95
+  br i1 %.1.lcssa90, label %.thread76, label %95
 
 95:                                               ; preds = %._crit_edge
   %96 = load double, ptr %4, align 8
@@ -5500,8 +5493,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11Usd_ClipSet21_ClipContributesValueERKSt1
   store double %100, ptr %3, align 8
   br label %.thread76
 
-.thread76:                                        ; preds = %64, %._crit_edge, %90, %97, %95, %30
-  %.0 = phi i1 [ false, %30 ], [ true, %95 ], [ true, %97 ], [ true, %90 ], [ true, %._crit_edge ], [ false, %64 ]
+.thread76:                                        ; preds = %.thread, %63, %._crit_edge, %90, %97, %95, %30
+  %.0 = phi i1 [ false, %30 ], [ true, %95 ], [ true, %97 ], [ true, %90 ], [ true, %._crit_edge ], [ false, %63 ], [ true, %.thread ]
   ret i1 %.0
 }
 

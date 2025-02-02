@@ -1024,7 +1024,7 @@ invoke.cont14:                                    ; preds = %_ZNK5boost10shared_
 
 lor.lhs.false:                                    ; preds = %invoke.cont14
   %loadedv15 = trunc nuw i8 %.pre786 to i1
-  br i1 %loadedv15, label %if.then, label %do.end
+  br i1 %loadedv15, label %if.then, label %if.end73
 
 if.then:                                          ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #28
@@ -1208,8 +1208,8 @@ ehcleanup44:                                      ; preds = %ehcleanup43, %lpad1
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream) #28
   br label %ehcleanup573
 
-do.end:                                           ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17InterestRateIndexEEptEv.exit.i.do.end_crit_edge, %lor.lhs.false, %invoke.cont14
-  %58 = phi i8 [ %.pre, %_ZNK5boost10shared_ptrIN8QuantLib17InterestRateIndexEEptEv.exit.i.do.end_crit_edge ], [ %.pre786, %lor.lhs.false ], [ %.pre786, %invoke.cont14 ]
+do.end:                                           ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17InterestRateIndexEEptEv.exit.i.do.end_crit_edge, %invoke.cont14
+  %58 = phi i8 [ %.pre, %_ZNK5boost10shared_ptrIN8QuantLib17InterestRateIndexEEptEv.exit.i.do.end_crit_edge ], [ %.pre786, %invoke.cont14 ]
   %loadedv45 = trunc nuw i8 %58 to i1
   br i1 %loadedv45, label %if.then46, label %if.end73
 
@@ -1362,7 +1362,7 @@ ehcleanup72:                                      ; preds = %lpad47, %lpad.i, %e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %evalDate) #28
   br label %ehcleanup573
 
-if.end73:                                         ; preds = %_ZN8QuantLib8CalendarD2Ev.exit, %do.end
+if.end73:                                         ; preds = %lor.lhs.false, %_ZN8QuantLib8CalendarD2Ev.exit, %do.end
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %sch) #28
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %ref.tmp74) #28
   %effectiveDate_.i = getelementptr inbounds nuw i8, ptr %ref.tmp74, i64 16
@@ -5085,7 +5085,7 @@ invoke.cont10:                                    ; preds = %_ZNK5boost10shared_
 
 lor.lhs.false:                                    ; preds = %invoke.cont10
   %loadedv11 = trunc nuw i8 %.pre790 to i1
-  br i1 %loadedv11, label %if.then, label %do.end
+  br i1 %loadedv11, label %if.then, label %if.end68
 
 if.then:                                          ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #28
@@ -5269,8 +5269,8 @@ ehcleanup40:                                      ; preds = %ehcleanup39, %lpad1
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream) #28
   br label %ehcleanup568
 
-do.end:                                           ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17InterestRateIndexEEptEv.exit.i.do.end_crit_edge, %lor.lhs.false, %invoke.cont10
-  %54 = phi i8 [ %.pre, %_ZNK5boost10shared_ptrIN8QuantLib17InterestRateIndexEEptEv.exit.i.do.end_crit_edge ], [ %.pre790, %lor.lhs.false ], [ %.pre790, %invoke.cont10 ]
+do.end:                                           ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17InterestRateIndexEEptEv.exit.i.do.end_crit_edge, %invoke.cont10
+  %54 = phi i8 [ %.pre, %_ZNK5boost10shared_ptrIN8QuantLib17InterestRateIndexEEptEv.exit.i.do.end_crit_edge ], [ %.pre790, %invoke.cont10 ]
   %loadedv41 = trunc nuw i8 %54 to i1
   br i1 %loadedv41, label %if.then42, label %if.end68
 
@@ -5423,7 +5423,7 @@ ehcleanup67:                                      ; preds = %lpad43, %lpad.i, %e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %evalDate) #28
   br label %ehcleanup568
 
-if.end68:                                         ; preds = %_ZN8QuantLib8CalendarD2Ev.exit, %do.end
+if.end68:                                         ; preds = %lor.lhs.false, %_ZN8QuantLib8CalendarD2Ev.exit, %do.end
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %sch) #28
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %ref.tmp69) #28
   %effectiveDate_.i = getelementptr inbounds nuw i8, ptr %ref.tmp69, i64 16

@@ -14279,7 +14279,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16UsdShadeMaterialaSERKS0_.exit: ; preds = 
   br label %.body201
 
 _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipaSERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16UsdShadeMaterialaSERKS0_.exit, %1090, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit192, %1055, %1051
-  %.180 = phi i8 [ %.079, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit192 ], [ %.079, %1055 ], [ %.079, %1051 ], [ %.079, %1090 ], [ %1096, %_ZN32pxrInternal_v0_24__pxrReserved__16UsdShadeMaterialaSERKS0_.exit ]
+  %.180 = phi i8 [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit192 ], [ %.079, %1055 ], [ %.079, %1051 ], [ 1, %1090 ], [ %1096, %_ZN32pxrInternal_v0_24__pxrReserved__16UsdShadeMaterialaSERKS0_.exit ]
   %1111 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14UsdShadeTokensE seq_cst, align 8
   %1112 = inttoptr i64 %1111 to ptr
   %.not.i.i198 = icmp eq i64 %1111, 0
@@ -16672,7 +16672,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit258: ; preds = %2208, %.bo
 
 _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipaSERKS0_.exit256: ; preds = %1143, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i, %2080, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit235, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit244, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit
   %switch = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit244 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit235 ], [ false, %2080 ], [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit.i ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i ], [ false, %1143 ]
-  %.382 = phi i8 [ %.2811147, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit ], [ %.2811147, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit244 ], [ %.2811147, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit235 ], [ %.2811147, %2080 ], [ %2083, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i ], [ %2083, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit.i ], [ %.2811147, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i ], [ %.2811147, %1143 ]
+  %.382 = phi i8 [ %.2811147, %_ZNK32pxrInternal_v0_24__pxrReserved__13UsdSchemaBasecvbEv.exit ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit244 ], [ %.2811147, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit235 ], [ 1, %2080 ], [ %2083, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i ], [ %2083, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit.i ], [ %.2811147, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i ], [ %.2811147, %1143 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdCollectionAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   br i1 %1135, label %2212, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit259

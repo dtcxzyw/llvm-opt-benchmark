@@ -526,29 +526,29 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph108, label %._crit_edge109
+  br i1 %4, label %.lr.ph109, label %._crit_edge110
 
-.lr.ph108:                                        ; preds = %1
+.lr.ph109:                                        ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %8
 
-8:                                                ; preds = %.lr.ph108, %90
-  %indvars.iv = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next, %90 ]
+8:                                                ; preds = %.lr.ph109, %90
+  %indvars.iv = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next, %90 ]
   %9 = load i8, ptr @opal_uses_threads, align 1
   %10 = trunc i8 %9 to i1
-  %.pre112 = load ptr, ptr %5, align 8
+  %.pre113 = load ptr, ptr %5, align 8
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw %struct.mca_allocator_bucket_bucket_t, ptr %.pre112, i64 %indvars.iv, i32 1, i32 1
+  %12 = getelementptr inbounds nuw %struct.mca_allocator_bucket_bucket_t, ptr %.pre113, i64 %indvars.iv, i32 1, i32 1
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #6
   %.pre = load ptr, ptr %5, align 8
   br label %14
 
 14:                                               ; preds = %8, %11
-  %15 = phi ptr [ %.pre112, %8 ], [ %.pre, %11 ]
+  %15 = phi ptr [ %.pre113, %8 ], [ %.pre, %11 ]
   %16 = getelementptr inbounds nuw %struct.mca_allocator_bucket_bucket_t, ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = load ptr, ptr %17, align 8
@@ -565,8 +565,8 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr noundef readonly captures(n
   br label %.sink.split
 
 .preheader98:                                     ; preds = %14, %32
-  %.07399 = phi ptr [ %34, %32 ], [ %18, %14 ]
-  %25 = load ptr, ptr %.07399, align 8
+  %.073100 = phi ptr [ %34, %32 ], [ %18, %14 ]
+  %25 = load ptr, ptr %.073100, align 8
   br label %26
 
 26:                                               ; preds = %30, %.preheader98
@@ -574,8 +574,8 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr noundef readonly captures(n
   %27 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %.not117 = icmp eq i64 %indvars.iv, %29
-  br i1 %.not117, label %.lr.ph, label %30
+  %.not118 = icmp eq i64 %indvars.iv, %29
+  br i1 %.not118, label %.lr.ph, label %30
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %.077, align 8
@@ -583,43 +583,43 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr noundef readonly captures(n
   br i1 %.not95, label %32, label %26, !llvm.loop !11
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %.07399, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.073100, i64 8
   %34 = load ptr, ptr %33, align 8
-  %.not118 = icmp eq ptr %34, null
-  br i1 %.not118, label %.lr.ph105, label %.preheader98, !llvm.loop !12
+  %.not119 = icmp eq ptr %34, null
+  br i1 %.not119, label %.lr.ph106, label %.preheader98, !llvm.loop !12
 
-.lr.ph105:                                        ; preds = %32
+.lr.ph106:                                        ; preds = %32
   %35 = load ptr, ptr %6, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %._crit_edge, label %.lr.ph105.split
+  br i1 %36, label %._crit_edge, label %.lr.ph106.split
 
-.lr.ph105.splitthread-pre-split:                  ; preds = %42
+.lr.ph106.splitthread-pre-split:                  ; preds = %42
   %.pr = load ptr, ptr %6, align 8
-  br label %.lr.ph105.split
+  br label %.lr.ph106.split
 
-.lr.ph105.split:                                  ; preds = %.lr.ph105, %.lr.ph105.splitthread-pre-split
-  %37 = phi ptr [ %.pr, %.lr.ph105.splitthread-pre-split ], [ %35, %.lr.ph105 ]
-  %.174104 = phi ptr [ %39, %.lr.ph105.splitthread-pre-split ], [ %18, %.lr.ph105 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.174104, i64 8
+.lr.ph106.split:                                  ; preds = %.lr.ph106, %.lr.ph106.splitthread-pre-split
+  %37 = phi ptr [ %.pr, %.lr.ph106.splitthread-pre-split ], [ %35, %.lr.ph106 ]
+  %.174105 = phi ptr [ %39, %.lr.ph106.splitthread-pre-split ], [ %18, %.lr.ph106 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.174105, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not94 = icmp eq ptr %37, null
   br i1 %.not94, label %42, label %40
 
-40:                                               ; preds = %.lr.ph105.split
+40:                                               ; preds = %.lr.ph106.split
   %41 = load ptr, ptr %7, align 8
-  tail call void %37(ptr noundef %41, ptr noundef nonnull %.174104) #6
+  tail call void %37(ptr noundef %41, ptr noundef nonnull %.174105) #6
   br label %42
 
-42:                                               ; preds = %40, %.lr.ph105.split
+42:                                               ; preds = %40, %.lr.ph106.split
   %.not93 = icmp eq ptr %39, null
-  br i1 %.not93, label %._crit_edge.loopexit110, label %.lr.ph105.splitthread-pre-split, !llvm.loop !13
+  br i1 %.not93, label %._crit_edge.loopexit111, label %.lr.ph106.splitthread-pre-split, !llvm.loop !13
 
-._crit_edge.loopexit110:                          ; preds = %42
-  %.pre113 = load ptr, ptr %5, align 8
+._crit_edge.loopexit111:                          ; preds = %42
+  %.pre114 = load ptr, ptr %5, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph105, %._crit_edge.loopexit110
-  %43 = phi ptr [ %.pre113, %._crit_edge.loopexit110 ], [ %15, %.lr.ph105 ]
+._crit_edge:                                      ; preds = %.lr.ph106, %._crit_edge.loopexit111
+  %43 = phi ptr [ %.pre114, %._crit_edge.loopexit111 ], [ %15, %.lr.ph106 ]
   %44 = getelementptr inbounds nuw %struct.mca_allocator_bucket_bucket_t, ptr %43, i64 %indvars.iv
   store ptr null, ptr %44, align 8
   %45 = load ptr, ptr %5, align 8
@@ -629,7 +629,7 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %26, %82
   %47 = phi ptr [ %83, %82 ], [ %18, %26 ]
-  %.075102 = phi ptr [ %.176, %82 ], [ %17, %26 ]
+  %.075103 = phi ptr [ %.176, %82 ], [ %17, %26 ]
   %48 = load ptr, ptr %47, align 8
   br label %49
 
@@ -681,10 +681,10 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr noundef readonly captures(n
   br i1 %.not91, label %73, label %.preheader96, !llvm.loop !17
 
 73:                                               ; preds = %71
-  %74 = load ptr, ptr %.075102, align 8
+  %74 = load ptr, ptr %.075103, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
-  store ptr %76, ptr %.075102, align 8
+  store ptr %76, ptr %.075103, align 8
   %77 = load ptr, ptr %6, align 8
   %.not92 = icmp eq ptr %77, null
   br i1 %.not92, label %82, label %78
@@ -699,13 +699,13 @@ define noundef i32 @mca_allocator_bucket_cleanup(ptr noundef readonly captures(n
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %80, %78
-  %.176.ph = phi ptr [ %81, %80 ], [ %.075102, %78 ]
-  %.pr115 = load ptr, ptr %.176.ph, align 8
+  %.176.ph = phi ptr [ %81, %80 ], [ %.075103, %78 ]
+  %.pr116 = load ptr, ptr %.176.ph, align 8
   br label %82
 
 82:                                               ; preds = %thread-pre-split, %73
-  %83 = phi ptr [ %.pr115, %thread-pre-split ], [ %76, %73 ]
-  %.176 = phi ptr [ %.176.ph, %thread-pre-split ], [ %.075102, %73 ]
+  %83 = phi ptr [ %.pr116, %thread-pre-split ], [ %76, %73 ]
+  %.176 = phi ptr [ %.176.ph, %thread-pre-split ], [ %.075103, %73 ]
   %.not = icmp eq ptr %83, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
@@ -729,9 +729,9 @@ thread-pre-split:                                 ; preds = %80, %78
   %91 = load i32, ptr %2, align 8
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %93, label %8, label %._crit_edge109, !llvm.loop !19
+  br i1 %93, label %8, label %._crit_edge110, !llvm.loop !19
 
-._crit_edge109:                                   ; preds = %90, %1
+._crit_edge110:                                   ; preds = %90, %1
   ret i32 0
 }
 

@@ -907,11 +907,11 @@ define hidden void @_ZN13logos_codegen6parser6Parser14parse_callback17h0a39ffdf0
   %23 = alloca [32 x i8], align 8
   %24 = alloca [40 x i8], align 8
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17ha41922ca85579488E(ptr nonnull sret([32 x i8]) align 8 %4, ptr align 8 %2)
-          to label %25 unwind label %104
+          to label %25 unwind label %105
 
 25:                                               ; preds = %3
   %26 = invoke i32 @_ZN5quote7spanned10join_spans17h55530f885c45a301E(ptr nonnull align 8 %4)
-          to label %27 unwind label %104
+          to label %27 unwind label %105
 
 27:                                               ; preds = %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -919,16 +919,16 @@ define hidden void @_ZN13logos_codegen6parser6Parser14parse_callback17h0a39ffdf0
   invoke void @"_ZN94_$LT$proc_macro2..token_stream..IntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c95c4201e5c5950E"(ptr nonnull sret([32 x i8]) align 8 %21, ptr nonnull align 8 %24)
           to label %31 unwind label %.thread45
 
-28:                                               ; preds = %64, %.thread67
-  %.pn31.ph = phi { ptr, i32 } [ %65, %64 ], [ %.pn.pn71, %.thread67 ]
-  %.sroa.018.1.ph = phi i8 [ %.sroa.018.4, %64 ], [ %.sroa.018.272, %.thread67 ]
+28:                                               ; preds = %99, %86
+  %.pn31.ph = phi { ptr, i32 } [ %.pn.pn.ph, %99 ], [ %87, %86 ]
+  %.sroa.018.1.ph = phi i8 [ %.sroa.018.2.ph, %99 ], [ %.sroa.018.4, %86 ]
   %29 = trunc nuw i8 %.sroa.018.1.ph to i1
-  br i1 %29, label %.thread98, label %.thread
+  br i1 %29, label %.thread97, label %.thread
 
 .thread45:                                        ; preds = %27, %31, %34, %35, %43
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread98
+  br label %.thread97
 
 31:                                               ; preds = %27
   invoke void @_ZN13logos_codegen4util12expect_punct17hbca54fff8b16d9cfE(ptr nonnull sret([32 x i8]) align 8 %22, ptr nonnull align 8 %21, i32 124)
@@ -963,10 +963,10 @@ define hidden void @_ZN13logos_codegen6parser6Parser14parse_callback17h0a39ffdf0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
   br label %40
 
-40:                                               ; preds = %94, %102, %92, %39
+40:                                               ; preds = %94, %103, %92, %39
   ret void
 
-41:                                               ; preds = %104, %.thread98, %103, %99, %.thread67, %98, %97, %95, %89, %78, %37
+41:                                               ; preds = %105, %.thread97, %104, %100, %99, %98, %97, %95, %89, %76, %37
   %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #8
@@ -978,16 +978,16 @@ define hidden void @_ZN13logos_codegen6parser6Parser14parse_callback17h0a39ffdf0
 
 44:                                               ; preds = %43
   invoke void @"_ZN94_$LT$proc_macro2..token_stream..IntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c95c4201e5c5950E"(ptr nonnull sret([32 x i8]) align 8 %15, ptr nonnull align 8 %24)
-          to label %46 unwind label %103
+          to label %46 unwind label %104
 
-45:                                               ; preds = %74, %101
+45:                                               ; preds = %72, %102
   %lpad.thr_comm.split-lp61 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread98
+  br label %.thread97
 
 46:                                               ; preds = %44
   invoke void @_ZN13logos_codegen4util12expect_punct17hbca54fff8b16d9cfE(ptr nonnull sret([32 x i8]) align 8 %16, ptr nonnull align 8 %15, i32 124)
-          to label %47 unwind label %103
+          to label %47 unwind label %104
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -1002,7 +1002,7 @@ define hidden void @_ZN13logos_codegen6parser6Parser14parse_callback17h0a39ffdf0
 
 53:                                               ; preds = %47
   %54 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr align 8 %1, ptr nonnull align 1 @anon.0d4f455794be986747178006f459c304.25, i64 67, i32 %26)
-          to label %101 unwind label %99
+          to label %102 unwind label %100
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1015,8 +1015,8 @@ define hidden void @_ZN13logos_codegen6parser6Parser14parse_callback17h0a39ffdf0
           cleanup
   %59 = load i32, ptr %48, align 8
   switch i32 %59, label %98 [
-    i32 4, label %.thread67
-    i32 1, label %.thread67
+    i32 4, label %99
+    i32 1, label %99
   ]
 
 60:                                               ; preds = %55
@@ -1028,98 +1028,98 @@ define hidden void @_ZN13logos_codegen6parser6Parser14parse_callback17h0a39ffdf0
 
 62:                                               ; preds = %60, %60, %63
   invoke void @"_ZN94_$LT$proc_macro2..token_stream..IntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c95c4201e5c5950E"(ptr nonnull sret([32 x i8]) align 8 %11, ptr nonnull align 8 %24)
-          to label %68 unwind label %66
+          to label %66 unwind label %64
 
 63:                                               ; preds = %60
   invoke void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h0af91a94639c7349E"(ptr nonnull align 8 %48)
-          to label %62 unwind label %66
+          to label %62 unwind label %64
 
-64:                                               ; preds = %84
+64:                                               ; preds = %63, %62
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %28
+  br label %99
 
-66:                                               ; preds = %63, %62
-  %67 = landingpad { ptr, i32 }
-          cleanup
-  br label %.thread67
-
-68:                                               ; preds = %62
-  %69 = load i32, ptr %11, align 8
-  switch i32 %69, label %77 [
-    i32 4, label %70
-    i32 0, label %75
+66:                                               ; preds = %62
+  %67 = load i32, ptr %11, align 8
+  switch i32 %67, label %75 [
+    i32 4, label %68
+    i32 0, label %73
   ]
 
-70:                                               ; preds = %68
-  %71 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr align 8 %1, ptr nonnull align 1 @anon.0d4f455794be986747178006f459c304.24, i64 23, i32 %26)
-          to label %74 unwind label %.thread87
+68:                                               ; preds = %66
+  %69 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr align 8 %1, ptr nonnull align 1 @anon.0d4f455794be986747178006f459c304.24, i64 23, i32 %26)
+          to label %72 unwind label %.thread87
 
-.thread87:                                        ; preds = %70, %80
+.thread87:                                        ; preds = %68, %78
   %lpad.thr_comm85 = landingpad { ptr, i32 }
           cleanup
   br label %switch.early.test
 
-72:                                               ; preds = %77
+70:                                               ; preds = %75
   %lpad.thr_comm.split-lp86 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread67
+  br label %99
 
-switch.early.test:                                ; preds = %78, %.thread87
-  %.pn81 = phi { ptr, i32 } [ %lpad.thr_comm85, %.thread87 ], [ %79, %78 ]
-  %73 = load i32, ptr %11, align 8
-  switch i32 %73, label %97 [
-    i32 4, label %.thread67
-    i32 0, label %.thread67
+switch.early.test:                                ; preds = %76, %.thread87
+  %.pn81 = phi { ptr, i32 } [ %lpad.thr_comm85, %.thread87 ], [ %77, %76 ]
+  %71 = load i32, ptr %11, align 8
+  switch i32 %71, label %97 [
+    i32 4, label %99
+    i32 0, label %99
   ]
 
-74:                                               ; preds = %70
+72:                                               ; preds = %68
   store i64 -9223372036854775805, ptr %0, align 8
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %14)
-          to label %102 unwind label %45
+          to label %103 unwind label %45
 
-75:                                               ; preds = %68
-  %76 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false)
+73:                                               ; preds = %66
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false)
   invoke void @_ZN11proc_macro25Group6stream17h5bcb6dbd247bf26fE(ptr nonnull sret([32 x i8]) align 8 %12, ptr nonnull align 8 %10)
-          to label %80 unwind label %78
+          to label %78 unwind label %76
 
-77:                                               ; preds = %68
+75:                                               ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   invoke void @"_ZN94_$LT$proc_macro2..TokenStream$u20$as$u20$core..convert..From$LT$proc_macro2..TokenTree$GT$$GT$4from17h2ee72239b5c42312E"(ptr nonnull sret([32 x i8]) align 8 %8, ptr nonnull align 8 %9)
-          to label %88 unwind label %72
+          to label %88 unwind label %70
 
-78:                                               ; preds = %75
-  %79 = landingpad { ptr, i32 }
+76:                                               ; preds = %73
+  %77 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Group$GT$17h572145524329a63dE"(ptr nonnull align 8 %10) #7
           to label %switch.early.test unwind label %41
 
-80:                                               ; preds = %75
+78:                                               ; preds = %73
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Group$GT$17h572145524329a63dE"(ptr nonnull align 8 %10)
-          to label %81 unwind label %.thread87
+          to label %79 unwind label %.thread87
 
-81:                                               ; preds = %80
-  %82 = load i32, ptr %11, align 8
-  %83 = and i32 %82, -5
-  %or.cond10 = icmp eq i32 %83, 0
-  br i1 %or.cond10, label %84, label %87
+79:                                               ; preds = %78
+  %80 = load i32, ptr %11, align 8
+  %81 = and i32 %80, -5
+  %or.cond10 = icmp eq i32 %81, 0
+  br i1 %or.cond10, label %82, label %85
 
-84:                                               ; preds = %91, %87, %81
-  %.sroa.018.4 = phi i8 [ 1, %81 ], [ 1, %87 ], [ 0, %91 ]
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+82:                                               ; preds = %91, %85, %79
+  %.sroa.018.4 = phi i8 [ 1, %79 ], [ 1, %85 ], [ 0, %91 ]
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i32 %26, ptr %86, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store i32 %26, ptr %84, align 8
   invoke void @"_ZN112_$LT$logos_codegen..leaf..Callback$u20$as$u20$core..convert..From$LT$logos_codegen..leaf..InlineCallback$GT$$GT$4from17ha686d2c27c6be570E"(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
-          to label %92 unwind label %64
+          to label %92 unwind label %86
 
-87:                                               ; preds = %81
+85:                                               ; preds = %79
   invoke void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h0af91a94639c7349E"(ptr nonnull align 8 %11)
-          to label %84 unwind label %95
+          to label %82 unwind label %95
 
-88:                                               ; preds = %77
+86:                                               ; preds = %82
+  %87 = landingpad { ptr, i32 }
+          cleanup
+  br label %28
+
+88:                                               ; preds = %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %24, i64 40, i1 false)
   invoke void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hcd8991016ef72f2fE"(ptr nonnull align 8 %8, ptr nonnull align 8 %7)
           to label %91 unwind label %89
@@ -1128,13 +1128,13 @@ switch.early.test:                                ; preds = %78, %.thread87
   %90 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %8) #7
-          to label %.thread67 unwind label %41
+          to label %99 unwind label %41
 
 91:                                               ; preds = %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  br label %84
+  br label %82
 
-92:                                               ; preds = %84
+92:                                               ; preds = %82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %93 = trunc nuw i8 %.sroa.018.4 to i1
   br i1 %93, label %94, label %40
@@ -1143,57 +1143,57 @@ switch.early.test:                                ; preds = %78, %.thread87
   call void @"_ZN4core3ptr56drop_in_place$LT$proc_macro2..token_stream..IntoIter$GT$17ha227d63d784302e3E"(ptr nonnull align 8 %24)
   br label %40
 
-95:                                               ; preds = %87
+95:                                               ; preds = %85
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %12) #7
-          to label %.thread67 unwind label %41
+          to label %99 unwind label %41
 
 97:                                               ; preds = %switch.early.test
   invoke void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h0af91a94639c7349E"(ptr nonnull align 8 %11) #7
-          to label %.thread67 unwind label %41
+          to label %99 unwind label %41
 
 98:                                               ; preds = %57
   invoke void @"_ZN4core3ptr43drop_in_place$LT$proc_macro2..TokenTree$GT$17h0af91a94639c7349E"(ptr nonnull align 8 %48) #7
-          to label %.thread67 unwind label %41
+          to label %99 unwind label %41
 
-.thread67:                                        ; preds = %95, %89, %72, %98, %57, %57, %66, %switch.early.test, %switch.early.test, %97
-  %.sroa.018.272 = phi i8 [ 1, %switch.early.test ], [ 1, %72 ], [ 1, %57 ], [ 1, %98 ], [ 1, %57 ], [ 1, %66 ], [ 1, %switch.early.test ], [ 1, %97 ], [ 0, %89 ], [ 1, %95 ]
-  %.pn.pn71 = phi { ptr, i32 } [ %.pn81, %switch.early.test ], [ %lpad.thr_comm.split-lp86, %72 ], [ %58, %57 ], [ %58, %98 ], [ %58, %57 ], [ %67, %66 ], [ %.pn81, %switch.early.test ], [ %.pn81, %97 ], [ %90, %89 ], [ %96, %95 ]
+99:                                               ; preds = %97, %switch.early.test, %switch.early.test, %95, %64, %57, %57, %98, %70, %89
+  %.pn.pn.ph = phi { ptr, i32 } [ %.pn81, %switch.early.test ], [ %lpad.thr_comm.split-lp86, %70 ], [ %58, %57 ], [ %58, %98 ], [ %58, %57 ], [ %65, %64 ], [ %96, %95 ], [ %.pn81, %switch.early.test ], [ %.pn81, %97 ], [ %90, %89 ]
+  %.sroa.018.2.ph = phi i8 [ 1, %switch.early.test ], [ 1, %70 ], [ 1, %57 ], [ 1, %98 ], [ 1, %57 ], [ 1, %64 ], [ 1, %95 ], [ 1, %switch.early.test ], [ 1, %97 ], [ 0, %89 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %14) #7
           to label %28 unwind label %41
 
-99:                                               ; preds = %53
-  %100 = landingpad { ptr, i32 }
+100:                                              ; preds = %53
+  %101 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr132drop_in_place$LT$$LP$core..option..Option$LT$proc_macro2..TokenTree$GT$$C$core..option..Option$LT$proc_macro2..TokenTree$GT$$RP$$GT$17h551ffb6eca0756e0E"(ptr nonnull align 8 %13) #7
-          to label %.thread98 unwind label %41
+          to label %.thread97 unwind label %41
 
-101:                                              ; preds = %53
+102:                                              ; preds = %53
   store i64 -9223372036854775805, ptr %0, align 8
   invoke void @"_ZN4core3ptr132drop_in_place$LT$$LP$core..option..Option$LT$proc_macro2..TokenTree$GT$$C$core..option..Option$LT$proc_macro2..TokenTree$GT$$RP$$GT$17h551ffb6eca0756e0E"(ptr nonnull align 8 %13)
-          to label %102 unwind label %45
+          to label %103 unwind label %45
 
-102:                                              ; preds = %74, %101
+103:                                              ; preds = %72, %102
   call void @"_ZN4core3ptr56drop_in_place$LT$proc_macro2..token_stream..IntoIter$GT$17ha227d63d784302e3E"(ptr nonnull align 8 %24)
   br label %40
 
-103:                                              ; preds = %46, %44
+104:                                              ; preds = %46, %44
   %lpad.thr_comm60 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenTree$GT$$GT$17h37965971b9837607E"(ptr nonnull align 8 %17) #7
-          to label %.thread98 unwind label %41
+          to label %.thread97 unwind label %41
 
-.thread98:                                        ; preds = %45, %103, %99, %.thread45, %28
-  %.pn3349 = phi { ptr, i32 } [ %30, %.thread45 ], [ %.pn31.ph, %28 ], [ %100, %99 ], [ %lpad.thr_comm.split-lp61, %45 ], [ %lpad.thr_comm60, %103 ]
+.thread97:                                        ; preds = %45, %104, %100, %.thread45, %28
+  %.pn3349 = phi { ptr, i32 } [ %30, %.thread45 ], [ %.pn31.ph, %28 ], [ %101, %100 ], [ %lpad.thr_comm.split-lp61, %45 ], [ %lpad.thr_comm60, %104 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$proc_macro2..token_stream..IntoIter$GT$17ha227d63d784302e3E"(ptr nonnull align 8 %24) #7
           to label %.thread unwind label %41
 
-.thread:                                          ; preds = %37, %28, %.thread98, %104
-  %.pn33.pn40 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %104 ], [ %.pn31.ph, %28 ], [ %.pn3349, %.thread98 ], [ %38, %37 ]
+.thread:                                          ; preds = %37, %28, %.thread97, %105
+  %.pn33.pn40 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %105 ], [ %.pn31.ph, %28 ], [ %.pn3349, %.thread97 ], [ %38, %37 ]
   resume { ptr, i32 } %.pn33.pn40
 
-104:                                              ; preds = %25, %3
+105:                                              ; preds = %25, %3
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr align 8 %2) #7

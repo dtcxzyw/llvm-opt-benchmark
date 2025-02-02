@@ -20826,8 +20826,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit152.thread.thread: ; preds = %187, %_ZNSt6vecto
   br label %.loopexit.split-lp
 
 ._crit_edge538.thread:                            ; preds = %_ZNSt3mapIN5Yosys5RTLIL6SigBitES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit, %268, %._crit_edge538
-  %.087.lcssa582 = phi i8 [ %.289, %268 ], [ %.289, %._crit_edge538 ], [ 0, %_ZNSt3mapIN5Yosys5RTLIL6SigBitES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit ]
-  %.090.lcssa581 = phi i8 [ %.191, %268 ], [ %.191, %._crit_edge538 ], [ 0, %_ZNSt3mapIN5Yosys5RTLIL6SigBitES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit ]
+  %.087.lcssa582 = phi i8 [ 0, %268 ], [ %.289, %._crit_edge538 ], [ 0, %_ZNSt3mapIN5Yosys5RTLIL6SigBitES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit ]
+  %.090.lcssa581 = phi i8 [ 1, %268 ], [ 0, %._crit_edge538 ], [ 0, %_ZNSt3mapIN5Yosys5RTLIL6SigBitES2_St4lessIS2_ESaISt4pairIKS2_S2_EEED2Ev.exit ]
   %271 = load ptr, ptr %180, align 8
   %272 = load ptr, ptr %182, align 8
   %.not481540 = icmp eq ptr %271, %272

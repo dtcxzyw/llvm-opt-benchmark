@@ -1522,7 +1522,7 @@ RemoveHead.exit:                                  ; preds = %21, %23
   store i32 0, ptr %10, align 4
   %24 = load ptr, ptr %3, align 8
   %25 = icmp ne ptr %24, null
-  %26 = and i1 %25, %13
+  %26 = and i1 %13, %25
   br i1 %26, label %11, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %RemoveHead.exit, %2

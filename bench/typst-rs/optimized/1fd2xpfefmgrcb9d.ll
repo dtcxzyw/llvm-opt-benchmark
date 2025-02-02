@@ -1142,33 +1142,33 @@ define hidden void @_ZN10ttf_parser6tables4cmap7format49Subtable410codepoints17h
   %13 = lshr i64 %10, 1
   %14 = trunc i64 %13 to i16
   %.not = icmp eq i16 %12, 0
-  br i1 %.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.thread", label %.lr.ph45
+  br i1 %.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.thread", label %.lr.ph44
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader
   %15 = add i16 %17, 1
   %16 = icmp ult i16 %17, %12
-  br i1 %16, label %.lr.ph45, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.thread"
+  br i1 %16, label %.lr.ph44, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.thread"
 
-.lr.ph45:                                         ; preds = %3, %.loopexit
+.lr.ph44:                                         ; preds = %3, %.loopexit
   %17 = phi i16 [ %15, %.loopexit ], [ 1, %3 ]
-  %.sroa.14.044 = phi i16 [ %25, %.loopexit ], [ 0, %3 ]
-  %.sroa.622.043 = phi i16 [ %17, %.loopexit ], [ 0, %3 ]
-  %18 = zext i16 %.sroa.622.043 to i64
+  %.sroa.14.043 = phi i16 [ %25, %.loopexit ], [ 0, %3 ]
+  %.sroa.622.042 = phi i16 [ %17, %.loopexit ], [ 0, %3 ]
+  %18 = zext i16 %.sroa.622.042 to i64
   %19 = shl nuw nsw i64 %18, 1
   %20 = add nuw nsw i64 %19, 2
   %21 = icmp ugt i64 %20, %6
   br i1 %21, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.thread", label %22
 
-22:                                               ; preds = %.lr.ph45
+22:                                               ; preds = %.lr.ph44
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 %19
   %.val.i.i.i.i.i.i = load i16, ptr %23, align 1, !alias.scope !172, !noalias !179
   %24 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i)
-  %25 = add i16 %.sroa.14.044, 1
-  %26 = icmp ult i16 %.sroa.14.044, %14
+  %25 = add i16 %.sroa.14.043, 1
+  %26 = icmp ult i16 %.sroa.14.043, %14
   br i1 %26, label %27, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.thread"
 
 27:                                               ; preds = %22
-  %28 = zext i16 %.sroa.14.044 to i64
+  %28 = zext i16 %.sroa.14.043 to i64
   %29 = shl nuw nsw i64 %28, 1
   %30 = add nuw nsw i64 %29, 2
   %31 = icmp ugt i64 %30, %10
@@ -1186,19 +1186,20 @@ define hidden void @_ZN10ttf_parser6tables4cmap7format49Subtable410codepoints17h
   %.not.i34 = icmp ugt i16 %24, %33
   br i1 %.not.i34, label %.loopexit, label %.lr.ph
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.thread": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit", %.lr.ph45, %.loopexit, %27, %22, %3
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.thread": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit", %.lr.ph44, %.loopexit, %27, %22, %3
   ret void
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.sroa.024.035 = phi i16 [ %spec.select, %.lr.ph ], [ %24, %.preheader ]
-  %35 = icmp ult i16 %.sroa.024.035, %33
-  %36 = zext i1 %35 to i16
+  %35 = icmp uge i16 %.sroa.024.035, %33
+  %not. = xor i1 %35, true
+  %36 = zext i1 %not. to i16
   %spec.select = add nuw i16 %.sroa.024.035, %36
   %37 = zext i16 %.sroa.024.035 to i32
   tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %37)
-  %.not.i = icmp ule i16 %spec.select, %33
-  %or.cond33.not = select i1 %35, i1 %.not.i, i1 false
-  br i1 %or.cond33.not, label %.lr.ph, label %.loopexit
+  %.not.i = icmp ugt i16 %spec.select, %33
+  %or.cond33 = select i1 %35, i1 true, i1 %.not.i
+  br i1 %or.cond33, label %.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1239,7 +1240,7 @@ define hidden void @_ZN10ttf_parser6tables4cmap7format69Subtable610codepoints17h
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10ttf_parser6tables4cmap8Subtable10codepoints17h8cd33444b1e539ccE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef readonly align 8 dereferenceable(2456) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %0, align 8, !range !194, !noundef !4
-  switch i64 %4, label %default.unreachable58 [
+  switch i64 %4, label %default.unreachable61 [
     i64 0, label %5
     i64 1, label %19
     i64 2, label %72
@@ -1251,7 +1252,7 @@ define hidden void @_ZN10ttf_parser6tables4cmap8Subtable10codepoints17h8cd33444b
     i64 8, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit
   ]
 
-default.unreachable58:                            ; preds = %3
+default.unreachable61:                            ; preds = %3
   unreachable
 
 5:                                                ; preds = %3
@@ -1409,12 +1410,12 @@ default.unreachable58:                            ; preds = %3
   br i1 %.not, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph
 
 .loopexit.i:                                      ; preds = %.lr.ph.i5, %.preheader.i4
-  %exitcond57.not = icmp eq i16 %92, %82
-  br i1 %exitcond57.not, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph
+  %exitcond60.not = icmp eq i16 %92, %82
+  br i1 %exitcond60.not, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %72, %.loopexit.i
-  %.sroa.14.0.i45 = phi i16 [ %92, %.loopexit.i ], [ 0, %72 ]
-  %85 = zext i16 %.sroa.14.0.i45 to i64
+  %.sroa.14.0.i48 = phi i16 [ %92, %.loopexit.i ], [ 0, %72 ]
+  %85 = zext i16 %.sroa.14.0.i48 to i64
   %86 = shl nuw nsw i64 %85, 1
   %87 = add nuw nsw i64 %86, 2
   %88 = icmp ugt i64 %87, %76
@@ -1424,8 +1425,8 @@ default.unreachable58:                            ; preds = %3
   %90 = getelementptr inbounds nuw i8, ptr %74, i64 %86
   %.val.i.i.i.i.i.i.i2 = load i16, ptr %90, align 1, !alias.scope !243, !noalias !250
   %91 = tail call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i.i2)
-  %92 = add nuw i16 %.sroa.14.0.i45, 1
-  %exitcond.not = icmp eq i16 %.sroa.14.0.i45, %84
+  %92 = add nuw i16 %.sroa.14.0.i48, 1
+  %exitcond.not = icmp eq i16 %.sroa.14.0.i48, %84
   %93 = icmp ugt i64 %87, %80
   %or.cond = or i1 %exitcond.not, %93
   br i1 %or.cond, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.i"
@@ -1444,14 +1445,15 @@ default.unreachable58:                            ; preds = %3
 
 .lr.ph.i5:                                        ; preds = %.preheader.i4, %.lr.ph.i5
   %.sroa.024.035.i = phi i16 [ %spec.select.i, %.lr.ph.i5 ], [ %91, %.preheader.i4 ]
-  %97 = icmp ult i16 %.sroa.024.035.i, %95
-  %98 = zext i1 %97 to i16
+  %97 = icmp uge i16 %.sroa.024.035.i, %95
+  %not..i = xor i1 %97, true
+  %98 = zext i1 %not..i to i16
   %spec.select.i = add nuw i16 %.sroa.024.035.i, %98
   %99 = zext i16 %.sroa.024.035.i to i32
   tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly align 8 dereferenceable(2456) %1, ptr nonnull align 8 dereferenceable(24) %2, i32 noundef %99), !noalias !237
-  %.not.i.i = icmp ule i16 %spec.select.i, %95
-  %or.cond33.not.i = select i1 %97, i1 %.not.i.i, i1 false
-  br i1 %or.cond33.not.i, label %.lr.ph.i5, label %.loopexit.i
+  %.not.i.i = icmp ugt i16 %spec.select.i, %95
+  %or.cond33.i = select i1 %97, i1 true, i1 %.not.i.i
+  br i1 %or.cond33.i, label %.loopexit.i, label %.lr.ph.i5
 
 100:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
@@ -1523,21 +1525,21 @@ default.unreachable58:                            ; preds = %3
   %134 = udiv i64 %133, 12
   %135 = and i64 %134, 4294967295
   %.not.i13 = icmp eq i64 %135, 0
-  br i1 %.not.i13, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph34.i
+  br i1 %.not.i13, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph33.i
 
-.loopexit.i19:                                    ; preds = %.lr.ph.i16, %139
-  %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
-  %exitcond.not.i20 = icmp eq i64 %indvars.iv.next37.i, %135
-  br i1 %exitcond.not.i20, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph34.i
+.loopexit.i21:                                    ; preds = %.lr.ph.i16, %139
+  %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
+  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next36.i, %135
+  br i1 %exitcond.not.i22, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph33.i
 
-.lr.ph34.i:                                       ; preds = %129, %.loopexit.i19
-  %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %.loopexit.i19 ], [ 0, %129 ]
-  %136 = mul nuw nsw i64 %indvars.iv36.i, 12
+.lr.ph33.i:                                       ; preds = %129, %.loopexit.i21
+  %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %.loopexit.i21 ], [ 0, %129 ]
+  %136 = mul nuw nsw i64 %indvars.iv35.i, 12
   %137 = add nuw nsw i64 %136, 12
   %138 = icmp ugt i64 %137, %133
   br i1 %138, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %139
 
-139:                                              ; preds = %.lr.ph34.i
+139:                                              ; preds = %.lr.ph33.i
   %140 = getelementptr inbounds nuw i8, ptr %131, i64 %136
   %.val.i.i.i.i.i.i.i15 = load i32, ptr %140, align 1, !alias.scope !283, !noalias !294
   %141 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i.i.i.i.i15)
@@ -1545,17 +1547,18 @@ default.unreachable58:                            ; preds = %3
   %.val.i.i.i37.i.i.i.i = load i32, ptr %142, align 1, !alias.scope !299, !noalias !294
   %143 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i37.i.i.i.i)
   %.not.i30.i = icmp ugt i32 %141, %143
-  br i1 %.not.i30.i, label %.loopexit.i19, label %.lr.ph.i16
+  br i1 %.not.i30.i, label %.loopexit.i21, label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %139, %.lr.ph.i16
-  %.sroa.016.031.i = phi i32 [ %spec.select.i17, %.lr.ph.i16 ], [ %141, %139 ]
-  %144 = icmp ult i32 %.sroa.016.031.i, %143
-  %145 = zext i1 %144 to i32
-  %spec.select.i17 = add nuw i32 %.sroa.016.031.i, %145
+  %.sroa.016.031.i = phi i32 [ %spec.select.i18, %.lr.ph.i16 ], [ %141, %139 ]
+  %144 = icmp uge i32 %.sroa.016.031.i, %143
+  %not..i17 = xor i1 %144, true
+  %145 = zext i1 %not..i17 to i32
+  %spec.select.i18 = add nuw i32 %.sroa.016.031.i, %145
   tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly align 8 dereferenceable(2456) %1, ptr nonnull align 8 dereferenceable(24) %2, i32 noundef %.sroa.016.031.i), !noalias !277
-  %.not.i.i18 = icmp ule i32 %spec.select.i17, %143
-  %or.cond.not.i = select i1 %144, i1 %.not.i.i18, i1 false
-  br i1 %or.cond.not.i, label %.lr.ph.i16, label %.loopexit.i19
+  %.not.i.i19 = icmp ugt i32 %spec.select.i18, %143
+  %or.cond.i20 = select i1 %144, i1 true, i1 %.not.i.i19
+  br i1 %or.cond.i20, label %.loopexit.i21, label %.lr.ph.i16
 
 146:                                              ; preds = %3
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1565,42 +1568,43 @@ default.unreachable58:                            ; preds = %3
   %150 = load i64, ptr %149, align 8, !alias.scope !306, !noalias !309, !noundef !4
   %151 = udiv i64 %150, 12
   %152 = and i64 %151, 4294967295
-  %.not.i21 = icmp eq i64 %152, 0
-  br i1 %.not.i21, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph34.i24
+  %.not.i23 = icmp eq i64 %152, 0
+  br i1 %.not.i23, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph33.i26
 
-.loopexit.i34:                                    ; preds = %.lr.ph.i29, %156
-  %indvars.iv.next37.i35 = add nuw nsw i64 %indvars.iv36.i25, 1
-  %exitcond.not.i36 = icmp eq i64 %indvars.iv.next37.i35, %152
-  br i1 %exitcond.not.i36, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph34.i24
+.loopexit.i37:                                    ; preds = %.lr.ph.i31, %156
+  %indvars.iv.next36.i38 = add nuw nsw i64 %indvars.iv35.i27, 1
+  %exitcond.not.i39 = icmp eq i64 %indvars.iv.next36.i38, %152
+  br i1 %exitcond.not.i39, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %.lr.ph33.i26
 
-.lr.ph34.i24:                                     ; preds = %146, %.loopexit.i34
-  %indvars.iv36.i25 = phi i64 [ %indvars.iv.next37.i35, %.loopexit.i34 ], [ 0, %146 ]
-  %153 = mul nuw nsw i64 %indvars.iv36.i25, 12
+.lr.ph33.i26:                                     ; preds = %146, %.loopexit.i37
+  %indvars.iv35.i27 = phi i64 [ %indvars.iv.next36.i38, %.loopexit.i37 ], [ 0, %146 ]
+  %153 = mul nuw nsw i64 %indvars.iv35.i27, 12
   %154 = add nuw nsw i64 %153, 12
   %155 = icmp ugt i64 %154, %150
   br i1 %155, label %_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit, label %156
 
-156:                                              ; preds = %.lr.ph34.i24
+156:                                              ; preds = %.lr.ph33.i26
   %157 = getelementptr inbounds nuw i8, ptr %148, i64 %153
-  %.val.i.i.i.i.i.i.i26 = load i32, ptr %157, align 1, !alias.scope !312, !noalias !323
-  %158 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i.i.i.i.i26)
+  %.val.i.i.i.i.i.i.i28 = load i32, ptr %157, align 1, !alias.scope !312, !noalias !323
+  %158 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i.i.i.i.i28)
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 4
-  %.val.i.i.i37.i.i.i.i27 = load i32, ptr %159, align 1, !alias.scope !328, !noalias !323
-  %160 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i37.i.i.i.i27)
-  %.not.i30.i28 = icmp ugt i32 %158, %160
-  br i1 %.not.i30.i28, label %.loopexit.i34, label %.lr.ph.i29
+  %.val.i.i.i37.i.i.i.i29 = load i32, ptr %159, align 1, !alias.scope !328, !noalias !323
+  %160 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i37.i.i.i.i29)
+  %.not.i30.i30 = icmp ugt i32 %158, %160
+  br i1 %.not.i30.i30, label %.loopexit.i37, label %.lr.ph.i31
 
-.lr.ph.i29:                                       ; preds = %156, %.lr.ph.i29
-  %.sroa.016.031.i30 = phi i32 [ %spec.select.i31, %.lr.ph.i29 ], [ %158, %156 ]
-  %161 = icmp ult i32 %.sroa.016.031.i30, %160
-  %162 = zext i1 %161 to i32
-  %spec.select.i31 = add nuw i32 %.sroa.016.031.i30, %162
-  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly align 8 dereferenceable(2456) %1, ptr nonnull align 8 dereferenceable(24) %2, i32 noundef %.sroa.016.031.i30), !noalias !306
-  %.not.i.i32 = icmp ule i32 %spec.select.i31, %160
-  %or.cond.not.i33 = select i1 %161, i1 %.not.i.i32, i1 false
-  br i1 %or.cond.not.i33, label %.lr.ph.i29, label %.loopexit.i34
+.lr.ph.i31:                                       ; preds = %156, %.lr.ph.i31
+  %.sroa.016.031.i32 = phi i32 [ %spec.select.i34, %.lr.ph.i31 ], [ %158, %156 ]
+  %161 = icmp uge i32 %.sroa.016.031.i32, %160
+  %not..i33 = xor i1 %161, true
+  %162 = zext i1 %not..i33 to i32
+  %spec.select.i34 = add nuw i32 %.sroa.016.031.i32, %162
+  tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull readonly align 8 dereferenceable(2456) %1, ptr nonnull align 8 dereferenceable(24) %2, i32 noundef %.sroa.016.031.i32), !noalias !306
+  %.not.i.i35 = icmp ugt i32 %spec.select.i34, %160
+  %or.cond.i36 = select i1 %161, i1 true, i1 %.not.i.i35
+  br i1 %or.cond.i36, label %.loopexit.i37, label %.lr.ph.i31
 
-_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit: ; preds = %.lr.ph34.i24, %.loopexit.i34, %.lr.ph34.i, %.loopexit.i19, %128, %114, %.loopexit.i, %.lr.ph, %89, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.i", %.thread83.i, %53, %50, %39, %34, %30, %29, %.lr.ph.i1, %17, %72, %146, %129, %115, %100, %5, %3, %3
+_ZN10ttf_parser6tables4cmap7format09Subtable010codepoints17h893fde1fa5cf70c4E.llvm.15772558698018558306.exit: ; preds = %.lr.ph33.i26, %.loopexit.i37, %.lr.ph33.i, %.loopexit.i21, %128, %114, %.loopexit.i, %.lr.ph, %89, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h73ac2b35c11b83c8E.exit.i", %.thread83.i, %53, %50, %39, %34, %30, %29, %.lr.ph.i1, %17, %72, %146, %129, %115, %100, %5, %3, %3
   ret void
 }
 
@@ -1646,28 +1650,28 @@ define hidden void @_ZN10ttf_parser6tables4cmap8format1210Subtable1210codepoints
   %7 = udiv i64 %6, 12
   %8 = and i64 %7, 4294967295
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph34.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph33.preheader
 
-.lr.ph34.preheader:                               ; preds = %3
+.lr.ph33.preheader:                               ; preds = %3
   %wide.trip.count = and i64 %7, 4294967295
-  br label %.lr.ph34
+  br label %.lr.ph33
 
 .loopexit:                                        ; preds = %.lr.ph, %12
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph34
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph33
 
-.lr.ph34:                                         ; preds = %.lr.ph34.preheader, %.loopexit
-  %indvars.iv36 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next37, %.loopexit ]
-  %9 = mul nuw nsw i64 %indvars.iv36, 12
+.lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.loopexit
+  %indvars.iv35 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next36, %.loopexit ]
+  %9 = mul nuw nsw i64 %indvars.iv35, 12
   %10 = add nuw nsw i64 %9, 12
   %11 = icmp ugt i64 %10, %6
   br i1 %11, label %._crit_edge, label %12
 
-._crit_edge:                                      ; preds = %.loopexit, %.lr.ph34, %3
+._crit_edge:                                      ; preds = %.loopexit, %.lr.ph33, %3
   ret void
 
-12:                                               ; preds = %.lr.ph34
+12:                                               ; preds = %.lr.ph33
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   %.val.i.i.i.i.i.i = load i32, ptr %13, align 1, !alias.scope !335, !noalias !346
   %14 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i.i.i.i)
@@ -1679,13 +1683,14 @@ define hidden void @_ZN10ttf_parser6tables4cmap8format1210Subtable1210codepoints
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %.sroa.016.031 = phi i32 [ %spec.select, %.lr.ph ], [ %14, %12 ]
-  %17 = icmp ult i32 %.sroa.016.031, %16
-  %18 = zext i1 %17 to i32
+  %17 = icmp uge i32 %.sroa.016.031, %16
+  %not. = xor i1 %17, true
+  %18 = zext i1 %not. to i32
   %spec.select = add nuw i32 %.sroa.016.031, %18
   tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %.sroa.016.031)
-  %.not.i = icmp ule i32 %spec.select, %16
-  %or.cond.not = select i1 %17, i1 %.not.i, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit
+  %.not.i = icmp ugt i32 %spec.select, %16
+  %or.cond = select i1 %17, i1 true, i1 %.not.i
+  br i1 %or.cond, label %.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1696,28 +1701,28 @@ define hidden void @_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints
   %7 = udiv i64 %6, 12
   %8 = and i64 %7, 4294967295
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph34.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph33.preheader
 
-.lr.ph34.preheader:                               ; preds = %3
+.lr.ph33.preheader:                               ; preds = %3
   %wide.trip.count = and i64 %7, 4294967295
-  br label %.lr.ph34
+  br label %.lr.ph33
 
 .loopexit:                                        ; preds = %.lr.ph, %12
-  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph34
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph33
 
-.lr.ph34:                                         ; preds = %.lr.ph34.preheader, %.loopexit
-  %indvars.iv36 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next37, %.loopexit ]
-  %9 = mul nuw nsw i64 %indvars.iv36, 12
+.lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.loopexit
+  %indvars.iv35 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next36, %.loopexit ]
+  %9 = mul nuw nsw i64 %indvars.iv35, 12
   %10 = add nuw nsw i64 %9, 12
   %11 = icmp ugt i64 %10, %6
   br i1 %11, label %._crit_edge, label %12
 
-._crit_edge:                                      ; preds = %.loopexit, %.lr.ph34, %3
+._crit_edge:                                      ; preds = %.loopexit, %.lr.ph33, %3
   ret void
 
-12:                                               ; preds = %.lr.ph34
+12:                                               ; preds = %.lr.ph33
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   %.val.i.i.i.i.i.i = load i32, ptr %13, align 1, !alias.scope !358, !noalias !369
   %14 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i.i.i.i.i)
@@ -1729,13 +1734,14 @@ define hidden void @_ZN10ttf_parser6tables4cmap8format1310Subtable1310codepoints
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %.sroa.016.031 = phi i32 [ %spec.select, %.lr.ph ], [ %14, %12 ]
-  %17 = icmp ult i32 %.sroa.016.031, %16
-  %18 = zext i1 %17 to i32
+  %17 = icmp uge i32 %.sroa.016.031, %16
+  %not. = xor i1 %17, true
+  %18 = zext i1 %not. to i32
   %spec.select = add nuw i32 %.sroa.016.031, %18
   tail call fastcc void @"_ZN9typst_pdf4font11create_cmap28_$u7b$$u7b$closure$u7d$$u7d$17h88fbb936706a4789E"(ptr nonnull %1, ptr nonnull %2, i32 noundef %.sroa.016.031)
-  %.not.i = icmp ule i32 %spec.select, %16
-  %or.cond.not = select i1 %17, i1 %.not.i, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit
+  %.not.i = icmp ugt i32 %spec.select, %16
+  %or.cond = select i1 %17, i1 true, i1 %.not.i
+  br i1 %or.cond, label %.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

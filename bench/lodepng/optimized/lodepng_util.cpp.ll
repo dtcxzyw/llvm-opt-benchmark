@@ -5591,17 +5591,17 @@ _ZN7lodepng10ExtractPNG13readPngHeaderEPKhm.exit.thread: ; preds = %if.end, %if.
 if.end6:                                          ; preds = %lor.lhs.false44.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %idat, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %idat, i64 8
-  %cmp8.not65 = icmp ugt i64 %size, 41
-  br i1 %cmp8.not65, label %if.end11, label %if.then9
+  %cmp8.not64 = icmp ugt i64 %size, 41
+  br i1 %cmp8.not64, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end77, %if.end6
   store i32 30, ptr %error, align 8
   br label %cleanup90
 
 if.end11:                                         ; preds = %if.end6, %if.end77
-  %add67 = phi i64 [ %add, %if.end77 ], [ 41, %if.end6 ]
-  %pos.05866 = phi i64 [ %add78, %if.end77 ], [ 33, %if.end6 ]
-  %arrayidx = getelementptr inbounds i8, ptr %in, i64 %pos.05866
+  %add66 = phi i64 [ %add, %if.end77 ], [ 41, %if.end6 ]
+  %pos.05765 = phi i64 [ %add78, %if.end77 ], [ 33, %if.end6 ]
+  %arrayidx = getelementptr inbounds i8, ptr %in, i64 %pos.05765
   %12 = load i8, ptr %arrayidx, align 1
   %conv.i = zext i8 %12 to i64
   %shl.i = shl nuw nsw i64 %conv.i, 24
@@ -5619,7 +5619,7 @@ if.end11:                                         ; preds = %if.end6, %if.end77
   %16 = or disjoint i64 %shl4.i, %shl.i
   %or.i = or disjoint i64 %16, %conv10.i
   %or11.i = or disjoint i64 %or.i, %shl7.i
-  %add12 = add i64 %pos.05866, 4
+  %add12 = add i64 %pos.05765, 4
   %cmp13 = icmp slt i8 %12, 0
   br i1 %cmp13, label %if.then14, label %if.end16
 
@@ -5669,7 +5669,7 @@ land.lhs.true34:                                  ; preds = %land.lhs.true29
 
 if.then39:                                        ; preds = %land.lhs.true34
   %22 = load ptr, ptr %_M_finish.i, align 8
-  %arrayidx42 = getelementptr inbounds i8, ptr %in, i64 %add67
+  %arrayidx42 = getelementptr inbounds i8, ptr %in, i64 %add66
   %arrayidx45 = getelementptr i8, ptr %arrayidx42, i64 %or11.i
   %23 = load ptr, ptr %idat, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %22 to i64

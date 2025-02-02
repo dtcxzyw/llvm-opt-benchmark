@@ -4209,7 +4209,7 @@ _ZN17SymbolTableLookup6equalsEP6Symbol.exit.thread.i: ; preds = %_ZN17SymbolTabl
   br label %70
 
 70:                                               ; preds = %66, %_ZN17SymbolTableLookup6equalsEP6Symbol.exit.thread.i
-  %.3 = phi i8 [ %.2, %_ZN17SymbolTableLookup6equalsEP6Symbol.exit.thread.i ], [ %spec.select, %66 ]
+  %.3 = phi i8 [ 1, %_ZN17SymbolTableLookup6equalsEP6Symbol.exit.thread.i ], [ %spec.select, %66 ]
   %71 = load volatile ptr, ptr %.019.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   %.not.i47 = icmp eq ptr %71, null
@@ -4353,7 +4353,7 @@ _ZN11MutexLockerD2Ev.exit.i.i:                    ; preds = %114, %_ZN5Arena5Afr
 _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4Node12destroy_nodeEPvPS3_.exit: ; preds = %_ZN11MutexLockerD2Ev.exit.i.i, %88, %.thread, %117, %119
   %.1.ph90 = phi i1 [ true, %119 ], [ true, %117 ], [ true, %.thread ], [ false, %88 ], [ false, %_ZN11MutexLockerD2Ev.exit.i.i ]
   %.1.i62.ph87 = phi i64 [ %.1.i63, %119 ], [ %.1.i63, %117 ], [ %.1.i63, %.thread ], [ %54, %88 ], [ %54, %_ZN11MutexLockerD2Ev.exit.i.i ]
-  %.156 = phi i8 [ 0, %119 ], [ %.461, %117 ], [ %.461, %.thread ], [ %.2, %88 ], [ %.2, %_ZN11MutexLockerD2Ev.exit.i.i ]
+  %.156 = phi i8 [ 0, %119 ], [ 0, %117 ], [ %.461, %.thread ], [ %.2, %88 ], [ %.2, %_ZN11MutexLockerD2Ev.exit.i.i ]
   %.not44 = icmp eq ptr %5, null
   br i1 %.not44, label %131, label %126
 

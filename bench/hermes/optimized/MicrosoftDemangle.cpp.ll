@@ -3615,19 +3615,19 @@ if.end.i.i465:                                    ; preds = %_ZNK10StringView10s
 
 _ZN10StringView12consumeFrontEc.exit.i450:        ; preds = %if.end.i.i465, %_ZNK10StringView10startsWithEc.exit.i.i448, %for.body.i
   %agg.tmp.sroa.0.0.copyload.i = phi ptr [ %129, %_ZNK10StringView10startsWithEc.exit.i.i448 ], [ %add.ptr.i.i.i466, %if.end.i.i465 ], [ %129, %for.body.i ]
-  %frombool.i451 = phi i8 [ 0, %_ZNK10StringView10startsWithEc.exit.i.i448 ], [ 1, %if.end.i.i465 ], [ 0, %for.body.i ]
+  %132 = phi i1 [ true, %_ZNK10StringView10startsWithEc.exit.i.i448 ], [ false, %if.end.i.i465 ], [ true, %for.body.i ]
   %cmp.i.i15.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i, %130
   br i1 %cmp.i.i15.i, label %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.thread, label %_ZL15startsWithDigit10StringView.exit.i452
 
 _ZL15startsWithDigit10StringView.exit.i452:       ; preds = %_ZN10StringView12consumeFrontEc.exit.i450
-  %132 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i, align 1
-  %conv.i.i453 = sext i8 %132 to i32
+  %133 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i, align 1
+  %conv.i.i453 = sext i8 %133 to i32
   %isdigittmp.i.i454 = add nsw i32 %conv.i.i453, -48
   %isdigit.i.i455 = icmp ult i32 %isdigittmp.i.i454, 10
   br i1 %isdigit.i.i455, label %if.then.i462, label %for.body.preheader.i
 
 if.then.i462:                                     ; preds = %_ZL15startsWithDigit10StringView.exit.i452
-  %conv.i = sext i8 %132 to i64
+  %conv.i = sext i8 %133 to i64
   %add.i463 = add nsw i64 %conv.i, -47
   br label %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit
 
@@ -3642,18 +3642,18 @@ for.body.i456:                                    ; preds = %if.then20.i461, %fo
   %i.035.i = phi i64 [ %inc.i, %if.then20.i461 ], [ 0, %for.body.preheader.i ]
   %Ret6.034.i = phi i64 [ %add24.i, %if.then20.i461 ], [ 0, %for.body.preheader.i ]
   %add.ptr.i16.i = getelementptr i8, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %i.035.i
-  %133 = load i8, ptr %add.ptr.i16.i, align 1
-  %cmp10.i = icmp eq i8 %133, 64
+  %134 = load i8, ptr %add.ptr.i16.i, align 1
+  %cmp10.i = icmp eq i8 %134, 64
   br i1 %cmp10.i, label %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.loopexit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %for.body.i456
-  %134 = add i8 %133, -65
-  %or.cond.i457 = icmp ult i8 %134, 16
+  %135 = add i8 %134, -65
+  %or.cond.i457 = icmp ult i8 %135, 16
   br i1 %or.cond.i457, label %if.then20.i461, label %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.thread
 
 if.then20.i461:                                   ; preds = %if.end15.i
   %shl.i = shl i64 %Ret6.034.i, 4
-  %sub22.i = zext nneg i8 %134 to i64
+  %sub22.i = zext nneg i8 %135 to i64
   %add24.i = or disjoint i64 %shl.i, %sub22.i
   %inc.i = add nuw i64 %i.035.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
@@ -3672,13 +3672,10 @@ _ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit: ; preds = %_ZN12
   %retval.sroa.0.0.i460 = phi i64 [ %add.i463, %if.then.i462 ], [ %Ret6.034.i, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.loopexit ]
   %storemerge656 = getelementptr i8, ptr %add.ptr.i16.i.pn, i64 1
   store ptr %storemerge656, ptr %MangledName, align 8
-  %tobool13.i = trunc nuw i8 %frombool.i451 to i1
-  %135 = xor i1 %tobool13.i, true
-  tail call void @llvm.assume(i1 %135)
+  tail call void @llvm.assume(i1 %132)
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.thread
-  %frombool.i445645 = phi i8 [ 0, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.thread ], [ %frombool.i451, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit ]
   %retval.sroa.0.0.i460644 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit.thread ], [ %retval.sroa.0.0.i460, %_ZN12_GLOBAL__N_19Demangler14demangleNumberER10StringView.exit ]
   %136 = load ptr, ptr %Arena.i91, align 8
   %137 = load ptr, ptr %136, align 8
@@ -3724,7 +3721,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_18IntegerLiteralNodeEJRmRbEEEPT_
   %Value2.i8.i = getelementptr inbounds nuw i8, ptr %call2.i.sink12.i441, i64 16
   store i64 %retval.sroa.0.0.i460644, ptr %Value2.i8.i, align 8
   %IsNegative3.i9.i = getelementptr inbounds nuw i8, ptr %call2.i.sink12.i441, i64 24
-  store i8 %frombool.i445645, ptr %IsNegative3.i9.i, align 8
+  store i8 0, ptr %IsNegative3.i9.i, align 8
   store ptr %call2.i.sink12.i441, ptr %Tail.0.i689, align 8
   %add.i = add nuw i64 %I.0.i690, 1
   %cmp19.i = icmp ult i64 %add.i, %retval.sroa.0.0.i532

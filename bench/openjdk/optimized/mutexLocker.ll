@@ -1274,7 +1274,6 @@ define hidden void @_Z26print_owned_locks_on_errorP12outputStream(ptr noundef no
 
 11:                                               ; preds = %10, %8
   %12 = phi ptr [ %.pre, %10 ], [ %6, %8 ]
-  %.1 = phi i8 [ 0, %10 ], [ %.01011, %8 ]
   tail call void @_ZNK5Mutex14print_on_errorEP12outputStream(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull %0) #6
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #6
   %.pre13 = load i32, ptr @_ZL10_num_mutex, align 4
@@ -1282,7 +1281,7 @@ define hidden void @_Z26print_owned_locks_on_errorP12outputStream(ptr noundef no
 
 13:                                               ; preds = %.lr.ph, %11
   %14 = phi i32 [ %.pre13, %11 ], [ %4, %.lr.ph ]
-  %.2 = phi i8 [ %.1, %11 ], [ %.01011, %.lr.ph ]
+  %.2 = phi i8 [ 0, %11 ], [ %.01011, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15

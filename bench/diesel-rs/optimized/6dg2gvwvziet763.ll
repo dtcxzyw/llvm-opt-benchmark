@@ -6264,12 +6264,12 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h98
 .noexc:                                           ; preds = %19
   unreachable
 
-.thread61.thread:                                 ; preds = %21, %56
+.thread61:                                        ; preds = %21, %56
   %.pn48.ph = phi { ptr, i32 } [ %57, %56 ], [ %22, %21 ]
   call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 8, i64 noundef 8) #30
   br label %58
 
-.thread61:                                        ; preds = %39, %25
+.thread64:                                        ; preds = %39, %25
   %.pn48 = phi { ptr, i32 } [ %26, %25 ], [ %40, %39 ]
   call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 8, i64 noundef 8) #30
   br label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17hd039b7eb4fc52667E.exit55"
@@ -6282,7 +6282,7 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h98
 21:                                               ; preds = %49
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread61.thread
+  br label %.thread61
 
 23:                                               ; preds = %6
   store ptr %3, ptr %17, align 8, !noalias !854
@@ -6307,7 +6307,7 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h98
 25:                                               ; preds = %45
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread61
+  br label %.thread64
 
 "_ZN72_$LT$$RF$T$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc30adfc243ad9cc9E.exit": ; preds = %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -6348,7 +6348,7 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h98
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$diesel..sqlite..connection..stmt..BoundStatement$GT$17hd101b2b890dc684cE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %11) #27
-          to label %.thread61 unwind label %47
+          to label %.thread64 unwind label %47
 
 41:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -6419,14 +6419,14 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt14BoundStatement4bind17h98
   %57 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..Vec$LT$$LP$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$C$diesel..sqlite..backend..SqliteType$RP$$GT$$GT$17ha463142bff4b8dedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #27
-          to label %.thread61.thread unwind label %47
+          to label %.thread61 unwind label %47
 
-"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17hd039b7eb4fc52667E.exit55": ; preds = %.thread61, %58, %61
-  %.pn5059 = phi { ptr, i32 } [ %.pn48, %.thread61 ], [ %.pn5060, %61 ], [ %.pn5060, %58 ]
+"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17hd039b7eb4fc52667E.exit55": ; preds = %58, %61, %.thread64
+  %.pn5059 = phi { ptr, i32 } [ %.pn48, %.thread64 ], [ %.pn5060, %61 ], [ %.pn5060, %58 ]
   resume { ptr, i32 } %.pn5059
 
-58:                                               ; preds = %.thread61.thread, %.thread
-  %.pn5060 = phi { ptr, i32 } [ %20, %.thread ], [ %.pn48.ph, %.thread61.thread ]
+58:                                               ; preds = %.thread61, %.thread
+  %.pn5060 = phi { ptr, i32 } [ %20, %.thread ], [ %.pn48.ph, %.thread61 ]
   %59 = load i64, ptr %14, align 8, !range !672, !alias.scope !863, !noundef !4
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %61, label %"_ZN4core3ptr120drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..sqlite..connection..stmt..Statement$GT$$GT$17hd039b7eb4fc52667E.exit55"

@@ -2714,7 +2714,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   br label %47
 
 47:                                               ; preds = %34, %32
-  %.131 = phi i8 [ %.03054, %32 ], [ %spec.select, %34 ]
+  %.131 = phi i8 [ 1, %32 ], [ %spec.select, %34 ]
   %48 = getelementptr inbounds nuw i8, ptr %.03353, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13

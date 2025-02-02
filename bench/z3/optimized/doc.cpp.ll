@@ -1982,9 +1982,9 @@ if.else26:                                        ; preds = %if.else
 do.body30.preheader:                              ; preds = %if.else26
   %14 = load ptr, ptr %m_neg.i, align 8
   %wide.trip.count = zext i32 %13 to i64
-  br label %land.rhs.lr.ph
+  br label %do.body30
 
-land.rhs.lr.ph:                                   ; preds = %for.end, %do.body30.preheader
+do.body30:                                        ; preds = %do.body30.preheader, %for.end
   %idx.addr.2 = phi i32 [ %17, %for.end ], [ %v.addr.0.i, %do.body30.preheader ]
   %mul.i.i = shl i32 %idx.addr.2, 1
   %div1.i.i.i.i = lshr i32 %mul.i.i, 5
@@ -1994,8 +1994,8 @@ land.rhs.lr.ph:                                   ; preds = %for.end, %do.body30
   %shl.i.i7.i.i = shl nuw i32 2, %rem.i.i.i.i
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.body
-  %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %for.body ]
+land.rhs:                                         ; preds = %do.body30, %for.body
+  %indvars.iv = phi i64 [ 0, %do.body30 ], [ %indvars.iv.next, %for.body ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body
 
@@ -2020,7 +2020,7 @@ for.end:                                          ; preds = %land.rhs
   %arrayidx.i.i85 = getelementptr inbounds nuw i32, ptr %4, i64 %idxprom.i.i84
   %17 = load i32, ptr %arrayidx.i.i85, align 4
   %cmp41.not = icmp eq i32 %17, %v.addr.0.i
-  br i1 %cmp41.not, label %if.end46, label %land.rhs.lr.ph, !llvm.loop !24
+  br i1 %cmp41.not, label %if.end46, label %do.body30, !llvm.loop !24
 
 if.end46:                                         ; preds = %for.end, %for.body, %if.else26
   %all_x.0 = phi i1 [ true, %if.else26 ], [ false, %for.body ], [ true, %for.end ]
@@ -2059,11 +2059,11 @@ if.then51:                                        ; preds = %lor.lhs.false, %lan
   tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call61, i32 noundef %idx.addr.3, i32 noundef 2)
   tail call void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull align 4 dereferenceable(4) %call61, i32 noundef %root1.1, i32 noundef 1)
   %call66 = tail call noundef zeroext i1 @_ZN10union_bvecI11tbv_manager3tbvE6insertERS0_PS1_(ptr noundef nonnull align 8 dereferenceable(80) %m_neg.i, ptr noundef nonnull align 8 dereferenceable(552) %this, ptr noundef nonnull %call61)
-  %.pre115 = load ptr, ptr %m_next.i, align 8
+  %.pre111 = load ptr, ptr %m_next.i, align 8
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then51, %land.lhs.true, %lor.lhs.false
-  %23 = phi ptr [ %.pre115, %if.then51 ], [ %18, %land.lhs.true ], [ %18, %lor.lhs.false ]
+  %23 = phi ptr [ %.pre111, %if.then51 ], [ %18, %land.lhs.true ], [ %18, %lor.lhs.false ]
   %idxprom.i.i97 = zext i32 %idx.addr.3 to i64
   %arrayidx.i.i98 = getelementptr inbounds nuw i32, ptr %23, i64 %idxprom.i.i97
   %24 = load i32, ptr %arrayidx.i.i98, align 4

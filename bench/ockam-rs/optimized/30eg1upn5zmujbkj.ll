@@ -11519,7 +11519,7 @@ common.ret:                                       ; preds = %2672, %1749, %497, 
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 320
   store i8 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !1777
   %.sroa.569.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 321
-  store i8 %426, ptr %.sroa.569.0..sroa_idx.i.i, align 1, !noalias !1777
+  store i8 0, ptr %.sroa.569.0..sroa_idx.i.i, align 1, !noalias !1777
   %.sroa.670.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 322
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.670.0..sroa_idx.i.i, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.3.i.i.i, i64 6, i1 false), !noalias !1777
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %161)

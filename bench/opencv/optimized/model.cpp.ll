@@ -14154,7 +14154,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn25TextRecognitionModel_Impl15ctcGreed
 
 53:                                               ; preds = %51
   %.not47 = icmp ne i32 %.132, %.03559
-  %brmerge = or i1 %.not47, %.03758
+  %brmerge = or i1 %.03758, %.not47
   br i1 %brmerge, label %54, label %57
 
 54:                                               ; preds = %53

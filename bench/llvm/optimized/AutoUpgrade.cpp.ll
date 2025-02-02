@@ -22102,7 +22102,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i210:   ; preds = %_ZNK4llvm9StringRef
   %bcmp.i.i211 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %39, ptr noundef nonnull dereferenceable(7) @.str.235, i64 7)
   %90 = icmp eq i32 %bcmp.i.i211, 0
   %spec.select = select i1 %90, i32 362, i32 63
-  %spec.select734 = select i1 %90, i8 1, i8 %.sroa.21.2
+  %spec.select734 = zext i1 %90 to i8
   br label %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit213
 
 _ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit213: ; preds = %_ZN4llvm12StringSwitchIjjE10StartsWithENS_13StringLiteralEj.exit195, %_ZNK4llvm9StringRef11starts_withES0_.exit.i210

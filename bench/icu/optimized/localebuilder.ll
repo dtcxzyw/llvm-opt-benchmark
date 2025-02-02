@@ -1759,7 +1759,7 @@ invoke.cont97:                                    ; preds = %if.end93
           to label %if.end102 unwind label %lpad77.loopexit
 
 if.end102:                                        ; preds = %invoke.cont97, %if.end83, %while.body
-  %inserted.1 = phi i8 [ %inserted.066, %while.body ], [ %inserted.066, %if.end83 ], [ 1, %invoke.cont97 ]
+  %inserted.1 = phi i8 [ 1, %while.body ], [ 0, %if.end83 ], [ 1, %invoke.cont97 ]
   %39 = load i32, ptr %len.i37, align 8
   %cmp.i45.not = icmp eq i32 %39, 0
   br i1 %cmp.i45.not, label %if.end110, label %if.then106

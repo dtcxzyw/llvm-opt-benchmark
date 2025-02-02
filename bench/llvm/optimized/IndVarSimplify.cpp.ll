@@ -3119,7 +3119,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i92:   ; preds = %1047, %1042
   br label %"_ZZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS1_12SCEVExpanderEENK3$_3clEPKNS1_4SCEVE.exit19.i"
 
 "_ZZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS1_12SCEVExpanderEENK3$_3clEPKNS1_4SCEVE.exit19.i": ; preds = %1074, %1067, %1065
-  %.352.i = phi i8 [ %.04966.i, %1065 ], [ %.04966.i, %1067 ], [ %spec.select54.i, %1074 ]
+  %.352.i = phi i8 [ 1, %1065 ], [ 0, %1067 ], [ %spec.select54.i, %1074 ]
   %.3.i85 = phi ptr [ %.04667.i, %1065 ], [ %.04667.i, %1067 ], [ %.sink.i18.i, %1074 ]
   %1077 = call noundef zeroext i1 @_ZNK4llvm4SCEV6isZeroEv(ptr noundef nonnull align 8 dereferenceable(30) %1036) #21
   br i1 %1077, label %1078, label %1084
@@ -3205,7 +3205,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread208: ; preds = %.
   br label %"_ZZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS1_12SCEVExpanderEENK3$_3clEPKNS1_4SCEVE.exit.i"
 
 "_ZZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS1_12SCEVExpanderEENK3$_3clEPKNS1_4SCEVE.exit.i": ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread208, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i, %1098, %1078, %1062, %.thread78.i, %1055, %.thread.i
-  %.150.i = phi i8 [ %.352.i, %1078 ], [ %.352.i, %1098 ], [ %.352.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i ], [ %.352.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread208 ], [ %.04966.i, %1055 ], [ %.04966.i, %.thread78.i ], [ %spec.select53.i, %1062 ], [ %.04966.i, %.thread.i ], [ %.352.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread ]
+  %.150.i = phi i8 [ %.352.i, %1078 ], [ %.352.i, %1098 ], [ %.352.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i ], [ %.352.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread208 ], [ 1, %1055 ], [ 0, %.thread78.i ], [ %spec.select53.i, %1062 ], [ 1, %.thread.i ], [ %.352.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread ]
   %.147.i = phi ptr [ %.3.i85, %1078 ], [ %.3.i85, %1098 ], [ %.3.i85, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i ], [ %.3.i85, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread208 ], [ %.04667.i, %1055 ], [ %.04667.i, %.thread78.i ], [ %.sink.i.i, %1062 ], [ %.04667.i, %.thread.i ], [ %.3.i85, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread ]
   %.2.i86 = phi i1 [ true, %1078 ], [ true, %1098 ], [ %.01369.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i ], [ true, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread208 ], [ true, %1055 ], [ %.181.i, %.thread78.i ], [ %.181.i, %1062 ], [ %spec.select.i, %.thread.i ], [ %.01369.i, %_ZN4llvm15SmallPtrSetImplIPKNS_4SCEVEE6insertES3_.exit.i.thread ]
   %1121 = getelementptr inbounds nuw i8, ptr %.01468.i, i64 8

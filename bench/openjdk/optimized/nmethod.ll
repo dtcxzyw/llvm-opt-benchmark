@@ -2924,368 +2924,325 @@ _ZNK7nmethod16oops_reloc_beginEv.exit:            ; preds = %19, %30
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 210
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 132
-  br label %.critedge.outer
+  %42 = load ptr, ptr %39, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 2
+  store ptr %43, ptr %39, align 8
+  %44 = load ptr, ptr %40, align 8
+  %45 = icmp eq ptr %43, %44
+  br i1 %45, label %._crit_edge, label %.lr.ph
 
-.critedge.outer:                                  ; preds = %.critedge.outer.backedge, %_ZNK7nmethod16oops_reloc_beginEv.exit
-  %.0.ph = phi i1 [ false, %_ZNK7nmethod16oops_reloc_beginEv.exit ], [ %.0.ph.be, %.critedge.outer.backedge ]
-  %45 = load ptr, ptr %39, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 2
-  store ptr %46, ptr %39, align 8
-  %47 = load ptr, ptr %40, align 8
-  %48 = icmp eq ptr %46, %47
-  br i1 %.0.ph, label %.critedge.outer.split.us, label %.critedge.outer.split, !llvm.loop !39
+.lr.ph:                                           ; preds = %_ZNK7nmethod16oops_reloc_beginEv.exit
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 210
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 132
+  br label %49
 
-.critedge.outer.split.us:                         ; preds = %.critedge.outer
-  br i1 %48, label %.split.us, label %49
-
-49:                                               ; preds = %.critedge.outer.split.us
+49:                                               ; preds = %.lr.ph, %.critedge.backedge
+  %50 = phi ptr [ %43, %.lr.ph ], [ %189, %.critedge.backedge ]
+  %.032 = phi i1 [ false, %.lr.ph ], [ %.0.be, %.critedge.backedge ]
   store i16 0, ptr %41, align 8
-  %50 = load i16, ptr %46, align 2
-  %.mask.i.i.us = and i16 %50, -2048
-  %51 = icmp eq i16 %.mask.i.i.us, 30720
-  br i1 %51, label %52, label %53
+  %51 = load i16, ptr %50, align 2
+  %.mask.i.i = and i16 %51, -2048
+  %52 = icmp eq i16 %.mask.i.i, 30720
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %49
-  call void @_ZN13RelocIterator19advance_over_prefixEv(ptr noundef nonnull align 8 dereferenceable(152) %4) #23
-  %.pre.i14.us = load ptr, ptr %39, align 8
-  %.pre4.i.us = load i16, ptr %.pre.i14.us, align 2
-  br label %53
-
-53:                                               ; preds = %52, %49
-  %54 = phi ptr [ %.pre.i14.us, %52 ], [ %46, %49 ]
-  %55 = phi i16 [ %.pre4.i.us, %52 ], [ %50, %49 ]
-  %56 = and i16 %55, 255
-  %57 = load ptr, ptr %42, align 8
-  %58 = zext nneg i16 %56 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
-  store ptr %59, ptr %42, align 8
-  %60 = load ptr, ptr %4, align 8
-  %.not.i13.us = icmp eq ptr %60, null
-  %.not3.i.us = icmp ult ptr %59, %60
-  %or.cond.i.us = select i1 %.not.i13.us, i1 true, i1 %.not3.i.us
-  br i1 %or.cond.i.us, label %61, label %.split.us
-
-61:                                               ; preds = %53
-  %62 = load i16, ptr %54, align 2
-  %63 = lshr i16 %62, 11
-  switch i16 %63, label %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.exit.loopexit [
-    i16 2, label %.split38.us
-    i16 3, label %.split40.us
-    i16 4, label %.split40.us
-    i16 5, label %.critedge.outer.backedge
-    i16 12, label %.split44.us
-  ]
-
-.split44.us:                                      ; preds = %61
-  %64 = load volatile i8, ptr %43, align 2
-  %65 = and i8 %64, 1
-  %.not.i23 = icmp eq i8 %65, 0
-  br i1 %.not.i23, label %158, label %.critedge.outer.backedge
-
-.critedge.outer.split:                            ; preds = %.critedge.outer
-  br i1 %48, label %.split.us, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.critedge.outer.split, %.critedge
-  %66 = phi ptr [ %155, %.critedge ], [ %46, %.critedge.outer.split ]
-  store i16 0, ptr %41, align 8
-  %67 = load i16, ptr %66, align 2
-  %.mask.i.i = and i16 %67, -2048
-  %68 = icmp eq i16 %.mask.i.i, 30720
-  br i1 %68, label %69, label %70
-
-69:                                               ; preds = %.lr.ph
+53:                                               ; preds = %49
   call void @_ZN13RelocIterator19advance_over_prefixEv(ptr noundef nonnull align 8 dereferenceable(152) %4) #23
   %.pre.i14 = load ptr, ptr %39, align 8
   %.pre4.i = load i16, ptr %.pre.i14, align 2
-  br label %70
+  br label %54
 
-70:                                               ; preds = %69, %.lr.ph
-  %71 = phi ptr [ %.pre.i14, %69 ], [ %66, %.lr.ph ]
-  %72 = phi i16 [ %.pre4.i, %69 ], [ %67, %.lr.ph ]
-  %73 = and i16 %72, 255
-  %74 = load ptr, ptr %42, align 8
-  %75 = zext nneg i16 %73 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
-  store ptr %76, ptr %42, align 8
-  %77 = load ptr, ptr %4, align 8
-  %.not.i13 = icmp eq ptr %77, null
-  %.not3.i = icmp ult ptr %76, %77
+54:                                               ; preds = %53, %49
+  %55 = phi ptr [ %.pre.i14, %53 ], [ %50, %49 ]
+  %56 = phi i16 [ %.pre4.i, %53 ], [ %51, %49 ]
+  %57 = and i16 %56, 255
+  %58 = load ptr, ptr %46, align 8
+  %59 = zext nneg i16 %57 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
+  store ptr %60, ptr %46, align 8
+  %61 = load ptr, ptr %4, align 8
+  %.not.i13 = icmp eq ptr %61, null
+  %.not3.i = icmp ult ptr %60, %61
   %or.cond.i = select i1 %.not.i13, i1 true, i1 %.not3.i
-  br i1 %or.cond.i, label %78, label %.split.us
+  br i1 %or.cond.i, label %62, label %._crit_edge
 
-78:                                               ; preds = %70
-  %79 = load i16, ptr %71, align 2
-  %80 = lshr i16 %79, 11
-  switch i16 %80, label %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.exit.loopexit [
-    i16 2, label %.split38.us
-    i16 3, label %.split40.us
-    i16 4, label %.split40.us
-    i16 5, label %.critedge.outer.backedge
-    i16 12, label %.critedge
-  ], !llvm.loop !39
+62:                                               ; preds = %54
+  %63 = load i16, ptr %55, align 2
+  %64 = lshr i16 %63, 11
+  switch i16 %64, label %.critedge.backedge [
+    i16 2, label %65
+    i16 3, label %103
+    i16 4, label %103
+    i16 5, label %141
+    i16 12, label %142
+  ]
 
-.split38.us:                                      ; preds = %78, %61
-  br i1 %1, label %81, label %83
+65:                                               ; preds = %62
+  br i1 %1, label %66, label %68
 
-81:                                               ; preds = %.split38.us
-  %82 = call noundef ptr @_Z13CompiledIC_atP13RelocIterator(ptr noundef nonnull %4) #23
-  call void @_ZN10CompiledIC14clean_metadataEv(ptr noundef nonnull align 8 dereferenceable(24) %82) #23
-  br label %83
+66:                                               ; preds = %65
+  %67 = call noundef ptr @_Z13CompiledIC_atP13RelocIterator(ptr noundef nonnull %4) #23
+  call void @_ZN10CompiledIC14clean_metadataEv(ptr noundef nonnull align 8 dereferenceable(24) %67) #23
+  br label %68
 
-83:                                               ; preds = %81, %.split38.us
-  %84 = call noundef ptr @_Z13CompiledIC_atP13RelocIterator(ptr noundef nonnull %4) #23
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  %87 = call noundef ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %86) #23
-  %88 = call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %87) #23
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 52
-  %90 = load i8, ptr %89, align 4
-  %91 = icmp eq i8 %90, 1
-  br i1 %91, label %92, label %.critedge.outer.backedge
+68:                                               ; preds = %66, %65
+  %69 = call noundef ptr @_Z13CompiledIC_atP13RelocIterator(ptr noundef nonnull %4) #23
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = call noundef ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %71) #23
+  %73 = call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %72) #23
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 52
+  %75 = load i8, ptr %74, align 4
+  %76 = icmp eq i8 %75, 1
+  br i1 %76, label %77, label %.critedge.backedge
 
-92:                                               ; preds = %83
-  br i1 %2, label %_ZN7nmethod12is_unloadingEv.exit.thread.i, label %93
+77:                                               ; preds = %68
+  br i1 %2, label %_ZN7nmethod12is_unloadingEv.exit.thread.i, label %78
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds nuw i8, ptr %88, i64 211
-  %95 = load volatile i8, ptr %94, align 1
-  %96 = icmp slt i8 %95, 1
-  br i1 %96, label %97, label %_ZN7nmethod12is_unloadingEv.exit.thread.i
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 211
+  %80 = load volatile i8, ptr %79, align 1
+  %81 = icmp slt i8 %80, 1
+  br i1 %81, label %82, label %_ZN7nmethod12is_unloadingEv.exit.thread.i
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %88, i64 210
-  %99 = load volatile i8, ptr %98, align 1
-  %100 = and i8 %99, 1
-  %.not.i.i = icmp eq i8 %100, 0
-  br i1 %.not.i.i, label %101, label %_ZN7nmethod12is_unloadingEv.exit.thread.i
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %73, i64 210
+  %84 = load volatile i8, ptr %83, align 1
+  %85 = and i8 %84, 1
+  %.not.i.i = icmp eq i8 %85, 0
+  br i1 %.not.i.i, label %86, label %_ZN7nmethod12is_unloadingEv.exit.thread.i
 
-101:                                              ; preds = %97
-  %102 = lshr exact i8 %99, 1
-  %103 = and i8 %102, 3
-  %104 = load i8, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
-  %105 = icmp eq i8 %103, %104
-  br i1 %105, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i, label %106
+86:                                               ; preds = %82
+  %87 = lshr exact i8 %84, 1
+  %88 = and i8 %87, 3
+  %89 = load i8, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
+  %90 = icmp eq i8 %88, %89
+  br i1 %90, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i, label %91
 
-106:                                              ; preds = %101
-  %107 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %88) #23
-  %masksel.i.i.i.i = zext i1 %107 to i8
-  %108 = shl i8 %104, 1
-  %109 = or disjoint i8 %108, %masksel.i.i.i.i
-  %110 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %109, i8 %99, ptr nonnull %98) #23, !srcloc !40
-  %111 = icmp eq i8 %110, %99
-  br i1 %111, label %_ZN7nmethod12is_unloadingEv.exit.i, label %112
+91:                                               ; preds = %86
+  %92 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %73) #23
+  %masksel.i.i.i.i = zext i1 %92 to i8
+  %93 = shl i8 %89, 1
+  %94 = or disjoint i8 %93, %masksel.i.i.i.i
+  %95 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %94, i8 %84, ptr nonnull %83) #23, !srcloc !39
+  %96 = icmp eq i8 %95, %84
+  br i1 %96, label %_ZN7nmethod12is_unloadingEv.exit.i, label %97
 
-112:                                              ; preds = %106
-  %113 = and i8 %110, 1
-  %.not4.i = icmp eq i8 %113, 0
+97:                                               ; preds = %91
+  %98 = and i8 %95, 1
+  %.not4.i = icmp eq i8 %98, 0
   br i1 %.not4.i, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i, label %_ZN7nmethod12is_unloadingEv.exit.thread.i
 
-_ZN7nmethod12is_unloadingEv.exit.i:               ; preds = %106
-  br i1 %107, label %_ZN7nmethod12is_unloadingEv.exit.thread.i, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i
+_ZN7nmethod12is_unloadingEv.exit.i:               ; preds = %91
+  br i1 %92, label %_ZN7nmethod12is_unloadingEv.exit.thread.i, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i
 
-_ZN7nmethod12is_unloadingEv.exit.thread2.i:       ; preds = %_ZN7nmethod12is_unloadingEv.exit.i, %112, %101
-  %114 = getelementptr inbounds nuw i8, ptr %88, i64 72
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 72
-  %117 = load volatile ptr, ptr %116, align 8
+_ZN7nmethod12is_unloadingEv.exit.thread2.i:       ; preds = %_ZN7nmethod12is_unloadingEv.exit.i, %97, %86
+  %99 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 72
+  %102 = load volatile ptr, ptr %101, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %.not.i15 = icmp eq ptr %117, %88
-  br i1 %.not.i15, label %.critedge.outer.backedge, label %_ZN7nmethod12is_unloadingEv.exit.thread.i
+  %.not.i15 = icmp eq ptr %102, %73
+  br i1 %.not.i15, label %.critedge.backedge, label %_ZN7nmethod12is_unloadingEv.exit.thread.i
 
-_ZN7nmethod12is_unloadingEv.exit.thread.i:        ; preds = %_ZN7nmethod12is_unloadingEv.exit.thread2.i, %_ZN7nmethod12is_unloadingEv.exit.i, %112, %97, %93, %92
-  call void @_ZN10CompiledIC12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(24) %84) #23
-  br label %.critedge.outer.backedge
+_ZN7nmethod12is_unloadingEv.exit.thread.i:        ; preds = %_ZN7nmethod12is_unloadingEv.exit.thread2.i, %_ZN7nmethod12is_unloadingEv.exit.i, %97, %82, %78, %77
+  call void @_ZN10CompiledIC12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(24) %69) #23
+  br label %.critedge.backedge
 
-.split40.us:                                      ; preds = %78, %78, %61, %61
-  %118 = call noundef ptr @_ZN13RelocIterator5relocEv(ptr noundef nonnull align 8 dereferenceable(152) %4) #23
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
-  %122 = load ptr, ptr %121, align 8
-  %123 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #23
-  store ptr %122, ptr %123, align 8
-  %124 = call noundef ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %122) #23
-  %125 = call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %124) #23
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 52
-  %127 = load i8, ptr %126, align 4
-  %128 = icmp eq i8 %127, 1
-  br i1 %128, label %129, label %.critedge.outer.backedge
+103:                                              ; preds = %62, %62
+  %104 = call noundef ptr @_ZN13RelocIterator5relocEv(ptr noundef nonnull align 8 dereferenceable(152) %4) #23
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
+  %108 = load ptr, ptr %107, align 8
+  %109 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #23
+  store ptr %108, ptr %109, align 8
+  %110 = call noundef ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %108) #23
+  %111 = call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %110) #23
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 52
+  %113 = load i8, ptr %112, align 4
+  %114 = icmp eq i8 %113, 1
+  br i1 %114, label %115, label %.critedge.backedge
 
-129:                                              ; preds = %.split40.us
-  br i1 %2, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16, label %130
+115:                                              ; preds = %103
+  br i1 %2, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16, label %116
 
-130:                                              ; preds = %129
-  %131 = getelementptr inbounds nuw i8, ptr %125, i64 211
-  %132 = load volatile i8, ptr %131, align 1
-  %133 = icmp slt i8 %132, 1
-  br i1 %133, label %134, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 211
+  %118 = load volatile i8, ptr %117, align 1
+  %119 = icmp slt i8 %118, 1
+  br i1 %119, label %120, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16
 
-134:                                              ; preds = %130
-  %135 = getelementptr inbounds nuw i8, ptr %125, i64 210
-  %136 = load volatile i8, ptr %135, align 1
-  %137 = and i8 %136, 1
-  %.not.i.i17 = icmp eq i8 %137, 0
-  br i1 %.not.i.i17, label %138, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16
+120:                                              ; preds = %116
+  %121 = getelementptr inbounds nuw i8, ptr %111, i64 210
+  %122 = load volatile i8, ptr %121, align 1
+  %123 = and i8 %122, 1
+  %.not.i.i17 = icmp eq i8 %123, 0
+  br i1 %.not.i.i17, label %124, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16
 
-138:                                              ; preds = %134
-  %139 = lshr exact i8 %136, 1
-  %140 = and i8 %139, 3
-  %141 = load i8, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
-  %142 = icmp eq i8 %140, %141
-  br i1 %142, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, label %143
+124:                                              ; preds = %120
+  %125 = lshr exact i8 %122, 1
+  %126 = and i8 %125, 3
+  %127 = load i8, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
+  %128 = icmp eq i8 %126, %127
+  br i1 %128, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, label %129
 
-143:                                              ; preds = %138
-  %144 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %125) #23
-  %masksel.i.i.i.i18 = zext i1 %144 to i8
-  %145 = shl i8 %141, 1
-  %146 = or disjoint i8 %145, %masksel.i.i.i.i18
-  %147 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %146, i8 %136, ptr nonnull %135) #23, !srcloc !40
-  %148 = icmp eq i8 %147, %136
-  br i1 %148, label %_ZN7nmethod12is_unloadingEv.exit.i22, label %149
+129:                                              ; preds = %124
+  %130 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %111) #23
+  %masksel.i.i.i.i18 = zext i1 %130 to i8
+  %131 = shl i8 %127, 1
+  %132 = or disjoint i8 %131, %masksel.i.i.i.i18
+  %133 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %132, i8 %122, ptr nonnull %121) #23, !srcloc !39
+  %134 = icmp eq i8 %133, %122
+  br i1 %134, label %_ZN7nmethod12is_unloadingEv.exit.i22, label %135
 
-149:                                              ; preds = %143
-  %150 = and i8 %147, 1
-  %.not4.i19 = icmp eq i8 %150, 0
+135:                                              ; preds = %129
+  %136 = and i8 %133, 1
+  %.not4.i19 = icmp eq i8 %136, 0
   br i1 %.not4.i19, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16
 
-_ZN7nmethod12is_unloadingEv.exit.i22:             ; preds = %143
-  br i1 %144, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i20
+_ZN7nmethod12is_unloadingEv.exit.i22:             ; preds = %129
+  br i1 %130, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16, label %_ZN7nmethod12is_unloadingEv.exit.thread2.i20
 
-_ZN7nmethod12is_unloadingEv.exit.thread2.i20:     ; preds = %_ZN7nmethod12is_unloadingEv.exit.i22, %149, %138
-  %151 = getelementptr inbounds nuw i8, ptr %125, i64 72
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 72
-  %154 = load volatile ptr, ptr %153, align 8
+_ZN7nmethod12is_unloadingEv.exit.thread2.i20:     ; preds = %_ZN7nmethod12is_unloadingEv.exit.i22, %135, %124
+  %137 = getelementptr inbounds nuw i8, ptr %111, i64 72
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 72
+  %140 = load volatile ptr, ptr %139, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %.not.i21 = icmp eq ptr %154, %125
-  br i1 %.not.i21, label %.critedge.outer.backedge, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16
+  %.not.i21 = icmp eq ptr %140, %111
+  br i1 %.not.i21, label %.critedge.backedge, label %_ZN7nmethod12is_unloadingEv.exit.thread.i16
 
-_ZN7nmethod12is_unloadingEv.exit.thread.i16:      ; preds = %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, %_ZN7nmethod12is_unloadingEv.exit.i22, %149, %134, %130, %129
-  call void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(8) %123) #23
-  br label %.critedge.outer.backedge
+_ZN7nmethod12is_unloadingEv.exit.thread.i16:      ; preds = %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, %_ZN7nmethod12is_unloadingEv.exit.i22, %135, %120, %116, %115
+  call void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(8) %109) #23
+  br label %.critedge.backedge
 
-.critedge:                                        ; preds = %78
-  %155 = getelementptr inbounds nuw i8, ptr %71, i64 2
-  store ptr %155, ptr %39, align 8
-  %156 = load ptr, ptr %40, align 8
-  %157 = icmp eq ptr %155, %156
-  br i1 %157, label %.split.us, label %.lr.ph
+141:                                              ; preds = %62
+  br label %.critedge.backedge
 
-158:                                              ; preds = %.split44.us
-  %159 = lshr exact i8 %64, 1
-  %160 = and i8 %159, 3
-  %161 = load i8, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
-  %162 = icmp eq i8 %160, %161
-  br i1 %162, label %_ZN7nmethod12is_unloadingEv.exit.thread, label %163
+142:                                              ; preds = %62
+  br i1 %.032, label %143, label %.critedge.backedge
 
-163:                                              ; preds = %158
-  %164 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %0) #23
-  %masksel.i.i.i = zext i1 %164 to i8
-  %165 = shl i8 %161, 1
-  %166 = or disjoint i8 %165, %masksel.i.i.i
-  %167 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %166, i8 %64, ptr nonnull %43) #23, !srcloc !40
-  %168 = icmp eq i8 %167, %64
-  br i1 %168, label %_ZN7nmethod12is_unloadingEv.exit, label %169
+143:                                              ; preds = %142
+  %144 = load volatile i8, ptr %47, align 2
+  %145 = and i8 %144, 1
+  %.not.i23 = icmp eq i8 %145, 0
+  br i1 %.not.i23, label %146, label %.critedge.backedge
 
-169:                                              ; preds = %163
-  %170 = and i8 %167, 1
-  %.not31 = icmp eq i8 %170, 0
-  br i1 %.not31, label %_ZN7nmethod12is_unloadingEv.exit.thread, label %.critedge.outer.backedge
+146:                                              ; preds = %143
+  %147 = lshr exact i8 %144, 1
+  %148 = and i8 %147, 3
+  %149 = load i8, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
+  %150 = icmp eq i8 %148, %149
+  br i1 %150, label %_ZN7nmethod12is_unloadingEv.exit.thread, label %151
 
-_ZN7nmethod12is_unloadingEv.exit:                 ; preds = %163
-  br i1 %164, label %.critedge.outer.backedge, label %_ZN7nmethod12is_unloadingEv.exit.thread
+151:                                              ; preds = %146
+  %152 = call noundef zeroext i1 @_ZN20IsUnloadingBehaviour12is_unloadingEP7nmethod(ptr noundef nonnull align 8 dereferenceable(214) %0) #23
+  %masksel.i.i.i = zext i1 %152 to i8
+  %153 = shl i8 %149, 1
+  %154 = or disjoint i8 %153, %masksel.i.i.i
+  %155 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %154, i8 %144, ptr nonnull %47) #23, !srcloc !39
+  %156 = icmp eq i8 %155, %144
+  br i1 %156, label %_ZN7nmethod12is_unloadingEv.exit, label %157
 
-_ZN7nmethod12is_unloadingEv.exit.thread:          ; preds = %158, %169, %_ZN7nmethod12is_unloadingEv.exit
-  %171 = load atomic i8, ptr @_ZGVZN13RelocIterator14metadata_relocEvE5proto acquire, align 8
-  %172 = icmp eq i8 %171, 0
-  br i1 %172, label %173, label %_ZN13RelocIterator14metadata_relocEv.exit, !prof !22
+157:                                              ; preds = %151
+  %158 = and i8 %155, 1
+  %.not31 = icmp eq i8 %158, 0
+  br i1 %.not31, label %_ZN7nmethod12is_unloadingEv.exit.thread, label %.critedge.backedge
 
-173:                                              ; preds = %_ZN7nmethod12is_unloadingEv.exit.thread
-  %174 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator14metadata_relocEvE5proto) #23
-  %.not.i25 = icmp eq i32 %174, 0
-  br i1 %.not.i25, label %_ZN13RelocIterator14metadata_relocEv.exit, label %175
+_ZN7nmethod12is_unloadingEv.exit:                 ; preds = %151
+  br i1 %152, label %.critedge.backedge, label %_ZN7nmethod12is_unloadingEv.exit.thread
 
-175:                                              ; preds = %173
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, i64 8), align 8, !alias.scope !41
-  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, i64 16), align 8, !alias.scope !41
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, align 8, !alias.scope !41
+_ZN7nmethod12is_unloadingEv.exit.thread:          ; preds = %146, %157, %_ZN7nmethod12is_unloadingEv.exit
+  %159 = load atomic i8, ptr @_ZGVZN13RelocIterator14metadata_relocEvE5proto acquire, align 8
+  %160 = icmp eq i8 %159, 0
+  br i1 %160, label %161, label %_ZN13RelocIterator14metadata_relocEv.exit, !prof !22
+
+161:                                              ; preds = %_ZN7nmethod12is_unloadingEv.exit.thread
+  %162 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator14metadata_relocEvE5proto) #23
+  %.not.i25 = icmp eq i32 %162, 0
+  br i1 %.not.i25, label %_ZN13RelocIterator14metadata_relocEv.exit, label %163
+
+163:                                              ; preds = %161
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, i64 8), align 8, !alias.scope !40
+  store i32 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, i64 16), align 8, !alias.scope !40
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV19metadata_Relocation, i64 16), ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, align 8, !alias.scope !40
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator14metadata_relocEvE5proto) #23
   br label %_ZN13RelocIterator14metadata_relocEv.exit
 
-_ZN13RelocIterator14metadata_relocEv.exit:        ; preds = %_ZN7nmethod12is_unloadingEv.exit.thread, %173, %175
-  %176 = load ptr, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %178 = load ptr, ptr %177, align 8
-  call void %178(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN13RelocIterator14metadata_relocEvE5proto, ptr noundef nonnull align 8 dereferenceable(40) %36) #23
+_ZN13RelocIterator14metadata_relocEv.exit:        ; preds = %_ZN7nmethod12is_unloadingEv.exit.thread, %161, %163
+  %164 = load ptr, ptr @_ZZN13RelocIterator14metadata_relocEvE5proto, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %166 = load ptr, ptr %165, align 8
+  call void %166(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN13RelocIterator14metadata_relocEvE5proto, ptr noundef nonnull align 8 dereferenceable(40) %36) #23
   store ptr %4, ptr %37, align 8
   call void @_ZN19metadata_Relocation11unpack_dataEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #23
-  %179 = call noundef ptr @_ZN19metadata_Relocation14metadata_valueEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #23
-  %.not = icmp eq ptr %179, null
-  br i1 %.not, label %.critedge.outer.backedge, label %180
+  %167 = call noundef ptr @_ZN19metadata_Relocation14metadata_valueEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #23
+  %.not = icmp eq ptr %167, null
+  br i1 %.not, label %.critedge.backedge, label %168
 
-180:                                              ; preds = %_ZN13RelocIterator14metadata_relocEv.exit
-  %181 = load ptr, ptr %179, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  %183 = load ptr, ptr %182, align 8
-  %184 = call noundef zeroext i1 %183(ptr noundef nonnull align 8 dereferenceable(8) %179) #23
-  br i1 %184, label %185, label %.critedge.outer.backedge
+168:                                              ; preds = %_ZN13RelocIterator14metadata_relocEv.exit
+  %169 = load ptr, ptr %167, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %171 = load ptr, ptr %170, align 8
+  %172 = call noundef zeroext i1 %171(ptr noundef nonnull align 8 dereferenceable(8) %167) #23
+  br i1 %172, label %173, label %.critedge.backedge
 
-185:                                              ; preds = %180
-  %186 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 152
-  %193 = load ptr, ptr %192, align 8
-  %194 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %193) #23
-  br i1 %194, label %.critedge.outer.backedge, label %195
+173:                                              ; preds = %168
+  %174 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 152
+  %181 = load ptr, ptr %180, align 8
+  %182 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %181) #23
+  br i1 %182, label %.critedge.backedge, label %183
 
-.critedge.outer.backedge:                         ; preds = %78, %185, %199, %195, %180, %_ZN13RelocIterator14metadata_relocEv.exit, %83, %_ZN7nmethod12is_unloadingEv.exit.thread2.i, %_ZN7nmethod12is_unloadingEv.exit.thread.i, %.split40.us, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, %_ZN7nmethod12is_unloadingEv.exit.thread.i16, %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.exit.loopexit, %61, %_ZN7nmethod12is_unloadingEv.exit, %169, %.split44.us
-  %.0.ph.be = phi i1 [ false, %.split44.us ], [ false, %169 ], [ false, %_ZN7nmethod12is_unloadingEv.exit ], [ false, %185 ], [ false, %195 ], [ false, %199 ], [ false, %180 ], [ false, %_ZN13RelocIterator14metadata_relocEv.exit ], [ %.0.ph, %83 ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread2.i ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread.i ], [ %.0.ph, %.split40.us ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20 ], [ %.0.ph, %_ZN7nmethod12is_unloadingEv.exit.thread.i16 ], [ %.0.ph, %_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.exit.loopexit ], [ true, %61 ], [ true, %78 ]
-  br label %.critedge.outer, !llvm.loop !39
+183:                                              ; preds = %173
+  %184 = call noundef ptr @_ZN19metadata_Relocation13metadata_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #23
+  store volatile ptr null, ptr %184, align 8
+  %185 = load i32, ptr %48, align 4
+  %186 = icmp eq i32 %185, 0
+  br i1 %186, label %.critedge.backedge, label %187
 
-195:                                              ; preds = %185
-  %196 = call noundef ptr @_ZN19metadata_Relocation13metadata_addrEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #23
-  store volatile ptr null, ptr %196, align 8
-  %197 = load i32, ptr %44, align 4
-  %198 = icmp eq i32 %197, 0
-  br i1 %198, label %.critedge.outer.backedge, label %199
-
-199:                                              ; preds = %195
+187:                                              ; preds = %183
   call void @_ZN19metadata_Relocation23fix_metadata_relocationEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #23
-  br label %.critedge.outer.backedge
+  br label %.critedge.backedge
 
-_ZL28clean_if_nmethod_is_unloadedI10CompiledICEvPT_P7nmethodb.exit.loopexit: ; preds = %78, %61
-  br label %.critedge.outer.backedge
+.critedge.backedge:                               ; preds = %141, %173, %187, %183, %168, %_ZN13RelocIterator14metadata_relocEv.exit, %62, %68, %_ZN7nmethod12is_unloadingEv.exit.thread2.i, %_ZN7nmethod12is_unloadingEv.exit.thread.i, %103, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20, %_ZN7nmethod12is_unloadingEv.exit.thread.i16, %142, %_ZN7nmethod12is_unloadingEv.exit, %157, %143
+  %.0.be = phi i1 [ false, %_ZN7nmethod12is_unloadingEv.exit ], [ false, %142 ], [ false, %157 ], [ false, %143 ], [ %.032, %62 ], [ false, %173 ], [ false, %183 ], [ false, %187 ], [ false, %168 ], [ false, %_ZN13RelocIterator14metadata_relocEv.exit ], [ true, %141 ], [ %.032, %68 ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread2.i ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread.i ], [ %.032, %103 ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread2.i20 ], [ %.032, %_ZN7nmethod12is_unloadingEv.exit.thread.i16 ]
+  %188 = load ptr, ptr %39, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 2
+  store ptr %189, ptr %39, align 8
+  %190 = load ptr, ptr %40, align 8
+  %191 = icmp eq ptr %189, %190
+  br i1 %191, label %._crit_edge, label %49, !llvm.loop !43
 
-.split.us:                                        ; preds = %.critedge.outer.split, %.critedge.outer.split.us, %53, %70, %.critedge
+._crit_edge:                                      ; preds = %.critedge.backedge, %54, %_ZNK7nmethod16oops_reloc_beginEv.exit
   store i16 -1, ptr %41, align 8
-  %200 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %200, null
-  br i1 %.not.i.i.i.i, label %202, label %201
+  %192 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %192, null
+  br i1 %.not.i.i.i.i, label %194, label %193
 
-201:                                              ; preds = %.split.us
+193:                                              ; preds = %._crit_edge
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #23
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #23
-  br label %202
+  br label %194
 
-202:                                              ; preds = %201, %.split.us
-  %203 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %203, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %204
+194:                                              ; preds = %193, %._crit_edge
+  %195 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %195, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %196
 
-204:                                              ; preds = %202
+196:                                              ; preds = %194
   store ptr %10, ptr %9, align 8
   store ptr %12, ptr %11, align 8
   store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %202, %204
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %194, %196
   ret void
 }
 
@@ -3395,7 +3352,7 @@ define hidden noundef zeroext i1 @_ZN7nmethod12is_unloadingEv(ptr noundef nonnul
   %masksel.i.i = zext i1 %11 to i8
   %12 = shl i8 %8, 1
   %13 = or disjoint i8 %12, %masksel.i.i
-  %14 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %13, i8 %3, ptr nonnull %2) #23, !srcloc !40
+  %14 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %13, i8 %3, ptr nonnull %2) #23, !srcloc !39
   %15 = icmp eq i8 %14, %3
   br i1 %15, label %19, label %16
 
@@ -6803,7 +6760,7 @@ _ZNK7nmethod16oops_reloc_beginEv.exit:            ; preds = %17, %28
   %masksel.i.i.i = zext i1 %84 to i8
   %85 = shl i8 %81, 1
   %86 = or disjoint i8 %85, %masksel.i.i.i
-  %87 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %86, i8 %76, ptr nonnull %75) #23, !srcloc !40
+  %87 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %86, i8 %76, ptr nonnull %75) #23, !srcloc !39
   br label %_ZN7nmethod12is_unloadingEv.exit
 
 88:                                               ; preds = %58, %58
@@ -6848,7 +6805,7 @@ _ZNK7nmethod16oops_reloc_beginEv.exit:            ; preds = %17, %28
   %masksel.i.i.i21 = zext i1 %114 to i8
   %115 = shl i8 %111, 1
   %116 = or disjoint i8 %115, %masksel.i.i.i21
-  %117 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %116, i8 %106, ptr nonnull %105) #23, !srcloc !40
+  %117 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %116, i8 %106, ptr nonnull %105) #23, !srcloc !39
   %118 = icmp eq i8 %117, %106
   br i1 %118, label %_ZN7nmethod12is_unloadingEv.exit22, label %119
 
@@ -7096,7 +7053,7 @@ define hidden noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef no
   %masksel.i.i.i = zext i1 %11 to i8
   %12 = shl i8 %8, 1
   %13 = or disjoint i8 %12, %masksel.i.i.i
-  %14 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %13, i8 %3, ptr nonnull %2) #23, !srcloc !40
+  %14 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %13, i8 %3, ptr nonnull %2) #23, !srcloc !39
   %15 = icmp eq i8 %14, %3
   br i1 %15, label %_ZN7nmethod12is_unloadingEv.exit, label %16
 
@@ -7993,7 +7950,7 @@ define hidden void @_ZN7nmethod12do_unloadingEb(ptr noundef nonnull align 8 dere
   %masksel.i.i.i = zext i1 %12 to i8
   %13 = shl i8 %9, 1
   %14 = or disjoint i8 %13, %masksel.i.i.i
-  %15 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %14, i8 %4, ptr nonnull %3) #23, !srcloc !40
+  %15 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %14, i8 %4, ptr nonnull %3) #23, !srcloc !39
   %16 = icmp eq i8 %15, %4
   br i1 %16, label %_ZN7nmethod12is_unloadingEv.exit, label %17
 
@@ -14399,11 +14356,11 @@ attributes #25 = { nounwind willreturn memory(read) }
 !36 = distinct !{!36, !"_ZN16RelocationHolder9constructI23virtual_call_RelocationJEEES_DpRKT0_"}
 !37 = distinct !{!37, !8}
 !38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
-!40 = !{i64 2145410579}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN16RelocationHolder9constructI19metadata_RelocationJEEES_DpRKT0_: argument 0"}
-!43 = distinct !{!43, !"_ZN16RelocationHolder9constructI19metadata_RelocationJEEES_DpRKT0_"}
+!39 = !{i64 2145410579}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN16RelocationHolder9constructI19metadata_RelocationJEEES_DpRKT0_: argument 0"}
+!42 = distinct !{!42, !"_ZN16RelocationHolder9constructI19metadata_RelocationJEEES_DpRKT0_"}
+!43 = distinct !{!43, !8}
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZN16RelocationHolder9constructI19metadata_RelocationJEEES_DpRKT0_: argument 0"}
 !46 = distinct !{!46, !"_ZN16RelocationHolder9constructI19metadata_RelocationJEEES_DpRKT0_"}

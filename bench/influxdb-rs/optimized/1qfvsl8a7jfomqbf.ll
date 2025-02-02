@@ -6482,7 +6482,7 @@ define hidden void @_ZN3std6thread7Builder16spawn_unchecked_17h820b3397d7d6371eE
 
 22:                                               ; preds = %4
   %23 = invoke noundef i64 @_ZN3std10sys_common6thread9min_stack17h87c54504d59dc81eE()
-          to label %_ZN4core3ops8function6FnOnce9call_once17h766cee6f0bbd1371E.exit unwind label %167
+          to label %_ZN4core3ops8function6FnOnce9call_once17h766cee6f0bbd1371E.exit unwind label %168
 
 24:                                               ; preds = %4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6626,9 +6626,9 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   tail call void @llvm.trap()
   unreachable
 
-"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87": ; preds = %.thread122, %166, %.noexc73
-  %.2 = phi i8 [ %.4, %.noexc73 ], [ %.3125, %166 ], [ %.3125, %.thread122 ]
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.noexc73 ], [ %.pn.pn.pn.pn126, %166 ], [ %.pn.pn.pn.pn126, %.thread122 ]
+"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87": ; preds = %.thread122, %167, %.noexc73
+  %.2 = phi i1 [ false, %.noexc73 ], [ true, %167 ], [ true, %.thread122 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.noexc73 ], [ %.pn.pn.pn.pn126, %167 ], [ %.pn.pn.pn.pn126, %.thread122 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !879)
   call void @llvm.experimental.noalias.scope.decl(metadata !882)
   call void @llvm.experimental.noalias.scope.decl(metadata !885)
@@ -6658,7 +6658,7 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   %70 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !895
   %71 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef range(i64 48, 897) 48, i64 noundef range(i64 8, 129) 8) #31, !noalias !895
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %73, label %79
+  br i1 %72, label %73, label %78
 
 73:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd14bf41ed5a3d446E.exit"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h7d585e222775d2b3E(i64 noundef 8, i64 noundef 48) #32
@@ -6679,61 +6679,60 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #30, !noalias !892
   unreachable
 
-.noexc73:                                         ; preds = %86, %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85"
-  %78 = trunc nuw i8 %.4 to i1
-  br i1 %78, label %.noexc73..thread122_crit_edge, label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87"
+.noexc73:                                         ; preds = %85, %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85"
+  br i1 %.4, label %.noexc73..thread122_crit_edge, label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87"
 
 .noexc73..thread122_crit_edge:                    ; preds = %.noexc73
-  %.pre160 = load ptr, ptr %16, align 8, !alias.scope !898
+  %.pre159 = load ptr, ptr %16, align 8, !alias.scope !898
   br label %.thread122
 
-79:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd14bf41ed5a3d446E.exit"
+78:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd14bf41ed5a3d446E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %71, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !892
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !892
   store ptr %71, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %80 = atomicrmw add ptr %71, i64 1 monotonic, align 8
-  %81 = icmp slt i64 %80, 0
-  br i1 %81, label %82, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h249b2676942ee3c3E.exit"
+  %79 = atomicrmw add ptr %71, i64 1 monotonic, align 8
+  %80 = icmp slt i64 %79, 0
+  br i1 %80, label %81, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h249b2676942ee3c3E.exit"
 
-82:                                               ; preds = %79
+81:                                               ; preds = %78
   tail call void @llvm.trap()
   unreachable
 
-"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85": ; preds = %118, %.body, %149, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread", %162
-  %.4 = phi i8 [ 1, %162 ], [ 1, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread" ], [ 0, %149 ], [ 0, %.body ], [ 0, %118 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn131, %162 ], [ %.pn.pn131, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread" ], [ %150, %149 ], [ %122, %.body ], [ %119, %118 ]
+"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85": ; preds = %118, %.body, %149, %159, %163
+  %.4 = phi i1 [ true, %163 ], [ true, %159 ], [ false, %149 ], [ false, %.body ], [ false, %118 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.ph, %163 ], [ %.pn.pn.ph, %159 ], [ %150, %149 ], [ %122, %.body ], [ %119, %118 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !907)
   call void @llvm.experimental.noalias.scope.decl(metadata !910)
-  %83 = load ptr, ptr %15, align 8, !alias.scope !913, !nonnull !4, !noundef !4
-  %84 = atomicrmw sub ptr %83, i64 1 release, align 8, !noalias !913
-  %85 = icmp eq i64 %84, 1
-  br i1 %85, label %86, label %.noexc73
+  %82 = load ptr, ptr %15, align 8, !alias.scope !913, !nonnull !4, !noundef !4
+  %83 = atomicrmw sub ptr %82, i64 1 release, align 8, !noalias !913
+  %84 = icmp eq i64 %83, 1
+  br i1 %84, label %85, label %.noexc73
 
-86:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85"
+85:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5147094c504d8d62E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
           to label %.noexc73 unwind label %147
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h249b2676942ee3c3E.exit": ; preds = %79
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h249b2676942ee3c3E.exit": ; preds = %78
   store ptr %71, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %87 = invoke noundef ptr @_ZN3std2io5stdio18set_output_capture17h2f39b2c89efb6772E(ptr noundef null)
-          to label %89 unwind label %.thread127
+  %86 = invoke noundef ptr @_ZN3std2io5stdio18set_output_capture17h2f39b2c89efb6772E(ptr noundef null)
+          to label %89 unwind label %87
 
-.thread127:                                       ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h249b2676942ee3c3E.exit"
+87:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h249b2676942ee3c3E.exit"
   %88 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread"
+  br label %159
 
 89:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h249b2676942ee3c3E.exit"
-  store ptr %87, ptr %13, align 8
+  store ptr %86, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %90 = icmp eq ptr %87, null
+  %90 = icmp eq ptr %86, null
   br i1 %90, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha11c4a45e16e17aaE.exit", label %91
 
 91:                                               ; preds = %89
-  %92 = atomicrmw add ptr %87, i64 1 monotonic, align 8
+  %92 = atomicrmw add ptr %86, i64 1 monotonic, align 8
   %93 = icmp slt i64 %92, 0
   br i1 %93, label %94, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha11c4a45e16e17aaE.exit"
 
@@ -6742,7 +6741,7 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   unreachable
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha11c4a45e16e17aaE.exit": ; preds = %91, %89
-  %95 = invoke noundef ptr @_ZN3std2io5stdio18set_output_capture17h2f39b2c89efb6772E(ptr noundef %87)
+  %95 = invoke noundef ptr @_ZN3std2io5stdio18set_output_capture17h2f39b2c89efb6772E(ptr noundef %86)
           to label %96 unwind label %151
 
 96:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha11c4a45e16e17aaE.exit"
@@ -6881,12 +6880,12 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   %139 = load ptr, ptr %17, align 8, !alias.scope !943, !nonnull !4, !noundef !4
   %140 = atomicrmw sub ptr %139, i64 1 release, align 8, !noalias !943
   %141 = icmp eq i64 %140, 1
-  br i1 %141, label %142, label %.thread154
+  br i1 %141, label %142, label %.thread155
 
 142:                                              ; preds = %137
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcca7c334b299645eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
-          to label %.thread154 unwind label %147
+          to label %.thread155 unwind label %147
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit77": ; preds = %131, %136
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -6905,7 +6904,7 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcca7c334b299645eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
   br label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit81"
 
-147:                                              ; preds = %174, %166, %162, %158, %142, %86, %66, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread", %167, %149
+147:                                              ; preds = %174, %167, %163, %158, %142, %85, %66, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread", %168, %149
   %148 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #30
@@ -6923,62 +6922,60 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   call void @llvm.experimental.noalias.scope.decl(metadata !957)
   %153 = load ptr, ptr %13, align 8, !alias.scope !957, !noundef !4
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread", label %155
+  br i1 %154, label %159, label %155
 
 155:                                              ; preds = %151
   %156 = atomicrmw sub ptr %153, i64 1 release, align 8, !noalias !960
   %157 = icmp eq i64 %156, 1
-  br i1 %157, label %158, label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread"
+  br i1 %157, label %158, label %159
 
 158:                                              ; preds = %155
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h34dcd765ae7a97a0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
-          to label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread" unwind label %147
+          to label %159 unwind label %147
 
-"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread": ; preds = %155, %151, %158, %.thread127
-  %.pn.pn131 = phi { ptr, i32 } [ %88, %.thread127 ], [ %152, %158 ], [ %152, %151 ], [ %152, %155 ]
+159:                                              ; preds = %87, %158, %151, %155
+  %.pn.pn.ph = phi { ptr, i32 } [ %88, %87 ], [ %152, %158 ], [ %152, %151 ], [ %152, %155 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !965)
   call void @llvm.experimental.noalias.scope.decl(metadata !968)
-  %159 = load ptr, ptr %14, align 8, !alias.scope !971, !nonnull !4, !noundef !4
-  %160 = atomicrmw sub ptr %159, i64 1 release, align 8, !noalias !971
-  %161 = icmp eq i64 %160, 1
-  br i1 %161, label %162, label %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85"
+  %160 = load ptr, ptr %14, align 8, !alias.scope !971, !nonnull !4, !noundef !4
+  %161 = atomicrmw sub ptr %160, i64 1 release, align 8, !noalias !971
+  %162 = icmp eq i64 %161, 1
+  br i1 %162, label %163, label %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85"
 
-162:                                              ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h2af2d493f11ff219E.exit83.thread"
+163:                                              ; preds = %159
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5147094c504d8d62E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
           to label %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h88e0cd432251a762E.exit85" unwind label %147
 
 .thread122:                                       ; preds = %.noexc73..thread122_crit_edge, %74
-  %163 = phi ptr [ %.pre160, %.noexc73..thread122_crit_edge ], [ %48, %74 ]
+  %164 = phi ptr [ %.pre159, %.noexc73..thread122_crit_edge ], [ %48, %74 ]
   %.pn.pn.pn.pn126 = phi { ptr, i32 } [ %.pn.pn.pn, %.noexc73..thread122_crit_edge ], [ %75, %74 ]
-  %.3125 = phi i8 [ %.4, %.noexc73..thread122_crit_edge ], [ 1, %74 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !972)
   call void @llvm.experimental.noalias.scope.decl(metadata !973)
   call void @llvm.experimental.noalias.scope.decl(metadata !974)
   call void @llvm.experimental.noalias.scope.decl(metadata !975)
-  %164 = atomicrmw sub ptr %163, i64 1 release, align 8, !noalias !898
-  %165 = icmp eq i64 %164, 1
-  br i1 %165, label %166, label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87"
+  %165 = atomicrmw sub ptr %164, i64 1 release, align 8, !noalias !898
+  %166 = icmp eq i64 %165, 1
+  br i1 %166, label %167, label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87"
 
-166:                                              ; preds = %.thread122
+167:                                              ; preds = %.thread122
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcca7c334b299645eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
           to label %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87" unwind label %147
 
-167:                                              ; preds = %22
+168:                                              ; preds = %22
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8afcd4e0ffa5136cE"(ptr noalias noundef align 8 dereferenceable(24) %18) #29
           to label %.thread106.thread unwind label %147
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit": ; preds = %"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h8f15c68e997f92f2E.exit87", %66
-  %168 = trunc nuw i8 %.2 to i1
-  br i1 %168, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread", label %.thread154
+  br i1 %.2, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread", label %.thread155
 
-.thread106.thread:                                ; preds = %50, %43, %.thread112, %167
-  %169 = phi ptr [ %3, %50 ], [ %3, %43 ], [ %.pre, %.thread112 ], [ %3, %167 ]
-  %.pn58147 = phi { ptr, i32 } [ %51, %50 ], [ %44, %43 ], [ %lpad.thr_comm, %.thread112 ], [ %lpad.thr_comm.split-lp, %167 ]
+.thread106.thread:                                ; preds = %50, %43, %.thread112, %168
+  %169 = phi ptr [ %3, %50 ], [ %3, %43 ], [ %.pre, %.thread112 ], [ %3, %168 ]
+  %.pn58148 = phi { ptr, i32 } [ %51, %50 ], [ %44, %43 ], [ %lpad.thr_comm, %.thread112 ], [ %lpad.thr_comm.split-lp, %168 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !858)
   %170 = icmp eq ptr %169, null
   br i1 %170, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread", label %171
@@ -6993,14 +6990,14 @@ _ZN4core5slice6memchr12memchr_naive17hfdf024b11bff92cfE.llvm.2921359679148529085
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha602373813cdc241E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19)
           to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread" unwind label %147
 
-.thread154:                                       ; preds = %142, %137, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread", %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit"
-  %.pn58146157 = phi { ptr, i32 } [ %.pn58146163, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread" ], [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit" ], [ %138, %137 ], [ %138, %142 ]
-  resume { ptr, i32 } %.pn58146157
+.thread155:                                       ; preds = %142, %137, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread", %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit"
+  %.pn58147158 = phi { ptr, i32 } [ %.pn58147162, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread" ], [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit" ], [ %138, %137 ], [ %138, %142 ]
+  resume { ptr, i32 } %.pn58147158
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit.thread": ; preds = %171, %.thread106.thread, %174, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit"
-  %.pn58146163 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit" ], [ %.pn58147, %174 ], [ %.pn58147, %.thread106.thread ], [ %.pn58147, %171 ]
+  %.pn58147162 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h7be50b269fbf29b2E.exit" ], [ %.pn58148, %174 ], [ %.pn58148, %.thread106.thread ], [ %.pn58148, %171 ]
   invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$influxdb3_write..write_buffer..flusher..WriteBufferFlusher..new..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7c4ccf31c8b2eb31E"(ptr noalias noundef align 8 dereferenceable(40) %2) #29
-          to label %.thread154 unwind label %147
+          to label %.thread155 unwind label %147
 }
 
 ; Function Attrs: nonlazybind uwtable

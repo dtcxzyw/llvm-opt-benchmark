@@ -5685,7 +5685,6 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_S
   br label %33
 
 33:                                               ; preds = %24, %31, %26, %22
-  %.2 = phi i8 [ %.05568, %22 ], [ 0, %26 ], [ 0, %31 ], [ 0, %24 ]
   %34 = getelementptr inbounds ptr, ptr %.0.i, i64 %18
   %35 = load ptr, ptr %34, align 8
   %.not65 = icmp eq ptr %35, null
@@ -5713,7 +5712,7 @@ _ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_S
   br label %44
 
 44:                                               ; preds = %36, %39, %41, %20
-  %.156 = phi i8 [ 1, %20 ], [ %.2, %41 ], [ %.2, %39 ], [ %.2, %36 ]
+  %.156 = phi i8 [ 1, %20 ], [ 0, %41 ], [ 0, %39 ], [ 0, %36 ]
   %.1 = phi i64 [ %.05271, %20 ], [ %.05271, %41 ], [ %18, %39 ], [ %18, %36 ]
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81

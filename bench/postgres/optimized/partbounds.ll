@@ -229,6 +229,8 @@ define internal fastcc ptr @get_qual_for_list(ptr noundef %0, ptr noundef readon
   %.not92 = icmp ne i32 %36, -1
   %37 = icmp ne i32 %34, 0
   %brmerge = select i1 %37, i1 true, i1 %.not92
+  %not. = xor i1 %37, true
+  %.not92.mux = select i1 %not., i1 true, i1 %.not92
   br i1 %brmerge, label %.preheader, label %.thread102
 
 .preheader:                                       ; preds = %32
@@ -316,10 +318,10 @@ define internal fastcc ptr @get_qual_for_list(ptr noundef %0, ptr noundef readon
   br i1 %88, label %.lr.ph123, label %.thread105
 
 .thread105.thread:                                ; preds = %.preheader
-  br i1 %.not92, label %101, label %.thread105.thread.thread
+  br i1 %.not92.mux, label %101, label %.thread105.thread.thread
 
 .thread105:                                       ; preds = %85, %45
-  %.182 = phi i1 [ %.not92, %45 ], [ %.384, %85 ]
+  %.182 = phi i1 [ %.not92.mux, %45 ], [ %.384, %85 ]
   %.180 = phi ptr [ %67, %45 ], [ %.3, %85 ]
   %.not93 = icmp eq ptr %.180, null
   br i1 %.not93, label %91, label %89
@@ -3515,7 +3517,7 @@ merge_default_partitions.exit.thread.i:           ; preds = %412
   %.5259414421.i = phi i32 [ %.5259.i, %428 ], [ %.5259.i, %427 ], [ %.4258.i, %merge_default_partitions.exit.thread.i ]
   %.4415419.i = phi i32 [ %.4.i, %428 ], [ %.4.i, %427 ], [ %404, %merge_default_partitions.exit.thread.i ]
   %430 = phi i1 [ false, %428 ], [ true, %427 ], [ true, %merge_default_partitions.exit.thread.i ]
-  %431 = phi i8 [ %424, %428 ], [ %424, %427 ], [ %390, %merge_default_partitions.exit.thread.i ]
+  %431 = phi i8 [ 1, %428 ], [ %424, %427 ], [ %390, %merge_default_partitions.exit.thread.i ]
   %432 = zext nneg i32 %.5259414421.i to i64
   %433 = shl nuw nsw i64 %432, 2
   %434 = tail call ptr @palloc(i64 noundef %433) #11

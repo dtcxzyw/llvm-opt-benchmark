@@ -2133,7 +2133,7 @@ _ZN5boost10shared_ptrIN8QuantLib28CumulativeNormalDistributionEED2Ev.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp93) #27
   %170 = load i8, ptr %volatilityType, align 4, !tbaa !69, !range !26, !noundef !27
   %loadedv.i.i = trunc nuw i8 %170 to i1
-  br i1 %loadedv.i.i, label %invoke.cont182, label %invoke.cont108
+  br i1 %loadedv.i.i, label %invoke.cont191, label %invoke.cont108
 
 invoke.cont108:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib28CumulativeNormalDistributionEED2Ev.exit
   %cmp110 = fcmp une double %shift1, 0x47EFFFFFE0000000
@@ -2442,7 +2442,7 @@ ehcleanup173:                                     ; preds = %lpad164, %lpad160
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp159) #27
   br label %ehcleanup195
 
-invoke.cont182:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib28CumulativeNormalDistributionEED2Ev.exit
+invoke.cont191:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib28CumulativeNormalDistributionEED2Ev.exit
   %cmp178 = fcmp oeq double %shift1, 0x47EFFFFFE0000000
   %cond = select i1 %cmp178, double 0.000000e+00, double %shift1
   %shift1_ = getelementptr inbounds nuw i8, ptr %this, i64 272
@@ -2459,7 +2459,7 @@ invoke.cont182:                                   ; preds = %_ZN5boost10shared_p
   store i32 %212, ptr %volType_193, align 4, !tbaa !86
   br label %if.end194
 
-if.end194:                                        ; preds = %invoke.cont182, %_ZN8QuantLib6HandleINS_27SwaptionVolatilityStructureEED2Ev.exit
+if.end194:                                        ; preds = %invoke.cont191, %_ZN8QuantLib6HandleINS_27SwaptionVolatilityStructureEED2Ev.exit
   ret void
 
 ehcleanup195:                                     ; preds = %ehcleanup173, %ehcleanup155, %lpad96, %lpad88, %ehcleanup85, %lpad44, %lpad31, %lpad20, %lpad17
@@ -4718,7 +4718,7 @@ _ZN5boost10shared_ptrIN8QuantLib28CumulativeNormalDistributionEED2Ev.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp86) #27
   %168 = load i8, ptr %volatilityType, align 4, !tbaa !69, !range !26, !noundef !27
   %loadedv.i.i = trunc nuw i8 %168 to i1
-  br i1 %loadedv.i.i, label %invoke.cont175, label %invoke.cont101
+  br i1 %loadedv.i.i, label %invoke.cont184, label %invoke.cont101
 
 invoke.cont101:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib28CumulativeNormalDistributionEED2Ev.exit
   %cmp103 = fcmp une double %shift1, 0x47EFFFFFE0000000
@@ -5027,7 +5027,7 @@ ehcleanup166:                                     ; preds = %lpad157, %lpad153
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp152) #27
   br label %ehcleanup188
 
-invoke.cont175:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib28CumulativeNormalDistributionEED2Ev.exit
+invoke.cont184:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib28CumulativeNormalDistributionEED2Ev.exit
   %cmp171 = fcmp oeq double %shift1, 0x47EFFFFFE0000000
   %cond = select i1 %cmp171, double 0.000000e+00, double %shift1
   %shift1_ = getelementptr inbounds nuw i8, ptr %this, i64 272
@@ -5044,7 +5044,7 @@ invoke.cont175:                                   ; preds = %_ZN5boost10shared_p
   store i32 %210, ptr %volType_186, align 4, !tbaa !86
   br label %if.end187
 
-if.end187:                                        ; preds = %invoke.cont175, %_ZN8QuantLib6HandleINS_27SwaptionVolatilityStructureEED2Ev.exit
+if.end187:                                        ; preds = %invoke.cont184, %_ZN8QuantLib6HandleINS_27SwaptionVolatilityStructureEED2Ev.exit
   ret void
 
 ehcleanup188:                                     ; preds = %ehcleanup166, %ehcleanup148, %lpad89, %lpad81, %ehcleanup78, %lpad37, %lpad24, %lpad13, %lpad10

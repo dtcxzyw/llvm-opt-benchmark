@@ -7019,7 +7019,7 @@ _ZN12_GLOBAL__N_112GCOVFunction8writeOutEj.exit:  ; preds = %._crit_edge211.i, %
   br label %2122
 
 2122:                                             ; preds = %.thread74, %2119, %2121
-  %.2 = phi i8 [ 0, %2121 ], [ %.0227, %2119 ], [ %.0227, %.thread74 ]
+  %.2 = phi i8 [ 0, %2121 ], [ 0, %2119 ], [ %.0227, %.thread74 ]
   %2123 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %67) #25
   %2124 = load ptr, ptr %67, align 8
   %2125 = icmp eq ptr %2124, %111

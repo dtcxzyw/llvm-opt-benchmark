@@ -2150,8 +2150,8 @@ MatchNamedCall.exit:                              ; preds = %195, %._crit_edge.i
 
 215:                                              ; preds = %MatchNamedCall.exit, %210, %211, %213
   %.0243 = phi ptr [ null, %210 ], [ null, %211 ], [ null, %213 ], [ %117, %MatchNamedCall.exit ]
-  %.0185 = phi i8 [ %.1186, %210 ], [ %.1186, %211 ], [ %.1186, %213 ], [ 0, %MatchNamedCall.exit ]
-  %.1183 = phi i8 [ %.2184, %210 ], [ %.2184, %211 ], [ %.2184, %213 ], [ %.0182, %MatchNamedCall.exit ]
+  %.0185 = phi i8 [ %.1186, %210 ], [ 1, %211 ], [ 0, %213 ], [ 0, %MatchNamedCall.exit ]
+  %.1183 = phi i8 [ %.2184, %210 ], [ %.2184, %211 ], [ 1, %213 ], [ %.0182, %MatchNamedCall.exit ]
   %.0180 = phi i32 [ %.1181, %210 ], [ %.1181, %211 ], [ %.1181, %213 ], [ 0, %MatchNamedCall.exit ]
   %.2175 = phi i1 [ %.4, %210 ], [ %.4, %211 ], [ %.4, %213 ], [ true, %MatchNamedCall.exit ]
   %216 = call i32 @llvm.smax.i32(i32 %.0190, i32 %1)

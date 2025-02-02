@@ -618,7 +618,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   unreachable
 
 .loopexit:                                        ; preds = %76, %107, %158, %165
-  %.098 = phi i8 [ %.199, %165 ], [ %.199, %158 ], [ %.199, %107 ], [ %35, %76 ]
+  %.098 = phi i8 [ 1, %165 ], [ %.199, %158 ], [ %.199, %107 ], [ %35, %76 ]
   %177 = load ptr, ptr %19, align 8
   %178 = icmp eq ptr %177, null
   br i1 %178, label %179, label %190

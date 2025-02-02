@@ -276,7 +276,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr noundef captures(none) initi
 96:                                               ; preds = %95, %93, %89, %85, %.lr.ph147.i.i
   %.3120.i.i = phi double [ %.2119143.i.i, %.lr.ph147.i.i ], [ %92, %95 ], [ %.2119143.i.i, %93 ], [ %.2119143.i.i, %85 ], [ %92, %89 ]
   %.3116.i.i = phi i32 [ %.2115144.i.i, %.lr.ph147.i.i ], [ %83, %95 ], [ %.2115144.i.i, %93 ], [ %.2115144.i.i, %85 ], [ %83, %89 ]
-  %.1.i.i = phi i8 [ %.0145.i.i, %.lr.ph147.i.i ], [ %.0145.i.i, %95 ], [ %.0145.i.i, %93 ], [ %.0145.i.i, %85 ], [ 0, %89 ]
+  %.1.i.i = phi i8 [ %.0145.i.i, %.lr.ph147.i.i ], [ 0, %95 ], [ 0, %93 ], [ %.0145.i.i, %85 ], [ 0, %89 ]
   %indvars.iv.next176.i.i = add nsw i64 %indvars.iv175.i.i, 1
   %exitcond178.not.i.i = icmp eq i64 %indvars.iv.next176.i.i, %wide.trip.count177.i.i
   br i1 %exitcond178.not.i.i, label %._crit_edge148.i.i, label %.lr.ph147.i.i

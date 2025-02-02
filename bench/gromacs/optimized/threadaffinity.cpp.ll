@@ -637,7 +637,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i: ; preds = %_ZN3gmx14
   br label %common.resume
 
 231:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i, %220, %218, %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i, %216
-  %.2.i = phi i8 [ %.096.i, %218 ], [ %.096.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i ], [ 1, %220 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i ], [ %.096.i, %216 ]
+  %.2.i = phi i8 [ 1, %218 ], [ %.096.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i ], [ 1, %220 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i ], [ %.096.i, %216 ]
   %232 = xor i1 %195, true
   %233 = and i1 %184, %232
   %.pre205.pre.i = load i32, ptr %148, align 4
@@ -737,7 +737,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i: ; preds = %_ZN3gmx14
   br label %common.resume
 
 273:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i, %262, %260, %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i, %258
-  %.4.i = phi i8 [ %.197.i, %260 ], [ %.197.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i ], [ 1, %262 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i ], [ %.197.i, %258 ]
+  %.4.i = phi i8 [ 1, %260 ], [ %.197.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i ], [ 1, %262 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i ], [ %.197.i, %258 ]
   %274 = and i1 %.not178.i, %.095.in.i
   %.pre.i = load i32, ptr %148, align 4
   br label %275
@@ -830,7 +830,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i: ; preds = %_ZN3gmx14
   br label %common.resume
 
 313:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i, %302, %300, %_ZL23invalidWithinSimulationPK9t_commrecb.exit126.i, %298
-  %.5.i = phi i8 [ %.3.i, %300 ], [ %.3.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit126.i ], [ 1, %302 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i ], [ %.3.i, %298 ]
+  %.5.i = phi i8 [ 1, %300 ], [ %.3.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit126.i ], [ 1, %302 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i ], [ %.3.i, %298 ]
   %314 = add nsw i32 %70, %5
   %315 = icmp sgt i32 %314, %96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
@@ -917,7 +917,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i: ; preds = %_ZN3gmx14
   br label %common.resume
 
 352:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i, %341, %339, %_ZL23invalidWithinSimulationPK9t_commrecb.exit133.i, %337
-  %.6.i = phi i8 [ %.5.i, %339 ], [ %.5.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit133.i ], [ 1, %341 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i ], [ %.5.i, %337 ]
+  %.6.i = phi i8 [ 1, %339 ], [ %.5.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit133.i ], [ 1, %341 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i ], [ %.5.i, %337 ]
   %353 = icmp eq i32 %72, 0
   br i1 %353, label %354, label %361
 
@@ -1029,7 +1029,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i: ; preds = %_ZN3gmx14
   br label %common.resume
 
 403:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i, %392, %390, %_ZL23invalidWithinSimulationPK9t_commrecb.exit140.i, %388
-  %.7.i = phi i8 [ %.6.i, %390 ], [ %.6.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit140.i ], [ 1, %392 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i ], [ %.6.i, %388 ]
+  %.7.i = phi i8 [ 1, %390 ], [ %.6.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit140.i ], [ 1, %392 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i ], [ %.6.i, %388 ]
   %404 = or i1 %315, %.0.i
   %405 = xor i1 %404, true
   %406 = and i1 %.1.in.i, %405

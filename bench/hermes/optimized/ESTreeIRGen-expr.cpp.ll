@@ -4577,13 +4577,11 @@ if.then.i.i:                                      ; preds = %_ZN4llvh11SmallVect
   br i1 %isSpread.091, label %if.then57, label %if.end71
 
 if.end55:                                         ; preds = %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EEC2ERKS4_.exit, %if.then48
-  %consecutive.1 = phi i8 [ %consecutive.0126, %if.then48 ], [ 0, %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EEC2ERKS4_.exit ]
   %allocArrayInst.1 = phi ptr [ %allocArrayInst.0127, %if.then48 ], [ %call53, %_ZN4llvh11SmallVectorIPN6hermes5ValueELj4EEC2ERKS4_.exit ]
   br i1 %isSpread.091, label %if.then57, label %if.end71
 
 if.then57:                                        ; preds = %if.then.i.i, %if.end55
   %allocArrayInst.1107 = phi ptr [ %call53, %if.then.i.i ], [ %allocArrayInst.1, %if.end55 ]
-  %consecutive.1106 = phi i8 [ 0, %if.then.i.i ], [ %consecutive.1, %if.end55 ]
   %14 = icmp eq ptr %allocArrayInst.1107, null
   %add.ptr = getelementptr inbounds nuw i8, ptr %allocArrayInst.1107, i64 16
   %spec.select = select i1 %14, ptr null, ptr %add.ptr
@@ -4600,14 +4598,10 @@ if.then57:                                        ; preds = %if.then.i.i, %if.en
 
 if.end71:                                         ; preds = %if.then.i.i, %if.end55
   %allocArrayInst.1104 = phi ptr [ %allocArrayInst.1, %if.end55 ], [ %call53, %if.then.i.i ]
-  %consecutive.1102 = phi i8 [ %consecutive.1, %if.end55 ], [ 0, %if.then.i.i ]
-  br i1 %tobool43.not93, label %if.end91, label %if.then73
+  br i1 %tobool43.not93, label %if.end91, label %if.else76
 
-if.then73:                                        ; preds = %land.lhs.true, %lor.lhs.false46, %if.end71
-  %value.088100116 = phi ptr [ %value.089, %if.end71 ], [ %call37, %lor.lhs.false46 ], [ %call37, %land.lhs.true ]
-  %consecutive.1102114 = phi i8 [ %consecutive.1102, %if.end71 ], [ %consecutive.0126, %lor.lhs.false46 ], [ %consecutive.0126, %land.lhs.true ]
-  %allocArrayInst.1104112 = phi ptr [ %allocArrayInst.1104, %if.end71 ], [ %allocArrayInst.0127, %lor.lhs.false46 ], [ %allocArrayInst.0127, %land.lhs.true ]
-  %tobool74 = trunc nuw i8 %consecutive.1102114 to i1
+if.then73:                                        ; preds = %land.lhs.true, %lor.lhs.false46
+  %tobool74 = trunc nuw i8 %consecutive.0126 to i1
   br i1 %tobool74, label %if.then75, label %if.else76
 
 if.then75:                                        ; preds = %if.then73
@@ -4626,16 +4620,18 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit: ; 
   %19 = load ptr, ptr %elements, align 8
   %conv.i3.i = zext i32 %18 to i64
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %19, i64 %conv.i3.i
-  %20 = ptrtoint ptr %value.088100116 to i64
+  %20 = ptrtoint ptr %call37 to i64
   store i64 %20, ptr %add.ptr.i.i, align 1
   %21 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %21, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
   br label %if.end91
 
-if.else76:                                        ; preds = %if.then73
-  %22 = icmp eq ptr %allocArrayInst.1104112, null
-  %add.ptr79 = getelementptr inbounds nuw i8, ptr %allocArrayInst.1104112, i64 16
+if.else76:                                        ; preds = %if.end71, %if.then73
+  %allocArrayInst.1104112159 = phi ptr [ %allocArrayInst.0127, %if.then73 ], [ %allocArrayInst.1104, %if.end71 ]
+  %value.088100116158 = phi ptr [ %call37, %if.then73 ], [ %value.089, %if.end71 ]
+  %22 = icmp eq ptr %allocArrayInst.1104112159, null
+  %add.ptr79 = getelementptr inbounds nuw i8, ptr %allocArrayInst.1104112159, i64 16
   %spec.select1 = select i1 %22, ptr null, ptr %add.ptr79
   br i1 %variableLength.0.lcssa143, label %cond.true, label %cond.false
 
@@ -4653,12 +4649,12 @@ cond.false:                                       ; preds = %if.else76
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %spec.select.i.i, %cond.true ], [ %call87, %cond.false ]
-  %call89 = call noundef ptr @_ZN6hermes9IRBuilder26createStoreOwnPropertyInstEPNS_5ValueES2_S2_NS0_14PropEnumerableE(ptr noundef nonnull align 8 dereferenceable(40) %Builder51, ptr noundef nonnull %value.088100116, ptr noundef %spec.select1, ptr noundef %cond, i32 noundef 1) #16
+  %call89 = call noundef ptr @_ZN6hermes9IRBuilder26createStoreOwnPropertyInstEPNS_5ValueES2_S2_NS0_14PropEnumerableE(ptr noundef nonnull align 8 dereferenceable(40) %Builder51, ptr noundef nonnull %value.088100116158, ptr noundef %spec.select1, ptr noundef %cond, i32 noundef 1) #16
   br label %if.end91
 
 if.end91:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit, %cond.end, %if.end71
-  %consecutive.1102115 = phi i8 [ %consecutive.1102114, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit ], [ %consecutive.1102114, %cond.end ], [ %consecutive.1102, %if.end71 ]
-  %allocArrayInst.1104113 = phi ptr [ %allocArrayInst.1104112, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit ], [ %allocArrayInst.1104112, %cond.end ], [ %allocArrayInst.1104, %if.end71 ]
+  %consecutive.1102115 = phi i8 [ 1, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit ], [ 0, %cond.end ], [ 0, %if.end71 ]
+  %allocArrayInst.1104113 = phi ptr [ %allocArrayInst.0127, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes5ValueELb1EE9push_backERKS3_.exit ], [ %allocArrayInst.1104112159, %cond.end ], [ %allocArrayInst.1104, %if.end71 ]
   br i1 %variableLength.0.lcssa143, label %if.then93, label %if.else110
 
 if.then93:                                        ; preds = %if.end91
@@ -4680,7 +4676,7 @@ if.else110:                                       ; preds = %if.end91
 
 for.inc113:                                       ; preds = %if.then93, %if.else110, %if.then57
   %allocArrayInst.1103 = phi ptr [ %allocArrayInst.1107, %if.then57 ], [ %allocArrayInst.1104113, %if.then93 ], [ %allocArrayInst.1104113, %if.else110 ]
-  %consecutive.1101 = phi i8 [ %consecutive.1106, %if.then57 ], [ %consecutive.1102115, %if.then93 ], [ %consecutive.1102115, %if.else110 ]
+  %consecutive.1101 = phi i8 [ 0, %if.then57 ], [ %consecutive.1102115, %if.then93 ], [ %consecutive.1102115, %if.else110 ]
   %count.1 = phi i32 [ %count.0128, %if.then57 ], [ %count.0128, %if.then93 ], [ %inc111, %if.else110 ]
   %Next.i.i.i50 = getelementptr inbounds nuw i8, ptr %__begin218.sroa.0.0130, i64 8
   %__begin218.sroa.0.0 = load ptr, ptr %Next.i.i.i50, align 8
@@ -4693,7 +4689,7 @@ for.end115:                                       ; preds = %for.inc113
   br i1 %tobool116.not, label %if.then117, label %if.end123
 
 if.then117:                                       ; preds = %if.end14, %for.end115
-  %count.0.lcssa158 = phi double [ %26, %for.end115 ], [ 0.000000e+00, %if.end14 ]
+  %count.0.lcssa164 = phi double [ %26, %for.end115 ], [ 0.000000e+00, %if.end14 ]
   %Builder118 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add.ptr.i.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %agg.tmp119, i64 16
   store ptr %add.ptr.i.i.i.i.i51, ptr %agg.tmp119, align 8
@@ -4759,7 +4755,7 @@ if.then.i.i69:                                    ; preds = %_ZNK4llvh12simple_i
   br label %if.end123
 
 if.end123:                                        ; preds = %if.then.i.i69, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit, %for.end115
-  %count.0.lcssa157 = phi double [ %26, %for.end115 ], [ %count.0.lcssa158, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit ], [ %count.0.lcssa158, %if.then.i.i69 ]
+  %count.0.lcssa163 = phi double [ %26, %for.end115 ], [ %count.0.lcssa164, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit ], [ %count.0.lcssa164, %if.then.i.i69 ]
   %allocArrayInst.2 = phi ptr [ %allocArrayInst.1103, %for.end115 ], [ %call122, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit ], [ %call122, %if.then.i.i69 ]
   %34 = load ptr, ptr %list, align 8
   %cmp.i.i = icmp eq ptr %list, %34
@@ -4783,7 +4779,7 @@ if.then130:                                       ; preds = %if.then128
   br label %if.end141
 
 if.else137:                                       ; preds = %if.then128
-  %call140 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %Builder131, double noundef %count.0.lcssa157) #16
+  %call140 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %Builder131, double noundef %count.0.lcssa163) #16
   br label %if.end141
 
 if.end141:                                        ; preds = %if.else137, %if.then130

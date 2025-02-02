@@ -1736,7 +1736,6 @@ for.end154:                                       ; preds = %_ZN4cvc58internal12
   br i1 %tobool155, label %cond.true160, label %if.end244
 
 cond.true160:                                     ; preds = %invoke.cont126, %for.end154
-  %childrenValid.0.lcssa5833 = phi i8 [ %spec.select, %for.end154 ], [ 1, %invoke.cont126 ]
   invoke void @_ZNK4cvc58internal12NodeTemplateILb0EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %tn, ptr noundef nonnull align 8 dereferenceable(8) %cur, i1 noundef zeroext false)
           to label %invoke.cont189 unwind label %lpad6.loopexit
 
@@ -2282,7 +2281,7 @@ ehcleanup243:                                     ; preds = %lpad240, %lpad196, 
   br label %ehcleanup1450
 
 if.end244:                                        ; preds = %if.then13.i.i882, %if.then.i.i876, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit873, %for.end154
-  %childrenValid.0.lcssa5832 = phi i8 [ %spec.select, %for.end154 ], [ %childrenValid.0.lcssa5833, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit873 ], [ %childrenValid.0.lcssa5833, %if.then.i.i876 ], [ %childrenValid.0.lcssa5833, %if.then13.i.i882 ]
+  %childrenValid.0.lcssa5832 = phi i8 [ 0, %for.end154 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit873 ], [ 1, %if.then.i.i876 ], [ 1, %if.then13.i.i882 ]
   %hasBoolVar.3 = phi i8 [ %hasBoolVar.1, %for.end154 ], [ %hasBoolVar.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit873 ], [ %hasBoolVar.4, %if.then.i.i876 ], [ %hasBoolVar.4, %if.then13.i.i882 ]
   %call.i885 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS4_bESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %visited, ptr noundef nonnull align 8 dereferenceable(8) %cur)
           to label %invoke.cont246 unwind label %lpad6.loopexit

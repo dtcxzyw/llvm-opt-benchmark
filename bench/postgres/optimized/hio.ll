@@ -216,8 +216,8 @@ define dso_local i32 @RelationGetBufferForTuple(ptr noundef %0, i64 noundef %1, 
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br label %75
 
-75:                                               ; preds = %341, %58
-  %.3 = phi i32 [ %.2, %58 ], [ %307, %341 ]
+75:                                               ; preds = %339, %58
+  %.3 = phi i32 [ %.2, %58 ], [ %307, %339 ]
   %.not182238 = icmp eq i32 %.3, -1
   br i1 %.not182238, label %._crit_edge, label %.lr.ph
 
@@ -675,7 +675,6 @@ BufferGetPage.exit.i:                             ; preds = %260, %254
 
 278:                                              ; preds = %277, %274
   %279 = phi i32 [ %.pre.i206, %277 ], [ %275, %274 ]
-  %storemerge74.i = phi i8 [ 1, %277 ], [ 0, %274 ]
   %280 = icmp ugt i32 %279, 1
   br i1 %280, label %.lr.ph.i, label %._crit_edge.i
 
@@ -773,112 +772,106 @@ RelationAddBlocks.exit:                           ; preds = %299, %300
 
 BufferGetPage.exit209:                            ; preds = %308, %314
   %.0.i.i208 = phi ptr [ %313, %308 ], [ %319, %314 ]
-  br i1 %.not183, label %326, label %320
+  br i1 %.not183, label %325, label %320
 
 320:                                              ; preds = %BufferGetPage.exit209
   %321 = load i32, ptr %5, align 4
   %322 = call zeroext i1 @visibilitymap_pin_ok(i32 noundef %307, i32 noundef %321) #7
-  br i1 %322, label %326, label %323
+  br i1 %322, label %325, label %323
 
 323:                                              ; preds = %320
-  %324 = trunc nuw i8 %storemerge74.i to i1
-  br i1 %324, label %.thread, label %325
+  br i1 %or.cond79.i, label %.thread, label %324
 
-325:                                              ; preds = %323
+324:                                              ; preds = %323
   call void @LockBuffer(i32 noundef %249, i32 noundef 0) #7
   br label %.thread
 
-.thread:                                          ; preds = %323, %325
+.thread:                                          ; preds = %323, %324
   call void @visibilitymap_pin(ptr noundef %0, i32 noundef %307, ptr noundef nonnull %5) #7
-  br label %328
+  br label %326
 
-326:                                              ; preds = %320, %BufferGetPage.exit209
-  %327 = trunc nuw i8 %storemerge74.i to i1
-  br i1 %327, label %328, label %329
+325:                                              ; preds = %320, %BufferGetPage.exit209
+  br i1 %or.cond79.i, label %326, label %327
 
-328:                                              ; preds = %.thread, %326
-  %.0217221 = phi i8 [ 1, %.thread ], [ %storemerge74.i, %326 ]
+326:                                              ; preds = %.thread, %325
   br i1 %.not177, label %.critedge.sink.split, label %.critedge.sink.split.sink.split
 
-329:                                              ; preds = %326
-  br i1 %.not177, label %334, label %330
+327:                                              ; preds = %325
+  br i1 %.not177, label %333, label %328
 
-330:                                              ; preds = %329
-  %331 = call zeroext i1 @ConditionalLockBuffer(i32 noundef %2) #7
-  br i1 %331, label %.critedge, label %332
+328:                                              ; preds = %327
+  %329 = call zeroext i1 @ConditionalLockBuffer(i32 noundef %2) #7
+  br i1 %329, label %.critedge, label %330
 
-332:                                              ; preds = %330
+330:                                              ; preds = %328
   call void @LockBuffer(i32 noundef %249, i32 noundef 0) #7
   br label %.critedge.sink.split.sink.split
 
-.critedge.sink.split.sink.split:                  ; preds = %328, %332
-  %.2219.ph.ph = phi i8 [ 1, %332 ], [ %.0217221, %328 ]
+.critedge.sink.split.sink.split:                  ; preds = %326, %330
   call void @LockBuffer(i32 noundef %2, i32 noundef 2) #7
   br label %.critedge.sink.split
 
-.critedge.sink.split:                             ; preds = %.critedge.sink.split.sink.split, %328
-  %.2219.ph = phi i8 [ %.0217221, %328 ], [ %.2219.ph.ph, %.critedge.sink.split.sink.split ]
+.critedge.sink.split:                             ; preds = %.critedge.sink.split.sink.split, %326
   call void @LockBuffer(i32 noundef %249, i32 noundef 2) #7
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %330
-  %.2219 = phi i8 [ %storemerge74.i, %330 ], [ %.2219.ph, %.critedge.sink.split ]
-  %333 = call fastcc zeroext i1 @GetVisibilityMapPins(ptr noundef %0, i32 noundef %2, i32 noundef %249, i32 noundef %.0154, i32 noundef %307, ptr noundef %6, ptr noundef %5)
-  %spec.select = select i1 %333, i8 1, i8 %.2219
-  br label %334
+.critedge:                                        ; preds = %.critedge.sink.split, %328
+  %.2219 = phi i1 [ false, %328 ], [ true, %.critedge.sink.split ]
+  %331 = call fastcc zeroext i1 @GetVisibilityMapPins(ptr noundef %0, i32 noundef %2, i32 noundef %249, i32 noundef %.0154, i32 noundef %307, ptr noundef %6, ptr noundef %5)
+  %332 = or i1 %331, %.2219
+  br label %333
 
-334:                                              ; preds = %.critedge, %329
-  %.1218 = phi i8 [ %storemerge74.i, %329 ], [ %spec.select, %.critedge ]
-  %335 = call i64 @PageGetHeapFreeSpace(ptr noundef %.0.i.i208) #7
-  %336 = icmp ugt i64 %14, %335
-  br i1 %336, label %337, label %345
+333:                                              ; preds = %.critedge, %327
+  %.1218 = phi i1 [ false, %327 ], [ %332, %.critedge ]
+  %334 = call i64 @PageGetHeapFreeSpace(ptr noundef %.0.i.i208) #7
+  %335 = icmp ugt i64 %14, %334
+  br i1 %335, label %336, label %343
 
-337:                                              ; preds = %334
-  %338 = trunc nuw i8 %.1218 to i1
-  br i1 %338, label %339, label %342
+336:                                              ; preds = %333
+  br i1 %.1218, label %337, label %340
 
-339:                                              ; preds = %337
-  br i1 %.not177, label %341, label %340
+337:                                              ; preds = %336
+  br i1 %.not177, label %339, label %338
 
-340:                                              ; preds = %339
+338:                                              ; preds = %337
   call void @LockBuffer(i32 noundef %2, i32 noundef 0) #7
-  br label %341
+  br label %339
 
-341:                                              ; preds = %340, %339
+339:                                              ; preds = %338, %337
   call void @UnlockReleaseBuffer(i32 noundef %249) #7
   br label %75
 
-342:                                              ; preds = %337
-  %343 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
-  call void @llvm.assume(i1 %343)
-  %344 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i64 noundef %14) #7
+340:                                              ; preds = %336
+  %341 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
+  call void @llvm.assume(i1 %341)
+  %342 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i64 noundef %14) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 871, ptr noundef nonnull @__func__.RelationGetBufferForTuple) #7
   unreachable
 
-345:                                              ; preds = %334
-  %346 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %347 = load ptr, ptr %346, align 8
-  %348 = icmp eq ptr %347, null
-  br i1 %348, label %349, label %RelationGetSmgr.exit
+343:                                              ; preds = %333
+  %344 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %345 = load ptr, ptr %344, align 8
+  %346 = icmp eq ptr %345, null
+  br i1 %346, label %347, label %RelationGetSmgr.exit
 
-349:                                              ; preds = %345
-  %350 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %351 = load i32, ptr %350, align 4
+347:                                              ; preds = %343
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %349 = load i32, ptr %348, align 4
   %.sroa.0.0.copyload.i210 = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i211 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i212 = load i32, ptr %.sroa.2.0..sroa_idx.i211, align 8
-  %352 = call ptr @smgropen(i64 %.sroa.0.0.copyload.i210, i32 %.sroa.2.0.copyload.i212, i32 noundef %351) #7
-  store ptr %352, ptr %346, align 8
-  call void @smgrpin(ptr noundef %352) #7
-  %.pre.i213 = load ptr, ptr %346, align 8
+  %350 = call ptr @smgropen(i64 %.sroa.0.0.copyload.i210, i32 %.sroa.2.0.copyload.i212, i32 noundef %349) #7
+  store ptr %350, ptr %344, align 8
+  call void @smgrpin(ptr noundef %350) #7
+  %.pre.i213 = load ptr, ptr %344, align 8
   br label %RelationGetSmgr.exit
 
-RelationGetSmgr.exit:                             ; preds = %349, %345, %204, %200
-  %.sink266 = phi ptr [ %.pre.i, %204 ], [ %202, %200 ], [ %.pre.i213, %349 ], [ %347, %345 ]
-  %.lcssa263.sink = phi i32 [ %.4239, %204 ], [ %.4239, %200 ], [ %307, %349 ], [ %307, %345 ]
-  %.0 = phi i32 [ %.0157, %204 ], [ %.0157, %200 ], [ %249, %349 ], [ %249, %345 ]
-  %353 = getelementptr inbounds nuw i8, ptr %.sink266, i64 16
-  store i32 %.lcssa263.sink, ptr %353, align 8
+RelationGetSmgr.exit:                             ; preds = %347, %343, %204, %200
+  %.sink266 = phi ptr [ %.pre.i, %204 ], [ %202, %200 ], [ %.pre.i213, %347 ], [ %345, %343 ]
+  %.lcssa263.sink = phi i32 [ %.4239, %204 ], [ %.4239, %200 ], [ %307, %347 ], [ %307, %343 ]
+  %.0 = phi i32 [ %.0157, %204 ], [ %.0157, %200 ], [ %249, %347 ], [ %249, %343 ]
+  %351 = getelementptr inbounds nuw i8, ptr %.sink266, i64 16
+  store i32 %.lcssa263.sink, ptr %351, align 8
   ret i32 %.0
 }
 

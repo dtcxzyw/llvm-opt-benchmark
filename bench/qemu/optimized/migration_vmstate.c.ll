@@ -1770,12 +1770,11 @@ if.then7.i:                                       ; preds = %if.then5.i
   br label %if.end.i176
 
 if.end.i176:                                      ; preds = %if.then7.i, %if.then5.i
-  %vmdesc_has_subsections.3.i = phi i8 [ %vmdesc_has_subsections.044.i, %if.then5.i ], [ 1, %if.then7.i ]
   tail call void @json_writer_start_object(ptr noundef nonnull %vmdesc, ptr noundef null) #10
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i176, %trace_vmstate_subsection_save_loop.exit.i
-  %vmdesc_has_subsections.2.i = phi i8 [ %vmdesc_has_subsections.3.i, %if.end.i176 ], [ %vmdesc_has_subsections.044.i, %trace_vmstate_subsection_save_loop.exit.i ]
+  %vmdesc_has_subsections.2.i = phi i8 [ 1, %if.end.i176 ], [ %vmdesc_has_subsections.044.i, %trace_vmstate_subsection_save_loop.exit.i ]
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 5) #10
   %87 = load ptr, ptr %78, align 8
   %call10.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #13

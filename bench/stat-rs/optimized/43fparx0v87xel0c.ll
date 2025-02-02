@@ -581,7 +581,6 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   %trunc.i.i = trunc nuw i64 %2 to i1
   %10 = tail call double @llvm.sqrt.f64(double %3)
   %narrow.i.i.i.i = fcmp ogt double %3, 0.000000e+00
-  %.sroa.3.0.i.i = select i1 %trunc.i.i, double %10, double undef
   %narrow.i.i.not = select i1 %trunc.i.i, i1 %narrow.i.i.i.i, i1 false
   br label %15
 
@@ -620,7 +619,7 @@ define hidden void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_in
   %22 = tail call double @llvm.sqrt.f64(double %21)
   %narrow.i = fcmp ogt double %21, 0.000000e+00
   %brmerge = select i1 %narrow.i, i1 true, i1 %narrow.i.i.not
-  %.mux = select i1 %narrow.i, double %22, double %.sroa.3.0.i.i
+  %.mux = select i1 %narrow.i, double %22, double %10
   br i1 %brmerge, label %.thread, label %38
 
 23:                                               ; preds = %26

@@ -1051,32 +1051,38 @@ strview.exit:                                     ; preds = %6, %10
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %2, i64 %.sroa.3.0.i
   %17 = load i8, ptr %16, align 1
-  %18 = icmp ne i8 %17, 58
-  %.not3354 = icmp eq ptr %15, null
-  %or.cond64 = select i1 %18, i1 true, i1 %.not3354
-  br i1 %or.cond64, label %.loopexit53, label %.lr.ph
+  %18 = icmp eq i8 %17, 58
+  br i1 %18, label %.preheader, label %.critedge.preheader
 
-.lr.ph:                                           ; preds = %strview.exit
+.preheader:                                       ; preds = %strview.exit
+  %cond = icmp eq ptr %15, null
+  br i1 %cond, label %agxbuse.exit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
   %19 = icmp eq i64 %.sroa.3.0.i, 0
-  br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split.outer
+
+.lr.ph.split.outer:                               ; preds = %.lr.ph, %strview_case_eq.exit.thread.thread
+  %.02755.ph = phi ptr [ %43, %strview_case_eq.exit.thread.thread ], [ %15, %.lr.ph ]
+  %.13054.ph = phi i1 [ false, %strview_case_eq.exit.thread.thread ], [ true, %.lr.ph ]
+  br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.02756.us = phi ptr [ %26, %.lr.ph.split.us ], [ %15, %.lr.ph ]
-  %20 = getelementptr inbounds nuw i8, ptr %.02756.us, i64 8
+  %.02755.us = phi ptr [ %26, %.lr.ph.split.us ], [ %15, %.lr.ph ]
+  %20 = getelementptr inbounds nuw i8, ptr %.02755.us, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %.02756.us, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.02755.us, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.16, ptr noundef nonnull %21, ptr noundef %25)
-  %26 = load ptr, ptr %.02756.us, align 8
+  %26 = load ptr, ptr %.02755.us, align 8
   %.not33.us = icmp eq ptr %26, null
-  br i1 %.not33.us, label %agxbsizeof.exit.i.i, label %.lr.ph.split.us
+  br i1 %.not33.us, label %.thread, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %strview_case_eq.exit.thread
-  %.02756 = phi ptr [ %43, %strview_case_eq.exit.thread ], [ %15, %.lr.ph ]
-  %.13055 = phi i8 [ %.2, %strview_case_eq.exit.thread ], [ 1, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i8, ptr %.02756, i64 8
+.lr.ph.split:                                     ; preds = %.lr.ph.split.outer, %strview_case_eq.exit.thread
+  %.02755 = phi ptr [ %38, %strview_case_eq.exit.thread ], [ %.02755.ph, %.lr.ph.split.outer ]
+  %27 = getelementptr inbounds nuw i8, ptr %.02755, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 58) #23
   %.not.i36 = icmp eq ptr %29, null
@@ -1100,135 +1106,141 @@ strview.exit40:                                   ; preds = %30, %34
 strview_case_eq.exit:                             ; preds = %strview.exit40
   %36 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %28, i64 noundef %.sroa.3.0.i) #23
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %strview_case_eq.exit.thread
+  br i1 %37, label %strview_case_eq.exit.thread.thread, label %strview_case_eq.exit.thread
 
-38:                                               ; preds = %strview_case_eq.exit
-  %39 = getelementptr inbounds nuw i8, ptr %.02756, i64 24
+strview_case_eq.exit.thread:                      ; preds = %strview.exit40, %strview_case_eq.exit
+  %38 = load ptr, ptr %.02755, align 8
+  %.not33 = icmp eq ptr %38, null
+  br i1 %.not33, label %._crit_edge, label %.lr.ph.split
+
+strview_case_eq.exit.thread.thread:               ; preds = %strview_case_eq.exit
+  %39 = getelementptr inbounds nuw i8, ptr %.02755, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.16, ptr noundef nonnull %28, ptr noundef %42)
-  br label %strview_case_eq.exit.thread
+  %43 = load ptr, ptr %.02755, align 8
+  %.not3364 = icmp eq ptr %43, null
+  br i1 %.not3364, label %.thread, label %.lr.ph.split.outer
 
-strview_case_eq.exit.thread:                      ; preds = %strview.exit40, %strview_case_eq.exit, %38
-  %.2 = phi i8 [ 0, %38 ], [ %.13055, %strview_case_eq.exit ], [ %.13055, %strview.exit40 ]
-  %43 = load ptr, ptr %.02756, align 8
-  %.not33 = icmp eq ptr %43, null
-  br i1 %.not33, label %.loopexit53, label %.lr.ph.split
+._crit_edge:                                      ; preds = %strview_case_eq.exit.thread
+  br i1 %.13054.ph, label %.critedge.preheader, label %.thread
 
-.loopexit53:                                      ; preds = %strview_case_eq.exit.thread, %strview.exit
-  %.029 = phi i8 [ 1, %strview.exit ], [ %.2, %strview_case_eq.exit.thread ]
-  %44 = trunc nuw i8 %.029 to i1
-  %.not3457 = icmp ne ptr %15, null
-  %or.cond66.not = select i1 %44, i1 %.not3457, i1 false
-  br i1 %or.cond66.not, label %.lr.ph62, label %.loopexit
+.critedge.preheader:                              ; preds = %._crit_edge, %strview.exit
+  %.not3456 = icmp eq ptr %15, null
+  br i1 %.not3456, label %agxbuse.exit, label %.lr.ph61.outer
 
-.lr.ph62:                                         ; preds = %.loopexit53, %57
-  %.161 = phi ptr [ %58, %57 ], [ %15, %.loopexit53 ]
-  %.sroa.45.060 = phi i64 [ %.sroa.3.0.i43, %57 ], [ 0, %.loopexit53 ]
-  %.sroa.03.059 = phi ptr [ %46, %57 ], [ null, %.loopexit53 ]
-  %.458 = phi i8 [ %.5, %57 ], [ %.029, %.loopexit53 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.161, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef 58) #23
-  %.not.i42 = icmp eq ptr %47, null
-  br i1 %.not.i42, label %52, label %48
+.lr.ph61.outer:                                   ; preds = %.critedge.preheader, %.critedge.thread
+  %.160.ph = phi ptr [ %57, %.critedge.thread ], [ %15, %.critedge.preheader ]
+  %.sroa.45.059.ph = phi i64 [ %.sroa.3.0.i43, %.critedge.thread ], [ 0, %.critedge.preheader ]
+  %.sroa.03.058.ph = phi ptr [ %45, %.critedge.thread ], [ null, %.critedge.preheader ]
+  %.457.ph = phi i1 [ false, %.critedge.thread ], [ true, %.critedge.preheader ]
+  br label %.lr.ph61
 
-48:                                               ; preds = %.lr.ph62
-  %49 = ptrtoint ptr %47 to i64
-  %50 = ptrtoint ptr %46 to i64
-  %51 = sub i64 %49, %50
+.lr.ph61:                                         ; preds = %.lr.ph61.outer, %.critedge
+  %.160 = phi ptr [ %55, %.critedge ], [ %.160.ph, %.lr.ph61.outer ]
+  %.sroa.45.059 = phi i64 [ %.sroa.3.0.i43, %.critedge ], [ %.sroa.45.059.ph, %.lr.ph61.outer ]
+  %.sroa.03.058 = phi ptr [ %45, %.critedge ], [ %.sroa.03.058.ph, %.lr.ph61.outer ]
+  %44 = getelementptr inbounds nuw i8, ptr %.160, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 58) #23
+  %.not.i42 = icmp eq ptr %46, null
+  br i1 %.not.i42, label %51, label %47
+
+47:                                               ; preds = %.lr.ph61
+  %48 = ptrtoint ptr %46 to i64
+  %49 = ptrtoint ptr %45 to i64
+  %50 = sub i64 %48, %49
   br label %strview.exit46
 
-52:                                               ; preds = %.lr.ph62
-  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #23
+51:                                               ; preds = %.lr.ph61
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #23
   br label %strview.exit46
 
-strview.exit46:                                   ; preds = %48, %52
-  %.sroa.3.0.i43 = phi i64 [ %51, %48 ], [ %53, %52 ]
-  %.not35 = icmp ne ptr %.sroa.03.059, null
-  %.not.i47 = icmp eq i64 %.sroa.45.060, %.sroa.3.0.i43
+strview.exit46:                                   ; preds = %47, %51
+  %.sroa.3.0.i43 = phi i64 [ %50, %47 ], [ %52, %51 ]
+  %.not35 = icmp ne ptr %.sroa.03.058, null
+  %.not.i47 = icmp eq i64 %.sroa.45.059, %.sroa.3.0.i43
   %or.cond = select i1 %.not35, i1 %.not.i47, i1 false
-  br i1 %or.cond, label %strview_case_eq.exit49, label %strview_case_eq.exit49.thread
+  br i1 %or.cond, label %strview_case_eq.exit49, label %.critedge.thread
 
 strview_case_eq.exit49:                           ; preds = %strview.exit46
-  %54 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.03.059, ptr noundef nonnull readonly %46, i64 noundef %.sroa.45.060) #23
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %57, label %strview_case_eq.exit49.thread
+  %53 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %.sroa.03.058, ptr noundef nonnull readonly %45, i64 noundef %.sroa.45.059) #23
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %.critedge, label %.critedge.thread
 
-strview_case_eq.exit49.thread:                    ; preds = %strview_case_eq.exit49, %strview.exit46
+.critedge:                                        ; preds = %strview_case_eq.exit49
+  %55 = load ptr, ptr %.160, align 8
+  %.not34 = icmp eq ptr %55, null
+  br i1 %.not34, label %.critedge._crit_edge, label %.lr.ph61
+
+.critedge.thread:                                 ; preds = %strview.exit46, %strview_case_eq.exit49
   %56 = trunc i64 %.sroa.3.0.i43 to i32
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.17, i32 noundef %56, ptr noundef nonnull %46)
-  br label %57
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.17, i32 noundef %56, ptr noundef nonnull %45)
+  %57 = load ptr, ptr %.160, align 8
+  %.not3468 = icmp eq ptr %57, null
+  br i1 %.not3468, label %.thread, label %.lr.ph61.outer
 
-57:                                               ; preds = %strview_case_eq.exit49.thread, %strview_case_eq.exit49
-  %.5 = phi i8 [ %.458, %strview_case_eq.exit49 ], [ 0, %strview_case_eq.exit49.thread ]
-  %58 = load ptr, ptr %.161, align 8
-  %.not34 = icmp eq ptr %58, null
-  br i1 %.not34, label %.loopexit, label %.lr.ph62
+.critedge._crit_edge:                             ; preds = %.critedge
+  br i1 %.457.ph, label %agxbuse.exit, label %.thread
 
-.loopexit:                                        ; preds = %57, %.loopexit53
-  %.3 = phi i8 [ %.029, %.loopexit53 ], [ %.5, %57 ]
-  %59 = trunc nuw i8 %.3 to i1
-  br i1 %59, label %agxbuse.exit, label %agxbsizeof.exit.i.i
-
-agxbsizeof.exit.i.i:                              ; preds = %.lr.ph.split.us, %.loopexit
+.thread:                                          ; preds = %strview_case_eq.exit.thread.thread, %.critedge.thread, %.lr.ph.split.us, %._crit_edge, %.critedge._crit_edge
   %.val.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
-  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 16), align 8
-  %62 = zext i8 %.val.i.i.i to i64
-  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %60, i64 %62
-  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %61, i64 31
+  %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
+  %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 16), align 8
+  %60 = zext i8 %.val.i.i.i to i64
+  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %58, i64 %60
+  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %59, i64 31
   %.not.i.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
-  br i1 %.not.i.i, label %64, label %63
+  br i1 %.not.i.i, label %62, label %61
 
-63:                                               ; preds = %agxbsizeof.exit.i.i
+61:                                               ; preds = %.thread
   tail call fastcc void @agxbmore(ptr noundef nonnull @gvplugin_list.xb, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
-  br label %64
+  br label %62
 
-64:                                               ; preds = %63, %agxbsizeof.exit.i.i
-  %.val.i15.i.i = phi i8 [ %.val.i15.pre.i.i, %63 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
+62:                                               ; preds = %61, %.thread
+  %.val.i15.i.i = phi i8 [ %.val.i15.pre.i.i, %61 ], [ %.val.i.i.i, %.thread ]
   %.not.i16.i.i = icmp eq i8 %.val.i15.i.i, -1
-  br i1 %.not.i16.i.i, label %70, label %65
+  br i1 %.not.i16.i.i, label %68, label %63
 
-65:                                               ; preds = %64
-  %66 = zext i8 %.val.i15.i.i to i64
-  %67 = getelementptr inbounds nuw [31 x i8], ptr @gvplugin_list.xb, i64 0, i64 %66
-  store i8 0, ptr %67, align 1
-  %68 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
-  %69 = add i8 %68, 1
-  store i8 %69, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
+63:                                               ; preds = %62
+  %64 = zext i8 %.val.i15.i.i to i64
+  %65 = getelementptr inbounds nuw [31 x i8], ptr @gvplugin_list.xb, i64 0, i64 %64
+  store i8 0, ptr %65, align 1
+  %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
+  %67 = add i8 %66, 1
+  store i8 %67, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
   br label %agxbputc.exit.i
 
-70:                                               ; preds = %64
-  %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
-  %72 = load ptr, ptr @gvplugin_list.xb, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 %71
-  store i8 0, ptr %73, align 1
-  %74 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
-  %75 = add i64 %74, 1
-  store i64 %75, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
+68:                                               ; preds = %62
+  %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
+  %70 = load ptr, ptr @gvplugin_list.xb, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 %69
+  store i8 0, ptr %71, align 1
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
+  %73 = add i64 %72, 1
+  store i64 %73, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
   %.val.i.pr.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
   br label %agxbputc.exit.i
 
-agxbputc.exit.i:                                  ; preds = %70, %65
-  %.val.i4.pr.i = phi i8 [ %69, %65 ], [ %.val.i.pr.i, %70 ]
+agxbputc.exit.i:                                  ; preds = %68, %63
+  %.val.i4.pr.i = phi i8 [ %67, %63 ], [ %.val.i.pr.i, %68 ]
   %.not.i3.i = icmp eq i8 %.val.i4.pr.i, -1
-  br i1 %.not.i3.i, label %76, label %agxbclear.exit.thread.i
+  br i1 %.not.i3.i, label %74, label %agxbclear.exit.thread.i
 
 agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 31), align 1
   br label %agxbuse.exit
 
-76:                                               ; preds = %agxbputc.exit.i
+74:                                               ; preds = %agxbputc.exit.i
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @gvplugin_list.xb, i64 8), align 8
-  %77 = load ptr, ptr @gvplugin_list.xb, align 8
+  %75 = load ptr, ptr @gvplugin_list.xb, align 8
   br label %agxbuse.exit
 
-agxbuse.exit:                                     ; preds = %76, %agxbclear.exit.thread.i, %.loopexit, %3
-  %.0 = phi ptr [ null, %3 ], [ @.str.18, %.loopexit ], [ %77, %76 ], [ @gvplugin_list.xb, %agxbclear.exit.thread.i ]
+agxbuse.exit:                                     ; preds = %.preheader, %.critedge.preheader, %74, %agxbclear.exit.thread.i, %.critedge._crit_edge, %3
+  %.0 = phi ptr [ null, %3 ], [ @.str.18, %.critedge._crit_edge ], [ %75, %74 ], [ @gvplugin_list.xb, %agxbclear.exit.thread.i ], [ @.str.18, %.critedge.preheader ], [ @.str.18, %.preheader ]
   ret ptr %.0
 }
 

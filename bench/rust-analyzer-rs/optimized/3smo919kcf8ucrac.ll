@@ -127,35 +127,31 @@ default.unreachable1:                             ; preds = %3
 
 18:                                               ; preds = %16
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.4d878089b33fec223f1b5b6594b13d0d.9.llvm.1648072262051207133, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4d878089b33fec223f1b5b6594b13d0d.11.llvm.1648072262051207133) #17
-          to label %21 unwind label %19, !noalias !19
+          to label %19 unwind label %20, !noalias !19
 
 19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %.not1.i.i = icmp eq i64 %17, 0
-  br i1 %.not1.i.i, label %22, label %"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit.i.i"
-
-21:                                               ; preds = %18
   unreachable
 
-"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit.i.i": ; preds = %22, %19
-  resume { ptr, i32 } %20
+"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit.i.i": ; preds = %20
+  resume { ptr, i32 } %21
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E.llvm.1648072262051207133"(ptr noalias noundef nonnull align 8 dereferenceable(200) %23)
-          to label %"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit.i.i" unwind label %24, !noalias !17
+20:                                               ; preds = %18
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E.llvm.1648072262051207133"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
+          to label %"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit.i.i" unwind label %23, !noalias !17
 
-24:                                               ; preds = %22
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18, !noalias !17
   unreachable
 
 "_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h6b169a7b76095479E.llvm.1648072262051207133.exit.i": ; preds = %16
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4), !noalias !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 8 dereferenceable(200) %26, i64 200, i1 false), !alias.scope !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull readonly align 8 dereferenceable(200) %25, i64 200, i1 false), !alias.scope !12
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7645ca5bb48459fdE.llvm.1648072262051207133.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7645ca5bb48459fdE.llvm.1648072262051207133.exit": ; preds = %15, %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h6b169a7b76095479E.llvm.1648072262051207133.exit.i"
@@ -167,38 +163,34 @@ default.unreachable1:                             ; preds = %3
 define hidden void @"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h6b169a7b76095479E.llvm.1648072262051207133"(ptr noalias noundef writeonly sret({ { i64, [24 x i64] } }) align 8 captures(none) dereferenceable(200) %0, ptr noalias noundef align 8 captures(none) dereferenceable(208) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !16, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
-  br i1 %trunc, label %12, label %4
+  br i1 %trunc, label %11, label %4
 
 4:                                                ; preds = %2
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.4d878089b33fec223f1b5b6594b13d0d.9.llvm.1648072262051207133, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4d878089b33fec223f1b5b6594b13d0d.11.llvm.1648072262051207133) #17
-          to label %7 unwind label %5
+          to label %5 unwind label %6
 
 5:                                                ; preds = %4
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  %.not1 = icmp eq i64 %3, 0
-  br i1 %.not1, label %8, label %"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit"
-
-7:                                                ; preds = %4
   unreachable
 
-"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit": ; preds = %8, %5
-  resume { ptr, i32 } %6
+"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit": ; preds = %6
+  resume { ptr, i32 } %7
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E.llvm.1648072262051207133"(ptr noalias noundef nonnull align 8 dereferenceable(200) %9)
-          to label %"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit" unwind label %10
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
+          cleanup
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E.llvm.1648072262051207133"(ptr noalias noundef nonnull align 8 dereferenceable(200) %8)
+          to label %"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit" unwind label %9
 
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %6
+  %10 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %13, i64 200, i1 false)
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %12, i64 200, i1 false)
   ret void
 }
 
@@ -1629,7 +1621,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7645ca5bb484
 
 6:                                                ; preds = %2
   store i64 -9223372036854775804, ptr %0, align 8
-  br label %18
+  br label %17
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3)
@@ -1641,38 +1633,34 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7645ca5bb484
 
 9:                                                ; preds = %7
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.4d878089b33fec223f1b5b6594b13d0d.9.llvm.1648072262051207133, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4d878089b33fec223f1b5b6594b13d0d.11.llvm.1648072262051207133) #17
-          to label %12 unwind label %10, !noalias !97
+          to label %10 unwind label %11, !noalias !97
 
 10:                                               ; preds = %9
-  %11 = landingpad { ptr, i32 }
-          cleanup
-  %.not1.i = icmp eq i64 %8, 0
-  br i1 %.not1.i, label %13, label %"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit.i"
-
-12:                                               ; preds = %9
   unreachable
 
-"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit.i": ; preds = %13, %10
-  resume { ptr, i32 } %11
+"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit.i": ; preds = %11
+  resume { ptr, i32 } %12
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E.llvm.1648072262051207133"(ptr noalias noundef nonnull align 8 dereferenceable(200) %14)
-          to label %"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit.i" unwind label %15, !noalias !95
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$lsp_server..msg..Message$GT$17hfa2339163a28b826E.llvm.1648072262051207133"(ptr noalias noundef nonnull align 8 dereferenceable(200) %13)
+          to label %"_ZN4core3ptr93drop_in_place$LT$crossbeam_channel..err..SendTimeoutError$LT$lsp_server..msg..Message$GT$$GT$17h21618d0eebfa9246E.llvm.1648072262051207133.exit.i" unwind label %14, !noalias !95
 
-15:                                               ; preds = %13
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18, !noalias !95
   unreachable
 
 "_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h6b169a7b76095479E.llvm.1648072262051207133.exit": ; preds = %7
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %3)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %17, i64 200, i1 false)
-  br label %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(200) %16, i64 200, i1 false)
+  br label %17
 
-18:                                               ; preds = %6, %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h6b169a7b76095479E.llvm.1648072262051207133.exit"
+17:                                               ; preds = %6, %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17h6b169a7b76095479E.llvm.1648072262051207133.exit"
   ret void
 }
 

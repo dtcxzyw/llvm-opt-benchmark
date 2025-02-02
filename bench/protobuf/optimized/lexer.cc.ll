@@ -1286,7 +1286,7 @@ invoke.cont131.i:                                 ; preds = %nrvo.unused124.i
 
 cleanup133.i:                                     ; preds = %if.else63.i, %invoke.cont131.i, %cleanup122.i, %cleanup102.i, %cleanup82.i
   %switch16.i = phi i1 [ true, %invoke.cont131.i ], [ false, %cleanup82.i ], [ false, %cleanup102.i ], [ false, %cleanup122.i ], [ false, %if.else63.i ]
-  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont131.i ], [ %has_comma.0.i, %cleanup82.i ], [ %has_comma.0.i, %cleanup102.i ], [ %has_comma.0.i, %cleanup122.i ], [ %has_comma.0.i, %if.else63.i ]
+  %has_comma.1.i = phi i8 [ %frombool.i, %invoke.cont131.i ], [ 1, %cleanup82.i ], [ 1, %cleanup102.i ], [ 1, %cleanup122.i ], [ 1, %if.else63.i ]
   %44 = load i64, ptr %key.i, align 8
   %cmp.i.i.i.i82 = icmp eq i64 %44, 0
   br i1 %cmp.i.i.i.i82, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i88, label %if.else.i.i83

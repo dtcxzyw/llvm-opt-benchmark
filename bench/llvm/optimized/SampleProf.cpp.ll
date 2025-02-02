@@ -629,7 +629,7 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   br label %_ZN4llvm10sampleprof12SampleRecord10addSamplesEmm.exit
 
 _ZN4llvm10sampleprof12SampleRecord10addSamplesEmm.exit: ; preds = %15, %16, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i, %.else.i.i
-  %.1.shrunk.i = phi i32 [ 10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i ], [ %26, %.else.i.i ], [ 10, %15 ], [ 10, %16 ]
+  %.1.i = phi i32 [ 10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i ], [ %26, %.else.i.i ], [ 10, %15 ], [ 10, %16 ]
   %.0.i.i = phi i64 [ -1, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i ], [ %spec.select.i.i.i, %.else.i.i ], [ -1, %15 ], [ -1, %16 ]
   store i64 %.0.i.i, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -644,7 +644,7 @@ _ZN4llvm10sampleprof12SampleRecord10addSamplesEmm.exit: ; preds = %15, %16, %_ZN
 
 30:                                               ; preds = %.lr.ph, %_ZN4llvm10sampleprof12SampleRecord15addCalledTargetENS0_10FunctionIdEmm.exit
   %.sroa.016.023 = phi ptr [ %.sroa.016.020, %.lr.ph ], [ %.sroa.016.0, %_ZN4llvm10sampleprof12SampleRecord15addCalledTargetENS0_10FunctionIdEmm.exit ]
-  %.022 = phi i32 [ %.1.shrunk.i, %.lr.ph ], [ %spec.select, %_ZN4llvm10sampleprof12SampleRecord15addCalledTargetENS0_10FunctionIdEmm.exit ]
+  %.022 = phi i32 [ %.1.i, %.lr.ph ], [ %spec.select, %_ZN4llvm10sampleprof12SampleRecord15addCalledTargetENS0_10FunctionIdEmm.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.016.023, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %31, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.016.023, i64 16
@@ -696,20 +696,20 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   br label %_ZN4llvm10sampleprof12SampleRecord15addCalledTargetENS0_10FunctionIdEmm.exit
 
 _ZN4llvm10sampleprof12SampleRecord15addCalledTargetENS0_10FunctionIdEmm.exit: ; preds = %42, %43, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i13, %.else.i.i14
-  %.1.shrunk.i9 = phi i32 [ 10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i13 ], [ %53, %.else.i.i14 ], [ 10, %42 ], [ 10, %43 ]
+  %.1.i9 = phi i32 [ 10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i13 ], [ %53, %.else.i.i14 ], [ 10, %42 ], [ 10, %43 ]
   %.0.i.i10 = phi i64 [ -1, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i13 ], [ %spec.select.i.i.i15, %.else.i.i14 ], [ -1, %42 ], [ -1, %43 ]
   store i64 %.0.i.i10, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %54 = icmp eq i32 %.022, 0
-  %55 = icmp ne i32 %.1.shrunk.i9, 0
+  %55 = icmp ne i32 %.1.i9, 0
   %or.cond.i = and i1 %54, %55
-  %spec.select = select i1 %or.cond.i, i32 %.1.shrunk.i9, i32 %.022
+  %spec.select = select i1 %or.cond.i, i32 %.1.i9, i32 %.022
   %.sroa.016.0 = load ptr, ptr %.sroa.016.023, align 8
   %.not = icmp eq ptr %.sroa.016.0, null
   br i1 %.not, label %._crit_edge, label %30
 
 ._crit_edge:                                      ; preds = %_ZN4llvm10sampleprof12SampleRecord15addCalledTargetENS0_10FunctionIdEmm.exit, %_ZN4llvm10sampleprof12SampleRecord10addSamplesEmm.exit
-  %.0.lcssa = phi i32 [ %.1.shrunk.i, %_ZN4llvm10sampleprof12SampleRecord10addSamplesEmm.exit ], [ %spec.select, %_ZN4llvm10sampleprof12SampleRecord15addCalledTargetENS0_10FunctionIdEmm.exit ]
+  %.0.lcssa = phi i32 [ %.1.i, %_ZN4llvm10sampleprof12SampleRecord10addSamplesEmm.exit ], [ %spec.select, %_ZN4llvm10sampleprof12SampleRecord15addCalledTargetENS0_10FunctionIdEmm.exit ]
   ret i32 %.0.lcssa
 }
 
@@ -5575,12 +5575,12 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   br label %_ZN4llvm10sampleprof15FunctionSamples14addHeadSamplesEmm.exit
 
 _ZN4llvm10sampleprof15FunctionSamples14addHeadSamplesEmm.exit: ; preds = %57, %58, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i36, %.else.i.i37
-  %.1.shrunk.i32 = phi i32 [ 10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i36 ], [ %68, %.else.i.i37 ], [ 10, %57 ], [ 10, %58 ]
+  %.1.i32 = phi i32 [ 10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i36 ], [ %68, %.else.i.i37 ], [ 10, %57 ], [ 10, %58 ]
   %.0.i.i33 = phi i64 [ -1, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.i.i36 ], [ %spec.select.i.i.i39, %.else.i.i37 ], [ -1, %57 ], [ -1, %58 ]
   store i64 %.0.i.i33, ptr %49, align 8
-  %69 = icmp ne i32 %.1.shrunk.i32, 0
+  %69 = icmp ne i32 %.1.i32, 0
   %or.cond.i40 = and i1 %46, %69
-  %spec.select = select i1 %or.cond.i40, i32 %.1.shrunk.i32, i32 %.3
+  %spec.select = select i1 %or.cond.i40, i32 %.1.i32, i32 %.3
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 80

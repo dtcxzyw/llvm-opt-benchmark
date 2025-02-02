@@ -2490,22 +2490,22 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
   invoke void @_ZN5alloc6string6String4push17h7fe2e37fa72da61fE(ptr nonnull align 8 %9, i32 40)
           to label %10 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %117, %94
-  %.pn = phi { ptr, i32 } [ %95, %94 ], [ %118, %117 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %116, %93
+  %.pn = phi { ptr, i32 } [ %94, %93 ], [ %117, %116 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %9) #11
-          to label %121 unwind label %97
+          to label %120 unwind label %96
 
-.loopexit:                                        ; preds = %.backedge, %79, %80, %89, %90, %96
+.loopexit:                                        ; preds = %.backedge, %78, %79, %88, %89, %95
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %120, %119, %113, %112, %100, %99, %.backedge29
+.loopexit.split-lp.loopexit:                      ; preds = %119, %118, %112, %111, %99, %98, %.backedge29
   %lpad.loopexit26 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %73, %72, %71, %70, %53, %52, %47, %42, %41, %40, %12, %11, %4
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %72, %71, %70, %69, %53, %52, %47, %42, %41, %40, %12, %11, %4
   %lpad.loopexit.split-lp27 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2541,7 +2541,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
   br label %.backedge29
 
 .backedge29:                                      ; preds = %.backedge29.backedge, %13
-  %.sroa.017.0 = phi i8 [ %14, %13 ], [ %.sroa.017.6, %.backedge29.backedge ]
+  %.sroa.017.0 = phi i8 [ %14, %13 ], [ 0, %.backedge29.backedge ]
   %24 = invoke { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3af6945cdee7806cE"(ptr nonnull align 8 %8)
           to label %25 unwind label %.loopexit.split-lp.loopexit
 
@@ -2559,7 +2559,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
 
 32:                                               ; preds = %25
   %33 = trunc nuw i8 %.sroa.017.0 to i1
-  br i1 %33, label %100, label %99
+  br i1 %33, label %99, label %98
 
 34:                                               ; preds = %29
   %35 = trunc nuw i8 %.sroa.017.0 to i1
@@ -2576,7 +2576,6 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
           to label %41 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 41:                                               ; preds = %34, %40
-  %.sroa.017.2 = phi i8 [ %.sroa.017.0, %40 ], [ 0, %34 ]
   invoke void @_ZN5alloc6string6String4push17h7fe2e37fa72da61fE(ptr nonnull align 8 %9, i32 42)
           to label %42 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -2589,7 +2588,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
           to label %47 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 47:                                               ; preds = %53, %42, %36
-  %.sroa.017.1 = phi i8 [ %.sroa.017.2, %42 ], [ %.sroa.017.0, %36 ], [ %.sroa.017.3, %53 ]
+  %.sroa.017.1 = phi i8 [ 0, %42 ], [ %.sroa.017.0, %36 ], [ 0, %53 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %49 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h99ddd54e2e38fb38E"(ptr nonnull align 8 %48)
           to label %54 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -2603,7 +2602,6 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
           to label %53 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 53:                                               ; preds = %50, %52
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0, %52 ], [ 0, %50 ]
   invoke void @_ZN5alloc6string6String4push17h7fe2e37fa72da61fE(ptr nonnull align 8 %9, i32 42)
           to label %47 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -2613,167 +2611,164 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
   store ptr %55, ptr %6, align 8
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %58 = trunc nuw i8 %.sroa.017.1 to i1
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %54
-  %.sroa.017.4 = phi i8 [ %.sroa.017.1, %54 ], [ %.sroa.017.5, %.backedge.backedge ]
-  %60 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h158d5dc8664fe331E"(ptr nonnull align 8 %6)
-          to label %61 unwind label %.loopexit
+  %.sroa.017.4 = phi i1 [ %58, %54 ], [ false, %.backedge.backedge ]
+  %61 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h158d5dc8664fe331E"(ptr nonnull align 8 %6)
+          to label %62 unwind label %.loopexit
 
-61:                                               ; preds = %.backedge
-  %62 = icmp eq ptr %60, null
-  br i1 %62, label %63, label %66
+62:                                               ; preds = %.backedge
+  %63 = icmp eq ptr %61, null
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %65 = load i64, ptr %64, align 8
-  %.not24 = icmp eq i64 %65, -9223372036854775808
-  br i1 %.not24, label %70, label %68
+64:                                               ; preds = %62
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %66 = load i64, ptr %65, align 8
+  %.not24 = icmp eq i64 %66, -9223372036854775808
+  br i1 %.not24, label %69, label %68
 
-66:                                               ; preds = %61
-  %67 = trunc nuw i8 %.sroa.017.4 to i1
-  br i1 %67, label %80, label %79
+67:                                               ; preds = %62
+  br i1 %.sroa.017.4, label %79, label %78
 
-68:                                               ; preds = %63
-  %69 = trunc nuw i8 %.sroa.017.4 to i1
-  br i1 %69, label %72, label %71
+68:                                               ; preds = %64
+  br i1 %.sroa.017.4, label %71, label %70
 
-70:                                               ; preds = %73, %63
+69:                                               ; preds = %72, %64
   invoke void @_ZN5alloc6string6String4push17h7fe2e37fa72da61fE(ptr nonnull align 8 %9, i32 41)
-          to label %78 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-71:                                               ; preds = %68
+70:                                               ; preds = %68
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr nonnull align 1 @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.33, i64 2)
+          to label %71 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+71:                                               ; preds = %68, %70
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr nonnull align 1 @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.34, i64 2)
           to label %72 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-72:                                               ; preds = %68, %71
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr nonnull align 1 @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.34, i64 2)
-          to label %73 unwind label %.loopexit.split-lp.loopexit.split-lp
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %76 = load i64, ptr %75, align 8
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr align 1 %74, i64 %76)
+          to label %69 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-73:                                               ; preds = %72
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %77 = load i64, ptr %76, align 8
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr align 1 %75, i64 %77)
-          to label %70 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-78:                                               ; preds = %70
+77:                                               ; preds = %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   ret void
 
-79:                                               ; preds = %66
+78:                                               ; preds = %67
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr nonnull align 1 @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.33, i64 2)
-          to label %80 unwind label %.loopexit
+          to label %79 unwind label %.loopexit
 
-80:                                               ; preds = %66, %79
-  %.sroa.017.5 = phi i8 [ %.sroa.017.4, %79 ], [ 0, %66 ]
-  %81 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %84 = load i64, ptr %83, align 8
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr align 1 %82, i64 %84)
-          to label %85 unwind label %.loopexit
+79:                                               ; preds = %67, %78
+  %80 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %83 = load i64, ptr %82, align 8
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr align 1 %81, i64 %83)
+          to label %84 unwind label %.loopexit
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %87 = load i8, ptr %86, align 8
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %.backedge.backedge, label %89
+84:                                               ; preds = %79
+  %85 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %86 = load i8, ptr %85, align 8
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %.backedge.backedge, label %88
 
-.backedge.backedge:                               ; preds = %85, %96
+.backedge.backedge:                               ; preds = %84, %95
   br label %.backedge
 
-89:                                               ; preds = %85
+88:                                               ; preds = %84
   invoke void @_ZN5alloc6string6String4push17h7fe2e37fa72da61fE(ptr nonnull align 8 %9, i32 61)
+          to label %89 unwind label %.loopexit
+
+89:                                               ; preds = %88
+  invoke fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter17hd3e4905c3d4b8377E(ptr noalias align 8 %5, ptr align 8 %1, ptr align 1 %81, i64 %83)
           to label %90 unwind label %.loopexit
 
 90:                                               ; preds = %89
-  invoke fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter17hd3e4905c3d4b8377E(ptr noalias align 8 %5, ptr align 8 %1, ptr align 1 %82, i64 %84)
-          to label %91 unwind label %.loopexit
+  %91 = load ptr, ptr %59, align 8
+  %92 = load i64, ptr %60, align 8
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr align 1 %91, i64 %92)
+          to label %95 unwind label %93
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %58, align 8
-  %93 = load i64, ptr %59, align 8
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr align 1 %92, i64 %93)
-          to label %96 unwind label %94
-
-94:                                               ; preds = %91
-  %95 = landingpad { ptr, i32 }
+93:                                               ; preds = %90
+  %94 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %5) #11
-          to label %.loopexit.split-lp unwind label %97
+          to label %.loopexit.split-lp unwind label %96
 
-96:                                               ; preds = %91
+95:                                               ; preds = %90
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %5)
           to label %.backedge.backedge unwind label %.loopexit
 
-97:                                               ; preds = %117, %94, %.loopexit.split-lp
-  %98 = landingpad { ptr, i32 }
+96:                                               ; preds = %116, %93, %.loopexit.split-lp
+  %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-99:                                               ; preds = %32
+98:                                               ; preds = %32
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr nonnull align 1 @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.33, i64 2)
-          to label %100 unwind label %.loopexit.split-lp.loopexit
+          to label %99 unwind label %.loopexit.split-lp.loopexit
 
-100:                                              ; preds = %32, %99
-  %.sroa.017.6 = phi i8 [ %.sroa.017.0, %99 ], [ 0, %32 ]
-  %101 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %104 = load i64, ptr %103, align 8
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr align 1 %102, i64 %104)
-          to label %105 unwind label %.loopexit.split-lp.loopexit
+99:                                               ; preds = %32, %98
+  %100 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %103 = load i64, ptr %102, align 8
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr align 1 %101, i64 %103)
+          to label %104 unwind label %.loopexit.split-lp.loopexit
 
-105:                                              ; preds = %100
-  %106 = load i64, ptr %20, align 8
-  %.not = icmp ult i64 %26, %106
-  br i1 %.not, label %107, label %112
+104:                                              ; preds = %99
+  %105 = load i64, ptr %20, align 8
+  %.not = icmp ult i64 %26, %105
+  br i1 %.not, label %106, label %111
 
-107:                                              ; preds = %119, %105
-  %108 = load i64, ptr %23, align 8
-  %109 = icmp ne i64 %108, 0
-  %110 = add i64 %26, 1
-  %111 = icmp eq i64 %110, %108
-  %or.cond = select i1 %109, i1 %111, i1 false
-  br i1 %or.cond, label %120, label %.backedge29.backedge
+106:                                              ; preds = %118, %104
+  %107 = load i64, ptr %23, align 8
+  %108 = icmp ne i64 %107, 0
+  %109 = add i64 %26, 1
+  %110 = icmp eq i64 %109, %107
+  %or.cond = select i1 %108, i1 %110, i1 false
+  br i1 %or.cond, label %119, label %.backedge29.backedge
 
-.backedge29.backedge:                             ; preds = %107, %120
+.backedge29.backedge:                             ; preds = %106, %119
   br label %.backedge29
 
-112:                                              ; preds = %105
+111:                                              ; preds = %104
   invoke void @_ZN5alloc6string6String4push17h7fe2e37fa72da61fE(ptr nonnull align 8 %9, i32 61)
+          to label %112 unwind label %.loopexit.split-lp.loopexit
+
+112:                                              ; preds = %111
+  invoke fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter17hd3e4905c3d4b8377E(ptr noalias align 8 %7, ptr nonnull align 8 %1, ptr align 1 %101, i64 %103)
           to label %113 unwind label %.loopexit.split-lp.loopexit
 
 113:                                              ; preds = %112
-  invoke fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSignature27default_value_for_parameter17hd3e4905c3d4b8377E(ptr noalias align 8 %7, ptr nonnull align 8 %1, ptr align 1 %102, i64 %104)
-          to label %114 unwind label %.loopexit.split-lp.loopexit
+  %114 = load ptr, ptr %21, align 8
+  %115 = load i64, ptr %22, align 8
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr align 1 %114, i64 %115)
+          to label %118 unwind label %116
 
-114:                                              ; preds = %113
-  %115 = load ptr, ptr %21, align 8
-  %116 = load i64, ptr %22, align 8
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr align 1 %115, i64 %116)
-          to label %119 unwind label %117
-
-117:                                              ; preds = %114
-  %118 = landingpad { ptr, i32 }
+116:                                              ; preds = %113
+  %117 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %7) #11
-          to label %.loopexit.split-lp unwind label %97
+          to label %.loopexit.split-lp unwind label %96
 
-119:                                              ; preds = %114
+118:                                              ; preds = %113
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %7)
-          to label %107 unwind label %.loopexit.split-lp.loopexit
+          to label %106 unwind label %.loopexit.split-lp.loopexit
 
-120:                                              ; preds = %107
+119:                                              ; preds = %106
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he9689333b103370fE"(ptr nonnull align 8 %9, ptr nonnull align 1 @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.35, i64 3)
           to label %.backedge29.backedge unwind label %.loopexit.split-lp.loopexit
 
-121:                                              ; preds = %.loopexit.split-lp
+120:                                              ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %.pn
 }
 

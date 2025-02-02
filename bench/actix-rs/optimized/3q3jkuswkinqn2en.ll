@@ -1315,10 +1315,10 @@ define hidden void @"_ZN11actix_files7chunked26chunked_read_file_callback28_$u7b
   %13 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h3fa6cbe2a5069b81E"(i64 noundef %12, i1 noundef zeroext false)
           to label %16 unwind label %14
 
-14:                                               ; preds = %2, %48, %64
+14:                                               ; preds = %64, %48, %2
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread41
+  br label %78
 
 16:                                               ; preds = %2
   %17 = extractvalue { i64, ptr } %13, 0
@@ -1451,7 +1451,7 @@ define hidden void @"_ZN11actix_files7chunked26chunked_read_file_callback28_$u7b
   %61 = call noundef i32 @close(i32 noundef %60), !noalias !236
   br label %58
 
-62:                                               ; preds = %.thread41, %44, %76
+62:                                               ; preds = %78, %44, %76
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22
@@ -1496,17 +1496,17 @@ define hidden void @"_ZN11actix_files7chunked26chunked_read_file_callback28_$u7b
   %77 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h42a39f983fab9bf7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #24
-          to label %.thread41 unwind label %62
+          to label %78 unwind label %62
 
-"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit31": ; preds = %44, %.thread41
-  %.pn2044 = phi { ptr, i32 } [ %.pn2045, %.thread41 ], [ %45, %44 ]
-  resume { ptr, i32 } %.pn2044
+"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit31": ; preds = %78, %44
+  %.pn2035 = phi { ptr, i32 } [ %45, %44 ], [ %.pn20.ph, %78 ]
+  resume { ptr, i32 } %.pn2035
 
-.thread41:                                        ; preds = %76, %14
-  %.pn2045 = phi { ptr, i32 } [ %15, %14 ], [ %77, %76 ]
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %79 = load i32, ptr %78, align 8, !alias.scope !263, !noundef !4
-  %80 = invoke noundef i32 @close(i32 noundef %79)
+78:                                               ; preds = %14, %76
+  %.pn20.ph = phi { ptr, i32 } [ %77, %76 ], [ %15, %14 ]
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %80 = load i32, ptr %79, align 8, !alias.scope !263, !noundef !4
+  %81 = invoke noundef i32 @close(i32 noundef %80)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit31" unwind label %62
 }
 

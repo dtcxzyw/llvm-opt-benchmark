@@ -34,299 +34,297 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
   %15 = alloca [24 x i8], align 8
   %16 = alloca [16 x i8], align 8
   invoke void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h60237452811f2b87E"(ptr nonnull sret([24 x i8]) align 8 %15, ptr align 8 %2)
-          to label %21 unwind label %19
+          to label %18 unwind label %.thread42
 
-17:                                               ; preds = %38, %19
-  %.sroa.012.1 = phi i8 [ %.sroa.012.0, %19 ], [ %.sroa.012.2, %38 ]
-  %.pn31 = phi { ptr, i32 } [ %20, %19 ], [ %.pn29, %38 ]
-  %18 = trunc nuw i8 %.sroa.012.1 to i1
-  br i1 %18, label %.thread, label %135
+17:                                               ; preds = %35
+  br i1 %.sroa.012.2, label %.thread, label %130
 
-19:                                               ; preds = %132, %106, %66, %4
-  %.sroa.012.0 = phi i8 [ 1, %66 ], [ 0, %106 ], [ 1, %132 ], [ 1, %4 ]
-  %20 = landingpad { ptr, i32 }
+.thread42:                                        ; preds = %63, %127, %4
+  %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %17
+  br label %.thread
 
-21:                                               ; preds = %4
-  %22 = load i64, ptr %15, align 8
-  %23 = icmp eq i64 %22, -9223372036854775808
-  br i1 %23, label %24, label %37
+18:                                               ; preds = %4
+  %19 = load i64, ptr %15, align 8
+  %20 = icmp eq i64 %19, -9223372036854775808
+  br i1 %20, label %21, label %34
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store i64 %23, ptr %16, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %25, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
-  store i64 %26, ptr %16, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds { { { [16 x i8], i8, [7 x i8] }, { {} } }, { { { i64, ptr, {} }, i64 } } }, ptr %31, i64 %33
-  store ptr %31, ptr %12, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %34, ptr %35, align 8
-  %36 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hef5d46fe7eea2844E"(ptr nonnull align 8 %12, ptr align 8 %1)
-          to label %41 unwind label %39
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load i64, ptr %29, align 8
+  %31 = getelementptr inbounds { { { [16 x i8], i8, [7 x i8] }, { {} } }, { { { i64, ptr, {} }, i64 } } }, ptr %28, i64 %30
+  store ptr %28, ptr %12, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %31, ptr %32, align 8
+  %33 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hef5d46fe7eea2844E"(ptr nonnull align 8 %12, ptr align 8 %1)
+          to label %38 unwind label %36
 
-37:                                               ; preds = %21
+34:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   invoke void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h7c471973a8106e1aE"(ptr nonnull sret([24 x i8]) align 8 %13, ptr nonnull align 8 %14)
-          to label %126 unwind label %124
+          to label %121 unwind label %119
 
-38:                                               ; preds = %122, %77, %39
-  %.sroa.012.2 = phi i8 [ 1, %39 ], [ %.sroa.010.1, %122 ], [ %.sroa.010.1, %77 ]
-  %.pn29 = phi { ptr, i32 } [ %40, %39 ], [ %.pn27, %122 ], [ %.pn27, %77 ]
+35:                                               ; preds = %75, %117, %74, %36
+  %.sroa.012.2 = phi i1 [ true, %36 ], [ true, %117 ], [ false, %74 ], [ false, %75 ]
+  %.pn29 = phi { ptr, i32 } [ %37, %36 ], [ %.pn2745, %117 ], [ %.pn25, %74 ], [ %lpad.thr_comm.split-lp49, %75 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$logos_codegen..parser..definition..Literal$GT$17h4114305ab5e0b3e4E"(ptr nonnull align 8 %16) #4
-          to label %17 unwind label %110
+          to label %17 unwind label %105
 
-39:                                               ; preds = %64, %55, %47, %42, %24
-  %40 = landingpad { ptr, i32 }
+36:                                               ; preds = %61, %52, %44, %39, %21
+  %37 = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %35
 
-41:                                               ; preds = %24
-  %.not = icmp eq ptr %36, null
-  br i1 %.not, label %47, label %42
+38:                                               ; preds = %21
+  %.not = icmp eq ptr %33, null
+  br i1 %.not, label %44, label %39
 
-42:                                               ; preds = %41
+39:                                               ; preds = %38
   store ptr %1, ptr %9, align 8
   %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17hfff70eb83b071b40E", ptr %.sroa.218.0..sroa_idx, align 8
   store ptr @anon.aa30e0ffefef3d2e1254ff7d80e5cea3.1, ptr %10, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 2, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %9, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 1, ptr %46, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 2, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store ptr null, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %9, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 1, ptr %43, align 8
   invoke void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr nonnull sret([24 x i8]) align 8 %11, ptr nonnull align 8 %10)
-          to label %48 unwind label %39
+          to label %45 unwind label %36
 
-47:                                               ; preds = %41
+44:                                               ; preds = %38
   invoke void @_ZN13logos_codegen6parser10subpattern11Subpatterns3fix17h8026a46dd8237138E(ptr nonnull sret([24 x i8]) align 8 %8, ptr nonnull align 8 %0, ptr nonnull align 8 %16, ptr align 8 %3)
-          to label %68 unwind label %39
+          to label %65 unwind label %36
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = load i8, ptr %49, align 8
-  %51 = icmp eq i8 %50, 2
-  br i1 %51, label %52, label %55
+45:                                               ; preds = %39
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %47 = load i8, ptr %46, align 8
+  %48 = icmp eq i8 %47, 2
+  br i1 %48, label %49, label %52
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %54 = load i32, ptr %53, align 4
-  br label %55
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %51 = load i32, ptr %50, align 4
+  br label %52
 
-55:                                               ; preds = %48, %52
-  %.sroa.019.0 = phi i32 [ %54, %52 ], [ 0, %48 ]
-  %56 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %3, ptr nonnull align 8 %11, i32 %.sroa.019.0)
-          to label %57 unwind label %39
+52:                                               ; preds = %45, %49
+  %.sroa.019.0 = phi i32 [ %51, %49 ], [ 0, %45 ]
+  %53 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %3, ptr nonnull align 8 %11, i32 %.sroa.019.0)
+          to label %54 unwind label %36
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %59 = load i8, ptr %58, align 8
-  %60 = icmp eq i8 %59, 2
-  br i1 %60, label %61, label %64
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %56 = load i8, ptr %55, align 8
+  %57 = icmp eq i8 %56, 2
+  br i1 %57, label %58, label %61
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %63 = load i32, ptr %62, align 4
-  br label %64
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %60 = load i32, ptr %59, align 4
+  br label %61
 
-64:                                               ; preds = %57, %61
-  %.sroa.021.0 = phi i32 [ %63, %61 ], [ 0, %57 ]
-  %65 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr align 8 %56, ptr nonnull align 1 @anon.aa30e0ffefef3d2e1254ff7d80e5cea3.3, i64 24, i32 %.sroa.021.0)
-          to label %66 unwind label %39
+61:                                               ; preds = %54, %58
+  %.sroa.021.0 = phi i32 [ %60, %58 ], [ 0, %54 ]
+  %62 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr align 8 %53, ptr nonnull align 1 @anon.aa30e0ffefef3d2e1254ff7d80e5cea3.3, i64 24, i32 %.sroa.021.0)
+          to label %63 unwind label %36
 
-66:                                               ; preds = %64
+63:                                               ; preds = %61
   invoke void @"_ZN4core3ptr63drop_in_place$LT$logos_codegen..parser..definition..Literal$GT$17h4114305ab5e0b3e4E"(ptr nonnull align 8 %16)
-          to label %67 unwind label %19
+          to label %64 unwind label %.thread42
 
-67:                                               ; preds = %132, %66
+64:                                               ; preds = %127, %63
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr align 8 %1)
+  br label %112
+
+65:                                               ; preds = %44
+  %66 = load i64, ptr %16, align 8
+  %67 = icmp eq i64 %66, 0
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %71 = load i64, ptr %70, align 8
+  br i1 %67, label %72, label %73
+
+72:                                               ; preds = %65
+  invoke void @_ZN13logos_codegen3mir3Mir4utf817h7123064ffb0f56c6E(ptr nonnull sret([40 x i8]) align 8 %7, ptr align 1 %69, i64 %71)
+          to label %76 unwind label %.thread50
+
+73:                                               ; preds = %65
+  invoke void @_ZN13logos_codegen3mir3Mir6binary17h3900393240c4481cE(ptr nonnull sret([40 x i8]) align 8 %7, ptr align 1 %69, i64 %71)
+          to label %76 unwind label %.thread50
+
+74:                                               ; preds = %115, %114, %113
+  br i1 %.sroa.010.3, label %117, label %35
+
+.thread50:                                        ; preds = %72, %73
+  %lpad.thr_comm48 = landingpad { ptr, i32 }
+          cleanup
   br label %117
 
-68:                                               ; preds = %47
-  %69 = load i64, ptr %16, align 8
-  %70 = icmp eq i64 %69, 0
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %74 = load i64, ptr %73, align 8
-  br i1 %70, label %75, label %76
-
-75:                                               ; preds = %68
-  invoke void @_ZN13logos_codegen3mir3Mir4utf817h7123064ffb0f56c6E(ptr nonnull sret([40 x i8]) align 8 %7, ptr align 1 %72, i64 %74)
-          to label %81 unwind label %79
-
-76:                                               ; preds = %68
-  invoke void @_ZN13logos_codegen3mir3Mir6binary17h3900393240c4481cE(ptr nonnull sret([40 x i8]) align 8 %7, ptr align 1 %72, i64 %74)
-          to label %81 unwind label %79
-
-77:                                               ; preds = %120, %119, %118, %79
-  %.sroa.010.1 = phi i8 [ %.sroa.010.0, %79 ], [ %.sroa.010.3, %120 ], [ %.sroa.010.3, %118 ], [ %.sroa.010.3, %119 ]
-  %.pn27 = phi { ptr, i32 } [ %80, %79 ], [ %.pn25, %120 ], [ %.pn25, %118 ], [ %.pn25, %119 ]
-  %78 = trunc nuw i8 %.sroa.010.1 to i1
-  br i1 %78, label %122, label %38
-
-79:                                               ; preds = %115, %107, %76, %75
-  %.sroa.010.0 = phi i8 [ 0, %107 ], [ 0, %115 ], [ 1, %75 ], [ 1, %76 ]
-  %80 = landingpad { ptr, i32 }
+75:                                               ; preds = %110, %102
+  %lpad.thr_comm.split-lp49 = landingpad { ptr, i32 }
           cleanup
-  br label %77
+  br label %35
 
-81:                                               ; preds = %76, %75
-  %82 = load i64, ptr %7, align 8
-  %.not41 = icmp eq i64 %82, 9
-  br i1 %.not41, label %83, label %90
+76:                                               ; preds = %73, %72
+  %77 = load i64, ptr %7, align 8
+  %.not41 = icmp eq i64 %77, 9
+  br i1 %.not41, label %78, label %85
 
-83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %87 = load i64, ptr %86, align 8
-  store ptr %85, ptr %6, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %87, ptr %88, align 8
-  %89 = invoke i32 @_ZN13logos_codegen6parser10definition7Literal4span17h35d684fb5a0cd4deE(ptr nonnull align 8 %16)
-          to label %94 unwind label %108
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %82 = load i64, ptr %81, align 8
+  store ptr %80, ptr %6, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %82, ptr %83, align 8
+  %84 = invoke i32 @_ZN13logos_codegen6parser10definition7Literal4span17h35d684fb5a0cd4deE(ptr nonnull align 8 %16)
+          to label %89 unwind label %103
 
-90:                                               ; preds = %81
+85:                                               ; preds = %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcc6e36e1e2ae5332E"(ptr nonnull align 8 %0, ptr nonnull align 8 %5)
-          to label %112 unwind label %101
+          to label %107 unwind label %96
 
-92:                                               ; preds = %94
-  %93 = landingpad { ptr, i32 }
+87:                                               ; preds = %89
+  %88 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %93
 
-94:                                               ; preds = %83
-  %95 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17h2d4daec097848724E(ptr align 8 %3, ptr %85, i64 %87, i32 %89)
-          to label %96 unwind label %92
+89:                                               ; preds = %78
+  %90 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17h2d4daec097848724E(ptr align 8 %3, ptr %80, i64 %82, i32 %84)
+          to label %91 unwind label %87
 
-96:                                               ; preds = %94
+91:                                               ; preds = %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %97 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcc6e36e1e2ae5332E"(ptr nonnull align 8 %0, ptr nonnull align 8 %5)
-          to label %103 unwind label %101
+          to label %98 unwind label %96
 
-98:                                               ; preds = %92, %108, %101
-  %.sroa.010.3 = phi i8 [ 0, %101 ], [ 1, %108 ], [ 1, %92 ]
-  %.pn25 = phi { ptr, i32 } [ %102, %101 ], [ %109, %108 ], [ %93, %92 ]
+93:                                               ; preds = %87, %103, %96
+  %.sroa.010.3 = phi i1 [ false, %96 ], [ true, %103 ], [ true, %87 ]
+  %.pn25 = phi { ptr, i32 } [ %97, %96 ], [ %104, %103 ], [ %88, %87 ]
+  %94 = load i64, ptr %7, align 8
+  %95 = icmp eq i64 %94, 9
+  br i1 %95, label %113, label %114
+
+96:                                               ; preds = %91, %85
+  %97 = landingpad { ptr, i32 }
+          cleanup
+  br label %93
+
+98:                                               ; preds = %91
   %99 = load i64, ptr %7, align 8
   %100 = icmp eq i64 %99, 9
-  br i1 %100, label %118, label %119
+  br i1 %100, label %101, label %102
 
-101:                                              ; preds = %96, %90
-  %102 = landingpad { ptr, i32 }
-          cleanup
-  br label %98
+101:                                              ; preds = %110, %102, %98
+  call void @"_ZN4core3ptr63drop_in_place$LT$logos_codegen..parser..definition..Literal$GT$17h4114305ab5e0b3e4E"(ptr nonnull align 8 %16)
+  br label %112
 
-103:                                              ; preds = %96
-  %104 = load i64, ptr %7, align 8
-  %105 = icmp eq i64 %104, 9
-  br i1 %105, label %106, label %107
-
-106:                                              ; preds = %115, %107, %103
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$logos_codegen..parser..definition..Literal$GT$17h4114305ab5e0b3e4E"(ptr nonnull align 8 %16)
-          to label %117 unwind label %19
-
-107:                                              ; preds = %112, %103
+102:                                              ; preds = %107, %98
   invoke void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$logos_codegen..mir..Mir$C$logos_codegen..error..Error$GT$$GT$17hf40edb1dfbff0806E"(ptr nonnull align 8 %7)
-          to label %106 unwind label %79
+          to label %101 unwind label %75
 
-108:                                              ; preds = %83
-  %109 = landingpad { ptr, i32 }
+103:                                              ; preds = %78
+  %104 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$logos_codegen..error..Error$GT$17h8e70e92e873b44b9E"(ptr nonnull align 8 %6) #4
-          to label %98 unwind label %110
+          to label %93 unwind label %105
 
-110:                                              ; preds = %.thread, %133, %123, %122, %120, %119, %108, %38
-  %111 = landingpad { ptr, i32 }
+105:                                              ; preds = %.thread, %128, %118, %117, %115, %114, %103, %35
+  %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #5
   unreachable
 
-112:                                              ; preds = %90
-  %113 = load i64, ptr %7, align 8
-  %114 = icmp eq i64 %113, 9
-  br i1 %114, label %115, label %107
+107:                                              ; preds = %85
+  %108 = load i64, ptr %7, align 8
+  %109 = icmp eq i64 %108, 9
+  br i1 %109, label %110, label %102
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$logos_codegen..error..Error$GT$17h8e70e92e873b44b9E"(ptr nonnull align 8 %116)
-          to label %106 unwind label %79
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$logos_codegen..error..Error$GT$17h8e70e92e873b44b9E"(ptr nonnull align 8 %111)
+          to label %101 unwind label %75
 
-117:                                              ; preds = %106, %67
+112:                                              ; preds = %101, %64
   ret void
 
-118:                                              ; preds = %98
-  br i1 %.not41, label %77, label %120
+113:                                              ; preds = %93
+  br i1 %.not41, label %74, label %115
 
-119:                                              ; preds = %98
+114:                                              ; preds = %93
   invoke void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$logos_codegen..mir..Mir$C$logos_codegen..error..Error$GT$$GT$17hf40edb1dfbff0806E"(ptr nonnull align 8 %7) #4
-          to label %77 unwind label %110
+          to label %74 unwind label %105
 
-120:                                              ; preds = %118
-  %121 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$logos_codegen..error..Error$GT$17h8e70e92e873b44b9E"(ptr nonnull align 8 %121) #4
-          to label %77 unwind label %110
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$logos_codegen..error..Error$GT$17h8e70e92e873b44b9E"(ptr nonnull align 8 %116) #4
+          to label %74 unwind label %105
 
-122:                                              ; preds = %77
+117:                                              ; preds = %.thread50, %74
+  %.pn2745 = phi { ptr, i32 } [ %.pn25, %74 ], [ %lpad.thr_comm48, %.thread50 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %8) #4
-          to label %38 unwind label %110
+          to label %35 unwind label %105
 
-123:                                              ; preds = %128, %133, %124
-  %.pn = phi { ptr, i32 } [ %134, %133 ], [ %129, %128 ], [ %125, %124 ]
+118:                                              ; preds = %123, %128, %119
+  %.pn = phi { ptr, i32 } [ %129, %128 ], [ %124, %123 ], [ %120, %119 ]
   invoke void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17h1acaa9c64f8342d1E"(ptr nonnull align 8 %14) #4
-          to label %.thread unwind label %110
+          to label %.thread unwind label %105
 
-124:                                              ; preds = %37
-  %125 = landingpad { ptr, i32 }
+119:                                              ; preds = %34
+  %120 = landingpad { ptr, i32 }
           cleanup
-  br label %123
+  br label %118
 
-126:                                              ; preds = %37
-  %127 = invoke i32 @_ZN3syn5error5Error4span17h79abd0b262ff277fE(ptr nonnull align 8 %14)
-          to label %130 unwind label %133
+121:                                              ; preds = %34
+  %122 = invoke i32 @_ZN3syn5error5Error4span17h79abd0b262ff277fE(ptr nonnull align 8 %14)
+          to label %125 unwind label %128
 
-128:                                              ; preds = %130
+123:                                              ; preds = %125
+  %124 = landingpad { ptr, i32 }
+          cleanup
+  br label %118
+
+125:                                              ; preds = %121
+  %126 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %3, ptr nonnull align 8 %13, i32 %122)
+          to label %127 unwind label %123
+
+127:                                              ; preds = %125
+  invoke void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17h1acaa9c64f8342d1E"(ptr nonnull align 8 %14)
+          to label %64 unwind label %.thread42
+
+128:                                              ; preds = %121
   %129 = landingpad { ptr, i32 }
           cleanup
-  br label %123
-
-130:                                              ; preds = %126
-  %131 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hc24dc1b9f17beb8cE(ptr align 8 %3, ptr nonnull align 8 %13, i32 %127)
-          to label %132 unwind label %128
-
-132:                                              ; preds = %130
-  invoke void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17h1acaa9c64f8342d1E"(ptr nonnull align 8 %14)
-          to label %67 unwind label %19
-
-133:                                              ; preds = %126
-  %134 = landingpad { ptr, i32 }
-          cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %13) #4
-          to label %123 unwind label %110
+          to label %118 unwind label %105
 
-135:                                              ; preds = %.thread, %17
-  %.pn3135 = phi { ptr, i32 } [ %.pn3136, %.thread ], [ %.pn31, %17 ]
+130:                                              ; preds = %.thread, %17
+  %.pn3135 = phi { ptr, i32 } [ %.pn3136, %.thread ], [ %.pn29, %17 ]
   resume { ptr, i32 } %.pn3135
 
-.thread:                                          ; preds = %123, %17
-  %.pn3136 = phi { ptr, i32 } [ %.pn31, %17 ], [ %.pn, %123 ]
+.thread:                                          ; preds = %.thread42, %118, %17
+  %.pn3136 = phi { ptr, i32 } [ %.pn29, %17 ], [ %.pn, %118 ], [ %lpad.thr_comm, %.thread42 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr align 8 %1) #4
-          to label %135 unwind label %110
+          to label %130 unwind label %105
 }
 
 ; Function Attrs: nonlazybind uwtable

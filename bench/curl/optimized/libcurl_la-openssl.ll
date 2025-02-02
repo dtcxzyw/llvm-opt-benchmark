@@ -2584,7 +2584,7 @@ while.cond.preheader:                             ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end51
-  %dec42 = phi i32 [ 9, %while.cond.preheader ], [ %dec, %if.end51 ]
+  %dec41 = phi i32 [ 9, %while.cond.preheader ], [ %dec, %if.end51 ]
   %call8 = call i32 @Curl_conn_cf_get_socket(ptr noundef %cf, ptr noundef %data) #13
   %call9 = call i32 @Curl_socket_check(i32 noundef %call8, i32 noundef -1, i32 noundef -1, i64 noundef 10000) #13
   %cmp10 = icmp sgt i32 %call9, 0
@@ -2692,8 +2692,8 @@ if.else48:                                        ; preds = %if.else
   br label %while.end
 
 if.end51:                                         ; preds = %land.lhs.true, %if.then22
-  %dec = add nsw i32 %dec42, -1
-  %tobool7.not = icmp eq i32 %dec42, 0
+  %dec = add nsw i32 %dec41, -1
+  %tobool7.not = icmp eq i32 %dec41, 0
   br i1 %tobool7.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.then12, %if.then12, %if.end51, %if.then36, %land.lhs.true28, %if.else48, %if.then47, %cond.end

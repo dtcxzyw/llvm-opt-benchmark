@@ -333,7 +333,7 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
 163:                                              ; preds = %302, %ompi_datatype_copy_content_same_ddt.exit.i
   %.0199.i = phi i64 [ 0, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %297, %302 ]
   %.0192.i = phi i64 [ %44, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %296, %302 ]
-  %.0190.i = phi i64 [ 0, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %indvars.iv.next57.i, %302 ]
+  %.0190.i = phi i64 [ 0, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %indvars.iv.next59.i, %302 ]
   %.0188.i = phi i1 [ true, %ompi_datatype_copy_content_same_ddt.exit.i ], [ %.2.i, %302 ]
   %164 = load i32, ptr %149, align 8
   %165 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 288), align 8
@@ -345,30 +345,30 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
   %171 = getelementptr inbounds i8, ptr %167, i64 %170
   %172 = load volatile i32, ptr %171, align 4
   %173 = icmp eq i32 %172, 0
-  br i1 %173, label %.loopexit17.i, label %.preheader16.i
+  br i1 %173, label %.loopexit19.i, label %.preheader18.i
 
-174:                                              ; preds = %.preheader16.i
-  %175 = add nuw nsw i32 %.018731.i, 1
-  %exitcond50.not.i = icmp eq i32 %175, 100000
-  br i1 %exitcond50.not.i, label %178, label %.preheader16.i.backedge
+174:                                              ; preds = %.preheader18.i
+  %175 = add nuw nsw i32 %.018733.i, 1
+  %exitcond52.not.i = icmp eq i32 %175, 100000
+  br i1 %exitcond52.not.i, label %178, label %.preheader18.i.backedge
 
-.preheader16.i.backedge:                          ; preds = %174, %178
-  %.018731.i.be = phi i32 [ %175, %174 ], [ 0, %178 ]
-  br label %.preheader16.i, !llvm.loop !7
+.preheader18.i.backedge:                          ; preds = %174, %178
+  %.018733.i.be = phi i32 [ %175, %174 ], [ 0, %178 ]
+  br label %.preheader18.i, !llvm.loop !7
 
-.preheader16.i:                                   ; preds = %163, %.preheader16.i.backedge
-  %.018731.i = phi i32 [ %.018731.i.be, %.preheader16.i.backedge ], [ 0, %163 ]
+.preheader18.i:                                   ; preds = %163, %.preheader18.i.backedge
+  %.018733.i = phi i32 [ %.018733.i.be, %.preheader18.i.backedge ], [ 0, %163 ]
   %176 = load volatile i32, ptr %171, align 4
   %177 = icmp eq i32 %176, 0
-  br i1 %177, label %.loopexit17.i, label %174
+  br i1 %177, label %.loopexit19.i, label %174
 
 178:                                              ; preds = %174
   %179 = call i32 @opal_progress() #7
   %180 = load volatile i32, ptr %171, align 4
   %181 = icmp eq i32 %180, 0
-  br i1 %181, label %.loopexit17.i, label %.preheader16.i.backedge
+  br i1 %181, label %.loopexit19.i, label %.preheader18.i.backedge
 
-.loopexit17.i:                                    ; preds = %178, %.preheader16.i, %163
+.loopexit19.i:                                    ; preds = %178, %.preheader18.i, %163
   store volatile i32 %.val25.val, ptr %171, align 4
   %182 = load i32, ptr %149, align 8
   %183 = getelementptr inbounds nuw i8, ptr %171, i64 4
@@ -387,18 +387,18 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
   %193 = sext i32 %188 to i64
   br label %194
 
-194:                                              ; preds = %._crit_edge.i, %.loopexit17.i
-  %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %._crit_edge.i ], [ %192, %.loopexit17.i ]
-  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %._crit_edge.i ], [ %189, %.loopexit17.i ]
-  %.1200.i = phi i64 [ %297, %._crit_edge.i ], [ %.0199.i, %.loopexit17.i ]
-  %.0196.i = phi ptr [ %298, %._crit_edge.i ], [ %191, %.loopexit17.i ]
-  %.1193.i = phi i64 [ %296, %._crit_edge.i ], [ %.0192.i, %.loopexit17.i ]
-  %.1189.i = phi i1 [ %.2.i, %._crit_edge.i ], [ %.0188.i, %.loopexit17.i ]
+194:                                              ; preds = %._crit_edge.i, %.loopexit19.i
+  %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %._crit_edge.i ], [ %192, %.loopexit19.i ]
+  %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %._crit_edge.i ], [ %189, %.loopexit19.i ]
+  %.1200.i = phi i64 [ %297, %._crit_edge.i ], [ %.0199.i, %.loopexit19.i ]
+  %.0196.i = phi ptr [ %298, %._crit_edge.i ], [ %191, %.loopexit19.i ]
+  %.1193.i = phi i64 [ %296, %._crit_edge.i ], [ %.0192.i, %.loopexit19.i ]
+  %.1189.i = phi i1 [ %.2.i, %._crit_edge.i ], [ %.0188.i, %.loopexit19.i ]
   br i1 %.not222.i59, label %195, label %204
 
 195:                                              ; preds = %194
-  %brmerge.not.i = select i1 %.1189.i, i1 %.not225.i, i1 false
-  br i1 %brmerge.not.i, label %196, label %ompi_datatype_copy_content_same_ddt.exit259.i
+  %or.cond11.not.i = select i1 %.1189.i, i1 %.not225.i, i1 false
+  br i1 %or.cond11.not.i, label %196, label %ompi_datatype_copy_content_same_ddt.exit259.i
 
 196:                                              ; preds = %195
   %.val.i247.i = load i64, ptr %36, align 8
@@ -426,7 +426,7 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
 
 204:                                              ; preds = %194
   %205 = load ptr, ptr %152, align 8
-  %206 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %205, i64 %indvars.iv58.i
+  %206 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %205, i64 %indvars.iv60.i
   %207 = load ptr, ptr %206, align 8
   %208 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %209 = mul nsw i32 %208, %5
@@ -435,37 +435,37 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
   %212 = getelementptr inbounds i64, ptr %211, i64 %153
   %213 = getelementptr inbounds i8, ptr %212, i64 -8
   %214 = load volatile i64, ptr %213, align 8
-  %.not22333.i = icmp eq i64 %214, 0
-  br i1 %.not22333.i, label %.preheader13.i, label %.loopexit14.i
+  %.not22335.i = icmp eq i64 %214, 0
+  br i1 %.not22335.i, label %.preheader15.i, label %.loopexit16.i
 
-215:                                              ; preds = %.preheader13.i
-  %216 = add nuw nsw i32 %.018632.i, 1
-  %exitcond51.not.i = icmp eq i32 %216, 100000
-  br i1 %exitcond51.not.i, label %218, label %.preheader13.i.backedge
+215:                                              ; preds = %.preheader15.i
+  %216 = add nuw nsw i32 %.018634.i, 1
+  %exitcond53.not.i = icmp eq i32 %216, 100000
+  br i1 %exitcond53.not.i, label %218, label %.preheader15.i.backedge
 
-.preheader13.i.backedge:                          ; preds = %215, %218
-  %.018632.i.be = phi i32 [ %216, %215 ], [ 0, %218 ]
-  br label %.preheader13.i, !llvm.loop !8
+.preheader15.i.backedge:                          ; preds = %215, %218
+  %.018634.i.be = phi i32 [ %216, %215 ], [ 0, %218 ]
+  br label %.preheader15.i, !llvm.loop !8
 
-.preheader13.i:                                   ; preds = %204, %.preheader13.i.backedge
-  %.018632.i = phi i32 [ %.018632.i.be, %.preheader13.i.backedge ], [ 0, %204 ]
+.preheader15.i:                                   ; preds = %204, %.preheader15.i.backedge
+  %.018634.i = phi i32 [ %.018634.i.be, %.preheader15.i.backedge ], [ 0, %204 ]
   %217 = load volatile i64, ptr %213, align 8
   %.not224.i = icmp eq i64 %217, 0
-  br i1 %.not224.i, label %215, label %.loopexit14.i
+  br i1 %.not224.i, label %215, label %.loopexit16.i
 
 218:                                              ; preds = %215
   %219 = call i32 @opal_progress() #7
   %220 = load volatile i64, ptr %213, align 8
   %.not223.i = icmp eq i64 %220, 0
-  br i1 %.not223.i, label %.preheader13.i.backedge, label %.loopexit14.i
+  br i1 %.not223.i, label %.preheader15.i.backedge, label %.loopexit16.i
 
-.loopexit14.i:                                    ; preds = %218, %.preheader13.i, %204
+.loopexit16.i:                                    ; preds = %218, %.preheader15.i, %204
   %221 = load volatile i64, ptr %213, align 8
   store i64 %221, ptr %10, align 8
   store volatile i64 0, ptr %213, align 8
   br i1 %154, label %222, label %230
 
-222:                                              ; preds = %.loopexit14.i
+222:                                              ; preds = %.loopexit16.i
   %223 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %224 = load ptr, ptr %223, align 8
   %225 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
@@ -476,7 +476,7 @@ ompi_datatype_copy_content_same_ddt.exit.i:       ; preds = %144, %.lr.ph.i244.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0196.i, ptr align 1 %228, i64 %229, i1 false)
   br label %ompi_datatype_copy_content_same_ddt.exit259.i
 
-230:                                              ; preds = %.loopexit14.i
+230:                                              ; preds = %.loopexit16.i
   store i64 %42, ptr %10, align 8
   %231 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %232 = load ptr, ptr %231, align 8
@@ -497,39 +497,39 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %199, %.lr.ph.i250.i
   %238 = trunc i64 %.1193.i to i32
   %239 = call i32 @llvm.smin.i32(i32 %238, i32 %160)
   %240 = sext i32 %239 to i64
-  %241 = mul i64 %indvars.iv56.i, %151
+  %241 = mul i64 %indvars.iv58.i, %151
   %242 = getelementptr inbounds i8, ptr %.0182.i, i64 %241
   br label %243
 
 243:                                              ; preds = %opal_convertor_set_position.exit.i, %.lr.ph.i
-  %indvars.iv53.i = phi i64 [ %161, %.lr.ph.i ], [ %indvars.iv.next54.i, %opal_convertor_set_position.exit.i ]
-  %244 = icmp eq i64 %indvars.iv53.i, %162
+  %indvars.iv55.i = phi i64 [ %161, %.lr.ph.i ], [ %indvars.iv.next56.i, %opal_convertor_set_position.exit.i ]
+  %244 = icmp eq i64 %indvars.iv55.i, %162
   br i1 %244, label %opal_convertor_set_position.exit.i, label %245
 
 245:                                              ; preds = %243
   %246 = load ptr, ptr %152, align 8
-  %247 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %246, i64 %indvars.iv58.i
+  %247 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %246, i64 %indvars.iv60.i
   %248 = load ptr, ptr %247, align 8
   %249 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %250 = mul nsw i32 %249, %5
   %251 = sext i32 %250 to i64
   %252 = getelementptr inbounds i8, ptr %248, i64 %251
-  %253 = getelementptr inbounds nuw i64, ptr %252, i64 %indvars.iv53.i
+  %253 = getelementptr inbounds nuw i64, ptr %252, i64 %indvars.iv55.i
   %254 = load volatile i64, ptr %253, align 8
-  %.not22835.i = icmp eq i64 %254, 0
-  br i1 %.not22835.i, label %.preheader.i, label %.loopexit.i
+  %.not22837.i = icmp eq i64 %254, 0
+  br i1 %.not22837.i, label %.preheader.i, label %.loopexit.i
 
 255:                                              ; preds = %.preheader.i
-  %256 = add nuw nsw i32 %.018434.i, 1
-  %exitcond52.not.i = icmp eq i32 %256, 100000
-  br i1 %exitcond52.not.i, label %258, label %.preheader.i.backedge
+  %256 = add nuw nsw i32 %.018436.i, 1
+  %exitcond54.not.i = icmp eq i32 %256, 100000
+  br i1 %exitcond54.not.i, label %258, label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %255, %258
-  %.018434.i.be = phi i32 [ %256, %255 ], [ 0, %258 ]
+  %.018436.i.be = phi i32 [ %256, %255 ], [ 0, %258 ]
   br label %.preheader.i, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %245, %.preheader.i.backedge
-  %.018434.i = phi i32 [ %.018434.i.be, %.preheader.i.backedge ], [ 0, %245 ]
+  %.018436.i = phi i32 [ %.018436.i.be, %.preheader.i.backedge ], [ 0, %245 ]
   %257 = load volatile i64, ptr %253, align 8
   %.not229.i = icmp eq i64 %257, 0
   br i1 %.not229.i, label %255, label %.loopexit.i
@@ -550,7 +550,7 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %199, %.lr.ph.i250.i
   %263 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %264 = load ptr, ptr %263, align 8
   %265 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
-  %266 = trunc nuw nsw i64 %indvars.iv53.i to i32
+  %266 = trunc nuw nsw i64 %indvars.iv55.i to i32
   %267 = mul nsw i32 %265, %266
   %268 = sext i32 %267 to i64
   %269 = getelementptr inbounds i8, ptr %264, i64 %268
@@ -561,7 +561,7 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %199, %.lr.ph.i250.i
   %271 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 296), align 8
-  %274 = trunc nuw nsw i64 %indvars.iv53.i to i32
+  %274 = trunc nuw nsw i64 %indvars.iv55.i to i32
   %275 = mul nsw i32 %273, %274
   %276 = sext i32 %275 to i64
   %277 = getelementptr inbounds i8, ptr %272, i64 %276
@@ -608,18 +608,18 @@ ompi_datatype_copy_content_same_ddt.exit259.i:    ; preds = %199, %.lr.ph.i250.i
 opal_convertor_set_position.exit.i:               ; preds = %293, %292, %284, %281, %262, %243
   %.sink.i = phi ptr [ %269, %262 ], [ %242, %243 ], [ %.0198.i57, %281 ], [ %.0198.i57, %284 ], [ %.0198.i57, %292 ], [ %.0198.i57, %293 ]
   call fastcc void @ompi_op_reduce(ptr noundef readonly %4, ptr noundef %.sink.i, ptr noundef %.0196.i, i64 noundef %240, ptr noundef %3)
-  %indvars.iv.next54.i = add nsw i64 %indvars.iv53.i, -1
-  %295 = icmp sgt i64 %indvars.iv53.i, 0
+  %indvars.iv.next56.i = add nsw i64 %indvars.iv55.i, -1
+  %295 = icmp sgt i64 %indvars.iv55.i, 0
   br i1 %295, label %243, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %opal_convertor_set_position.exit.i, %ompi_datatype_copy_content_same_ddt.exit259.i
   %296 = sub i64 %.1193.i, %41
   %297 = add i64 %.1200.i, %42
+  %indvars.iv.next61.i = add nsw i64 %indvars.iv60.i, 1
   %indvars.iv.next59.i = add nsw i64 %indvars.iv58.i, 1
-  %indvars.iv.next57.i = add nsw i64 %indvars.iv56.i, 1
   %298 = getelementptr inbounds i8, ptr %.0196.i, i64 %151
   %299 = icmp ult i64 %297, %45
-  %300 = icmp slt i64 %indvars.iv.next59.i, %193
+  %300 = icmp slt i64 %indvars.iv.next61.i, %193
   %301 = select i1 %299, i1 %300, i1 false
   br i1 %301, label %194, label %302, !llvm.loop !11
 
@@ -716,17 +716,17 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
   store ptr %340, ptr %341, align 8
   %342 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %14, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %44, ptr noundef %0) #7
   %.not215.i = icmp eq i32 %342, 0
-  br i1 %.not215.i, label %.preheader22.i, label %reduce_inorder.exit
+  br i1 %.not215.i, label %.preheader24.i, label %reduce_inorder.exit
 
-.preheader22.i:                                   ; preds = %opal_obj_run_constructors.exit276.i
+.preheader24.i:                                   ; preds = %opal_obj_run_constructors.exit276.i
   %343 = getelementptr inbounds nuw i8, ptr %.val26, i64 64
   %344 = getelementptr inbounds nuw i8, ptr %.val26, i64 40
   %345 = getelementptr inbounds nuw i8, ptr %.val26, i64 48
   %346 = sext i32 %.val24 to i64
   br label %347
 
-347:                                              ; preds = %399, %.preheader22.i
-  %.2201.i = phi i64 [ %389, %399 ], [ 0, %.preheader22.i ]
+347:                                              ; preds = %399, %.preheader24.i
+  %.2201.i = phi i64 [ %389, %399 ], [ 0, %.preheader24.i ]
   %348 = load i32, ptr %343, align 8
   %349 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_sm_component, i64 288), align 8
   %350 = urem i32 %348, %349
@@ -738,31 +738,31 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 4
   %357 = load volatile i32, ptr %356, align 4
   %358 = icmp eq i32 %348, %357
-  br i1 %358, label %.loopexit20.i, label %.preheader19.i
+  br i1 %358, label %.loopexit22.i, label %.preheader21.i
 
-.preheader19.i:                                   ; preds = %347, %365
+.preheader21.i:                                   ; preds = %347, %365
   %359 = phi i32 [ %367, %365 ], [ %348, %347 ]
   br label %362
 
 360:                                              ; preds = %362
-  %361 = add nuw nsw i32 %.018330.i, 1
+  %361 = add nuw nsw i32 %.018332.i, 1
   %exitcond.not.i = icmp eq i32 %361, 100000
   br i1 %exitcond.not.i, label %365, label %362, !llvm.loop !14
 
-362:                                              ; preds = %360, %.preheader19.i
-  %.018330.i = phi i32 [ 0, %.preheader19.i ], [ %361, %360 ]
+362:                                              ; preds = %360, %.preheader21.i
+  %.018332.i = phi i32 [ 0, %.preheader21.i ], [ %361, %360 ]
   %363 = load volatile i32, ptr %356, align 4
   %364 = icmp eq i32 %359, %363
-  br i1 %364, label %.loopexit20.i, label %360
+  br i1 %364, label %.loopexit22.i, label %360
 
 365:                                              ; preds = %360
   %366 = call i32 @opal_progress() #7
   %367 = load i32, ptr %343, align 8
   %368 = load volatile i32, ptr %356, align 4
   %369 = icmp eq i32 %367, %368
-  br i1 %369, label %.loopexit20.i, label %.preheader19.i
+  br i1 %369, label %.loopexit22.i, label %.preheader21.i
 
-.loopexit20.i:                                    ; preds = %365, %362, %347
+.loopexit22.i:                                    ; preds = %365, %362, %347
   %370 = phi i32 [ %348, %347 ], [ %359, %362 ], [ %367, %365 ]
   %371 = add i32 %370, 1
   store i32 %371, ptr %343, align 8
@@ -774,9 +774,9 @@ opal_obj_run_constructors.exit276.i:              ; preds = %.lr.ph.i273.i, %325
   %377 = sext i32 %375 to i64
   br label %378
 
-378:                                              ; preds = %378, %.loopexit20.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %378 ], [ %376, %.loopexit20.i ]
-  %.3.i = phi i64 [ %389, %378 ], [ %.2201.i, %.loopexit20.i ]
+378:                                              ; preds = %378, %.loopexit22.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %378 ], [ %376, %.loopexit22.i ]
+  %.3.i = phi i64 [ %389, %378 ], [ %.2201.i, %.loopexit22.i ]
   %379 = load ptr, ptr %345, align 8
   %380 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %379, i64 %indvars.iv.i
   store i64 %42, ptr %10, align 8

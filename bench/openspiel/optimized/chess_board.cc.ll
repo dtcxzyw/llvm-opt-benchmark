@@ -9980,7 +9980,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
 
 "_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i": ; preds = %.lr.ph.i.split.i, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i", %.lr.ph.i.split.preheader.i, %68, %65, %.lr.ph.i.i, %49
-  %.2 = phi i8 [ %.1, %65 ], [ %.1, %.lr.ph.i.i ], [ %.1, %49 ], [ %spec.select162, %68 ], [ %.1, %.lr.ph.i.split.preheader.i ], [ %.1, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i" ], [ %.1, %.lr.ph.i.split.i ]
+  %.2 = phi i8 [ %.1, %65 ], [ 0, %.lr.ph.i.i ], [ 0, %49 ], [ %spec.select162, %68 ], [ 0, %.lr.ph.i.split.preheader.i ], [ %.1, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_1clES5_.exit.i.i" ], [ %.1, %.lr.ph.i.split.i ]
   %.sroa.0.0.extract.trunc.i26.i = add i8 %9, -1
   %77 = icmp sgt i8 %.sroa.0.0.extract.trunc.i26.i, -1
   br i1 %77, label %.lr.ph.i27.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit41.i"
@@ -10231,7 +10231,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
 
 "_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i": ; preds = %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i", %185, %202, %199, %182
-  %.15 = phi i8 [ %.14, %199 ], [ %.14, %182 ], [ %spec.select171, %202 ], [ %.14, %185 ], [ %.14, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i" ]
+  %.15 = phi i8 [ %.14, %199 ], [ 0, %182 ], [ %spec.select171, %202 ], [ %.14, %185 ], [ %.14, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_2clES5_.exit.i.i" ]
   br i1 %77, label %.lr.ph.i27.i45, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit41.i"
 
 .lr.ph.i27.i45:                                   ; preds = %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i"
@@ -10392,7 +10392,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %282, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit.thread", label %.preheader
 
 .preheader:                                       ; preds = %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i"
-  %.27 = phi i8 [ %.28, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i" ], [ %.17, %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit" ]
+  %.27 = phi i8 [ %.28, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i" ], [ 0, %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit" ]
   %.0.idx18.i71 = phi i64 [ %.0.add.i73, %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i" ], [ 0, %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit" ]
   %.0.ptr.i72 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel5chess14kKnightOffsetsE, i64 %.0.idx18.i71
   %283 = load i8, ptr %.0.ptr.i72, align 1
@@ -10478,7 +10478,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge2.i, %318, %312, %308
-  %.29 = phi i8 [ %.28, %318 ], [ %.28, %312 ], [ %.28, %308 ], [ %spec.select178, %.critedge2.i ]
+  %.29 = phi i8 [ 0, %318 ], [ 0, %312 ], [ 0, %308 ], [ %spec.select178, %.critedge2.i ]
   br i1 %77, label %331, label %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_4EEvS4_S7_NS0_23PseudoLegalMoveSettingsEbRKT_.exit"
 
 331:                                              ; preds = %.critedge.i

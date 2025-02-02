@@ -11752,12 +11752,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %cmp2 = icmp sgt i32 %line, -1
-  %root_message_type_ = getelementptr inbounds nuw i8, ptr %this, i64 232
-  br i1 %cmp2, label %land.rhs, label %land.rhs46.lr.ph
+  br i1 %cmp2, label %land.rhs, label %land.rhs46
 
 land.rhs:                                         ; preds = %if.then
-  %add = add nuw nsw i32 %line, 1
-  %add24 = add nsw i32 %col, 1
   %call = tail call noundef zeroext i1 @_ZN4absl12lts_2023080212log_internal17LogEveryPow2State9ShouldLogEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN6google8protobuf10TextFormat6Parser10ParserImpl13ReportWarningEiiSt17basic_string_viewIcSt11char_traitsIcEEE42absl_log_internal_stateful_condition_state)
   br i1 %call, label %for.body10, label %if.end85
 
@@ -11768,6 +11765,7 @@ for.body10:                                       ; preds = %land.rhs
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %for.body10
+  %root_message_type_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %2 = load ptr, ptr %root_message_type_, align 8
   %all_names_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %all_names_.i, align 8
@@ -11780,6 +11778,7 @@ invoke.cont16:                                    ; preds = %invoke.cont12
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont16
+  %add = add nuw nsw i32 %line, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i)
   store i32 %add, ptr %v.addr.i, align 4
   %call.i12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %call17, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i)
@@ -11791,6 +11790,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont20
+  %add24 = add nsw i32 %col, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i14)
   store i32 %add24, ptr %v.addr.i14, align 4
   %call.i15 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %call.i12, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i14)
@@ -11825,18 +11825,19 @@ for.inc36:                                        ; preds = %invoke.cont31
   call void @_ZN4absl12lts_2023080212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #41
   br label %if.end85
 
-land.rhs46.lr.ph:                                 ; preds = %if.then
+land.rhs46:                                       ; preds = %if.then
   %call47 = tail call noundef zeroext i1 @_ZN4absl12lts_2023080212log_internal17LogEveryPow2State9ShouldLogEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZZN6google8protobuf10TextFormat6Parser10ParserImpl13ReportWarningEiiSt17basic_string_viewIcSt11char_traitsIcEEE42absl_log_internal_stateful_condition_state_0)
   br i1 %call47, label %for.body54, label %if.end85
 
-for.body54:                                       ; preds = %land.rhs46.lr.ph
+for.body54:                                       ; preds = %land.rhs46
   %5 = load atomic i32, ptr @_ZZN6google8protobuf10TextFormat6Parser10ParserImpl13ReportWarningEiiSt17basic_string_viewIcSt11char_traitsIcEEE42absl_log_internal_stateful_condition_state_0 monotonic, align 4
   call void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_10WarningTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, ptr noundef nonnull @.str.13, i32 noundef 440) #40
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, i64 28, ptr nonnull @.str.36)
           to label %invoke.cont60 unwind label %lpad57
 
 invoke.cont60:                                    ; preds = %for.body54
-  %6 = load ptr, ptr %root_message_type_, align 8
+  %root_message_type_62 = getelementptr inbounds nuw i8, ptr %this, i64 232
+  %6 = load ptr, ptr %root_message_type_62, align 8
   %all_names_.i23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %all_names_.i23, align 8
   %arrayidx.i24 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -11862,7 +11863,7 @@ invoke.cont71:                                    ; preds = %invoke.cont69
   %call75 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %call.i28, i64 %message.coerce0, ptr %message.coerce1)
           to label %for.inc78 unwind label %lpad57
 
-lpad57:                                           ; preds = %invoke.cont60, %invoke.cont71, %for.body54, %invoke.cont65, %invoke.cont67, %invoke.cont69
+lpad57:                                           ; preds = %invoke.cont69, %invoke.cont67, %invoke.cont65, %for.body54, %invoke.cont71, %invoke.cont60
   %8 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
@@ -11878,7 +11879,7 @@ if.else82:                                        ; preds = %entry
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %line, i32 noundef %col, i64 %message.coerce0, ptr %message.coerce1)
   br label %if.end85
 
-if.end85:                                         ; preds = %for.inc36, %land.rhs, %land.rhs46.lr.ph, %for.inc78, %if.else82
+if.end85:                                         ; preds = %land.rhs46, %for.inc78, %land.rhs, %for.inc36, %if.else82
   ret void
 
 eh.resume:                                        ; preds = %lpad57, %lpad

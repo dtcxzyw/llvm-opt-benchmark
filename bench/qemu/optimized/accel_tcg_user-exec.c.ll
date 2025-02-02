@@ -376,21 +376,19 @@ do.body:                                          ; preds = %if.end4
   %and13 = and i64 %start, -4096
   %or = or i64 %last, 4095
   %and14 = and i32 %flags, 8
-  %tobool15.not = icmp eq i32 %and14, 0
-  br i1 %tobool15.not, label %if.then30, label %if.else17
+  %tobool15.not.not = icmp eq i32 %and14, 0
+  br i1 %tobool15.not.not, label %if.then30, label %if.else17
 
 if.else17:                                        ; preds = %do.body
-  %2 = trunc i32 %flags to i8
-  %3 = lshr i8 %2, 6
   %and20 = and i32 %flags, -65
   %and21 = shl i32 %flags, 3
-  %4 = and i32 %and21, 16
-  %spec.select = or i32 %and20, %4
-  %tobool29 = trunc i8 %3 to i1
-  br i1 %tobool29, label %if.then30, label %if.then39
+  %2 = and i32 %and21, 16
+  %spec.select = or i32 %and20, %2
+  %3 = and i32 %flags, 64
+  %tobool29.not = icmp eq i32 %3, 0
+  br i1 %tobool29.not, label %if.then39, label %if.then30
 
 if.then30:                                        ; preds = %do.body, %if.else17
-  %reset.031 = phi i8 [ %3, %if.else17 ], [ 0, %do.body ]
   %flags.addr.029 = phi i32 [ %spec.select, %if.else17 ], [ 0, %do.body ]
   %call.i30.i = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef range(i64 0, -4095) %and13, i64 noundef range(i64 4095, 0) %or) #16
   %tobool.not.i31.i = icmp eq ptr %call.i30.i, null
@@ -408,40 +406,40 @@ if.end.i:                                         ; preds = %if.end24.i, %if.end
   %call.i36.i = phi ptr [ %call.i30.i, %if.end.lr.ph.i ], [ %call.i.i, %if.end24.i ]
   %inval_tb.035.i = phi i1 [ false, %if.end.lr.ph.i ], [ %spec.select.i, %if.end24.i ]
   %flags.i = getelementptr i8, ptr %call.i36.i, i64 48
-  %5 = load i32, ptr %flags.i, align 8
-  %and.i = and i32 %5, 4
+  %4 = load i32, ptr %flags.i, align 8
+  %and.i = and i32 %4, 4
   %tobool1.not.i = icmp ne i32 %and.i, 0
   %spec.select.i = select i1 %tobool1.not.i, i1 true, i1 %inval_tb.035.i
   tail call void @interval_tree_remove(ptr noundef nonnull %call.i36.i, ptr noundef nonnull @pageflags_root) #16
   %last5.i = getelementptr i8, ptr %call.i36.i, i64 32
-  %6 = load i64, ptr %last5.i, align 8
+  %5 = load i64, ptr %last5.i, align 8
   %start7.i = getelementptr i8, ptr %call.i36.i, i64 24
-  %7 = load i64, ptr %start7.i, align 8
-  %cmp.i = icmp ult i64 %7, %and13
+  %6 = load i64, ptr %start7.i, align 8
+  %cmp.i = icmp ult i64 %6, %and13
   br i1 %cmp.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.end.i
   store i64 %sub.i, ptr %last5.i, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %call.i36.i, ptr noundef nonnull @pageflags_root) #16
-  %cmp12.i = icmp ult i64 %or, %6
+  %cmp12.i = icmp ult i64 %or, %5
   br i1 %cmp12.i, label %if.then13.i, label %if.end24.i
 
 if.then13.i:                                      ; preds = %if.then8.i
   %flags.i.le = getelementptr i8, ptr %call.i36.i, i64 48
   %add.i = add nuw i64 %or, 1
-  %8 = load i32, ptr %flags.i.le, align 8
+  %7 = load i32, ptr %flags.i.le, align 8
   %call.i19.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
   %itree.i.i = getelementptr inbounds nuw i8, ptr %call.i19.i, i64 16
   %start1.i.i = getelementptr inbounds nuw i8, ptr %call.i19.i, i64 40
   store i64 %add.i, ptr %start1.i.i, align 8
   %last3.i.i = getelementptr inbounds nuw i8, ptr %call.i19.i, i64 48
-  store i64 %6, ptr %last3.i.i, align 8
+  store i64 %5, ptr %last3.i.i, align 8
   %flags4.i.i = getelementptr inbounds nuw i8, ptr %call.i19.i, i64 64
-  store i32 %8, ptr %flags4.i.i, align 8
+  store i32 %7, ptr %flags4.i.i, align 8
   br label %while.end.sink.split.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %cmp16.not.i = icmp ugt i64 %6, %or
+  %cmp16.not.i = icmp ugt i64 %5, %or
   br i1 %cmp16.not.i, label %if.else18.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.else.i
@@ -469,17 +467,15 @@ while.end.sink.split.i:                           ; preds = %if.else18.i, %if.th
 
 if.end37:                                         ; preds = %if.end24.i, %while.end.sink.split.i, %if.then30
   %inval_tb.1.i = phi i1 [ false, %if.then30 ], [ %spec.select.i, %while.end.sink.split.i ], [ %spec.select.i, %if.end24.i ]
-  br i1 %tobool15.not, label %if.end50, label %if.then39
+  br i1 %tobool15.not.not, label %if.end50, label %if.then39
 
 if.then39:                                        ; preds = %if.else17, %if.end37
   %inval_tb.047 = phi i1 [ %inval_tb.1.i, %if.end37 ], [ false, %if.else17 ]
   %flags.addr.02846 = phi i32 [ %flags.addr.029, %if.end37 ], [ %spec.select, %if.else17 ]
-  %reset.03045 = phi i8 [ %reset.031, %if.end37 ], [ %3, %if.else17 ]
-  %tobool40 = trunc i8 %reset.03045 to i1
-  %not = select i1 %tobool40, i32 -1, i32 -2177
-  %call43 = tail call fastcc zeroext i1 @pageflags_set_clear(i64 noundef %and13, i64 noundef %or, i32 noundef %flags.addr.02846, i32 noundef %not)
-  %9 = or i1 %inval_tb.047, %call43
-  br i1 %9, label %if.then52, label %if.end53
+  %reset.03045 = phi i32 [ -1, %if.end37 ], [ -2177, %if.else17 ]
+  %call43 = tail call fastcc zeroext i1 @pageflags_set_clear(i64 noundef %and13, i64 noundef %or, i32 noundef %flags.addr.02846, i32 noundef %reset.03045)
+  %8 = or i1 %inval_tb.047, %call43
+  br i1 %8, label %if.then52, label %if.end53
 
 if.end50:                                         ; preds = %if.end37
   br i1 %inval_tb.1.i, label %if.then52, label %if.end53

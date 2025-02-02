@@ -1755,228 +1755,218 @@ define hidden void @lxb_html_tree_reset_insertion_mode_appropriately(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
-  %.not78 = icmp eq i64 %5, 0
-  br i1 %.not78, label %.loopexit, label %.lr.ph
+  %.not80 = icmp eq i64 %5, 0
+  br i1 %.not80, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %8
+  br label %.backedge53
 
-8:                                                ; preds = %.lr.ph, %.backedge51
-  %.04480 = phi i64 [ %5, %.lr.ph ], [ %9, %.backedge51 ]
-  %.04579 = phi i8 [ 0, %.lr.ph ], [ %.1, %.backedge51 ]
-  %9 = add i64 %.04480, -1
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq i64 %9, 0
-  br i1 %12, label %13, label %15
+.backedge53:                                      ; preds = %.backedge53.backedge, %.lr.ph
+  %.04481 = phi i64 [ %5, %.lr.ph ], [ %8, %.backedge53.backedge ]
+  %8 = add i64 %.04481, -1
+  %9 = getelementptr inbounds ptr, ptr %6, i64 %8
+  %10 = load ptr, ptr %9, align 8
+  %.not52.not = icmp eq i64 %8, 0
+  br i1 %.not52.not, label %11, label %.thread
 
-13:                                               ; preds = %8
-  %14 = load ptr, ptr %7, align 8
-  %.not48 = icmp eq ptr %14, null
-  %spec.select = select i1 %.not48, ptr %11, ptr %14
-  br label %15
+11:                                               ; preds = %.backedge53
+  %12 = load ptr, ptr %7, align 8
+  %.not48 = icmp eq ptr %12, null
+  %spec.select = select i1 %.not48, ptr %10, ptr %12
+  %13 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
+  %14 = load i64, ptr %13, align 8
+  %.not49 = icmp eq i64 %14, 2
+  br i1 %.not49, label %19, label %17
 
-15:                                               ; preds = %13, %8
-  %.1 = phi i8 [ %.04579, %8 ], [ 1, %13 ]
-  %.0 = phi ptr [ %11, %8 ], [ %spec.select, %13 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %17 = load i64, ptr %16, align 8
-  %.not49 = icmp eq i64 %17, 2
-  br i1 %.not49, label %22, label %18
+.thread:                                          ; preds = %.backedge53
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %16 = load i64, ptr %15, align 8
+  %.not49113 = icmp eq i64 %16, 2
+  br i1 %.not49113, label %19, label %.backedge53.backedge
 
-18:                                               ; preds = %15
-  %19 = trunc nuw i8 %.1 to i1
-  br i1 %19, label %20, label %.backedge51
+.backedge53.backedge:                             ; preds = %.thread, %84
+  br label %.backedge53
 
-.backedge51:                                      ; preds = %18, %90
-  br i1 %12, label %.loopexit, label %8
-
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_body, ptr %21, align 8
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_body, ptr %18, align 8
   br label %.loopexit
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %24 = load i64, ptr %23, align 8
-  switch i64 %24, label %90 [
-    i64 163, label %25
-    i64 178, label %47
-    i64 183, label %47
-    i64 187, label %51
-    i64 177, label %53
-    i64 182, label %53
-    i64 184, label %53
-    i64 35, label %55
-    i64 41, label %57
-    i64 176, label %59
-    i64 179, label %61
-    i64 97, label %73
-    i64 31, label %77
-    i64 89, label %79
-    i64 101, label %81
+19:                                               ; preds = %.thread, %11
+  %.0114 = phi ptr [ %10, %.thread ], [ %spec.select, %11 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
+  %21 = load i64, ptr %20, align 8
+  switch i64 %21, label %84 [
+    i64 163, label %22
+    i64 178, label %43
+    i64 183, label %43
+    i64 187, label %46
+    i64 177, label %48
+    i64 182, label %48
+    i64 184, label %48
+    i64 35, label %50
+    i64 41, label %52
+    i64 176, label %54
+    i64 179, label %56
+    i64 97, label %68
+    i64 31, label %71
+    i64 89, label %73
+    i64 101, label %75
   ]
 
-25:                                               ; preds = %22
-  %26 = trunc nuw i8 %.1 to i1
-  br i1 %26, label %27, label %.preheader
+22:                                               ; preds = %19
+  br i1 %.not52.not, label %23, label %.lr.ph83
 
-.preheader:                                       ; preds = %25
-  br i1 %12, label %._crit_edge, label %.lr.ph82
-
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_select, ptr %28, align 8
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_select, ptr %24, align 8
   br label %.loopexit
 
-._crit_edge:                                      ; preds = %.backedge, %.preheader
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_select, ptr %29, align 8
+._crit_edge:                                      ; preds = %.backedge
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_select, ptr %25, align 8
   br label %.loopexit
 
-.lr.ph82:                                         ; preds = %.preheader, %.backedge
-  %.04381 = phi i64 [ %30, %.backedge ], [ %9, %.preheader ]
-  %30 = add i64 %.04381, -1
-  %31 = getelementptr inbounds ptr, ptr %6, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i64, ptr %33, align 8
-  switch i64 %34, label %.backedge [
+.lr.ph83:                                         ; preds = %22, %.backedge
+  %.04382 = phi i64 [ %26, %.backedge ], [ %8, %22 ]
+  %26 = add i64 %.04382, -1
+  %27 = getelementptr inbounds ptr, ptr %6, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i64, ptr %29, align 8
+  switch i64 %30, label %.backedge [
     i64 179, label %lxb_html_tree_node_is.exit
-    i64 176, label %40
+    i64 176, label %36
   ]
 
-lxb_html_tree_node_is.exit:                       ; preds = %.lr.ph82
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %36 = load i64, ptr %35, align 8
-  %37 = icmp eq i64 %36, 2
-  br i1 %37, label %38, label %.backedge
+lxb_html_tree_node_is.exit:                       ; preds = %.lr.ph83
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %32 = load i64, ptr %31, align 8
+  %33 = icmp eq i64 %32, 2
+  br i1 %33, label %34, label %.backedge
 
-38:                                               ; preds = %lxb_html_tree_node_is.exit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_select, ptr %39, align 8
+34:                                               ; preds = %lxb_html_tree_node_is.exit
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_select, ptr %35, align 8
   br label %.loopexit
 
-40:                                               ; preds = %.lr.ph82
-  %41 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %42 = load i64, ptr %41, align 8
-  %43 = icmp eq i64 %42, 2
-  br i1 %43, label %45, label %.backedge
+36:                                               ; preds = %.lr.ph83
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp eq i64 %38, 2
+  br i1 %39, label %41, label %.backedge
 
-.backedge:                                        ; preds = %lxb_html_tree_node_is.exit, %.lr.ph82, %40
-  %44 = icmp eq i64 %30, 0
-  br i1 %44, label %._crit_edge, label %.lr.ph82
+.backedge:                                        ; preds = %lxb_html_tree_node_is.exit, %.lr.ph83, %36
+  %40 = icmp eq i64 %26, 0
+  br i1 %40, label %._crit_edge, label %.lr.ph83
 
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_select_in_table, ptr %46, align 8
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_select_in_table, ptr %42, align 8
   br label %.loopexit
 
-47:                                               ; preds = %22, %22
-  %48 = icmp eq i8 %.1, 0
-  br i1 %48, label %49, label %90
+43:                                               ; preds = %19, %19
+  br i1 %.not52.not, label %.thread51, label %44
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_cell, ptr %50, align 8
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_cell, ptr %45, align 8
   br label %.loopexit
 
-51:                                               ; preds = %22
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_row, ptr %52, align 8
+46:                                               ; preds = %19
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_row, ptr %47, align 8
   br label %.loopexit
 
-53:                                               ; preds = %22, %22, %22
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_table_body, ptr %54, align 8
+48:                                               ; preds = %19, %19, %19
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_table_body, ptr %49, align 8
   br label %.loopexit
 
-55:                                               ; preds = %22
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_caption, ptr %56, align 8
+50:                                               ; preds = %19
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_caption, ptr %51, align 8
   br label %.loopexit
 
-57:                                               ; preds = %22
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_column_group, ptr %58, align 8
+52:                                               ; preds = %19
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_column_group, ptr %53, align 8
   br label %.loopexit
 
-59:                                               ; preds = %22
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_table, ptr %60, align 8
+54:                                               ; preds = %19
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_table, ptr %55, align 8
   br label %.loopexit
 
-61:                                               ; preds = %22
-  %62 = getelementptr i8, ptr %0, i64 48
-  %.val = load ptr, ptr %62, align 8
-  %63 = getelementptr i8, ptr %.val, i64 16
-  %.val.i = load i64, ptr %63, align 8
-  %64 = icmp eq i64 %.val.i, 0
-  br i1 %64, label %lxb_html_tree_template_insertion_current.exit, label %lexbor_array_obj_last.exit.i
+56:                                               ; preds = %19
+  %57 = getelementptr i8, ptr %0, i64 48
+  %.val = load ptr, ptr %57, align 8
+  %58 = getelementptr i8, ptr %.val, i64 16
+  %.val.i = load i64, ptr %58, align 8
+  %59 = icmp eq i64 %.val.i, 0
+  br i1 %59, label %lxb_html_tree_template_insertion_current.exit, label %lexbor_array_obj_last.exit.i
 
-lexbor_array_obj_last.exit.i:                     ; preds = %61
-  %65 = load ptr, ptr %.val, align 8
-  %66 = add i64 %.val.i, -1
-  %67 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %68 = load i64, ptr %67, align 8
-  %69 = mul i64 %68, %66
-  %70 = getelementptr inbounds i8, ptr %65, i64 %69
-  %71 = load ptr, ptr %70, align 8
+lexbor_array_obj_last.exit.i:                     ; preds = %56
+  %60 = load ptr, ptr %.val, align 8
+  %61 = add i64 %.val.i, -1
+  %62 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %63 = load i64, ptr %62, align 8
+  %64 = mul i64 %63, %61
+  %65 = getelementptr inbounds i8, ptr %60, i64 %64
+  %66 = load ptr, ptr %65, align 8
   br label %lxb_html_tree_template_insertion_current.exit
 
-lxb_html_tree_template_insertion_current.exit:    ; preds = %61, %lexbor_array_obj_last.exit.i
-  %.0.i = phi ptr [ %71, %lexbor_array_obj_last.exit.i ], [ null, %61 ]
+lxb_html_tree_template_insertion_current.exit:    ; preds = %56, %lexbor_array_obj_last.exit.i
+  %.0.i = phi ptr [ %66, %lexbor_array_obj_last.exit.i ], [ null, %56 ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %.0.i, ptr %67, align 8
+  br label %.loopexit
+
+68:                                               ; preds = %19
+  br i1 %.not52.not, label %.thread51, label %69
+
+69:                                               ; preds = %68
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_head, ptr %70, align 8
+  br label %.loopexit
+
+71:                                               ; preds = %19
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %.0.i, ptr %72, align 8
+  store ptr @lxb_html_tree_insertion_mode_in_body, ptr %72, align 8
   br label %.loopexit
 
-73:                                               ; preds = %22
-  %74 = icmp eq i8 %.1, 0
-  br i1 %74, label %75, label %90
-
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_head, ptr %76, align 8
+73:                                               ; preds = %19
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_frameset, ptr %74, align 8
   br label %.loopexit
 
-77:                                               ; preds = %22
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_body, ptr %78, align 8
+75:                                               ; preds = %19
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 264
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, null
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  br i1 %80, label %82, label %83
+
+82:                                               ; preds = %75
+  store ptr @lxb_html_tree_insertion_mode_before_head, ptr %81, align 8
   br label %.loopexit
 
-79:                                               ; preds = %22
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_frameset, ptr %80, align 8
+83:                                               ; preds = %75
+  store ptr @lxb_html_tree_insertion_mode_after_head, ptr %81, align 8
   br label %.loopexit
 
-81:                                               ; preds = %22
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 264
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, null
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br i1 %86, label %88, label %89
+84:                                               ; preds = %19
+  br i1 %.not52.not, label %.thread51, label %.backedge53.backedge
 
-88:                                               ; preds = %81
-  store ptr @lxb_html_tree_insertion_mode_before_head, ptr %87, align 8
+.thread51:                                        ; preds = %84, %43, %68
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr @lxb_html_tree_insertion_mode_in_body, ptr %85, align 8
   br label %.loopexit
 
-89:                                               ; preds = %81
-  store ptr @lxb_html_tree_insertion_mode_after_head, ptr %87, align 8
-  br label %.loopexit
-
-90:                                               ; preds = %22, %73, %47
-  %91 = trunc nuw i8 %.1 to i1
-  br i1 %91, label %92, label %.backedge51
-
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr @lxb_html_tree_insertion_mode_in_body, ptr %93, align 8
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.backedge51, %1, %92, %89, %88, %79, %77, %75, %lxb_html_tree_template_insertion_current.exit, %59, %57, %55, %53, %51, %49, %45, %38, %._crit_edge, %27, %20
+.loopexit:                                        ; preds = %1, %.thread51, %83, %82, %73, %71, %69, %lxb_html_tree_template_insertion_current.exit, %54, %52, %50, %48, %46, %44, %41, %34, %._crit_edge, %23, %17
   ret void
 }
 

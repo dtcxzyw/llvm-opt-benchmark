@@ -486,9 +486,9 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u
   %14 = load i64, ptr %5, align 8, !range !180, !alias.scope !177, !noalias !181, !noundef !11
   %15 = icmp eq i64 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val3.i.i = load i64, ptr %16, align 8, !noalias !174
-  %.not.i.i.i.i.i = icmp eq i64 %.val3.i.i, %13
-  %or.cond.i = select i1 %15, i1 %.not.i.i.i.i.i, i1 false
+  %.val7.i.i = load i64, ptr %16, align 8, !noalias !174
+  %.not.i.i.i.i = icmp eq i64 %.val7.i.i, %13
+  %or.cond.i = select i1 %15, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17ha36c96f002f05715E.llvm.12642593798105491766.exit", label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17ha36c96f002f05715E.llvm.12642593798105491766.exit.thread"
 
 "_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17ha36c96f002f05715E.llvm.12642593798105491766.exit.thread": ; preds = %3
@@ -538,9 +538,9 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u
   %14 = load i64, ptr %5, align 8, !range !180, !alias.scope !190, !noalias !193, !noundef !11
   %15 = icmp eq i64 %14, 0
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val3.i.i = load i64, ptr %16, align 8, !noalias !189
-  %.not.i.i.i.i.i = icmp eq i64 %.val3.i.i, %13
-  %or.cond.i = select i1 %15, i1 %.not.i.i.i.i.i, i1 false
+  %.val7.i.i = load i64, ptr %16, align 8, !noalias !189
+  %.not.i.i.i.i = icmp eq i64 %.val7.i.i, %13
+  %or.cond.i = select i1 %15, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hda7d377bec222503E.llvm.12642593798105491766.exit", label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hda7d377bec222503E.llvm.12642593798105491766.exit.thread"
 
 "_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hda7d377bec222503E.llvm.12642593798105491766.exit.thread": ; preds = %3
@@ -600,9 +600,9 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h32323ca82f
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
   %21 = load i64, ptr %5, align 8, !range !180, !alias.scope !212, !noalias !215, !noundef !11
   %22 = icmp eq i64 %21, 0
-  %.val3.i.i.i = load i64, ptr %13, align 8, !noalias !204
-  %.not.i.i.i.i.i.i = icmp eq i64 %.val3.i.i.i, %12
-  %or.cond.i.i = select i1 %22, i1 %.not.i.i.i.i.i.i, i1 false
+  %.val7.i.i.i = load i64, ptr %13, align 8, !noalias !204
+  %.not.i.i.i.i.i = icmp eq i64 %.val7.i.i.i, %12
+  %or.cond.i.i = select i1 %22, i1 %.not.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i, label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hda7d377bec222503E.llvm.12642593798105491766.exit.i", label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hda7d377bec222503E.llvm.12642593798105491766.exit.thread.i"
 
 "_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hda7d377bec222503E.llvm.12642593798105491766.exit.thread.i": ; preds = %15
@@ -670,9 +670,9 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd04d68850e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
   %21 = load i64, ptr %5, align 8, !range !180, !alias.scope !241, !noalias !244, !noundef !11
   %22 = icmp eq i64 %21, 0
-  %.val3.i.i.i = load i64, ptr %13, align 8, !noalias !233
-  %.not.i.i.i.i.i.i = icmp eq i64 %.val3.i.i.i, %12
-  %or.cond.i.i = select i1 %22, i1 %.not.i.i.i.i.i.i, i1 false
+  %.val7.i.i.i = load i64, ptr %13, align 8, !noalias !233
+  %.not.i.i.i.i.i = icmp eq i64 %.val7.i.i.i, %12
+  %or.cond.i.i = select i1 %22, i1 %.not.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i, label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17ha36c96f002f05715E.llvm.12642593798105491766.exit.i", label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17ha36c96f002f05715E.llvm.12642593798105491766.exit.thread.i"
 
 "_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17ha36c96f002f05715E.llvm.12642593798105491766.exit.thread.i": ; preds = %15
@@ -9398,7 +9398,7 @@ define hidden void @"_ZN6object4read4coff4file24CoffFile$LT$R$C$Coff$GT$5parse17
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe1c0d08d66743efE.llvm.12642593798105491766"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   %3 = load i64, ptr %0, align 8, !range !180, !noundef !11
   %4 = load i64, ptr %1, align 8, !range !180, !noundef !11
@@ -9406,40 +9406,25 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u
   br i1 %5, label %6, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit"
 
 6:                                                ; preds = %2
-  %trunc = trunc nuw i64 %3 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val7 = load i64, ptr %7, align 8, !noundef !11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br i1 %trunc, label %14, label %12
+  %.val9 = load i64, ptr %8, align 8, !noundef !11
+  %.not.i.i = icmp eq i64 %.val7, %.val9
+  br i1 %.not.i.i, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split", label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit"
 
-"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split": ; preds = %14, %12
-  %.val7.sink = phi i64 [ %.val3, %12 ], [ %.val7, %14 ]
+"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split": ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val8 = load ptr, ptr %9, align 8, !nonnull !11, !align !176, !noundef !11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %10, align 8, !nonnull !11, !align !176, !noundef !11
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val6, ptr nonnull readonly align 1 %.val8, i64 %.val7.sink)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val6, ptr nonnull readonly align 1 %.val8, i64 %.val7)
   %11 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit"
 
-"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit": ; preds = %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split", %14, %12, %2
-  %.0.shrunk = phi i1 [ false, %2 ], [ false, %12 ], [ false, %14 ], [ %11, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split" ]
+"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit": ; preds = %6, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split", %2
+  %.0.shrunk = phi i1 [ false, %2 ], [ %11, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split" ], [ false, %6 ]
   ret i1 %.0.shrunk
-
-12:                                               ; preds = %6
-  %13 = icmp eq i64 %3, 0
-  tail call void @llvm.assume(i1 %13)
-  %.val3 = load i64, ptr %7, align 8, !noundef !11
-  %.val5 = load i64, ptr %8, align 8, !noundef !11
-  %.not.i.i.i = icmp eq i64 %.val3, %.val5
-  br i1 %.not.i.i.i, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split", label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit"
-
-14:                                               ; preds = %6
-  %15 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %15)
-  %.val7 = load i64, ptr %7, align 8, !noundef !11
-  %.val9 = load i64, ptr %8, align 8, !noundef !11
-  %.not.i.i = icmp eq i64 %.val7, %.val9
-  br i1 %.not.i.i, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split", label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit"
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -16510,9 +16495,9 @@ define hidden void @"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT
   call void @llvm.experimental.noalias.scope.decl(metadata !11810)
   %24 = load i64, ptr %6, align 8, !range !180, !alias.scope !11810, !noalias !11813, !noundef !11
   %25 = icmp eq i64 %24, 0
-  %.val3.i.i.i.i = load i64, ptr %16, align 8, !noalias !11801
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %.val3.i.i.i.i, %3
-  %or.cond.i.i.i = select i1 %25, i1 %.not.i.i.i.i.i.i.i, i1 false
+  %.val7.i.i.i.i = load i64, ptr %16, align 8, !noalias !11801
+  %.not.i.i.i.i.i.i = icmp eq i64 %.val7.i.i.i.i, %3
+  %or.cond.i.i.i = select i1 %25, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17ha36c96f002f05715E.llvm.12642593798105491766.exit.i.i", label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17ha36c96f002f05715E.llvm.12642593798105491766.exit.thread.i.i"
 
 "_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17ha36c96f002f05715E.llvm.12642593798105491766.exit.thread.i.i": ; preds = %18
@@ -16591,9 +16576,9 @@ define hidden void @"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT
   call void @llvm.experimental.noalias.scope.decl(metadata !11838)
   %24 = load i64, ptr %6, align 8, !range !180, !alias.scope !11838, !noalias !11841, !noundef !11
   %25 = icmp eq i64 %24, 0
-  %.val3.i.i.i.i = load i64, ptr %16, align 8, !noalias !11829
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %.val3.i.i.i.i, %3
-  %or.cond.i.i.i = select i1 %25, i1 %.not.i.i.i.i.i.i.i, i1 false
+  %.val7.i.i.i.i = load i64, ptr %16, align 8, !noalias !11829
+  %.not.i.i.i.i.i.i = icmp eq i64 %.val7.i.i.i.i, %3
+  %or.cond.i.i.i = select i1 %25, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hda7d377bec222503E.llvm.12642593798105491766.exit.i.i", label %"_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hda7d377bec222503E.llvm.12642593798105491766.exit.thread.i.i"
 
 "_ZN99_$LT$object..read..coff..file..CoffFile$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..Object$GT$21section_by_name_bytes28_$u7b$$u7b$closure$u7d$$u7d$17hda7d377bec222503E.llvm.12642593798105491766.exit.thread.i.i": ; preds = %18
@@ -16650,9 +16635,9 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$object..read..coff..file..CoffFile$
   %13 = load i64, ptr %4, align 8, !range !180, !alias.scope !11844, !noalias !11847, !noundef !11
   %14 = icmp eq i64 %13, 0
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.val3.i = load i64, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq i64 %.val3.i, %12
-  %or.cond = select i1 %14, i1 %.not.i.i.i.i, i1 false
+  %.val7.i = load i64, ptr %15, align 8
+  %.not.i.i.i = icmp eq i64 %.val7.i, %12
+  %or.cond = select i1 %14, i1 %.not.i.i.i, i1 false
   br i1 %or.cond, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split.i", label %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe1c0d08d66743efE.llvm.12642593798105491766.exit"
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split.i": ; preds = %2
@@ -16689,9 +16674,9 @@ define hidden noundef zeroext i1 @"_ZN99_$LT$object..read..coff..file..CoffFile$
   %13 = load i64, ptr %4, align 8, !range !180, !alias.scope !11850, !noalias !11853, !noundef !11
   %14 = icmp eq i64 %13, 0
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.val3.i = load i64, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq i64 %.val3.i, %12
-  %or.cond = select i1 %14, i1 %.not.i.i.i.i, i1 false
+  %.val7.i = load i64, ptr %15, align 8
+  %.not.i.i.i = icmp eq i64 %.val7.i, %12
+  %or.cond = select i1 %14, i1 %.not.i.i.i, i1 false
   br i1 %or.cond, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split.i", label %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hbe1c0d08d66743efE.llvm.12642593798105491766.exit"
 
 "_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h9265c66eb4712558E.exit.sink.split.i": ; preds = %2
@@ -17463,7 +17448,7 @@ attributes #10 = { nofree norecurse nosync nounwind nonlazybind memory(read, arg
 attributes #11 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #14 = { inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #14 = { inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #15 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #17 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

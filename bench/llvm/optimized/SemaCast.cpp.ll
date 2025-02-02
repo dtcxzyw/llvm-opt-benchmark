@@ -12845,7 +12845,7 @@ _ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread: ; preds 
   br label %209
 
 209:                                              ; preds = %207, %208, %202, %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread
-  %.151 = phi i8 [ %.050, %202 ], [ 0, %208 ], [ 0, %207 ], [ %.050, %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread ]
+  %.151 = phi i8 [ 1, %202 ], [ 0, %208 ], [ 0, %207 ], [ 0, %_ZNK5clang10Qualifiers30compatiblyIncludesObjCLifetimeES0_.exit.thread ]
   %.sroa.018.0.copyload21 = load i64, ptr %10, align 8
   br label %34, !llvm.loop !29
 

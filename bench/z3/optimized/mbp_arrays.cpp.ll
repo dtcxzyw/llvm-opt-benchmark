@@ -6516,7 +6516,7 @@ invoke.cont35:                                    ; preds = %land.lhs.true
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont35, %if.else, %invoke.cont23
-  %args_have_stores.1 = phi i8 [ %args_have_stores.091, %if.else ], [ %args_have_stores.091, %invoke.cont23 ], [ %spec.select, %invoke.cont35 ]
+  %args_have_stores.1 = phi i8 [ 1, %if.else ], [ %args_have_stores.091, %invoke.cont23 ], [ %spec.select, %invoke.cont35 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.090, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i24.ptr
   br i1 %cmp.not, label %for.end, label %invoke.cont23
@@ -10520,7 +10520,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 
 for.inc.sink.split:                               ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit52, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit73
   %.sink = phi ptr [ %45, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit73 ], [ %36, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit52 ], [ %28, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
-  %all_done.1.ph = phi i8 [ %all_done.0291, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit73 ], [ 0, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit52 ], [ %all_done.0291, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
+  %all_done.1.ph = phi i8 [ 1, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit73 ], [ 0, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit52 ], [ %all_done.0291, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
   %arrayidx10.i.i66 = getelementptr inbounds i8, ptr %.sink, i64 -4
   %46 = load i32, ptr %arrayidx10.i.i66, align 4
   %inc.i.i67 = add i32 %46, 1
@@ -10528,7 +10528,7 @@ for.inc.sink.split:                               ; preds = %_ZN15ref_vector_cor
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.else32
-  %all_done.1 = phi i8 [ %all_done.0291, %if.else32 ], [ %all_done.1.ph, %for.inc.sink.split ]
+  %all_done.1 = phi i8 [ 0, %if.else32 ], [ %all_done.1.ph, %for.inc.sink.split ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.0290, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i33.ptr
   br i1 %cmp.not, label %for.end, label %invoke.cont20
@@ -12614,11 +12614,11 @@ invoke.cont10:                                    ; preds = %if.then.i21
 
 while.cond.outer:                                 ; preds = %_ZN7obj_mapI4exprPS0_E6insertES1_RKS1_.exit, %invoke.cont10
   %r.0.ph = phi ptr [ %r.2, %_ZN7obj_mapI4exprPS0_E6insertES1_RKS1_.exit ], [ null, %invoke.cont10 ]
-  %.pre283 = load ptr, ptr %todo, align 8
+  %.pre282 = load ptr, ptr %todo, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit127
-  %17 = phi ptr [ %.pre283, %while.cond.outer ], [ %69, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit127 ]
+  %17 = phi ptr [ %.pre282, %while.cond.outer ], [ %69, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit127 ]
   %cmp.i22 = icmp eq ptr %17, null
   br i1 %cmp.i22, label %while.end, label %_ZNK6vectorIP3appLb0EjE5emptyEv.exit
 
@@ -12695,10 +12695,10 @@ invoke.cont21.preheader:                          ; preds = %invoke.cont18
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %invoke.cont21.preheader, %for.inc
-  %__begin3.0263 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_args.i.ptr, %invoke.cont21.preheader ]
+  %__begin3.0262 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_args.i.ptr, %invoke.cont21.preheader ]
   %args_have_stores.0261 = phi i8 [ %args_have_stores.1, %for.inc ], [ 0, %invoke.cont21.preheader ]
   %dirty.0259 = phi i1 [ %dirty.1, %for.inc ], [ false, %invoke.cont21.preheader ]
-  %31 = load ptr, ptr %__begin3.0263, align 8
+  %31 = load ptr, ptr %__begin3.0262, align 8
   %m_kind.i.i35 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %bf.load.i.i36 = load i32, ptr %m_kind.i.i35, align 4
   %bf.clear.i.i37 = and i32 %bf.load.i.i36, 65535
@@ -13013,8 +13013,8 @@ _ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122:    ; preds = %lor.lhs.false.i108,
 
 for.inc:                                          ; preds = %invoke.cont36.thread, %invoke.cont36, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %invoke.cont30
   %dirty.1 = phi i1 [ %59, %invoke.cont30 ], [ %dirty.0259, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122 ], [ %dirty.0259, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %59, %invoke.cont36 ], [ %59, %invoke.cont36.thread ]
-  %args_have_stores.1 = phi i8 [ %args_have_stores.0261, %invoke.cont30 ], [ %args_have_stores.0261, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122 ], [ %args_have_stores.0261, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %args_have_stores.0261, %invoke.cont36 ], [ 1, %invoke.cont36.thread ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.0263, i64 8
+  %args_have_stores.1 = phi i8 [ 1, %invoke.cont30 ], [ %args_have_stores.0261, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit122 ], [ %args_have_stores.0261, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ 0, %invoke.cont36 ], [ 1, %invoke.cont36.thread ]
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.0262, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i34.ptr
   br i1 %cmp.not, label %for.end.loopexit, label %invoke.cont21
 
@@ -13030,7 +13030,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i123, label %for.end.if.end50_crit_edge, label %_ZNK6vectorIP3appLb0EjE4sizeEv.exit127
 
 for.end.if.end50_crit_edge:                       ; preds = %for.end
-  %.pre285 = load i32, ptr inttoptr (i64 -4 to ptr), align 4
+  %.pre284 = load i32, ptr inttoptr (i64 -4 to ptr), align 4
   br label %if.end50
 
 _ZNK6vectorIP3appLb0EjE4sizeEv.exit127:           ; preds = %for.end
@@ -13040,7 +13040,7 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit127:           ; preds = %for.end
   br i1 %cmp48, label %while.cond, label %if.end50, !llvm.loop !64
 
 if.end50:                                         ; preds = %_ZNK6vectorIP3appLb0EjE4sizeEv.exit127, %for.end.if.end50_crit_edge
-  %71 = phi i32 [ %.pre285, %for.end.if.end50_crit_edge ], [ %70, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit127 ]
+  %71 = phi i32 [ %.pre284, %for.end.if.end50_crit_edge ], [ %70, %_ZNK6vectorIP3appLb0EjE4sizeEv.exit127 ]
   %arrayidx.i128 = getelementptr inbounds i8, ptr %69, i64 -4
   %dec.i = add i32 %71, -1
   store i32 %dec.i, ptr %arrayidx.i128, align 4

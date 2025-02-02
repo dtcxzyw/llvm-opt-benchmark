@@ -314,7 +314,7 @@ land.rhs8:                                        ; preds = %land.rhs8.lr.ph, %w
   ]
 
 if.end.thread:                                    ; preds = %land.rhs8
-  %cmp21.not366 = icmp eq i32 %3, 7
+  %cmp21.not365 = icmp eq i32 %3, 7
   br label %if.end30
 
 while.body:                                       ; preds = %land.rhs8, %land.rhs8
@@ -350,10 +350,10 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %if.end
   br label %return
 
 if.end30:                                         ; preds = %if.end.thread, %if.end
-  %cmp21.not369 = phi i1 [ %cmp21.not366, %if.end.thread ], [ %cmp21.not, %if.end ]
-  %cmp.i316368 = phi i1 [ true, %if.end.thread ], [ %cmp.i316, %if.end ]
+  %cmp21.not368 = phi i1 [ %cmp21.not365, %if.end.thread ], [ %cmp21.not, %if.end ]
+  %cmp.i316367 = phi i1 [ true, %if.end.thread ], [ %cmp.i316, %if.end ]
   %10 = phi i64 [ %7, %if.end.thread ], [ %9, %if.end ]
-  %or.cond116 = select i1 %cmp.i316368, i1 %cmp21.not369, i1 false
+  %or.cond116 = select i1 %cmp.i316367, i1 %cmp21.not368, i1 false
   br i1 %or.cond116, label %_ZN4llvhplERKNS_5TwineES2_.exit157, label %if.end44
 
 _ZN4llvhplERKNS_5TwineES2_.exit157:               ; preds = %if.end30
@@ -376,7 +376,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit157:               ; preds = %if.end30
   br label %return
 
 if.end44:                                         ; preds = %if.end30
-  br i1 %cmp21.not369, label %if.then47, label %if.end49
+  br i1 %cmp21.not368, label %if.then47, label %if.end49
 
 if.then47:                                        ; preds = %if.end44
   %RegExStr = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -571,9 +571,9 @@ for.body.lr.ph:                                   ; preds = %if.end140
   br i1 %cmp157.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %indvars.iv363 = phi i64 [ %indvars.iv.next364, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %indvars.iv362 = phi i64 [ %indvars.iv.next363, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %IsExpression.0341.us = phi i1 [ %IsExpression.1.us, %for.inc.us ], [ false, %for.body.lr.ph ]
-  %cmp144.us = icmp eq i64 %indvars.iv363, 0
+  %cmp144.us = icmp eq i64 %indvars.iv362, 0
   br i1 %cmp144.us, label %if.then145.us, label %if.end169.us
 
 if.then145.us:                                    ; preds = %for.body.us
@@ -587,7 +587,7 @@ if.then156.us:                                    ; preds = %if.then145.us
   br label %for.inc.us
 
 if.end169.us:                                     ; preds = %if.then145.us, %for.body.us
-  %arrayidx.i198.us = getelementptr inbounds nuw i8, ptr %add.ptr.i380.fr, i64 %indvars.iv363
+  %arrayidx.i198.us = getelementptr inbounds nuw i8, ptr %add.ptr.i380.fr, i64 %indvars.iv362
   %29 = load i8, ptr %arrayidx.i198.us, align 1
   %cmp173.not.us = icmp eq i8 %29, 95
   br i1 %cmp173.not.us, label %for.inc.us, label %land.lhs.true174.us
@@ -609,8 +609,8 @@ lor.lhs.false182.us:                              ; preds = %land.lhs.true180.us
 
 for.inc.us:                                       ; preds = %if.then156.us, %lor.lhs.false182.us, %lor.lhs.false182.us, %land.lhs.true174.us, %if.end169.us, %if.then145.us
   %IsExpression.1.us = phi i1 [ %IsExpression.0341.us, %if.then145.us ], [ %IsExpression.0341.us, %land.lhs.true174.us ], [ true, %lor.lhs.false182.us ], [ %IsExpression.0341.us, %if.end169.us ], [ true, %if.then156.us ], [ true, %lor.lhs.false182.us ]
-  %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
-  %cmp143.not.us = icmp eq i64 %indvars.iv.next364, %27
+  %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
+  %cmp143.not.us = icmp eq i64 %indvars.iv.next363, %27
   br i1 %cmp143.not.us, label %for.end, label %for.body.us, !llvm.loop !23
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -648,7 +648,7 @@ land.lhs.true174:                                 ; preds = %if.end169
   br i1 %tobool179.not, label %if.then192, label %for.inc
 
 if.then192:                                       ; preds = %land.lhs.true174, %land.lhs.true180.us, %lor.lhs.false182.us
-  %.us-phi = phi i64 [ %indvars.iv363, %lor.lhs.false182.us ], [ %indvars.iv363, %land.lhs.true180.us ], [ %indvars.iv, %land.lhs.true174 ]
+  %.us-phi = phi i64 [ %indvars.iv362, %lor.lhs.false182.us ], [ %indvars.iv362, %land.lhs.true180.us ], [ %indvars.iv, %land.lhs.true174 ]
   %arrayidx.i198.le = getelementptr inbounds nuw i8, ptr %add.ptr.i380.fr, i64 %.us-phi
   %LHSKind.i202 = getelementptr inbounds nuw i8, ptr %ref.tmp197, i64 16
   %RHSKind.i203 = getelementptr inbounds nuw i8, ptr %ref.tmp197, i64 17

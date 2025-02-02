@@ -5873,7 +5873,7 @@ do.end26:                                         ; preds = %do.body
 
 return:                                           ; preds = %if.then, %_ZNKR2v85MaybeIbE8FromJustEv.exit, %if.then7, %do.end26
   %retval.sroa.0.0.in = phi i16 [ %call4, %if.then7 ], [ %call4, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %call4, %if.then ], [ %retval.sroa.0.0.insert.insert.i, %do.end26 ]
-  %retval.sroa.5.0.in = phi i16 [ %retval.sroa.5.0.extract.shift, %if.then7 ], [ %retval.sroa.5.0.extract.shift, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %retval.sroa.5.0.extract.shift, %if.then ], [ %retval.sroa.2.0.insert.ext.i, %do.end26 ]
+  %retval.sroa.5.0.in = phi i16 [ 1, %if.then7 ], [ 0, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %retval.sroa.5.0.extract.shift, %if.then ], [ %retval.sroa.2.0.insert.ext.i, %do.end26 ]
   %retval.sroa.5.0.insert.shift = shl nuw nsw i16 %retval.sroa.5.0.in, 8
   %retval.sroa.0.0.insert.ext = and i16 %retval.sroa.0.0.in, 255
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.5.0.insert.shift, %retval.sroa.0.0.insert.ext

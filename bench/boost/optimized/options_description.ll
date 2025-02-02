@@ -6925,7 +6925,7 @@ _ZN5boost14char_separatorIcSt11char_traitsIcEED2Ev.exit.i: ; preds = %_ZNKSt7__c
 
 255:                                              ; preds = %251
   %256 = trunc nuw i8 %254 to i1
-  br i1 %256, label %257, label %._crit_edge.i.i.i.i
+  br i1 %256, label %257, label %.thread.i
 
 257:                                              ; preds = %255
   %258 = load ptr, ptr %242, align 8, !tbaa !45
@@ -6933,7 +6933,7 @@ _ZN5boost14char_separatorIcSt11char_traitsIcEED2Ev.exit.i: ; preds = %_ZNKSt7__c
   %260 = icmp eq ptr %258, %259
   br i1 %260, label %262, label %.thread.i
 
-._crit_edge.i.i.i.i:                              ; preds = %255, %251
+._crit_edge.i.i.i.i:                              ; preds = %251
   %261 = icmp eq i8 %252, %254
   br i1 %261, label %479, label %.thread.i
 
@@ -6943,7 +6943,7 @@ _ZN5boost14char_separatorIcSt11char_traitsIcEED2Ev.exit.i: ; preds = %_ZNKSt7__c
   %265 = icmp eq ptr %263, %264
   br i1 %265, label %479, label %.thread.i
 
-.thread.i:                                        ; preds = %262, %._crit_edge.i.i.i.i, %257
+.thread.i:                                        ; preds = %262, %._crit_edge.i.i.i.i, %257, %255
   store ptr %247, ptr %16, align 8, !tbaa !6
   %266 = load ptr, ptr %246, align 8, !tbaa !24
   %267 = load i64, ptr %248, align 8, !tbaa !10

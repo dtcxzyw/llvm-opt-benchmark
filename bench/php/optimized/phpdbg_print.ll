@@ -960,7 +960,6 @@ define internal fastcc void @phpdbg_print_opcodes_ce(ptr noundef readonly captur
   br label %40
 
 40:                                               ; preds = %34, %37
-  %.2 = phi i8 [ %.044, %37 ], [ 0, %34 ]
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -969,7 +968,7 @@ define internal fastcc void @phpdbg_print_opcodes_ce(ptr noundef readonly captur
   br label %46
 
 46:                                               ; preds = %.lr.ph, %40
-  %.1 = phi i8 [ %.044, %.lr.ph ], [ %.2, %40 ]
+  %.1 = phi i8 [ %.044, %.lr.ph ], [ 0, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %.03543, i64 32
   %.not39 = icmp eq ptr %47, %27
   br i1 %.not39, label %._crit_edge, label %.lr.ph

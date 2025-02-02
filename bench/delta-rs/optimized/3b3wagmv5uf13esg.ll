@@ -2425,7 +2425,6 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
   %trunc = trunc nuw i64 %99 to i1
   %100 = load ptr, ptr %41, align 8, !nonnull !16, !align !439
   %101 = load i64, ptr %42, align 8
-  %.sroa.036.0 = select i1 %trunc, ptr null, ptr %100
   %.sroa.438.0 = select i1 %trunc, i64 undef, i64 %101
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %102 = load ptr, ptr %43, align 8, !nonnull !16, !noundef !16
@@ -2464,22 +2463,22 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
           to label %163 unwind label %161
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2f71593f5119403cE.exit": ; preds = %104
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.c579db34678b6347faf127b6a38bc70b.20, ptr noundef nonnull readonly align 1 dereferenceable(6) %.sroa.036.0, i64 6), !alias.scope !625
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.c579db34678b6347faf127b6a38bc70b.20, ptr noundef nonnull readonly align 1 dereferenceable(6) %100, i64 6), !alias.scope !625
   %112 = icmp eq i32 %bcmp.i.i, 0
   br i1 %112, label %113, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2f71593f5119403cE.exit.thread"
 
 113:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2f71593f5119403cE.exit"
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
-  %114 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h50d5b0bd40ea7d50E"(i64 noundef %.sroa.438.0, i1 noundef zeroext false)
+  %114 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h50d5b0bd40ea7d50E"(i64 noundef %101, i1 noundef zeroext false)
           to label %.noexc67 unwind label %96
 
 .noexc67:                                         ; preds = %113
   %115 = extractvalue { i64, ptr } %114, 1
   %116 = icmp ne ptr %115, null
   call void @llvm.assume(i1 %116)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr nonnull readonly align 1 %.sroa.036.0, i64 %.sroa.438.0, i1 false)
-  %117 = getelementptr inbounds i8, ptr %115, i64 %.sroa.438.0
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr nonnull readonly align 1 %100, i64 %101, i1 false)
+  %117 = getelementptr inbounds i8, ptr %115, i64 %101
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc67, %.lr.ph.i.i

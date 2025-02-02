@@ -4068,13 +4068,12 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %78, %77, %75, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i, %52
-  %.2.i.i.i = phi i8 [ %.0.i.i.i, %52 ], [ 1, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i ], [ 1, %75 ], [ 1, %77 ], [ 1, %78 ]
   %81 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %4) #16
   %82 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplImEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %4)
   br label %83
 
 83:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i, %42
-  %.1.i.i.i = phi i8 [ %.0.i.i.i, %42 ], [ %.2.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i ]
+  %.1.i.i.i = phi i8 [ %.0.i.i.i, %42 ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i ]
   br label %84
 
 84:                                               ; preds = %87, %83

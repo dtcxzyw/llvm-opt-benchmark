@@ -146,22 +146,19 @@ define dso_local noundef zeroext i1 @_ZN12DyndepParser5ParseERKNSt7__cxx1112basi
   tail call void @_ZN5Lexer5StartE11StringPieceS0_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr %17, i64 %18, ptr %19, i64 %20)
   br label %.outer
 
-.outer:                                           ; preds = %54, %4
-  %.026.ph = phi i1 [ true, %54 ], [ false, %4 ]
+.outer:                                           ; preds = %.outer.backedge, %4
+  %.026.ph = phi i1 [ false, %4 ], [ true, %.outer.backedge ]
   br label %21
 
-21:                                               ; preds = %.backedge, %.outer
+21:                                               ; preds = %.outer, %21
   %22 = tail call noundef i32 @_ZN5Lexer9ReadTokenEv(ptr noundef nonnull align 8 dereferenceable(48) %16)
   switch i32 %22, label %72 [
     i32 1, label %23
     i32 5, label %36
     i32 0, label %56
     i32 15, label %61
-    i32 8, label %.backedge
-  ]
-
-.backedge:                                        ; preds = %21, %34
-  br label %21, !llvm.loop !5
+    i32 8, label %21
+  ], !llvm.loop !5
 
 23:                                               ; preds = %21
   br i1 %.026.ph, label %34, label %24
@@ -212,7 +209,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 34:                                               ; preds = %23
   %35 = tail call noundef zeroext i1 @_ZN12DyndepParser9ParseEdgeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %3)
-  br i1 %35, label %.backedge, label %.loopexit
+  br i1 %35, label %.outer.backedge, label %.loopexit
+
+.outer.backedge:                                  ; preds = %34, %54
+  br label %.outer, !llvm.loop !5
 
 36:                                               ; preds = %21
   tail call void @_ZN5Lexer11UnreadTokenEv(ptr noundef nonnull align 8 dereferenceable(48) %16)
@@ -284,7 +284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44: ; 
 
 54:                                               ; preds = %36
   %55 = tail call noundef zeroext i1 @_ZN12DyndepParser18ParseDyndepVersionEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %3)
-  br i1 %55, label %.outer, label %.loopexit, !llvm.loop !5
+  br i1 %55, label %.outer.backedge, label %.loopexit
 
 56:                                               ; preds = %21
   call void @_ZN5Lexer17DescribeLastErrorB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %16)
@@ -412,8 +412,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit55: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #17
   br label %89
 
-.loopexit:                                        ; preds = %34, %54, %61, %81, %67, %58, %46, %29
-  %.025 = phi i1 [ %80, %81 ], [ %66, %67 ], [ %57, %58 ], [ %45, %46 ], [ %28, %29 ], [ true, %61 ], [ false, %54 ], [ false, %34 ]
+.loopexit:                                        ; preds = %54, %34, %61, %81, %67, %58, %46, %29
+  %.025 = phi i1 [ %80, %81 ], [ %66, %67 ], [ %57, %58 ], [ %45, %46 ], [ %28, %29 ], [ true, %61 ], [ false, %34 ], [ false, %54 ]
   ret i1 %.025
 
 89:                                               ; preds = %.body53, %.body48, %59, %.body42, %.body

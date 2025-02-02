@@ -3652,8 +3652,8 @@ define noundef zeroext i1 @_ZNK3gmx9BiasState23isSamplingRegionCoveredERKNS_10Bi
   %sext = shl i64 %15, 32
   %16 = ashr exact i64 %sext, 32
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.not222 = icmp eq i64 %sext, 0
-  br i1 %.not222, label %_ZNSt6vectorIZNK3gmx9BiasState23isSamplingRegionCoveredERKNS0_10BiasParamsENS0_8ArrayRefIKNS0_9DimParamsEEERKNS0_8BiasGridEE8CheckDimSaISC_EE6resizeEm.exit, label %18
+  %.not219 = icmp eq i64 %sext, 0
+  br i1 %.not219, label %_ZNSt6vectorIZNK3gmx9BiasState23isSamplingRegionCoveredERKNS0_10BiasParamsENS0_8ArrayRefIKNS0_9DimParamsEEERKNS0_8BiasGridEE8CheckDimSaISC_EE6resizeEm.exit, label %18
 
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3798,8 +3798,8 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %88, %86, %84, %82
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
   %94 = sdiv exact i64 %93, 48
-  %sext223 = shl i64 %94, 32
-  %95 = ashr exact i64 %sext223, 32
+  %sext220 = shl i64 %94, 32
+  %95 = ashr exact i64 %sext220, 32
   %96 = icmp slt i64 %indvars.iv.next, %95
   br i1 %96, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
@@ -3886,8 +3886,8 @@ _ZN3gmx12_GLOBAL__N_122freeEnergyMinimumValueENS_8ArrayRefIKNS_10PointStateEEE.e
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %4, align 8
-  %.not184 = icmp eq ptr %130, %131
-  br i1 %.not184, label %.preheader153, label %.lr.ph170
+  %.not183 = icmp eq ptr %130, %131
+  br i1 %.not183, label %.preheader153, label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %.preheader154
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3898,16 +3898,16 @@ _ZN3gmx12_GLOBAL__N_122freeEnergyMinimumValueENS_8ArrayRefIKNS_10PointStateEEE.e
 .lr.ph164:                                        ; preds = %120, %155
   %134 = phi ptr [ %156, %155 ], [ %97, %120 ]
   %135 = phi ptr [ %157, %155 ], [ %98, %120 ]
-  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %155 ], [ 0, %120 ]
+  %indvars.iv188 = phi i64 [ %indvars.iv.next189, %155 ], [ 0, %120 ]
   %.087162 = phi double [ %.188, %155 ], [ 1.000000e+00, %120 ]
-  %136 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %134, i64 %indvars.iv190
+  %136 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %134, i64 %indvars.iv188
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 40
   %138 = load i8, ptr %137, align 8
   %139 = trunc i8 %138 to i1
   br i1 %139, label %155, label %140
 
 140:                                              ; preds = %.lr.ph164
-  %141 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %2, i64 %indvars.iv190
+  %141 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %2, i64 %indvars.iv188
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %143 = load i8, ptr %142, align 8
   %.not.i.i.i = icmp eq i8 %143, 0
@@ -3937,21 +3937,21 @@ _ZNK3gmx9DimParams13pullDimParamsEv.exit:         ; preds = %140
   %153 = fmul double %147, %152
   %154 = fmul double %.087162, %153
   %.pre = load ptr, ptr %9, align 8
-  %.pre208 = load ptr, ptr %8, align 8
+  %.pre207 = load ptr, ptr %8, align 8
   br label %155
 
 155:                                              ; preds = %.lr.ph164, %_ZNK3gmx9DimParams13pullDimParamsEv.exit
-  %156 = phi ptr [ %.pre208, %_ZNK3gmx9DimParams13pullDimParamsEv.exit ], [ %134, %.lr.ph164 ]
+  %156 = phi ptr [ %.pre207, %_ZNK3gmx9DimParams13pullDimParamsEv.exit ], [ %134, %.lr.ph164 ]
   %157 = phi ptr [ %.pre, %_ZNK3gmx9DimParams13pullDimParamsEv.exit ], [ %135, %.lr.ph164 ]
   %.188 = phi double [ %154, %_ZNK3gmx9DimParams13pullDimParamsEv.exit ], [ %.087162, %.lr.ph164 ]
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %158 = ptrtoint ptr %157 to i64
   %159 = ptrtoint ptr %156 to i64
   %160 = sub i64 %158, %159
   %161 = sdiv exact i64 %160, 48
-  %sext224 = shl i64 %161, 32
-  %162 = ashr exact i64 %sext224, 32
-  %163 = icmp slt i64 %indvars.iv.next191, %162
+  %sext221 = shl i64 %161, 32
+  %162 = ashr exact i64 %sext221, 32
+  %163 = icmp slt i64 %indvars.iv.next189, %162
   br i1 %163, label %.lr.ph164, label %.preheader154, !llvm.loop !34
 
 .preheader153:                                    ; preds = %._crit_edge168, %.preheader154
@@ -3992,11 +3992,11 @@ _ZNK3gmx9DimParams13pullDimParamsEv.exit:         ; preds = %140
   br label %188
 
 188:                                              ; preds = %.lr.ph167, %_ZNSt14_Bit_referenceaSEb.exit125
-  %indvars.iv193 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next194, %_ZNSt14_Bit_referenceaSEb.exit125 ]
+  %indvars.iv191 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next192, %_ZNSt14_Bit_referenceaSEb.exit125 ]
   %189 = load ptr, ptr %4, align 8
-  %190 = getelementptr inbounds %"struct.gmx::GridPoint", ptr %189, i64 %.091169, i32 1, i64 %indvars.iv193
+  %190 = getelementptr inbounds %"struct.gmx::GridPoint", ptr %189, i64 %.091169, i32 1, i64 %indvars.iv191
   %191 = load i32, ptr %190, align 4
-  %192 = getelementptr inbounds nuw %struct.CheckDim, ptr %.val94, i64 %indvars.iv193
+  %192 = getelementptr inbounds nuw %struct.CheckDim, ptr %.val94, i64 %indvars.iv191
   %193 = sext i32 %191 to i64
   %194 = load ptr, ptr %192, align 8
   %195 = sdiv i32 %191, 64
@@ -4063,26 +4063,26 @@ _ZNK3gmx9DimParams13pullDimParamsEv.exit:         ; preds = %140
 _ZNSt14_Bit_referenceaSEb.exit125:                ; preds = %.thread142, %.thread143
   %storemerge149 = phi i64 [ %226, %.thread143 ], [ %224, %.thread142 ]
   store i64 %storemerge149, ptr %storemerge.i.i.i.i.i118, align 8
-  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
+  %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %227 = load ptr, ptr %9, align 8
   %228 = load ptr, ptr %8, align 8
   %229 = ptrtoint ptr %227 to i64
   %230 = ptrtoint ptr %228 to i64
   %231 = sub i64 %229, %230
   %232 = sdiv exact i64 %231, 48
-  %sext225 = shl i64 %232, 32
-  %233 = ashr exact i64 %sext225, 32
-  %234 = icmp slt i64 %indvars.iv.next194, %233
+  %sext222 = shl i64 %232, 32
+  %233 = ashr exact i64 %sext222, 32
+  %234 = icmp slt i64 %indvars.iv.next192, %233
   br i1 %234, label %188, label %._crit_edge168.loopexit, !llvm.loop !35
 
 ._crit_edge168.loopexit:                          ; preds = %_ZNSt14_Bit_referenceaSEb.exit125
-  %.pre209 = load ptr, ptr %129, align 8
-  %.pre210 = load ptr, ptr %4, align 8
+  %.pre208 = load ptr, ptr %129, align 8
+  %.pre209 = load ptr, ptr %4, align 8
   br label %._crit_edge168
 
 ._crit_edge168:                                   ; preds = %._crit_edge168.loopexit, %173
-  %235 = phi ptr [ %.pre210, %._crit_edge168.loopexit ], [ %174, %173 ]
-  %236 = phi ptr [ %.pre209, %._crit_edge168.loopexit ], [ %175, %173 ]
+  %235 = phi ptr [ %.pre209, %._crit_edge168.loopexit ], [ %174, %173 ]
+  %236 = phi ptr [ %.pre208, %._crit_edge168.loopexit ], [ %175, %173 ]
   %237 = phi ptr [ %228, %._crit_edge168.loopexit ], [ %176, %173 ]
   %238 = phi ptr [ %227, %._crit_edge168.loopexit ], [ %177, %173 ]
   %239 = add nuw i64 %.091169, 1
@@ -4094,16 +4094,16 @@ _ZNSt14_Bit_referenceaSEb.exit125:                ; preds = %.thread142, %.threa
   br i1 %244, label %173, label %.preheader153, !llvm.loop !36
 
 245:                                              ; preds = %.lr.ph172, %_ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefIiEE.exit
-  %indvars.iv196 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next197, %_ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefIiEE.exit ]
+  %indvars.iv194 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next195, %_ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefIiEE.exit ]
   %246 = phi ptr [ %164, %.lr.ph172 ], [ %319, %_ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefIiEE.exit ]
-  %247 = getelementptr inbounds nuw %struct.CheckDim, ptr %.val98, i64 %indvars.iv196
+  %247 = getelementptr inbounds nuw %struct.CheckDim, ptr %.val98, i64 %indvars.iv194
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 40
-  %249 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %246, i64 %indvars.iv196
+  %249 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %246, i64 %indvars.iv194
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 32
   %251 = load i32, ptr %250, align 8
   %252 = getelementptr inbounds nuw i8, ptr %249, i64 36
   %253 = load i32, ptr %252, align 4
-  %254 = getelementptr inbounds nuw [4 x i32], ptr %172, i64 0, i64 %indvars.iv196
+  %254 = getelementptr inbounds nuw [4 x i32], ptr %172, i64 0, i64 %indvars.iv194
   %255 = load i32, ptr %254, align 4
   %256 = getelementptr inbounds nuw i8, ptr %247, i64 80
   %257 = load ptr, ptr %256, align 8
@@ -4172,7 +4172,7 @@ _ZNSt14_Bit_referenceaSEb.exit125:                ; preds = %.thread142, %.threa
 .loopexit4.i:                                     ; preds = %.lr.ph.i127, %276, %274, %269, %260
   %.173.i = phi i32 [ %.0728.i, %269 ], [ %.0728.i, %260 ], [ %262, %274 ], [ %262, %276 ], [ %262, %.lr.ph.i127 ]
   %.171.i = phi i32 [ %.0709.i, %269 ], [ %.0709.i, %260 ], [ %262, %274 ], [ %.0709.i, %276 ], [ %.0709.i, %.lr.ph.i127 ]
-  %.1.i126 = phi i8 [ %.06710.i, %269 ], [ %.06710.i, %260 ], [ 1, %274 ], [ %.06710.i, %276 ], [ %.06710.i, %.lr.ph.i127 ]
+  %.1.i126 = phi i8 [ %.06710.i, %269 ], [ %.06710.i, %260 ], [ 1, %274 ], [ 1, %276 ], [ %.06710.i, %.lr.ph.i127 ]
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %indvars.iv.next28.i = add nuw i32 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i
@@ -4247,16 +4247,16 @@ _ZNSt14_Bit_referenceaSEb.exit125:                ; preds = %.thread142, %.threa
   br i1 %exitcond46.not.i, label %_ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefIiEE.exit, label %312, !llvm.loop !41
 
 _ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefIiEE.exit: ; preds = %.preheader.i, %312, %._crit_edge20.i, %245
-  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %318 = load ptr, ptr %9, align 8
   %319 = load ptr, ptr %8, align 8
   %320 = ptrtoint ptr %318 to i64
   %321 = ptrtoint ptr %319 to i64
   %322 = sub i64 %320, %321
   %323 = sdiv exact i64 %322, 48
-  %sext226 = shl i64 %323, 32
-  %324 = ashr exact i64 %sext226, 32
-  %325 = icmp slt i64 %indvars.iv.next197, %324
+  %sext223 = shl i64 %323, 32
+  %324 = ashr exact i64 %sext223, 32
+  %325 = icmp slt i64 %indvars.iv.next195, %324
   br i1 %325, label %245, label %._crit_edge173, !llvm.loop !42
 
 ._crit_edge173:                                   ; preds = %_ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefIiEE.exit, %.preheader153
@@ -4274,7 +4274,7 @@ _ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefI
 
 .preheader150:                                    ; preds = %._crit_edge173
   %336 = icmp sgt i32 %335, 0
-  br i1 %336, label %.lr.ph175, label %._crit_edge182
+  br i1 %336, label %.lr.ph175, label %._crit_edge181
 
 .lr.ph175:                                        ; preds = %.preheader150
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4283,12 +4283,12 @@ _ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefI
   br label %339
 
 339:                                              ; preds = %.lr.ph175, %349
-  %indvars.iv199 = phi i64 [ 0, %.lr.ph175 ], [ %indvars.iv.next200, %349 ]
+  %indvars.iv197 = phi i64 [ 0, %.lr.ph175 ], [ %indvars.iv.next198, %349 ]
   %340 = phi ptr [ %326, %.lr.ph175 ], [ %351, %349 ]
   %341 = load ptr, ptr %337, align 8
-  %342 = getelementptr inbounds nuw %struct.CheckDim, ptr %.val101, i64 %indvars.iv199, i32 2
+  %342 = getelementptr inbounds nuw %struct.CheckDim, ptr %.val101, i64 %indvars.iv197, i32 2
   %343 = load ptr, ptr %342, align 8
-  %344 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %340, i64 %indvars.iv199, i32 4
+  %344 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %340, i64 %indvars.iv197, i32 4
   %345 = load i32, ptr %344, align 8
   %346 = sext i32 %345 to i64
   %.not.i128 = icmp eq ptr %343, null
@@ -4299,16 +4299,16 @@ _ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefI
           to label %349 unwind label %.loopexit151
 
 349:                                              ; preds = %339
-  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %350 = load ptr, ptr %9, align 8
   %351 = load ptr, ptr %8, align 8
   %352 = ptrtoint ptr %350 to i64
   %353 = ptrtoint ptr %351 to i64
   %354 = sub i64 %352, %353
   %355 = sdiv exact i64 %354, 48
-  %sext227 = shl i64 %355, 32
-  %356 = ashr exact i64 %sext227, 32
-  %357 = icmp slt i64 %indvars.iv.next200, %356
+  %sext224 = shl i64 %355, 32
+  %356 = ashr exact i64 %sext224, 32
+  %357 = icmp slt i64 %indvars.iv.next198, %356
   br i1 %357, label %339, label %.loopexit.loopexit, !llvm.loop !43
 
 .loopexit.loopexit:                               ; preds = %349
@@ -4316,56 +4316,48 @@ _ZN3gmx12_GLOBAL__N_118labelCoveredPointsERKSt6vectorIbSaIbEES5_iiiNS_8ArrayRefI
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge173, %.loopexit.loopexit
-  %.pre-phi221 = phi i32 [ %358, %.loopexit.loopexit ], [ %335, %._crit_edge173 ]
+  %.pre-phi218 = phi i32 [ %358, %.loopexit.loopexit ], [ %335, %._crit_edge173 ]
   %359 = phi ptr [ %351, %.loopexit.loopexit ], [ %326, %._crit_edge173 ]
-  %360 = icmp sgt i32 %.pre-phi221, 0
-  br i1 %360, label %.preheader.lr.ph, label %._crit_edge182
+  %360 = icmp sgt i32 %.pre-phi218, 0
+  br i1 %360, label %.preheader.lr.ph, label %._crit_edge181
 
 .preheader.lr.ph:                                 ; preds = %.loopexit
   %.val102 = load ptr, ptr %6, align 8
-  %361 = zext nneg i32 %.pre-phi221 to i64
+  %361 = zext nneg i32 %.pre-phi218 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge178
-  %indvars.iv205 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next206, %._crit_edge178 ]
-  %.082180 = phi i8 [ 1, %.preheader.lr.ph ], [ %.1.lcssa, %._crit_edge178 ]
-  %362 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %359, i64 %indvars.iv205, i32 4
+  %indvars.iv203 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next204, %._crit_edge178 ]
+  %362 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %359, i64 %indvars.iv203, i32 4
   %363 = load i32, ptr %362, align 8
   %364 = icmp sgt i32 %363, 0
-  %365 = trunc nuw i8 %.082180 to i1
-  %366 = select i1 %364, i1 %365, i1 false
-  br i1 %366, label %.lr.ph177, label %._crit_edge178
+  br i1 %364, label %.lr.ph177, label %._crit_edge178
 
 .lr.ph177:                                        ; preds = %.preheader
-  %367 = getelementptr inbounds nuw %struct.CheckDim, ptr %.val102, i64 %indvars.iv205, i32 2
-  %368 = load ptr, ptr %367, align 8
-  %369 = zext nneg i32 %363 to i64
-  br label %370
+  %365 = getelementptr inbounds nuw %struct.CheckDim, ptr %.val102, i64 %indvars.iv203, i32 2
+  %366 = load ptr, ptr %365, align 8
+  %367 = zext nneg i32 %363 to i64
+  br label %368
 
-370:                                              ; preds = %.lr.ph177, %370
-  %indvars.iv202 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next203, %370 ]
-  %371 = getelementptr inbounds nuw i32, ptr %368, i64 %indvars.iv202
-  %372 = load i32, ptr %371, align 4
-  %373 = icmp ne i32 %372, 0
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %374 = icmp samesign ult i64 %indvars.iv.next203, %369
-  %375 = select i1 %374, i1 %373, i1 false
-  br i1 %375, label %370, label %._crit_edge178.loopexit, !llvm.loop !44
+368:                                              ; preds = %.lr.ph177, %368
+  %indvars.iv200 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next201, %368 ]
+  %369 = getelementptr inbounds nuw i32, ptr %366, i64 %indvars.iv200
+  %370 = load i32, ptr %369, align 4
+  %371 = icmp ne i32 %370, 0
+  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
+  %372 = icmp samesign ult i64 %indvars.iv.next201, %367
+  %373 = select i1 %372, i1 %371, i1 false
+  br i1 %373, label %368, label %._crit_edge178, !llvm.loop !44
 
-._crit_edge178.loopexit:                          ; preds = %370
-  %376 = zext i1 %373 to i8
-  br label %._crit_edge178
+._crit_edge178:                                   ; preds = %368, %.preheader
+  %.1.lcssa = phi i1 [ true, %.preheader ], [ %371, %368 ]
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
+  %374 = icmp samesign ult i64 %indvars.iv.next204, %361
+  %375 = select i1 %374, i1 %.1.lcssa, i1 false
+  br i1 %375, label %.preheader, label %._crit_edge181, !llvm.loop !45
 
-._crit_edge178:                                   ; preds = %._crit_edge178.loopexit, %.preheader
-  %.pre-phi = phi i1 [ %373, %._crit_edge178.loopexit ], [ %365, %.preheader ]
-  %.1.lcssa = phi i8 [ %376, %._crit_edge178.loopexit ], [ %.082180, %.preheader ]
-  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %377 = icmp samesign ult i64 %indvars.iv.next206, %361
-  %378 = select i1 %377, i1 %.pre-phi, i1 false
-  br i1 %378, label %.preheader, label %._crit_edge182, !llvm.loop !45
-
-._crit_edge182:                                   ; preds = %._crit_edge178, %.preheader150, %.loopexit
-  %.lcssa = phi i1 [ true, %.loopexit ], [ true, %.preheader150 ], [ %.pre-phi, %._crit_edge178 ]
+._crit_edge181:                                   ; preds = %._crit_edge178, %.preheader150, %.loopexit
+  %.lcssa = phi i1 [ true, %.loopexit ], [ true, %.preheader150 ], [ %.1.lcssa, %._crit_edge178 ]
   call fastcc void @_ZNSt6vectorIZNK3gmx9BiasState23isSamplingRegionCoveredERKNS0_10BiasParamsENS0_8ArrayRefIKNS0_9DimParamsEEERKNS0_8BiasGridEE8CheckDimSaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #29
   ret i1 %.lcssa
 }

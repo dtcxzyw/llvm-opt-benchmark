@@ -505,8 +505,8 @@ define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSe
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i64, ptr %11, align 8
-  %.not72 = icmp eq i64 %12, 0
-  br i1 %.not72, label %._crit_edge, label %.lr.ph
+  %.not70 = icmp eq i64 %12, 0
+  br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -518,16 +518,16 @@ define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSe
   store i64 0, ptr %7, align 8
   call fastcc void @_ZL23generate_all_subsets_ofPA5_N6LogTag4typeEPmPKS0_PS0_mm(ptr noundef %8, ptr noundef %7, ptr noundef %6, ptr noundef null, i64 noundef 0, i64 noundef 0)
   %15 = load i64, ptr %7, align 8
-  %.not73 = icmp eq i64 %15, 0
-  br i1 %.not73, label %._crit_edge71, label %.lr.ph70
+  %.not71 = icmp eq i64 %15, 0
+  br i1 %.not71, label %._crit_edge68, label %.lr.ph67
 
-.lr.ph70:                                         ; preds = %._crit_edge, %.loopexit
-  %.04768 = phi i64 [ %63, %.loopexit ], [ 0, %._crit_edge ]
-  %16 = getelementptr inbounds [32 x [5 x i32]], ptr %8, i64 0, i64 %.04768
+.lr.ph67:                                         ; preds = %._crit_edge, %.loopexit
+  %.04765 = phi i64 [ %55, %.loopexit ], [ 0, %._crit_edge ]
+  %16 = getelementptr inbounds [32 x [5 x i32]], ptr %8, i64 0, i64 %.04765
   br label %17
 
-17:                                               ; preds = %17, %.lr.ph70
-  %.0.i = phi i64 [ 0, %.lr.ph70 ], [ %20, %17 ]
+17:                                               ; preds = %17, %.lr.ph67
+  %.0.i = phi i64 [ 0, %.lr.ph67 ], [ %20, %17 ]
   %18 = getelementptr inbounds i32, ptr %16, i64 %.0.i
   %19 = load i32, ptr %18, align 4
   %.not.i = icmp eq i32 %19, 0
@@ -537,112 +537,114 @@ define internal fastcc void @_ZL14add_selectionsPP12LogSelectionPmS2_RK9LogTagSe
 _ZL9sort_tagsPN6LogTag4typeE.exit:                ; preds = %17
   call void @qsort(ptr noundef nonnull %16, i64 noundef %.0.i, i64 noundef 4, ptr noundef nonnull @_ZL7tag_cmpPKN6LogTag4typeES2_) #12
   %21 = load i64, ptr %1, align 8
-  %.not57.not = icmp eq i64 %21, 0
-  br i1 %.not57.not, label %.critedge, label %.lr.ph59
+  %.not56.not = icmp eq i64 %21, 0
+  br i1 %.not56.not, label %.critedge, label %.lr.ph58
 
-.lr.ph59:                                         ; preds = %_ZL9sort_tagsPN6LogTag4typeE.exit, %30
-  %.04558 = phi i64 [ %31, %30 ], [ 0, %_ZL9sort_tagsPN6LogTag4typeE.exit ]
+.lr.ph58:                                         ; preds = %_ZL9sort_tagsPN6LogTag4typeE.exit, %30
+  %.04557 = phi i64 [ %31, %30 ], [ 0, %_ZL9sort_tagsPN6LogTag4typeE.exit ]
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds %class.LogSelection, ptr %22, i64 %.04558
+  %23 = getelementptr inbounds %class.LogSelection, ptr %22, i64 %.04557
   %24 = call noundef i32 @_ZNK12LogSelection5levelEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #12
   %25 = icmp eq i32 %4, %24
   br i1 %25, label %26, label %30
 
-26:                                               ; preds = %.lr.ph59
+26:                                               ; preds = %.lr.ph58
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds %class.LogSelection, ptr %27, i64 %.04558
+  %28 = getelementptr inbounds %class.LogSelection, ptr %27, i64 %.04557
   %29 = call noundef zeroext i1 @_ZNK12LogSelection11consists_ofEPKN6LogTag4typeE(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull %16) #12
   br i1 %29, label %.loopexit, label %30
 
-30:                                               ; preds = %.lr.ph59, %26
-  %31 = add nuw i64 %.04558, 1
+30:                                               ; preds = %.lr.ph58, %26
+  %31 = add nuw i64 %.04557, 1
   %32 = load i64, ptr %1, align 8
   %.not = icmp ult i64 %31, %32
-  br i1 %.not, label %.lr.ph59, label %.critedge, !llvm.loop !19
+  br i1 %.not, label %.lr.ph58, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %30, %_ZL9sort_tagsPN6LogTag4typeE.exit
   call void @_ZN12LogSelectionC1EPKN6LogTag4typeEbN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %16, i1 noundef zeroext false, i32 noundef %4) #12
   call void @_ZN12LogSelectionC1EPKN6LogTag4typeEbN8LogLevel4typeE(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %16, i1 noundef zeroext true, i32 noundef %4) #12
-  %.060 = load ptr, ptr @_ZN9LogTagSet5_listE, align 8
-  %.not5061 = icmp eq ptr %.060, null
-  br i1 %.not5061, label %.loopexit, label %.lr.ph65
+  %.059 = load ptr, ptr @_ZN9LogTagSet5_listE, align 8
+  %.not5060 = icmp eq ptr %.059, null
+  br i1 %.not5060, label %.loopexit, label %.lr.ph63.outer
 
-.lr.ph65:                                         ; preds = %.critedge, %37
-  %.064 = phi ptr [ %.0, %37 ], [ %.060, %.critedge ]
-  %.04163 = phi i8 [ %.2, %37 ], [ 0, %.critedge ]
-  %.04262 = phi i1 [ %.244, %37 ], [ false, %.critedge ]
-  %33 = call noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(112) %.064) #12
-  br i1 %33, label %34, label %37
+.lr.ph63.outer:                                   ; preds = %.critedge, %.thread77
+  %.062.ph = phi ptr [ %.079, %.thread77 ], [ %.059, %.critedge ]
+  %.04261.ph = phi i1 [ true, %.thread77 ], [ false, %.critedge ]
+  br label %.lr.ph63
 
-34:                                               ; preds = %.lr.ph65
-  %35 = call noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(112) %.064) #12
-  %spec.select = select i1 %35, i8 1, i8 %.04163
-  %36 = trunc nuw i8 %spec.select to i1
-  br i1 %36, label %.thread, label %37
+.lr.ph63:                                         ; preds = %.lr.ph63.outer, %36
+  %.062 = phi ptr [ %.0, %36 ], [ %.062.ph, %.lr.ph63.outer ]
+  %33 = call noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(112) %.062) #12
+  br i1 %33, label %34, label %36
 
-37:                                               ; preds = %34, %.lr.ph65
-  %.244 = phi i1 [ true, %34 ], [ %.04262, %.lr.ph65 ]
-  %.2 = phi i8 [ %spec.select, %34 ], [ %.04163, %.lr.ph65 ]
-  %.0 = load ptr, ptr %.064, align 8
+34:                                               ; preds = %.lr.ph63
+  %35 = call noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(112) %.062) #12
+  br i1 %35, label %.thread, label %.thread77
+
+36:                                               ; preds = %.lr.ph63
+  %.0 = load ptr, ptr %.062, align 8
   %.not50 = icmp eq ptr %.0, null
-  br i1 %.not50, label %._crit_edge66, label %.lr.ph65, !llvm.loop !20
+  br i1 %.not50, label %._crit_edge64, label %.lr.ph63, !llvm.loop !20
 
-._crit_edge66:                                    ; preds = %37
-  br i1 %.244, label %.thread, label %38
+.thread77:                                        ; preds = %34
+  %.079 = load ptr, ptr %.062, align 8
+  %.not5080 = icmp eq ptr %.079, null
+  br i1 %.not5080, label %.thread, label %.lr.ph63.outer, !llvm.loop !20
 
-38:                                               ; preds = %._crit_edge66
-  %39 = trunc nuw i8 %.2 to i1
-  br i1 %39, label %.thread, label %.loopexit
+._crit_edge64:                                    ; preds = %36
+  br i1 %.04261.ph, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %34, %38, %._crit_edge66
-  %40 = phi i1 [ false, %38 ], [ true, %._crit_edge66 ], [ true, %34 ]
-  %.153 = phi i8 [ %.2, %38 ], [ %.2, %._crit_edge66 ], [ %spec.select, %34 ]
-  %41 = load i64, ptr %1, align 8
-  %42 = add i64 %41, 2
-  %43 = load i64, ptr %2, align 8
-  %44 = icmp ugt i64 %42, %43
-  br i1 %44, label %45, label %50
+.thread:                                          ; preds = %.thread77, %34, %._crit_edge64
+  %.153 = phi i1 [ false, %._crit_edge64 ], [ %35, %34 ], [ %35, %.thread77 ]
+  %37 = load i64, ptr %1, align 8
+  %38 = add i64 %37, 2
+  %39 = load i64, ptr %2, align 8
+  %40 = icmp ugt i64 %38, %39
+  br i1 %40, label %41, label %.thread._crit_edge
 
-45:                                               ; preds = %.thread
-  %46 = shl i64 %43, 1
-  store i64 %46, ptr %2, align 8
-  %47 = load ptr, ptr %0, align 8
-  %48 = mul i64 %43, 96
-  %49 = call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %47, i64 noundef %48, i8 noundef zeroext 17, i32 noundef 0) #12
-  store ptr %49, ptr %0, align 8
+.thread._crit_edge:                               ; preds = %.thread
+  %.pre72.pre = load ptr, ptr %0, align 8
+  br label %46
+
+41:                                               ; preds = %.thread
+  %42 = shl i64 %39, 1
+  store i64 %42, ptr %2, align 8
+  %43 = load ptr, ptr %0, align 8
+  %44 = mul i64 %39, 96
+  %45 = call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %43, i64 noundef %44, i8 noundef zeroext 17, i32 noundef 0) #12
+  store ptr %45, ptr %0, align 8
+  %.pre74.pre = load i64, ptr %1, align 8
+  br label %46
+
+46:                                               ; preds = %.thread._crit_edge, %41
+  %.pre74 = phi i64 [ %37, %.thread._crit_edge ], [ %.pre74.pre, %41 ]
+  %.pre72 = phi ptr [ %.pre72.pre, %.thread._crit_edge ], [ %45, %41 ]
+  br i1 %.153, label %47, label %50
+
+47:                                               ; preds = %46
+  %48 = add i64 %.pre74, 1
+  store i64 %48, ptr %1, align 8
+  %49 = getelementptr inbounds %class.LogSelection, ptr %.pre72, i64 %.pre74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
+  %.pre = load ptr, ptr %0, align 8
+  %.pre73 = load i64, ptr %1, align 8
   br label %50
 
-50:                                               ; preds = %45, %.thread
-  %51 = trunc nuw i8 %.153 to i1
-  br i1 %51, label %52, label %57
-
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %0, align 8
-  %54 = load i64, ptr %1, align 8
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %1, align 8
-  %56 = getelementptr inbounds %class.LogSelection, ptr %53, i64 %54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
-  br label %57
-
-57:                                               ; preds = %52, %50
-  br i1 %40, label %58, label %.loopexit
-
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %0, align 8
-  %60 = load i64, ptr %1, align 8
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %1, align 8
-  %62 = getelementptr inbounds %class.LogSelection, ptr %59, i64 %60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
+50:                                               ; preds = %46, %47
+  %51 = phi i64 [ %.pre74, %46 ], [ %.pre73, %47 ]
+  %52 = phi ptr [ %.pre72, %46 ], [ %.pre, %47 ]
+  %53 = add i64 %51, 1
+  store i64 %53, ptr %1, align 8
+  %54 = getelementptr inbounds %class.LogSelection, ptr %52, i64 %51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %.critedge, %57, %58, %38
-  %63 = add nuw i64 %.04768, 1
-  %exitcond.not = icmp eq i64 %63, %15
-  br i1 %exitcond.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !21
+.loopexit:                                        ; preds = %26, %.critedge, %._crit_edge64, %50
+  %55 = add nuw i64 %.04765, 1
+  %exitcond.not = icmp eq i64 %55, %15
+  br i1 %exitcond.not, label %._crit_edge68, label %.lr.ph67, !llvm.loop !21
 
-._crit_edge71:                                    ; preds = %.loopexit, %._crit_edge
+._crit_edge68:                                    ; preds = %.loopexit, %._crit_edge
   ret void
 }
 

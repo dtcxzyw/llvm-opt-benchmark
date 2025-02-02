@@ -2442,6 +2442,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   %142 = trunc i8 %141 to i1
   %.not301 = xor i1 %142, true
   %brmerge = select i1 %.not301, i1 true, i1 %.1173345
+  %.1173.mux = select i1 %142, i1 true, i1 %.1173345
   br i1 %brmerge, label %145, label %143
 
 143:                                              ; preds = %139
@@ -2449,7 +2450,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   br label %145
 
 145:                                              ; preds = %139, %143
-  %.2174 = phi i1 [ true, %143 ], [ %.1173345, %139 ]
+  %.2174 = phi i1 [ true, %143 ], [ %.1173.mux, %139 ]
   %146 = load ptr, ptr @g_het_grp_bits, align 8
   %.not249 = icmp eq ptr %146, null
   br i1 %.not249, label %151, label %147
@@ -2496,6 +2497,8 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   %172 = load i64, ptr %171, align 8
   %.not251 = icmp eq i64 %172, 0
   %brmerge302 = select i1 %.not251, i1 true, i1 %.1176344
+  %not..not251 = xor i1 %.not251, true
+  %.1176.mux = select i1 %not..not251, i1 true, i1 %.1176344
   br i1 %brmerge302, label %175, label %173
 
 173:                                              ; preds = %170
@@ -2503,11 +2506,13 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   br label %175
 
 175:                                              ; preds = %170, %173
-  %.2177 = phi i1 [ true, %173 ], [ %.1176344, %170 ]
+  %.2177 = phi i1 [ true, %173 ], [ %.1176.mux, %170 ]
   %176 = getelementptr inbounds nuw i8, ptr %97, i64 728
   %177 = load i16, ptr %176, align 8
   %.not252 = icmp eq i16 %177, 0
   %brmerge303 = select i1 %.not252, i1 true, i1 %.1164348
+  %not..not252 = xor i1 %.not252, true
+  %.1164.mux = select i1 %not..not252, i1 true, i1 %.1164348
   br i1 %brmerge303, label %180, label %178
 
 178:                                              ; preds = %175
@@ -2515,7 +2520,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   br label %180
 
 180:                                              ; preds = %175, %178
-  %.2165 = phi i1 [ true, %178 ], [ %.1164348, %175 ]
+  %.2165 = phi i1 [ true, %178 ], [ %.1164.mux, %175 ]
   %181 = tail call ptr @job_step_create_allocation(ptr noundef nonnull %84, ptr noundef nonnull %97)
   %.not253 = icmp eq ptr %181, null
   br i1 %.not253, label %182, label %184

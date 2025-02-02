@@ -9091,7 +9091,7 @@ define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr noundef re
   br label %77
 
 77:                                               ; preds = %.lr.ph274, %72, %74
-  %.1156 = phi i8 [ %.0155240271, %72 ], [ %.0155240271, %74 ], [ 1, %.lr.ph274 ]
+  %.1156 = phi i8 [ 1, %72 ], [ 0, %74 ], [ 1, %.lr.ph274 ]
   %.1152 = phi ptr [ %.0151242269, %72 ], [ %76, %74 ], [ %.0151242269, %.lr.ph274 ]
   %78 = load ptr, ptr %10, align 8
   %79 = icmp eq ptr %78, null
@@ -9107,7 +9107,7 @@ define internal fastcc ptr @create_bitmap_subplan(ptr noundef %0, ptr noundef re
   br label %85
 
 85:                                               ; preds = %77, %82, %80
-  %.1158 = phi i8 [ %.0157239272, %80 ], [ %.0157239272, %82 ], [ 1, %77 ]
+  %.1158 = phi i8 [ 1, %80 ], [ 0, %82 ], [ 1, %77 ]
   %.1154 = phi ptr [ %.0153241270, %80 ], [ %84, %82 ], [ %.0153241270, %77 ]
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %86 = load i32, ptr %61, align 4

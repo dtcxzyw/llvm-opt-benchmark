@@ -24165,7 +24165,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit33
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit33: ; preds = %81, %79, %64, %_ZN4args6GlyphsERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE.exit
-  %.218 = phi i8 [ %.01659, %64 ], [ %.01659, %_ZN4args6GlyphsERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE.exit ], [ 1, %79 ], [ 1, %81 ]
+  %.218 = phi i8 [ 1, %64 ], [ %.01659, %_ZN4args6GlyphsERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE.exit ], [ 1, %79 ], [ 1, %81 ]
   %.2 = phi i64 [ %.01560, %64 ], [ %.01560, %_ZN4args6GlyphsERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE.exit ], [ %3, %79 ], [ %3, %81 ]
   %.not = icmp eq i64 %spec.select.i, 0
   br i1 %.not, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit, label %82
@@ -24192,7 +24192,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.ex
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit unwind label %.loopexit
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit: ; preds = %16, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit, %46, %44, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit33, %29
-  %.117 = phi i8 [ %.01659, %16 ], [ %.01659, %29 ], [ %.218, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit33 ], [ 1, %44 ], [ 1, %46 ], [ 0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit ]
+  %.117 = phi i8 [ %.01659, %16 ], [ 1, %29 ], [ %.218, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit33 ], [ 1, %44 ], [ 1, %46 ], [ 0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit ]
   %.1 = phi i64 [ %.01560, %16 ], [ %.01560, %29 ], [ %.2, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit33 ], [ %3, %44 ], [ %3, %46 ], [ %.2, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 24
   %.not50 = icmp eq ptr %94, %2
@@ -24535,7 +24535,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit36
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit36: ; preds = %89, %87, %72, %_ZN4args6GlyphsERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE.exit
-  %.218 = phi i8 [ %.01655, %72 ], [ %.01655, %_ZN4args6GlyphsERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE.exit ], [ 1, %87 ], [ 1, %89 ]
+  %.218 = phi i8 [ 1, %72 ], [ %.01655, %_ZN4args6GlyphsERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE.exit ], [ 1, %87 ], [ 1, %89 ]
   %.2 = phi i64 [ %.01556, %72 ], [ %.01556, %_ZN4args6GlyphsERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE.exit ], [ %3, %87 ], [ %3, %89 ]
   %.not = icmp eq i64 %spec.select.i, 0
   br i1 %.not, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit, label %90
@@ -24562,7 +24562,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.ex
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit unwind label %29
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit: ; preds = %31, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit, %58, %56, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit36, %41
-  %.117 = phi i8 [ %.01655, %31 ], [ %.01655, %41 ], [ %.218, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit36 ], [ 1, %56 ], [ 1, %58 ], [ 0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit ]
+  %.117 = phi i8 [ %.01655, %31 ], [ 1, %41 ], [ %.218, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit36 ], [ 1, %56 ], [ 1, %58 ], [ 0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit ]
   %.1 = phi i64 [ %.01556, %31 ], [ %.01556, %41 ], [ %.2, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5clearB8ne190000Ev.exit36 ], [ %3, %56 ], [ %3, %58 ], [ %.2, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit ]
   %102 = load ptr, ptr %8, align 8
   %103 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3__1rsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_istreamIT_T0_EES9_RNS_12basic_stringIS6_S7_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(24) %11)

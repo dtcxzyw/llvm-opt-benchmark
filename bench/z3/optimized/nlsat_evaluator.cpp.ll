@@ -1408,7 +1408,6 @@ if.end80:                                         ; preds = %_ZN7obj_refIN5nlsat
   %prev_root_id.1 = phi i32 [ %prev_root_id.0168, %if.else52 ], [ %prev_root_id.0168, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ %61, %if.then71 ], [ %63, %if.else74 ], [ -1, %if.then56 ]
   %prev_open.1 = phi i8 [ %prev_open.0169, %if.else52 ], [ %prev_open.0169, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 1, %if.else74 ], [ 1, %if.then56 ]
   %prev_inf.1 = phi i8 [ %prev_inf.0176, %if.else52 ], [ %prev_inf.0176, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 0, %if.else74 ], [ 1, %if.then56 ]
-  %prev_sat.1 = phi i8 [ %prev_sat.0177, %if.else52 ], [ 0, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 0, %if.else74 ], [ 0, %if.then56 ]
   %cmp82 = icmp eq i32 %c.0170, %sub81
   br i1 %cmp82, label %if.then83, label %for.inc106
 
@@ -1486,7 +1485,7 @@ for.inc106.sink.split:                            ; preds = %if.end.i130, %if.th
   %prev_root_id.3.ph = phi i32 [ %prev_root_id.0168, %if.then.i.i82 ], [ %prev_root_id.0168, %if.end.i80 ], [ %prev_root_id.1, %if.then.i.i132 ], [ %prev_root_id.1, %if.end.i130 ]
   %prev_open.3.ph = phi i8 [ %prev_open.0169, %if.then.i.i82 ], [ %prev_open.0169, %if.end.i80 ], [ %prev_open.1, %if.then.i.i132 ], [ %prev_open.1, %if.end.i130 ]
   %prev_inf.3.ph = phi i8 [ %prev_inf.0176, %if.then.i.i82 ], [ %prev_inf.0176, %if.end.i80 ], [ %prev_inf.1, %if.then.i.i132 ], [ %prev_inf.1, %if.end.i130 ]
-  %prev_sat.2.ph = phi i8 [ 1, %if.then.i.i82 ], [ 1, %if.end.i80 ], [ %prev_sat.1, %if.then.i.i132 ], [ %prev_sat.1, %if.end.i130 ]
+  %prev_sat.2.ph = phi i8 [ 1, %if.then.i.i82 ], [ 1, %if.end.i80 ], [ 0, %if.then.i.i132 ], [ 0, %if.end.i130 ]
   store ptr %call101.sink, ptr %agg.result, align 8
   br label %for.inc106
 
@@ -1495,7 +1494,7 @@ for.inc106:                                       ; preds = %for.inc106.sink.spl
   %prev_root_id.3 = phi i32 [ %prev_root_id.0168, %if.then ], [ %prev_root_id.1, %if.end80 ], [ %prev_root_id.3.ph, %for.inc106.sink.split ]
   %prev_open.3 = phi i8 [ %prev_open.0169, %if.then ], [ %prev_open.1, %if.end80 ], [ %prev_open.3.ph, %for.inc106.sink.split ]
   %prev_inf.3 = phi i8 [ %prev_inf.0176, %if.then ], [ %prev_inf.1, %if.end80 ], [ %prev_inf.3.ph, %for.inc106.sink.split ]
-  %prev_sat.2 = phi i8 [ %prev_sat.0177, %if.then ], [ %prev_sat.1, %if.end80 ], [ %prev_sat.2.ph, %for.inc106.sink.split ]
+  %prev_sat.2 = phi i8 [ 1, %if.then ], [ 0, %if.end80 ], [ %prev_sat.2.ph, %for.inc106.sink.split ]
   %inc107 = add nuw i32 %c.0170, 1
   %exitcond180.not = icmp eq i32 %inc107, %retval.0.i.i
   br i1 %exitcond180.not, label %for.end108, label %for.body15, !llvm.loop !16

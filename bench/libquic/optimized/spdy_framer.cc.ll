@@ -7496,8 +7496,8 @@ if.end18:                                         ; preds = %entry
   %conv = trunc i64 %len to i32
   %avail_in = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %conv, ptr %avail_in, align 8
-  %cmp2041.not = icmp eq i32 %conv, 0
-  br i1 %cmp2041.not, label %return, label %while.body.lr.ph
+  %cmp2043.not = icmp eq i32 %conv, 0
+  br i1 %cmp2043.not, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end18
   %next_out = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -7514,7 +7514,6 @@ while.body.lr.ph:                                 ; preds = %if.end18
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end68
-  %processed_successfully.042 = phi i8 [ 1, %while.body.lr.ph ], [ %processed_successfully.1, %if.end68 ]
   store ptr %buffer, ptr %next_out, align 8
   store i32 1024, ptr %avail_out, align 8
   %call21 = call i32 @MOZ_Z_inflate(ptr noundef nonnull %call, i32 noundef 2)
@@ -7569,86 +7568,72 @@ land.end38:                                       ; preds = %_ZN4base12LazyInsta
   %8 = phi i1 [ false, %if.end33 ], [ %cmp37, %land.rhs35 ], [ false, %_ZN4base12LazyInstanceIN3net12_GLOBAL__N_113DictionaryIdsENS_8internal23LeakyLazyInstanceTraitsIS3_EEE3GetEv.exit ]
   %cmp39 = icmp eq i32 %rv.040, 0
   %brmerge = select i1 %cmp39, i1 true, i1 %8
-  br i1 %brmerge, label %if.then41, label %if.end68.thread
+  br i1 %brmerge, label %if.then41, label %if.else67
 
 if.then41:                                        ; preds = %land.end38
   %9 = load i32, ptr %avail_out, align 8
   %conv43 = zext i32 %9 to i64
   %sub = sub nsw i64 1024, %conv43
   %cmp44.not = icmp eq i32 %9, 1024
-  br i1 %cmp44.not, label %if.end63, label %if.then45
+  br i1 %cmp44.not, label %if.end68, label %if.then45
 
 if.then45:                                        ; preds = %if.then41
   %10 = load i8, ptr %use_new_methods_, align 2
   %tobool46 = trunc i8 %10 to i1
-  br i1 %tobool46, label %if.then47, label %if.else58
-
-if.then47:                                        ; preds = %if.then45
-  %11 = load ptr, ptr %header_parser_, align 8
-  %call50 = call noundef zeroext i1 @_ZN3net22SpdyHeadersBlockParser29HandleControlFrameHeadersDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(108) %11, i32 noundef %stream_id, ptr noundef nonnull %buffer, i64 noundef %sub)
-  %12 = load ptr, ptr %header_parser_, align 8
-  %error_.i = getelementptr inbounds nuw i8, ptr %12, i64 100
-  %13 = load i32, ptr %error_.i, align 4
-  %cmp55 = icmp eq i32 %13, 1
-  %narrow = or i1 %call50, %cmp55
-  %spec.select = zext i1 %narrow to i8
-  br label %if.end63
+  br i1 %tobool46, label %if.end63, label %if.else58
 
 if.else58:                                        ; preds = %if.then45
-  %14 = load ptr, ptr %visitor_.i34, align 8
-  %vtable = load ptr, ptr %14, align 8
+  %11 = load ptr, ptr %visitor_.i34, align 8
+  %vtable = load ptr, ptr %11, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
-  %15 = load ptr, ptr %vfn, align 8
-  %call60 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %stream_id, ptr noundef nonnull %buffer, i64 noundef %sub)
-  %frombool61 = zext i1 %call60 to i8
-  br label %if.end63
+  %12 = load ptr, ptr %vfn, align 8
+  %call60 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef %stream_id, ptr noundef nonnull %buffer, i64 noundef %sub)
+  br i1 %call60, label %if.end68, label %if.then65
 
-if.end63:                                         ; preds = %if.then47, %if.else58, %if.then41
-  %processed_successfully.1 = phi i8 [ %frombool61, %if.else58 ], [ %processed_successfully.042, %if.then41 ], [ %spec.select, %if.then47 ]
-  %tobool64 = trunc nuw i8 %processed_successfully.1 to i1
-  br i1 %tobool64, label %if.end68, label %if.then65
+if.end63:                                         ; preds = %if.then45
+  %13 = load ptr, ptr %header_parser_, align 8
+  %call50 = call noundef zeroext i1 @_ZN3net22SpdyHeadersBlockParser29HandleControlFrameHeadersDataEjPKcm(ptr noundef nonnull align 8 dereferenceable(108) %13, i32 noundef %stream_id, ptr noundef nonnull %buffer, i64 noundef %sub)
+  %14 = load ptr, ptr %header_parser_, align 8
+  %error_.i = getelementptr inbounds nuw i8, ptr %14, i64 100
+  %15 = load i32, ptr %error_.i, align 4
+  %cmp55 = icmp eq i32 %15, 1
+  %narrow = or i1 %call50, %cmp55
+  br i1 %narrow, label %if.end68, label %if.then65
 
-if.then65:                                        ; preds = %if.end63
+if.then65:                                        ; preds = %if.else58, %if.end63
   store i32 3, ptr %error_code_.i29, align 8
   store i32 0, ptr %expect_continuation_.i30, align 4
   store i8 0, ptr %end_stream_when_done_.i31, align 8
   %16 = load i32, ptr %state_.i32, align 8
   store i32 %16, ptr %previous_state_.i33, align 4
   store i32 0, ptr %state_.i32, align 8
-  %17 = load ptr, ptr %visitor_.i34, align 8
-  %vtable.i27 = load ptr, ptr %17, align 8
-  %vfn.i28 = getelementptr inbounds nuw i8, ptr %vtable.i27, i64 16
-  %18 = load ptr, ptr %vfn.i28, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(259) %this)
-  br label %if.end68
+  br label %return.sink.split
 
-if.end68.thread:                                  ; preds = %land.end38
+if.else67:                                        ; preds = %land.end38
   store i32 6, ptr %error_code_.i29, align 8
   store i32 0, ptr %expect_continuation_.i30, align 4
   store i8 0, ptr %end_stream_when_done_.i31, align 8
-  %19 = load i32, ptr %state_.i32, align 8
-  store i32 %19, ptr %previous_state_.i33, align 4
+  %17 = load i32, ptr %state_.i32, align 8
+  store i32 %17, ptr %previous_state_.i33, align 4
   store i32 0, ptr %state_.i32, align 8
   br label %return.sink.split
 
-if.end68:                                         ; preds = %if.end63, %if.then65
-  %20 = load i32, ptr %avail_in, align 8
-  %cmp20 = icmp ne i32 %20, 0
-  %tobool = trunc nuw i8 %processed_successfully.1 to i1
-  %21 = select i1 %cmp20, i1 %tobool, i1 false
-  br i1 %21, label %while.body, label %return, !llvm.loop !26
+if.end68:                                         ; preds = %if.else58, %if.then41, %if.end63
+  %18 = load i32, ptr %avail_in, align 8
+  %cmp20.not = icmp eq i32 %18, 0
+  br i1 %cmp20.not, label %return, label %while.body, !llvm.loop !26
 
-return.sink.split:                                ; preds = %cleanup.done, %if.end68.thread
-  %.sink49.in = phi ptr [ %visitor_.i34, %if.end68.thread ], [ %visitor_.i, %cleanup.done ]
-  %.sink49 = load ptr, ptr %.sink49.in, align 8
-  %vtable.i35 = load ptr, ptr %.sink49, align 8
+return.sink.split:                                ; preds = %cleanup.done, %if.then65, %if.else67
+  %.sink48.in = phi ptr [ %visitor_.i34, %if.else67 ], [ %visitor_.i34, %if.then65 ], [ %visitor_.i, %cleanup.done ]
+  %.sink48 = load ptr, ptr %.sink48.in, align 8
+  %vtable.i35 = load ptr, ptr %.sink48, align 8
   %vfn.i36 = getelementptr inbounds nuw i8, ptr %vtable.i35, i64 16
-  %22 = load ptr, ptr %vfn.i36, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %.sink49, ptr noundef nonnull align 8 dereferenceable(259) %this)
+  %19 = load ptr, ptr %vfn.i36, align 8
+  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %.sink48, ptr noundef nonnull align 8 dereferenceable(259) %this)
   br label %return
 
 return:                                           ; preds = %if.end68, %return.sink.split, %if.end18
-  %retval.0 = phi i1 [ true, %if.end18 ], [ false, %return.sink.split ], [ %tobool, %if.end68 ]
+  %retval.0 = phi i1 [ true, %if.end18 ], [ false, %return.sink.split ], [ true, %if.end68 ]
   ret i1 %retval.0
 }
 

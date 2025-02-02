@@ -2453,7 +2453,7 @@ define hidden void @"_ZN3hir11term_search7tactics11impl_method28_$u7b$$u7b$closu
 16:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79b700cd5c0e5efcE.exit.thread"
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %51
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h79b700cd5c0e5efcE.exit": ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload.i, i64 64
@@ -2487,7 +2487,7 @@ define hidden void @"_ZN3hir11term_search7tactics11impl_method28_$u7b$$u7b$closu
   %26 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17h8c43c3086c0ef430E.llvm.7396764210926536793"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8) #28
-          to label %.thread unwind label %27
+          to label %51 unwind label %27
 
 27:                                               ; preds = %25
   %28 = landingpad { ptr, i32 }
@@ -2545,7 +2545,7 @@ define hidden void @"_ZN3hir11term_search7tactics11impl_method28_$u7b$$u7b$closu
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   ret void
 
-46:                                               ; preds = %.thread, %49, %48, %39
+46:                                               ; preds = %51, %49, %48, %39
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #30
@@ -2559,14 +2559,14 @@ define hidden void @"_ZN3hir11term_search7tactics11impl_method28_$u7b$$u7b$closu
   %50 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$hir..term_search..expr..Expr$GT$$GT$17h31fd03798c7c0e74E"(ptr noalias noundef align 8 dereferenceable(8) %9) #28
-          to label %.thread unwind label %46
+          to label %51 unwind label %46
 
-"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h6f1a43461a7be8f6E.exit": ; preds = %48, %.thread
-  %.pn412 = phi { ptr, i32 } [ %.pn413, %.thread ], [ %40, %48 ]
+"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h6f1a43461a7be8f6E.exit": ; preds = %51, %48
+  %.pn412 = phi { ptr, i32 } [ %40, %48 ], [ %.pn4.ph, %51 ]
   resume { ptr, i32 } %.pn412
 
-.thread:                                          ; preds = %49, %25, %16
-  %.pn413 = phi { ptr, i32 } [ %17, %16 ], [ %26, %25 ], [ %50, %49 ]
+51:                                               ; preds = %49, %16, %25
+  %.pn4.ph = phi { ptr, i32 } [ %50, %49 ], [ %17, %16 ], [ %26, %25 ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h23d165d4e5d32784E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
           to label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h6f1a43461a7be8f6E.exit" unwind label %46
 }
@@ -24259,7 +24259,7 @@ define hidden noundef nonnull ptr @"_ZN15ide_diagnostics8handlers16json_is_not_r
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #30
   unreachable
 
-"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Visibility$GT$$GT$17h3a7d3e023577703fE.exit": ; preds = %15, %21
+"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Visibility$GT$$GT$17h3a7d3e023577703fE.exit": ; preds = %21, %15
   resume { ptr, i32 } %16
 }
 

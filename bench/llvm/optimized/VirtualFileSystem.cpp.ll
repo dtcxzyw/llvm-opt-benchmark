@@ -12733,7 +12733,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit87.i:             ; preds = %332, %330, %.crited
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit79.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit79.i:             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit87.i, %259, %257, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i
-  %.2.i = phi i8 [ %.139.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit87.i ], [ %.139.i, %257 ], [ %.139.i, %259 ]
+  %.2.i = phi i8 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit87.i ], [ 0, %257 ], [ 0, %259 ]
   %335 = getelementptr inbounds nuw i8, ptr %.pn38.i, i64 104
   %336 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %335) #27
   %337 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %335) #27

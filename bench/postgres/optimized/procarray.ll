@@ -2991,7 +2991,7 @@ define dso_local noundef ptr @GetSnapshotData(ptr noundef returned %0) local_unn
 
 125:                                              ; preds = %105, %98, %110, %112, %94, %87
   %spec.store.select157161 = phi i32 [ %spec.store.select157162163, %87 ], [ %spec.store.select157162163, %94 ], [ %spec.store.select157, %98 ], [ %spec.store.select157, %112 ], [ %spec.store.select157, %110 ], [ %spec.store.select157, %105 ]
-  %.1108 = phi i8 [ %.0107165, %87 ], [ %.0107165, %94 ], [ %.0107165, %98 ], [ %.0107165, %112 ], [ %.0107165, %110 ], [ 1, %105 ]
+  %.1108 = phi i8 [ %.0107165, %87 ], [ %.0107165, %94 ], [ 1, %98 ], [ 0, %112 ], [ 0, %110 ], [ 1, %105 ]
   %.1105 = phi i32 [ %.0104166, %87 ], [ %.0104166, %94 ], [ %.0104166, %98 ], [ %124, %112 ], [ %.0104166, %110 ], [ %.0104166, %105 ]
   %.1 = phi i32 [ %.0103167, %87 ], [ %.0103167, %94 ], [ %101, %98 ], [ %101, %112 ], [ %101, %110 ], [ %101, %105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3626,20 +3626,19 @@ define dso_local noundef ptr @GetRunningTransactionData() local_unnamed_addr #0 
 
 .loopexit:                                        ; preds = %78, %20, %55, %._crit_edge
   %.0.lcssa85 = phi i32 [ %.1, %._crit_edge ], [ %.1, %55 ], [ %33, %20 ], [ %.1, %78 ]
-  %.055.lcssa82 = phi i8 [ %.156, %._crit_edge ], [ %.156, %55 ], [ 0, %20 ], [ %.156, %78 ]
+  %.055.lcssa82 = phi i8 [ 1, %._crit_edge ], [ 0, %55 ], [ 0, %20 ], [ 0, %78 ]
   %.052 = phi i32 [ 0, %._crit_edge ], [ 0, %55 ], [ 0, %20 ], [ %.254, %78 ]
   %.251 = phi i32 [ %.150, %._crit_edge ], [ %.150, %55 ], [ 0, %20 ], [ %.4, %78 ]
   %82 = trunc i64 %30 to i32
   %83 = sub i32 %.251, %.052
   store i32 %83, ptr @GetRunningTransactionData.CurrentRunningXactsData, align 8
   store i32 %.052, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 4), align 4
-  %84 = and i8 %.055.lcssa82, 1
-  store i8 %84, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 8), align 8
-  %85 = load ptr, ptr @TransamVariables, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = load i64, ptr %86, align 8
-  %88 = trunc i64 %87 to i32
-  store i32 %88, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 12), align 4
+  store i8 %.055.lcssa82, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 8), align 8
+  %84 = load ptr, ptr @TransamVariables, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load i64, ptr %85, align 8
+  %87 = trunc i64 %86 to i32
+  store i32 %87, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 12), align 4
   store i32 %.0.lcssa85, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 16), align 8
   store i32 %82, ptr getelementptr inbounds nuw (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 20), align 4
   ret ptr @GetRunningTransactionData.CurrentRunningXactsData

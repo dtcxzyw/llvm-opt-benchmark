@@ -2923,7 +2923,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex21finalizeUnOrderedTagsEPKNS2
   %.048.lcssa119 = phi i32 [ %.048.lcssa120, %54 ], [ %.149, %38 ], [ %.149, %40 ], [ %.048.lcssa120, %._crit_edge.thread ], [ %.149, %43 ]
   %.053.lcssa117 = phi i32 [ %.053.lcssa118, %54 ], [ %33, %38 ], [ %33, %40 ], [ %.053.lcssa118, %._crit_edge.thread ], [ %33, %43 ]
   %.059.lcssa115 = phi i16 [ %.059.lcssa116, %54 ], [ %37, %38 ], [ %37, %40 ], [ %.059.lcssa116, %._crit_edge.thread ], [ %37, %43 ]
-  %.061.lcssa113 = phi i8 [ %.061.lcssa114, %54 ], [ %.162, %38 ], [ %.162, %40 ], [ %.061.lcssa114, %._crit_edge.thread ], [ %.162, %43 ]
+  %.061.lcssa113 = phi i8 [ %.061.lcssa114, %54 ], [ %.162, %38 ], [ %.162, %40 ], [ %.061.lcssa114, %._crit_edge.thread ], [ 0, %43 ]
   %57 = phi i16 [ %spec.select, %54 ], [ 512, %38 ], [ 512, %40 ], [ 512, %._crit_edge.thread ], [ 512, %43 ]
   %brmerge = phi i1 [ %56, %54 ], [ false, %38 ], [ false, %40 ], [ false, %._crit_edge.thread ], [ %47, %43 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 152

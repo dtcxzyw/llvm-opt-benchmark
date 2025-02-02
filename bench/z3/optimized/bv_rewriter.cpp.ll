@@ -44801,7 +44801,7 @@ invoke.cont13:                                    ; preds = %call3.i.noexc, %if.
   br label %if.end17
 
 if.end17:                                         ; preds = %invoke.cont13, %if.then10, %if.else, %land.lhs.true, %invoke.cont4
-  %ordered.1 = phi i8 [ %frombool, %invoke.cont4 ], [ %ordered.0729, %land.lhs.true ], [ %ordered.0729, %if.else ], [ %ordered.0729, %if.then10 ], [ %spec.select, %invoke.cont13 ]
+  %ordered.1 = phi i8 [ %frombool, %invoke.cont4 ], [ 0, %land.lhs.true ], [ %ordered.0729, %if.else ], [ 1, %if.then10 ], [ %spec.select, %invoke.cont13 ]
   %prev.1 = phi ptr [ %prev.0730, %invoke.cont4 ], [ %prev.0730, %land.lhs.true ], [ %prev.0730, %if.else ], [ %0, %if.then10 ], [ %0, %invoke.cont13 ]
   %num_coeffs.1 = phi i32 [ %inc, %invoke.cont4 ], [ %num_coeffs.0732, %land.lhs.true ], [ %num_coeffs.0732, %if.else ], [ %num_coeffs.0732, %if.then10 ], [ %num_coeffs.0732, %invoke.cont13 ]
   %7 = load i32, ptr %m_util.i.i, align 8
@@ -51802,8 +51802,8 @@ _ZNK13poly_rewriterI16bv_rewriter_coreE6is_mulEP4expr.exit.i: ; preds = %land.rh
   %cmp2.i.i.i.i.i.i = icmp eq i32 %29, 6
   %30 = select i1 %cmp.i.i.i.i.i.i, i1 %cmp2.i.i.i.i.i.i, i1 false
   %cmp.i48 = icmp eq i32 %16, 2
-  %or.cond71 = and i1 %30, %cmp.i48
-  br i1 %or.cond71, label %land.lhs.true4.i, label %cleanup
+  %or.cond70 = and i1 %30, %cmp.i48
+  br i1 %or.cond70, label %land.lhs.true4.i, label %cleanup
 
 land.lhs.true4.i:                                 ; preds = %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_mulEP4expr.exit.i
   %31 = load ptr, ptr %m_args.i.i.i38, align 8

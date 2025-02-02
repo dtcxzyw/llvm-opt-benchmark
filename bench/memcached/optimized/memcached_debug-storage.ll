@@ -1796,15 +1796,15 @@ while.body.outer:                                 ; preds = %if.end133, %if.end7
   %page_size.0.ph = phi i64 [ %page_size.176, %if.end133 ], [ 0, %if.end7 ]
   %page_id.0.ph = phi i32 [ %page_id.179, %if.end133 ], [ 0, %if.end7 ]
   %drop_unread.0.ph = phi i1 [ %drop_unread.181, %if.end133 ], [ false, %if.end7 ]
-  %compacting.0.ph = phi i8 [ %compacting.2, %if.end133 ], [ 0, %if.end7 ]
+  %compacting.0.ph = phi i1 [ %compacting.2, %if.end133 ], [ false, %if.end7 ]
   %page_offset.0.ph = phi i32 [ %page_offset.2, %if.end133 ], [ 0, %if.end7 ]
   %to_sleep.0.ph = phi i32 [ 10000, %if.end133 ], [ %0, %if.end7 ]
-  %tobool20 = trunc nuw i8 %compacting.0.ph to i1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.outer, %if.else136
   %page_size.0 = phi i64 [ %page_size.2.ph89, %if.else136 ], [ %page_size.0.ph, %while.body.outer ]
   %drop_unread.0 = phi i1 [ %drop_unread.2.ph90, %if.else136 ], [ %drop_unread.0.ph, %while.body.outer ]
+  %compacting.0 = phi i1 [ false, %if.else136 ], [ %compacting.0.ph, %while.body.outer ]
   %to_sleep.0 = phi i32 [ %spec.select, %if.else136 ], [ %to_sleep.0.ph, %while.body.outer ]
   %call15 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @storage_compact_plock) #22
   %tobool.not = icmp eq i32 %to_sleep.0, 0
@@ -1817,7 +1817,7 @@ if.then16:                                        ; preds = %while.body
 
 if.end18:                                         ; preds = %if.then16, %while.body
   %call19 = call i32 @pthread_mutex_lock(ptr noundef nonnull @storage_compact_plock) #22
-  br i1 %tobool20, label %if.then36, label %land.lhs.true
+  br i1 %compacting.0, label %if.then36, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
@@ -1948,12 +1948,11 @@ if.then31:                                        ; preds = %if.end28
   br label %if.then36
 
 if.then36:                                        ; preds = %if.end18, %if.end28, %if.then31
-  %page_offset.183 = phi i32 [ 0, %if.then31 ], [ 0, %if.end28 ], [ %page_offset.0.ph, %if.end18 ]
-  %compacting.182 = phi i8 [ 1, %if.then31 ], [ 1, %if.end28 ], [ %compacting.0.ph, %if.end18 ]
-  %drop_unread.181 = phi i1 [ %cmp69.not.i, %if.then31 ], [ %cmp69.not.i, %if.end28 ], [ %drop_unread.0, %if.end18 ]
-  %page_id.179 = phi i32 [ %page_id.2, %if.then31 ], [ %page_id.2, %if.end28 ], [ %page_id.0.ph, %if.end18 ]
-  %page_size.176 = phi i64 [ %22, %if.then31 ], [ %22, %if.end28 ], [ %page_size.0, %if.end18 ]
-  %page_version.175 = phi i64 [ %page_version.2, %if.then31 ], [ %page_version.2, %if.end28 ], [ %page_version.0.ph, %if.end18 ]
+  %page_offset.183 = phi i32 [ 0, %if.end28 ], [ 0, %if.then31 ], [ %page_offset.0.ph, %if.end18 ]
+  %drop_unread.181 = phi i1 [ %cmp69.not.i, %if.end28 ], [ %cmp69.not.i, %if.then31 ], [ %drop_unread.0, %if.end18 ]
+  %page_id.179 = phi i32 [ %page_id.2, %if.end28 ], [ %page_id.2, %if.then31 ], [ %page_id.0.ph, %if.end18 ]
+  %page_size.176 = phi i64 [ %22, %if.end28 ], [ %22, %if.then31 ], [ %page_size.0, %if.end18 ]
+  %page_version.175 = phi i64 [ %page_version.2, %if.end28 ], [ %page_version.2, %if.then31 ], [ %page_version.0.ph, %if.end18 ]
   %call38 = call i32 @pthread_mutex_lock(ptr noundef nonnull %lock) #22
   %conv39 = zext i32 %page_offset.183 to i64
   %cmp40 = icmp ugt i64 %page_size.176, %conv39
@@ -2363,14 +2362,14 @@ if.then126:                                       ; preds = %if.then112
   br label %if.end133
 
 if.end133:                                        ; preds = %do.end77, %if.else108, %if.then112, %if.then126, %storage_compact_readback.exit, %if.then48
-  %compacting.2 = phi i8 [ 0, %do.end77 ], [ %compacting.182, %storage_compact_readback.exit ], [ 0, %if.then126 ], [ 0, %if.then112 ], [ %compacting.182, %if.else108 ], [ %compacting.182, %if.then48 ]
+  %compacting.2 = phi i1 [ false, %do.end77 ], [ true, %storage_compact_readback.exit ], [ false, %if.then126 ], [ false, %if.then112 ], [ true, %if.else108 ], [ true, %if.then48 ]
   %page_offset.2 = phi i32 [ %page_offset.183, %do.end77 ], [ %add, %storage_compact_readback.exit ], [ %page_offset.183, %if.then126 ], [ %page_offset.183, %if.then112 ], [ %page_offset.183, %if.else108 ], [ %page_offset.183, %if.then48 ]
   %call135 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock) #22
   br label %while.body.outer
 
-if.else136:                                       ; preds = %if.else.i, %land.lhs.true.i, %land.lhs.true76.i, %land.lhs.true, %if.end.i, %if.else.i.thread
-  %drop_unread.2.ph90 = phi i1 [ %drop_unread.0, %land.lhs.true ], [ %drop_unread.0, %if.end.i ], [ false, %if.else.i.thread ], [ false, %land.lhs.true76.i ], [ false, %land.lhs.true.i ], [ false, %if.else.i ]
-  %page_size.2.ph89 = phi i64 [ %page_size.0, %land.lhs.true ], [ %page_size.0, %if.end.i ], [ %17, %if.else.i.thread ], [ %22, %land.lhs.true76.i ], [ %22, %land.lhs.true.i ], [ %22, %if.else.i ]
+if.else136:                                       ; preds = %land.lhs.true76.i, %land.lhs.true.i, %if.else.i, %if.else.i.thread, %if.end.i, %land.lhs.true
+  %drop_unread.2.ph90 = phi i1 [ %drop_unread.0, %land.lhs.true ], [ %drop_unread.0, %if.end.i ], [ false, %if.else.i.thread ], [ false, %if.else.i ], [ false, %land.lhs.true.i ], [ false, %land.lhs.true76.i ]
+  %page_size.2.ph89 = phi i64 [ %page_size.0, %land.lhs.true ], [ %page_size.0, %if.end.i ], [ %17, %if.else.i.thread ], [ %22, %if.else.i ], [ %22, %land.lhs.true.i ], [ %22, %land.lhs.true76.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 292), align 4
   %cmp137 = icmp ult i32 %to_sleep.0, %97

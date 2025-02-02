@@ -561,7 +561,7 @@ invoke.cont43:                                    ; preds = %if.else13.i38
 
 invoke.cont51:                                    ; preds = %call8.i31.noexc, %call4.i35.noexc, %call18.i46.noexc, %call21.i44.noexc, %invoke.cont43
   %casefixed.290 = phi i1 [ true, %invoke.cont43 ], [ true, %call4.i35.noexc ], [ true, %call18.i46.noexc ], [ true, %call21.i44.noexc ], [ %call8.i3148, %call8.i31.noexc ]
-  %nocase.289 = phi i8 [ %nocase.0, %invoke.cont43 ], [ 1, %call4.i35.noexc ], [ %nocase.0, %call18.i46.noexc ], [ %nocase.0, %call21.i44.noexc ], [ %spec.select97, %call8.i31.noexc ]
+  %nocase.289 = phi i8 [ 0, %invoke.cont43 ], [ 1, %call4.i35.noexc ], [ 1, %call18.i46.noexc ], [ 1, %call21.i44.noexc ], [ %spec.select97, %call8.i31.noexc ]
   %in_edge_list.i.i52 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %25 = load i64, ptr %in_edge_list.i.i52, align 8
   %cmp53.not = icmp eq i64 %25, 1

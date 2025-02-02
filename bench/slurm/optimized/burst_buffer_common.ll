@@ -3360,23 +3360,23 @@ define ptr @bb_common_build_het_job_script(ptr noundef %0, i32 noundef %1, ptr n
   %7 = tail call ptr @xstrdup(ptr noundef %0) #17
   store ptr %7, ptr %5, align 8
   %8 = call ptr @strtok_r(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #17
-  %.not34 = icmp eq ptr %8, null
-  br i1 %.not34, label %.thread, label %.lr.ph
+  %.not39 = icmp eq ptr %8, null
+  br i1 %.not39, label %.thread36, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %.thread45
-  %.01837 = phi i32 [ %.148, %.thread45 ], [ 0, %3 ]
-  %.02135 = phi ptr [ %27, %.thread45 ], [ %8, %3 ]
+.lr.ph:                                           ; preds = %3, %.thread
+  %.01841 = phi i32 [ %.135, %.thread ], [ 0, %3 ]
+  %.02140 = phi ptr [ %27, %.thread ], [ %8, %3 ]
   %9 = load ptr, ptr %4, align 8
   %.not25 = icmp eq ptr %9, null
-  br i1 %.not25, label %.thread45.sink.split, label %10
+  br i1 %.not25, label %.thread.sink.split, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = load i8, ptr %.02135, align 1
+  %11 = load i8, ptr %.02140, align 1
   %.not26 = icmp eq i8 %11, 35
-  br i1 %.not26, label %12, label %.thread
+  br i1 %.not26, label %12, label %.thread36
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %.02135, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.02140, i64 1
   %14 = call i32 @xstrncmp(ptr noundef nonnull %13, ptr noundef nonnull @.str.125, i64 noundef 5) #17
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %17, label %15
@@ -3387,7 +3387,7 @@ define ptr @bb_common_build_het_job_script(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not5.i, label %17, label %22
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds nuw i8, ptr %.02135, i64 6
+  %18 = getelementptr inbounds nuw i8, ptr %.02140, i64 6
   %19 = call ptr @xstrstr(ptr noundef nonnull %18, ptr noundef nonnull @.str.127) #17
   %.not6.i = icmp eq ptr %19, null
   br i1 %.not6.i, label %20, label %24
@@ -3398,46 +3398,46 @@ define ptr @bb_common_build_het_job_script(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not7.i, label %22, label %24
 
 22:                                               ; preds = %15, %20
-  %23 = icmp eq i32 %.01837, %1
-  br i1 %23, label %.thread45.sink.split, label %.thread45
+  %23 = icmp eq i32 %.01841, %1
+  br i1 %23, label %.thread.sink.split, label %.thread
 
 24:                                               ; preds = %17, %20
-  %25 = add nsw i32 %.01837, 1
+  %25 = add nsw i32 %.01841, 1
   %26 = icmp ugt i32 %25, %1
-  br i1 %26, label %.thread, label %.thread45
+  br i1 %26, label %.thread36, label %.thread
 
-.thread45.sink.split:                             ; preds = %22, %.lr.ph
-  %.148.ph = phi i32 [ %.01837, %.lr.ph ], [ %1, %22 ]
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.90, ptr noundef nonnull %.02135) #17
-  br label %.thread45
+.thread.sink.split:                               ; preds = %22, %.lr.ph
+  %.135.ph = phi i32 [ %.01841, %.lr.ph ], [ %1, %22 ]
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.90, ptr noundef nonnull %.02140) #17
+  br label %.thread
 
-.thread45:                                        ; preds = %.thread45.sink.split, %22, %24
-  %.148 = phi i32 [ %25, %24 ], [ %.01837, %22 ], [ %.148.ph, %.thread45.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %22, %24
+  %.135 = phi i32 [ %25, %24 ], [ %.01841, %22 ], [ %.135.ph, %.thread.sink.split ]
   %27 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #17
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %.thread36, label %.lr.ph, !llvm.loop !36
 
-.thread:                                          ; preds = %.thread45, %24, %10, %3
-  %.021.lcssa = phi ptr [ null, %3 ], [ %.02135, %10 ], [ %.02135, %24 ], [ null, %.thread45 ]
+.thread36:                                        ; preds = %.thread, %24, %10, %3
+  %.021.lcssa = phi ptr [ null, %3 ], [ %.02140, %10 ], [ %.02140, %24 ], [ null, %.thread ]
   %28 = icmp eq i32 %1, 0
   br i1 %28, label %.preheader, label %31
 
-.preheader:                                       ; preds = %.thread
-  %.not2842 = icmp eq ptr %.021.lcssa, null
-  br i1 %.not2842, label %.loopexit, label %.lr.ph44
+.preheader:                                       ; preds = %.thread36
+  %.not2846 = icmp eq ptr %.021.lcssa, null
+  br i1 %.not2846, label %.loopexit, label %.lr.ph48
 
-.lr.ph44:                                         ; preds = %.preheader, %.lr.ph44
-  %.12243 = phi ptr [ %30, %.lr.ph44 ], [ %.021.lcssa, %.preheader ]
-  %29 = call zeroext i1 %2(ptr noundef nonnull %.12243) #17
+.lr.ph48:                                         ; preds = %.preheader, %.lr.ph48
+  %.12247 = phi ptr [ %30, %.lr.ph48 ], [ %.021.lcssa, %.preheader ]
+  %29 = call zeroext i1 %2(ptr noundef nonnull %.12247) #17
   %spec.select29.idx = zext i1 %29 to i64
-  %spec.select29 = getelementptr inbounds nuw i8, ptr %.12243, i64 %spec.select29.idx
+  %spec.select29 = getelementptr inbounds nuw i8, ptr %.12247, i64 %spec.select29.idx
   %spec.select30 = select i1 %29, ptr @.str.91, ptr @.str.2
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.92, ptr noundef nonnull %spec.select30, ptr noundef nonnull %spec.select29) #17
   %30 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #17
   %.not28 = icmp eq ptr %30, null
-  br i1 %.not28, label %.loopexit, label %.lr.ph44, !llvm.loop !37
+  br i1 %.not28, label %.loopexit, label %.lr.ph48, !llvm.loop !37
 
-31:                                               ; preds = %.thread
+31:                                               ; preds = %.thread36
   %32 = load ptr, ptr %4, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.loopexit, label %33
@@ -3446,7 +3446,7 @@ define ptr @bb_common_build_het_job_script(ptr noundef %0, i32 noundef %1, ptr n
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.93) #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph44, %.preheader, %31, %33
+.loopexit:                                        ; preds = %.lr.ph48, %.preheader, %31, %33
   call void @slurm_xfree(ptr noundef nonnull %5) #17
   %34 = load ptr, ptr %4, align 8
   ret ptr %34

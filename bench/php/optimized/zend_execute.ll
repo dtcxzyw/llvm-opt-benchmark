@@ -189853,7 +189853,7 @@ define internal fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %.thread52, %31, %.lr.ph
-  %.1 = phi i8 [ %.04056, %31 ], [ %.04056, %33 ], [ 0, %.thread52 ], [ %.04056, %.lr.ph ]
+  %.1 = phi i8 [ 1, %31 ], [ 1, %33 ], [ 0, %.thread52 ], [ 0, %.lr.ph ]
   %35 = getelementptr inbounds nuw i8, ptr %.04255, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.03957, i64 16
   %37 = icmp ult ptr %36, %.ptr59

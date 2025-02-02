@@ -4864,8 +4864,8 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %17, %19
 _ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit: ; preds = %36, %39
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load ptr, ptr %40, align 8
-  %.not64 = icmp eq ptr %41, null
-  br i1 %.not64, label %.loopexit, label %.lr.ph
+  %.not62 = icmp eq ptr %41, null
+  br i1 %.not62, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -4875,25 +4875,25 @@ _ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit: ; preds = %36, %39
   br label %_ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit
 
 _ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit: ; preds = %90, %.lr.ph
-  %.02866 = phi ptr [ %41, %.lr.ph ], [ %89, %90 ]
-  %.02965 = phi i8 [ 0, %.lr.ph ], [ %.4, %90 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.02866, i64 24
+  %.02864 = phi ptr [ %41, %.lr.ph ], [ %89, %90 ]
+  %.02963 = phi i8 [ 0, %.lr.ph ], [ %.4, %90 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.02864, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.loopexit52, label %.preheader
 
 .preheader:                                       ; preds = %_ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit
-  %49 = getelementptr inbounds nuw i8, ptr %.02866, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.02864, i64 32
   br label %50
 
 50:                                               ; preds = %.preheader, %_ZN8V3NumberD2Ev.exit
-  %.02762 = phi ptr [ %47, %.preheader ], [ %87, %_ZN8V3NumberD2Ev.exit ]
-  %.161 = phi i8 [ %.02965, %.preheader ], [ %.3, %_ZN8V3NumberD2Ev.exit ]
-  %51 = trunc nuw i8 %.161 to i1
+  %.02760 = phi ptr [ %47, %.preheader ], [ %87, %_ZN8V3NumberD2Ev.exit ]
+  %.159 = phi i8 [ %.02963, %.preheader ], [ %.3, %_ZN8V3NumberD2Ev.exit ]
+  %51 = trunc nuw i8 %.159 to i1
   br i1 %51, label %.loopexit52, label %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit39
 
 _ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit39: ; preds = %50
-  call void @_ZN7AstNode19iterateAndNextConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %.02762, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  call void @_ZN7AstNode19iterateAndNextConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %.02760, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %52 = load ptr, ptr %33, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %_ZN8V3NumberD2Ev.exit
@@ -4924,7 +4924,7 @@ _ZN8V3NumberC2EP7AstNodei.exit:                   ; preds = %54
           to label %61 unwind label %73
 
 61:                                               ; preds = %_ZN8V3NumberC2EP7AstNodei.exit
-  %62 = invoke noundef ptr @_ZN15SimulateVisitor10fetchConstEP7AstNode(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %.02762)
+  %62 = invoke noundef ptr @_ZN15SimulateVisitor10fetchConstEP7AstNode(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %.02760)
           to label %63 unwind label %73
 
 63:                                               ; preds = %61
@@ -4956,7 +4956,7 @@ _ZN8V3NumberC2EP7AstNodei.exit:                   ; preds = %54
   br label %common.resume
 
 _ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit42: ; preds = %70, %72, %69
-  %.2 = phi i8 [ %.161, %69 ], [ 1, %72 ], [ 1, %70 ]
+  %.2 = phi i8 [ 0, %69 ], [ 1, %72 ], [ 1, %70 ]
   %75 = load i8, ptr %43, align 4
   %76 = icmp eq i8 %75, 3
   br i1 %76, label %77, label %78
@@ -4982,15 +4982,15 @@ _ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit42: ; preds = %70, %7
   br label %_ZN8V3NumberD2Ev.exit
 
 _ZN8V3NumberD2Ev.exit:                            ; preds = %85, %83, %78, %77, %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit39
-  %.3 = phi i8 [ %.161, %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit39 ], [ %.2, %77 ], [ %.2, %78 ], [ %.2, %83 ], [ %.2, %85 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.02762, i64 8
+  %.3 = phi i8 [ 0, %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit39 ], [ %.2, %77 ], [ %.2, %78 ], [ %.2, %83 ], [ %.2, %85 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.02760, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not33 = icmp eq ptr %87, null
   br i1 %.not33, label %.loopexit52, label %50, !llvm.loop !19
 
 .loopexit52:                                      ; preds = %50, %_ZN8V3NumberD2Ev.exit, %_ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit
-  %.4 = phi i8 [ %.02965, %_ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit ], [ %.3, %_ZN8V3NumberD2Ev.exit ], [ %.161, %50 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.02866, i64 8
+  %.4 = phi i8 [ %.02963, %_ZN7AstNode9privateAsI11AstCaseItemPS_EEPT_S2_.exit ], [ %.3, %_ZN8V3NumberD2Ev.exit ], [ 1, %50 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.02864, i64 8
   %89 = load ptr, ptr %88, align 8
   %cond = icmp eq ptr %89, null
   br i1 %cond, label %._crit_edge, label %90
@@ -5017,23 +5017,23 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %85, %83, %78, %77, 
 
 ._crit_edge:                                      ; preds = %.loopexit52
   %.pre = load ptr, ptr %40, align 8
-  %.not3268 = icmp eq ptr %.pre, null
-  br i1 %.not3268, label %.loopexit, label %.lr.ph72
+  %.not3266 = icmp eq ptr %.pre, null
+  br i1 %.not3266, label %.loopexit, label %.lr.ph70
 
-.lr.ph72:                                         ; preds = %._crit_edge, %113
-  %.070 = phi ptr [ %112, %113 ], [ %.pre, %._crit_edge ]
-  %.569 = phi i8 [ %.6, %113 ], [ %.4, %._crit_edge ]
-  %102 = trunc nuw i8 %.569 to i1
+.lr.ph70:                                         ; preds = %._crit_edge, %113
+  %.068 = phi ptr [ %112, %113 ], [ %.pre, %._crit_edge ]
+  %.567 = phi i8 [ %.6, %113 ], [ %.4, %._crit_edge ]
+  %102 = trunc nuw i8 %.567 to i1
   br i1 %102, label %.loopexit, label %103
 
-103:                                              ; preds = %.lr.ph72
-  %104 = getelementptr inbounds nuw i8, ptr %.070, i64 24
+103:                                              ; preds = %.lr.ph70
+  %104 = getelementptr inbounds nuw i8, ptr %.068, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit45
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw i8, ptr %.070, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %.068, i64 32
   %109 = load ptr, ptr %108, align 8
   %.not.i44 = icmp eq ptr %109, null
   br i1 %.not.i44, label %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit45, label %110
@@ -5043,17 +5043,17 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %85, %83, %78, %77, 
   br label %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit45
 
 _ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit45: ; preds = %110, %107, %103
-  %.6 = phi i8 [ %.569, %103 ], [ 1, %107 ], [ 1, %110 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.070, i64 8
+  %.6 = phi i8 [ 0, %103 ], [ 1, %107 ], [ 1, %110 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.068, i64 8
   %112 = load ptr, ptr %111, align 8
-  %cond75 = icmp eq ptr %112, null
-  br i1 %cond75, label %.loopexit, label %113
+  %cond73 = icmp eq ptr %112, null
+  br i1 %cond73, label %.loopexit, label %113
 
 113:                                              ; preds = %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit45
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %.sroa.0.0.copyload.i.i.i47 = load i16, ptr %114, align 8
   %.not6.i48 = icmp eq i16 %.sroa.0.0.copyload.i.i.i47, 5
-  br i1 %.not6.i48, label %.lr.ph72, label %115
+  br i1 %.not6.i48, label %.lr.ph70, label %115
 
 115:                                              ; preds = %113
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 64
@@ -5069,7 +5069,7 @@ _ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit45: ; preds = %110, %
   call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %112, ptr noundef nonnull align 8 dereferenceable(112) %124) #22
   unreachable
 
-.loopexit:                                        ; preds = %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit45, %.lr.ph72, %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit, %._crit_edge, %32, %_ZNK15SimulateVisitor11jumpingOverEPK7AstNode.exit, %31
+.loopexit:                                        ; preds = %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit45, %.lr.ph70, %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit, %._crit_edge, %32, %_ZNK15SimulateVisitor11jumpingOverEPK7AstNode.exit, %31
   ret void
 }
 

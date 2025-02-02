@@ -1006,7 +1006,7 @@ add_indent.exit110:                               ; preds = %174, %190
   %.290 = phi i32 [ 3, %add_indent.exit106 ], [ 2, %119 ], [ 6, %95 ], [ 4, %59 ], [ %117, %add_indent.exit104 ], [ 5, %164 ], [ 5, %165 ], [ 5, %141 ], [ 7, %196 ], [ 7, %195 ]
   %.187 = phi i32 [ %.086, %add_indent.exit106 ], [ %.086, %119 ], [ %96, %95 ], [ %60, %59 ], [ %.086, %add_indent.exit104 ], [ %142, %164 ], [ %142, %165 ], [ %142, %141 ], [ %175, %196 ], [ %175, %195 ]
   %.185 = phi i8 [ 0, %add_indent.exit106 ], [ 0, %119 ], [ 0, %95 ], [ 0, %59 ], [ 1, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 0, %141 ], [ 0, %196 ], [ 0, %195 ]
-  %.2 = phi i8 [ %.081, %add_indent.exit106 ], [ %.081, %119 ], [ %.081, %95 ], [ %.1, %59 ], [ %.081, %add_indent.exit104 ], [ %.081, %164 ], [ %.081, %165 ], [ %.081, %141 ], [ %.081, %196 ], [ %.081, %195 ]
+  %.2 = phi i8 [ %.081, %add_indent.exit106 ], [ %.081, %119 ], [ %.081, %95 ], [ %.1, %59 ], [ %.081, %add_indent.exit104 ], [ 0, %164 ], [ 0, %165 ], [ 1, %141 ], [ %.081, %196 ], [ %.081, %195 ]
   %209 = trunc nuw i8 %.185 to i1
   br label %18, !llvm.loop !8
 
@@ -2812,7 +2812,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   %67 = trunc i8 %66 to i1
   %.not80 = xor i1 %67, true
   %brmerge = or i1 %2, %.not80
-  br i1 %brmerge, label %.thread, label %180
+  br i1 %brmerge, label %.thread, label %182
 
 .thread:                                          ; preds = %63, %64
   %68 = phi i1 [ %67, %64 ], [ false, %63 ]
@@ -2962,99 +2962,100 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   %142 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %143 = call ptr @JsonbIteratorInit(ptr noundef nonnull %142) #11
   store ptr %143, ptr %6, align 8
-  br label %.outer
-
-.outer:                                           ; preds = %146, %.split86.us
-  %.072.ph = phi i1 [ false, %.split86.us ], [ true, %146 ]
   br label %144
 
-144:                                              ; preds = %.backedge, %.outer
+144:                                              ; preds = %.backedge, %.split86.us
+  %.072 = phi i8 [ 0, %.split86.us ], [ %.072.be, %.backedge ]
   %145 = call i32 @JsonbIteratorNext(ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false) #11
-  switch i32 %145, label %177 [
+  switch i32 %145, label %179 [
     i32 0, label %.sink.split99
     i32 4, label %146
     i32 5, label %151
-    i32 6, label %154
-    i32 7, label %154
-    i32 3, label %156
-    i32 1, label %156
-    i32 2, label %156
+    i32 6, label %155
+    i32 7, label %155
+    i32 3, label %157
+    i32 1, label %157
+    i32 2, label %157
   ]
 
 146:                                              ; preds = %144
   %147 = load i8, ptr %98, align 8
   %148 = trunc i8 %147 to i1
-  br i1 %148, label %.outer, label %149, !llvm.loop !18
+  br i1 %148, label %.backedge, label %149
 
 149:                                              ; preds = %146
   %150 = call ptr @pushJsonbValue(ptr noundef %.071, i32 noundef 4, ptr noundef null) #11
   br label %.sink.split
 
 151:                                              ; preds = %144
-  br i1 %.072.ph, label %.backedge, label %152
+  %152 = trunc nuw i8 %.072 to i1
+  br i1 %152, label %.backedge, label %153
 
-152:                                              ; preds = %151
-  %153 = call ptr @pushJsonbValue(ptr noundef %.071, i32 noundef 5, ptr noundef null) #11
+153:                                              ; preds = %151
+  %154 = call ptr @pushJsonbValue(ptr noundef %.071, i32 noundef 5, ptr noundef null) #11
   br label %.sink.split
 
-154:                                              ; preds = %144, %144
-  %155 = call ptr @pushJsonbValue(ptr noundef %.071, i32 noundef %145, ptr noundef null) #11
+155:                                              ; preds = %144, %144
+  %156 = call ptr @pushJsonbValue(ptr noundef %.071, i32 noundef %145, ptr noundef null) #11
   br label %.sink.split
 
-156:                                              ; preds = %144, %144, %144
-  %157 = load i32, ptr %7, align 8
-  switch i32 %157, label %174 [
-    i32 1, label %158
-    i32 2, label %168
+157:                                              ; preds = %144, %144, %144
+  %158 = load i32, ptr %7, align 8
+  switch i32 %158, label %175 [
+    i32 1, label %159
+    i32 2, label %169
   ]
 
-158:                                              ; preds = %156
-  %159 = load i32, ptr %95, align 8
-  %160 = add i32 %159, 1
-  %161 = sext i32 %160 to i64
-  %162 = call ptr @palloc(i64 noundef %161) #11
-  %163 = load i32, ptr %95, align 8
-  %164 = add i32 %163, 1
-  %165 = sext i32 %164 to i64
-  %166 = load ptr, ptr %96, align 8
-  %167 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %162, i64 noundef %165, ptr noundef nonnull @.str.47, ptr noundef %166) #11
-  store ptr %162, ptr %96, align 8
-  br label %174
+159:                                              ; preds = %157
+  %160 = load i32, ptr %95, align 8
+  %161 = add i32 %160, 1
+  %162 = sext i32 %161 to i64
+  %163 = call ptr @palloc(i64 noundef %162) #11
+  %164 = load i32, ptr %95, align 8
+  %165 = add i32 %164, 1
+  %166 = sext i32 %165 to i64
+  %167 = load ptr, ptr %96, align 8
+  %168 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %163, i64 noundef %166, ptr noundef nonnull @.str.47, ptr noundef %167) #11
+  store ptr %163, ptr %96, align 8
+  br label %175
 
-168:                                              ; preds = %156
-  %169 = load ptr, ptr %95, align 8
-  %170 = ptrtoint ptr %169 to i64
-  %171 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_uplus, i32 noundef 0, i64 noundef %170) #11
-  %172 = inttoptr i64 %171 to ptr
-  %173 = call ptr @pg_detoast_datum(ptr noundef %172) #11
-  store ptr %173, ptr %95, align 8
-  br label %174
+169:                                              ; preds = %157
+  %170 = load ptr, ptr %95, align 8
+  %171 = ptrtoint ptr %170 to i64
+  %172 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_uplus, i32 noundef 0, i64 noundef %171) #11
+  %173 = inttoptr i64 %172 to ptr
+  %174 = call ptr @pg_detoast_datum(ptr noundef %173) #11
+  store ptr %174, ptr %95, align 8
+  br label %175
 
-174:                                              ; preds = %156, %168, %158
-  %175 = select i1 %.072.ph, i32 2, i32 %145
-  %176 = call ptr @pushJsonbValue(ptr noundef %.071, i32 noundef %175, ptr noundef nonnull %7) #11
+175:                                              ; preds = %157, %169, %159
+  %176 = trunc nuw i8 %.072 to i1
+  %177 = select i1 %176, i32 2, i32 %145
+  %178 = call ptr @pushJsonbValue(ptr noundef %.071, i32 noundef %177, ptr noundef nonnull %7) #11
   br label %.sink.split
 
-177:                                              ; preds = %144
-  %178 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %178)
-  %179 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39) #11
+179:                                              ; preds = %144
+  %180 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %180)
+  %181 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1888, ptr noundef nonnull @__func__.jsonb_object_agg_transfn_worker) #11
   unreachable
 
-.sink.split:                                      ; preds = %154, %174, %149, %152
-  %.sink = phi ptr [ %153, %152 ], [ %150, %149 ], [ %176, %174 ], [ %155, %154 ]
+.sink.split:                                      ; preds = %155, %175, %149, %153
+  %.sink = phi ptr [ %154, %153 ], [ %150, %149 ], [ %178, %175 ], [ %156, %155 ]
+  %.1.ph = phi i8 [ 0, %153 ], [ %.072, %149 ], [ %.072, %175 ], [ %.072, %155 ]
   store ptr %.sink, ptr %97, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.sink.split, %151
+.backedge:                                        ; preds = %.sink.split, %146, %151
+  %.072.be = phi i8 [ 1, %151 ], [ 1, %146 ], [ %.1.ph, %.sink.split ]
   br label %144, !llvm.loop !18
 
 .sink.split99:                                    ; preds = %144, %.split90.us
   store ptr %94, ptr @CurrentMemoryContext, align 8
-  br label %180
+  br label %182
 
-180:                                              ; preds = %.sink.split99, %64
+182:                                              ; preds = %.sink.split99, %64
   %.0 = ptrtoint ptr %.070 to i64
   ret i64 %.0
 }

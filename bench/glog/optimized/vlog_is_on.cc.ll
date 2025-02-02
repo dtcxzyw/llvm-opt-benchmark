@@ -132,7 +132,6 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader: ; preds = %2
   resume { ptr, i32 } %15
 
 17:                                               ; preds = %11, %10
-  %.141 = phi i8 [ %.04052, %10 ], [ 1, %11 ]
   %.1 = phi i32 [ %.053, %10 ], [ %13, %11 ]
   %18 = getelementptr inbounds nuw i8, ptr %.04654, i64 32
   store i32 %1, ptr %18, align 8
@@ -153,7 +152,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader: ; preds = %2
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %17, %24, %20, %19
-  %.242 = phi i8 [ %.141, %17 ], [ %.04052, %19 ], [ 1, %24 ], [ %.04052, %20 ]
+  %.242 = phi i8 [ 1, %17 ], [ 1, %19 ], [ 1, %24 ], [ 0, %20 ]
   %.2 = phi i32 [ %.1, %17 ], [ %.053, %19 ], [ %26, %24 ], [ %.053, %20 ]
   %27 = getelementptr inbounds nuw i8, ptr %.04654, i64 40
   %.046 = load ptr, ptr %27, align 8

@@ -1998,7 +1998,7 @@ _ZNK11ZRemembered16should_scan_pageEP5ZPage.exit.thread: ; preds = %31, %26, %_Z
   br label %59
 
 59:                                               ; preds = %51, %52, %54, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit
-  %.2 = phi i8 [ %.0, %52 ], [ %58, %54 ], [ %.0, %51 ], [ %.0, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit ]
+  %.2 = phi i8 [ 1, %52 ], [ %58, %54 ], [ %.0, %51 ], [ %.0, %_ZNK11ZRemembered16should_scan_pageEP5ZPage.exit ]
   %60 = load ptr, ptr %11, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 88

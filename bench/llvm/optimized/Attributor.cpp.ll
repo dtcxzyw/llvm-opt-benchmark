@@ -4842,7 +4842,7 @@ _ZNK4llvm8Function6getArgEj.exit:                 ; preds = %_ZNK4llvm16Abstract
 
 _ZNSt8optionalIPN4llvm8ArgumentEEaSIDnEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit: ; preds = %130, %98, %_ZNK4llvm16AbstractCallSite17getNumArgOperandsEv.exit, %_ZNK4llvm16AbstractCallSite16getCalledOperandEv.exit.i, %66
   %.sroa.057.1 = phi ptr [ %.sroa.057.084, %66 ], [ %.sroa.057.084, %_ZNK4llvm16AbstractCallSite16getCalledOperandEv.exit.i ], [ %.sroa.057.084, %_ZNK4llvm16AbstractCallSite17getNumArgOperandsEv.exit ], [ %.sroa.057.3, %130 ], [ null, %98 ]
-  %.sroa.4.1 = phi i8 [ %.sroa.4.085, %66 ], [ %.sroa.4.085, %_ZNK4llvm16AbstractCallSite16getCalledOperandEv.exit.i ], [ %.sroa.4.085, %_ZNK4llvm16AbstractCallSite17getNumArgOperandsEv.exit ], [ %.sroa.4.3, %130 ], [ %.sroa.4.277, %98 ]
+  %.sroa.4.1 = phi i8 [ %.sroa.4.085, %66 ], [ %.sroa.4.085, %_ZNK4llvm16AbstractCallSite16getCalledOperandEv.exit.i ], [ %.sroa.4.085, %_ZNK4llvm16AbstractCallSite17getNumArgOperandsEv.exit ], [ %.sroa.4.3, %130 ], [ 1, %98 ]
   %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #26
   %132 = load ptr, ptr %45, align 8
   %133 = icmp eq ptr %132, %46

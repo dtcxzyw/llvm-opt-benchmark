@@ -1611,7 +1611,7 @@ lpad353.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i421
   br label %if.then.i.i.i926
 
 if.end358:                                        ; preds = %if.then.i.i397, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i418, %land.lhs.true320, %invoke.cont317
-  %minStrikeAdded.2 = phi i8 [ %minStrikeAdded.01180, %land.lhs.true320 ], [ %minStrikeAdded.01180, %invoke.cont317 ], [ 1, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i418 ], [ 1, %if.then.i.i397 ]
+  %minStrikeAdded.2 = phi i8 [ 1, %land.lhs.true320 ], [ %minStrikeAdded.01180, %invoke.cont317 ], [ 1, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i418 ], [ 1, %if.then.i.i397 ]
   %vtable359 = load ptr, ptr %section, align 8, !tbaa !14
   %vfn360 = getelementptr inbounds nuw i8, ptr %vtable359, i64 32
   %147 = load ptr, ptr %vfn360, align 8
@@ -1621,6 +1621,8 @@ if.end358:                                        ; preds = %if.then.i.i397, %_Z
 invoke.cont361:                                   ; preds = %if.end358
   %cmp363 = fcmp ule double %cond.fr1159, %call362
   %brmerge = select i1 %cmp363, i1 true, i1 %maxStrikeAdded.01181
+  %not.cmp363 = xor i1 %cmp363, true
+  %maxStrikeAdded.0.mux = select i1 %not.cmp363, i1 true, i1 %maxStrikeAdded.01181
   br i1 %brmerge, label %if.end404, label %if.then366
 
 if.then366:                                       ; preds = %invoke.cont361
@@ -1818,7 +1820,7 @@ lpad398.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i485
 
 if.end404:                                        ; preds = %invoke.cont361, %if.then.i.i461, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i482, %_ZN8QuantLib5closeEdd.exit361.thread, %_ZN8QuantLib5closeEdd.exit361, %if.then3.i359
   %minStrikeAdded.1 = phi i8 [ %minStrikeAdded.2, %invoke.cont361 ], [ %minStrikeAdded.01180, %if.then3.i359 ], [ %minStrikeAdded.01180, %_ZN8QuantLib5closeEdd.exit361 ], [ %minStrikeAdded.01180, %_ZN8QuantLib5closeEdd.exit361.thread ], [ %minStrikeAdded.2, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i482 ], [ %minStrikeAdded.2, %if.then.i.i461 ]
-  %maxStrikeAdded.1 = phi i1 [ %maxStrikeAdded.01181, %invoke.cont361 ], [ %maxStrikeAdded.01181, %if.then3.i359 ], [ %maxStrikeAdded.01181, %_ZN8QuantLib5closeEdd.exit361 ], [ true, %_ZN8QuantLib5closeEdd.exit361.thread ], [ true, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i482 ], [ true, %if.then.i.i461 ]
+  %maxStrikeAdded.1 = phi i1 [ %maxStrikeAdded.0.mux, %invoke.cont361 ], [ %maxStrikeAdded.01181, %if.then3.i359 ], [ %maxStrikeAdded.01181, %_ZN8QuantLib5closeEdd.exit361 ], [ true, %_ZN8QuantLib5closeEdd.exit361.thread ], [ true, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i482 ], [ true, %if.then.i.i461 ]
   %incdec.ptr.i490 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.01179, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i490, %tmp.sroa.15.0
   br i1 %cmp.i.not, label %for.cond.cleanup255, label %for.body256

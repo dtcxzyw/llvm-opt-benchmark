@@ -9452,7 +9452,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit:       ; preds = %_ZNK3vcg4face3PosI6
 
 50:                                               ; preds = %44, %42, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit
   %.119 = phi i64 [ %.018, %42 ], [ %49, %44 ], [ %.018, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit ]
-  %.1 = phi i8 [ %.0, %42 ], [ 1, %44 ], [ %.0, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit ]
+  %.1 = phi i8 [ 1, %42 ], [ 1, %44 ], [ %.0, %_ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit ]
   %51 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %24, %51
   br i1 %.not.i, label %55, label %52

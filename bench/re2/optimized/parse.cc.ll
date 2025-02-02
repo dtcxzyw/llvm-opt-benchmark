@@ -6538,13 +6538,13 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit64: ; preds = %_ZNK4absl7debi
   %add.ptr.i61 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %sub.i62 = add i64 %1, -2
   %status_70 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %cmp.i66176 = icmp eq i64 %sub.i62, 0
-  br i1 %cmp.i66176, label %BadPerlOp, label %if.end69
+  %cmp.i66175 = icmp eq i64 %sub.i62, 0
+  br i1 %cmp.i66175, label %BadPerlOp, label %if.end69
 
 if.end69:                                         ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit64, %sw.epilog
-  %negated.0105179 = phi i8 [ %negated.1, %sw.epilog ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit64 ]
-  %sawflags.0106178 = phi i1 [ %sawflags.1, %sw.epilog ], [ false, %_ZN4absl7debian211string_view13remove_prefixEm.exit64 ]
-  %nflags.0107177 = phi i32 [ %nflags.1, %sw.epilog ], [ %0, %_ZN4absl7debian211string_view13remove_prefixEm.exit64 ]
+  %negated.0105178 = phi i8 [ %negated.1, %sw.epilog ], [ 0, %_ZN4absl7debian211string_view13remove_prefixEm.exit64 ]
+  %sawflags.0106177 = phi i1 [ %sawflags.1, %sw.epilog ], [ false, %_ZN4absl7debian211string_view13remove_prefixEm.exit64 ]
+  %nflags.0107176 = phi i32 [ %nflags.1, %sw.epilog ], [ %0, %_ZN4absl7debian211string_view13remove_prefixEm.exit64 ]
   %19 = phi i64 [ %sub.i.i, %sw.epilog ], [ %sub.i62, %_ZN4absl7debian211string_view13remove_prefixEm.exit64 ]
   %20 = phi ptr [ %add.ptr.i.i, %sw.epilog ], [ %add.ptr.i61, %_ZN4absl7debian211string_view13remove_prefixEm.exit64 ]
   %21 = load ptr, ptr %status_70, align 8
@@ -6605,55 +6605,55 @@ if.end74:                                         ; preds = %_ZN3re2L16StringVie
   ]
 
 sw.bb:                                            ; preds = %if.end74
-  %tobool75 = trunc nuw i8 %negated.0105179 to i1
+  %tobool75 = trunc nuw i8 %negated.0105178 to i1
   br i1 %tobool75, label %if.then76, label %if.else
 
 if.then76:                                        ; preds = %sw.bb
-  %and = and i32 %nflags.0107177, 16382
+  %and = and i32 %nflags.0107176, 16382
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb
-  %or = or i32 %nflags.0107177, 1
+  %or = or i32 %nflags.0107176, 1
   br label %sw.epilog
 
 sw.bb79:                                          ; preds = %if.end74
-  %tobool80 = trunc nuw i8 %negated.0105179 to i1
+  %tobool80 = trunc nuw i8 %negated.0105178 to i1
   br i1 %tobool80, label %if.then81, label %if.else83
 
 if.then81:                                        ; preds = %sw.bb79
-  %or82 = or i32 %nflags.0107177, 16
+  %or82 = or i32 %nflags.0107176, 16
   br label %sw.epilog
 
 if.else83:                                        ; preds = %sw.bb79
-  %and85 = and i32 %nflags.0107177, 16367
+  %and85 = and i32 %nflags.0107176, 16367
   br label %sw.epilog
 
 sw.bb87:                                          ; preds = %if.end74
-  %tobool88 = trunc nuw i8 %negated.0105179 to i1
+  %tobool88 = trunc nuw i8 %negated.0105178 to i1
   br i1 %tobool88, label %if.then89, label %if.else92
 
 if.then89:                                        ; preds = %sw.bb87
-  %and91 = and i32 %nflags.0107177, 16375
+  %and91 = and i32 %nflags.0107176, 16375
   br label %sw.epilog
 
 if.else92:                                        ; preds = %sw.bb87
-  %or93 = or i32 %nflags.0107177, 8
+  %or93 = or i32 %nflags.0107176, 8
   br label %sw.epilog
 
 sw.bb95:                                          ; preds = %if.end74
-  %tobool96 = trunc nuw i8 %negated.0105179 to i1
+  %tobool96 = trunc nuw i8 %negated.0105178 to i1
   br i1 %tobool96, label %if.then97, label %if.else100
 
 if.then97:                                        ; preds = %sw.bb95
-  %and99 = and i32 %nflags.0107177, 16319
+  %and99 = and i32 %nflags.0107176, 16319
   br label %sw.epilog
 
 if.else100:                                       ; preds = %sw.bb95
-  %or101 = or i32 %nflags.0107177, 64
+  %or101 = or i32 %nflags.0107176, 64
   br label %sw.epilog
 
 sw.bb103:                                         ; preds = %if.end74
-  %tobool104 = trunc nuw i8 %negated.0105179 to i1
+  %tobool104 = trunc nuw i8 %negated.0105178 to i1
   br i1 %tobool104, label %BadPerlOp, label %sw.epilog
 
 sw.bb107:                                         ; preds = %if.end74
@@ -6675,20 +6675,20 @@ _ZN3re26Regexp10ParseState20DoLeftParenNoCaptureEv.exit: ; preds = %sw.bb107
   br label %for.end
 
 sw.epilog:                                        ; preds = %sw.bb103, %if.then97, %if.else100, %if.then89, %if.else92, %if.then81, %if.else83, %if.then76, %if.else
-  %negated.1 = phi i8 [ %negated.0105179, %if.then97 ], [ %negated.0105179, %if.else100 ], [ %negated.0105179, %if.then89 ], [ %negated.0105179, %if.else92 ], [ %negated.0105179, %if.then81 ], [ %negated.0105179, %if.else83 ], [ %negated.0105179, %if.then76 ], [ %negated.0105179, %if.else ], [ 1, %sw.bb103 ]
+  %negated.1 = phi i8 [ 1, %if.then97 ], [ 0, %if.else100 ], [ 1, %if.then89 ], [ 0, %if.else92 ], [ 1, %if.then81 ], [ 0, %if.else83 ], [ 1, %if.then76 ], [ 0, %if.else ], [ 1, %sw.bb103 ]
   %sawflags.1 = phi i1 [ true, %if.then97 ], [ true, %if.else100 ], [ true, %if.then89 ], [ true, %if.else92 ], [ true, %if.then81 ], [ true, %if.else83 ], [ true, %if.then76 ], [ true, %if.else ], [ false, %sw.bb103 ]
-  %nflags.1 = phi i32 [ %and99, %if.then97 ], [ %or101, %if.else100 ], [ %and91, %if.then89 ], [ %or93, %if.else92 ], [ %or82, %if.then81 ], [ %and85, %if.else83 ], [ %and, %if.then76 ], [ %or, %if.else ], [ %nflags.0107177, %sw.bb103 ]
+  %nflags.1 = phi i32 [ %and99, %if.then97 ], [ %or101, %if.else100 ], [ %and91, %if.then89 ], [ %or93, %if.else92 ], [ %or82, %if.then81 ], [ %and85, %if.else83 ], [ %and, %if.then76 ], [ %or, %if.else ], [ %nflags.0107176, %sw.bb103 ]
   %cmp.i66 = icmp eq i64 %sub.i.i, 0
   br i1 %cmp.i66, label %BadPerlOp, label %if.end69, !llvm.loop !56
 
 for.end:                                          ; preds = %if.end74, %_ZN3re26Regexp10ParseState20DoLeftParenNoCaptureEv.exit
-  %tobool112 = trunc nuw i8 %negated.0105179 to i1
+  %tobool112 = trunc nuw i8 %negated.0105178 to i1
   %tobool112.not = xor i1 %tobool112, true
-  %brmerge = or i1 %sawflags.0106178, %tobool112.not
+  %brmerge = or i1 %sawflags.0106177, %tobool112.not
   br i1 %brmerge, label %if.end116, label %BadPerlOp
 
 if.end116:                                        ; preds = %for.end
-  store i32 %nflags.0107177, ptr %this, align 8
+  store i32 %nflags.0107176, ptr %this, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef nonnull align 8 dereferenceable(16) %t, i64 16, i1 false)
   br label %return
 

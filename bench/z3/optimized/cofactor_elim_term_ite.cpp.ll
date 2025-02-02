@@ -957,7 +957,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorIP4exprLb
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %50 = phi ptr [ %9, %for.body.lr.ph ], [ %74, %for.inc ]
   %indvars.iv311 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next312, %for.inc ]
-  %has_term_ite.0285 = phi i8 [ 0, %for.body.lr.ph ], [ %67, %for.inc ]
+  %has_term_ite.0285 = phi i1 [ false, %for.body.lr.ph ], [ %67, %for.inc ]
   %has_new_args.0284 = phi i1 [ false, %for.body.lr.ph ], [ %spec.select, %for.inc ]
   %arrayidx.i33 = getelementptr inbounds nuw [0 x ptr], ptr %m_args.i31, i64 0, i64 %indvars.iv311
   %51 = load ptr, ptr %arrayidx.i33, align 8
@@ -1094,7 +1094,7 @@ for.inc36.i.i:                                    ; preds = %if.then22.i.i, %for
   br i1 %cmp19.not.i.i, label %invoke.cont59, label %for.body20.i.i, !llvm.loop !9
 
 invoke.cont59:                                    ; preds = %for.body.i.i, %if.then.i.i72, %for.inc36.i.i, %for.body20.i.i, %if.then22.i.i, %for.cond18.preheader.i.i
-  %67 = phi i8 [ %has_term_ite.0285, %for.cond18.preheader.i.i ], [ %has_term_ite.0285, %for.inc36.i.i ], [ %has_term_ite.0285, %for.body20.i.i ], [ 1, %if.then22.i.i ], [ %has_term_ite.0285, %for.body.i.i ], [ 1, %if.then.i.i72 ]
+  %67 = phi i1 [ %has_term_ite.0285, %for.cond18.preheader.i.i ], [ %has_term_ite.0285, %for.inc36.i.i ], [ %has_term_ite.0285, %for.body20.i.i ], [ true, %if.then22.i.i ], [ %has_term_ite.0285, %for.body.i.i ], [ true, %if.then.i.i72 ]
   %cmp.i73 = icmp eq ptr %50, null
   br i1 %cmp.i73, label %if.then.i222, label %lor.lhs.false.i74
 
@@ -1205,7 +1205,7 @@ for.end:                                          ; preds = %for.inc, %_ZN6vecto
   %76 = phi ptr [ %8, %_ZN6vectorIP4exprLb0EjE5resetEv.exit ], [ %74, %for.inc ]
   %77 = phi ptr [ %9, %_ZN6vectorIP4exprLb0EjE5resetEv.exit ], [ %74, %for.inc ]
   %has_new_args.0.lcssa = phi i1 [ false, %_ZN6vectorIP4exprLb0EjE5resetEv.exit ], [ %spec.select, %for.inc ]
-  %has_term_ite.0.lcssa = phi i8 [ 0, %_ZN6vectorIP4exprLb0EjE5resetEv.exit ], [ %67, %for.inc ]
+  %has_term_ite.0.lcssa = phi i1 [ false, %_ZN6vectorIP4exprLb0EjE5resetEv.exit ], [ %67, %for.inc ]
   %78 = load ptr, ptr %this, align 8
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 65535
@@ -1234,13 +1234,14 @@ land.rhs.i:                                       ; preds = %_ZNK11ast_manager6i
           to label %invoke.cont65 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont65:                                    ; preds = %land.rhs.i
-  %spec.select250 = select i1 %call2.i88, i8 %has_term_ite.0.lcssa, i8 1
+  %not.call2.i88 = xor i1 %call2.i88, true
+  %spec.select250 = select i1 %not.call2.i88, i1 true, i1 %has_term_ite.0.lcssa
   %.pre = load ptr, ptr %this, align 8
   br label %invoke.cont65.thread
 
 invoke.cont65.thread:                             ; preds = %invoke.cont65, %land.rhs.i.i.i, %for.end, %_ZNK11ast_manager6is_iteEPK4expr.exit.i
   %84 = phi ptr [ %78, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ %78, %for.end ], [ %78, %land.rhs.i.i.i ], [ %.pre, %invoke.cont65 ]
-  %85 = phi i8 [ %has_term_ite.0.lcssa, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ %has_term_ite.0.lcssa, %for.end ], [ %has_term_ite.0.lcssa, %land.rhs.i.i.i ], [ %spec.select250, %invoke.cont65 ]
+  %85 = phi i1 [ %has_term_ite.0.lcssa, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ %has_term_ite.0.lcssa, %for.end ], [ %has_term_ite.0.lcssa, %land.rhs.i.i.i ], [ %spec.select250, %invoke.cont65 ]
   store ptr null, ptr %new_t, align 8
   store ptr %84, ptr %m_manager.i, align 8
   br i1 %has_new_args.0.lcssa, label %if.then72, label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit106
@@ -1296,8 +1297,7 @@ if.end86:                                         ; preds = %if.then.i.i.i90, %i
   %93 = phi ptr [ %77, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit106 ], [ %76, %if.then2.i.i.i ], [ %76, %if.end.i ], [ %76, %if.then.i.i.i90 ]
   %94 = phi ptr [ %17, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit106 ], [ %call81, %if.then2.i.i.i ], [ %call81, %if.end.i ], [ %call81, %if.then.i.i.i90 ]
   store ptr %94, ptr %new_t, align 8
-  %tobool87 = trunc nuw i8 %85 to i1
-  br i1 %tobool87, label %land.lhs.true, label %if.end119
+  br i1 %85, label %land.lhs.true, label %if.end119
 
 land.lhs.true:                                    ; preds = %if.end86
   %95 = load ptr, ptr %this, align 8
@@ -1437,8 +1437,8 @@ if.then113:                                       ; preds = %_ZNK3app13get_decl_
   invoke void @_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %m_has_term_ite, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115)
           to label %if.end119 unwind label %lpad74
 
-if.end119:                                        ; preds = %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i, %if.end86, %if.then2.i.i.i131.if.end119_crit_edge, %if.then.i.i.i126, %invoke.cont109, %if.then113
-  %115 = phi ptr [ %.pre315, %if.then2.i.i.i131.if.end119_crit_edge ], [ %109, %if.then.i.i.i126 ], [ %94, %invoke.cont109 ], [ %94, %if.then113 ], [ %94, %if.end86 ], [ null, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i ]
+if.end119:                                        ; preds = %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i, %if.then2.i.i.i131.if.end119_crit_edge, %if.then.i.i.i126, %invoke.cont109, %if.end86, %if.then113
+  %115 = phi ptr [ %.pre315, %if.then2.i.i.i131.if.end119_crit_edge ], [ %109, %if.then.i.i.i126 ], [ %94, %invoke.cont109 ], [ %94, %if.end86 ], [ %94, %if.then113 ], [ null, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i132)
   store ptr %17, ptr %ref.tmp.i132, align 8
   store ptr %115, ptr %m_value.i.i133, align 8

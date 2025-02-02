@@ -10421,7 +10421,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111FastISelMap19emitInstructionCode
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %47, %45, %20
-  %.1 = phi i8 [ 1, %20 ], [ %.0129, %45 ], [ %.0129, %47 ]
+  %.1 = phi i8 [ 1, %20 ], [ 0, %45 ], [ 0, %47 ]
   %50 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 120
   %52 = load ptr, ptr %51, align 8

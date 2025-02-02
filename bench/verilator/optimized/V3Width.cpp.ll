@@ -90530,7 +90530,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__norma
 
 _ZN9VNVisitor11pushDeletepEP7AstNode.exit:        ; preds = %87, %78, %249, %_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123, %_ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit
   %.1154 = phi ptr [ %.1, %_ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit ], [ %.1, %_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %.1, %249 ], [ %.047195, %78 ], [ %.047195, %87 ]
-  %.149153 = phi i8 [ %.149, %_ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit ], [ %.149, %_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %.149, %249 ], [ %.048194, %78 ], [ %.048194, %87 ]
+  %.149153 = phi i8 [ %.149, %_ZN7AstNode18dtypeSetLogicSizedEi8VSigning.exit ], [ %.149, %_ZNSt6vectorIP7AstNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %.149, %249 ], [ 0, %78 ], [ %.048194, %87 ]
   %271 = add nuw nsw i32 %.050193, 1
   %272 = load i32, ptr %6, align 8
   %273 = load i32, ptr %55, align 4

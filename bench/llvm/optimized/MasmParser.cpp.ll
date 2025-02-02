@@ -27592,7 +27592,7 @@ _ZNSt8optionalIcE5resetEv.exit:                   ; preds = %87, %89
 93:                                               ; preds = %83, %89, %84, %_ZNSt8optionalIcE5resetEv.exit, %85
   %.18581 = phi i64 [ %.18582, %_ZNSt8optionalIcE5resetEv.exit ], [ %.18582, %89 ], [ %.18582, %85 ], [ %.sroa.15.075, %84 ], [ %.sroa.15.075, %83 ]
   %.sroa.017.2 = phi i8 [ %.sroa.017.156, %_ZNSt8optionalIcE5resetEv.exit ], [ %.sroa.017.156, %89 ], [ %.sroa.017.156, %85 ], [ %71, %84 ], [ %.sroa.017.156, %83 ]
-  %.sroa.3.3 = phi i8 [ 0, %_ZNSt8optionalIcE5resetEv.exit ], [ %.sroa.3.157, %89 ], [ %.sroa.3.157, %85 ], [ 1, %84 ], [ %.sroa.3.157, %83 ]
+  %.sroa.3.3 = phi i8 [ 0, %_ZNSt8optionalIcE5resetEv.exit ], [ 1, %89 ], [ 1, %85 ], [ 1, %84 ], [ 0, %83 ]
   %.1 = phi i64 [ %.08359, %_ZNSt8optionalIcE5resetEv.exit ], [ %88, %89 ], [ %.08359, %85 ], [ %.08359, %84 ], [ %.08359, %83 ]
   %94 = add i64 %.1, 1
   %.not95 = icmp eq i64 %94, %.sroa.15.075
@@ -27600,7 +27600,7 @@ _ZNSt8optionalIcE5resetEv.exit:                   ; preds = %87, %89
 
 95:                                               ; preds = %80, %69, %93
   %.sroa.017.1.lcssa = phi i8 [ %.sroa.017.156, %80 ], [ %.sroa.017.156, %69 ], [ %.sroa.017.2, %93 ]
-  %.sroa.3.1.lcssa = phi i8 [ %.sroa.3.157, %80 ], [ %.sroa.3.157, %69 ], [ %.sroa.3.3, %93 ]
+  %.sroa.3.1.lcssa = phi i8 [ 0, %80 ], [ %.sroa.3.157, %69 ], [ %.sroa.3.3, %93 ]
   %.084.lcssa = phi i64 [ %.08458, %80 ], [ %.08458, %69 ], [ %.18581, %93 ]
   %.083.lcssa = phi i64 [ %.08359, %80 ], [ %.08359, %69 ], [ %.sroa.15.075, %93 ]
   %.not97 = icmp eq i64 %.084.lcssa, %.sroa.15.075

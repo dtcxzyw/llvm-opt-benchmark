@@ -9696,7 +9696,7 @@ define hidden void @_ZN3syn10punctuated9do_extend17hf2c66732dabb437fE.llvm.14145
   br label %58
 
 58:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..path..PathSegment$GT$$GT$$GT$17h46fd2ed2688dee74E.llvm.14145919710250835280.exit", %52
-  %.1 = phi i8 [ 1, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..path..PathSegment$GT$$GT$$GT$17h46fd2ed2688dee74E.llvm.14145919710250835280.exit" ], [ %.0, %52 ]
+  %.1 = phi i8 [ 1, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..path..PathSegment$GT$$GT$$GT$17h46fd2ed2688dee74E.llvm.14145919710250835280.exit" ], [ 0, %52 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.9)
   br label %14

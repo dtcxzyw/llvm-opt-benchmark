@@ -4088,7 +4088,7 @@ for.inc:                                          ; preds = %for.body, %if.then
 
 invoke.cont33:                                    ; preds = %while.cond32.preheader, %if.end66
   %15 = phi ptr [ %49, %if.end66 ], [ %12, %while.cond32.preheader ]
-  %progress.1376 = phi i8 [ %progress.2, %if.end66 ], [ 0, %while.cond32.preheader ]
+  %progress.1376 = phi i1 [ %progress.2, %if.end66 ], [ false, %while.cond32.preheader ]
   %arrayidx.i.i59 = getelementptr inbounds i8, ptr %15, i64 -4
   %16 = load i32, ptr %arrayidx.i.i59, align 4
   %cmp3.i.i60 = icmp eq i32 %16, 0
@@ -4286,18 +4286,16 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   br label %if.end66
 
 if.end66:                                         ; preds = %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %invoke.cont60
-  %progress.2 = phi i8 [ %progress.1376, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ 1, %invoke.cont60 ]
+  %progress.2 = phi i1 [ %progress.1376, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ true, %invoke.cont60 ]
   %49 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i57 = icmp eq ptr %49, null
   br i1 %cmp.i.i57, label %while.end, label %invoke.cont33, !llvm.loop !33
 
 while.end:                                        ; preds = %land.end44, %invoke.cont33, %invoke.cont36, %if.end66, %land.lhs.true35
-  %progress.1.lcssa = phi i8 [ %progress.1376, %land.end44 ], [ %progress.1376, %invoke.cont33 ], [ %progress.1376, %invoke.cont36 ], [ %progress.2, %if.end66 ], [ %progress.1376, %land.lhs.true35 ]
-  %tobool67 = trunc nuw i8 %progress.1.lcssa to i1
-  br i1 %tobool67, label %if.end125, label %land.lhs.true68
+  %progress.1.lcssa = phi i1 [ %progress.1376, %land.lhs.true35 ], [ %progress.2, %if.end66 ], [ %progress.1376, %invoke.cont36 ], [ %progress.1376, %invoke.cont33 ], [ %progress.1376, %land.end44 ]
+  br i1 %progress.1.lcssa, label %if.end125, label %land.lhs.true68
 
 land.lhs.true68:                                  ; preds = %while.cond32.preheader, %while.end
-  %progress.1.lcssa392 = phi i8 [ %progress.1.lcssa, %while.end ], [ 0, %while.cond32.preheader ]
   %50 = load ptr, ptr %m_nodes.i.i53, align 8
   %cmp.i.i93 = icmp eq ptr %50, null
   br i1 %cmp.i.i93, label %if.end125, label %invoke.cont69
@@ -4565,17 +4563,17 @@ for.end123:                                       ; preds = %for.inc121
   br i1 %cmp.i.i.i176, label %invoke.cont124, label %_ZN6vectorIP4exprLb0EjE3endEv.exit.i
 
 _ZN6vectorIP4exprLb0EjE3endEv.exit.i:             ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %for.end123
-  %j.0.lcssa401 = phi i32 [ %j.1, %for.end123 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
+  %j.0.lcssa398 = phi i32 [ %j.1, %for.end123 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
   %91 = phi ptr [ %.pre, %for.end123 ], [ %79, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ]
   %arrayidx.i.i.i178 = getelementptr inbounds i8, ptr %91, i64 -4
   %92 = load i32, ptr %arrayidx.i.i.i178, align 4
   %93 = zext i32 %92 to i64
   %add.ptr.i.i179 = getelementptr inbounds nuw ptr, ptr %91, i64 %93
-  %cmp3.i.i180 = icmp ugt i32 %92, %j.0.lcssa401
+  %cmp3.i.i180 = icmp ugt i32 %92, %j.0.lcssa398
   br i1 %cmp3.i.i180, label %for.body.i.i.preheader, label %if.then.i.i181
 
 for.body.i.i.preheader:                           ; preds = %_ZN6vectorIP4exprLb0EjE3endEv.exit.i
-  %idx.ext.i = zext i32 %j.0.lcssa401 to i64
+  %idx.ext.i = zext i32 %j.0.lcssa398 to i64
   %add.ptr.i177 = getelementptr inbounds nuw ptr, ptr %91, i64 %idx.ext.i
   br label %for.body.i.i
 
@@ -4611,7 +4609,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_re
 if.then.i.i181:                                   ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %_ZN6vectorIP4exprLb0EjE3endEv.exit.i
   %97 = phi ptr [ %.pre.i184, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i ], [ %91, %_ZN6vectorIP4exprLb0EjE3endEv.exit.i ]
   %arrayidx.i.i182 = getelementptr inbounds i8, ptr %97, i64 -4
-  store i32 %j.0.lcssa401, ptr %arrayidx.i.i182, align 4
+  store i32 %j.0.lcssa398, ptr %arrayidx.i.i182, align 4
   br label %invoke.cont124
 
 invoke.cont124:                                   ; preds = %invoke.cont98, %if.then.i.i181, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i, %for.end123
@@ -4619,7 +4617,7 @@ invoke.cont124:                                   ; preds = %invoke.cont98, %if.
   br label %if.end125
 
 if.end125:                                        ; preds = %land.lhs.true71, %land.lhs.true68, %invoke.cont72, %invoke.cont124, %invoke.cont80, %invoke.cont69, %while.end
-  %progress.3 = phi i8 [ %progress.1.lcssa, %while.end ], [ %progress.1.lcssa392, %invoke.cont69 ], [ %progress.1.lcssa392, %invoke.cont72 ], [ 1, %invoke.cont124 ], [ %progress.1.lcssa392, %invoke.cont80 ], [ %progress.1.lcssa392, %land.lhs.true68 ], [ %progress.1.lcssa392, %land.lhs.true71 ]
+  %progress.3 = phi i1 [ true, %while.end ], [ false, %invoke.cont69 ], [ false, %invoke.cont72 ], [ true, %invoke.cont124 ], [ false, %invoke.cont80 ], [ false, %land.lhs.true68 ], [ false, %land.lhs.true71 ]
   %98 = load ptr, ptr %this, align 8
   %call130 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %98)
           to label %invoke.cont129 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4765,8 +4763,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   br label %for.cond.i, !llvm.loop !32
 
 invoke.cont133:                                   ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
-  %tobool134 = trunc nuw i8 %progress.3 to i1
-  br i1 %tobool134, label %if.then135, label %cleanup
+  br i1 %progress.3, label %if.then135, label %cleanup
 
 if.then135:                                       ; preds = %invoke.cont133
   invoke void @_ZN2qe6mbproj4impl16preprocess_solveER5modelR10ref_vectorI3app11ast_managerERS4_I4exprS6_E(ptr noundef nonnull align 8 dereferenceable(43) %this, ptr noundef nonnull align 8 dereferenceable(160) %model, ptr noundef nonnull align 8 dereferenceable(16) %vars, ptr noundef nonnull align 8 dereferenceable(16) %fmls)
@@ -4839,7 +4836,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZN10ref_vectorI3app11ast_managerED2Ev.exit:      ; preds = %cleanup, %invoke.cont.i.i, %if.then.i.i.i.i.i205
-  br i1 %tobool134, label %land.lhs.true, label %while.end138, !llvm.loop !34
+  br i1 %progress.3, label %land.lhs.true, label %while.end138, !llvm.loop !34
 
 ehcleanup:                                        ; preds = %lpad24.loopexit, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad24.loopexit.split-lp.loopexit, %ehcleanup.i, %cleanup.action.i, %lpad91
   %.pn = phi { ptr, i32 } [ %lpad.phi348, %lpad91 ], [ %107, %ehcleanup.i ], [ %108, %cleanup.action.i ], [ %lpad.loopexit344, %lpad24.loopexit ], [ %lpad.loopexit352, %lpad24.loopexit.split-lp.loopexit ], [ %lpad.loopexit355, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]

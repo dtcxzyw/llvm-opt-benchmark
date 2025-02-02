@@ -6135,7 +6135,7 @@ if.then7.i.i.i:                                   ; preds = %if.else5.i.i.i
   br label %invoke.cont51
 
 invoke.cont51:                                    ; preds = %if.then.i.i.i285, %if.then7.i.i.i, %if.else5.i.i.i
-  %src_e.sroa.0.5 = phi i8 [ 1, %if.then7.i.i.i ], [ %src_e.sroa.0.21127, %if.else5.i.i.i ], [ %spec.select, %if.then.i.i.i285 ]
+  %src_e.sroa.0.5 = phi i8 [ 1, %if.then7.i.i.i ], [ 0, %if.else5.i.i.i ], [ %spec.select, %if.then.i.i.i285 ]
   %second48 = getelementptr inbounds i8, ptr %43, i64 -240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %ei, ptr noundef nonnull align 8 dereferenceable(240) %second48, i64 24, i1 false)
   %in_it3.i.i.i.i289 = getelementptr inbounds i8, ptr %43, i64 -216
@@ -6893,7 +6893,7 @@ for.inc.i23.i918:                                 ; preds = %for.body21.i.i.i20.
 .noexc793:                                        ; preds = %for.inc.i.i888, %for.inc.i23.i918, %for.cond19.i.i.i.i881, %for.cond.i.i.i.i890, %for.cond19.i.i.i16.i911, %for.cond.i.i.i25.i920, %if.else.i897, %if.then4.i868, %if.then.i863
   %ref.tmp3.i.sroa.8.2 = phi ptr [ %ref.tmp3.i.sroa.8.0, %if.else.i897 ], [ %140, %if.then4.i868 ], [ %140, %if.then.i863 ], [ %ref.tmp3.i.sroa.8.0, %for.cond.i.i.i25.i920 ], [ %ref.tmp3.i.sroa.8.0, %for.cond19.i.i.i16.i911 ], [ %140, %for.cond.i.i.i.i890 ], [ %140, %for.cond19.i.i.i.i881 ], [ %ref.tmp3.i.sroa.8.0, %for.inc.i23.i918 ], [ %140, %for.inc.i.i888 ]
   %ref.tmp3.i.sroa.14.4 = phi ptr [ %147, %if.else.i897 ], [ %ref.tmp3.i.sroa.14.0, %if.then4.i868 ], [ %ref.tmp3.i.sroa.14.0, %if.then.i863 ], [ %ref.tmp3.i.sroa.14.3, %for.cond.i.i.i25.i920 ], [ %ref.tmp3.i.sroa.14.3, %for.cond19.i.i.i16.i911 ], [ %ref.tmp3.i.sroa.14.2, %for.cond.i.i.i.i890 ], [ %ref.tmp3.i.sroa.14.2, %for.cond19.i.i.i.i881 ], [ %153, %for.inc.i23.i918 ], [ %146, %for.inc.i.i888 ]
-  %ref.tmp3.i.sroa.23.2 = phi i8 [ %ref.tmp3.i.sroa.23.0, %if.else.i897 ], [ 1, %if.then4.i868 ], [ %ref.tmp3.i.sroa.23.0, %if.then.i863 ], [ %ref.tmp3.i.sroa.23.0, %for.cond.i.i.i25.i920 ], [ %ref.tmp3.i.sroa.23.0, %for.cond19.i.i.i16.i911 ], [ 1, %for.cond.i.i.i.i890 ], [ 1, %for.cond19.i.i.i.i881 ], [ %ref.tmp3.i.sroa.23.0, %for.inc.i23.i918 ], [ 1, %for.inc.i.i888 ]
+  %ref.tmp3.i.sroa.23.2 = phi i8 [ 1, %if.else.i897 ], [ 1, %if.then4.i868 ], [ 0, %if.then.i863 ], [ %ref.tmp3.i.sroa.23.0, %for.cond.i.i.i25.i920 ], [ %ref.tmp3.i.sroa.23.0, %for.cond19.i.i.i16.i911 ], [ 1, %for.cond.i.i.i.i890 ], [ 1, %for.cond19.i.i.i.i881 ], [ %ref.tmp3.i.sroa.23.0, %for.inc.i23.i918 ], [ 1, %for.inc.i.i888 ]
   %cmp.i.i.i.i.i.i.i.i = icmp ne ptr %ref.tmp3.i.sroa.8.2, %m_header.i.i.i.i.i.i.i
   %cmp.i.i.i.i2.i.i.i.i = icmp ne ptr %ref.tmp3.i.sroa.14.4, %m_header.i.i.i.i1.i.i.i
   %.not.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i1 true, i1 %cmp.i.i.i.i2.i.i.i.i

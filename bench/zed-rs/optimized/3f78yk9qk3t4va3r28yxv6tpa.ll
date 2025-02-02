@@ -5250,7 +5250,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
   br label %"_ZN70_$LT$rpc..notification..Notification$u20$as$u20$core..clone..Clone$GT$5clone17hc1e050b5ebcf0a11E.llvm.12501987296349981441.exit46"
 
 "_ZN70_$LT$rpc..notification..Notification$u20$as$u20$core..clone..Clone$GT$5clone17hc1e050b5ebcf0a11E.llvm.12501987296349981441.exit46": ; preds = %184, %.noexc45, %179, %177
-  %188 = phi i8 [ %145, %184 ], [ %.pre, %.noexc45 ], [ %145, %179 ], [ %145, %177 ]
+  %188 = phi i8 [ 1, %184 ], [ %.pre, %.noexc45 ], [ 1, %179 ], [ 1, %177 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.02.40..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
   %189 = load i8, ptr %57, align 1, !range !59, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
@@ -5921,7 +5921,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
   br label %"_ZN70_$LT$rpc..notification..Notification$u20$as$u20$core..clone..Clone$GT$5clone17hc1e050b5ebcf0a11E.llvm.12501987296349981441.exit44"
 
 "_ZN70_$LT$rpc..notification..Notification$u20$as$u20$core..clone..Clone$GT$5clone17hc1e050b5ebcf0a11E.llvm.12501987296349981441.exit44": ; preds = %185, %.noexc43, %180, %178
-  %189 = phi i8 [ %146, %185 ], [ %.pre, %.noexc43 ], [ %146, %180 ], [ %146, %178 ]
+  %189 = phi i8 [ 1, %185 ], [ %.pre, %.noexc43 ], [ 1, %180 ], [ 1, %178 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.02.40..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false)
   %190 = load i8, ptr %61, align 1, !range !59, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)

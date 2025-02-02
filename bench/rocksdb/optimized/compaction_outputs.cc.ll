@@ -3678,7 +3678,7 @@ cleanup:                                          ; preds = %if.then.i204, %invo
   br label %cleanup287
 
 cleanup287:                                       ; preds = %invoke.cont107.thread, %invoke.cont107, %cleanup, %if.then131
-  %reached_lower_bound.1 = phi i1 [ true, %if.then131 ], [ true, %cleanup ], [ %reached_lower_bound.0, %invoke.cont107 ], [ %reached_lower_bound.0, %invoke.cont107.thread ]
+  %reached_lower_bound.1 = phi i1 [ true, %if.then131 ], [ true, %cleanup ], [ false, %invoke.cont107 ], [ false, %invoke.cont107.thread ]
   %cleanup.dest.slot.0 = phi i1 [ false, %if.then131 ], [ %145, %cleanup ], [ false, %invoke.cont107 ], [ false, %invoke.cont107.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tombstone_end) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %kv) #19

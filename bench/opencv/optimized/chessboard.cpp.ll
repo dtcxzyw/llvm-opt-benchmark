@@ -28028,94 +28028,94 @@ define hidden noundef i32 @_ZN2cv7details10Chessboard5Board4growERKNS_3MatERNS_5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   resume { ptr, i32 } %.pn
 
-.preheader:                                       ; preds = %.preheader.outer, %.thread
-  %.034 = phi i8 [ 1, %.thread ], [ %.034.ph, %.preheader.outer ]
-  %.031 = phi i8 [ %.132, %.thread ], [ %.031.ph, %.preheader.outer ]
-  %.027 = phi i8 [ %.2, %.thread ], [ %.027.ph, %.preheader.outer ]
-  %.0 = phi i32 [ %34, %.thread ], [ %.0.ph, %.preheader.outer ]
+.preheader:                                       ; preds = %.preheader.backedge, %.preheader.outer
+  %.034 = phi i1 [ %.034.ph, %.preheader.outer ], [ %.034.be, %.preheader.backedge ]
+  %.031 = phi i8 [ %.031.ph, %.preheader.outer ], [ %.031.be, %.preheader.backedge ]
+  %.027 = phi i8 [ %.027.ph, %.preheader.outer ], [ %.027.be, %.preheader.backedge ]
+  %.0 = phi i32 [ %.0.ph, %.preheader.outer ], [ %.0.be, %.preheader.backedge ]
   %19 = trunc nuw i8 %.031 to i1
-  br i1 %19, label %20, label %24
+  br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.preheader
   %21 = tail call noundef zeroext i1 @_ZN2cv7details10Chessboard5Board7growTopERKNS_3MatERNS_5flann5IndexE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(128) %2)
-  br i1 %21, label %22, label %24
+  br i1 %21, label %35, label %22
 
-22:                                               ; preds = %20
-  %23 = add nsw i32 %.0, 1
-  br label %41
+22:                                               ; preds = %20, %.preheader
+  %23 = trunc nuw i8 %.027 to i1
+  br i1 %23, label %24, label %26
 
-24:                                               ; preds = %20, %.preheader
-  %.132 = phi i8 [ 0, %20 ], [ %.031, %.preheader ]
-  %25 = trunc nuw i8 %.027 to i1
-  br i1 %25, label %26, label %30
+24:                                               ; preds = %22
+  %25 = tail call noundef zeroext i1 @_ZN2cv7details10Chessboard5Board10growBottomERKNS_3MatERNS_5flann5IndexE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(128) %2)
+  br i1 %25, label %35, label %26
 
-26:                                               ; preds = %24
-  %27 = tail call noundef zeroext i1 @_ZN2cv7details10Chessboard5Board10growBottomERKNS_3MatERNS_5flann5IndexE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(128) %2)
-  br i1 %27, label %28, label %30
+26:                                               ; preds = %24, %22
+  br i1 %.034, label %27, label %30
 
-28:                                               ; preds = %26
+27:                                               ; preds = %26
+  %28 = tail call noundef zeroext i1 @_ZN2cv7details10Chessboard5Board8growLeftERKNS_3MatERNS_5flann5IndexE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(128) %2)
+  br i1 %28, label %.thread55, label %30
+
+.thread55:                                        ; preds = %27
   %29 = add nsw i32 %.0, 1
-  br label %41
+  br label %.preheader.backedge
 
-30:                                               ; preds = %26, %24
-  %.2 = phi i8 [ 0, %26 ], [ %.027, %24 ]
-  %31 = trunc nuw i8 %.034 to i1
-  br i1 %31, label %32, label %35
+30:                                               ; preds = %27, %26
+  %31 = trunc nuw i8 %.029.ph to i1
+  br i1 %31, label %32, label %.thread82
 
 32:                                               ; preds = %30
-  %33 = tail call noundef zeroext i1 @_ZN2cv7details10Chessboard5Board8growLeftERKNS_3MatERNS_5flann5IndexE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(128) %2)
-  br i1 %33, label %.thread, label %35
+  %33 = tail call noundef zeroext i1 @_ZN2cv7details10Chessboard5Board9growRightERKNS_3MatERNS_5flann5IndexE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(128) %2)
+  %34 = zext i1 %33 to i32
+  %spec.select = add nsw i32 %.0, %34
+  br label %.thread61
 
-.thread:                                          ; preds = %32
-  %34 = add nsw i32 %.0, 1
+35:                                               ; preds = %24, %20
+  %.233 = phi i8 [ 1, %20 ], [ 0, %24 ]
+  %.128 = phi i8 [ %.027, %20 ], [ 1, %24 ]
+  %.1 = add nsw i32 %.0, 1
+  br i1 %.034, label %.preheader.backedge, label %36
+
+36:                                               ; preds = %35
+  %37 = trunc nuw i8 %.233 to i1
+  br i1 %37, label %.preheader.backedge, label %.thread61.loopexit
+
+.preheader.backedge:                              ; preds = %36, %35, %.thread55
+  %.034.be = phi i1 [ true, %35 ], [ false, %36 ], [ true, %.thread55 ]
+  %.031.be = phi i8 [ %.233, %35 ], [ 1, %36 ], [ 0, %.thread55 ]
+  %.027.be = phi i8 [ %.128, %35 ], [ %.128, %36 ], [ 0, %.thread55 ]
+  %.0.be = phi i32 [ %.1, %35 ], [ %.1, %36 ], [ %29, %.thread55 ]
   br label %.preheader, !llvm.loop !435
 
-35:                                               ; preds = %32, %30
-  %.236 = phi i8 [ 0, %32 ], [ %.034, %30 ]
-  %36 = trunc nuw i8 %.029.ph to i1
-  br i1 %36, label %37, label %41
+.thread61.loopexit:                               ; preds = %36
+  %38 = trunc nuw i8 %.029.ph to i1
+  br label %.thread61
 
-37:                                               ; preds = %35
-  %38 = tail call noundef zeroext i1 @_ZN2cv7details10Chessboard5Board9growRightERKNS_3MatERNS_5flann5IndexE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %39 = zext i1 %38 to i8
-  %40 = zext i1 %38 to i32
-  %spec.select = add nsw i32 %.0, %40
-  br label %41
-
-41:                                               ; preds = %37, %35, %28, %22
-  %.135 = phi i8 [ %.034, %22 ], [ %.034, %28 ], [ %.236, %35 ], [ %.236, %37 ]
-  %.233 = phi i8 [ 1, %22 ], [ %.132, %28 ], [ %.132, %35 ], [ %.132, %37 ]
-  %.130 = phi i8 [ %.029.ph, %22 ], [ %.029.ph, %28 ], [ %.029.ph, %35 ], [ %39, %37 ]
-  %.128 = phi i8 [ %.027, %22 ], [ 1, %28 ], [ %.2, %35 ], [ %.2, %37 ]
-  %.1 = phi i32 [ %23, %22 ], [ %29, %28 ], [ %.0, %35 ], [ %spec.select, %37 ]
-  %42 = trunc nuw i8 %.135 to i1
-  br i1 %42, label %.preheader.outer.backedge, label %43
+.thread61:                                        ; preds = %.thread61.loopexit, %32
+  %.1304969 = phi i1 [ %33, %32 ], [ %38, %.thread61.loopexit ]
+  %.1285168 = phi i8 [ 0, %32 ], [ %.128, %.thread61.loopexit ]
+  %.15367 = phi i32 [ %spec.select, %32 ], [ %.1, %.thread61.loopexit ]
+  br i1 %.1304969, label %.preheader.outer.backedge, label %39
 
 .preheader.outer:                                 ; preds = %3, %.preheader.outer.backedge
-  %.034.ph = phi i8 [ %.135, %.preheader.outer.backedge ], [ 1, %3 ]
-  %.031.ph = phi i8 [ %.233, %.preheader.outer.backedge ], [ 1, %3 ]
-  %.029.ph = phi i8 [ %.130, %.preheader.outer.backedge ], [ 1, %3 ]
-  %.027.ph = phi i8 [ %.128, %.preheader.outer.backedge ], [ 1, %3 ]
-  %.0.ph = phi i32 [ %.1, %.preheader.outer.backedge ], [ 0, %3 ]
+  %.034.ph = phi i1 [ false, %.preheader.outer.backedge ], [ true, %3 ]
+  %.031.ph = phi i8 [ 0, %.preheader.outer.backedge ], [ 1, %3 ]
+  %.029.ph = phi i8 [ %.029.ph.be, %.preheader.outer.backedge ], [ 1, %3 ]
+  %.027.ph = phi i8 [ %.027.ph.be, %.preheader.outer.backedge ], [ 1, %3 ]
+  %.0.ph = phi i32 [ %.15367, %.preheader.outer.backedge ], [ 0, %3 ]
   br label %.preheader
 
-43:                                               ; preds = %41
-  %44 = trunc nuw i8 %.233 to i1
-  br i1 %44, label %.preheader.outer.backedge, label %45
+39:                                               ; preds = %.thread61
+  %40 = trunc nuw i8 %.1285168 to i1
+  br i1 %40, label %.preheader.outer.backedge, label %.thread82
 
-45:                                               ; preds = %43
-  %46 = trunc nuw i8 %.130 to i1
-  br i1 %46, label %.preheader.outer.backedge, label %47
-
-47:                                               ; preds = %45
-  %48 = trunc nuw i8 %.128 to i1
-  br i1 %48, label %.preheader.outer.backedge, label %49
-
-.preheader.outer.backedge:                        ; preds = %47, %41, %43, %45
+.preheader.outer.backedge:                        ; preds = %39, %.thread61
+  %.029.ph.be = phi i8 [ 1, %.thread61 ], [ 0, %39 ]
+  %.027.ph.be = phi i8 [ %.1285168, %.thread61 ], [ 1, %39 ]
   br label %.preheader.outer, !llvm.loop !435
 
-49:                                               ; preds = %47
-  ret i32 %.1
+.thread82:                                        ; preds = %30, %39
+  %.153678188 = phi i32 [ %.15367, %39 ], [ %.0, %30 ]
+  ret i32 %.153678188
 }
 
 ; Function Attrs: mustprogress uwtable

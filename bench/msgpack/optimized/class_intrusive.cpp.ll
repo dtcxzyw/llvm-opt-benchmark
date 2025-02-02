@@ -2295,7 +2295,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit
 
 29:                                               ; preds = %.preheader, %.thread645
-  %30 = phi ptr [ %1971, %.thread645 ], [ %18, %.preheader ]
+  %30 = phi ptr [ %1970, %.thread645 ], [ %18, %.preheader ]
   %.0241 = phi i8 [ %.3, %.thread645 ], [ 0, %.preheader ]
   %.0240 = phi ptr [ %.1, %.thread645 ], [ null, %.preheader ]
   %31 = load i32, ptr %22, align 8
@@ -2686,7 +2686,7 @@ _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE
 
 .thread642.thread:                                ; preds = %181
   store i32 32, ptr %22, align 8
-  br label %.thread642._crit_edge
+  br label %.thread647
 
 251:                                              ; preds = %179
   %252 = and i8 %34, -16
@@ -2774,3025 +2774,3032 @@ thread-pre-split:                                 ; preds = %257, %268, %276, %2
   %291 = phi i32 [ %.pr, %thread-pre-split ], [ %178, %170 ]
   %.1242 = phi i8 [ 0, %thread-pre-split ], [ 1, %170 ]
   %.not294 = icmp eq i32 %291, 0
-  br i1 %.not294, label %292, label %.thread642
+  br i1 %.not294, label %292, label %..thread642_crit_edge
+
+..thread642_crit_edge:                            ; preds = %290
+  %.pre1535.pre = load ptr, ptr %19, align 8
+  br label %.thread642
 
 292:                                              ; preds = %290
   %293 = trunc nuw i8 %.1242 to i1
-  br i1 %293, label %.thread642, label %.thread645
+  br i1 %293, label %..thread647_crit_edge, label %.thread645
 
-.thread642:                                       ; preds = %29, %292, %290
-  %.1242639 = phi i8 [ %.1242, %292 ], [ %.1242, %290 ], [ %.0241, %29 ]
-  %294 = phi i32 [ 0, %292 ], [ %291, %290 ], [ %31, %29 ]
+..thread647_crit_edge:                            ; preds = %292
+  %.pre1534 = load ptr, ptr %19, align 8
+  br label %.thread647
+
+.thread642:                                       ; preds = %..thread642_crit_edge, %29
+  %.pre1535 = phi ptr [ %.pre1535.pre, %..thread642_crit_edge ], [ %30, %29 ]
+  %.1242639 = phi i8 [ %.1242, %..thread642_crit_edge ], [ %.0241, %29 ]
+  %294 = phi i32 [ %291, %..thread642_crit_edge ], [ %31, %29 ]
   %295 = trunc nuw i8 %.1242639 to i1
-  %.pre1532 = load ptr, ptr %19, align 8
-  br i1 %295, label %.thread642._crit_edge, label %299
+  br i1 %295, label %.thread647, label %.thread642._crit_edge
 
-.thread642._crit_edge:                            ; preds = %.thread642, %.thread642.thread
-  %296 = phi ptr [ %30, %.thread642.thread ], [ %.pre1532, %.thread642 ]
-  %297 = phi i32 [ 32, %.thread642.thread ], [ %294, %.thread642 ]
+.thread647:                                       ; preds = %..thread647_crit_edge, %.thread642.thread, %.thread642
+  %296 = phi ptr [ %.pre1535, %.thread642 ], [ %.pre1534, %..thread647_crit_edge ], [ %30, %.thread642.thread ]
+  %297 = phi i32 [ %294, %.thread642 ], [ 0, %..thread647_crit_edge ], [ 32, %.thread642.thread ]
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 1
   store ptr %298, ptr %19, align 8
-  br label %299
+  br label %.thread642._crit_edge
 
-299:                                              ; preds = %.thread642._crit_edge, %.thread642
-  %300 = phi ptr [ %298, %.thread642._crit_edge ], [ %.pre1532, %.thread642 ]
-  %301 = phi i32 [ %297, %.thread642._crit_edge ], [ %294, %.thread642 ]
-  %.2 = phi i8 [ 0, %.thread642._crit_edge ], [ %.1242639, %.thread642 ]
-  %302 = ptrtoint ptr %300 to i64
-  %303 = sub i64 %27, %302
-  %304 = load i64, ptr %24, align 8
-  %305 = icmp ult i64 %303, %304
-  br i1 %305, label %306, label %310
+.thread642._crit_edge:                            ; preds = %.thread642, %.thread647
+  %299 = phi ptr [ %298, %.thread647 ], [ %.pre1535, %.thread642 ]
+  %300 = phi i32 [ %297, %.thread647 ], [ %294, %.thread642 ]
+  %301 = ptrtoint ptr %299 to i64
+  %302 = sub i64 %27, %301
+  %303 = load i64, ptr %24, align 8
+  %304 = icmp ult i64 %302, %303
+  br i1 %304, label %305, label %309
 
-306:                                              ; preds = %299
-  %307 = load ptr, ptr %0, align 8
-  %308 = ptrtoint ptr %307 to i64
-  %309 = sub i64 %302, %308
-  store i64 %309, ptr %3, align 8
+305:                                              ; preds = %.thread642._crit_edge
+  %306 = load ptr, ptr %0, align 8
+  %307 = ptrtoint ptr %306 to i64
+  %308 = sub i64 %301, %307
+  store i64 %308, ptr %3, align 8
   br label %.loopexit
 
-310:                                              ; preds = %299
-  %311 = getelementptr i8, ptr %300, i64 %304
-  %312 = getelementptr i8, ptr %311, i64 -1
-  store ptr %312, ptr %19, align 8
-  switch i32 %301, label %1960 [
-    i32 10, label %313
-    i32 11, label %381
-    i32 12, label %447
-    i32 13, label %513
-    i32 14, label %580
-    i32 15, label %647
-    i32 16, label %713
-    i32 17, label %780
-    i32 18, label %848
-    i32 19, label %916
-    i32 20, label %983
-    i32 21, label %1049
-    i32 22, label %1115
-    i32 23, label %1181
-    i32 24, label %1247
-    i32 25, label %1313
-    i32 4, label %1383
-    i32 7, label %1453
-    i32 26, label %1457
-    i32 5, label %1528
-    i32 8, label %1599
-    i32 27, label %1604
-    i32 6, label %1675
-    i32 9, label %1746
-    i32 32, label %1751
-    i32 33, label %1818
-    i32 34, label %1885
-    i32 28, label %1952
-    i32 29, label %1954
-    i32 30, label %1956
-    i32 31, label %1958
+309:                                              ; preds = %.thread642._crit_edge
+  %310 = getelementptr i8, ptr %299, i64 %303
+  %311 = getelementptr i8, ptr %310, i64 -1
+  store ptr %311, ptr %19, align 8
+  switch i32 %300, label %1959 [
+    i32 10, label %312
+    i32 11, label %380
+    i32 12, label %446
+    i32 13, label %512
+    i32 14, label %579
+    i32 15, label %646
+    i32 16, label %712
+    i32 17, label %779
+    i32 18, label %847
+    i32 19, label %915
+    i32 20, label %982
+    i32 21, label %1048
+    i32 22, label %1114
+    i32 23, label %1180
+    i32 24, label %1246
+    i32 25, label %1312
+    i32 4, label %1382
+    i32 7, label %1452
+    i32 26, label %1456
+    i32 5, label %1527
+    i32 8, label %1598
+    i32 27, label %1603
+    i32 6, label %1674
+    i32 9, label %1745
+    i32 32, label %1750
+    i32 33, label %1817
+    i32 34, label %1884
+    i32 28, label %1951
+    i32 29, label %1953
+    i32 30, label %1955
+    i32 31, label %1957
   ]
 
-313:                                              ; preds = %310
-  %314 = load i32, ptr %300, align 1
-  %315 = call i32 @ntohl(i32 noundef %314) #30
-  %316 = load ptr, ptr %23, align 8
-  %317 = bitcast i32 %315 to float
-  %318 = getelementptr inbounds nuw i8, ptr %316, i64 96
-  %319 = load ptr, ptr %318, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 -8
-  %321 = load ptr, ptr %320, align 8
-  store i32 10, ptr %321, align 8
-  %322 = fpext float %317 to double
-  %323 = getelementptr inbounds nuw i8, ptr %321, i64 8
-  store double %322, ptr %323, align 8
-  %324 = load ptr, ptr %19, align 8
-  %325 = getelementptr inbounds nuw i8, ptr %324, i64 1
-  store ptr %325, ptr %19, align 8
-  %326 = load ptr, ptr %25, align 8
-  %327 = load ptr, ptr %26, align 8
-  %328 = icmp eq ptr %326, %327
-  br i1 %328, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352.loopexit, label %.lr.ph.i.i342
+312:                                              ; preds = %309
+  %313 = load i32, ptr %299, align 1
+  %314 = call i32 @ntohl(i32 noundef %313) #30
+  %315 = load ptr, ptr %23, align 8
+  %316 = bitcast i32 %314 to float
+  %317 = getelementptr inbounds nuw i8, ptr %315, i64 96
+  %318 = load ptr, ptr %317, align 8
+  %319 = getelementptr inbounds i8, ptr %318, i64 -8
+  %320 = load ptr, ptr %319, align 8
+  store i32 10, ptr %320, align 8
+  %321 = fpext float %316 to double
+  %322 = getelementptr inbounds nuw i8, ptr %320, i64 8
+  store double %321, ptr %322, align 8
+  %323 = load ptr, ptr %19, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 1
+  store ptr %324, ptr %19, align 8
+  %325 = load ptr, ptr %25, align 8
+  %326 = load ptr, ptr %26, align 8
+  %327 = icmp eq ptr %325, %326
+  br i1 %327, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352.loopexit, label %.lr.ph.i.i342
 
-.lr.ph.i.i342:                                    ; preds = %313, %371
-  %329 = phi ptr [ %372, %371 ], [ %327, %313 ]
-  %330 = phi ptr [ %373, %371 ], [ %326, %313 ]
-  %331 = getelementptr inbounds i8, ptr %329, i64 -8
-  %332 = load i32, ptr %331, align 4
-  switch i32 %332, label %371 [
-    i32 0, label %333
-    i32 1, label %344
-    i32 2, label %352
+.lr.ph.i.i342:                                    ; preds = %312, %370
+  %328 = phi ptr [ %371, %370 ], [ %326, %312 ]
+  %329 = phi ptr [ %372, %370 ], [ %325, %312 ]
+  %330 = getelementptr inbounds i8, ptr %328, i64 -8
+  %331 = load i32, ptr %330, align 4
+  switch i32 %331, label %370 [
+    i32 0, label %332
+    i32 1, label %343
+    i32 2, label %351
   ]
 
-333:                                              ; preds = %.lr.ph.i.i342
-  %334 = load ptr, ptr %23, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 96
-  %336 = load ptr, ptr %335, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 -8
-  %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 24
-  store ptr %339, ptr %337, align 8
-  %340 = getelementptr inbounds i8, ptr %329, i64 -4
-  %341 = load i32, ptr %340, align 4
-  %342 = add i32 %341, -1
-  store i32 %342, ptr %340, align 4
-  %343 = icmp eq i32 %342, 0
-  br i1 %343, label %.sink.split.i.i346, label %.thread645.sink.split
+332:                                              ; preds = %.lr.ph.i.i342
+  %333 = load ptr, ptr %23, align 8
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 96
+  %335 = load ptr, ptr %334, align 8
+  %336 = getelementptr inbounds i8, ptr %335, i64 -8
+  %337 = load ptr, ptr %336, align 8
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 24
+  store ptr %338, ptr %336, align 8
+  %339 = getelementptr inbounds i8, ptr %328, i64 -4
+  %340 = load i32, ptr %339, align 4
+  %341 = add i32 %340, -1
+  store i32 %341, ptr %339, align 4
+  %342 = icmp eq i32 %341, 0
+  br i1 %342, label %.sink.split.i.i346, label %.thread645.sink.split
 
-344:                                              ; preds = %.lr.ph.i.i342
-  %345 = getelementptr inbounds i8, ptr %329, i64 -8
-  %346 = load ptr, ptr %23, align 8
-  %347 = getelementptr inbounds nuw i8, ptr %346, i64 96
-  %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 -8
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds nuw i8, ptr %350, i64 24
-  store ptr %351, ptr %349, align 8
-  store i32 2, ptr %345, align 4
+343:                                              ; preds = %.lr.ph.i.i342
+  %344 = getelementptr inbounds i8, ptr %328, i64 -8
+  %345 = load ptr, ptr %23, align 8
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 96
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr inbounds i8, ptr %347, i64 -8
+  %349 = load ptr, ptr %348, align 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 24
+  store ptr %350, ptr %348, align 8
+  store i32 2, ptr %344, align 4
   br label %.thread645.sink.split
 
-352:                                              ; preds = %.lr.ph.i.i342
-  %353 = load ptr, ptr %23, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %353, i64 96
-  %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 -8
-  %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 24
-  store ptr %358, ptr %356, align 8
-  %359 = getelementptr inbounds i8, ptr %329, i64 -4
-  %360 = load i32, ptr %359, align 4
-  %361 = add i32 %360, -1
-  store i32 %361, ptr %359, align 4
-  %362 = icmp eq i32 %361, 0
-  br i1 %362, label %.sink.split.i.i346, label %363
+351:                                              ; preds = %.lr.ph.i.i342
+  %352 = load ptr, ptr %23, align 8
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 96
+  %354 = load ptr, ptr %353, align 8
+  %355 = getelementptr inbounds i8, ptr %354, i64 -8
+  %356 = load ptr, ptr %355, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 24
+  store ptr %357, ptr %355, align 8
+  %358 = getelementptr inbounds i8, ptr %328, i64 -4
+  %359 = load i32, ptr %358, align 4
+  %360 = add i32 %359, -1
+  store i32 %360, ptr %358, align 4
+  %361 = icmp eq i32 %360, 0
+  br i1 %361, label %.sink.split.i.i346, label %362
 
-363:                                              ; preds = %352
-  %364 = getelementptr inbounds i8, ptr %329, i64 -8
-  store i32 1, ptr %364, align 4
+362:                                              ; preds = %351
+  %363 = getelementptr inbounds i8, ptr %328, i64 -8
+  store i32 1, ptr %363, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i346:                               ; preds = %352, %333
-  %365 = load ptr, ptr %26, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 -8
-  store ptr %366, ptr %26, align 8
-  %367 = load ptr, ptr %23, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 96
-  %369 = load ptr, ptr %368, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 -8
-  store ptr %370, ptr %368, align 8
+.sink.split.i.i346:                               ; preds = %351, %332
+  %364 = load ptr, ptr %26, align 8
+  %365 = getelementptr inbounds i8, ptr %364, i64 -8
+  store ptr %365, ptr %26, align 8
+  %366 = load ptr, ptr %23, align 8
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 96
+  %368 = load ptr, ptr %367, align 8
+  %369 = getelementptr inbounds i8, ptr %368, i64 -8
+  store ptr %369, ptr %367, align 8
   %.pre.i347 = load ptr, ptr %25, align 8
   %.pre17.i348 = load ptr, ptr %26, align 8
-  br label %371
+  br label %370
 
-371:                                              ; preds = %.sink.split.i.i346, %.lr.ph.i.i342
-  %372 = phi ptr [ %.pre17.i348, %.sink.split.i.i346 ], [ %329, %.lr.ph.i.i342 ]
-  %373 = phi ptr [ %.pre.i347, %.sink.split.i.i346 ], [ %330, %.lr.ph.i.i342 ]
-  %374 = icmp eq ptr %373, %372
-  br i1 %374, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i349, label %.lr.ph.i.i342, !llvm.loop !21
+370:                                              ; preds = %.sink.split.i.i346, %.lr.ph.i.i342
+  %371 = phi ptr [ %.pre17.i348, %.sink.split.i.i346 ], [ %328, %.lr.ph.i.i342 ]
+  %372 = phi ptr [ %.pre.i347, %.sink.split.i.i346 ], [ %329, %.lr.ph.i.i342 ]
+  %373 = icmp eq ptr %372, %371
+  br i1 %373, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i349, label %.lr.ph.i.i342, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i349: ; preds = %371
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i349: ; preds = %370
   %.pre18.i350 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352.loopexit: ; preds = %313
-  %375 = getelementptr inbounds nuw i8, ptr %324, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352.loopexit: ; preds = %312
+  %374 = getelementptr inbounds nuw i8, ptr %323, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i349
-  %376 = phi ptr [ %.pre18.i350, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i349 ], [ %375, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352.loopexit ]
-  %377 = load ptr, ptr %0, align 8
+  %375 = phi ptr [ %.pre18.i350, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i349 ], [ %374, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352.loopexit ]
+  %376 = load ptr, ptr %0, align 8
+  %377 = ptrtoint ptr %375 to i64
   %378 = ptrtoint ptr %376 to i64
-  %379 = ptrtoint ptr %377 to i64
-  %380 = sub i64 %378, %379
-  store i64 %380, ptr %3, align 8
+  %379 = sub i64 %377, %378
+  store i64 %379, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-381:                                              ; preds = %310
-  %382 = load i64, ptr %300, align 1
-  %383 = call noundef i64 @llvm.bswap.i64(i64 %382)
-  %384 = load ptr, ptr %23, align 8
-  %385 = getelementptr inbounds nuw i8, ptr %384, i64 96
-  %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 -8
-  %388 = load ptr, ptr %387, align 8
-  store i32 4, ptr %388, align 8
-  %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
-  store i64 %383, ptr %389, align 8
-  %390 = load ptr, ptr %19, align 8
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 1
-  store ptr %391, ptr %19, align 8
-  %392 = load ptr, ptr %25, align 8
-  %393 = load ptr, ptr %26, align 8
-  %394 = icmp eq ptr %392, %393
-  br i1 %394, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363.loopexit, label %.lr.ph.i.i353
+380:                                              ; preds = %309
+  %381 = load i64, ptr %299, align 1
+  %382 = call noundef i64 @llvm.bswap.i64(i64 %381)
+  %383 = load ptr, ptr %23, align 8
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 96
+  %385 = load ptr, ptr %384, align 8
+  %386 = getelementptr inbounds i8, ptr %385, i64 -8
+  %387 = load ptr, ptr %386, align 8
+  store i32 4, ptr %387, align 8
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
+  store i64 %382, ptr %388, align 8
+  %389 = load ptr, ptr %19, align 8
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 1
+  store ptr %390, ptr %19, align 8
+  %391 = load ptr, ptr %25, align 8
+  %392 = load ptr, ptr %26, align 8
+  %393 = icmp eq ptr %391, %392
+  br i1 %393, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363.loopexit, label %.lr.ph.i.i353
 
-.lr.ph.i.i353:                                    ; preds = %381, %437
-  %395 = phi ptr [ %438, %437 ], [ %393, %381 ]
-  %396 = phi ptr [ %439, %437 ], [ %392, %381 ]
-  %397 = getelementptr inbounds i8, ptr %395, i64 -8
-  %398 = load i32, ptr %397, align 4
-  switch i32 %398, label %437 [
-    i32 0, label %399
-    i32 1, label %410
-    i32 2, label %418
+.lr.ph.i.i353:                                    ; preds = %380, %436
+  %394 = phi ptr [ %437, %436 ], [ %392, %380 ]
+  %395 = phi ptr [ %438, %436 ], [ %391, %380 ]
+  %396 = getelementptr inbounds i8, ptr %394, i64 -8
+  %397 = load i32, ptr %396, align 4
+  switch i32 %397, label %436 [
+    i32 0, label %398
+    i32 1, label %409
+    i32 2, label %417
   ]
 
-399:                                              ; preds = %.lr.ph.i.i353
-  %400 = load ptr, ptr %23, align 8
-  %401 = getelementptr inbounds nuw i8, ptr %400, i64 96
-  %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds i8, ptr %402, i64 -8
-  %404 = load ptr, ptr %403, align 8
-  %405 = getelementptr inbounds nuw i8, ptr %404, i64 24
-  store ptr %405, ptr %403, align 8
-  %406 = getelementptr inbounds i8, ptr %395, i64 -4
-  %407 = load i32, ptr %406, align 4
-  %408 = add i32 %407, -1
-  store i32 %408, ptr %406, align 4
-  %409 = icmp eq i32 %408, 0
-  br i1 %409, label %.sink.split.i.i357, label %.thread645.sink.split
+398:                                              ; preds = %.lr.ph.i.i353
+  %399 = load ptr, ptr %23, align 8
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 96
+  %401 = load ptr, ptr %400, align 8
+  %402 = getelementptr inbounds i8, ptr %401, i64 -8
+  %403 = load ptr, ptr %402, align 8
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 24
+  store ptr %404, ptr %402, align 8
+  %405 = getelementptr inbounds i8, ptr %394, i64 -4
+  %406 = load i32, ptr %405, align 4
+  %407 = add i32 %406, -1
+  store i32 %407, ptr %405, align 4
+  %408 = icmp eq i32 %407, 0
+  br i1 %408, label %.sink.split.i.i357, label %.thread645.sink.split
 
-410:                                              ; preds = %.lr.ph.i.i353
-  %411 = getelementptr inbounds i8, ptr %395, i64 -8
-  %412 = load ptr, ptr %23, align 8
-  %413 = getelementptr inbounds nuw i8, ptr %412, i64 96
-  %414 = load ptr, ptr %413, align 8
-  %415 = getelementptr inbounds i8, ptr %414, i64 -8
-  %416 = load ptr, ptr %415, align 8
-  %417 = getelementptr inbounds nuw i8, ptr %416, i64 24
-  store ptr %417, ptr %415, align 8
-  store i32 2, ptr %411, align 4
+409:                                              ; preds = %.lr.ph.i.i353
+  %410 = getelementptr inbounds i8, ptr %394, i64 -8
+  %411 = load ptr, ptr %23, align 8
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 96
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds i8, ptr %413, i64 -8
+  %415 = load ptr, ptr %414, align 8
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 24
+  store ptr %416, ptr %414, align 8
+  store i32 2, ptr %410, align 4
   br label %.thread645.sink.split
 
-418:                                              ; preds = %.lr.ph.i.i353
-  %419 = load ptr, ptr %23, align 8
-  %420 = getelementptr inbounds nuw i8, ptr %419, i64 96
-  %421 = load ptr, ptr %420, align 8
-  %422 = getelementptr inbounds i8, ptr %421, i64 -8
-  %423 = load ptr, ptr %422, align 8
-  %424 = getelementptr inbounds nuw i8, ptr %423, i64 24
-  store ptr %424, ptr %422, align 8
-  %425 = getelementptr inbounds i8, ptr %395, i64 -4
-  %426 = load i32, ptr %425, align 4
-  %427 = add i32 %426, -1
-  store i32 %427, ptr %425, align 4
-  %428 = icmp eq i32 %427, 0
-  br i1 %428, label %.sink.split.i.i357, label %429
+417:                                              ; preds = %.lr.ph.i.i353
+  %418 = load ptr, ptr %23, align 8
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 96
+  %420 = load ptr, ptr %419, align 8
+  %421 = getelementptr inbounds i8, ptr %420, i64 -8
+  %422 = load ptr, ptr %421, align 8
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 24
+  store ptr %423, ptr %421, align 8
+  %424 = getelementptr inbounds i8, ptr %394, i64 -4
+  %425 = load i32, ptr %424, align 4
+  %426 = add i32 %425, -1
+  store i32 %426, ptr %424, align 4
+  %427 = icmp eq i32 %426, 0
+  br i1 %427, label %.sink.split.i.i357, label %428
 
-429:                                              ; preds = %418
-  %430 = getelementptr inbounds i8, ptr %395, i64 -8
-  store i32 1, ptr %430, align 4
+428:                                              ; preds = %417
+  %429 = getelementptr inbounds i8, ptr %394, i64 -8
+  store i32 1, ptr %429, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i357:                               ; preds = %418, %399
-  %431 = load ptr, ptr %26, align 8
-  %432 = getelementptr inbounds i8, ptr %431, i64 -8
-  store ptr %432, ptr %26, align 8
-  %433 = load ptr, ptr %23, align 8
-  %434 = getelementptr inbounds nuw i8, ptr %433, i64 96
-  %435 = load ptr, ptr %434, align 8
-  %436 = getelementptr inbounds i8, ptr %435, i64 -8
-  store ptr %436, ptr %434, align 8
+.sink.split.i.i357:                               ; preds = %417, %398
+  %430 = load ptr, ptr %26, align 8
+  %431 = getelementptr inbounds i8, ptr %430, i64 -8
+  store ptr %431, ptr %26, align 8
+  %432 = load ptr, ptr %23, align 8
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 96
+  %434 = load ptr, ptr %433, align 8
+  %435 = getelementptr inbounds i8, ptr %434, i64 -8
+  store ptr %435, ptr %433, align 8
   %.pre.i358 = load ptr, ptr %25, align 8
   %.pre17.i359 = load ptr, ptr %26, align 8
-  br label %437
+  br label %436
 
-437:                                              ; preds = %.sink.split.i.i357, %.lr.ph.i.i353
-  %438 = phi ptr [ %.pre17.i359, %.sink.split.i.i357 ], [ %395, %.lr.ph.i.i353 ]
-  %439 = phi ptr [ %.pre.i358, %.sink.split.i.i357 ], [ %396, %.lr.ph.i.i353 ]
-  %440 = icmp eq ptr %439, %438
-  br i1 %440, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i360, label %.lr.ph.i.i353, !llvm.loop !21
+436:                                              ; preds = %.sink.split.i.i357, %.lr.ph.i.i353
+  %437 = phi ptr [ %.pre17.i359, %.sink.split.i.i357 ], [ %394, %.lr.ph.i.i353 ]
+  %438 = phi ptr [ %.pre.i358, %.sink.split.i.i357 ], [ %395, %.lr.ph.i.i353 ]
+  %439 = icmp eq ptr %438, %437
+  br i1 %439, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i360, label %.lr.ph.i.i353, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i360: ; preds = %437
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i360: ; preds = %436
   %.pre18.i361 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363.loopexit: ; preds = %381
-  %441 = getelementptr inbounds nuw i8, ptr %390, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363.loopexit: ; preds = %380
+  %440 = getelementptr inbounds nuw i8, ptr %389, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i360
-  %442 = phi ptr [ %.pre18.i361, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i360 ], [ %441, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363.loopexit ]
-  %443 = load ptr, ptr %0, align 8
+  %441 = phi ptr [ %.pre18.i361, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i360 ], [ %440, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363.loopexit ]
+  %442 = load ptr, ptr %0, align 8
+  %443 = ptrtoint ptr %441 to i64
   %444 = ptrtoint ptr %442 to i64
-  %445 = ptrtoint ptr %443 to i64
-  %446 = sub i64 %444, %445
-  store i64 %446, ptr %3, align 8
+  %445 = sub i64 %443, %444
+  store i64 %445, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-447:                                              ; preds = %310
-  %448 = load i8, ptr %300, align 1
-  %449 = load ptr, ptr %23, align 8
-  %450 = zext i8 %448 to i64
-  %451 = getelementptr inbounds nuw i8, ptr %449, i64 96
-  %452 = load ptr, ptr %451, align 8
-  %453 = getelementptr inbounds i8, ptr %452, i64 -8
-  %454 = load ptr, ptr %453, align 8
-  store i32 2, ptr %454, align 8
-  %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
-  store i64 %450, ptr %455, align 8
-  %456 = load ptr, ptr %19, align 8
-  %457 = getelementptr inbounds nuw i8, ptr %456, i64 1
-  store ptr %457, ptr %19, align 8
-  %458 = load ptr, ptr %25, align 8
-  %459 = load ptr, ptr %26, align 8
-  %460 = icmp eq ptr %458, %459
-  br i1 %460, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374.loopexit, label %.lr.ph.i.i364
+446:                                              ; preds = %309
+  %447 = load i8, ptr %299, align 1
+  %448 = load ptr, ptr %23, align 8
+  %449 = zext i8 %447 to i64
+  %450 = getelementptr inbounds nuw i8, ptr %448, i64 96
+  %451 = load ptr, ptr %450, align 8
+  %452 = getelementptr inbounds i8, ptr %451, i64 -8
+  %453 = load ptr, ptr %452, align 8
+  store i32 2, ptr %453, align 8
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
+  store i64 %449, ptr %454, align 8
+  %455 = load ptr, ptr %19, align 8
+  %456 = getelementptr inbounds nuw i8, ptr %455, i64 1
+  store ptr %456, ptr %19, align 8
+  %457 = load ptr, ptr %25, align 8
+  %458 = load ptr, ptr %26, align 8
+  %459 = icmp eq ptr %457, %458
+  br i1 %459, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374.loopexit, label %.lr.ph.i.i364
 
-.lr.ph.i.i364:                                    ; preds = %447, %503
-  %461 = phi ptr [ %504, %503 ], [ %459, %447 ]
-  %462 = phi ptr [ %505, %503 ], [ %458, %447 ]
-  %463 = getelementptr inbounds i8, ptr %461, i64 -8
-  %464 = load i32, ptr %463, align 4
-  switch i32 %464, label %503 [
-    i32 0, label %465
-    i32 1, label %476
-    i32 2, label %484
+.lr.ph.i.i364:                                    ; preds = %446, %502
+  %460 = phi ptr [ %503, %502 ], [ %458, %446 ]
+  %461 = phi ptr [ %504, %502 ], [ %457, %446 ]
+  %462 = getelementptr inbounds i8, ptr %460, i64 -8
+  %463 = load i32, ptr %462, align 4
+  switch i32 %463, label %502 [
+    i32 0, label %464
+    i32 1, label %475
+    i32 2, label %483
   ]
 
-465:                                              ; preds = %.lr.ph.i.i364
-  %466 = load ptr, ptr %23, align 8
-  %467 = getelementptr inbounds nuw i8, ptr %466, i64 96
-  %468 = load ptr, ptr %467, align 8
-  %469 = getelementptr inbounds i8, ptr %468, i64 -8
-  %470 = load ptr, ptr %469, align 8
-  %471 = getelementptr inbounds nuw i8, ptr %470, i64 24
-  store ptr %471, ptr %469, align 8
-  %472 = getelementptr inbounds i8, ptr %461, i64 -4
-  %473 = load i32, ptr %472, align 4
-  %474 = add i32 %473, -1
-  store i32 %474, ptr %472, align 4
-  %475 = icmp eq i32 %474, 0
-  br i1 %475, label %.sink.split.i.i368, label %.thread645.sink.split
+464:                                              ; preds = %.lr.ph.i.i364
+  %465 = load ptr, ptr %23, align 8
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 96
+  %467 = load ptr, ptr %466, align 8
+  %468 = getelementptr inbounds i8, ptr %467, i64 -8
+  %469 = load ptr, ptr %468, align 8
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 24
+  store ptr %470, ptr %468, align 8
+  %471 = getelementptr inbounds i8, ptr %460, i64 -4
+  %472 = load i32, ptr %471, align 4
+  %473 = add i32 %472, -1
+  store i32 %473, ptr %471, align 4
+  %474 = icmp eq i32 %473, 0
+  br i1 %474, label %.sink.split.i.i368, label %.thread645.sink.split
 
-476:                                              ; preds = %.lr.ph.i.i364
-  %477 = getelementptr inbounds i8, ptr %461, i64 -8
-  %478 = load ptr, ptr %23, align 8
-  %479 = getelementptr inbounds nuw i8, ptr %478, i64 96
-  %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds i8, ptr %480, i64 -8
-  %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds nuw i8, ptr %482, i64 24
-  store ptr %483, ptr %481, align 8
-  store i32 2, ptr %477, align 4
+475:                                              ; preds = %.lr.ph.i.i364
+  %476 = getelementptr inbounds i8, ptr %460, i64 -8
+  %477 = load ptr, ptr %23, align 8
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 96
+  %479 = load ptr, ptr %478, align 8
+  %480 = getelementptr inbounds i8, ptr %479, i64 -8
+  %481 = load ptr, ptr %480, align 8
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 24
+  store ptr %482, ptr %480, align 8
+  store i32 2, ptr %476, align 4
   br label %.thread645.sink.split
 
-484:                                              ; preds = %.lr.ph.i.i364
-  %485 = load ptr, ptr %23, align 8
-  %486 = getelementptr inbounds nuw i8, ptr %485, i64 96
-  %487 = load ptr, ptr %486, align 8
-  %488 = getelementptr inbounds i8, ptr %487, i64 -8
-  %489 = load ptr, ptr %488, align 8
-  %490 = getelementptr inbounds nuw i8, ptr %489, i64 24
-  store ptr %490, ptr %488, align 8
-  %491 = getelementptr inbounds i8, ptr %461, i64 -4
-  %492 = load i32, ptr %491, align 4
-  %493 = add i32 %492, -1
-  store i32 %493, ptr %491, align 4
-  %494 = icmp eq i32 %493, 0
-  br i1 %494, label %.sink.split.i.i368, label %495
+483:                                              ; preds = %.lr.ph.i.i364
+  %484 = load ptr, ptr %23, align 8
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 96
+  %486 = load ptr, ptr %485, align 8
+  %487 = getelementptr inbounds i8, ptr %486, i64 -8
+  %488 = load ptr, ptr %487, align 8
+  %489 = getelementptr inbounds nuw i8, ptr %488, i64 24
+  store ptr %489, ptr %487, align 8
+  %490 = getelementptr inbounds i8, ptr %460, i64 -4
+  %491 = load i32, ptr %490, align 4
+  %492 = add i32 %491, -1
+  store i32 %492, ptr %490, align 4
+  %493 = icmp eq i32 %492, 0
+  br i1 %493, label %.sink.split.i.i368, label %494
 
-495:                                              ; preds = %484
-  %496 = getelementptr inbounds i8, ptr %461, i64 -8
-  store i32 1, ptr %496, align 4
+494:                                              ; preds = %483
+  %495 = getelementptr inbounds i8, ptr %460, i64 -8
+  store i32 1, ptr %495, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i368:                               ; preds = %484, %465
-  %497 = load ptr, ptr %26, align 8
-  %498 = getelementptr inbounds i8, ptr %497, i64 -8
-  store ptr %498, ptr %26, align 8
-  %499 = load ptr, ptr %23, align 8
-  %500 = getelementptr inbounds nuw i8, ptr %499, i64 96
-  %501 = load ptr, ptr %500, align 8
-  %502 = getelementptr inbounds i8, ptr %501, i64 -8
-  store ptr %502, ptr %500, align 8
+.sink.split.i.i368:                               ; preds = %483, %464
+  %496 = load ptr, ptr %26, align 8
+  %497 = getelementptr inbounds i8, ptr %496, i64 -8
+  store ptr %497, ptr %26, align 8
+  %498 = load ptr, ptr %23, align 8
+  %499 = getelementptr inbounds nuw i8, ptr %498, i64 96
+  %500 = load ptr, ptr %499, align 8
+  %501 = getelementptr inbounds i8, ptr %500, i64 -8
+  store ptr %501, ptr %499, align 8
   %.pre.i369 = load ptr, ptr %25, align 8
   %.pre17.i370 = load ptr, ptr %26, align 8
-  br label %503
+  br label %502
 
-503:                                              ; preds = %.sink.split.i.i368, %.lr.ph.i.i364
-  %504 = phi ptr [ %.pre17.i370, %.sink.split.i.i368 ], [ %461, %.lr.ph.i.i364 ]
-  %505 = phi ptr [ %.pre.i369, %.sink.split.i.i368 ], [ %462, %.lr.ph.i.i364 ]
-  %506 = icmp eq ptr %505, %504
-  br i1 %506, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i371, label %.lr.ph.i.i364, !llvm.loop !21
+502:                                              ; preds = %.sink.split.i.i368, %.lr.ph.i.i364
+  %503 = phi ptr [ %.pre17.i370, %.sink.split.i.i368 ], [ %460, %.lr.ph.i.i364 ]
+  %504 = phi ptr [ %.pre.i369, %.sink.split.i.i368 ], [ %461, %.lr.ph.i.i364 ]
+  %505 = icmp eq ptr %504, %503
+  br i1 %505, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i371, label %.lr.ph.i.i364, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i371: ; preds = %503
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i371: ; preds = %502
   %.pre18.i372 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374.loopexit: ; preds = %447
-  %507 = getelementptr inbounds nuw i8, ptr %456, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374.loopexit: ; preds = %446
+  %506 = getelementptr inbounds nuw i8, ptr %455, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i371
-  %508 = phi ptr [ %.pre18.i372, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i371 ], [ %507, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374.loopexit ]
-  %509 = load ptr, ptr %0, align 8
+  %507 = phi ptr [ %.pre18.i372, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i371 ], [ %506, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374.loopexit ]
+  %508 = load ptr, ptr %0, align 8
+  %509 = ptrtoint ptr %507 to i64
   %510 = ptrtoint ptr %508 to i64
-  %511 = ptrtoint ptr %509 to i64
-  %512 = sub i64 %510, %511
-  store i64 %512, ptr %3, align 8
+  %511 = sub i64 %509, %510
+  store i64 %511, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-513:                                              ; preds = %310
-  %514 = load i16, ptr %300, align 1
-  %515 = call zeroext i16 @ntohs(i16 noundef zeroext %514) #30
-  %516 = load ptr, ptr %23, align 8
-  %517 = zext i16 %515 to i64
-  %518 = getelementptr inbounds nuw i8, ptr %516, i64 96
-  %519 = load ptr, ptr %518, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 -8
-  %521 = load ptr, ptr %520, align 8
-  store i32 2, ptr %521, align 8
-  %522 = getelementptr inbounds nuw i8, ptr %521, i64 8
-  store i64 %517, ptr %522, align 8
-  %523 = load ptr, ptr %19, align 8
-  %524 = getelementptr inbounds nuw i8, ptr %523, i64 1
-  store ptr %524, ptr %19, align 8
-  %525 = load ptr, ptr %25, align 8
-  %526 = load ptr, ptr %26, align 8
-  %527 = icmp eq ptr %525, %526
-  br i1 %527, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385.loopexit, label %.lr.ph.i.i375
+512:                                              ; preds = %309
+  %513 = load i16, ptr %299, align 1
+  %514 = call zeroext i16 @ntohs(i16 noundef zeroext %513) #30
+  %515 = load ptr, ptr %23, align 8
+  %516 = zext i16 %514 to i64
+  %517 = getelementptr inbounds nuw i8, ptr %515, i64 96
+  %518 = load ptr, ptr %517, align 8
+  %519 = getelementptr inbounds i8, ptr %518, i64 -8
+  %520 = load ptr, ptr %519, align 8
+  store i32 2, ptr %520, align 8
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 8
+  store i64 %516, ptr %521, align 8
+  %522 = load ptr, ptr %19, align 8
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 1
+  store ptr %523, ptr %19, align 8
+  %524 = load ptr, ptr %25, align 8
+  %525 = load ptr, ptr %26, align 8
+  %526 = icmp eq ptr %524, %525
+  br i1 %526, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385.loopexit, label %.lr.ph.i.i375
 
-.lr.ph.i.i375:                                    ; preds = %513, %570
-  %528 = phi ptr [ %571, %570 ], [ %526, %513 ]
-  %529 = phi ptr [ %572, %570 ], [ %525, %513 ]
-  %530 = getelementptr inbounds i8, ptr %528, i64 -8
-  %531 = load i32, ptr %530, align 4
-  switch i32 %531, label %570 [
-    i32 0, label %532
-    i32 1, label %543
-    i32 2, label %551
+.lr.ph.i.i375:                                    ; preds = %512, %569
+  %527 = phi ptr [ %570, %569 ], [ %525, %512 ]
+  %528 = phi ptr [ %571, %569 ], [ %524, %512 ]
+  %529 = getelementptr inbounds i8, ptr %527, i64 -8
+  %530 = load i32, ptr %529, align 4
+  switch i32 %530, label %569 [
+    i32 0, label %531
+    i32 1, label %542
+    i32 2, label %550
   ]
 
-532:                                              ; preds = %.lr.ph.i.i375
-  %533 = load ptr, ptr %23, align 8
-  %534 = getelementptr inbounds nuw i8, ptr %533, i64 96
-  %535 = load ptr, ptr %534, align 8
-  %536 = getelementptr inbounds i8, ptr %535, i64 -8
-  %537 = load ptr, ptr %536, align 8
-  %538 = getelementptr inbounds nuw i8, ptr %537, i64 24
-  store ptr %538, ptr %536, align 8
-  %539 = getelementptr inbounds i8, ptr %528, i64 -4
-  %540 = load i32, ptr %539, align 4
-  %541 = add i32 %540, -1
-  store i32 %541, ptr %539, align 4
-  %542 = icmp eq i32 %541, 0
-  br i1 %542, label %.sink.split.i.i379, label %.thread645.sink.split
+531:                                              ; preds = %.lr.ph.i.i375
+  %532 = load ptr, ptr %23, align 8
+  %533 = getelementptr inbounds nuw i8, ptr %532, i64 96
+  %534 = load ptr, ptr %533, align 8
+  %535 = getelementptr inbounds i8, ptr %534, i64 -8
+  %536 = load ptr, ptr %535, align 8
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 24
+  store ptr %537, ptr %535, align 8
+  %538 = getelementptr inbounds i8, ptr %527, i64 -4
+  %539 = load i32, ptr %538, align 4
+  %540 = add i32 %539, -1
+  store i32 %540, ptr %538, align 4
+  %541 = icmp eq i32 %540, 0
+  br i1 %541, label %.sink.split.i.i379, label %.thread645.sink.split
 
-543:                                              ; preds = %.lr.ph.i.i375
-  %544 = getelementptr inbounds i8, ptr %528, i64 -8
-  %545 = load ptr, ptr %23, align 8
-  %546 = getelementptr inbounds nuw i8, ptr %545, i64 96
-  %547 = load ptr, ptr %546, align 8
-  %548 = getelementptr inbounds i8, ptr %547, i64 -8
-  %549 = load ptr, ptr %548, align 8
-  %550 = getelementptr inbounds nuw i8, ptr %549, i64 24
-  store ptr %550, ptr %548, align 8
-  store i32 2, ptr %544, align 4
+542:                                              ; preds = %.lr.ph.i.i375
+  %543 = getelementptr inbounds i8, ptr %527, i64 -8
+  %544 = load ptr, ptr %23, align 8
+  %545 = getelementptr inbounds nuw i8, ptr %544, i64 96
+  %546 = load ptr, ptr %545, align 8
+  %547 = getelementptr inbounds i8, ptr %546, i64 -8
+  %548 = load ptr, ptr %547, align 8
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 24
+  store ptr %549, ptr %547, align 8
+  store i32 2, ptr %543, align 4
   br label %.thread645.sink.split
 
-551:                                              ; preds = %.lr.ph.i.i375
-  %552 = load ptr, ptr %23, align 8
-  %553 = getelementptr inbounds nuw i8, ptr %552, i64 96
-  %554 = load ptr, ptr %553, align 8
-  %555 = getelementptr inbounds i8, ptr %554, i64 -8
-  %556 = load ptr, ptr %555, align 8
-  %557 = getelementptr inbounds nuw i8, ptr %556, i64 24
-  store ptr %557, ptr %555, align 8
-  %558 = getelementptr inbounds i8, ptr %528, i64 -4
-  %559 = load i32, ptr %558, align 4
-  %560 = add i32 %559, -1
-  store i32 %560, ptr %558, align 4
-  %561 = icmp eq i32 %560, 0
-  br i1 %561, label %.sink.split.i.i379, label %562
+550:                                              ; preds = %.lr.ph.i.i375
+  %551 = load ptr, ptr %23, align 8
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 96
+  %553 = load ptr, ptr %552, align 8
+  %554 = getelementptr inbounds i8, ptr %553, i64 -8
+  %555 = load ptr, ptr %554, align 8
+  %556 = getelementptr inbounds nuw i8, ptr %555, i64 24
+  store ptr %556, ptr %554, align 8
+  %557 = getelementptr inbounds i8, ptr %527, i64 -4
+  %558 = load i32, ptr %557, align 4
+  %559 = add i32 %558, -1
+  store i32 %559, ptr %557, align 4
+  %560 = icmp eq i32 %559, 0
+  br i1 %560, label %.sink.split.i.i379, label %561
 
-562:                                              ; preds = %551
-  %563 = getelementptr inbounds i8, ptr %528, i64 -8
-  store i32 1, ptr %563, align 4
+561:                                              ; preds = %550
+  %562 = getelementptr inbounds i8, ptr %527, i64 -8
+  store i32 1, ptr %562, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i379:                               ; preds = %551, %532
-  %564 = load ptr, ptr %26, align 8
-  %565 = getelementptr inbounds i8, ptr %564, i64 -8
-  store ptr %565, ptr %26, align 8
-  %566 = load ptr, ptr %23, align 8
-  %567 = getelementptr inbounds nuw i8, ptr %566, i64 96
-  %568 = load ptr, ptr %567, align 8
-  %569 = getelementptr inbounds i8, ptr %568, i64 -8
-  store ptr %569, ptr %567, align 8
+.sink.split.i.i379:                               ; preds = %550, %531
+  %563 = load ptr, ptr %26, align 8
+  %564 = getelementptr inbounds i8, ptr %563, i64 -8
+  store ptr %564, ptr %26, align 8
+  %565 = load ptr, ptr %23, align 8
+  %566 = getelementptr inbounds nuw i8, ptr %565, i64 96
+  %567 = load ptr, ptr %566, align 8
+  %568 = getelementptr inbounds i8, ptr %567, i64 -8
+  store ptr %568, ptr %566, align 8
   %.pre.i380 = load ptr, ptr %25, align 8
   %.pre17.i381 = load ptr, ptr %26, align 8
-  br label %570
+  br label %569
 
-570:                                              ; preds = %.sink.split.i.i379, %.lr.ph.i.i375
-  %571 = phi ptr [ %.pre17.i381, %.sink.split.i.i379 ], [ %528, %.lr.ph.i.i375 ]
-  %572 = phi ptr [ %.pre.i380, %.sink.split.i.i379 ], [ %529, %.lr.ph.i.i375 ]
-  %573 = icmp eq ptr %572, %571
-  br i1 %573, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i382, label %.lr.ph.i.i375, !llvm.loop !21
+569:                                              ; preds = %.sink.split.i.i379, %.lr.ph.i.i375
+  %570 = phi ptr [ %.pre17.i381, %.sink.split.i.i379 ], [ %527, %.lr.ph.i.i375 ]
+  %571 = phi ptr [ %.pre.i380, %.sink.split.i.i379 ], [ %528, %.lr.ph.i.i375 ]
+  %572 = icmp eq ptr %571, %570
+  br i1 %572, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i382, label %.lr.ph.i.i375, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i382: ; preds = %570
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i382: ; preds = %569
   %.pre18.i383 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385.loopexit: ; preds = %513
-  %574 = getelementptr inbounds nuw i8, ptr %523, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385.loopexit: ; preds = %512
+  %573 = getelementptr inbounds nuw i8, ptr %522, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i382
-  %575 = phi ptr [ %.pre18.i383, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i382 ], [ %574, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385.loopexit ]
-  %576 = load ptr, ptr %0, align 8
+  %574 = phi ptr [ %.pre18.i383, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i382 ], [ %573, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385.loopexit ]
+  %575 = load ptr, ptr %0, align 8
+  %576 = ptrtoint ptr %574 to i64
   %577 = ptrtoint ptr %575 to i64
-  %578 = ptrtoint ptr %576 to i64
-  %579 = sub i64 %577, %578
-  store i64 %579, ptr %3, align 8
+  %578 = sub i64 %576, %577
+  store i64 %578, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-580:                                              ; preds = %310
-  %581 = load i32, ptr %300, align 1
-  %582 = call i32 @ntohl(i32 noundef %581) #30
-  %583 = load ptr, ptr %23, align 8
-  %584 = zext i32 %582 to i64
-  %585 = getelementptr inbounds nuw i8, ptr %583, i64 96
-  %586 = load ptr, ptr %585, align 8
-  %587 = getelementptr inbounds i8, ptr %586, i64 -8
-  %588 = load ptr, ptr %587, align 8
-  store i32 2, ptr %588, align 8
-  %589 = getelementptr inbounds nuw i8, ptr %588, i64 8
-  store i64 %584, ptr %589, align 8
-  %590 = load ptr, ptr %19, align 8
-  %591 = getelementptr inbounds nuw i8, ptr %590, i64 1
-  store ptr %591, ptr %19, align 8
-  %592 = load ptr, ptr %25, align 8
-  %593 = load ptr, ptr %26, align 8
-  %594 = icmp eq ptr %592, %593
-  br i1 %594, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396.loopexit, label %.lr.ph.i.i386
+579:                                              ; preds = %309
+  %580 = load i32, ptr %299, align 1
+  %581 = call i32 @ntohl(i32 noundef %580) #30
+  %582 = load ptr, ptr %23, align 8
+  %583 = zext i32 %581 to i64
+  %584 = getelementptr inbounds nuw i8, ptr %582, i64 96
+  %585 = load ptr, ptr %584, align 8
+  %586 = getelementptr inbounds i8, ptr %585, i64 -8
+  %587 = load ptr, ptr %586, align 8
+  store i32 2, ptr %587, align 8
+  %588 = getelementptr inbounds nuw i8, ptr %587, i64 8
+  store i64 %583, ptr %588, align 8
+  %589 = load ptr, ptr %19, align 8
+  %590 = getelementptr inbounds nuw i8, ptr %589, i64 1
+  store ptr %590, ptr %19, align 8
+  %591 = load ptr, ptr %25, align 8
+  %592 = load ptr, ptr %26, align 8
+  %593 = icmp eq ptr %591, %592
+  br i1 %593, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396.loopexit, label %.lr.ph.i.i386
 
-.lr.ph.i.i386:                                    ; preds = %580, %637
-  %595 = phi ptr [ %638, %637 ], [ %593, %580 ]
-  %596 = phi ptr [ %639, %637 ], [ %592, %580 ]
-  %597 = getelementptr inbounds i8, ptr %595, i64 -8
-  %598 = load i32, ptr %597, align 4
-  switch i32 %598, label %637 [
-    i32 0, label %599
-    i32 1, label %610
-    i32 2, label %618
+.lr.ph.i.i386:                                    ; preds = %579, %636
+  %594 = phi ptr [ %637, %636 ], [ %592, %579 ]
+  %595 = phi ptr [ %638, %636 ], [ %591, %579 ]
+  %596 = getelementptr inbounds i8, ptr %594, i64 -8
+  %597 = load i32, ptr %596, align 4
+  switch i32 %597, label %636 [
+    i32 0, label %598
+    i32 1, label %609
+    i32 2, label %617
   ]
 
-599:                                              ; preds = %.lr.ph.i.i386
-  %600 = load ptr, ptr %23, align 8
-  %601 = getelementptr inbounds nuw i8, ptr %600, i64 96
-  %602 = load ptr, ptr %601, align 8
-  %603 = getelementptr inbounds i8, ptr %602, i64 -8
-  %604 = load ptr, ptr %603, align 8
-  %605 = getelementptr inbounds nuw i8, ptr %604, i64 24
-  store ptr %605, ptr %603, align 8
-  %606 = getelementptr inbounds i8, ptr %595, i64 -4
-  %607 = load i32, ptr %606, align 4
-  %608 = add i32 %607, -1
-  store i32 %608, ptr %606, align 4
-  %609 = icmp eq i32 %608, 0
-  br i1 %609, label %.sink.split.i.i390, label %.thread645.sink.split
+598:                                              ; preds = %.lr.ph.i.i386
+  %599 = load ptr, ptr %23, align 8
+  %600 = getelementptr inbounds nuw i8, ptr %599, i64 96
+  %601 = load ptr, ptr %600, align 8
+  %602 = getelementptr inbounds i8, ptr %601, i64 -8
+  %603 = load ptr, ptr %602, align 8
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 24
+  store ptr %604, ptr %602, align 8
+  %605 = getelementptr inbounds i8, ptr %594, i64 -4
+  %606 = load i32, ptr %605, align 4
+  %607 = add i32 %606, -1
+  store i32 %607, ptr %605, align 4
+  %608 = icmp eq i32 %607, 0
+  br i1 %608, label %.sink.split.i.i390, label %.thread645.sink.split
 
-610:                                              ; preds = %.lr.ph.i.i386
-  %611 = getelementptr inbounds i8, ptr %595, i64 -8
-  %612 = load ptr, ptr %23, align 8
-  %613 = getelementptr inbounds nuw i8, ptr %612, i64 96
-  %614 = load ptr, ptr %613, align 8
-  %615 = getelementptr inbounds i8, ptr %614, i64 -8
-  %616 = load ptr, ptr %615, align 8
-  %617 = getelementptr inbounds nuw i8, ptr %616, i64 24
-  store ptr %617, ptr %615, align 8
-  store i32 2, ptr %611, align 4
+609:                                              ; preds = %.lr.ph.i.i386
+  %610 = getelementptr inbounds i8, ptr %594, i64 -8
+  %611 = load ptr, ptr %23, align 8
+  %612 = getelementptr inbounds nuw i8, ptr %611, i64 96
+  %613 = load ptr, ptr %612, align 8
+  %614 = getelementptr inbounds i8, ptr %613, i64 -8
+  %615 = load ptr, ptr %614, align 8
+  %616 = getelementptr inbounds nuw i8, ptr %615, i64 24
+  store ptr %616, ptr %614, align 8
+  store i32 2, ptr %610, align 4
   br label %.thread645.sink.split
 
-618:                                              ; preds = %.lr.ph.i.i386
-  %619 = load ptr, ptr %23, align 8
-  %620 = getelementptr inbounds nuw i8, ptr %619, i64 96
-  %621 = load ptr, ptr %620, align 8
-  %622 = getelementptr inbounds i8, ptr %621, i64 -8
-  %623 = load ptr, ptr %622, align 8
-  %624 = getelementptr inbounds nuw i8, ptr %623, i64 24
-  store ptr %624, ptr %622, align 8
-  %625 = getelementptr inbounds i8, ptr %595, i64 -4
-  %626 = load i32, ptr %625, align 4
-  %627 = add i32 %626, -1
-  store i32 %627, ptr %625, align 4
-  %628 = icmp eq i32 %627, 0
-  br i1 %628, label %.sink.split.i.i390, label %629
+617:                                              ; preds = %.lr.ph.i.i386
+  %618 = load ptr, ptr %23, align 8
+  %619 = getelementptr inbounds nuw i8, ptr %618, i64 96
+  %620 = load ptr, ptr %619, align 8
+  %621 = getelementptr inbounds i8, ptr %620, i64 -8
+  %622 = load ptr, ptr %621, align 8
+  %623 = getelementptr inbounds nuw i8, ptr %622, i64 24
+  store ptr %623, ptr %621, align 8
+  %624 = getelementptr inbounds i8, ptr %594, i64 -4
+  %625 = load i32, ptr %624, align 4
+  %626 = add i32 %625, -1
+  store i32 %626, ptr %624, align 4
+  %627 = icmp eq i32 %626, 0
+  br i1 %627, label %.sink.split.i.i390, label %628
 
-629:                                              ; preds = %618
-  %630 = getelementptr inbounds i8, ptr %595, i64 -8
-  store i32 1, ptr %630, align 4
+628:                                              ; preds = %617
+  %629 = getelementptr inbounds i8, ptr %594, i64 -8
+  store i32 1, ptr %629, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i390:                               ; preds = %618, %599
-  %631 = load ptr, ptr %26, align 8
-  %632 = getelementptr inbounds i8, ptr %631, i64 -8
-  store ptr %632, ptr %26, align 8
-  %633 = load ptr, ptr %23, align 8
-  %634 = getelementptr inbounds nuw i8, ptr %633, i64 96
-  %635 = load ptr, ptr %634, align 8
-  %636 = getelementptr inbounds i8, ptr %635, i64 -8
-  store ptr %636, ptr %634, align 8
+.sink.split.i.i390:                               ; preds = %617, %598
+  %630 = load ptr, ptr %26, align 8
+  %631 = getelementptr inbounds i8, ptr %630, i64 -8
+  store ptr %631, ptr %26, align 8
+  %632 = load ptr, ptr %23, align 8
+  %633 = getelementptr inbounds nuw i8, ptr %632, i64 96
+  %634 = load ptr, ptr %633, align 8
+  %635 = getelementptr inbounds i8, ptr %634, i64 -8
+  store ptr %635, ptr %633, align 8
   %.pre.i391 = load ptr, ptr %25, align 8
   %.pre17.i392 = load ptr, ptr %26, align 8
-  br label %637
+  br label %636
 
-637:                                              ; preds = %.sink.split.i.i390, %.lr.ph.i.i386
-  %638 = phi ptr [ %.pre17.i392, %.sink.split.i.i390 ], [ %595, %.lr.ph.i.i386 ]
-  %639 = phi ptr [ %.pre.i391, %.sink.split.i.i390 ], [ %596, %.lr.ph.i.i386 ]
-  %640 = icmp eq ptr %639, %638
-  br i1 %640, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i393, label %.lr.ph.i.i386, !llvm.loop !21
+636:                                              ; preds = %.sink.split.i.i390, %.lr.ph.i.i386
+  %637 = phi ptr [ %.pre17.i392, %.sink.split.i.i390 ], [ %594, %.lr.ph.i.i386 ]
+  %638 = phi ptr [ %.pre.i391, %.sink.split.i.i390 ], [ %595, %.lr.ph.i.i386 ]
+  %639 = icmp eq ptr %638, %637
+  br i1 %639, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i393, label %.lr.ph.i.i386, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i393: ; preds = %637
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i393: ; preds = %636
   %.pre18.i394 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396.loopexit: ; preds = %580
-  %641 = getelementptr inbounds nuw i8, ptr %590, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396.loopexit: ; preds = %579
+  %640 = getelementptr inbounds nuw i8, ptr %589, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i393
-  %642 = phi ptr [ %.pre18.i394, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i393 ], [ %641, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396.loopexit ]
-  %643 = load ptr, ptr %0, align 8
+  %641 = phi ptr [ %.pre18.i394, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i393 ], [ %640, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396.loopexit ]
+  %642 = load ptr, ptr %0, align 8
+  %643 = ptrtoint ptr %641 to i64
   %644 = ptrtoint ptr %642 to i64
-  %645 = ptrtoint ptr %643 to i64
-  %646 = sub i64 %644, %645
-  store i64 %646, ptr %3, align 8
+  %645 = sub i64 %643, %644
+  store i64 %645, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-647:                                              ; preds = %310
-  %648 = load i64, ptr %300, align 1
-  %649 = call noundef i64 @llvm.bswap.i64(i64 %648)
-  %650 = load ptr, ptr %23, align 8
-  %651 = getelementptr inbounds nuw i8, ptr %650, i64 96
-  %652 = load ptr, ptr %651, align 8
-  %653 = getelementptr inbounds i8, ptr %652, i64 -8
-  %654 = load ptr, ptr %653, align 8
-  store i32 2, ptr %654, align 8
-  %655 = getelementptr inbounds nuw i8, ptr %654, i64 8
-  store i64 %649, ptr %655, align 8
-  %656 = load ptr, ptr %19, align 8
-  %657 = getelementptr inbounds nuw i8, ptr %656, i64 1
-  store ptr %657, ptr %19, align 8
-  %658 = load ptr, ptr %25, align 8
-  %659 = load ptr, ptr %26, align 8
-  %660 = icmp eq ptr %658, %659
-  br i1 %660, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407.loopexit, label %.lr.ph.i.i397
+646:                                              ; preds = %309
+  %647 = load i64, ptr %299, align 1
+  %648 = call noundef i64 @llvm.bswap.i64(i64 %647)
+  %649 = load ptr, ptr %23, align 8
+  %650 = getelementptr inbounds nuw i8, ptr %649, i64 96
+  %651 = load ptr, ptr %650, align 8
+  %652 = getelementptr inbounds i8, ptr %651, i64 -8
+  %653 = load ptr, ptr %652, align 8
+  store i32 2, ptr %653, align 8
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 8
+  store i64 %648, ptr %654, align 8
+  %655 = load ptr, ptr %19, align 8
+  %656 = getelementptr inbounds nuw i8, ptr %655, i64 1
+  store ptr %656, ptr %19, align 8
+  %657 = load ptr, ptr %25, align 8
+  %658 = load ptr, ptr %26, align 8
+  %659 = icmp eq ptr %657, %658
+  br i1 %659, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407.loopexit, label %.lr.ph.i.i397
 
-.lr.ph.i.i397:                                    ; preds = %647, %703
-  %661 = phi ptr [ %704, %703 ], [ %659, %647 ]
-  %662 = phi ptr [ %705, %703 ], [ %658, %647 ]
-  %663 = getelementptr inbounds i8, ptr %661, i64 -8
-  %664 = load i32, ptr %663, align 4
-  switch i32 %664, label %703 [
-    i32 0, label %665
-    i32 1, label %676
-    i32 2, label %684
+.lr.ph.i.i397:                                    ; preds = %646, %702
+  %660 = phi ptr [ %703, %702 ], [ %658, %646 ]
+  %661 = phi ptr [ %704, %702 ], [ %657, %646 ]
+  %662 = getelementptr inbounds i8, ptr %660, i64 -8
+  %663 = load i32, ptr %662, align 4
+  switch i32 %663, label %702 [
+    i32 0, label %664
+    i32 1, label %675
+    i32 2, label %683
   ]
 
-665:                                              ; preds = %.lr.ph.i.i397
-  %666 = load ptr, ptr %23, align 8
-  %667 = getelementptr inbounds nuw i8, ptr %666, i64 96
-  %668 = load ptr, ptr %667, align 8
-  %669 = getelementptr inbounds i8, ptr %668, i64 -8
-  %670 = load ptr, ptr %669, align 8
-  %671 = getelementptr inbounds nuw i8, ptr %670, i64 24
-  store ptr %671, ptr %669, align 8
-  %672 = getelementptr inbounds i8, ptr %661, i64 -4
-  %673 = load i32, ptr %672, align 4
-  %674 = add i32 %673, -1
-  store i32 %674, ptr %672, align 4
-  %675 = icmp eq i32 %674, 0
-  br i1 %675, label %.sink.split.i.i401, label %.thread645.sink.split
+664:                                              ; preds = %.lr.ph.i.i397
+  %665 = load ptr, ptr %23, align 8
+  %666 = getelementptr inbounds nuw i8, ptr %665, i64 96
+  %667 = load ptr, ptr %666, align 8
+  %668 = getelementptr inbounds i8, ptr %667, i64 -8
+  %669 = load ptr, ptr %668, align 8
+  %670 = getelementptr inbounds nuw i8, ptr %669, i64 24
+  store ptr %670, ptr %668, align 8
+  %671 = getelementptr inbounds i8, ptr %660, i64 -4
+  %672 = load i32, ptr %671, align 4
+  %673 = add i32 %672, -1
+  store i32 %673, ptr %671, align 4
+  %674 = icmp eq i32 %673, 0
+  br i1 %674, label %.sink.split.i.i401, label %.thread645.sink.split
 
-676:                                              ; preds = %.lr.ph.i.i397
-  %677 = getelementptr inbounds i8, ptr %661, i64 -8
-  %678 = load ptr, ptr %23, align 8
-  %679 = getelementptr inbounds nuw i8, ptr %678, i64 96
-  %680 = load ptr, ptr %679, align 8
-  %681 = getelementptr inbounds i8, ptr %680, i64 -8
-  %682 = load ptr, ptr %681, align 8
-  %683 = getelementptr inbounds nuw i8, ptr %682, i64 24
-  store ptr %683, ptr %681, align 8
-  store i32 2, ptr %677, align 4
+675:                                              ; preds = %.lr.ph.i.i397
+  %676 = getelementptr inbounds i8, ptr %660, i64 -8
+  %677 = load ptr, ptr %23, align 8
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 96
+  %679 = load ptr, ptr %678, align 8
+  %680 = getelementptr inbounds i8, ptr %679, i64 -8
+  %681 = load ptr, ptr %680, align 8
+  %682 = getelementptr inbounds nuw i8, ptr %681, i64 24
+  store ptr %682, ptr %680, align 8
+  store i32 2, ptr %676, align 4
   br label %.thread645.sink.split
 
-684:                                              ; preds = %.lr.ph.i.i397
-  %685 = load ptr, ptr %23, align 8
-  %686 = getelementptr inbounds nuw i8, ptr %685, i64 96
-  %687 = load ptr, ptr %686, align 8
-  %688 = getelementptr inbounds i8, ptr %687, i64 -8
-  %689 = load ptr, ptr %688, align 8
-  %690 = getelementptr inbounds nuw i8, ptr %689, i64 24
-  store ptr %690, ptr %688, align 8
-  %691 = getelementptr inbounds i8, ptr %661, i64 -4
-  %692 = load i32, ptr %691, align 4
-  %693 = add i32 %692, -1
-  store i32 %693, ptr %691, align 4
-  %694 = icmp eq i32 %693, 0
-  br i1 %694, label %.sink.split.i.i401, label %695
+683:                                              ; preds = %.lr.ph.i.i397
+  %684 = load ptr, ptr %23, align 8
+  %685 = getelementptr inbounds nuw i8, ptr %684, i64 96
+  %686 = load ptr, ptr %685, align 8
+  %687 = getelementptr inbounds i8, ptr %686, i64 -8
+  %688 = load ptr, ptr %687, align 8
+  %689 = getelementptr inbounds nuw i8, ptr %688, i64 24
+  store ptr %689, ptr %687, align 8
+  %690 = getelementptr inbounds i8, ptr %660, i64 -4
+  %691 = load i32, ptr %690, align 4
+  %692 = add i32 %691, -1
+  store i32 %692, ptr %690, align 4
+  %693 = icmp eq i32 %692, 0
+  br i1 %693, label %.sink.split.i.i401, label %694
 
-695:                                              ; preds = %684
-  %696 = getelementptr inbounds i8, ptr %661, i64 -8
-  store i32 1, ptr %696, align 4
+694:                                              ; preds = %683
+  %695 = getelementptr inbounds i8, ptr %660, i64 -8
+  store i32 1, ptr %695, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i401:                               ; preds = %684, %665
-  %697 = load ptr, ptr %26, align 8
-  %698 = getelementptr inbounds i8, ptr %697, i64 -8
-  store ptr %698, ptr %26, align 8
-  %699 = load ptr, ptr %23, align 8
-  %700 = getelementptr inbounds nuw i8, ptr %699, i64 96
-  %701 = load ptr, ptr %700, align 8
-  %702 = getelementptr inbounds i8, ptr %701, i64 -8
-  store ptr %702, ptr %700, align 8
+.sink.split.i.i401:                               ; preds = %683, %664
+  %696 = load ptr, ptr %26, align 8
+  %697 = getelementptr inbounds i8, ptr %696, i64 -8
+  store ptr %697, ptr %26, align 8
+  %698 = load ptr, ptr %23, align 8
+  %699 = getelementptr inbounds nuw i8, ptr %698, i64 96
+  %700 = load ptr, ptr %699, align 8
+  %701 = getelementptr inbounds i8, ptr %700, i64 -8
+  store ptr %701, ptr %699, align 8
   %.pre.i402 = load ptr, ptr %25, align 8
   %.pre17.i403 = load ptr, ptr %26, align 8
-  br label %703
+  br label %702
 
-703:                                              ; preds = %.sink.split.i.i401, %.lr.ph.i.i397
-  %704 = phi ptr [ %.pre17.i403, %.sink.split.i.i401 ], [ %661, %.lr.ph.i.i397 ]
-  %705 = phi ptr [ %.pre.i402, %.sink.split.i.i401 ], [ %662, %.lr.ph.i.i397 ]
-  %706 = icmp eq ptr %705, %704
-  br i1 %706, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i404, label %.lr.ph.i.i397, !llvm.loop !21
+702:                                              ; preds = %.sink.split.i.i401, %.lr.ph.i.i397
+  %703 = phi ptr [ %.pre17.i403, %.sink.split.i.i401 ], [ %660, %.lr.ph.i.i397 ]
+  %704 = phi ptr [ %.pre.i402, %.sink.split.i.i401 ], [ %661, %.lr.ph.i.i397 ]
+  %705 = icmp eq ptr %704, %703
+  br i1 %705, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i404, label %.lr.ph.i.i397, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i404: ; preds = %703
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i404: ; preds = %702
   %.pre18.i405 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407.loopexit: ; preds = %647
-  %707 = getelementptr inbounds nuw i8, ptr %656, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407.loopexit: ; preds = %646
+  %706 = getelementptr inbounds nuw i8, ptr %655, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i404
-  %708 = phi ptr [ %.pre18.i405, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i404 ], [ %707, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407.loopexit ]
-  %709 = load ptr, ptr %0, align 8
+  %707 = phi ptr [ %.pre18.i405, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i404 ], [ %706, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407.loopexit ]
+  %708 = load ptr, ptr %0, align 8
+  %709 = ptrtoint ptr %707 to i64
   %710 = ptrtoint ptr %708 to i64
-  %711 = ptrtoint ptr %709 to i64
-  %712 = sub i64 %710, %711
-  store i64 %712, ptr %3, align 8
+  %711 = sub i64 %709, %710
+  store i64 %711, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-713:                                              ; preds = %310
-  %714 = load i8, ptr %300, align 1
-  %715 = load ptr, ptr %23, align 8
-  %716 = sext i8 %714 to i64
-  %717 = getelementptr inbounds nuw i8, ptr %715, i64 96
-  %718 = load ptr, ptr %717, align 8
-  %719 = getelementptr inbounds i8, ptr %718, i64 -8
-  %720 = load ptr, ptr %719, align 8
-  %721 = icmp sgt i8 %714, -1
-  %spec.select.i408 = select i1 %721, i32 2, i32 3
-  store i32 %spec.select.i408, ptr %720, align 8
-  %722 = getelementptr inbounds nuw i8, ptr %720, i64 8
-  store i64 %716, ptr %722, align 8
-  %723 = load ptr, ptr %19, align 8
-  %724 = getelementptr inbounds nuw i8, ptr %723, i64 1
-  store ptr %724, ptr %19, align 8
-  %725 = load ptr, ptr %25, align 8
-  %726 = load ptr, ptr %26, align 8
-  %727 = icmp eq ptr %725, %726
-  br i1 %727, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419.loopexit, label %.lr.ph.i.i409
+712:                                              ; preds = %309
+  %713 = load i8, ptr %299, align 1
+  %714 = load ptr, ptr %23, align 8
+  %715 = sext i8 %713 to i64
+  %716 = getelementptr inbounds nuw i8, ptr %714, i64 96
+  %717 = load ptr, ptr %716, align 8
+  %718 = getelementptr inbounds i8, ptr %717, i64 -8
+  %719 = load ptr, ptr %718, align 8
+  %720 = icmp sgt i8 %713, -1
+  %spec.select.i408 = select i1 %720, i32 2, i32 3
+  store i32 %spec.select.i408, ptr %719, align 8
+  %721 = getelementptr inbounds nuw i8, ptr %719, i64 8
+  store i64 %715, ptr %721, align 8
+  %722 = load ptr, ptr %19, align 8
+  %723 = getelementptr inbounds nuw i8, ptr %722, i64 1
+  store ptr %723, ptr %19, align 8
+  %724 = load ptr, ptr %25, align 8
+  %725 = load ptr, ptr %26, align 8
+  %726 = icmp eq ptr %724, %725
+  br i1 %726, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419.loopexit, label %.lr.ph.i.i409
 
-.lr.ph.i.i409:                                    ; preds = %713, %770
-  %728 = phi ptr [ %771, %770 ], [ %726, %713 ]
-  %729 = phi ptr [ %772, %770 ], [ %725, %713 ]
-  %730 = getelementptr inbounds i8, ptr %728, i64 -8
-  %731 = load i32, ptr %730, align 4
-  switch i32 %731, label %770 [
-    i32 0, label %732
-    i32 1, label %743
-    i32 2, label %751
+.lr.ph.i.i409:                                    ; preds = %712, %769
+  %727 = phi ptr [ %770, %769 ], [ %725, %712 ]
+  %728 = phi ptr [ %771, %769 ], [ %724, %712 ]
+  %729 = getelementptr inbounds i8, ptr %727, i64 -8
+  %730 = load i32, ptr %729, align 4
+  switch i32 %730, label %769 [
+    i32 0, label %731
+    i32 1, label %742
+    i32 2, label %750
   ]
 
-732:                                              ; preds = %.lr.ph.i.i409
-  %733 = load ptr, ptr %23, align 8
-  %734 = getelementptr inbounds nuw i8, ptr %733, i64 96
-  %735 = load ptr, ptr %734, align 8
-  %736 = getelementptr inbounds i8, ptr %735, i64 -8
-  %737 = load ptr, ptr %736, align 8
-  %738 = getelementptr inbounds nuw i8, ptr %737, i64 24
-  store ptr %738, ptr %736, align 8
-  %739 = getelementptr inbounds i8, ptr %728, i64 -4
-  %740 = load i32, ptr %739, align 4
-  %741 = add i32 %740, -1
-  store i32 %741, ptr %739, align 4
-  %742 = icmp eq i32 %741, 0
-  br i1 %742, label %.sink.split.i.i413, label %.thread645.sink.split
+731:                                              ; preds = %.lr.ph.i.i409
+  %732 = load ptr, ptr %23, align 8
+  %733 = getelementptr inbounds nuw i8, ptr %732, i64 96
+  %734 = load ptr, ptr %733, align 8
+  %735 = getelementptr inbounds i8, ptr %734, i64 -8
+  %736 = load ptr, ptr %735, align 8
+  %737 = getelementptr inbounds nuw i8, ptr %736, i64 24
+  store ptr %737, ptr %735, align 8
+  %738 = getelementptr inbounds i8, ptr %727, i64 -4
+  %739 = load i32, ptr %738, align 4
+  %740 = add i32 %739, -1
+  store i32 %740, ptr %738, align 4
+  %741 = icmp eq i32 %740, 0
+  br i1 %741, label %.sink.split.i.i413, label %.thread645.sink.split
 
-743:                                              ; preds = %.lr.ph.i.i409
-  %744 = getelementptr inbounds i8, ptr %728, i64 -8
-  %745 = load ptr, ptr %23, align 8
-  %746 = getelementptr inbounds nuw i8, ptr %745, i64 96
-  %747 = load ptr, ptr %746, align 8
-  %748 = getelementptr inbounds i8, ptr %747, i64 -8
-  %749 = load ptr, ptr %748, align 8
-  %750 = getelementptr inbounds nuw i8, ptr %749, i64 24
-  store ptr %750, ptr %748, align 8
-  store i32 2, ptr %744, align 4
+742:                                              ; preds = %.lr.ph.i.i409
+  %743 = getelementptr inbounds i8, ptr %727, i64 -8
+  %744 = load ptr, ptr %23, align 8
+  %745 = getelementptr inbounds nuw i8, ptr %744, i64 96
+  %746 = load ptr, ptr %745, align 8
+  %747 = getelementptr inbounds i8, ptr %746, i64 -8
+  %748 = load ptr, ptr %747, align 8
+  %749 = getelementptr inbounds nuw i8, ptr %748, i64 24
+  store ptr %749, ptr %747, align 8
+  store i32 2, ptr %743, align 4
   br label %.thread645.sink.split
 
-751:                                              ; preds = %.lr.ph.i.i409
-  %752 = load ptr, ptr %23, align 8
-  %753 = getelementptr inbounds nuw i8, ptr %752, i64 96
-  %754 = load ptr, ptr %753, align 8
-  %755 = getelementptr inbounds i8, ptr %754, i64 -8
-  %756 = load ptr, ptr %755, align 8
-  %757 = getelementptr inbounds nuw i8, ptr %756, i64 24
-  store ptr %757, ptr %755, align 8
-  %758 = getelementptr inbounds i8, ptr %728, i64 -4
-  %759 = load i32, ptr %758, align 4
-  %760 = add i32 %759, -1
-  store i32 %760, ptr %758, align 4
-  %761 = icmp eq i32 %760, 0
-  br i1 %761, label %.sink.split.i.i413, label %762
+750:                                              ; preds = %.lr.ph.i.i409
+  %751 = load ptr, ptr %23, align 8
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 96
+  %753 = load ptr, ptr %752, align 8
+  %754 = getelementptr inbounds i8, ptr %753, i64 -8
+  %755 = load ptr, ptr %754, align 8
+  %756 = getelementptr inbounds nuw i8, ptr %755, i64 24
+  store ptr %756, ptr %754, align 8
+  %757 = getelementptr inbounds i8, ptr %727, i64 -4
+  %758 = load i32, ptr %757, align 4
+  %759 = add i32 %758, -1
+  store i32 %759, ptr %757, align 4
+  %760 = icmp eq i32 %759, 0
+  br i1 %760, label %.sink.split.i.i413, label %761
 
-762:                                              ; preds = %751
-  %763 = getelementptr inbounds i8, ptr %728, i64 -8
-  store i32 1, ptr %763, align 4
+761:                                              ; preds = %750
+  %762 = getelementptr inbounds i8, ptr %727, i64 -8
+  store i32 1, ptr %762, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i413:                               ; preds = %751, %732
-  %764 = load ptr, ptr %26, align 8
-  %765 = getelementptr inbounds i8, ptr %764, i64 -8
-  store ptr %765, ptr %26, align 8
-  %766 = load ptr, ptr %23, align 8
-  %767 = getelementptr inbounds nuw i8, ptr %766, i64 96
-  %768 = load ptr, ptr %767, align 8
-  %769 = getelementptr inbounds i8, ptr %768, i64 -8
-  store ptr %769, ptr %767, align 8
+.sink.split.i.i413:                               ; preds = %750, %731
+  %763 = load ptr, ptr %26, align 8
+  %764 = getelementptr inbounds i8, ptr %763, i64 -8
+  store ptr %764, ptr %26, align 8
+  %765 = load ptr, ptr %23, align 8
+  %766 = getelementptr inbounds nuw i8, ptr %765, i64 96
+  %767 = load ptr, ptr %766, align 8
+  %768 = getelementptr inbounds i8, ptr %767, i64 -8
+  store ptr %768, ptr %766, align 8
   %.pre.i414 = load ptr, ptr %25, align 8
   %.pre17.i415 = load ptr, ptr %26, align 8
-  br label %770
+  br label %769
 
-770:                                              ; preds = %.sink.split.i.i413, %.lr.ph.i.i409
-  %771 = phi ptr [ %.pre17.i415, %.sink.split.i.i413 ], [ %728, %.lr.ph.i.i409 ]
-  %772 = phi ptr [ %.pre.i414, %.sink.split.i.i413 ], [ %729, %.lr.ph.i.i409 ]
-  %773 = icmp eq ptr %772, %771
-  br i1 %773, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i416, label %.lr.ph.i.i409, !llvm.loop !21
+769:                                              ; preds = %.sink.split.i.i413, %.lr.ph.i.i409
+  %770 = phi ptr [ %.pre17.i415, %.sink.split.i.i413 ], [ %727, %.lr.ph.i.i409 ]
+  %771 = phi ptr [ %.pre.i414, %.sink.split.i.i413 ], [ %728, %.lr.ph.i.i409 ]
+  %772 = icmp eq ptr %771, %770
+  br i1 %772, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i416, label %.lr.ph.i.i409, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i416: ; preds = %770
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i416: ; preds = %769
   %.pre18.i417 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419.loopexit: ; preds = %713
-  %774 = getelementptr inbounds nuw i8, ptr %723, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419.loopexit: ; preds = %712
+  %773 = getelementptr inbounds nuw i8, ptr %722, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i416
-  %775 = phi ptr [ %.pre18.i417, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i416 ], [ %774, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419.loopexit ]
-  %776 = load ptr, ptr %0, align 8
+  %774 = phi ptr [ %.pre18.i417, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i416 ], [ %773, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419.loopexit ]
+  %775 = load ptr, ptr %0, align 8
+  %776 = ptrtoint ptr %774 to i64
   %777 = ptrtoint ptr %775 to i64
-  %778 = ptrtoint ptr %776 to i64
-  %779 = sub i64 %777, %778
-  store i64 %779, ptr %3, align 8
+  %778 = sub i64 %776, %777
+  store i64 %778, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-780:                                              ; preds = %310
-  %781 = load i16, ptr %300, align 1
-  %782 = call zeroext i16 @ntohs(i16 noundef zeroext %781) #30
-  %783 = load ptr, ptr %23, align 8
-  %784 = sext i16 %782 to i64
-  %785 = getelementptr inbounds nuw i8, ptr %783, i64 96
-  %786 = load ptr, ptr %785, align 8
-  %787 = getelementptr inbounds i8, ptr %786, i64 -8
-  %788 = load ptr, ptr %787, align 8
-  %789 = icmp sgt i16 %782, -1
-  %spec.select.i420 = select i1 %789, i32 2, i32 3
-  store i32 %spec.select.i420, ptr %788, align 8
-  %790 = getelementptr inbounds nuw i8, ptr %788, i64 8
-  store i64 %784, ptr %790, align 8
-  %791 = load ptr, ptr %19, align 8
-  %792 = getelementptr inbounds nuw i8, ptr %791, i64 1
-  store ptr %792, ptr %19, align 8
-  %793 = load ptr, ptr %25, align 8
-  %794 = load ptr, ptr %26, align 8
-  %795 = icmp eq ptr %793, %794
-  br i1 %795, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431.loopexit, label %.lr.ph.i.i421
+779:                                              ; preds = %309
+  %780 = load i16, ptr %299, align 1
+  %781 = call zeroext i16 @ntohs(i16 noundef zeroext %780) #30
+  %782 = load ptr, ptr %23, align 8
+  %783 = sext i16 %781 to i64
+  %784 = getelementptr inbounds nuw i8, ptr %782, i64 96
+  %785 = load ptr, ptr %784, align 8
+  %786 = getelementptr inbounds i8, ptr %785, i64 -8
+  %787 = load ptr, ptr %786, align 8
+  %788 = icmp sgt i16 %781, -1
+  %spec.select.i420 = select i1 %788, i32 2, i32 3
+  store i32 %spec.select.i420, ptr %787, align 8
+  %789 = getelementptr inbounds nuw i8, ptr %787, i64 8
+  store i64 %783, ptr %789, align 8
+  %790 = load ptr, ptr %19, align 8
+  %791 = getelementptr inbounds nuw i8, ptr %790, i64 1
+  store ptr %791, ptr %19, align 8
+  %792 = load ptr, ptr %25, align 8
+  %793 = load ptr, ptr %26, align 8
+  %794 = icmp eq ptr %792, %793
+  br i1 %794, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431.loopexit, label %.lr.ph.i.i421
 
-.lr.ph.i.i421:                                    ; preds = %780, %838
-  %796 = phi ptr [ %839, %838 ], [ %794, %780 ]
-  %797 = phi ptr [ %840, %838 ], [ %793, %780 ]
-  %798 = getelementptr inbounds i8, ptr %796, i64 -8
-  %799 = load i32, ptr %798, align 4
-  switch i32 %799, label %838 [
-    i32 0, label %800
-    i32 1, label %811
-    i32 2, label %819
+.lr.ph.i.i421:                                    ; preds = %779, %837
+  %795 = phi ptr [ %838, %837 ], [ %793, %779 ]
+  %796 = phi ptr [ %839, %837 ], [ %792, %779 ]
+  %797 = getelementptr inbounds i8, ptr %795, i64 -8
+  %798 = load i32, ptr %797, align 4
+  switch i32 %798, label %837 [
+    i32 0, label %799
+    i32 1, label %810
+    i32 2, label %818
   ]
 
-800:                                              ; preds = %.lr.ph.i.i421
-  %801 = load ptr, ptr %23, align 8
-  %802 = getelementptr inbounds nuw i8, ptr %801, i64 96
-  %803 = load ptr, ptr %802, align 8
-  %804 = getelementptr inbounds i8, ptr %803, i64 -8
-  %805 = load ptr, ptr %804, align 8
-  %806 = getelementptr inbounds nuw i8, ptr %805, i64 24
-  store ptr %806, ptr %804, align 8
-  %807 = getelementptr inbounds i8, ptr %796, i64 -4
-  %808 = load i32, ptr %807, align 4
-  %809 = add i32 %808, -1
-  store i32 %809, ptr %807, align 4
-  %810 = icmp eq i32 %809, 0
-  br i1 %810, label %.sink.split.i.i425, label %.thread645.sink.split
+799:                                              ; preds = %.lr.ph.i.i421
+  %800 = load ptr, ptr %23, align 8
+  %801 = getelementptr inbounds nuw i8, ptr %800, i64 96
+  %802 = load ptr, ptr %801, align 8
+  %803 = getelementptr inbounds i8, ptr %802, i64 -8
+  %804 = load ptr, ptr %803, align 8
+  %805 = getelementptr inbounds nuw i8, ptr %804, i64 24
+  store ptr %805, ptr %803, align 8
+  %806 = getelementptr inbounds i8, ptr %795, i64 -4
+  %807 = load i32, ptr %806, align 4
+  %808 = add i32 %807, -1
+  store i32 %808, ptr %806, align 4
+  %809 = icmp eq i32 %808, 0
+  br i1 %809, label %.sink.split.i.i425, label %.thread645.sink.split
 
-811:                                              ; preds = %.lr.ph.i.i421
-  %812 = getelementptr inbounds i8, ptr %796, i64 -8
-  %813 = load ptr, ptr %23, align 8
-  %814 = getelementptr inbounds nuw i8, ptr %813, i64 96
-  %815 = load ptr, ptr %814, align 8
-  %816 = getelementptr inbounds i8, ptr %815, i64 -8
-  %817 = load ptr, ptr %816, align 8
-  %818 = getelementptr inbounds nuw i8, ptr %817, i64 24
-  store ptr %818, ptr %816, align 8
-  store i32 2, ptr %812, align 4
+810:                                              ; preds = %.lr.ph.i.i421
+  %811 = getelementptr inbounds i8, ptr %795, i64 -8
+  %812 = load ptr, ptr %23, align 8
+  %813 = getelementptr inbounds nuw i8, ptr %812, i64 96
+  %814 = load ptr, ptr %813, align 8
+  %815 = getelementptr inbounds i8, ptr %814, i64 -8
+  %816 = load ptr, ptr %815, align 8
+  %817 = getelementptr inbounds nuw i8, ptr %816, i64 24
+  store ptr %817, ptr %815, align 8
+  store i32 2, ptr %811, align 4
   br label %.thread645.sink.split
 
-819:                                              ; preds = %.lr.ph.i.i421
-  %820 = load ptr, ptr %23, align 8
-  %821 = getelementptr inbounds nuw i8, ptr %820, i64 96
-  %822 = load ptr, ptr %821, align 8
-  %823 = getelementptr inbounds i8, ptr %822, i64 -8
-  %824 = load ptr, ptr %823, align 8
-  %825 = getelementptr inbounds nuw i8, ptr %824, i64 24
-  store ptr %825, ptr %823, align 8
-  %826 = getelementptr inbounds i8, ptr %796, i64 -4
-  %827 = load i32, ptr %826, align 4
-  %828 = add i32 %827, -1
-  store i32 %828, ptr %826, align 4
-  %829 = icmp eq i32 %828, 0
-  br i1 %829, label %.sink.split.i.i425, label %830
+818:                                              ; preds = %.lr.ph.i.i421
+  %819 = load ptr, ptr %23, align 8
+  %820 = getelementptr inbounds nuw i8, ptr %819, i64 96
+  %821 = load ptr, ptr %820, align 8
+  %822 = getelementptr inbounds i8, ptr %821, i64 -8
+  %823 = load ptr, ptr %822, align 8
+  %824 = getelementptr inbounds nuw i8, ptr %823, i64 24
+  store ptr %824, ptr %822, align 8
+  %825 = getelementptr inbounds i8, ptr %795, i64 -4
+  %826 = load i32, ptr %825, align 4
+  %827 = add i32 %826, -1
+  store i32 %827, ptr %825, align 4
+  %828 = icmp eq i32 %827, 0
+  br i1 %828, label %.sink.split.i.i425, label %829
 
-830:                                              ; preds = %819
-  %831 = getelementptr inbounds i8, ptr %796, i64 -8
-  store i32 1, ptr %831, align 4
+829:                                              ; preds = %818
+  %830 = getelementptr inbounds i8, ptr %795, i64 -8
+  store i32 1, ptr %830, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i425:                               ; preds = %819, %800
-  %832 = load ptr, ptr %26, align 8
-  %833 = getelementptr inbounds i8, ptr %832, i64 -8
-  store ptr %833, ptr %26, align 8
-  %834 = load ptr, ptr %23, align 8
-  %835 = getelementptr inbounds nuw i8, ptr %834, i64 96
-  %836 = load ptr, ptr %835, align 8
-  %837 = getelementptr inbounds i8, ptr %836, i64 -8
-  store ptr %837, ptr %835, align 8
+.sink.split.i.i425:                               ; preds = %818, %799
+  %831 = load ptr, ptr %26, align 8
+  %832 = getelementptr inbounds i8, ptr %831, i64 -8
+  store ptr %832, ptr %26, align 8
+  %833 = load ptr, ptr %23, align 8
+  %834 = getelementptr inbounds nuw i8, ptr %833, i64 96
+  %835 = load ptr, ptr %834, align 8
+  %836 = getelementptr inbounds i8, ptr %835, i64 -8
+  store ptr %836, ptr %834, align 8
   %.pre.i426 = load ptr, ptr %25, align 8
   %.pre17.i427 = load ptr, ptr %26, align 8
-  br label %838
+  br label %837
 
-838:                                              ; preds = %.sink.split.i.i425, %.lr.ph.i.i421
-  %839 = phi ptr [ %.pre17.i427, %.sink.split.i.i425 ], [ %796, %.lr.ph.i.i421 ]
-  %840 = phi ptr [ %.pre.i426, %.sink.split.i.i425 ], [ %797, %.lr.ph.i.i421 ]
-  %841 = icmp eq ptr %840, %839
-  br i1 %841, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i428, label %.lr.ph.i.i421, !llvm.loop !21
+837:                                              ; preds = %.sink.split.i.i425, %.lr.ph.i.i421
+  %838 = phi ptr [ %.pre17.i427, %.sink.split.i.i425 ], [ %795, %.lr.ph.i.i421 ]
+  %839 = phi ptr [ %.pre.i426, %.sink.split.i.i425 ], [ %796, %.lr.ph.i.i421 ]
+  %840 = icmp eq ptr %839, %838
+  br i1 %840, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i428, label %.lr.ph.i.i421, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i428: ; preds = %838
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i428: ; preds = %837
   %.pre18.i429 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431.loopexit: ; preds = %780
-  %842 = getelementptr inbounds nuw i8, ptr %791, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431.loopexit: ; preds = %779
+  %841 = getelementptr inbounds nuw i8, ptr %790, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i428
-  %843 = phi ptr [ %.pre18.i429, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i428 ], [ %842, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431.loopexit ]
-  %844 = load ptr, ptr %0, align 8
+  %842 = phi ptr [ %.pre18.i429, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i428 ], [ %841, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431.loopexit ]
+  %843 = load ptr, ptr %0, align 8
+  %844 = ptrtoint ptr %842 to i64
   %845 = ptrtoint ptr %843 to i64
-  %846 = ptrtoint ptr %844 to i64
-  %847 = sub i64 %845, %846
-  store i64 %847, ptr %3, align 8
+  %846 = sub i64 %844, %845
+  store i64 %846, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-848:                                              ; preds = %310
-  %849 = load i32, ptr %300, align 1
-  %850 = call i32 @ntohl(i32 noundef %849) #30
-  %851 = load ptr, ptr %23, align 8
-  %852 = sext i32 %850 to i64
-  %853 = getelementptr inbounds nuw i8, ptr %851, i64 96
-  %854 = load ptr, ptr %853, align 8
-  %855 = getelementptr inbounds i8, ptr %854, i64 -8
-  %856 = load ptr, ptr %855, align 8
-  %857 = icmp sgt i32 %850, -1
-  %spec.select.i432 = select i1 %857, i32 2, i32 3
-  store i32 %spec.select.i432, ptr %856, align 8
-  %858 = getelementptr inbounds nuw i8, ptr %856, i64 8
-  store i64 %852, ptr %858, align 8
-  %859 = load ptr, ptr %19, align 8
-  %860 = getelementptr inbounds nuw i8, ptr %859, i64 1
-  store ptr %860, ptr %19, align 8
-  %861 = load ptr, ptr %25, align 8
-  %862 = load ptr, ptr %26, align 8
-  %863 = icmp eq ptr %861, %862
-  br i1 %863, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443.loopexit, label %.lr.ph.i.i433
+847:                                              ; preds = %309
+  %848 = load i32, ptr %299, align 1
+  %849 = call i32 @ntohl(i32 noundef %848) #30
+  %850 = load ptr, ptr %23, align 8
+  %851 = sext i32 %849 to i64
+  %852 = getelementptr inbounds nuw i8, ptr %850, i64 96
+  %853 = load ptr, ptr %852, align 8
+  %854 = getelementptr inbounds i8, ptr %853, i64 -8
+  %855 = load ptr, ptr %854, align 8
+  %856 = icmp sgt i32 %849, -1
+  %spec.select.i432 = select i1 %856, i32 2, i32 3
+  store i32 %spec.select.i432, ptr %855, align 8
+  %857 = getelementptr inbounds nuw i8, ptr %855, i64 8
+  store i64 %851, ptr %857, align 8
+  %858 = load ptr, ptr %19, align 8
+  %859 = getelementptr inbounds nuw i8, ptr %858, i64 1
+  store ptr %859, ptr %19, align 8
+  %860 = load ptr, ptr %25, align 8
+  %861 = load ptr, ptr %26, align 8
+  %862 = icmp eq ptr %860, %861
+  br i1 %862, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443.loopexit, label %.lr.ph.i.i433
 
-.lr.ph.i.i433:                                    ; preds = %848, %906
-  %864 = phi ptr [ %907, %906 ], [ %862, %848 ]
-  %865 = phi ptr [ %908, %906 ], [ %861, %848 ]
-  %866 = getelementptr inbounds i8, ptr %864, i64 -8
-  %867 = load i32, ptr %866, align 4
-  switch i32 %867, label %906 [
-    i32 0, label %868
-    i32 1, label %879
-    i32 2, label %887
+.lr.ph.i.i433:                                    ; preds = %847, %905
+  %863 = phi ptr [ %906, %905 ], [ %861, %847 ]
+  %864 = phi ptr [ %907, %905 ], [ %860, %847 ]
+  %865 = getelementptr inbounds i8, ptr %863, i64 -8
+  %866 = load i32, ptr %865, align 4
+  switch i32 %866, label %905 [
+    i32 0, label %867
+    i32 1, label %878
+    i32 2, label %886
   ]
 
-868:                                              ; preds = %.lr.ph.i.i433
-  %869 = load ptr, ptr %23, align 8
-  %870 = getelementptr inbounds nuw i8, ptr %869, i64 96
-  %871 = load ptr, ptr %870, align 8
-  %872 = getelementptr inbounds i8, ptr %871, i64 -8
-  %873 = load ptr, ptr %872, align 8
-  %874 = getelementptr inbounds nuw i8, ptr %873, i64 24
-  store ptr %874, ptr %872, align 8
-  %875 = getelementptr inbounds i8, ptr %864, i64 -4
-  %876 = load i32, ptr %875, align 4
-  %877 = add i32 %876, -1
-  store i32 %877, ptr %875, align 4
-  %878 = icmp eq i32 %877, 0
-  br i1 %878, label %.sink.split.i.i437, label %.thread645.sink.split
+867:                                              ; preds = %.lr.ph.i.i433
+  %868 = load ptr, ptr %23, align 8
+  %869 = getelementptr inbounds nuw i8, ptr %868, i64 96
+  %870 = load ptr, ptr %869, align 8
+  %871 = getelementptr inbounds i8, ptr %870, i64 -8
+  %872 = load ptr, ptr %871, align 8
+  %873 = getelementptr inbounds nuw i8, ptr %872, i64 24
+  store ptr %873, ptr %871, align 8
+  %874 = getelementptr inbounds i8, ptr %863, i64 -4
+  %875 = load i32, ptr %874, align 4
+  %876 = add i32 %875, -1
+  store i32 %876, ptr %874, align 4
+  %877 = icmp eq i32 %876, 0
+  br i1 %877, label %.sink.split.i.i437, label %.thread645.sink.split
 
-879:                                              ; preds = %.lr.ph.i.i433
-  %880 = getelementptr inbounds i8, ptr %864, i64 -8
-  %881 = load ptr, ptr %23, align 8
-  %882 = getelementptr inbounds nuw i8, ptr %881, i64 96
-  %883 = load ptr, ptr %882, align 8
-  %884 = getelementptr inbounds i8, ptr %883, i64 -8
-  %885 = load ptr, ptr %884, align 8
-  %886 = getelementptr inbounds nuw i8, ptr %885, i64 24
-  store ptr %886, ptr %884, align 8
-  store i32 2, ptr %880, align 4
+878:                                              ; preds = %.lr.ph.i.i433
+  %879 = getelementptr inbounds i8, ptr %863, i64 -8
+  %880 = load ptr, ptr %23, align 8
+  %881 = getelementptr inbounds nuw i8, ptr %880, i64 96
+  %882 = load ptr, ptr %881, align 8
+  %883 = getelementptr inbounds i8, ptr %882, i64 -8
+  %884 = load ptr, ptr %883, align 8
+  %885 = getelementptr inbounds nuw i8, ptr %884, i64 24
+  store ptr %885, ptr %883, align 8
+  store i32 2, ptr %879, align 4
   br label %.thread645.sink.split
 
-887:                                              ; preds = %.lr.ph.i.i433
-  %888 = load ptr, ptr %23, align 8
-  %889 = getelementptr inbounds nuw i8, ptr %888, i64 96
-  %890 = load ptr, ptr %889, align 8
-  %891 = getelementptr inbounds i8, ptr %890, i64 -8
-  %892 = load ptr, ptr %891, align 8
-  %893 = getelementptr inbounds nuw i8, ptr %892, i64 24
-  store ptr %893, ptr %891, align 8
-  %894 = getelementptr inbounds i8, ptr %864, i64 -4
-  %895 = load i32, ptr %894, align 4
-  %896 = add i32 %895, -1
-  store i32 %896, ptr %894, align 4
-  %897 = icmp eq i32 %896, 0
-  br i1 %897, label %.sink.split.i.i437, label %898
+886:                                              ; preds = %.lr.ph.i.i433
+  %887 = load ptr, ptr %23, align 8
+  %888 = getelementptr inbounds nuw i8, ptr %887, i64 96
+  %889 = load ptr, ptr %888, align 8
+  %890 = getelementptr inbounds i8, ptr %889, i64 -8
+  %891 = load ptr, ptr %890, align 8
+  %892 = getelementptr inbounds nuw i8, ptr %891, i64 24
+  store ptr %892, ptr %890, align 8
+  %893 = getelementptr inbounds i8, ptr %863, i64 -4
+  %894 = load i32, ptr %893, align 4
+  %895 = add i32 %894, -1
+  store i32 %895, ptr %893, align 4
+  %896 = icmp eq i32 %895, 0
+  br i1 %896, label %.sink.split.i.i437, label %897
 
-898:                                              ; preds = %887
-  %899 = getelementptr inbounds i8, ptr %864, i64 -8
-  store i32 1, ptr %899, align 4
+897:                                              ; preds = %886
+  %898 = getelementptr inbounds i8, ptr %863, i64 -8
+  store i32 1, ptr %898, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i437:                               ; preds = %887, %868
-  %900 = load ptr, ptr %26, align 8
-  %901 = getelementptr inbounds i8, ptr %900, i64 -8
-  store ptr %901, ptr %26, align 8
-  %902 = load ptr, ptr %23, align 8
-  %903 = getelementptr inbounds nuw i8, ptr %902, i64 96
-  %904 = load ptr, ptr %903, align 8
-  %905 = getelementptr inbounds i8, ptr %904, i64 -8
-  store ptr %905, ptr %903, align 8
+.sink.split.i.i437:                               ; preds = %886, %867
+  %899 = load ptr, ptr %26, align 8
+  %900 = getelementptr inbounds i8, ptr %899, i64 -8
+  store ptr %900, ptr %26, align 8
+  %901 = load ptr, ptr %23, align 8
+  %902 = getelementptr inbounds nuw i8, ptr %901, i64 96
+  %903 = load ptr, ptr %902, align 8
+  %904 = getelementptr inbounds i8, ptr %903, i64 -8
+  store ptr %904, ptr %902, align 8
   %.pre.i438 = load ptr, ptr %25, align 8
   %.pre17.i439 = load ptr, ptr %26, align 8
-  br label %906
+  br label %905
 
-906:                                              ; preds = %.sink.split.i.i437, %.lr.ph.i.i433
-  %907 = phi ptr [ %.pre17.i439, %.sink.split.i.i437 ], [ %864, %.lr.ph.i.i433 ]
-  %908 = phi ptr [ %.pre.i438, %.sink.split.i.i437 ], [ %865, %.lr.ph.i.i433 ]
-  %909 = icmp eq ptr %908, %907
-  br i1 %909, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i440, label %.lr.ph.i.i433, !llvm.loop !21
+905:                                              ; preds = %.sink.split.i.i437, %.lr.ph.i.i433
+  %906 = phi ptr [ %.pre17.i439, %.sink.split.i.i437 ], [ %863, %.lr.ph.i.i433 ]
+  %907 = phi ptr [ %.pre.i438, %.sink.split.i.i437 ], [ %864, %.lr.ph.i.i433 ]
+  %908 = icmp eq ptr %907, %906
+  br i1 %908, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i440, label %.lr.ph.i.i433, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i440: ; preds = %906
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i440: ; preds = %905
   %.pre18.i441 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443.loopexit: ; preds = %848
-  %910 = getelementptr inbounds nuw i8, ptr %859, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443.loopexit: ; preds = %847
+  %909 = getelementptr inbounds nuw i8, ptr %858, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i440
-  %911 = phi ptr [ %.pre18.i441, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i440 ], [ %910, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443.loopexit ]
-  %912 = load ptr, ptr %0, align 8
+  %910 = phi ptr [ %.pre18.i441, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i440 ], [ %909, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443.loopexit ]
+  %911 = load ptr, ptr %0, align 8
+  %912 = ptrtoint ptr %910 to i64
   %913 = ptrtoint ptr %911 to i64
-  %914 = ptrtoint ptr %912 to i64
-  %915 = sub i64 %913, %914
-  store i64 %915, ptr %3, align 8
+  %914 = sub i64 %912, %913
+  store i64 %914, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-916:                                              ; preds = %310
-  %917 = load i64, ptr %300, align 1
-  %918 = call noundef i64 @llvm.bswap.i64(i64 %917)
-  %919 = load ptr, ptr %23, align 8
-  %920 = getelementptr inbounds nuw i8, ptr %919, i64 96
-  %921 = load ptr, ptr %920, align 8
-  %922 = getelementptr inbounds i8, ptr %921, i64 -8
-  %923 = load ptr, ptr %922, align 8
-  %924 = icmp sgt i64 %918, -1
-  %spec.select.i444 = select i1 %924, i32 2, i32 3
-  store i32 %spec.select.i444, ptr %923, align 8
-  %925 = getelementptr inbounds nuw i8, ptr %923, i64 8
-  store i64 %918, ptr %925, align 8
-  %926 = load ptr, ptr %19, align 8
-  %927 = getelementptr inbounds nuw i8, ptr %926, i64 1
-  store ptr %927, ptr %19, align 8
-  %928 = load ptr, ptr %25, align 8
-  %929 = load ptr, ptr %26, align 8
-  %930 = icmp eq ptr %928, %929
-  br i1 %930, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455.loopexit, label %.lr.ph.i.i445
+915:                                              ; preds = %309
+  %916 = load i64, ptr %299, align 1
+  %917 = call noundef i64 @llvm.bswap.i64(i64 %916)
+  %918 = load ptr, ptr %23, align 8
+  %919 = getelementptr inbounds nuw i8, ptr %918, i64 96
+  %920 = load ptr, ptr %919, align 8
+  %921 = getelementptr inbounds i8, ptr %920, i64 -8
+  %922 = load ptr, ptr %921, align 8
+  %923 = icmp sgt i64 %917, -1
+  %spec.select.i444 = select i1 %923, i32 2, i32 3
+  store i32 %spec.select.i444, ptr %922, align 8
+  %924 = getelementptr inbounds nuw i8, ptr %922, i64 8
+  store i64 %917, ptr %924, align 8
+  %925 = load ptr, ptr %19, align 8
+  %926 = getelementptr inbounds nuw i8, ptr %925, i64 1
+  store ptr %926, ptr %19, align 8
+  %927 = load ptr, ptr %25, align 8
+  %928 = load ptr, ptr %26, align 8
+  %929 = icmp eq ptr %927, %928
+  br i1 %929, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455.loopexit, label %.lr.ph.i.i445
 
-.lr.ph.i.i445:                                    ; preds = %916, %973
-  %931 = phi ptr [ %974, %973 ], [ %929, %916 ]
-  %932 = phi ptr [ %975, %973 ], [ %928, %916 ]
-  %933 = getelementptr inbounds i8, ptr %931, i64 -8
-  %934 = load i32, ptr %933, align 4
-  switch i32 %934, label %973 [
-    i32 0, label %935
-    i32 1, label %946
-    i32 2, label %954
+.lr.ph.i.i445:                                    ; preds = %915, %972
+  %930 = phi ptr [ %973, %972 ], [ %928, %915 ]
+  %931 = phi ptr [ %974, %972 ], [ %927, %915 ]
+  %932 = getelementptr inbounds i8, ptr %930, i64 -8
+  %933 = load i32, ptr %932, align 4
+  switch i32 %933, label %972 [
+    i32 0, label %934
+    i32 1, label %945
+    i32 2, label %953
   ]
 
-935:                                              ; preds = %.lr.ph.i.i445
-  %936 = load ptr, ptr %23, align 8
-  %937 = getelementptr inbounds nuw i8, ptr %936, i64 96
-  %938 = load ptr, ptr %937, align 8
-  %939 = getelementptr inbounds i8, ptr %938, i64 -8
-  %940 = load ptr, ptr %939, align 8
-  %941 = getelementptr inbounds nuw i8, ptr %940, i64 24
-  store ptr %941, ptr %939, align 8
-  %942 = getelementptr inbounds i8, ptr %931, i64 -4
-  %943 = load i32, ptr %942, align 4
-  %944 = add i32 %943, -1
-  store i32 %944, ptr %942, align 4
-  %945 = icmp eq i32 %944, 0
-  br i1 %945, label %.sink.split.i.i449, label %.thread645.sink.split
+934:                                              ; preds = %.lr.ph.i.i445
+  %935 = load ptr, ptr %23, align 8
+  %936 = getelementptr inbounds nuw i8, ptr %935, i64 96
+  %937 = load ptr, ptr %936, align 8
+  %938 = getelementptr inbounds i8, ptr %937, i64 -8
+  %939 = load ptr, ptr %938, align 8
+  %940 = getelementptr inbounds nuw i8, ptr %939, i64 24
+  store ptr %940, ptr %938, align 8
+  %941 = getelementptr inbounds i8, ptr %930, i64 -4
+  %942 = load i32, ptr %941, align 4
+  %943 = add i32 %942, -1
+  store i32 %943, ptr %941, align 4
+  %944 = icmp eq i32 %943, 0
+  br i1 %944, label %.sink.split.i.i449, label %.thread645.sink.split
 
-946:                                              ; preds = %.lr.ph.i.i445
-  %947 = getelementptr inbounds i8, ptr %931, i64 -8
-  %948 = load ptr, ptr %23, align 8
-  %949 = getelementptr inbounds nuw i8, ptr %948, i64 96
-  %950 = load ptr, ptr %949, align 8
-  %951 = getelementptr inbounds i8, ptr %950, i64 -8
-  %952 = load ptr, ptr %951, align 8
-  %953 = getelementptr inbounds nuw i8, ptr %952, i64 24
-  store ptr %953, ptr %951, align 8
-  store i32 2, ptr %947, align 4
+945:                                              ; preds = %.lr.ph.i.i445
+  %946 = getelementptr inbounds i8, ptr %930, i64 -8
+  %947 = load ptr, ptr %23, align 8
+  %948 = getelementptr inbounds nuw i8, ptr %947, i64 96
+  %949 = load ptr, ptr %948, align 8
+  %950 = getelementptr inbounds i8, ptr %949, i64 -8
+  %951 = load ptr, ptr %950, align 8
+  %952 = getelementptr inbounds nuw i8, ptr %951, i64 24
+  store ptr %952, ptr %950, align 8
+  store i32 2, ptr %946, align 4
   br label %.thread645.sink.split
 
-954:                                              ; preds = %.lr.ph.i.i445
-  %955 = load ptr, ptr %23, align 8
-  %956 = getelementptr inbounds nuw i8, ptr %955, i64 96
-  %957 = load ptr, ptr %956, align 8
-  %958 = getelementptr inbounds i8, ptr %957, i64 -8
-  %959 = load ptr, ptr %958, align 8
-  %960 = getelementptr inbounds nuw i8, ptr %959, i64 24
-  store ptr %960, ptr %958, align 8
-  %961 = getelementptr inbounds i8, ptr %931, i64 -4
-  %962 = load i32, ptr %961, align 4
-  %963 = add i32 %962, -1
-  store i32 %963, ptr %961, align 4
-  %964 = icmp eq i32 %963, 0
-  br i1 %964, label %.sink.split.i.i449, label %965
+953:                                              ; preds = %.lr.ph.i.i445
+  %954 = load ptr, ptr %23, align 8
+  %955 = getelementptr inbounds nuw i8, ptr %954, i64 96
+  %956 = load ptr, ptr %955, align 8
+  %957 = getelementptr inbounds i8, ptr %956, i64 -8
+  %958 = load ptr, ptr %957, align 8
+  %959 = getelementptr inbounds nuw i8, ptr %958, i64 24
+  store ptr %959, ptr %957, align 8
+  %960 = getelementptr inbounds i8, ptr %930, i64 -4
+  %961 = load i32, ptr %960, align 4
+  %962 = add i32 %961, -1
+  store i32 %962, ptr %960, align 4
+  %963 = icmp eq i32 %962, 0
+  br i1 %963, label %.sink.split.i.i449, label %964
 
-965:                                              ; preds = %954
-  %966 = getelementptr inbounds i8, ptr %931, i64 -8
-  store i32 1, ptr %966, align 4
+964:                                              ; preds = %953
+  %965 = getelementptr inbounds i8, ptr %930, i64 -8
+  store i32 1, ptr %965, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i449:                               ; preds = %954, %935
-  %967 = load ptr, ptr %26, align 8
-  %968 = getelementptr inbounds i8, ptr %967, i64 -8
-  store ptr %968, ptr %26, align 8
-  %969 = load ptr, ptr %23, align 8
-  %970 = getelementptr inbounds nuw i8, ptr %969, i64 96
-  %971 = load ptr, ptr %970, align 8
-  %972 = getelementptr inbounds i8, ptr %971, i64 -8
-  store ptr %972, ptr %970, align 8
+.sink.split.i.i449:                               ; preds = %953, %934
+  %966 = load ptr, ptr %26, align 8
+  %967 = getelementptr inbounds i8, ptr %966, i64 -8
+  store ptr %967, ptr %26, align 8
+  %968 = load ptr, ptr %23, align 8
+  %969 = getelementptr inbounds nuw i8, ptr %968, i64 96
+  %970 = load ptr, ptr %969, align 8
+  %971 = getelementptr inbounds i8, ptr %970, i64 -8
+  store ptr %971, ptr %969, align 8
   %.pre.i450 = load ptr, ptr %25, align 8
   %.pre17.i451 = load ptr, ptr %26, align 8
-  br label %973
+  br label %972
 
-973:                                              ; preds = %.sink.split.i.i449, %.lr.ph.i.i445
-  %974 = phi ptr [ %.pre17.i451, %.sink.split.i.i449 ], [ %931, %.lr.ph.i.i445 ]
-  %975 = phi ptr [ %.pre.i450, %.sink.split.i.i449 ], [ %932, %.lr.ph.i.i445 ]
-  %976 = icmp eq ptr %975, %974
-  br i1 %976, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i452, label %.lr.ph.i.i445, !llvm.loop !21
+972:                                              ; preds = %.sink.split.i.i449, %.lr.ph.i.i445
+  %973 = phi ptr [ %.pre17.i451, %.sink.split.i.i449 ], [ %930, %.lr.ph.i.i445 ]
+  %974 = phi ptr [ %.pre.i450, %.sink.split.i.i449 ], [ %931, %.lr.ph.i.i445 ]
+  %975 = icmp eq ptr %974, %973
+  br i1 %975, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i452, label %.lr.ph.i.i445, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i452: ; preds = %973
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i452: ; preds = %972
   %.pre18.i453 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455.loopexit: ; preds = %916
-  %977 = getelementptr inbounds nuw i8, ptr %926, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455.loopexit: ; preds = %915
+  %976 = getelementptr inbounds nuw i8, ptr %925, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i452
-  %978 = phi ptr [ %.pre18.i453, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i452 ], [ %977, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455.loopexit ]
-  %979 = load ptr, ptr %0, align 8
+  %977 = phi ptr [ %.pre18.i453, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i452 ], [ %976, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455.loopexit ]
+  %978 = load ptr, ptr %0, align 8
+  %979 = ptrtoint ptr %977 to i64
   %980 = ptrtoint ptr %978 to i64
-  %981 = ptrtoint ptr %979 to i64
-  %982 = sub i64 %980, %981
-  store i64 %982, ptr %3, align 8
+  %981 = sub i64 %979, %980
+  store i64 %981, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-983:                                              ; preds = %310
-  %984 = load ptr, ptr %23, align 8
-  %985 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %984, ptr noundef %300, i32 noundef 2)
-  %986 = load ptr, ptr %19, align 8
-  %987 = getelementptr inbounds nuw i8, ptr %986, i64 1
-  store ptr %987, ptr %19, align 8
-  br i1 %985, label %993, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.thread
+982:                                              ; preds = %309
+  %983 = load ptr, ptr %23, align 8
+  %984 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %983, ptr noundef %299, i32 noundef 2)
+  %985 = load ptr, ptr %19, align 8
+  %986 = getelementptr inbounds nuw i8, ptr %985, i64 1
+  store ptr %986, ptr %19, align 8
+  br i1 %984, label %992, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.thread: ; preds = %983
-  %988 = getelementptr inbounds nuw i8, ptr %986, i64 1
-  %989 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.thread: ; preds = %982
+  %987 = getelementptr inbounds nuw i8, ptr %985, i64 1
+  %988 = load ptr, ptr %0, align 8
+  %989 = ptrtoint ptr %987 to i64
   %990 = ptrtoint ptr %988 to i64
-  %991 = ptrtoint ptr %989 to i64
-  %992 = sub i64 %990, %991
-  store i64 %992, ptr %3, align 8
+  %991 = sub i64 %989, %990
+  store i64 %991, ptr %3, align 8
   br label %.loopexit
 
-993:                                              ; preds = %983
-  %994 = load ptr, ptr %25, align 8
-  %995 = load ptr, ptr %26, align 8
-  %996 = icmp eq ptr %994, %995
-  br i1 %996, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.loopexit, label %.lr.ph.i.i457
+992:                                              ; preds = %982
+  %993 = load ptr, ptr %25, align 8
+  %994 = load ptr, ptr %26, align 8
+  %995 = icmp eq ptr %993, %994
+  br i1 %995, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.loopexit, label %.lr.ph.i.i457
 
-.lr.ph.i.i457:                                    ; preds = %993, %1039
-  %997 = phi ptr [ %1040, %1039 ], [ %995, %993 ]
-  %998 = phi ptr [ %1041, %1039 ], [ %994, %993 ]
-  %999 = getelementptr inbounds i8, ptr %997, i64 -8
-  %1000 = load i32, ptr %999, align 4
-  switch i32 %1000, label %1039 [
-    i32 0, label %1001
-    i32 1, label %1012
-    i32 2, label %1020
+.lr.ph.i.i457:                                    ; preds = %992, %1038
+  %996 = phi ptr [ %1039, %1038 ], [ %994, %992 ]
+  %997 = phi ptr [ %1040, %1038 ], [ %993, %992 ]
+  %998 = getelementptr inbounds i8, ptr %996, i64 -8
+  %999 = load i32, ptr %998, align 4
+  switch i32 %999, label %1038 [
+    i32 0, label %1000
+    i32 1, label %1011
+    i32 2, label %1019
   ]
 
-1001:                                             ; preds = %.lr.ph.i.i457
-  %1002 = load ptr, ptr %23, align 8
-  %1003 = getelementptr inbounds nuw i8, ptr %1002, i64 96
-  %1004 = load ptr, ptr %1003, align 8
-  %1005 = getelementptr inbounds i8, ptr %1004, i64 -8
-  %1006 = load ptr, ptr %1005, align 8
-  %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 24
-  store ptr %1007, ptr %1005, align 8
-  %1008 = getelementptr inbounds i8, ptr %997, i64 -4
-  %1009 = load i32, ptr %1008, align 4
-  %1010 = add i32 %1009, -1
-  store i32 %1010, ptr %1008, align 4
-  %1011 = icmp eq i32 %1010, 0
-  br i1 %1011, label %.sink.split.i.i460, label %.thread645.sink.split
+1000:                                             ; preds = %.lr.ph.i.i457
+  %1001 = load ptr, ptr %23, align 8
+  %1002 = getelementptr inbounds nuw i8, ptr %1001, i64 96
+  %1003 = load ptr, ptr %1002, align 8
+  %1004 = getelementptr inbounds i8, ptr %1003, i64 -8
+  %1005 = load ptr, ptr %1004, align 8
+  %1006 = getelementptr inbounds nuw i8, ptr %1005, i64 24
+  store ptr %1006, ptr %1004, align 8
+  %1007 = getelementptr inbounds i8, ptr %996, i64 -4
+  %1008 = load i32, ptr %1007, align 4
+  %1009 = add i32 %1008, -1
+  store i32 %1009, ptr %1007, align 4
+  %1010 = icmp eq i32 %1009, 0
+  br i1 %1010, label %.sink.split.i.i460, label %.thread645.sink.split
 
-1012:                                             ; preds = %.lr.ph.i.i457
-  %1013 = getelementptr inbounds i8, ptr %997, i64 -8
-  %1014 = load ptr, ptr %23, align 8
-  %1015 = getelementptr inbounds nuw i8, ptr %1014, i64 96
-  %1016 = load ptr, ptr %1015, align 8
-  %1017 = getelementptr inbounds i8, ptr %1016, i64 -8
-  %1018 = load ptr, ptr %1017, align 8
-  %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 24
-  store ptr %1019, ptr %1017, align 8
-  store i32 2, ptr %1013, align 4
+1011:                                             ; preds = %.lr.ph.i.i457
+  %1012 = getelementptr inbounds i8, ptr %996, i64 -8
+  %1013 = load ptr, ptr %23, align 8
+  %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 96
+  %1015 = load ptr, ptr %1014, align 8
+  %1016 = getelementptr inbounds i8, ptr %1015, i64 -8
+  %1017 = load ptr, ptr %1016, align 8
+  %1018 = getelementptr inbounds nuw i8, ptr %1017, i64 24
+  store ptr %1018, ptr %1016, align 8
+  store i32 2, ptr %1012, align 4
   br label %.thread645.sink.split
 
-1020:                                             ; preds = %.lr.ph.i.i457
-  %1021 = load ptr, ptr %23, align 8
-  %1022 = getelementptr inbounds nuw i8, ptr %1021, i64 96
-  %1023 = load ptr, ptr %1022, align 8
-  %1024 = getelementptr inbounds i8, ptr %1023, i64 -8
-  %1025 = load ptr, ptr %1024, align 8
-  %1026 = getelementptr inbounds nuw i8, ptr %1025, i64 24
-  store ptr %1026, ptr %1024, align 8
-  %1027 = getelementptr inbounds i8, ptr %997, i64 -4
-  %1028 = load i32, ptr %1027, align 4
-  %1029 = add i32 %1028, -1
-  store i32 %1029, ptr %1027, align 4
-  %1030 = icmp eq i32 %1029, 0
-  br i1 %1030, label %.sink.split.i.i460, label %1031
+1019:                                             ; preds = %.lr.ph.i.i457
+  %1020 = load ptr, ptr %23, align 8
+  %1021 = getelementptr inbounds nuw i8, ptr %1020, i64 96
+  %1022 = load ptr, ptr %1021, align 8
+  %1023 = getelementptr inbounds i8, ptr %1022, i64 -8
+  %1024 = load ptr, ptr %1023, align 8
+  %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 24
+  store ptr %1025, ptr %1023, align 8
+  %1026 = getelementptr inbounds i8, ptr %996, i64 -4
+  %1027 = load i32, ptr %1026, align 4
+  %1028 = add i32 %1027, -1
+  store i32 %1028, ptr %1026, align 4
+  %1029 = icmp eq i32 %1028, 0
+  br i1 %1029, label %.sink.split.i.i460, label %1030
 
-1031:                                             ; preds = %1020
-  %1032 = getelementptr inbounds i8, ptr %997, i64 -8
-  store i32 1, ptr %1032, align 4
+1030:                                             ; preds = %1019
+  %1031 = getelementptr inbounds i8, ptr %996, i64 -8
+  store i32 1, ptr %1031, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i460:                               ; preds = %1020, %1001
-  %1033 = load ptr, ptr %26, align 8
-  %1034 = getelementptr inbounds i8, ptr %1033, i64 -8
-  store ptr %1034, ptr %26, align 8
-  %1035 = load ptr, ptr %23, align 8
-  %1036 = getelementptr inbounds nuw i8, ptr %1035, i64 96
-  %1037 = load ptr, ptr %1036, align 8
-  %1038 = getelementptr inbounds i8, ptr %1037, i64 -8
-  store ptr %1038, ptr %1036, align 8
+.sink.split.i.i460:                               ; preds = %1019, %1000
+  %1032 = load ptr, ptr %26, align 8
+  %1033 = getelementptr inbounds i8, ptr %1032, i64 -8
+  store ptr %1033, ptr %26, align 8
+  %1034 = load ptr, ptr %23, align 8
+  %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 96
+  %1036 = load ptr, ptr %1035, align 8
+  %1037 = getelementptr inbounds i8, ptr %1036, i64 -8
+  store ptr %1037, ptr %1035, align 8
   %.pre.i461 = load ptr, ptr %25, align 8
   %.pre17.i462 = load ptr, ptr %26, align 8
-  br label %1039
+  br label %1038
 
-1039:                                             ; preds = %.sink.split.i.i460, %.lr.ph.i.i457
-  %1040 = phi ptr [ %.pre17.i462, %.sink.split.i.i460 ], [ %997, %.lr.ph.i.i457 ]
-  %1041 = phi ptr [ %.pre.i461, %.sink.split.i.i460 ], [ %998, %.lr.ph.i.i457 ]
-  %1042 = icmp eq ptr %1041, %1040
-  br i1 %1042, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i463, label %.lr.ph.i.i457, !llvm.loop !21
+1038:                                             ; preds = %.sink.split.i.i460, %.lr.ph.i.i457
+  %1039 = phi ptr [ %.pre17.i462, %.sink.split.i.i460 ], [ %996, %.lr.ph.i.i457 ]
+  %1040 = phi ptr [ %.pre.i461, %.sink.split.i.i460 ], [ %997, %.lr.ph.i.i457 ]
+  %1041 = icmp eq ptr %1040, %1039
+  br i1 %1041, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i463, label %.lr.ph.i.i457, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i463: ; preds = %1039
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i463: ; preds = %1038
   %.pre18.i464 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.loopexit: ; preds = %993
-  %1043 = getelementptr inbounds nuw i8, ptr %986, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.loopexit: ; preds = %992
+  %1042 = getelementptr inbounds nuw i8, ptr %985, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i463
-  %1044 = phi ptr [ %.pre18.i464, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i463 ], [ %1043, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.loopexit ]
-  %1045 = load ptr, ptr %0, align 8
+  %1043 = phi ptr [ %.pre18.i464, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i463 ], [ %1042, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.loopexit ]
+  %1044 = load ptr, ptr %0, align 8
+  %1045 = ptrtoint ptr %1043 to i64
   %1046 = ptrtoint ptr %1044 to i64
-  %1047 = ptrtoint ptr %1045 to i64
-  %1048 = sub i64 %1046, %1047
-  store i64 %1048, ptr %3, align 8
+  %1047 = sub i64 %1045, %1046
+  store i64 %1047, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1049:                                             ; preds = %310
-  %1050 = load ptr, ptr %23, align 8
-  %1051 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1050, ptr noundef %300, i32 noundef 3)
-  %1052 = load ptr, ptr %19, align 8
-  %1053 = getelementptr inbounds nuw i8, ptr %1052, i64 1
-  store ptr %1053, ptr %19, align 8
-  br i1 %1051, label %1059, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.thread
+1048:                                             ; preds = %309
+  %1049 = load ptr, ptr %23, align 8
+  %1050 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1049, ptr noundef %299, i32 noundef 3)
+  %1051 = load ptr, ptr %19, align 8
+  %1052 = getelementptr inbounds nuw i8, ptr %1051, i64 1
+  store ptr %1052, ptr %19, align 8
+  br i1 %1050, label %1058, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.thread: ; preds = %1049
-  %1054 = getelementptr inbounds nuw i8, ptr %1052, i64 1
-  %1055 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.thread: ; preds = %1048
+  %1053 = getelementptr inbounds nuw i8, ptr %1051, i64 1
+  %1054 = load ptr, ptr %0, align 8
+  %1055 = ptrtoint ptr %1053 to i64
   %1056 = ptrtoint ptr %1054 to i64
-  %1057 = ptrtoint ptr %1055 to i64
-  %1058 = sub i64 %1056, %1057
-  store i64 %1058, ptr %3, align 8
+  %1057 = sub i64 %1055, %1056
+  store i64 %1057, ptr %3, align 8
   br label %.loopexit
 
-1059:                                             ; preds = %1049
-  %1060 = load ptr, ptr %25, align 8
-  %1061 = load ptr, ptr %26, align 8
-  %1062 = icmp eq ptr %1060, %1061
-  br i1 %1062, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.loopexit, label %.lr.ph.i.i468
+1058:                                             ; preds = %1048
+  %1059 = load ptr, ptr %25, align 8
+  %1060 = load ptr, ptr %26, align 8
+  %1061 = icmp eq ptr %1059, %1060
+  br i1 %1061, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.loopexit, label %.lr.ph.i.i468
 
-.lr.ph.i.i468:                                    ; preds = %1059, %1105
-  %1063 = phi ptr [ %1106, %1105 ], [ %1061, %1059 ]
-  %1064 = phi ptr [ %1107, %1105 ], [ %1060, %1059 ]
-  %1065 = getelementptr inbounds i8, ptr %1063, i64 -8
-  %1066 = load i32, ptr %1065, align 4
-  switch i32 %1066, label %1105 [
-    i32 0, label %1067
-    i32 1, label %1078
-    i32 2, label %1086
+.lr.ph.i.i468:                                    ; preds = %1058, %1104
+  %1062 = phi ptr [ %1105, %1104 ], [ %1060, %1058 ]
+  %1063 = phi ptr [ %1106, %1104 ], [ %1059, %1058 ]
+  %1064 = getelementptr inbounds i8, ptr %1062, i64 -8
+  %1065 = load i32, ptr %1064, align 4
+  switch i32 %1065, label %1104 [
+    i32 0, label %1066
+    i32 1, label %1077
+    i32 2, label %1085
   ]
 
-1067:                                             ; preds = %.lr.ph.i.i468
-  %1068 = load ptr, ptr %23, align 8
-  %1069 = getelementptr inbounds nuw i8, ptr %1068, i64 96
-  %1070 = load ptr, ptr %1069, align 8
-  %1071 = getelementptr inbounds i8, ptr %1070, i64 -8
-  %1072 = load ptr, ptr %1071, align 8
-  %1073 = getelementptr inbounds nuw i8, ptr %1072, i64 24
-  store ptr %1073, ptr %1071, align 8
-  %1074 = getelementptr inbounds i8, ptr %1063, i64 -4
-  %1075 = load i32, ptr %1074, align 4
-  %1076 = add i32 %1075, -1
-  store i32 %1076, ptr %1074, align 4
-  %1077 = icmp eq i32 %1076, 0
-  br i1 %1077, label %.sink.split.i.i471, label %.thread645.sink.split
+1066:                                             ; preds = %.lr.ph.i.i468
+  %1067 = load ptr, ptr %23, align 8
+  %1068 = getelementptr inbounds nuw i8, ptr %1067, i64 96
+  %1069 = load ptr, ptr %1068, align 8
+  %1070 = getelementptr inbounds i8, ptr %1069, i64 -8
+  %1071 = load ptr, ptr %1070, align 8
+  %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 24
+  store ptr %1072, ptr %1070, align 8
+  %1073 = getelementptr inbounds i8, ptr %1062, i64 -4
+  %1074 = load i32, ptr %1073, align 4
+  %1075 = add i32 %1074, -1
+  store i32 %1075, ptr %1073, align 4
+  %1076 = icmp eq i32 %1075, 0
+  br i1 %1076, label %.sink.split.i.i471, label %.thread645.sink.split
 
-1078:                                             ; preds = %.lr.ph.i.i468
-  %1079 = getelementptr inbounds i8, ptr %1063, i64 -8
-  %1080 = load ptr, ptr %23, align 8
-  %1081 = getelementptr inbounds nuw i8, ptr %1080, i64 96
-  %1082 = load ptr, ptr %1081, align 8
-  %1083 = getelementptr inbounds i8, ptr %1082, i64 -8
-  %1084 = load ptr, ptr %1083, align 8
-  %1085 = getelementptr inbounds nuw i8, ptr %1084, i64 24
-  store ptr %1085, ptr %1083, align 8
-  store i32 2, ptr %1079, align 4
+1077:                                             ; preds = %.lr.ph.i.i468
+  %1078 = getelementptr inbounds i8, ptr %1062, i64 -8
+  %1079 = load ptr, ptr %23, align 8
+  %1080 = getelementptr inbounds nuw i8, ptr %1079, i64 96
+  %1081 = load ptr, ptr %1080, align 8
+  %1082 = getelementptr inbounds i8, ptr %1081, i64 -8
+  %1083 = load ptr, ptr %1082, align 8
+  %1084 = getelementptr inbounds nuw i8, ptr %1083, i64 24
+  store ptr %1084, ptr %1082, align 8
+  store i32 2, ptr %1078, align 4
   br label %.thread645.sink.split
 
-1086:                                             ; preds = %.lr.ph.i.i468
-  %1087 = load ptr, ptr %23, align 8
-  %1088 = getelementptr inbounds nuw i8, ptr %1087, i64 96
-  %1089 = load ptr, ptr %1088, align 8
-  %1090 = getelementptr inbounds i8, ptr %1089, i64 -8
-  %1091 = load ptr, ptr %1090, align 8
-  %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 24
-  store ptr %1092, ptr %1090, align 8
-  %1093 = getelementptr inbounds i8, ptr %1063, i64 -4
-  %1094 = load i32, ptr %1093, align 4
-  %1095 = add i32 %1094, -1
-  store i32 %1095, ptr %1093, align 4
-  %1096 = icmp eq i32 %1095, 0
-  br i1 %1096, label %.sink.split.i.i471, label %1097
+1085:                                             ; preds = %.lr.ph.i.i468
+  %1086 = load ptr, ptr %23, align 8
+  %1087 = getelementptr inbounds nuw i8, ptr %1086, i64 96
+  %1088 = load ptr, ptr %1087, align 8
+  %1089 = getelementptr inbounds i8, ptr %1088, i64 -8
+  %1090 = load ptr, ptr %1089, align 8
+  %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 24
+  store ptr %1091, ptr %1089, align 8
+  %1092 = getelementptr inbounds i8, ptr %1062, i64 -4
+  %1093 = load i32, ptr %1092, align 4
+  %1094 = add i32 %1093, -1
+  store i32 %1094, ptr %1092, align 4
+  %1095 = icmp eq i32 %1094, 0
+  br i1 %1095, label %.sink.split.i.i471, label %1096
 
-1097:                                             ; preds = %1086
-  %1098 = getelementptr inbounds i8, ptr %1063, i64 -8
-  store i32 1, ptr %1098, align 4
+1096:                                             ; preds = %1085
+  %1097 = getelementptr inbounds i8, ptr %1062, i64 -8
+  store i32 1, ptr %1097, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i471:                               ; preds = %1086, %1067
-  %1099 = load ptr, ptr %26, align 8
-  %1100 = getelementptr inbounds i8, ptr %1099, i64 -8
-  store ptr %1100, ptr %26, align 8
-  %1101 = load ptr, ptr %23, align 8
-  %1102 = getelementptr inbounds nuw i8, ptr %1101, i64 96
-  %1103 = load ptr, ptr %1102, align 8
-  %1104 = getelementptr inbounds i8, ptr %1103, i64 -8
-  store ptr %1104, ptr %1102, align 8
+.sink.split.i.i471:                               ; preds = %1085, %1066
+  %1098 = load ptr, ptr %26, align 8
+  %1099 = getelementptr inbounds i8, ptr %1098, i64 -8
+  store ptr %1099, ptr %26, align 8
+  %1100 = load ptr, ptr %23, align 8
+  %1101 = getelementptr inbounds nuw i8, ptr %1100, i64 96
+  %1102 = load ptr, ptr %1101, align 8
+  %1103 = getelementptr inbounds i8, ptr %1102, i64 -8
+  store ptr %1103, ptr %1101, align 8
   %.pre.i472 = load ptr, ptr %25, align 8
   %.pre17.i473 = load ptr, ptr %26, align 8
-  br label %1105
+  br label %1104
 
-1105:                                             ; preds = %.sink.split.i.i471, %.lr.ph.i.i468
-  %1106 = phi ptr [ %.pre17.i473, %.sink.split.i.i471 ], [ %1063, %.lr.ph.i.i468 ]
-  %1107 = phi ptr [ %.pre.i472, %.sink.split.i.i471 ], [ %1064, %.lr.ph.i.i468 ]
-  %1108 = icmp eq ptr %1107, %1106
-  br i1 %1108, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i474, label %.lr.ph.i.i468, !llvm.loop !21
+1104:                                             ; preds = %.sink.split.i.i471, %.lr.ph.i.i468
+  %1105 = phi ptr [ %.pre17.i473, %.sink.split.i.i471 ], [ %1062, %.lr.ph.i.i468 ]
+  %1106 = phi ptr [ %.pre.i472, %.sink.split.i.i471 ], [ %1063, %.lr.ph.i.i468 ]
+  %1107 = icmp eq ptr %1106, %1105
+  br i1 %1107, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i474, label %.lr.ph.i.i468, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i474: ; preds = %1105
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i474: ; preds = %1104
   %.pre18.i475 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.loopexit: ; preds = %1059
-  %1109 = getelementptr inbounds nuw i8, ptr %1052, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.loopexit: ; preds = %1058
+  %1108 = getelementptr inbounds nuw i8, ptr %1051, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i474
-  %1110 = phi ptr [ %.pre18.i475, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i474 ], [ %1109, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.loopexit ]
-  %1111 = load ptr, ptr %0, align 8
+  %1109 = phi ptr [ %.pre18.i475, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i474 ], [ %1108, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.loopexit ]
+  %1110 = load ptr, ptr %0, align 8
+  %1111 = ptrtoint ptr %1109 to i64
   %1112 = ptrtoint ptr %1110 to i64
-  %1113 = ptrtoint ptr %1111 to i64
-  %1114 = sub i64 %1112, %1113
-  store i64 %1114, ptr %3, align 8
+  %1113 = sub i64 %1111, %1112
+  store i64 %1113, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1115:                                             ; preds = %310
-  %1116 = load ptr, ptr %23, align 8
-  %1117 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1116, ptr noundef %300, i32 noundef 5)
-  %1118 = load ptr, ptr %19, align 8
-  %1119 = getelementptr inbounds nuw i8, ptr %1118, i64 1
-  store ptr %1119, ptr %19, align 8
-  br i1 %1117, label %1125, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.thread
+1114:                                             ; preds = %309
+  %1115 = load ptr, ptr %23, align 8
+  %1116 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1115, ptr noundef %299, i32 noundef 5)
+  %1117 = load ptr, ptr %19, align 8
+  %1118 = getelementptr inbounds nuw i8, ptr %1117, i64 1
+  store ptr %1118, ptr %19, align 8
+  br i1 %1116, label %1124, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.thread: ; preds = %1115
-  %1120 = getelementptr inbounds nuw i8, ptr %1118, i64 1
-  %1121 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.thread: ; preds = %1114
+  %1119 = getelementptr inbounds nuw i8, ptr %1117, i64 1
+  %1120 = load ptr, ptr %0, align 8
+  %1121 = ptrtoint ptr %1119 to i64
   %1122 = ptrtoint ptr %1120 to i64
-  %1123 = ptrtoint ptr %1121 to i64
-  %1124 = sub i64 %1122, %1123
-  store i64 %1124, ptr %3, align 8
+  %1123 = sub i64 %1121, %1122
+  store i64 %1123, ptr %3, align 8
   br label %.loopexit
 
-1125:                                             ; preds = %1115
-  %1126 = load ptr, ptr %25, align 8
-  %1127 = load ptr, ptr %26, align 8
-  %1128 = icmp eq ptr %1126, %1127
-  br i1 %1128, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.loopexit, label %.lr.ph.i.i479
+1124:                                             ; preds = %1114
+  %1125 = load ptr, ptr %25, align 8
+  %1126 = load ptr, ptr %26, align 8
+  %1127 = icmp eq ptr %1125, %1126
+  br i1 %1127, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.loopexit, label %.lr.ph.i.i479
 
-.lr.ph.i.i479:                                    ; preds = %1125, %1171
-  %1129 = phi ptr [ %1172, %1171 ], [ %1127, %1125 ]
-  %1130 = phi ptr [ %1173, %1171 ], [ %1126, %1125 ]
-  %1131 = getelementptr inbounds i8, ptr %1129, i64 -8
-  %1132 = load i32, ptr %1131, align 4
-  switch i32 %1132, label %1171 [
-    i32 0, label %1133
-    i32 1, label %1144
-    i32 2, label %1152
+.lr.ph.i.i479:                                    ; preds = %1124, %1170
+  %1128 = phi ptr [ %1171, %1170 ], [ %1126, %1124 ]
+  %1129 = phi ptr [ %1172, %1170 ], [ %1125, %1124 ]
+  %1130 = getelementptr inbounds i8, ptr %1128, i64 -8
+  %1131 = load i32, ptr %1130, align 4
+  switch i32 %1131, label %1170 [
+    i32 0, label %1132
+    i32 1, label %1143
+    i32 2, label %1151
   ]
 
-1133:                                             ; preds = %.lr.ph.i.i479
-  %1134 = load ptr, ptr %23, align 8
-  %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 96
-  %1136 = load ptr, ptr %1135, align 8
-  %1137 = getelementptr inbounds i8, ptr %1136, i64 -8
-  %1138 = load ptr, ptr %1137, align 8
-  %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 24
-  store ptr %1139, ptr %1137, align 8
-  %1140 = getelementptr inbounds i8, ptr %1129, i64 -4
-  %1141 = load i32, ptr %1140, align 4
-  %1142 = add i32 %1141, -1
-  store i32 %1142, ptr %1140, align 4
-  %1143 = icmp eq i32 %1142, 0
-  br i1 %1143, label %.sink.split.i.i482, label %.thread645.sink.split
+1132:                                             ; preds = %.lr.ph.i.i479
+  %1133 = load ptr, ptr %23, align 8
+  %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 96
+  %1135 = load ptr, ptr %1134, align 8
+  %1136 = getelementptr inbounds i8, ptr %1135, i64 -8
+  %1137 = load ptr, ptr %1136, align 8
+  %1138 = getelementptr inbounds nuw i8, ptr %1137, i64 24
+  store ptr %1138, ptr %1136, align 8
+  %1139 = getelementptr inbounds i8, ptr %1128, i64 -4
+  %1140 = load i32, ptr %1139, align 4
+  %1141 = add i32 %1140, -1
+  store i32 %1141, ptr %1139, align 4
+  %1142 = icmp eq i32 %1141, 0
+  br i1 %1142, label %.sink.split.i.i482, label %.thread645.sink.split
 
-1144:                                             ; preds = %.lr.ph.i.i479
-  %1145 = getelementptr inbounds i8, ptr %1129, i64 -8
-  %1146 = load ptr, ptr %23, align 8
-  %1147 = getelementptr inbounds nuw i8, ptr %1146, i64 96
-  %1148 = load ptr, ptr %1147, align 8
-  %1149 = getelementptr inbounds i8, ptr %1148, i64 -8
-  %1150 = load ptr, ptr %1149, align 8
-  %1151 = getelementptr inbounds nuw i8, ptr %1150, i64 24
-  store ptr %1151, ptr %1149, align 8
-  store i32 2, ptr %1145, align 4
+1143:                                             ; preds = %.lr.ph.i.i479
+  %1144 = getelementptr inbounds i8, ptr %1128, i64 -8
+  %1145 = load ptr, ptr %23, align 8
+  %1146 = getelementptr inbounds nuw i8, ptr %1145, i64 96
+  %1147 = load ptr, ptr %1146, align 8
+  %1148 = getelementptr inbounds i8, ptr %1147, i64 -8
+  %1149 = load ptr, ptr %1148, align 8
+  %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 24
+  store ptr %1150, ptr %1148, align 8
+  store i32 2, ptr %1144, align 4
   br label %.thread645.sink.split
 
-1152:                                             ; preds = %.lr.ph.i.i479
-  %1153 = load ptr, ptr %23, align 8
-  %1154 = getelementptr inbounds nuw i8, ptr %1153, i64 96
-  %1155 = load ptr, ptr %1154, align 8
-  %1156 = getelementptr inbounds i8, ptr %1155, i64 -8
-  %1157 = load ptr, ptr %1156, align 8
-  %1158 = getelementptr inbounds nuw i8, ptr %1157, i64 24
-  store ptr %1158, ptr %1156, align 8
-  %1159 = getelementptr inbounds i8, ptr %1129, i64 -4
-  %1160 = load i32, ptr %1159, align 4
-  %1161 = add i32 %1160, -1
-  store i32 %1161, ptr %1159, align 4
-  %1162 = icmp eq i32 %1161, 0
-  br i1 %1162, label %.sink.split.i.i482, label %1163
+1151:                                             ; preds = %.lr.ph.i.i479
+  %1152 = load ptr, ptr %23, align 8
+  %1153 = getelementptr inbounds nuw i8, ptr %1152, i64 96
+  %1154 = load ptr, ptr %1153, align 8
+  %1155 = getelementptr inbounds i8, ptr %1154, i64 -8
+  %1156 = load ptr, ptr %1155, align 8
+  %1157 = getelementptr inbounds nuw i8, ptr %1156, i64 24
+  store ptr %1157, ptr %1155, align 8
+  %1158 = getelementptr inbounds i8, ptr %1128, i64 -4
+  %1159 = load i32, ptr %1158, align 4
+  %1160 = add i32 %1159, -1
+  store i32 %1160, ptr %1158, align 4
+  %1161 = icmp eq i32 %1160, 0
+  br i1 %1161, label %.sink.split.i.i482, label %1162
 
-1163:                                             ; preds = %1152
-  %1164 = getelementptr inbounds i8, ptr %1129, i64 -8
-  store i32 1, ptr %1164, align 4
+1162:                                             ; preds = %1151
+  %1163 = getelementptr inbounds i8, ptr %1128, i64 -8
+  store i32 1, ptr %1163, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i482:                               ; preds = %1152, %1133
-  %1165 = load ptr, ptr %26, align 8
-  %1166 = getelementptr inbounds i8, ptr %1165, i64 -8
-  store ptr %1166, ptr %26, align 8
-  %1167 = load ptr, ptr %23, align 8
-  %1168 = getelementptr inbounds nuw i8, ptr %1167, i64 96
-  %1169 = load ptr, ptr %1168, align 8
-  %1170 = getelementptr inbounds i8, ptr %1169, i64 -8
-  store ptr %1170, ptr %1168, align 8
+.sink.split.i.i482:                               ; preds = %1151, %1132
+  %1164 = load ptr, ptr %26, align 8
+  %1165 = getelementptr inbounds i8, ptr %1164, i64 -8
+  store ptr %1165, ptr %26, align 8
+  %1166 = load ptr, ptr %23, align 8
+  %1167 = getelementptr inbounds nuw i8, ptr %1166, i64 96
+  %1168 = load ptr, ptr %1167, align 8
+  %1169 = getelementptr inbounds i8, ptr %1168, i64 -8
+  store ptr %1169, ptr %1167, align 8
   %.pre.i483 = load ptr, ptr %25, align 8
   %.pre17.i484 = load ptr, ptr %26, align 8
-  br label %1171
+  br label %1170
 
-1171:                                             ; preds = %.sink.split.i.i482, %.lr.ph.i.i479
-  %1172 = phi ptr [ %.pre17.i484, %.sink.split.i.i482 ], [ %1129, %.lr.ph.i.i479 ]
-  %1173 = phi ptr [ %.pre.i483, %.sink.split.i.i482 ], [ %1130, %.lr.ph.i.i479 ]
-  %1174 = icmp eq ptr %1173, %1172
-  br i1 %1174, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i485, label %.lr.ph.i.i479, !llvm.loop !21
+1170:                                             ; preds = %.sink.split.i.i482, %.lr.ph.i.i479
+  %1171 = phi ptr [ %.pre17.i484, %.sink.split.i.i482 ], [ %1128, %.lr.ph.i.i479 ]
+  %1172 = phi ptr [ %.pre.i483, %.sink.split.i.i482 ], [ %1129, %.lr.ph.i.i479 ]
+  %1173 = icmp eq ptr %1172, %1171
+  br i1 %1173, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i485, label %.lr.ph.i.i479, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i485: ; preds = %1171
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i485: ; preds = %1170
   %.pre18.i486 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.loopexit: ; preds = %1125
-  %1175 = getelementptr inbounds nuw i8, ptr %1118, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.loopexit: ; preds = %1124
+  %1174 = getelementptr inbounds nuw i8, ptr %1117, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i485
-  %1176 = phi ptr [ %.pre18.i486, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i485 ], [ %1175, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.loopexit ]
-  %1177 = load ptr, ptr %0, align 8
+  %1175 = phi ptr [ %.pre18.i486, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i485 ], [ %1174, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.loopexit ]
+  %1176 = load ptr, ptr %0, align 8
+  %1177 = ptrtoint ptr %1175 to i64
   %1178 = ptrtoint ptr %1176 to i64
-  %1179 = ptrtoint ptr %1177 to i64
-  %1180 = sub i64 %1178, %1179
-  store i64 %1180, ptr %3, align 8
+  %1179 = sub i64 %1177, %1178
+  store i64 %1179, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1181:                                             ; preds = %310
-  %1182 = load ptr, ptr %23, align 8
-  %1183 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1182, ptr noundef %300, i32 noundef 9)
-  %1184 = load ptr, ptr %19, align 8
-  %1185 = getelementptr inbounds nuw i8, ptr %1184, i64 1
-  store ptr %1185, ptr %19, align 8
-  br i1 %1183, label %1191, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.thread
+1180:                                             ; preds = %309
+  %1181 = load ptr, ptr %23, align 8
+  %1182 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1181, ptr noundef %299, i32 noundef 9)
+  %1183 = load ptr, ptr %19, align 8
+  %1184 = getelementptr inbounds nuw i8, ptr %1183, i64 1
+  store ptr %1184, ptr %19, align 8
+  br i1 %1182, label %1190, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.thread: ; preds = %1181
-  %1186 = getelementptr inbounds nuw i8, ptr %1184, i64 1
-  %1187 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.thread: ; preds = %1180
+  %1185 = getelementptr inbounds nuw i8, ptr %1183, i64 1
+  %1186 = load ptr, ptr %0, align 8
+  %1187 = ptrtoint ptr %1185 to i64
   %1188 = ptrtoint ptr %1186 to i64
-  %1189 = ptrtoint ptr %1187 to i64
-  %1190 = sub i64 %1188, %1189
-  store i64 %1190, ptr %3, align 8
+  %1189 = sub i64 %1187, %1188
+  store i64 %1189, ptr %3, align 8
   br label %.loopexit
 
-1191:                                             ; preds = %1181
-  %1192 = load ptr, ptr %25, align 8
-  %1193 = load ptr, ptr %26, align 8
-  %1194 = icmp eq ptr %1192, %1193
-  br i1 %1194, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.loopexit, label %.lr.ph.i.i490
+1190:                                             ; preds = %1180
+  %1191 = load ptr, ptr %25, align 8
+  %1192 = load ptr, ptr %26, align 8
+  %1193 = icmp eq ptr %1191, %1192
+  br i1 %1193, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.loopexit, label %.lr.ph.i.i490
 
-.lr.ph.i.i490:                                    ; preds = %1191, %1237
-  %1195 = phi ptr [ %1238, %1237 ], [ %1193, %1191 ]
-  %1196 = phi ptr [ %1239, %1237 ], [ %1192, %1191 ]
-  %1197 = getelementptr inbounds i8, ptr %1195, i64 -8
-  %1198 = load i32, ptr %1197, align 4
-  switch i32 %1198, label %1237 [
-    i32 0, label %1199
-    i32 1, label %1210
-    i32 2, label %1218
+.lr.ph.i.i490:                                    ; preds = %1190, %1236
+  %1194 = phi ptr [ %1237, %1236 ], [ %1192, %1190 ]
+  %1195 = phi ptr [ %1238, %1236 ], [ %1191, %1190 ]
+  %1196 = getelementptr inbounds i8, ptr %1194, i64 -8
+  %1197 = load i32, ptr %1196, align 4
+  switch i32 %1197, label %1236 [
+    i32 0, label %1198
+    i32 1, label %1209
+    i32 2, label %1217
   ]
 
-1199:                                             ; preds = %.lr.ph.i.i490
-  %1200 = load ptr, ptr %23, align 8
-  %1201 = getelementptr inbounds nuw i8, ptr %1200, i64 96
-  %1202 = load ptr, ptr %1201, align 8
-  %1203 = getelementptr inbounds i8, ptr %1202, i64 -8
-  %1204 = load ptr, ptr %1203, align 8
-  %1205 = getelementptr inbounds nuw i8, ptr %1204, i64 24
-  store ptr %1205, ptr %1203, align 8
-  %1206 = getelementptr inbounds i8, ptr %1195, i64 -4
-  %1207 = load i32, ptr %1206, align 4
-  %1208 = add i32 %1207, -1
-  store i32 %1208, ptr %1206, align 4
-  %1209 = icmp eq i32 %1208, 0
-  br i1 %1209, label %.sink.split.i.i493, label %.thread645.sink.split
+1198:                                             ; preds = %.lr.ph.i.i490
+  %1199 = load ptr, ptr %23, align 8
+  %1200 = getelementptr inbounds nuw i8, ptr %1199, i64 96
+  %1201 = load ptr, ptr %1200, align 8
+  %1202 = getelementptr inbounds i8, ptr %1201, i64 -8
+  %1203 = load ptr, ptr %1202, align 8
+  %1204 = getelementptr inbounds nuw i8, ptr %1203, i64 24
+  store ptr %1204, ptr %1202, align 8
+  %1205 = getelementptr inbounds i8, ptr %1194, i64 -4
+  %1206 = load i32, ptr %1205, align 4
+  %1207 = add i32 %1206, -1
+  store i32 %1207, ptr %1205, align 4
+  %1208 = icmp eq i32 %1207, 0
+  br i1 %1208, label %.sink.split.i.i493, label %.thread645.sink.split
 
-1210:                                             ; preds = %.lr.ph.i.i490
-  %1211 = getelementptr inbounds i8, ptr %1195, i64 -8
-  %1212 = load ptr, ptr %23, align 8
-  %1213 = getelementptr inbounds nuw i8, ptr %1212, i64 96
-  %1214 = load ptr, ptr %1213, align 8
-  %1215 = getelementptr inbounds i8, ptr %1214, i64 -8
-  %1216 = load ptr, ptr %1215, align 8
-  %1217 = getelementptr inbounds nuw i8, ptr %1216, i64 24
-  store ptr %1217, ptr %1215, align 8
-  store i32 2, ptr %1211, align 4
+1209:                                             ; preds = %.lr.ph.i.i490
+  %1210 = getelementptr inbounds i8, ptr %1194, i64 -8
+  %1211 = load ptr, ptr %23, align 8
+  %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 96
+  %1213 = load ptr, ptr %1212, align 8
+  %1214 = getelementptr inbounds i8, ptr %1213, i64 -8
+  %1215 = load ptr, ptr %1214, align 8
+  %1216 = getelementptr inbounds nuw i8, ptr %1215, i64 24
+  store ptr %1216, ptr %1214, align 8
+  store i32 2, ptr %1210, align 4
   br label %.thread645.sink.split
 
-1218:                                             ; preds = %.lr.ph.i.i490
-  %1219 = load ptr, ptr %23, align 8
-  %1220 = getelementptr inbounds nuw i8, ptr %1219, i64 96
-  %1221 = load ptr, ptr %1220, align 8
-  %1222 = getelementptr inbounds i8, ptr %1221, i64 -8
-  %1223 = load ptr, ptr %1222, align 8
-  %1224 = getelementptr inbounds nuw i8, ptr %1223, i64 24
-  store ptr %1224, ptr %1222, align 8
-  %1225 = getelementptr inbounds i8, ptr %1195, i64 -4
-  %1226 = load i32, ptr %1225, align 4
-  %1227 = add i32 %1226, -1
-  store i32 %1227, ptr %1225, align 4
-  %1228 = icmp eq i32 %1227, 0
-  br i1 %1228, label %.sink.split.i.i493, label %1229
+1217:                                             ; preds = %.lr.ph.i.i490
+  %1218 = load ptr, ptr %23, align 8
+  %1219 = getelementptr inbounds nuw i8, ptr %1218, i64 96
+  %1220 = load ptr, ptr %1219, align 8
+  %1221 = getelementptr inbounds i8, ptr %1220, i64 -8
+  %1222 = load ptr, ptr %1221, align 8
+  %1223 = getelementptr inbounds nuw i8, ptr %1222, i64 24
+  store ptr %1223, ptr %1221, align 8
+  %1224 = getelementptr inbounds i8, ptr %1194, i64 -4
+  %1225 = load i32, ptr %1224, align 4
+  %1226 = add i32 %1225, -1
+  store i32 %1226, ptr %1224, align 4
+  %1227 = icmp eq i32 %1226, 0
+  br i1 %1227, label %.sink.split.i.i493, label %1228
 
-1229:                                             ; preds = %1218
-  %1230 = getelementptr inbounds i8, ptr %1195, i64 -8
-  store i32 1, ptr %1230, align 4
+1228:                                             ; preds = %1217
+  %1229 = getelementptr inbounds i8, ptr %1194, i64 -8
+  store i32 1, ptr %1229, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i493:                               ; preds = %1218, %1199
-  %1231 = load ptr, ptr %26, align 8
-  %1232 = getelementptr inbounds i8, ptr %1231, i64 -8
-  store ptr %1232, ptr %26, align 8
-  %1233 = load ptr, ptr %23, align 8
-  %1234 = getelementptr inbounds nuw i8, ptr %1233, i64 96
-  %1235 = load ptr, ptr %1234, align 8
-  %1236 = getelementptr inbounds i8, ptr %1235, i64 -8
-  store ptr %1236, ptr %1234, align 8
+.sink.split.i.i493:                               ; preds = %1217, %1198
+  %1230 = load ptr, ptr %26, align 8
+  %1231 = getelementptr inbounds i8, ptr %1230, i64 -8
+  store ptr %1231, ptr %26, align 8
+  %1232 = load ptr, ptr %23, align 8
+  %1233 = getelementptr inbounds nuw i8, ptr %1232, i64 96
+  %1234 = load ptr, ptr %1233, align 8
+  %1235 = getelementptr inbounds i8, ptr %1234, i64 -8
+  store ptr %1235, ptr %1233, align 8
   %.pre.i494 = load ptr, ptr %25, align 8
   %.pre17.i495 = load ptr, ptr %26, align 8
-  br label %1237
+  br label %1236
 
-1237:                                             ; preds = %.sink.split.i.i493, %.lr.ph.i.i490
-  %1238 = phi ptr [ %.pre17.i495, %.sink.split.i.i493 ], [ %1195, %.lr.ph.i.i490 ]
-  %1239 = phi ptr [ %.pre.i494, %.sink.split.i.i493 ], [ %1196, %.lr.ph.i.i490 ]
-  %1240 = icmp eq ptr %1239, %1238
-  br i1 %1240, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i496, label %.lr.ph.i.i490, !llvm.loop !21
+1236:                                             ; preds = %.sink.split.i.i493, %.lr.ph.i.i490
+  %1237 = phi ptr [ %.pre17.i495, %.sink.split.i.i493 ], [ %1194, %.lr.ph.i.i490 ]
+  %1238 = phi ptr [ %.pre.i494, %.sink.split.i.i493 ], [ %1195, %.lr.ph.i.i490 ]
+  %1239 = icmp eq ptr %1238, %1237
+  br i1 %1239, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i496, label %.lr.ph.i.i490, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i496: ; preds = %1237
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i496: ; preds = %1236
   %.pre18.i497 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.loopexit: ; preds = %1191
-  %1241 = getelementptr inbounds nuw i8, ptr %1184, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.loopexit: ; preds = %1190
+  %1240 = getelementptr inbounds nuw i8, ptr %1183, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i496
-  %1242 = phi ptr [ %.pre18.i497, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i496 ], [ %1241, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.loopexit ]
-  %1243 = load ptr, ptr %0, align 8
+  %1241 = phi ptr [ %.pre18.i497, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i496 ], [ %1240, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.loopexit ]
+  %1242 = load ptr, ptr %0, align 8
+  %1243 = ptrtoint ptr %1241 to i64
   %1244 = ptrtoint ptr %1242 to i64
-  %1245 = ptrtoint ptr %1243 to i64
-  %1246 = sub i64 %1244, %1245
-  store i64 %1246, ptr %3, align 8
+  %1245 = sub i64 %1243, %1244
+  store i64 %1245, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1247:                                             ; preds = %310
-  %1248 = load ptr, ptr %23, align 8
-  %1249 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1248, ptr noundef %300, i32 noundef 17)
-  %1250 = load ptr, ptr %19, align 8
-  %1251 = getelementptr inbounds nuw i8, ptr %1250, i64 1
-  store ptr %1251, ptr %19, align 8
-  br i1 %1249, label %1257, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.thread
+1246:                                             ; preds = %309
+  %1247 = load ptr, ptr %23, align 8
+  %1248 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1247, ptr noundef %299, i32 noundef 17)
+  %1249 = load ptr, ptr %19, align 8
+  %1250 = getelementptr inbounds nuw i8, ptr %1249, i64 1
+  store ptr %1250, ptr %19, align 8
+  br i1 %1248, label %1256, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.thread: ; preds = %1247
-  %1252 = getelementptr inbounds nuw i8, ptr %1250, i64 1
-  %1253 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.thread: ; preds = %1246
+  %1251 = getelementptr inbounds nuw i8, ptr %1249, i64 1
+  %1252 = load ptr, ptr %0, align 8
+  %1253 = ptrtoint ptr %1251 to i64
   %1254 = ptrtoint ptr %1252 to i64
-  %1255 = ptrtoint ptr %1253 to i64
-  %1256 = sub i64 %1254, %1255
-  store i64 %1256, ptr %3, align 8
+  %1255 = sub i64 %1253, %1254
+  store i64 %1255, ptr %3, align 8
   br label %.loopexit
 
-1257:                                             ; preds = %1247
-  %1258 = load ptr, ptr %25, align 8
-  %1259 = load ptr, ptr %26, align 8
-  %1260 = icmp eq ptr %1258, %1259
-  br i1 %1260, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.loopexit, label %.lr.ph.i.i501
+1256:                                             ; preds = %1246
+  %1257 = load ptr, ptr %25, align 8
+  %1258 = load ptr, ptr %26, align 8
+  %1259 = icmp eq ptr %1257, %1258
+  br i1 %1259, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.loopexit, label %.lr.ph.i.i501
 
-.lr.ph.i.i501:                                    ; preds = %1257, %1303
-  %1261 = phi ptr [ %1304, %1303 ], [ %1259, %1257 ]
-  %1262 = phi ptr [ %1305, %1303 ], [ %1258, %1257 ]
-  %1263 = getelementptr inbounds i8, ptr %1261, i64 -8
-  %1264 = load i32, ptr %1263, align 4
-  switch i32 %1264, label %1303 [
-    i32 0, label %1265
-    i32 1, label %1276
-    i32 2, label %1284
+.lr.ph.i.i501:                                    ; preds = %1256, %1302
+  %1260 = phi ptr [ %1303, %1302 ], [ %1258, %1256 ]
+  %1261 = phi ptr [ %1304, %1302 ], [ %1257, %1256 ]
+  %1262 = getelementptr inbounds i8, ptr %1260, i64 -8
+  %1263 = load i32, ptr %1262, align 4
+  switch i32 %1263, label %1302 [
+    i32 0, label %1264
+    i32 1, label %1275
+    i32 2, label %1283
   ]
 
-1265:                                             ; preds = %.lr.ph.i.i501
-  %1266 = load ptr, ptr %23, align 8
-  %1267 = getelementptr inbounds nuw i8, ptr %1266, i64 96
-  %1268 = load ptr, ptr %1267, align 8
-  %1269 = getelementptr inbounds i8, ptr %1268, i64 -8
-  %1270 = load ptr, ptr %1269, align 8
-  %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 24
-  store ptr %1271, ptr %1269, align 8
-  %1272 = getelementptr inbounds i8, ptr %1261, i64 -4
-  %1273 = load i32, ptr %1272, align 4
-  %1274 = add i32 %1273, -1
-  store i32 %1274, ptr %1272, align 4
-  %1275 = icmp eq i32 %1274, 0
-  br i1 %1275, label %.sink.split.i.i504, label %.thread645.sink.split
+1264:                                             ; preds = %.lr.ph.i.i501
+  %1265 = load ptr, ptr %23, align 8
+  %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 96
+  %1267 = load ptr, ptr %1266, align 8
+  %1268 = getelementptr inbounds i8, ptr %1267, i64 -8
+  %1269 = load ptr, ptr %1268, align 8
+  %1270 = getelementptr inbounds nuw i8, ptr %1269, i64 24
+  store ptr %1270, ptr %1268, align 8
+  %1271 = getelementptr inbounds i8, ptr %1260, i64 -4
+  %1272 = load i32, ptr %1271, align 4
+  %1273 = add i32 %1272, -1
+  store i32 %1273, ptr %1271, align 4
+  %1274 = icmp eq i32 %1273, 0
+  br i1 %1274, label %.sink.split.i.i504, label %.thread645.sink.split
 
-1276:                                             ; preds = %.lr.ph.i.i501
-  %1277 = getelementptr inbounds i8, ptr %1261, i64 -8
-  %1278 = load ptr, ptr %23, align 8
-  %1279 = getelementptr inbounds nuw i8, ptr %1278, i64 96
-  %1280 = load ptr, ptr %1279, align 8
-  %1281 = getelementptr inbounds i8, ptr %1280, i64 -8
-  %1282 = load ptr, ptr %1281, align 8
-  %1283 = getelementptr inbounds nuw i8, ptr %1282, i64 24
-  store ptr %1283, ptr %1281, align 8
-  store i32 2, ptr %1277, align 4
+1275:                                             ; preds = %.lr.ph.i.i501
+  %1276 = getelementptr inbounds i8, ptr %1260, i64 -8
+  %1277 = load ptr, ptr %23, align 8
+  %1278 = getelementptr inbounds nuw i8, ptr %1277, i64 96
+  %1279 = load ptr, ptr %1278, align 8
+  %1280 = getelementptr inbounds i8, ptr %1279, i64 -8
+  %1281 = load ptr, ptr %1280, align 8
+  %1282 = getelementptr inbounds nuw i8, ptr %1281, i64 24
+  store ptr %1282, ptr %1280, align 8
+  store i32 2, ptr %1276, align 4
   br label %.thread645.sink.split
 
-1284:                                             ; preds = %.lr.ph.i.i501
-  %1285 = load ptr, ptr %23, align 8
-  %1286 = getelementptr inbounds nuw i8, ptr %1285, i64 96
-  %1287 = load ptr, ptr %1286, align 8
-  %1288 = getelementptr inbounds i8, ptr %1287, i64 -8
-  %1289 = load ptr, ptr %1288, align 8
-  %1290 = getelementptr inbounds nuw i8, ptr %1289, i64 24
-  store ptr %1290, ptr %1288, align 8
-  %1291 = getelementptr inbounds i8, ptr %1261, i64 -4
-  %1292 = load i32, ptr %1291, align 4
-  %1293 = add i32 %1292, -1
-  store i32 %1293, ptr %1291, align 4
-  %1294 = icmp eq i32 %1293, 0
-  br i1 %1294, label %.sink.split.i.i504, label %1295
+1283:                                             ; preds = %.lr.ph.i.i501
+  %1284 = load ptr, ptr %23, align 8
+  %1285 = getelementptr inbounds nuw i8, ptr %1284, i64 96
+  %1286 = load ptr, ptr %1285, align 8
+  %1287 = getelementptr inbounds i8, ptr %1286, i64 -8
+  %1288 = load ptr, ptr %1287, align 8
+  %1289 = getelementptr inbounds nuw i8, ptr %1288, i64 24
+  store ptr %1289, ptr %1287, align 8
+  %1290 = getelementptr inbounds i8, ptr %1260, i64 -4
+  %1291 = load i32, ptr %1290, align 4
+  %1292 = add i32 %1291, -1
+  store i32 %1292, ptr %1290, align 4
+  %1293 = icmp eq i32 %1292, 0
+  br i1 %1293, label %.sink.split.i.i504, label %1294
 
-1295:                                             ; preds = %1284
-  %1296 = getelementptr inbounds i8, ptr %1261, i64 -8
-  store i32 1, ptr %1296, align 4
+1294:                                             ; preds = %1283
+  %1295 = getelementptr inbounds i8, ptr %1260, i64 -8
+  store i32 1, ptr %1295, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i504:                               ; preds = %1284, %1265
-  %1297 = load ptr, ptr %26, align 8
-  %1298 = getelementptr inbounds i8, ptr %1297, i64 -8
-  store ptr %1298, ptr %26, align 8
-  %1299 = load ptr, ptr %23, align 8
-  %1300 = getelementptr inbounds nuw i8, ptr %1299, i64 96
-  %1301 = load ptr, ptr %1300, align 8
-  %1302 = getelementptr inbounds i8, ptr %1301, i64 -8
-  store ptr %1302, ptr %1300, align 8
+.sink.split.i.i504:                               ; preds = %1283, %1264
+  %1296 = load ptr, ptr %26, align 8
+  %1297 = getelementptr inbounds i8, ptr %1296, i64 -8
+  store ptr %1297, ptr %26, align 8
+  %1298 = load ptr, ptr %23, align 8
+  %1299 = getelementptr inbounds nuw i8, ptr %1298, i64 96
+  %1300 = load ptr, ptr %1299, align 8
+  %1301 = getelementptr inbounds i8, ptr %1300, i64 -8
+  store ptr %1301, ptr %1299, align 8
   %.pre.i505 = load ptr, ptr %25, align 8
   %.pre17.i506 = load ptr, ptr %26, align 8
-  br label %1303
+  br label %1302
 
-1303:                                             ; preds = %.sink.split.i.i504, %.lr.ph.i.i501
-  %1304 = phi ptr [ %.pre17.i506, %.sink.split.i.i504 ], [ %1261, %.lr.ph.i.i501 ]
-  %1305 = phi ptr [ %.pre.i505, %.sink.split.i.i504 ], [ %1262, %.lr.ph.i.i501 ]
-  %1306 = icmp eq ptr %1305, %1304
-  br i1 %1306, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i507, label %.lr.ph.i.i501, !llvm.loop !21
+1302:                                             ; preds = %.sink.split.i.i504, %.lr.ph.i.i501
+  %1303 = phi ptr [ %.pre17.i506, %.sink.split.i.i504 ], [ %1260, %.lr.ph.i.i501 ]
+  %1304 = phi ptr [ %.pre.i505, %.sink.split.i.i504 ], [ %1261, %.lr.ph.i.i501 ]
+  %1305 = icmp eq ptr %1304, %1303
+  br i1 %1305, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i507, label %.lr.ph.i.i501, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i507: ; preds = %1303
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i507: ; preds = %1302
   %.pre18.i508 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.loopexit: ; preds = %1257
-  %1307 = getelementptr inbounds nuw i8, ptr %1250, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.loopexit: ; preds = %1256
+  %1306 = getelementptr inbounds nuw i8, ptr %1249, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i507
-  %1308 = phi ptr [ %.pre18.i508, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i507 ], [ %1307, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.loopexit ]
-  %1309 = load ptr, ptr %0, align 8
+  %1307 = phi ptr [ %.pre18.i508, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i507 ], [ %1306, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.loopexit ]
+  %1308 = load ptr, ptr %0, align 8
+  %1309 = ptrtoint ptr %1307 to i64
   %1310 = ptrtoint ptr %1308 to i64
-  %1311 = ptrtoint ptr %1309 to i64
-  %1312 = sub i64 %1310, %1311
-  store i64 %1312, ptr %3, align 8
+  %1311 = sub i64 %1309, %1310
+  store i64 %1311, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1313:                                             ; preds = %310
-  %1314 = load i8, ptr %300, align 1
-  %1315 = zext i8 %1314 to i64
-  store i64 %1315, ptr %24, align 8
-  %1316 = icmp eq i8 %1314, 0
-  br i1 %1316, label %1317, label %.thread645.sink.split
+1312:                                             ; preds = %309
+  %1313 = load i8, ptr %299, align 1
+  %1314 = zext i8 %1313 to i64
+  store i64 %1314, ptr %24, align 8
+  %1315 = icmp eq i8 %1313, 0
+  br i1 %1315, label %1316, label %.thread645.sink.split
 
-1317:                                             ; preds = %1313
-  %1318 = load ptr, ptr %23, align 8
-  %1319 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1318, ptr noundef nonnull %300, i32 noundef 0)
-  %1320 = load ptr, ptr %19, align 8
-  %1321 = getelementptr inbounds nuw i8, ptr %1320, i64 1
-  store ptr %1321, ptr %19, align 8
-  br i1 %1319, label %1327, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.thread
+1316:                                             ; preds = %1312
+  %1317 = load ptr, ptr %23, align 8
+  %1318 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1317, ptr noundef nonnull %299, i32 noundef 0)
+  %1319 = load ptr, ptr %19, align 8
+  %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 1
+  store ptr %1320, ptr %19, align 8
+  br i1 %1318, label %1326, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.thread: ; preds = %1317
-  %1322 = getelementptr inbounds nuw i8, ptr %1320, i64 1
-  %1323 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.thread: ; preds = %1316
+  %1321 = getelementptr inbounds nuw i8, ptr %1319, i64 1
+  %1322 = load ptr, ptr %0, align 8
+  %1323 = ptrtoint ptr %1321 to i64
   %1324 = ptrtoint ptr %1322 to i64
-  %1325 = ptrtoint ptr %1323 to i64
-  %1326 = sub i64 %1324, %1325
-  store i64 %1326, ptr %3, align 8
+  %1325 = sub i64 %1323, %1324
+  store i64 %1325, ptr %3, align 8
   br label %.loopexit
 
-1327:                                             ; preds = %1317
-  %1328 = load ptr, ptr %25, align 8
-  %1329 = load ptr, ptr %26, align 8
-  %1330 = icmp eq ptr %1328, %1329
-  br i1 %1330, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.loopexit, label %.lr.ph.i.i512
+1326:                                             ; preds = %1316
+  %1327 = load ptr, ptr %25, align 8
+  %1328 = load ptr, ptr %26, align 8
+  %1329 = icmp eq ptr %1327, %1328
+  br i1 %1329, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.loopexit, label %.lr.ph.i.i512
 
-.lr.ph.i.i512:                                    ; preds = %1327, %1373
-  %1331 = phi ptr [ %1374, %1373 ], [ %1329, %1327 ]
-  %1332 = phi ptr [ %1375, %1373 ], [ %1328, %1327 ]
-  %1333 = getelementptr inbounds i8, ptr %1331, i64 -8
-  %1334 = load i32, ptr %1333, align 4
-  switch i32 %1334, label %1373 [
-    i32 0, label %1335
-    i32 1, label %1346
-    i32 2, label %1354
+.lr.ph.i.i512:                                    ; preds = %1326, %1372
+  %1330 = phi ptr [ %1373, %1372 ], [ %1328, %1326 ]
+  %1331 = phi ptr [ %1374, %1372 ], [ %1327, %1326 ]
+  %1332 = getelementptr inbounds i8, ptr %1330, i64 -8
+  %1333 = load i32, ptr %1332, align 4
+  switch i32 %1333, label %1372 [
+    i32 0, label %1334
+    i32 1, label %1345
+    i32 2, label %1353
   ]
 
-1335:                                             ; preds = %.lr.ph.i.i512
-  %1336 = load ptr, ptr %23, align 8
-  %1337 = getelementptr inbounds nuw i8, ptr %1336, i64 96
-  %1338 = load ptr, ptr %1337, align 8
-  %1339 = getelementptr inbounds i8, ptr %1338, i64 -8
-  %1340 = load ptr, ptr %1339, align 8
-  %1341 = getelementptr inbounds nuw i8, ptr %1340, i64 24
-  store ptr %1341, ptr %1339, align 8
-  %1342 = getelementptr inbounds i8, ptr %1331, i64 -4
-  %1343 = load i32, ptr %1342, align 4
-  %1344 = add i32 %1343, -1
-  store i32 %1344, ptr %1342, align 4
-  %1345 = icmp eq i32 %1344, 0
-  br i1 %1345, label %.sink.split.i.i515, label %.thread645.sink.split
+1334:                                             ; preds = %.lr.ph.i.i512
+  %1335 = load ptr, ptr %23, align 8
+  %1336 = getelementptr inbounds nuw i8, ptr %1335, i64 96
+  %1337 = load ptr, ptr %1336, align 8
+  %1338 = getelementptr inbounds i8, ptr %1337, i64 -8
+  %1339 = load ptr, ptr %1338, align 8
+  %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 24
+  store ptr %1340, ptr %1338, align 8
+  %1341 = getelementptr inbounds i8, ptr %1330, i64 -4
+  %1342 = load i32, ptr %1341, align 4
+  %1343 = add i32 %1342, -1
+  store i32 %1343, ptr %1341, align 4
+  %1344 = icmp eq i32 %1343, 0
+  br i1 %1344, label %.sink.split.i.i515, label %.thread645.sink.split
 
-1346:                                             ; preds = %.lr.ph.i.i512
-  %1347 = getelementptr inbounds i8, ptr %1331, i64 -8
-  %1348 = load ptr, ptr %23, align 8
-  %1349 = getelementptr inbounds nuw i8, ptr %1348, i64 96
-  %1350 = load ptr, ptr %1349, align 8
-  %1351 = getelementptr inbounds i8, ptr %1350, i64 -8
-  %1352 = load ptr, ptr %1351, align 8
-  %1353 = getelementptr inbounds nuw i8, ptr %1352, i64 24
-  store ptr %1353, ptr %1351, align 8
-  store i32 2, ptr %1347, align 4
+1345:                                             ; preds = %.lr.ph.i.i512
+  %1346 = getelementptr inbounds i8, ptr %1330, i64 -8
+  %1347 = load ptr, ptr %23, align 8
+  %1348 = getelementptr inbounds nuw i8, ptr %1347, i64 96
+  %1349 = load ptr, ptr %1348, align 8
+  %1350 = getelementptr inbounds i8, ptr %1349, i64 -8
+  %1351 = load ptr, ptr %1350, align 8
+  %1352 = getelementptr inbounds nuw i8, ptr %1351, i64 24
+  store ptr %1352, ptr %1350, align 8
+  store i32 2, ptr %1346, align 4
   br label %.thread645.sink.split
 
-1354:                                             ; preds = %.lr.ph.i.i512
-  %1355 = load ptr, ptr %23, align 8
-  %1356 = getelementptr inbounds nuw i8, ptr %1355, i64 96
-  %1357 = load ptr, ptr %1356, align 8
-  %1358 = getelementptr inbounds i8, ptr %1357, i64 -8
-  %1359 = load ptr, ptr %1358, align 8
-  %1360 = getelementptr inbounds nuw i8, ptr %1359, i64 24
-  store ptr %1360, ptr %1358, align 8
-  %1361 = getelementptr inbounds i8, ptr %1331, i64 -4
-  %1362 = load i32, ptr %1361, align 4
-  %1363 = add i32 %1362, -1
-  store i32 %1363, ptr %1361, align 4
-  %1364 = icmp eq i32 %1363, 0
-  br i1 %1364, label %.sink.split.i.i515, label %1365
+1353:                                             ; preds = %.lr.ph.i.i512
+  %1354 = load ptr, ptr %23, align 8
+  %1355 = getelementptr inbounds nuw i8, ptr %1354, i64 96
+  %1356 = load ptr, ptr %1355, align 8
+  %1357 = getelementptr inbounds i8, ptr %1356, i64 -8
+  %1358 = load ptr, ptr %1357, align 8
+  %1359 = getelementptr inbounds nuw i8, ptr %1358, i64 24
+  store ptr %1359, ptr %1357, align 8
+  %1360 = getelementptr inbounds i8, ptr %1330, i64 -4
+  %1361 = load i32, ptr %1360, align 4
+  %1362 = add i32 %1361, -1
+  store i32 %1362, ptr %1360, align 4
+  %1363 = icmp eq i32 %1362, 0
+  br i1 %1363, label %.sink.split.i.i515, label %1364
 
-1365:                                             ; preds = %1354
-  %1366 = getelementptr inbounds i8, ptr %1331, i64 -8
-  store i32 1, ptr %1366, align 4
+1364:                                             ; preds = %1353
+  %1365 = getelementptr inbounds i8, ptr %1330, i64 -8
+  store i32 1, ptr %1365, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i515:                               ; preds = %1354, %1335
-  %1367 = load ptr, ptr %26, align 8
-  %1368 = getelementptr inbounds i8, ptr %1367, i64 -8
-  store ptr %1368, ptr %26, align 8
-  %1369 = load ptr, ptr %23, align 8
-  %1370 = getelementptr inbounds nuw i8, ptr %1369, i64 96
-  %1371 = load ptr, ptr %1370, align 8
-  %1372 = getelementptr inbounds i8, ptr %1371, i64 -8
-  store ptr %1372, ptr %1370, align 8
+.sink.split.i.i515:                               ; preds = %1353, %1334
+  %1366 = load ptr, ptr %26, align 8
+  %1367 = getelementptr inbounds i8, ptr %1366, i64 -8
+  store ptr %1367, ptr %26, align 8
+  %1368 = load ptr, ptr %23, align 8
+  %1369 = getelementptr inbounds nuw i8, ptr %1368, i64 96
+  %1370 = load ptr, ptr %1369, align 8
+  %1371 = getelementptr inbounds i8, ptr %1370, i64 -8
+  store ptr %1371, ptr %1369, align 8
   %.pre.i516 = load ptr, ptr %25, align 8
   %.pre17.i517 = load ptr, ptr %26, align 8
-  br label %1373
+  br label %1372
 
-1373:                                             ; preds = %.sink.split.i.i515, %.lr.ph.i.i512
-  %1374 = phi ptr [ %.pre17.i517, %.sink.split.i.i515 ], [ %1331, %.lr.ph.i.i512 ]
-  %1375 = phi ptr [ %.pre.i516, %.sink.split.i.i515 ], [ %1332, %.lr.ph.i.i512 ]
-  %1376 = icmp eq ptr %1375, %1374
-  br i1 %1376, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i518, label %.lr.ph.i.i512, !llvm.loop !21
+1372:                                             ; preds = %.sink.split.i.i515, %.lr.ph.i.i512
+  %1373 = phi ptr [ %.pre17.i517, %.sink.split.i.i515 ], [ %1330, %.lr.ph.i.i512 ]
+  %1374 = phi ptr [ %.pre.i516, %.sink.split.i.i515 ], [ %1331, %.lr.ph.i.i512 ]
+  %1375 = icmp eq ptr %1374, %1373
+  br i1 %1375, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i518, label %.lr.ph.i.i512, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i518: ; preds = %1373
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i518: ; preds = %1372
   %.pre18.i519 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.loopexit: ; preds = %1327
-  %1377 = getelementptr inbounds nuw i8, ptr %1320, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.loopexit: ; preds = %1326
+  %1376 = getelementptr inbounds nuw i8, ptr %1319, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i518
-  %1378 = phi ptr [ %.pre18.i519, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i518 ], [ %1377, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.loopexit ]
-  %1379 = load ptr, ptr %0, align 8
+  %1377 = phi ptr [ %.pre18.i519, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i518 ], [ %1376, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.loopexit ]
+  %1378 = load ptr, ptr %0, align 8
+  %1379 = ptrtoint ptr %1377 to i64
   %1380 = ptrtoint ptr %1378 to i64
-  %1381 = ptrtoint ptr %1379 to i64
-  %1382 = sub i64 %1380, %1381
-  store i64 %1382, ptr %3, align 8
+  %1381 = sub i64 %1379, %1380
+  store i64 %1381, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1383:                                             ; preds = %310
-  %1384 = load i8, ptr %300, align 1
-  %1385 = zext i8 %1384 to i64
-  store i64 %1385, ptr %24, align 8
-  %1386 = icmp eq i8 %1384, 0
-  br i1 %1386, label %1387, label %.thread645.sink.split
+1382:                                             ; preds = %309
+  %1383 = load i8, ptr %299, align 1
+  %1384 = zext i8 %1383 to i64
+  store i64 %1384, ptr %24, align 8
+  %1385 = icmp eq i8 %1383, 0
+  br i1 %1385, label %1386, label %.thread645.sink.split
 
-1387:                                             ; preds = %1383
-  %1388 = load ptr, ptr %23, align 8
-  %1389 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1388, ptr noundef nonnull %300, i32 noundef 0)
-  %1390 = load ptr, ptr %19, align 8
-  %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 1
-  store ptr %1391, ptr %19, align 8
-  br i1 %1389, label %1397, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.thread
+1386:                                             ; preds = %1382
+  %1387 = load ptr, ptr %23, align 8
+  %1388 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1387, ptr noundef nonnull %299, i32 noundef 0)
+  %1389 = load ptr, ptr %19, align 8
+  %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 1
+  store ptr %1390, ptr %19, align 8
+  br i1 %1388, label %1396, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.thread: ; preds = %1387
-  %1392 = getelementptr inbounds nuw i8, ptr %1390, i64 1
-  %1393 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.thread: ; preds = %1386
+  %1391 = getelementptr inbounds nuw i8, ptr %1389, i64 1
+  %1392 = load ptr, ptr %0, align 8
+  %1393 = ptrtoint ptr %1391 to i64
   %1394 = ptrtoint ptr %1392 to i64
-  %1395 = ptrtoint ptr %1393 to i64
-  %1396 = sub i64 %1394, %1395
-  store i64 %1396, ptr %3, align 8
+  %1395 = sub i64 %1393, %1394
+  store i64 %1395, ptr %3, align 8
   br label %.loopexit
 
-1397:                                             ; preds = %1387
-  %1398 = load ptr, ptr %25, align 8
-  %1399 = load ptr, ptr %26, align 8
-  %1400 = icmp eq ptr %1398, %1399
-  br i1 %1400, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.loopexit, label %.lr.ph.i.i523
+1396:                                             ; preds = %1386
+  %1397 = load ptr, ptr %25, align 8
+  %1398 = load ptr, ptr %26, align 8
+  %1399 = icmp eq ptr %1397, %1398
+  br i1 %1399, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.loopexit, label %.lr.ph.i.i523
 
-.lr.ph.i.i523:                                    ; preds = %1397, %1443
-  %1401 = phi ptr [ %1444, %1443 ], [ %1399, %1397 ]
-  %1402 = phi ptr [ %1445, %1443 ], [ %1398, %1397 ]
-  %1403 = getelementptr inbounds i8, ptr %1401, i64 -8
-  %1404 = load i32, ptr %1403, align 4
-  switch i32 %1404, label %1443 [
-    i32 0, label %1405
-    i32 1, label %1416
-    i32 2, label %1424
+.lr.ph.i.i523:                                    ; preds = %1396, %1442
+  %1400 = phi ptr [ %1443, %1442 ], [ %1398, %1396 ]
+  %1401 = phi ptr [ %1444, %1442 ], [ %1397, %1396 ]
+  %1402 = getelementptr inbounds i8, ptr %1400, i64 -8
+  %1403 = load i32, ptr %1402, align 4
+  switch i32 %1403, label %1442 [
+    i32 0, label %1404
+    i32 1, label %1415
+    i32 2, label %1423
   ]
 
-1405:                                             ; preds = %.lr.ph.i.i523
-  %1406 = load ptr, ptr %23, align 8
-  %1407 = getelementptr inbounds nuw i8, ptr %1406, i64 96
-  %1408 = load ptr, ptr %1407, align 8
-  %1409 = getelementptr inbounds i8, ptr %1408, i64 -8
-  %1410 = load ptr, ptr %1409, align 8
-  %1411 = getelementptr inbounds nuw i8, ptr %1410, i64 24
-  store ptr %1411, ptr %1409, align 8
-  %1412 = getelementptr inbounds i8, ptr %1401, i64 -4
-  %1413 = load i32, ptr %1412, align 4
-  %1414 = add i32 %1413, -1
-  store i32 %1414, ptr %1412, align 4
-  %1415 = icmp eq i32 %1414, 0
-  br i1 %1415, label %.sink.split.i.i526, label %.thread645.sink.split
+1404:                                             ; preds = %.lr.ph.i.i523
+  %1405 = load ptr, ptr %23, align 8
+  %1406 = getelementptr inbounds nuw i8, ptr %1405, i64 96
+  %1407 = load ptr, ptr %1406, align 8
+  %1408 = getelementptr inbounds i8, ptr %1407, i64 -8
+  %1409 = load ptr, ptr %1408, align 8
+  %1410 = getelementptr inbounds nuw i8, ptr %1409, i64 24
+  store ptr %1410, ptr %1408, align 8
+  %1411 = getelementptr inbounds i8, ptr %1400, i64 -4
+  %1412 = load i32, ptr %1411, align 4
+  %1413 = add i32 %1412, -1
+  store i32 %1413, ptr %1411, align 4
+  %1414 = icmp eq i32 %1413, 0
+  br i1 %1414, label %.sink.split.i.i526, label %.thread645.sink.split
 
-1416:                                             ; preds = %.lr.ph.i.i523
-  %1417 = getelementptr inbounds i8, ptr %1401, i64 -8
-  %1418 = load ptr, ptr %23, align 8
-  %1419 = getelementptr inbounds nuw i8, ptr %1418, i64 96
-  %1420 = load ptr, ptr %1419, align 8
-  %1421 = getelementptr inbounds i8, ptr %1420, i64 -8
-  %1422 = load ptr, ptr %1421, align 8
-  %1423 = getelementptr inbounds nuw i8, ptr %1422, i64 24
-  store ptr %1423, ptr %1421, align 8
-  store i32 2, ptr %1417, align 4
+1415:                                             ; preds = %.lr.ph.i.i523
+  %1416 = getelementptr inbounds i8, ptr %1400, i64 -8
+  %1417 = load ptr, ptr %23, align 8
+  %1418 = getelementptr inbounds nuw i8, ptr %1417, i64 96
+  %1419 = load ptr, ptr %1418, align 8
+  %1420 = getelementptr inbounds i8, ptr %1419, i64 -8
+  %1421 = load ptr, ptr %1420, align 8
+  %1422 = getelementptr inbounds nuw i8, ptr %1421, i64 24
+  store ptr %1422, ptr %1420, align 8
+  store i32 2, ptr %1416, align 4
   br label %.thread645.sink.split
 
-1424:                                             ; preds = %.lr.ph.i.i523
-  %1425 = load ptr, ptr %23, align 8
-  %1426 = getelementptr inbounds nuw i8, ptr %1425, i64 96
-  %1427 = load ptr, ptr %1426, align 8
-  %1428 = getelementptr inbounds i8, ptr %1427, i64 -8
-  %1429 = load ptr, ptr %1428, align 8
-  %1430 = getelementptr inbounds nuw i8, ptr %1429, i64 24
-  store ptr %1430, ptr %1428, align 8
-  %1431 = getelementptr inbounds i8, ptr %1401, i64 -4
-  %1432 = load i32, ptr %1431, align 4
-  %1433 = add i32 %1432, -1
-  store i32 %1433, ptr %1431, align 4
-  %1434 = icmp eq i32 %1433, 0
-  br i1 %1434, label %.sink.split.i.i526, label %1435
+1423:                                             ; preds = %.lr.ph.i.i523
+  %1424 = load ptr, ptr %23, align 8
+  %1425 = getelementptr inbounds nuw i8, ptr %1424, i64 96
+  %1426 = load ptr, ptr %1425, align 8
+  %1427 = getelementptr inbounds i8, ptr %1426, i64 -8
+  %1428 = load ptr, ptr %1427, align 8
+  %1429 = getelementptr inbounds nuw i8, ptr %1428, i64 24
+  store ptr %1429, ptr %1427, align 8
+  %1430 = getelementptr inbounds i8, ptr %1400, i64 -4
+  %1431 = load i32, ptr %1430, align 4
+  %1432 = add i32 %1431, -1
+  store i32 %1432, ptr %1430, align 4
+  %1433 = icmp eq i32 %1432, 0
+  br i1 %1433, label %.sink.split.i.i526, label %1434
 
-1435:                                             ; preds = %1424
-  %1436 = getelementptr inbounds i8, ptr %1401, i64 -8
-  store i32 1, ptr %1436, align 4
+1434:                                             ; preds = %1423
+  %1435 = getelementptr inbounds i8, ptr %1400, i64 -8
+  store i32 1, ptr %1435, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i526:                               ; preds = %1424, %1405
-  %1437 = load ptr, ptr %26, align 8
-  %1438 = getelementptr inbounds i8, ptr %1437, i64 -8
-  store ptr %1438, ptr %26, align 8
-  %1439 = load ptr, ptr %23, align 8
-  %1440 = getelementptr inbounds nuw i8, ptr %1439, i64 96
-  %1441 = load ptr, ptr %1440, align 8
-  %1442 = getelementptr inbounds i8, ptr %1441, i64 -8
-  store ptr %1442, ptr %1440, align 8
+.sink.split.i.i526:                               ; preds = %1423, %1404
+  %1436 = load ptr, ptr %26, align 8
+  %1437 = getelementptr inbounds i8, ptr %1436, i64 -8
+  store ptr %1437, ptr %26, align 8
+  %1438 = load ptr, ptr %23, align 8
+  %1439 = getelementptr inbounds nuw i8, ptr %1438, i64 96
+  %1440 = load ptr, ptr %1439, align 8
+  %1441 = getelementptr inbounds i8, ptr %1440, i64 -8
+  store ptr %1441, ptr %1439, align 8
   %.pre.i527 = load ptr, ptr %25, align 8
   %.pre17.i528 = load ptr, ptr %26, align 8
-  br label %1443
+  br label %1442
 
-1443:                                             ; preds = %.sink.split.i.i526, %.lr.ph.i.i523
-  %1444 = phi ptr [ %.pre17.i528, %.sink.split.i.i526 ], [ %1401, %.lr.ph.i.i523 ]
-  %1445 = phi ptr [ %.pre.i527, %.sink.split.i.i526 ], [ %1402, %.lr.ph.i.i523 ]
-  %1446 = icmp eq ptr %1445, %1444
-  br i1 %1446, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i529, label %.lr.ph.i.i523, !llvm.loop !21
+1442:                                             ; preds = %.sink.split.i.i526, %.lr.ph.i.i523
+  %1443 = phi ptr [ %.pre17.i528, %.sink.split.i.i526 ], [ %1400, %.lr.ph.i.i523 ]
+  %1444 = phi ptr [ %.pre.i527, %.sink.split.i.i526 ], [ %1401, %.lr.ph.i.i523 ]
+  %1445 = icmp eq ptr %1444, %1443
+  br i1 %1445, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i529, label %.lr.ph.i.i523, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i529: ; preds = %1443
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i529: ; preds = %1442
   %.pre18.i530 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.loopexit: ; preds = %1397
-  %1447 = getelementptr inbounds nuw i8, ptr %1390, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.loopexit: ; preds = %1396
+  %1446 = getelementptr inbounds nuw i8, ptr %1389, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i529
-  %1448 = phi ptr [ %.pre18.i530, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i529 ], [ %1447, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.loopexit ]
-  %1449 = load ptr, ptr %0, align 8
+  %1447 = phi ptr [ %.pre18.i530, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i529 ], [ %1446, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.loopexit ]
+  %1448 = load ptr, ptr %0, align 8
+  %1449 = ptrtoint ptr %1447 to i64
   %1450 = ptrtoint ptr %1448 to i64
-  %1451 = ptrtoint ptr %1449 to i64
-  %1452 = sub i64 %1450, %1451
-  store i64 %1452, ptr %3, align 8
+  %1451 = sub i64 %1449, %1450
+  store i64 %1451, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1453:                                             ; preds = %310
-  %1454 = load i8, ptr %300, align 1
-  %1455 = zext i8 %1454 to i64
-  %1456 = add nuw nsw i64 %1455, 1
-  store i64 %1456, ptr %24, align 8
+1452:                                             ; preds = %309
+  %1453 = load i8, ptr %299, align 1
+  %1454 = zext i8 %1453 to i64
+  %1455 = add nuw nsw i64 %1454, 1
+  store i64 %1455, ptr %24, align 8
   br label %.thread645.sink.split
 
-1457:                                             ; preds = %310
-  %1458 = load i16, ptr %300, align 1
-  %1459 = call zeroext i16 @ntohs(i16 noundef zeroext %1458) #30
-  %1460 = zext i16 %1459 to i64
-  store i64 %1460, ptr %24, align 8
-  %1461 = icmp eq i16 %1459, 0
-  br i1 %1461, label %1462, label %.thread645.sink.split
+1456:                                             ; preds = %309
+  %1457 = load i16, ptr %299, align 1
+  %1458 = call zeroext i16 @ntohs(i16 noundef zeroext %1457) #30
+  %1459 = zext i16 %1458 to i64
+  store i64 %1459, ptr %24, align 8
+  %1460 = icmp eq i16 %1458, 0
+  br i1 %1460, label %1461, label %.thread645.sink.split
 
-1462:                                             ; preds = %1457
-  %1463 = load ptr, ptr %23, align 8
-  %1464 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1463, ptr noundef nonnull %300, i32 noundef 0)
-  %1465 = load ptr, ptr %19, align 8
-  %1466 = getelementptr inbounds nuw i8, ptr %1465, i64 1
-  store ptr %1466, ptr %19, align 8
-  br i1 %1464, label %1472, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.thread
+1461:                                             ; preds = %1456
+  %1462 = load ptr, ptr %23, align 8
+  %1463 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1462, ptr noundef nonnull %299, i32 noundef 0)
+  %1464 = load ptr, ptr %19, align 8
+  %1465 = getelementptr inbounds nuw i8, ptr %1464, i64 1
+  store ptr %1465, ptr %19, align 8
+  br i1 %1463, label %1471, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.thread: ; preds = %1462
-  %1467 = getelementptr inbounds nuw i8, ptr %1465, i64 1
-  %1468 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.thread: ; preds = %1461
+  %1466 = getelementptr inbounds nuw i8, ptr %1464, i64 1
+  %1467 = load ptr, ptr %0, align 8
+  %1468 = ptrtoint ptr %1466 to i64
   %1469 = ptrtoint ptr %1467 to i64
-  %1470 = ptrtoint ptr %1468 to i64
-  %1471 = sub i64 %1469, %1470
-  store i64 %1471, ptr %3, align 8
+  %1470 = sub i64 %1468, %1469
+  store i64 %1470, ptr %3, align 8
   br label %.loopexit
 
-1472:                                             ; preds = %1462
-  %1473 = load ptr, ptr %25, align 8
-  %1474 = load ptr, ptr %26, align 8
-  %1475 = icmp eq ptr %1473, %1474
-  br i1 %1475, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.loopexit, label %.lr.ph.i.i534
+1471:                                             ; preds = %1461
+  %1472 = load ptr, ptr %25, align 8
+  %1473 = load ptr, ptr %26, align 8
+  %1474 = icmp eq ptr %1472, %1473
+  br i1 %1474, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.loopexit, label %.lr.ph.i.i534
 
-.lr.ph.i.i534:                                    ; preds = %1472, %1518
-  %1476 = phi ptr [ %1519, %1518 ], [ %1474, %1472 ]
-  %1477 = phi ptr [ %1520, %1518 ], [ %1473, %1472 ]
-  %1478 = getelementptr inbounds i8, ptr %1476, i64 -8
-  %1479 = load i32, ptr %1478, align 4
-  switch i32 %1479, label %1518 [
-    i32 0, label %1480
-    i32 1, label %1491
-    i32 2, label %1499
+.lr.ph.i.i534:                                    ; preds = %1471, %1517
+  %1475 = phi ptr [ %1518, %1517 ], [ %1473, %1471 ]
+  %1476 = phi ptr [ %1519, %1517 ], [ %1472, %1471 ]
+  %1477 = getelementptr inbounds i8, ptr %1475, i64 -8
+  %1478 = load i32, ptr %1477, align 4
+  switch i32 %1478, label %1517 [
+    i32 0, label %1479
+    i32 1, label %1490
+    i32 2, label %1498
   ]
 
-1480:                                             ; preds = %.lr.ph.i.i534
-  %1481 = load ptr, ptr %23, align 8
-  %1482 = getelementptr inbounds nuw i8, ptr %1481, i64 96
-  %1483 = load ptr, ptr %1482, align 8
-  %1484 = getelementptr inbounds i8, ptr %1483, i64 -8
-  %1485 = load ptr, ptr %1484, align 8
-  %1486 = getelementptr inbounds nuw i8, ptr %1485, i64 24
-  store ptr %1486, ptr %1484, align 8
-  %1487 = getelementptr inbounds i8, ptr %1476, i64 -4
-  %1488 = load i32, ptr %1487, align 4
-  %1489 = add i32 %1488, -1
-  store i32 %1489, ptr %1487, align 4
-  %1490 = icmp eq i32 %1489, 0
-  br i1 %1490, label %.sink.split.i.i537, label %.thread645.sink.split
+1479:                                             ; preds = %.lr.ph.i.i534
+  %1480 = load ptr, ptr %23, align 8
+  %1481 = getelementptr inbounds nuw i8, ptr %1480, i64 96
+  %1482 = load ptr, ptr %1481, align 8
+  %1483 = getelementptr inbounds i8, ptr %1482, i64 -8
+  %1484 = load ptr, ptr %1483, align 8
+  %1485 = getelementptr inbounds nuw i8, ptr %1484, i64 24
+  store ptr %1485, ptr %1483, align 8
+  %1486 = getelementptr inbounds i8, ptr %1475, i64 -4
+  %1487 = load i32, ptr %1486, align 4
+  %1488 = add i32 %1487, -1
+  store i32 %1488, ptr %1486, align 4
+  %1489 = icmp eq i32 %1488, 0
+  br i1 %1489, label %.sink.split.i.i537, label %.thread645.sink.split
 
-1491:                                             ; preds = %.lr.ph.i.i534
-  %1492 = getelementptr inbounds i8, ptr %1476, i64 -8
-  %1493 = load ptr, ptr %23, align 8
-  %1494 = getelementptr inbounds nuw i8, ptr %1493, i64 96
-  %1495 = load ptr, ptr %1494, align 8
-  %1496 = getelementptr inbounds i8, ptr %1495, i64 -8
-  %1497 = load ptr, ptr %1496, align 8
-  %1498 = getelementptr inbounds nuw i8, ptr %1497, i64 24
-  store ptr %1498, ptr %1496, align 8
-  store i32 2, ptr %1492, align 4
+1490:                                             ; preds = %.lr.ph.i.i534
+  %1491 = getelementptr inbounds i8, ptr %1475, i64 -8
+  %1492 = load ptr, ptr %23, align 8
+  %1493 = getelementptr inbounds nuw i8, ptr %1492, i64 96
+  %1494 = load ptr, ptr %1493, align 8
+  %1495 = getelementptr inbounds i8, ptr %1494, i64 -8
+  %1496 = load ptr, ptr %1495, align 8
+  %1497 = getelementptr inbounds nuw i8, ptr %1496, i64 24
+  store ptr %1497, ptr %1495, align 8
+  store i32 2, ptr %1491, align 4
   br label %.thread645.sink.split
 
-1499:                                             ; preds = %.lr.ph.i.i534
-  %1500 = load ptr, ptr %23, align 8
-  %1501 = getelementptr inbounds nuw i8, ptr %1500, i64 96
-  %1502 = load ptr, ptr %1501, align 8
-  %1503 = getelementptr inbounds i8, ptr %1502, i64 -8
-  %1504 = load ptr, ptr %1503, align 8
-  %1505 = getelementptr inbounds nuw i8, ptr %1504, i64 24
-  store ptr %1505, ptr %1503, align 8
-  %1506 = getelementptr inbounds i8, ptr %1476, i64 -4
-  %1507 = load i32, ptr %1506, align 4
-  %1508 = add i32 %1507, -1
-  store i32 %1508, ptr %1506, align 4
-  %1509 = icmp eq i32 %1508, 0
-  br i1 %1509, label %.sink.split.i.i537, label %1510
+1498:                                             ; preds = %.lr.ph.i.i534
+  %1499 = load ptr, ptr %23, align 8
+  %1500 = getelementptr inbounds nuw i8, ptr %1499, i64 96
+  %1501 = load ptr, ptr %1500, align 8
+  %1502 = getelementptr inbounds i8, ptr %1501, i64 -8
+  %1503 = load ptr, ptr %1502, align 8
+  %1504 = getelementptr inbounds nuw i8, ptr %1503, i64 24
+  store ptr %1504, ptr %1502, align 8
+  %1505 = getelementptr inbounds i8, ptr %1475, i64 -4
+  %1506 = load i32, ptr %1505, align 4
+  %1507 = add i32 %1506, -1
+  store i32 %1507, ptr %1505, align 4
+  %1508 = icmp eq i32 %1507, 0
+  br i1 %1508, label %.sink.split.i.i537, label %1509
 
-1510:                                             ; preds = %1499
-  %1511 = getelementptr inbounds i8, ptr %1476, i64 -8
-  store i32 1, ptr %1511, align 4
+1509:                                             ; preds = %1498
+  %1510 = getelementptr inbounds i8, ptr %1475, i64 -8
+  store i32 1, ptr %1510, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i537:                               ; preds = %1499, %1480
-  %1512 = load ptr, ptr %26, align 8
-  %1513 = getelementptr inbounds i8, ptr %1512, i64 -8
-  store ptr %1513, ptr %26, align 8
-  %1514 = load ptr, ptr %23, align 8
-  %1515 = getelementptr inbounds nuw i8, ptr %1514, i64 96
-  %1516 = load ptr, ptr %1515, align 8
-  %1517 = getelementptr inbounds i8, ptr %1516, i64 -8
-  store ptr %1517, ptr %1515, align 8
+.sink.split.i.i537:                               ; preds = %1498, %1479
+  %1511 = load ptr, ptr %26, align 8
+  %1512 = getelementptr inbounds i8, ptr %1511, i64 -8
+  store ptr %1512, ptr %26, align 8
+  %1513 = load ptr, ptr %23, align 8
+  %1514 = getelementptr inbounds nuw i8, ptr %1513, i64 96
+  %1515 = load ptr, ptr %1514, align 8
+  %1516 = getelementptr inbounds i8, ptr %1515, i64 -8
+  store ptr %1516, ptr %1514, align 8
   %.pre.i538 = load ptr, ptr %25, align 8
   %.pre17.i539 = load ptr, ptr %26, align 8
-  br label %1518
+  br label %1517
 
-1518:                                             ; preds = %.sink.split.i.i537, %.lr.ph.i.i534
-  %1519 = phi ptr [ %.pre17.i539, %.sink.split.i.i537 ], [ %1476, %.lr.ph.i.i534 ]
-  %1520 = phi ptr [ %.pre.i538, %.sink.split.i.i537 ], [ %1477, %.lr.ph.i.i534 ]
-  %1521 = icmp eq ptr %1520, %1519
-  br i1 %1521, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i540, label %.lr.ph.i.i534, !llvm.loop !21
+1517:                                             ; preds = %.sink.split.i.i537, %.lr.ph.i.i534
+  %1518 = phi ptr [ %.pre17.i539, %.sink.split.i.i537 ], [ %1475, %.lr.ph.i.i534 ]
+  %1519 = phi ptr [ %.pre.i538, %.sink.split.i.i537 ], [ %1476, %.lr.ph.i.i534 ]
+  %1520 = icmp eq ptr %1519, %1518
+  br i1 %1520, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i540, label %.lr.ph.i.i534, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i540: ; preds = %1518
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i540: ; preds = %1517
   %.pre18.i541 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.loopexit: ; preds = %1472
-  %1522 = getelementptr inbounds nuw i8, ptr %1465, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.loopexit: ; preds = %1471
+  %1521 = getelementptr inbounds nuw i8, ptr %1464, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i540
-  %1523 = phi ptr [ %.pre18.i541, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i540 ], [ %1522, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.loopexit ]
-  %1524 = load ptr, ptr %0, align 8
+  %1522 = phi ptr [ %.pre18.i541, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i540 ], [ %1521, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.loopexit ]
+  %1523 = load ptr, ptr %0, align 8
+  %1524 = ptrtoint ptr %1522 to i64
   %1525 = ptrtoint ptr %1523 to i64
-  %1526 = ptrtoint ptr %1524 to i64
-  %1527 = sub i64 %1525, %1526
-  store i64 %1527, ptr %3, align 8
+  %1526 = sub i64 %1524, %1525
+  store i64 %1526, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1528:                                             ; preds = %310
-  %1529 = load i16, ptr %300, align 1
-  %1530 = call zeroext i16 @ntohs(i16 noundef zeroext %1529) #30
-  %1531 = zext i16 %1530 to i64
-  store i64 %1531, ptr %24, align 8
-  %1532 = icmp eq i16 %1530, 0
-  br i1 %1532, label %1533, label %.thread645.sink.split
+1527:                                             ; preds = %309
+  %1528 = load i16, ptr %299, align 1
+  %1529 = call zeroext i16 @ntohs(i16 noundef zeroext %1528) #30
+  %1530 = zext i16 %1529 to i64
+  store i64 %1530, ptr %24, align 8
+  %1531 = icmp eq i16 %1529, 0
+  br i1 %1531, label %1532, label %.thread645.sink.split
 
-1533:                                             ; preds = %1528
-  %1534 = load ptr, ptr %23, align 8
-  %1535 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1534, ptr noundef nonnull %300, i32 noundef 0)
-  %1536 = load ptr, ptr %19, align 8
-  %1537 = getelementptr inbounds nuw i8, ptr %1536, i64 1
-  store ptr %1537, ptr %19, align 8
-  br i1 %1535, label %1543, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.thread
+1532:                                             ; preds = %1527
+  %1533 = load ptr, ptr %23, align 8
+  %1534 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1533, ptr noundef nonnull %299, i32 noundef 0)
+  %1535 = load ptr, ptr %19, align 8
+  %1536 = getelementptr inbounds nuw i8, ptr %1535, i64 1
+  store ptr %1536, ptr %19, align 8
+  br i1 %1534, label %1542, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.thread: ; preds = %1533
-  %1538 = getelementptr inbounds nuw i8, ptr %1536, i64 1
-  %1539 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.thread: ; preds = %1532
+  %1537 = getelementptr inbounds nuw i8, ptr %1535, i64 1
+  %1538 = load ptr, ptr %0, align 8
+  %1539 = ptrtoint ptr %1537 to i64
   %1540 = ptrtoint ptr %1538 to i64
-  %1541 = ptrtoint ptr %1539 to i64
-  %1542 = sub i64 %1540, %1541
-  store i64 %1542, ptr %3, align 8
+  %1541 = sub i64 %1539, %1540
+  store i64 %1541, ptr %3, align 8
   br label %.loopexit
 
-1543:                                             ; preds = %1533
-  %1544 = load ptr, ptr %25, align 8
-  %1545 = load ptr, ptr %26, align 8
-  %1546 = icmp eq ptr %1544, %1545
-  br i1 %1546, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.loopexit, label %.lr.ph.i.i545
+1542:                                             ; preds = %1532
+  %1543 = load ptr, ptr %25, align 8
+  %1544 = load ptr, ptr %26, align 8
+  %1545 = icmp eq ptr %1543, %1544
+  br i1 %1545, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.loopexit, label %.lr.ph.i.i545
 
-.lr.ph.i.i545:                                    ; preds = %1543, %1589
-  %1547 = phi ptr [ %1590, %1589 ], [ %1545, %1543 ]
-  %1548 = phi ptr [ %1591, %1589 ], [ %1544, %1543 ]
-  %1549 = getelementptr inbounds i8, ptr %1547, i64 -8
-  %1550 = load i32, ptr %1549, align 4
-  switch i32 %1550, label %1589 [
-    i32 0, label %1551
-    i32 1, label %1562
-    i32 2, label %1570
+.lr.ph.i.i545:                                    ; preds = %1542, %1588
+  %1546 = phi ptr [ %1589, %1588 ], [ %1544, %1542 ]
+  %1547 = phi ptr [ %1590, %1588 ], [ %1543, %1542 ]
+  %1548 = getelementptr inbounds i8, ptr %1546, i64 -8
+  %1549 = load i32, ptr %1548, align 4
+  switch i32 %1549, label %1588 [
+    i32 0, label %1550
+    i32 1, label %1561
+    i32 2, label %1569
   ]
 
-1551:                                             ; preds = %.lr.ph.i.i545
-  %1552 = load ptr, ptr %23, align 8
-  %1553 = getelementptr inbounds nuw i8, ptr %1552, i64 96
-  %1554 = load ptr, ptr %1553, align 8
-  %1555 = getelementptr inbounds i8, ptr %1554, i64 -8
-  %1556 = load ptr, ptr %1555, align 8
-  %1557 = getelementptr inbounds nuw i8, ptr %1556, i64 24
-  store ptr %1557, ptr %1555, align 8
-  %1558 = getelementptr inbounds i8, ptr %1547, i64 -4
-  %1559 = load i32, ptr %1558, align 4
-  %1560 = add i32 %1559, -1
-  store i32 %1560, ptr %1558, align 4
-  %1561 = icmp eq i32 %1560, 0
-  br i1 %1561, label %.sink.split.i.i548, label %.thread645.sink.split
+1550:                                             ; preds = %.lr.ph.i.i545
+  %1551 = load ptr, ptr %23, align 8
+  %1552 = getelementptr inbounds nuw i8, ptr %1551, i64 96
+  %1553 = load ptr, ptr %1552, align 8
+  %1554 = getelementptr inbounds i8, ptr %1553, i64 -8
+  %1555 = load ptr, ptr %1554, align 8
+  %1556 = getelementptr inbounds nuw i8, ptr %1555, i64 24
+  store ptr %1556, ptr %1554, align 8
+  %1557 = getelementptr inbounds i8, ptr %1546, i64 -4
+  %1558 = load i32, ptr %1557, align 4
+  %1559 = add i32 %1558, -1
+  store i32 %1559, ptr %1557, align 4
+  %1560 = icmp eq i32 %1559, 0
+  br i1 %1560, label %.sink.split.i.i548, label %.thread645.sink.split
 
-1562:                                             ; preds = %.lr.ph.i.i545
-  %1563 = getelementptr inbounds i8, ptr %1547, i64 -8
-  %1564 = load ptr, ptr %23, align 8
-  %1565 = getelementptr inbounds nuw i8, ptr %1564, i64 96
-  %1566 = load ptr, ptr %1565, align 8
-  %1567 = getelementptr inbounds i8, ptr %1566, i64 -8
-  %1568 = load ptr, ptr %1567, align 8
-  %1569 = getelementptr inbounds nuw i8, ptr %1568, i64 24
-  store ptr %1569, ptr %1567, align 8
-  store i32 2, ptr %1563, align 4
+1561:                                             ; preds = %.lr.ph.i.i545
+  %1562 = getelementptr inbounds i8, ptr %1546, i64 -8
+  %1563 = load ptr, ptr %23, align 8
+  %1564 = getelementptr inbounds nuw i8, ptr %1563, i64 96
+  %1565 = load ptr, ptr %1564, align 8
+  %1566 = getelementptr inbounds i8, ptr %1565, i64 -8
+  %1567 = load ptr, ptr %1566, align 8
+  %1568 = getelementptr inbounds nuw i8, ptr %1567, i64 24
+  store ptr %1568, ptr %1566, align 8
+  store i32 2, ptr %1562, align 4
   br label %.thread645.sink.split
 
-1570:                                             ; preds = %.lr.ph.i.i545
-  %1571 = load ptr, ptr %23, align 8
-  %1572 = getelementptr inbounds nuw i8, ptr %1571, i64 96
-  %1573 = load ptr, ptr %1572, align 8
-  %1574 = getelementptr inbounds i8, ptr %1573, i64 -8
-  %1575 = load ptr, ptr %1574, align 8
-  %1576 = getelementptr inbounds nuw i8, ptr %1575, i64 24
-  store ptr %1576, ptr %1574, align 8
-  %1577 = getelementptr inbounds i8, ptr %1547, i64 -4
-  %1578 = load i32, ptr %1577, align 4
-  %1579 = add i32 %1578, -1
-  store i32 %1579, ptr %1577, align 4
-  %1580 = icmp eq i32 %1579, 0
-  br i1 %1580, label %.sink.split.i.i548, label %1581
+1569:                                             ; preds = %.lr.ph.i.i545
+  %1570 = load ptr, ptr %23, align 8
+  %1571 = getelementptr inbounds nuw i8, ptr %1570, i64 96
+  %1572 = load ptr, ptr %1571, align 8
+  %1573 = getelementptr inbounds i8, ptr %1572, i64 -8
+  %1574 = load ptr, ptr %1573, align 8
+  %1575 = getelementptr inbounds nuw i8, ptr %1574, i64 24
+  store ptr %1575, ptr %1573, align 8
+  %1576 = getelementptr inbounds i8, ptr %1546, i64 -4
+  %1577 = load i32, ptr %1576, align 4
+  %1578 = add i32 %1577, -1
+  store i32 %1578, ptr %1576, align 4
+  %1579 = icmp eq i32 %1578, 0
+  br i1 %1579, label %.sink.split.i.i548, label %1580
 
-1581:                                             ; preds = %1570
-  %1582 = getelementptr inbounds i8, ptr %1547, i64 -8
-  store i32 1, ptr %1582, align 4
+1580:                                             ; preds = %1569
+  %1581 = getelementptr inbounds i8, ptr %1546, i64 -8
+  store i32 1, ptr %1581, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i548:                               ; preds = %1570, %1551
-  %1583 = load ptr, ptr %26, align 8
-  %1584 = getelementptr inbounds i8, ptr %1583, i64 -8
-  store ptr %1584, ptr %26, align 8
-  %1585 = load ptr, ptr %23, align 8
-  %1586 = getelementptr inbounds nuw i8, ptr %1585, i64 96
-  %1587 = load ptr, ptr %1586, align 8
-  %1588 = getelementptr inbounds i8, ptr %1587, i64 -8
-  store ptr %1588, ptr %1586, align 8
+.sink.split.i.i548:                               ; preds = %1569, %1550
+  %1582 = load ptr, ptr %26, align 8
+  %1583 = getelementptr inbounds i8, ptr %1582, i64 -8
+  store ptr %1583, ptr %26, align 8
+  %1584 = load ptr, ptr %23, align 8
+  %1585 = getelementptr inbounds nuw i8, ptr %1584, i64 96
+  %1586 = load ptr, ptr %1585, align 8
+  %1587 = getelementptr inbounds i8, ptr %1586, i64 -8
+  store ptr %1587, ptr %1585, align 8
   %.pre.i549 = load ptr, ptr %25, align 8
   %.pre17.i550 = load ptr, ptr %26, align 8
-  br label %1589
+  br label %1588
 
-1589:                                             ; preds = %.sink.split.i.i548, %.lr.ph.i.i545
-  %1590 = phi ptr [ %.pre17.i550, %.sink.split.i.i548 ], [ %1547, %.lr.ph.i.i545 ]
-  %1591 = phi ptr [ %.pre.i549, %.sink.split.i.i548 ], [ %1548, %.lr.ph.i.i545 ]
-  %1592 = icmp eq ptr %1591, %1590
-  br i1 %1592, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i551, label %.lr.ph.i.i545, !llvm.loop !21
+1588:                                             ; preds = %.sink.split.i.i548, %.lr.ph.i.i545
+  %1589 = phi ptr [ %.pre17.i550, %.sink.split.i.i548 ], [ %1546, %.lr.ph.i.i545 ]
+  %1590 = phi ptr [ %.pre.i549, %.sink.split.i.i548 ], [ %1547, %.lr.ph.i.i545 ]
+  %1591 = icmp eq ptr %1590, %1589
+  br i1 %1591, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i551, label %.lr.ph.i.i545, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i551: ; preds = %1589
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i551: ; preds = %1588
   %.pre18.i552 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.loopexit: ; preds = %1543
-  %1593 = getelementptr inbounds nuw i8, ptr %1536, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.loopexit: ; preds = %1542
+  %1592 = getelementptr inbounds nuw i8, ptr %1535, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i551
-  %1594 = phi ptr [ %.pre18.i552, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i551 ], [ %1593, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.loopexit ]
-  %1595 = load ptr, ptr %0, align 8
+  %1593 = phi ptr [ %.pre18.i552, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i551 ], [ %1592, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.loopexit ]
+  %1594 = load ptr, ptr %0, align 8
+  %1595 = ptrtoint ptr %1593 to i64
   %1596 = ptrtoint ptr %1594 to i64
-  %1597 = ptrtoint ptr %1595 to i64
-  %1598 = sub i64 %1596, %1597
-  store i64 %1598, ptr %3, align 8
+  %1597 = sub i64 %1595, %1596
+  store i64 %1597, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1599:                                             ; preds = %310
-  %1600 = load i16, ptr %300, align 1
-  %1601 = call zeroext i16 @ntohs(i16 noundef zeroext %1600) #30
-  %1602 = zext i16 %1601 to i64
-  %1603 = add nuw nsw i64 %1602, 1
-  store i64 %1603, ptr %24, align 8
+1598:                                             ; preds = %309
+  %1599 = load i16, ptr %299, align 1
+  %1600 = call zeroext i16 @ntohs(i16 noundef zeroext %1599) #30
+  %1601 = zext i16 %1600 to i64
+  %1602 = add nuw nsw i64 %1601, 1
+  store i64 %1602, ptr %24, align 8
   br label %.thread645.sink.split
 
-1604:                                             ; preds = %310
-  %1605 = load i32, ptr %300, align 1
-  %1606 = call i32 @ntohl(i32 noundef %1605) #30
-  %1607 = zext i32 %1606 to i64
-  store i64 %1607, ptr %24, align 8
-  %1608 = icmp eq i32 %1606, 0
-  br i1 %1608, label %1609, label %.thread645.sink.split
+1603:                                             ; preds = %309
+  %1604 = load i32, ptr %299, align 1
+  %1605 = call i32 @ntohl(i32 noundef %1604) #30
+  %1606 = zext i32 %1605 to i64
+  store i64 %1606, ptr %24, align 8
+  %1607 = icmp eq i32 %1605, 0
+  br i1 %1607, label %1608, label %.thread645.sink.split
 
-1609:                                             ; preds = %1604
-  %1610 = load ptr, ptr %23, align 8
-  %1611 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1610, ptr noundef nonnull %300, i32 noundef 0)
-  %1612 = load ptr, ptr %19, align 8
-  %1613 = getelementptr inbounds nuw i8, ptr %1612, i64 1
-  store ptr %1613, ptr %19, align 8
-  br i1 %1611, label %1619, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.thread
+1608:                                             ; preds = %1603
+  %1609 = load ptr, ptr %23, align 8
+  %1610 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1609, ptr noundef nonnull %299, i32 noundef 0)
+  %1611 = load ptr, ptr %19, align 8
+  %1612 = getelementptr inbounds nuw i8, ptr %1611, i64 1
+  store ptr %1612, ptr %19, align 8
+  br i1 %1610, label %1618, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.thread: ; preds = %1609
-  %1614 = getelementptr inbounds nuw i8, ptr %1612, i64 1
-  %1615 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.thread: ; preds = %1608
+  %1613 = getelementptr inbounds nuw i8, ptr %1611, i64 1
+  %1614 = load ptr, ptr %0, align 8
+  %1615 = ptrtoint ptr %1613 to i64
   %1616 = ptrtoint ptr %1614 to i64
-  %1617 = ptrtoint ptr %1615 to i64
-  %1618 = sub i64 %1616, %1617
-  store i64 %1618, ptr %3, align 8
+  %1617 = sub i64 %1615, %1616
+  store i64 %1617, ptr %3, align 8
   br label %.loopexit
 
-1619:                                             ; preds = %1609
-  %1620 = load ptr, ptr %25, align 8
-  %1621 = load ptr, ptr %26, align 8
-  %1622 = icmp eq ptr %1620, %1621
-  br i1 %1622, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.loopexit, label %.lr.ph.i.i556
+1618:                                             ; preds = %1608
+  %1619 = load ptr, ptr %25, align 8
+  %1620 = load ptr, ptr %26, align 8
+  %1621 = icmp eq ptr %1619, %1620
+  br i1 %1621, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.loopexit, label %.lr.ph.i.i556
 
-.lr.ph.i.i556:                                    ; preds = %1619, %1665
-  %1623 = phi ptr [ %1666, %1665 ], [ %1621, %1619 ]
-  %1624 = phi ptr [ %1667, %1665 ], [ %1620, %1619 ]
-  %1625 = getelementptr inbounds i8, ptr %1623, i64 -8
-  %1626 = load i32, ptr %1625, align 4
-  switch i32 %1626, label %1665 [
-    i32 0, label %1627
-    i32 1, label %1638
-    i32 2, label %1646
+.lr.ph.i.i556:                                    ; preds = %1618, %1664
+  %1622 = phi ptr [ %1665, %1664 ], [ %1620, %1618 ]
+  %1623 = phi ptr [ %1666, %1664 ], [ %1619, %1618 ]
+  %1624 = getelementptr inbounds i8, ptr %1622, i64 -8
+  %1625 = load i32, ptr %1624, align 4
+  switch i32 %1625, label %1664 [
+    i32 0, label %1626
+    i32 1, label %1637
+    i32 2, label %1645
   ]
 
-1627:                                             ; preds = %.lr.ph.i.i556
-  %1628 = load ptr, ptr %23, align 8
-  %1629 = getelementptr inbounds nuw i8, ptr %1628, i64 96
-  %1630 = load ptr, ptr %1629, align 8
-  %1631 = getelementptr inbounds i8, ptr %1630, i64 -8
-  %1632 = load ptr, ptr %1631, align 8
-  %1633 = getelementptr inbounds nuw i8, ptr %1632, i64 24
-  store ptr %1633, ptr %1631, align 8
-  %1634 = getelementptr inbounds i8, ptr %1623, i64 -4
-  %1635 = load i32, ptr %1634, align 4
-  %1636 = add i32 %1635, -1
-  store i32 %1636, ptr %1634, align 4
-  %1637 = icmp eq i32 %1636, 0
-  br i1 %1637, label %.sink.split.i.i559, label %.thread645.sink.split
+1626:                                             ; preds = %.lr.ph.i.i556
+  %1627 = load ptr, ptr %23, align 8
+  %1628 = getelementptr inbounds nuw i8, ptr %1627, i64 96
+  %1629 = load ptr, ptr %1628, align 8
+  %1630 = getelementptr inbounds i8, ptr %1629, i64 -8
+  %1631 = load ptr, ptr %1630, align 8
+  %1632 = getelementptr inbounds nuw i8, ptr %1631, i64 24
+  store ptr %1632, ptr %1630, align 8
+  %1633 = getelementptr inbounds i8, ptr %1622, i64 -4
+  %1634 = load i32, ptr %1633, align 4
+  %1635 = add i32 %1634, -1
+  store i32 %1635, ptr %1633, align 4
+  %1636 = icmp eq i32 %1635, 0
+  br i1 %1636, label %.sink.split.i.i559, label %.thread645.sink.split
 
-1638:                                             ; preds = %.lr.ph.i.i556
-  %1639 = getelementptr inbounds i8, ptr %1623, i64 -8
-  %1640 = load ptr, ptr %23, align 8
-  %1641 = getelementptr inbounds nuw i8, ptr %1640, i64 96
-  %1642 = load ptr, ptr %1641, align 8
-  %1643 = getelementptr inbounds i8, ptr %1642, i64 -8
-  %1644 = load ptr, ptr %1643, align 8
-  %1645 = getelementptr inbounds nuw i8, ptr %1644, i64 24
-  store ptr %1645, ptr %1643, align 8
-  store i32 2, ptr %1639, align 4
+1637:                                             ; preds = %.lr.ph.i.i556
+  %1638 = getelementptr inbounds i8, ptr %1622, i64 -8
+  %1639 = load ptr, ptr %23, align 8
+  %1640 = getelementptr inbounds nuw i8, ptr %1639, i64 96
+  %1641 = load ptr, ptr %1640, align 8
+  %1642 = getelementptr inbounds i8, ptr %1641, i64 -8
+  %1643 = load ptr, ptr %1642, align 8
+  %1644 = getelementptr inbounds nuw i8, ptr %1643, i64 24
+  store ptr %1644, ptr %1642, align 8
+  store i32 2, ptr %1638, align 4
   br label %.thread645.sink.split
 
-1646:                                             ; preds = %.lr.ph.i.i556
-  %1647 = load ptr, ptr %23, align 8
-  %1648 = getelementptr inbounds nuw i8, ptr %1647, i64 96
-  %1649 = load ptr, ptr %1648, align 8
-  %1650 = getelementptr inbounds i8, ptr %1649, i64 -8
-  %1651 = load ptr, ptr %1650, align 8
-  %1652 = getelementptr inbounds nuw i8, ptr %1651, i64 24
-  store ptr %1652, ptr %1650, align 8
-  %1653 = getelementptr inbounds i8, ptr %1623, i64 -4
-  %1654 = load i32, ptr %1653, align 4
-  %1655 = add i32 %1654, -1
-  store i32 %1655, ptr %1653, align 4
-  %1656 = icmp eq i32 %1655, 0
-  br i1 %1656, label %.sink.split.i.i559, label %1657
+1645:                                             ; preds = %.lr.ph.i.i556
+  %1646 = load ptr, ptr %23, align 8
+  %1647 = getelementptr inbounds nuw i8, ptr %1646, i64 96
+  %1648 = load ptr, ptr %1647, align 8
+  %1649 = getelementptr inbounds i8, ptr %1648, i64 -8
+  %1650 = load ptr, ptr %1649, align 8
+  %1651 = getelementptr inbounds nuw i8, ptr %1650, i64 24
+  store ptr %1651, ptr %1649, align 8
+  %1652 = getelementptr inbounds i8, ptr %1622, i64 -4
+  %1653 = load i32, ptr %1652, align 4
+  %1654 = add i32 %1653, -1
+  store i32 %1654, ptr %1652, align 4
+  %1655 = icmp eq i32 %1654, 0
+  br i1 %1655, label %.sink.split.i.i559, label %1656
 
-1657:                                             ; preds = %1646
-  %1658 = getelementptr inbounds i8, ptr %1623, i64 -8
-  store i32 1, ptr %1658, align 4
+1656:                                             ; preds = %1645
+  %1657 = getelementptr inbounds i8, ptr %1622, i64 -8
+  store i32 1, ptr %1657, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i559:                               ; preds = %1646, %1627
-  %1659 = load ptr, ptr %26, align 8
-  %1660 = getelementptr inbounds i8, ptr %1659, i64 -8
-  store ptr %1660, ptr %26, align 8
-  %1661 = load ptr, ptr %23, align 8
-  %1662 = getelementptr inbounds nuw i8, ptr %1661, i64 96
-  %1663 = load ptr, ptr %1662, align 8
-  %1664 = getelementptr inbounds i8, ptr %1663, i64 -8
-  store ptr %1664, ptr %1662, align 8
+.sink.split.i.i559:                               ; preds = %1645, %1626
+  %1658 = load ptr, ptr %26, align 8
+  %1659 = getelementptr inbounds i8, ptr %1658, i64 -8
+  store ptr %1659, ptr %26, align 8
+  %1660 = load ptr, ptr %23, align 8
+  %1661 = getelementptr inbounds nuw i8, ptr %1660, i64 96
+  %1662 = load ptr, ptr %1661, align 8
+  %1663 = getelementptr inbounds i8, ptr %1662, i64 -8
+  store ptr %1663, ptr %1661, align 8
   %.pre.i560 = load ptr, ptr %25, align 8
   %.pre17.i561 = load ptr, ptr %26, align 8
-  br label %1665
+  br label %1664
 
-1665:                                             ; preds = %.sink.split.i.i559, %.lr.ph.i.i556
-  %1666 = phi ptr [ %.pre17.i561, %.sink.split.i.i559 ], [ %1623, %.lr.ph.i.i556 ]
-  %1667 = phi ptr [ %.pre.i560, %.sink.split.i.i559 ], [ %1624, %.lr.ph.i.i556 ]
-  %1668 = icmp eq ptr %1667, %1666
-  br i1 %1668, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i562, label %.lr.ph.i.i556, !llvm.loop !21
+1664:                                             ; preds = %.sink.split.i.i559, %.lr.ph.i.i556
+  %1665 = phi ptr [ %.pre17.i561, %.sink.split.i.i559 ], [ %1622, %.lr.ph.i.i556 ]
+  %1666 = phi ptr [ %.pre.i560, %.sink.split.i.i559 ], [ %1623, %.lr.ph.i.i556 ]
+  %1667 = icmp eq ptr %1666, %1665
+  br i1 %1667, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i562, label %.lr.ph.i.i556, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i562: ; preds = %1665
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i562: ; preds = %1664
   %.pre18.i563 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.loopexit: ; preds = %1619
-  %1669 = getelementptr inbounds nuw i8, ptr %1612, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.loopexit: ; preds = %1618
+  %1668 = getelementptr inbounds nuw i8, ptr %1611, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i562
-  %1670 = phi ptr [ %.pre18.i563, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i562 ], [ %1669, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.loopexit ]
-  %1671 = load ptr, ptr %0, align 8
+  %1669 = phi ptr [ %.pre18.i563, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i562 ], [ %1668, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.loopexit ]
+  %1670 = load ptr, ptr %0, align 8
+  %1671 = ptrtoint ptr %1669 to i64
   %1672 = ptrtoint ptr %1670 to i64
-  %1673 = ptrtoint ptr %1671 to i64
-  %1674 = sub i64 %1672, %1673
-  store i64 %1674, ptr %3, align 8
+  %1673 = sub i64 %1671, %1672
+  store i64 %1673, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1675:                                             ; preds = %310
-  %1676 = load i32, ptr %300, align 1
-  %1677 = call i32 @ntohl(i32 noundef %1676) #30
-  %1678 = zext i32 %1677 to i64
-  store i64 %1678, ptr %24, align 8
-  %1679 = icmp eq i32 %1677, 0
-  br i1 %1679, label %1680, label %.thread645.sink.split
+1674:                                             ; preds = %309
+  %1675 = load i32, ptr %299, align 1
+  %1676 = call i32 @ntohl(i32 noundef %1675) #30
+  %1677 = zext i32 %1676 to i64
+  store i64 %1677, ptr %24, align 8
+  %1678 = icmp eq i32 %1676, 0
+  br i1 %1678, label %1679, label %.thread645.sink.split
 
-1680:                                             ; preds = %1675
-  %1681 = load ptr, ptr %23, align 8
-  %1682 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1681, ptr noundef nonnull %300, i32 noundef 0)
-  %1683 = load ptr, ptr %19, align 8
-  %1684 = getelementptr inbounds nuw i8, ptr %1683, i64 1
-  store ptr %1684, ptr %19, align 8
-  br i1 %1682, label %1690, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.thread
+1679:                                             ; preds = %1674
+  %1680 = load ptr, ptr %23, align 8
+  %1681 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1680, ptr noundef nonnull %299, i32 noundef 0)
+  %1682 = load ptr, ptr %19, align 8
+  %1683 = getelementptr inbounds nuw i8, ptr %1682, i64 1
+  store ptr %1683, ptr %19, align 8
+  br i1 %1681, label %1689, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.thread: ; preds = %1680
-  %1685 = getelementptr inbounds nuw i8, ptr %1683, i64 1
-  %1686 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.thread: ; preds = %1679
+  %1684 = getelementptr inbounds nuw i8, ptr %1682, i64 1
+  %1685 = load ptr, ptr %0, align 8
+  %1686 = ptrtoint ptr %1684 to i64
   %1687 = ptrtoint ptr %1685 to i64
-  %1688 = ptrtoint ptr %1686 to i64
-  %1689 = sub i64 %1687, %1688
-  store i64 %1689, ptr %3, align 8
+  %1688 = sub i64 %1686, %1687
+  store i64 %1688, ptr %3, align 8
   br label %.loopexit
 
-1690:                                             ; preds = %1680
-  %1691 = load ptr, ptr %25, align 8
-  %1692 = load ptr, ptr %26, align 8
-  %1693 = icmp eq ptr %1691, %1692
-  br i1 %1693, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.loopexit, label %.lr.ph.i.i567
+1689:                                             ; preds = %1679
+  %1690 = load ptr, ptr %25, align 8
+  %1691 = load ptr, ptr %26, align 8
+  %1692 = icmp eq ptr %1690, %1691
+  br i1 %1692, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.loopexit, label %.lr.ph.i.i567
 
-.lr.ph.i.i567:                                    ; preds = %1690, %1736
-  %1694 = phi ptr [ %1737, %1736 ], [ %1692, %1690 ]
-  %1695 = phi ptr [ %1738, %1736 ], [ %1691, %1690 ]
-  %1696 = getelementptr inbounds i8, ptr %1694, i64 -8
-  %1697 = load i32, ptr %1696, align 4
-  switch i32 %1697, label %1736 [
-    i32 0, label %1698
-    i32 1, label %1709
-    i32 2, label %1717
+.lr.ph.i.i567:                                    ; preds = %1689, %1735
+  %1693 = phi ptr [ %1736, %1735 ], [ %1691, %1689 ]
+  %1694 = phi ptr [ %1737, %1735 ], [ %1690, %1689 ]
+  %1695 = getelementptr inbounds i8, ptr %1693, i64 -8
+  %1696 = load i32, ptr %1695, align 4
+  switch i32 %1696, label %1735 [
+    i32 0, label %1697
+    i32 1, label %1708
+    i32 2, label %1716
   ]
 
-1698:                                             ; preds = %.lr.ph.i.i567
-  %1699 = load ptr, ptr %23, align 8
-  %1700 = getelementptr inbounds nuw i8, ptr %1699, i64 96
-  %1701 = load ptr, ptr %1700, align 8
-  %1702 = getelementptr inbounds i8, ptr %1701, i64 -8
-  %1703 = load ptr, ptr %1702, align 8
-  %1704 = getelementptr inbounds nuw i8, ptr %1703, i64 24
-  store ptr %1704, ptr %1702, align 8
-  %1705 = getelementptr inbounds i8, ptr %1694, i64 -4
-  %1706 = load i32, ptr %1705, align 4
-  %1707 = add i32 %1706, -1
-  store i32 %1707, ptr %1705, align 4
-  %1708 = icmp eq i32 %1707, 0
-  br i1 %1708, label %.sink.split.i.i570, label %.thread645.sink.split
+1697:                                             ; preds = %.lr.ph.i.i567
+  %1698 = load ptr, ptr %23, align 8
+  %1699 = getelementptr inbounds nuw i8, ptr %1698, i64 96
+  %1700 = load ptr, ptr %1699, align 8
+  %1701 = getelementptr inbounds i8, ptr %1700, i64 -8
+  %1702 = load ptr, ptr %1701, align 8
+  %1703 = getelementptr inbounds nuw i8, ptr %1702, i64 24
+  store ptr %1703, ptr %1701, align 8
+  %1704 = getelementptr inbounds i8, ptr %1693, i64 -4
+  %1705 = load i32, ptr %1704, align 4
+  %1706 = add i32 %1705, -1
+  store i32 %1706, ptr %1704, align 4
+  %1707 = icmp eq i32 %1706, 0
+  br i1 %1707, label %.sink.split.i.i570, label %.thread645.sink.split
 
-1709:                                             ; preds = %.lr.ph.i.i567
-  %1710 = getelementptr inbounds i8, ptr %1694, i64 -8
-  %1711 = load ptr, ptr %23, align 8
-  %1712 = getelementptr inbounds nuw i8, ptr %1711, i64 96
-  %1713 = load ptr, ptr %1712, align 8
-  %1714 = getelementptr inbounds i8, ptr %1713, i64 -8
-  %1715 = load ptr, ptr %1714, align 8
-  %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 24
-  store ptr %1716, ptr %1714, align 8
-  store i32 2, ptr %1710, align 4
+1708:                                             ; preds = %.lr.ph.i.i567
+  %1709 = getelementptr inbounds i8, ptr %1693, i64 -8
+  %1710 = load ptr, ptr %23, align 8
+  %1711 = getelementptr inbounds nuw i8, ptr %1710, i64 96
+  %1712 = load ptr, ptr %1711, align 8
+  %1713 = getelementptr inbounds i8, ptr %1712, i64 -8
+  %1714 = load ptr, ptr %1713, align 8
+  %1715 = getelementptr inbounds nuw i8, ptr %1714, i64 24
+  store ptr %1715, ptr %1713, align 8
+  store i32 2, ptr %1709, align 4
   br label %.thread645.sink.split
 
-1717:                                             ; preds = %.lr.ph.i.i567
-  %1718 = load ptr, ptr %23, align 8
-  %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 96
-  %1720 = load ptr, ptr %1719, align 8
-  %1721 = getelementptr inbounds i8, ptr %1720, i64 -8
-  %1722 = load ptr, ptr %1721, align 8
-  %1723 = getelementptr inbounds nuw i8, ptr %1722, i64 24
-  store ptr %1723, ptr %1721, align 8
-  %1724 = getelementptr inbounds i8, ptr %1694, i64 -4
-  %1725 = load i32, ptr %1724, align 4
-  %1726 = add i32 %1725, -1
-  store i32 %1726, ptr %1724, align 4
-  %1727 = icmp eq i32 %1726, 0
-  br i1 %1727, label %.sink.split.i.i570, label %1728
+1716:                                             ; preds = %.lr.ph.i.i567
+  %1717 = load ptr, ptr %23, align 8
+  %1718 = getelementptr inbounds nuw i8, ptr %1717, i64 96
+  %1719 = load ptr, ptr %1718, align 8
+  %1720 = getelementptr inbounds i8, ptr %1719, i64 -8
+  %1721 = load ptr, ptr %1720, align 8
+  %1722 = getelementptr inbounds nuw i8, ptr %1721, i64 24
+  store ptr %1722, ptr %1720, align 8
+  %1723 = getelementptr inbounds i8, ptr %1693, i64 -4
+  %1724 = load i32, ptr %1723, align 4
+  %1725 = add i32 %1724, -1
+  store i32 %1725, ptr %1723, align 4
+  %1726 = icmp eq i32 %1725, 0
+  br i1 %1726, label %.sink.split.i.i570, label %1727
 
-1728:                                             ; preds = %1717
-  %1729 = getelementptr inbounds i8, ptr %1694, i64 -8
-  store i32 1, ptr %1729, align 4
+1727:                                             ; preds = %1716
+  %1728 = getelementptr inbounds i8, ptr %1693, i64 -8
+  store i32 1, ptr %1728, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i570:                               ; preds = %1717, %1698
-  %1730 = load ptr, ptr %26, align 8
-  %1731 = getelementptr inbounds i8, ptr %1730, i64 -8
-  store ptr %1731, ptr %26, align 8
-  %1732 = load ptr, ptr %23, align 8
-  %1733 = getelementptr inbounds nuw i8, ptr %1732, i64 96
-  %1734 = load ptr, ptr %1733, align 8
-  %1735 = getelementptr inbounds i8, ptr %1734, i64 -8
-  store ptr %1735, ptr %1733, align 8
+.sink.split.i.i570:                               ; preds = %1716, %1697
+  %1729 = load ptr, ptr %26, align 8
+  %1730 = getelementptr inbounds i8, ptr %1729, i64 -8
+  store ptr %1730, ptr %26, align 8
+  %1731 = load ptr, ptr %23, align 8
+  %1732 = getelementptr inbounds nuw i8, ptr %1731, i64 96
+  %1733 = load ptr, ptr %1732, align 8
+  %1734 = getelementptr inbounds i8, ptr %1733, i64 -8
+  store ptr %1734, ptr %1732, align 8
   %.pre.i571 = load ptr, ptr %25, align 8
   %.pre17.i572 = load ptr, ptr %26, align 8
-  br label %1736
+  br label %1735
 
-1736:                                             ; preds = %.sink.split.i.i570, %.lr.ph.i.i567
-  %1737 = phi ptr [ %.pre17.i572, %.sink.split.i.i570 ], [ %1694, %.lr.ph.i.i567 ]
-  %1738 = phi ptr [ %.pre.i571, %.sink.split.i.i570 ], [ %1695, %.lr.ph.i.i567 ]
-  %1739 = icmp eq ptr %1738, %1737
-  br i1 %1739, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i573, label %.lr.ph.i.i567, !llvm.loop !21
+1735:                                             ; preds = %.sink.split.i.i570, %.lr.ph.i.i567
+  %1736 = phi ptr [ %.pre17.i572, %.sink.split.i.i570 ], [ %1693, %.lr.ph.i.i567 ]
+  %1737 = phi ptr [ %.pre.i571, %.sink.split.i.i570 ], [ %1694, %.lr.ph.i.i567 ]
+  %1738 = icmp eq ptr %1737, %1736
+  br i1 %1738, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i573, label %.lr.ph.i.i567, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i573: ; preds = %1736
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i573: ; preds = %1735
   %.pre18.i574 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.loopexit: ; preds = %1690
-  %1740 = getelementptr inbounds nuw i8, ptr %1683, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.loopexit: ; preds = %1689
+  %1739 = getelementptr inbounds nuw i8, ptr %1682, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i573
-  %1741 = phi ptr [ %.pre18.i574, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i573 ], [ %1740, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.loopexit ]
-  %1742 = load ptr, ptr %0, align 8
+  %1740 = phi ptr [ %.pre18.i574, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i573 ], [ %1739, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.loopexit ]
+  %1741 = load ptr, ptr %0, align 8
+  %1742 = ptrtoint ptr %1740 to i64
   %1743 = ptrtoint ptr %1741 to i64
-  %1744 = ptrtoint ptr %1742 to i64
-  %1745 = sub i64 %1743, %1744
-  store i64 %1745, ptr %3, align 8
+  %1744 = sub i64 %1742, %1743
+  store i64 %1744, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1746:                                             ; preds = %310
-  %1747 = load i32, ptr %300, align 1
-  %1748 = call i32 @ntohl(i32 noundef %1747) #30
-  %1749 = zext i32 %1748 to i64
-  %1750 = add nuw nsw i64 %1749, 1
-  store i64 %1750, ptr %24, align 8
+1745:                                             ; preds = %309
+  %1746 = load i32, ptr %299, align 1
+  %1747 = call i32 @ntohl(i32 noundef %1746) #30
+  %1748 = zext i32 %1747 to i64
+  %1749 = add nuw nsw i64 %1748, 1
+  store i64 %1749, ptr %24, align 8
   br label %.thread645.sink.split
 
-1751:                                             ; preds = %310
-  %1752 = load ptr, ptr %23, align 8
-  %1753 = trunc i64 %304 to i32
-  %1754 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1752, ptr noundef %300, i32 noundef %1753)
-  %1755 = load ptr, ptr %19, align 8
-  %1756 = getelementptr inbounds nuw i8, ptr %1755, i64 1
-  store ptr %1756, ptr %19, align 8
-  br i1 %1754, label %1762, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.thread
+1750:                                             ; preds = %309
+  %1751 = load ptr, ptr %23, align 8
+  %1752 = trunc i64 %303 to i32
+  %1753 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1751, ptr noundef %299, i32 noundef %1752)
+  %1754 = load ptr, ptr %19, align 8
+  %1755 = getelementptr inbounds nuw i8, ptr %1754, i64 1
+  store ptr %1755, ptr %19, align 8
+  br i1 %1753, label %1761, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.thread: ; preds = %1751
-  %1757 = getelementptr inbounds nuw i8, ptr %1755, i64 1
-  %1758 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.thread: ; preds = %1750
+  %1756 = getelementptr inbounds nuw i8, ptr %1754, i64 1
+  %1757 = load ptr, ptr %0, align 8
+  %1758 = ptrtoint ptr %1756 to i64
   %1759 = ptrtoint ptr %1757 to i64
-  %1760 = ptrtoint ptr %1758 to i64
-  %1761 = sub i64 %1759, %1760
-  store i64 %1761, ptr %3, align 8
+  %1760 = sub i64 %1758, %1759
+  store i64 %1760, ptr %3, align 8
   br label %.loopexit
 
-1762:                                             ; preds = %1751
-  %1763 = load ptr, ptr %25, align 8
-  %1764 = load ptr, ptr %26, align 8
-  %1765 = icmp eq ptr %1763, %1764
-  br i1 %1765, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.loopexit, label %.lr.ph.i.i578
+1761:                                             ; preds = %1750
+  %1762 = load ptr, ptr %25, align 8
+  %1763 = load ptr, ptr %26, align 8
+  %1764 = icmp eq ptr %1762, %1763
+  br i1 %1764, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.loopexit, label %.lr.ph.i.i578
 
-.lr.ph.i.i578:                                    ; preds = %1762, %1808
-  %1766 = phi ptr [ %1809, %1808 ], [ %1764, %1762 ]
-  %1767 = phi ptr [ %1810, %1808 ], [ %1763, %1762 ]
-  %1768 = getelementptr inbounds i8, ptr %1766, i64 -8
-  %1769 = load i32, ptr %1768, align 4
-  switch i32 %1769, label %1808 [
-    i32 0, label %1770
-    i32 1, label %1781
-    i32 2, label %1789
+.lr.ph.i.i578:                                    ; preds = %1761, %1807
+  %1765 = phi ptr [ %1808, %1807 ], [ %1763, %1761 ]
+  %1766 = phi ptr [ %1809, %1807 ], [ %1762, %1761 ]
+  %1767 = getelementptr inbounds i8, ptr %1765, i64 -8
+  %1768 = load i32, ptr %1767, align 4
+  switch i32 %1768, label %1807 [
+    i32 0, label %1769
+    i32 1, label %1780
+    i32 2, label %1788
   ]
 
-1770:                                             ; preds = %.lr.ph.i.i578
-  %1771 = load ptr, ptr %23, align 8
-  %1772 = getelementptr inbounds nuw i8, ptr %1771, i64 96
-  %1773 = load ptr, ptr %1772, align 8
-  %1774 = getelementptr inbounds i8, ptr %1773, i64 -8
-  %1775 = load ptr, ptr %1774, align 8
-  %1776 = getelementptr inbounds nuw i8, ptr %1775, i64 24
-  store ptr %1776, ptr %1774, align 8
-  %1777 = getelementptr inbounds i8, ptr %1766, i64 -4
-  %1778 = load i32, ptr %1777, align 4
-  %1779 = add i32 %1778, -1
-  store i32 %1779, ptr %1777, align 4
-  %1780 = icmp eq i32 %1779, 0
-  br i1 %1780, label %.sink.split.i.i581, label %.thread645.sink.split
+1769:                                             ; preds = %.lr.ph.i.i578
+  %1770 = load ptr, ptr %23, align 8
+  %1771 = getelementptr inbounds nuw i8, ptr %1770, i64 96
+  %1772 = load ptr, ptr %1771, align 8
+  %1773 = getelementptr inbounds i8, ptr %1772, i64 -8
+  %1774 = load ptr, ptr %1773, align 8
+  %1775 = getelementptr inbounds nuw i8, ptr %1774, i64 24
+  store ptr %1775, ptr %1773, align 8
+  %1776 = getelementptr inbounds i8, ptr %1765, i64 -4
+  %1777 = load i32, ptr %1776, align 4
+  %1778 = add i32 %1777, -1
+  store i32 %1778, ptr %1776, align 4
+  %1779 = icmp eq i32 %1778, 0
+  br i1 %1779, label %.sink.split.i.i581, label %.thread645.sink.split
 
-1781:                                             ; preds = %.lr.ph.i.i578
-  %1782 = getelementptr inbounds i8, ptr %1766, i64 -8
-  %1783 = load ptr, ptr %23, align 8
-  %1784 = getelementptr inbounds nuw i8, ptr %1783, i64 96
-  %1785 = load ptr, ptr %1784, align 8
-  %1786 = getelementptr inbounds i8, ptr %1785, i64 -8
-  %1787 = load ptr, ptr %1786, align 8
-  %1788 = getelementptr inbounds nuw i8, ptr %1787, i64 24
-  store ptr %1788, ptr %1786, align 8
-  store i32 2, ptr %1782, align 4
+1780:                                             ; preds = %.lr.ph.i.i578
+  %1781 = getelementptr inbounds i8, ptr %1765, i64 -8
+  %1782 = load ptr, ptr %23, align 8
+  %1783 = getelementptr inbounds nuw i8, ptr %1782, i64 96
+  %1784 = load ptr, ptr %1783, align 8
+  %1785 = getelementptr inbounds i8, ptr %1784, i64 -8
+  %1786 = load ptr, ptr %1785, align 8
+  %1787 = getelementptr inbounds nuw i8, ptr %1786, i64 24
+  store ptr %1787, ptr %1785, align 8
+  store i32 2, ptr %1781, align 4
   br label %.thread645.sink.split
 
-1789:                                             ; preds = %.lr.ph.i.i578
-  %1790 = load ptr, ptr %23, align 8
-  %1791 = getelementptr inbounds nuw i8, ptr %1790, i64 96
-  %1792 = load ptr, ptr %1791, align 8
-  %1793 = getelementptr inbounds i8, ptr %1792, i64 -8
-  %1794 = load ptr, ptr %1793, align 8
-  %1795 = getelementptr inbounds nuw i8, ptr %1794, i64 24
-  store ptr %1795, ptr %1793, align 8
-  %1796 = getelementptr inbounds i8, ptr %1766, i64 -4
-  %1797 = load i32, ptr %1796, align 4
-  %1798 = add i32 %1797, -1
-  store i32 %1798, ptr %1796, align 4
-  %1799 = icmp eq i32 %1798, 0
-  br i1 %1799, label %.sink.split.i.i581, label %1800
+1788:                                             ; preds = %.lr.ph.i.i578
+  %1789 = load ptr, ptr %23, align 8
+  %1790 = getelementptr inbounds nuw i8, ptr %1789, i64 96
+  %1791 = load ptr, ptr %1790, align 8
+  %1792 = getelementptr inbounds i8, ptr %1791, i64 -8
+  %1793 = load ptr, ptr %1792, align 8
+  %1794 = getelementptr inbounds nuw i8, ptr %1793, i64 24
+  store ptr %1794, ptr %1792, align 8
+  %1795 = getelementptr inbounds i8, ptr %1765, i64 -4
+  %1796 = load i32, ptr %1795, align 4
+  %1797 = add i32 %1796, -1
+  store i32 %1797, ptr %1795, align 4
+  %1798 = icmp eq i32 %1797, 0
+  br i1 %1798, label %.sink.split.i.i581, label %1799
 
-1800:                                             ; preds = %1789
-  %1801 = getelementptr inbounds i8, ptr %1766, i64 -8
-  store i32 1, ptr %1801, align 4
+1799:                                             ; preds = %1788
+  %1800 = getelementptr inbounds i8, ptr %1765, i64 -8
+  store i32 1, ptr %1800, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i581:                               ; preds = %1789, %1770
-  %1802 = load ptr, ptr %26, align 8
-  %1803 = getelementptr inbounds i8, ptr %1802, i64 -8
-  store ptr %1803, ptr %26, align 8
-  %1804 = load ptr, ptr %23, align 8
-  %1805 = getelementptr inbounds nuw i8, ptr %1804, i64 96
-  %1806 = load ptr, ptr %1805, align 8
-  %1807 = getelementptr inbounds i8, ptr %1806, i64 -8
-  store ptr %1807, ptr %1805, align 8
+.sink.split.i.i581:                               ; preds = %1788, %1769
+  %1801 = load ptr, ptr %26, align 8
+  %1802 = getelementptr inbounds i8, ptr %1801, i64 -8
+  store ptr %1802, ptr %26, align 8
+  %1803 = load ptr, ptr %23, align 8
+  %1804 = getelementptr inbounds nuw i8, ptr %1803, i64 96
+  %1805 = load ptr, ptr %1804, align 8
+  %1806 = getelementptr inbounds i8, ptr %1805, i64 -8
+  store ptr %1806, ptr %1804, align 8
   %.pre.i582 = load ptr, ptr %25, align 8
   %.pre17.i583 = load ptr, ptr %26, align 8
-  br label %1808
+  br label %1807
 
-1808:                                             ; preds = %.sink.split.i.i581, %.lr.ph.i.i578
-  %1809 = phi ptr [ %.pre17.i583, %.sink.split.i.i581 ], [ %1766, %.lr.ph.i.i578 ]
-  %1810 = phi ptr [ %.pre.i582, %.sink.split.i.i581 ], [ %1767, %.lr.ph.i.i578 ]
-  %1811 = icmp eq ptr %1810, %1809
-  br i1 %1811, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i584, label %.lr.ph.i.i578, !llvm.loop !21
+1807:                                             ; preds = %.sink.split.i.i581, %.lr.ph.i.i578
+  %1808 = phi ptr [ %.pre17.i583, %.sink.split.i.i581 ], [ %1765, %.lr.ph.i.i578 ]
+  %1809 = phi ptr [ %.pre.i582, %.sink.split.i.i581 ], [ %1766, %.lr.ph.i.i578 ]
+  %1810 = icmp eq ptr %1809, %1808
+  br i1 %1810, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i584, label %.lr.ph.i.i578, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i584: ; preds = %1808
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i584: ; preds = %1807
   %.pre18.i585 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.loopexit: ; preds = %1762
-  %1812 = getelementptr inbounds nuw i8, ptr %1755, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.loopexit: ; preds = %1761
+  %1811 = getelementptr inbounds nuw i8, ptr %1754, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i584
-  %1813 = phi ptr [ %.pre18.i585, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i584 ], [ %1812, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.loopexit ]
-  %1814 = load ptr, ptr %0, align 8
+  %1812 = phi ptr [ %.pre18.i585, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i584 ], [ %1811, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.loopexit ]
+  %1813 = load ptr, ptr %0, align 8
+  %1814 = ptrtoint ptr %1812 to i64
   %1815 = ptrtoint ptr %1813 to i64
-  %1816 = ptrtoint ptr %1814 to i64
-  %1817 = sub i64 %1815, %1816
-  store i64 %1817, ptr %3, align 8
+  %1816 = sub i64 %1814, %1815
+  store i64 %1816, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1818:                                             ; preds = %310
-  %1819 = load ptr, ptr %23, align 8
-  %1820 = trunc i64 %304 to i32
-  %1821 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1819, ptr noundef %300, i32 noundef %1820)
-  %1822 = load ptr, ptr %19, align 8
-  %1823 = getelementptr inbounds nuw i8, ptr %1822, i64 1
-  store ptr %1823, ptr %19, align 8
-  br i1 %1821, label %1829, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.thread
+1817:                                             ; preds = %309
+  %1818 = load ptr, ptr %23, align 8
+  %1819 = trunc i64 %303 to i32
+  %1820 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1818, ptr noundef %299, i32 noundef %1819)
+  %1821 = load ptr, ptr %19, align 8
+  %1822 = getelementptr inbounds nuw i8, ptr %1821, i64 1
+  store ptr %1822, ptr %19, align 8
+  br i1 %1820, label %1828, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.thread: ; preds = %1818
-  %1824 = getelementptr inbounds nuw i8, ptr %1822, i64 1
-  %1825 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.thread: ; preds = %1817
+  %1823 = getelementptr inbounds nuw i8, ptr %1821, i64 1
+  %1824 = load ptr, ptr %0, align 8
+  %1825 = ptrtoint ptr %1823 to i64
   %1826 = ptrtoint ptr %1824 to i64
-  %1827 = ptrtoint ptr %1825 to i64
-  %1828 = sub i64 %1826, %1827
-  store i64 %1828, ptr %3, align 8
+  %1827 = sub i64 %1825, %1826
+  store i64 %1827, ptr %3, align 8
   br label %.loopexit
 
-1829:                                             ; preds = %1818
-  %1830 = load ptr, ptr %25, align 8
-  %1831 = load ptr, ptr %26, align 8
-  %1832 = icmp eq ptr %1830, %1831
-  br i1 %1832, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.loopexit, label %.lr.ph.i.i589
+1828:                                             ; preds = %1817
+  %1829 = load ptr, ptr %25, align 8
+  %1830 = load ptr, ptr %26, align 8
+  %1831 = icmp eq ptr %1829, %1830
+  br i1 %1831, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.loopexit, label %.lr.ph.i.i589
 
-.lr.ph.i.i589:                                    ; preds = %1829, %1875
-  %1833 = phi ptr [ %1876, %1875 ], [ %1831, %1829 ]
-  %1834 = phi ptr [ %1877, %1875 ], [ %1830, %1829 ]
-  %1835 = getelementptr inbounds i8, ptr %1833, i64 -8
-  %1836 = load i32, ptr %1835, align 4
-  switch i32 %1836, label %1875 [
-    i32 0, label %1837
-    i32 1, label %1848
-    i32 2, label %1856
+.lr.ph.i.i589:                                    ; preds = %1828, %1874
+  %1832 = phi ptr [ %1875, %1874 ], [ %1830, %1828 ]
+  %1833 = phi ptr [ %1876, %1874 ], [ %1829, %1828 ]
+  %1834 = getelementptr inbounds i8, ptr %1832, i64 -8
+  %1835 = load i32, ptr %1834, align 4
+  switch i32 %1835, label %1874 [
+    i32 0, label %1836
+    i32 1, label %1847
+    i32 2, label %1855
   ]
 
-1837:                                             ; preds = %.lr.ph.i.i589
-  %1838 = load ptr, ptr %23, align 8
-  %1839 = getelementptr inbounds nuw i8, ptr %1838, i64 96
-  %1840 = load ptr, ptr %1839, align 8
-  %1841 = getelementptr inbounds i8, ptr %1840, i64 -8
-  %1842 = load ptr, ptr %1841, align 8
-  %1843 = getelementptr inbounds nuw i8, ptr %1842, i64 24
-  store ptr %1843, ptr %1841, align 8
-  %1844 = getelementptr inbounds i8, ptr %1833, i64 -4
-  %1845 = load i32, ptr %1844, align 4
-  %1846 = add i32 %1845, -1
-  store i32 %1846, ptr %1844, align 4
-  %1847 = icmp eq i32 %1846, 0
-  br i1 %1847, label %.sink.split.i.i592, label %.thread645.sink.split
+1836:                                             ; preds = %.lr.ph.i.i589
+  %1837 = load ptr, ptr %23, align 8
+  %1838 = getelementptr inbounds nuw i8, ptr %1837, i64 96
+  %1839 = load ptr, ptr %1838, align 8
+  %1840 = getelementptr inbounds i8, ptr %1839, i64 -8
+  %1841 = load ptr, ptr %1840, align 8
+  %1842 = getelementptr inbounds nuw i8, ptr %1841, i64 24
+  store ptr %1842, ptr %1840, align 8
+  %1843 = getelementptr inbounds i8, ptr %1832, i64 -4
+  %1844 = load i32, ptr %1843, align 4
+  %1845 = add i32 %1844, -1
+  store i32 %1845, ptr %1843, align 4
+  %1846 = icmp eq i32 %1845, 0
+  br i1 %1846, label %.sink.split.i.i592, label %.thread645.sink.split
 
-1848:                                             ; preds = %.lr.ph.i.i589
-  %1849 = getelementptr inbounds i8, ptr %1833, i64 -8
-  %1850 = load ptr, ptr %23, align 8
-  %1851 = getelementptr inbounds nuw i8, ptr %1850, i64 96
-  %1852 = load ptr, ptr %1851, align 8
-  %1853 = getelementptr inbounds i8, ptr %1852, i64 -8
-  %1854 = load ptr, ptr %1853, align 8
-  %1855 = getelementptr inbounds nuw i8, ptr %1854, i64 24
-  store ptr %1855, ptr %1853, align 8
-  store i32 2, ptr %1849, align 4
+1847:                                             ; preds = %.lr.ph.i.i589
+  %1848 = getelementptr inbounds i8, ptr %1832, i64 -8
+  %1849 = load ptr, ptr %23, align 8
+  %1850 = getelementptr inbounds nuw i8, ptr %1849, i64 96
+  %1851 = load ptr, ptr %1850, align 8
+  %1852 = getelementptr inbounds i8, ptr %1851, i64 -8
+  %1853 = load ptr, ptr %1852, align 8
+  %1854 = getelementptr inbounds nuw i8, ptr %1853, i64 24
+  store ptr %1854, ptr %1852, align 8
+  store i32 2, ptr %1848, align 4
   br label %.thread645.sink.split
 
-1856:                                             ; preds = %.lr.ph.i.i589
-  %1857 = load ptr, ptr %23, align 8
-  %1858 = getelementptr inbounds nuw i8, ptr %1857, i64 96
-  %1859 = load ptr, ptr %1858, align 8
-  %1860 = getelementptr inbounds i8, ptr %1859, i64 -8
-  %1861 = load ptr, ptr %1860, align 8
-  %1862 = getelementptr inbounds nuw i8, ptr %1861, i64 24
-  store ptr %1862, ptr %1860, align 8
-  %1863 = getelementptr inbounds i8, ptr %1833, i64 -4
-  %1864 = load i32, ptr %1863, align 4
-  %1865 = add i32 %1864, -1
-  store i32 %1865, ptr %1863, align 4
-  %1866 = icmp eq i32 %1865, 0
-  br i1 %1866, label %.sink.split.i.i592, label %1867
+1855:                                             ; preds = %.lr.ph.i.i589
+  %1856 = load ptr, ptr %23, align 8
+  %1857 = getelementptr inbounds nuw i8, ptr %1856, i64 96
+  %1858 = load ptr, ptr %1857, align 8
+  %1859 = getelementptr inbounds i8, ptr %1858, i64 -8
+  %1860 = load ptr, ptr %1859, align 8
+  %1861 = getelementptr inbounds nuw i8, ptr %1860, i64 24
+  store ptr %1861, ptr %1859, align 8
+  %1862 = getelementptr inbounds i8, ptr %1832, i64 -4
+  %1863 = load i32, ptr %1862, align 4
+  %1864 = add i32 %1863, -1
+  store i32 %1864, ptr %1862, align 4
+  %1865 = icmp eq i32 %1864, 0
+  br i1 %1865, label %.sink.split.i.i592, label %1866
 
-1867:                                             ; preds = %1856
-  %1868 = getelementptr inbounds i8, ptr %1833, i64 -8
-  store i32 1, ptr %1868, align 4
+1866:                                             ; preds = %1855
+  %1867 = getelementptr inbounds i8, ptr %1832, i64 -8
+  store i32 1, ptr %1867, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i592:                               ; preds = %1856, %1837
-  %1869 = load ptr, ptr %26, align 8
-  %1870 = getelementptr inbounds i8, ptr %1869, i64 -8
-  store ptr %1870, ptr %26, align 8
-  %1871 = load ptr, ptr %23, align 8
-  %1872 = getelementptr inbounds nuw i8, ptr %1871, i64 96
-  %1873 = load ptr, ptr %1872, align 8
-  %1874 = getelementptr inbounds i8, ptr %1873, i64 -8
-  store ptr %1874, ptr %1872, align 8
+.sink.split.i.i592:                               ; preds = %1855, %1836
+  %1868 = load ptr, ptr %26, align 8
+  %1869 = getelementptr inbounds i8, ptr %1868, i64 -8
+  store ptr %1869, ptr %26, align 8
+  %1870 = load ptr, ptr %23, align 8
+  %1871 = getelementptr inbounds nuw i8, ptr %1870, i64 96
+  %1872 = load ptr, ptr %1871, align 8
+  %1873 = getelementptr inbounds i8, ptr %1872, i64 -8
+  store ptr %1873, ptr %1871, align 8
   %.pre.i593 = load ptr, ptr %25, align 8
   %.pre17.i594 = load ptr, ptr %26, align 8
-  br label %1875
+  br label %1874
 
-1875:                                             ; preds = %.sink.split.i.i592, %.lr.ph.i.i589
-  %1876 = phi ptr [ %.pre17.i594, %.sink.split.i.i592 ], [ %1833, %.lr.ph.i.i589 ]
-  %1877 = phi ptr [ %.pre.i593, %.sink.split.i.i592 ], [ %1834, %.lr.ph.i.i589 ]
-  %1878 = icmp eq ptr %1877, %1876
-  br i1 %1878, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i595, label %.lr.ph.i.i589, !llvm.loop !21
+1874:                                             ; preds = %.sink.split.i.i592, %.lr.ph.i.i589
+  %1875 = phi ptr [ %.pre17.i594, %.sink.split.i.i592 ], [ %1832, %.lr.ph.i.i589 ]
+  %1876 = phi ptr [ %.pre.i593, %.sink.split.i.i592 ], [ %1833, %.lr.ph.i.i589 ]
+  %1877 = icmp eq ptr %1876, %1875
+  br i1 %1877, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i595, label %.lr.ph.i.i589, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i595: ; preds = %1875
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i595: ; preds = %1874
   %.pre18.i596 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.loopexit: ; preds = %1829
-  %1879 = getelementptr inbounds nuw i8, ptr %1822, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.loopexit: ; preds = %1828
+  %1878 = getelementptr inbounds nuw i8, ptr %1821, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i595
-  %1880 = phi ptr [ %.pre18.i596, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i595 ], [ %1879, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.loopexit ]
-  %1881 = load ptr, ptr %0, align 8
+  %1879 = phi ptr [ %.pre18.i596, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i595 ], [ %1878, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.loopexit ]
+  %1880 = load ptr, ptr %0, align 8
+  %1881 = ptrtoint ptr %1879 to i64
   %1882 = ptrtoint ptr %1880 to i64
-  %1883 = ptrtoint ptr %1881 to i64
-  %1884 = sub i64 %1882, %1883
-  store i64 %1884, ptr %3, align 8
+  %1883 = sub i64 %1881, %1882
+  store i64 %1883, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1885:                                             ; preds = %310
-  %1886 = load ptr, ptr %23, align 8
-  %1887 = trunc i64 %304 to i32
-  %1888 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1886, ptr noundef %300, i32 noundef %1887)
-  %1889 = load ptr, ptr %19, align 8
-  %1890 = getelementptr inbounds nuw i8, ptr %1889, i64 1
-  store ptr %1890, ptr %19, align 8
-  br i1 %1888, label %1896, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.thread
+1884:                                             ; preds = %309
+  %1885 = load ptr, ptr %23, align 8
+  %1886 = trunc i64 %303 to i32
+  %1887 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1885, ptr noundef %299, i32 noundef %1886)
+  %1888 = load ptr, ptr %19, align 8
+  %1889 = getelementptr inbounds nuw i8, ptr %1888, i64 1
+  store ptr %1889, ptr %19, align 8
+  br i1 %1887, label %1895, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.thread
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.thread: ; preds = %1885
-  %1891 = getelementptr inbounds nuw i8, ptr %1889, i64 1
-  %1892 = load ptr, ptr %0, align 8
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.thread: ; preds = %1884
+  %1890 = getelementptr inbounds nuw i8, ptr %1888, i64 1
+  %1891 = load ptr, ptr %0, align 8
+  %1892 = ptrtoint ptr %1890 to i64
   %1893 = ptrtoint ptr %1891 to i64
-  %1894 = ptrtoint ptr %1892 to i64
-  %1895 = sub i64 %1893, %1894
-  store i64 %1895, ptr %3, align 8
+  %1894 = sub i64 %1892, %1893
+  store i64 %1894, ptr %3, align 8
   br label %.loopexit
 
-1896:                                             ; preds = %1885
-  %1897 = load ptr, ptr %25, align 8
-  %1898 = load ptr, ptr %26, align 8
-  %1899 = icmp eq ptr %1897, %1898
-  br i1 %1899, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.loopexit, label %.lr.ph.i.i600
+1895:                                             ; preds = %1884
+  %1896 = load ptr, ptr %25, align 8
+  %1897 = load ptr, ptr %26, align 8
+  %1898 = icmp eq ptr %1896, %1897
+  br i1 %1898, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.loopexit, label %.lr.ph.i.i600
 
-.lr.ph.i.i600:                                    ; preds = %1896, %1942
-  %1900 = phi ptr [ %1943, %1942 ], [ %1898, %1896 ]
-  %1901 = phi ptr [ %1944, %1942 ], [ %1897, %1896 ]
-  %1902 = getelementptr inbounds i8, ptr %1900, i64 -8
-  %1903 = load i32, ptr %1902, align 4
-  switch i32 %1903, label %1942 [
-    i32 0, label %1904
-    i32 1, label %1915
-    i32 2, label %1923
+.lr.ph.i.i600:                                    ; preds = %1895, %1941
+  %1899 = phi ptr [ %1942, %1941 ], [ %1897, %1895 ]
+  %1900 = phi ptr [ %1943, %1941 ], [ %1896, %1895 ]
+  %1901 = getelementptr inbounds i8, ptr %1899, i64 -8
+  %1902 = load i32, ptr %1901, align 4
+  switch i32 %1902, label %1941 [
+    i32 0, label %1903
+    i32 1, label %1914
+    i32 2, label %1922
   ]
 
-1904:                                             ; preds = %.lr.ph.i.i600
-  %1905 = load ptr, ptr %23, align 8
-  %1906 = getelementptr inbounds nuw i8, ptr %1905, i64 96
-  %1907 = load ptr, ptr %1906, align 8
-  %1908 = getelementptr inbounds i8, ptr %1907, i64 -8
-  %1909 = load ptr, ptr %1908, align 8
-  %1910 = getelementptr inbounds nuw i8, ptr %1909, i64 24
-  store ptr %1910, ptr %1908, align 8
-  %1911 = getelementptr inbounds i8, ptr %1900, i64 -4
-  %1912 = load i32, ptr %1911, align 4
-  %1913 = add i32 %1912, -1
-  store i32 %1913, ptr %1911, align 4
-  %1914 = icmp eq i32 %1913, 0
-  br i1 %1914, label %.sink.split.i.i603, label %.thread645.sink.split
+1903:                                             ; preds = %.lr.ph.i.i600
+  %1904 = load ptr, ptr %23, align 8
+  %1905 = getelementptr inbounds nuw i8, ptr %1904, i64 96
+  %1906 = load ptr, ptr %1905, align 8
+  %1907 = getelementptr inbounds i8, ptr %1906, i64 -8
+  %1908 = load ptr, ptr %1907, align 8
+  %1909 = getelementptr inbounds nuw i8, ptr %1908, i64 24
+  store ptr %1909, ptr %1907, align 8
+  %1910 = getelementptr inbounds i8, ptr %1899, i64 -4
+  %1911 = load i32, ptr %1910, align 4
+  %1912 = add i32 %1911, -1
+  store i32 %1912, ptr %1910, align 4
+  %1913 = icmp eq i32 %1912, 0
+  br i1 %1913, label %.sink.split.i.i603, label %.thread645.sink.split
 
-1915:                                             ; preds = %.lr.ph.i.i600
-  %1916 = getelementptr inbounds i8, ptr %1900, i64 -8
-  %1917 = load ptr, ptr %23, align 8
-  %1918 = getelementptr inbounds nuw i8, ptr %1917, i64 96
-  %1919 = load ptr, ptr %1918, align 8
-  %1920 = getelementptr inbounds i8, ptr %1919, i64 -8
-  %1921 = load ptr, ptr %1920, align 8
-  %1922 = getelementptr inbounds nuw i8, ptr %1921, i64 24
-  store ptr %1922, ptr %1920, align 8
-  store i32 2, ptr %1916, align 4
+1914:                                             ; preds = %.lr.ph.i.i600
+  %1915 = getelementptr inbounds i8, ptr %1899, i64 -8
+  %1916 = load ptr, ptr %23, align 8
+  %1917 = getelementptr inbounds nuw i8, ptr %1916, i64 96
+  %1918 = load ptr, ptr %1917, align 8
+  %1919 = getelementptr inbounds i8, ptr %1918, i64 -8
+  %1920 = load ptr, ptr %1919, align 8
+  %1921 = getelementptr inbounds nuw i8, ptr %1920, i64 24
+  store ptr %1921, ptr %1919, align 8
+  store i32 2, ptr %1915, align 4
   br label %.thread645.sink.split
 
-1923:                                             ; preds = %.lr.ph.i.i600
-  %1924 = load ptr, ptr %23, align 8
-  %1925 = getelementptr inbounds nuw i8, ptr %1924, i64 96
-  %1926 = load ptr, ptr %1925, align 8
-  %1927 = getelementptr inbounds i8, ptr %1926, i64 -8
-  %1928 = load ptr, ptr %1927, align 8
-  %1929 = getelementptr inbounds nuw i8, ptr %1928, i64 24
-  store ptr %1929, ptr %1927, align 8
-  %1930 = getelementptr inbounds i8, ptr %1900, i64 -4
-  %1931 = load i32, ptr %1930, align 4
-  %1932 = add i32 %1931, -1
-  store i32 %1932, ptr %1930, align 4
-  %1933 = icmp eq i32 %1932, 0
-  br i1 %1933, label %.sink.split.i.i603, label %1934
+1922:                                             ; preds = %.lr.ph.i.i600
+  %1923 = load ptr, ptr %23, align 8
+  %1924 = getelementptr inbounds nuw i8, ptr %1923, i64 96
+  %1925 = load ptr, ptr %1924, align 8
+  %1926 = getelementptr inbounds i8, ptr %1925, i64 -8
+  %1927 = load ptr, ptr %1926, align 8
+  %1928 = getelementptr inbounds nuw i8, ptr %1927, i64 24
+  store ptr %1928, ptr %1926, align 8
+  %1929 = getelementptr inbounds i8, ptr %1899, i64 -4
+  %1930 = load i32, ptr %1929, align 4
+  %1931 = add i32 %1930, -1
+  store i32 %1931, ptr %1929, align 4
+  %1932 = icmp eq i32 %1931, 0
+  br i1 %1932, label %.sink.split.i.i603, label %1933
 
-1934:                                             ; preds = %1923
-  %1935 = getelementptr inbounds i8, ptr %1900, i64 -8
-  store i32 1, ptr %1935, align 4
+1933:                                             ; preds = %1922
+  %1934 = getelementptr inbounds i8, ptr %1899, i64 -8
+  store i32 1, ptr %1934, align 4
   br label %.thread645.sink.split
 
-.sink.split.i.i603:                               ; preds = %1923, %1904
-  %1936 = load ptr, ptr %26, align 8
-  %1937 = getelementptr inbounds i8, ptr %1936, i64 -8
-  store ptr %1937, ptr %26, align 8
-  %1938 = load ptr, ptr %23, align 8
-  %1939 = getelementptr inbounds nuw i8, ptr %1938, i64 96
-  %1940 = load ptr, ptr %1939, align 8
-  %1941 = getelementptr inbounds i8, ptr %1940, i64 -8
-  store ptr %1941, ptr %1939, align 8
+.sink.split.i.i603:                               ; preds = %1922, %1903
+  %1935 = load ptr, ptr %26, align 8
+  %1936 = getelementptr inbounds i8, ptr %1935, i64 -8
+  store ptr %1936, ptr %26, align 8
+  %1937 = load ptr, ptr %23, align 8
+  %1938 = getelementptr inbounds nuw i8, ptr %1937, i64 96
+  %1939 = load ptr, ptr %1938, align 8
+  %1940 = getelementptr inbounds i8, ptr %1939, i64 -8
+  store ptr %1940, ptr %1938, align 8
   %.pre.i604 = load ptr, ptr %25, align 8
   %.pre17.i605 = load ptr, ptr %26, align 8
-  br label %1942
+  br label %1941
 
-1942:                                             ; preds = %.sink.split.i.i603, %.lr.ph.i.i600
-  %1943 = phi ptr [ %.pre17.i605, %.sink.split.i.i603 ], [ %1900, %.lr.ph.i.i600 ]
-  %1944 = phi ptr [ %.pre.i604, %.sink.split.i.i603 ], [ %1901, %.lr.ph.i.i600 ]
-  %1945 = icmp eq ptr %1944, %1943
-  br i1 %1945, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i606, label %.lr.ph.i.i600, !llvm.loop !21
+1941:                                             ; preds = %.sink.split.i.i603, %.lr.ph.i.i600
+  %1942 = phi ptr [ %.pre17.i605, %.sink.split.i.i603 ], [ %1899, %.lr.ph.i.i600 ]
+  %1943 = phi ptr [ %.pre.i604, %.sink.split.i.i603 ], [ %1900, %.lr.ph.i.i600 ]
+  %1944 = icmp eq ptr %1943, %1942
+  br i1 %1944, label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i606, label %.lr.ph.i.i600, !llvm.loop !21
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i606: ; preds = %1942
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i606: ; preds = %1941
   %.pre18.i607 = load ptr, ptr %19, align 8
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609
 
-_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.loopexit: ; preds = %1896
-  %1946 = getelementptr inbounds nuw i8, ptr %1889, i64 1
+_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.loopexit: ; preds = %1895
+  %1945 = getelementptr inbounds nuw i8, ptr %1888, i64 1
   br label %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609
 
 _ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609: ; preds = %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.loopexit, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i606
-  %1947 = phi ptr [ %.pre18.i607, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i606 ], [ %1946, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.loopexit ]
-  %1948 = load ptr, ptr %0, align 8
+  %1946 = phi ptr [ %.pre18.i607, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE12unpack_stack7consumeERS5_.exit.loopexit.i606 ], [ %1945, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.loopexit ]
+  %1947 = load ptr, ptr %0, align 8
+  %1948 = ptrtoint ptr %1946 to i64
   %1949 = ptrtoint ptr %1947 to i64
-  %1950 = ptrtoint ptr %1948 to i64
-  %1951 = sub i64 %1949, %1950
-  store i64 %1951, ptr %3, align 8
+  %1950 = sub i64 %1948, %1949
+  store i64 %1950, ptr %3, align 8
   store i32 0, ptr %22, align 8
   br label %.loopexit
 
-1952:                                             ; preds = %310
+1951:                                             ; preds = %309
   store ptr %0, ptr %9, align 8
   store ptr %0, ptr %10, align 8
-  %1953 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateItNS6_8array_svENS6_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %300, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not298 = icmp eq i32 %1953, 0
+  %1952 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateItNS6_8array_svENS6_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %299, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %.not298 = icmp eq i32 %1952, 0
   br i1 %.not298, label %.thread645, label %.loopexit
 
-1954:                                             ; preds = %310
+1953:                                             ; preds = %309
   store ptr %0, ptr %11, align 8
   store ptr %0, ptr %12, align 8
-  %1955 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateIjNS6_8array_svENS6_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %300, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not297 = icmp eq i32 %1955, 0
+  %1954 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateIjNS6_8array_svENS6_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %299, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %.not297 = icmp eq i32 %1954, 0
   br i1 %.not297, label %.thread645, label %.loopexit
 
-1956:                                             ; preds = %310
+1955:                                             ; preds = %309
   store ptr %0, ptr %13, align 8
   store ptr %0, ptr %14, align 8
-  %1957 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateItNS6_6map_svENS6_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %300, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not296 = icmp eq i32 %1957, 0
+  %1956 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateItNS6_6map_svENS6_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %299, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %.not296 = icmp eq i32 %1956, 0
   br i1 %.not296, label %.thread645, label %.loopexit
 
-1958:                                             ; preds = %310
+1957:                                             ; preds = %309
   store ptr %0, ptr %15, align 8
   store ptr %0, ptr %16, align 8
-  %1959 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateIjNS6_6map_svENS6_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %300, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not295 = icmp eq i32 %1959, 0
+  %1958 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateIjNS6_6map_svENS6_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %299, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %.not295 = icmp eq i32 %1958, 0
   br i1 %.not295, label %.thread645, label %.loopexit
 
-1960:                                             ; preds = %310
-  %1961 = getelementptr i8, ptr %311, i64 -1
-  %1962 = load ptr, ptr %0, align 8
+1959:                                             ; preds = %309
+  %1960 = getelementptr i8, ptr %310, i64 -1
+  %1961 = load ptr, ptr %0, align 8
+  %1962 = ptrtoint ptr %1960 to i64
   %1963 = ptrtoint ptr %1961 to i64
-  %1964 = ptrtoint ptr %1962 to i64
-  %1965 = sub i64 %1963, %1964
-  store i64 %1965, ptr %3, align 8
-  %1966 = load ptr, ptr %23, align 8
-  %1967 = load ptr, ptr %0, align 8
-  %1968 = ptrtoint ptr %1967 to i64
-  %1969 = sub i64 %302, %1968
-  %1970 = add nsw i64 %1969, -1
-  call void @_ZN7msgpack2v26detail21create_object_visitor11parse_errorEmm(ptr noundef nonnull align 8 dereferenceable(121) %1966, i64 noundef %1970, i64 noundef %1969)
+  %1964 = sub i64 %1962, %1963
+  store i64 %1964, ptr %3, align 8
+  %1965 = load ptr, ptr %23, align 8
+  %1966 = load ptr, ptr %0, align 8
+  %1967 = ptrtoint ptr %1966 to i64
+  %1968 = sub i64 %301, %1967
+  %1969 = add nsw i64 %1968, -1
+  call void @_ZN7msgpack2v26detail21create_object_visitor11parse_errorEmm(ptr noundef nonnull align 8 dereferenceable(121) %1965, i64 noundef %1969, i64 noundef %1968)
   br label %.loopexit
 
-.thread645.sink.split:                            ; preds = %203, %1904, %1837, %1770, %1698, %1627, %1551, %1480, %1405, %1335, %1265, %1199, %1133, %1067, %1001, %935, %868, %800, %732, %665, %599, %532, %465, %399, %333, %120, %53, %1934, %1915, %1867, %1848, %1800, %1781, %1675, %1728, %1709, %1604, %1657, %1638, %1528, %1581, %1562, %1457, %1510, %1491, %1383, %1435, %1416, %1313, %1365, %1346, %1295, %1276, %1229, %1210, %1163, %1144, %1097, %1078, %1031, %1012, %965, %946, %898, %879, %830, %811, %762, %743, %695, %676, %629, %610, %562, %543, %495, %476, %429, %410, %363, %344, %233, %214, %150, %131, %83, %64, %1453, %1599, %1746
-  %.sink = phi i32 [ 34, %1746 ], [ 34, %1599 ], [ 34, %1453 ], [ 0, %64 ], [ 0, %83 ], [ 0, %131 ], [ 0, %150 ], [ 0, %214 ], [ 0, %233 ], [ 0, %344 ], [ 0, %363 ], [ 0, %410 ], [ 0, %429 ], [ 0, %476 ], [ 0, %495 ], [ 0, %543 ], [ 0, %562 ], [ 0, %610 ], [ 0, %629 ], [ 0, %676 ], [ 0, %695 ], [ 0, %743 ], [ 0, %762 ], [ 0, %811 ], [ 0, %830 ], [ 0, %879 ], [ 0, %898 ], [ 0, %946 ], [ 0, %965 ], [ 0, %1012 ], [ 0, %1031 ], [ 0, %1078 ], [ 0, %1097 ], [ 0, %1144 ], [ 0, %1163 ], [ 0, %1210 ], [ 0, %1229 ], [ 0, %1276 ], [ 0, %1295 ], [ 0, %1346 ], [ 0, %1365 ], [ 32, %1313 ], [ 0, %1416 ], [ 0, %1435 ], [ 33, %1383 ], [ 0, %1491 ], [ 0, %1510 ], [ 32, %1457 ], [ 0, %1562 ], [ 0, %1581 ], [ 33, %1528 ], [ 0, %1638 ], [ 0, %1657 ], [ 32, %1604 ], [ 0, %1709 ], [ 0, %1728 ], [ 33, %1675 ], [ 0, %1781 ], [ 0, %1800 ], [ 0, %1848 ], [ 0, %1867 ], [ 0, %1915 ], [ 0, %1934 ], [ 0, %53 ], [ 0, %120 ], [ 0, %333 ], [ 0, %399 ], [ 0, %465 ], [ 0, %532 ], [ 0, %599 ], [ 0, %665 ], [ 0, %732 ], [ 0, %800 ], [ 0, %868 ], [ 0, %935 ], [ 0, %1001 ], [ 0, %1067 ], [ 0, %1133 ], [ 0, %1199 ], [ 0, %1265 ], [ 0, %1335 ], [ 0, %1405 ], [ 0, %1480 ], [ 0, %1551 ], [ 0, %1627 ], [ 0, %1698 ], [ 0, %1770 ], [ 0, %1837 ], [ 0, %1904 ], [ 0, %203 ]
-  %.3.ph = phi i8 [ 1, %1746 ], [ 1, %1599 ], [ 1, %1453 ], [ 0, %64 ], [ 0, %83 ], [ 0, %131 ], [ 0, %150 ], [ 0, %214 ], [ 0, %233 ], [ %.2, %344 ], [ %.2, %363 ], [ %.2, %410 ], [ %.2, %429 ], [ %.2, %476 ], [ %.2, %495 ], [ %.2, %543 ], [ %.2, %562 ], [ %.2, %610 ], [ %.2, %629 ], [ %.2, %676 ], [ %.2, %695 ], [ %.2, %743 ], [ %.2, %762 ], [ %.2, %811 ], [ %.2, %830 ], [ %.2, %879 ], [ %.2, %898 ], [ %.2, %946 ], [ %.2, %965 ], [ %.2, %1012 ], [ %.2, %1031 ], [ %.2, %1078 ], [ %.2, %1097 ], [ %.2, %1144 ], [ %.2, %1163 ], [ %.2, %1210 ], [ %.2, %1229 ], [ %.2, %1276 ], [ %.2, %1295 ], [ %.2, %1346 ], [ %.2, %1365 ], [ 1, %1313 ], [ %.2, %1416 ], [ %.2, %1435 ], [ 1, %1383 ], [ %.2, %1491 ], [ %.2, %1510 ], [ 1, %1457 ], [ %.2, %1562 ], [ %.2, %1581 ], [ 1, %1528 ], [ %.2, %1638 ], [ %.2, %1657 ], [ 1, %1604 ], [ %.2, %1709 ], [ %.2, %1728 ], [ 1, %1675 ], [ %.2, %1781 ], [ %.2, %1800 ], [ %.2, %1848 ], [ %.2, %1867 ], [ %.2, %1915 ], [ %.2, %1934 ], [ 0, %53 ], [ 0, %120 ], [ %.2, %333 ], [ %.2, %399 ], [ %.2, %465 ], [ %.2, %532 ], [ %.2, %599 ], [ %.2, %665 ], [ %.2, %732 ], [ %.2, %800 ], [ %.2, %868 ], [ %.2, %935 ], [ %.2, %1001 ], [ %.2, %1067 ], [ %.2, %1133 ], [ %.2, %1199 ], [ %.2, %1265 ], [ %.2, %1335 ], [ %.2, %1405 ], [ %.2, %1480 ], [ %.2, %1551 ], [ %.2, %1627 ], [ %.2, %1698 ], [ %.2, %1770 ], [ %.2, %1837 ], [ %.2, %1904 ], [ 0, %203 ]
-  %.1.ph = phi ptr [ %300, %1746 ], [ %300, %1599 ], [ %300, %1453 ], [ %.0240, %64 ], [ %.0240, %83 ], [ %.0240, %131 ], [ %.0240, %150 ], [ %.0240, %214 ], [ %.0240, %233 ], [ %300, %344 ], [ %300, %363 ], [ %300, %410 ], [ %300, %429 ], [ %300, %476 ], [ %300, %495 ], [ %300, %543 ], [ %300, %562 ], [ %300, %610 ], [ %300, %629 ], [ %300, %676 ], [ %300, %695 ], [ %300, %743 ], [ %300, %762 ], [ %300, %811 ], [ %300, %830 ], [ %300, %879 ], [ %300, %898 ], [ %300, %946 ], [ %300, %965 ], [ %300, %1012 ], [ %300, %1031 ], [ %300, %1078 ], [ %300, %1097 ], [ %300, %1144 ], [ %300, %1163 ], [ %300, %1210 ], [ %300, %1229 ], [ %300, %1276 ], [ %300, %1295 ], [ %300, %1346 ], [ %300, %1365 ], [ %300, %1313 ], [ %300, %1416 ], [ %300, %1435 ], [ %300, %1383 ], [ %300, %1491 ], [ %300, %1510 ], [ %300, %1457 ], [ %300, %1562 ], [ %300, %1581 ], [ %300, %1528 ], [ %300, %1638 ], [ %300, %1657 ], [ %300, %1604 ], [ %300, %1709 ], [ %300, %1728 ], [ %300, %1675 ], [ %300, %1781 ], [ %300, %1800 ], [ %300, %1848 ], [ %300, %1867 ], [ %300, %1915 ], [ %300, %1934 ], [ %.0240, %53 ], [ %.0240, %120 ], [ %300, %333 ], [ %300, %399 ], [ %300, %465 ], [ %300, %532 ], [ %300, %599 ], [ %300, %665 ], [ %300, %732 ], [ %300, %800 ], [ %300, %868 ], [ %300, %935 ], [ %300, %1001 ], [ %300, %1067 ], [ %300, %1133 ], [ %300, %1199 ], [ %300, %1265 ], [ %300, %1335 ], [ %300, %1405 ], [ %300, %1480 ], [ %300, %1551 ], [ %300, %1627 ], [ %300, %1698 ], [ %300, %1770 ], [ %300, %1837 ], [ %300, %1904 ], [ %.0240, %203 ]
+.thread645.sink.split:                            ; preds = %203, %1903, %1836, %1769, %1697, %1626, %1550, %1479, %1404, %1334, %1264, %1198, %1132, %1066, %1000, %934, %867, %799, %731, %664, %598, %531, %464, %398, %332, %120, %53, %1933, %1914, %1866, %1847, %1799, %1780, %1674, %1727, %1708, %1603, %1656, %1637, %1527, %1580, %1561, %1456, %1509, %1490, %1382, %1434, %1415, %1312, %1364, %1345, %1294, %1275, %1228, %1209, %1162, %1143, %1096, %1077, %1030, %1011, %964, %945, %897, %878, %829, %810, %761, %742, %694, %675, %628, %609, %561, %542, %494, %475, %428, %409, %362, %343, %233, %214, %150, %131, %83, %64, %1452, %1598, %1745
+  %.sink = phi i32 [ 34, %1745 ], [ 34, %1598 ], [ 34, %1452 ], [ 0, %64 ], [ 0, %83 ], [ 0, %131 ], [ 0, %150 ], [ 0, %214 ], [ 0, %233 ], [ 0, %343 ], [ 0, %362 ], [ 0, %409 ], [ 0, %428 ], [ 0, %475 ], [ 0, %494 ], [ 0, %542 ], [ 0, %561 ], [ 0, %609 ], [ 0, %628 ], [ 0, %675 ], [ 0, %694 ], [ 0, %742 ], [ 0, %761 ], [ 0, %810 ], [ 0, %829 ], [ 0, %878 ], [ 0, %897 ], [ 0, %945 ], [ 0, %964 ], [ 0, %1011 ], [ 0, %1030 ], [ 0, %1077 ], [ 0, %1096 ], [ 0, %1143 ], [ 0, %1162 ], [ 0, %1209 ], [ 0, %1228 ], [ 0, %1275 ], [ 0, %1294 ], [ 0, %1345 ], [ 0, %1364 ], [ 32, %1312 ], [ 0, %1415 ], [ 0, %1434 ], [ 33, %1382 ], [ 0, %1490 ], [ 0, %1509 ], [ 32, %1456 ], [ 0, %1561 ], [ 0, %1580 ], [ 33, %1527 ], [ 0, %1637 ], [ 0, %1656 ], [ 32, %1603 ], [ 0, %1708 ], [ 0, %1727 ], [ 33, %1674 ], [ 0, %1780 ], [ 0, %1799 ], [ 0, %1847 ], [ 0, %1866 ], [ 0, %1914 ], [ 0, %1933 ], [ 0, %53 ], [ 0, %120 ], [ 0, %332 ], [ 0, %398 ], [ 0, %464 ], [ 0, %531 ], [ 0, %598 ], [ 0, %664 ], [ 0, %731 ], [ 0, %799 ], [ 0, %867 ], [ 0, %934 ], [ 0, %1000 ], [ 0, %1066 ], [ 0, %1132 ], [ 0, %1198 ], [ 0, %1264 ], [ 0, %1334 ], [ 0, %1404 ], [ 0, %1479 ], [ 0, %1550 ], [ 0, %1626 ], [ 0, %1697 ], [ 0, %1769 ], [ 0, %1836 ], [ 0, %1903 ], [ 0, %203 ]
+  %.3.ph = phi i8 [ 1, %1745 ], [ 1, %1598 ], [ 1, %1452 ], [ 0, %64 ], [ 0, %83 ], [ 0, %131 ], [ 0, %150 ], [ 0, %214 ], [ 0, %233 ], [ 0, %343 ], [ 0, %362 ], [ 0, %409 ], [ 0, %428 ], [ 0, %475 ], [ 0, %494 ], [ 0, %542 ], [ 0, %561 ], [ 0, %609 ], [ 0, %628 ], [ 0, %675 ], [ 0, %694 ], [ 0, %742 ], [ 0, %761 ], [ 0, %810 ], [ 0, %829 ], [ 0, %878 ], [ 0, %897 ], [ 0, %945 ], [ 0, %964 ], [ 0, %1011 ], [ 0, %1030 ], [ 0, %1077 ], [ 0, %1096 ], [ 0, %1143 ], [ 0, %1162 ], [ 0, %1209 ], [ 0, %1228 ], [ 0, %1275 ], [ 0, %1294 ], [ 0, %1345 ], [ 0, %1364 ], [ 1, %1312 ], [ 0, %1415 ], [ 0, %1434 ], [ 1, %1382 ], [ 0, %1490 ], [ 0, %1509 ], [ 1, %1456 ], [ 0, %1561 ], [ 0, %1580 ], [ 1, %1527 ], [ 0, %1637 ], [ 0, %1656 ], [ 1, %1603 ], [ 0, %1708 ], [ 0, %1727 ], [ 1, %1674 ], [ 0, %1780 ], [ 0, %1799 ], [ 0, %1847 ], [ 0, %1866 ], [ 0, %1914 ], [ 0, %1933 ], [ 0, %53 ], [ 0, %120 ], [ 0, %332 ], [ 0, %398 ], [ 0, %464 ], [ 0, %531 ], [ 0, %598 ], [ 0, %664 ], [ 0, %731 ], [ 0, %799 ], [ 0, %867 ], [ 0, %934 ], [ 0, %1000 ], [ 0, %1066 ], [ 0, %1132 ], [ 0, %1198 ], [ 0, %1264 ], [ 0, %1334 ], [ 0, %1404 ], [ 0, %1479 ], [ 0, %1550 ], [ 0, %1626 ], [ 0, %1697 ], [ 0, %1769 ], [ 0, %1836 ], [ 0, %1903 ], [ 0, %203 ]
+  %.1.ph = phi ptr [ %299, %1745 ], [ %299, %1598 ], [ %299, %1452 ], [ %.0240, %64 ], [ %.0240, %83 ], [ %.0240, %131 ], [ %.0240, %150 ], [ %.0240, %214 ], [ %.0240, %233 ], [ %299, %343 ], [ %299, %362 ], [ %299, %409 ], [ %299, %428 ], [ %299, %475 ], [ %299, %494 ], [ %299, %542 ], [ %299, %561 ], [ %299, %609 ], [ %299, %628 ], [ %299, %675 ], [ %299, %694 ], [ %299, %742 ], [ %299, %761 ], [ %299, %810 ], [ %299, %829 ], [ %299, %878 ], [ %299, %897 ], [ %299, %945 ], [ %299, %964 ], [ %299, %1011 ], [ %299, %1030 ], [ %299, %1077 ], [ %299, %1096 ], [ %299, %1143 ], [ %299, %1162 ], [ %299, %1209 ], [ %299, %1228 ], [ %299, %1275 ], [ %299, %1294 ], [ %299, %1345 ], [ %299, %1364 ], [ %299, %1312 ], [ %299, %1415 ], [ %299, %1434 ], [ %299, %1382 ], [ %299, %1490 ], [ %299, %1509 ], [ %299, %1456 ], [ %299, %1561 ], [ %299, %1580 ], [ %299, %1527 ], [ %299, %1637 ], [ %299, %1656 ], [ %299, %1603 ], [ %299, %1708 ], [ %299, %1727 ], [ %299, %1674 ], [ %299, %1780 ], [ %299, %1799 ], [ %299, %1847 ], [ %299, %1866 ], [ %299, %1914 ], [ %299, %1933 ], [ %.0240, %53 ], [ %.0240, %120 ], [ %299, %332 ], [ %299, %398 ], [ %299, %464 ], [ %299, %531 ], [ %299, %598 ], [ %299, %664 ], [ %299, %731 ], [ %299, %799 ], [ %299, %867 ], [ %299, %934 ], [ %299, %1000 ], [ %299, %1066 ], [ %299, %1132 ], [ %299, %1198 ], [ %299, %1264 ], [ %299, %1334 ], [ %299, %1404 ], [ %299, %1479 ], [ %299, %1550 ], [ %299, %1626 ], [ %299, %1697 ], [ %299, %1769 ], [ %299, %1836 ], [ %299, %1903 ], [ %.0240, %203 ]
   store i32 %.sink, ptr %22, align 8
   br label %.thread645
 
-.thread645:                                       ; preds = %.thread645.sink.split, %292, %1958, %1956, %1954, %1952
-  %.3 = phi i8 [ %.2, %1958 ], [ %.2, %1956 ], [ %.2, %1954 ], [ %.2, %1952 ], [ %.1242, %292 ], [ %.3.ph, %.thread645.sink.split ]
-  %.1 = phi ptr [ %300, %1958 ], [ %300, %1956 ], [ %300, %1954 ], [ %300, %1952 ], [ %.0240, %292 ], [ %.1.ph, %.thread645.sink.split ]
-  %1971 = load ptr, ptr %19, align 8
-  %.not323 = icmp eq ptr %1971, %20
-  br i1 %.not323, label %1972, label %29, !llvm.loop !22
+.thread645:                                       ; preds = %.thread645.sink.split, %292, %1957, %1955, %1953, %1951
+  %.3 = phi i8 [ 0, %1957 ], [ 0, %1955 ], [ 0, %1953 ], [ 0, %1951 ], [ 0, %292 ], [ %.3.ph, %.thread645.sink.split ]
+  %.1 = phi ptr [ %299, %1957 ], [ %299, %1955 ], [ %299, %1953 ], [ %299, %1951 ], [ %.0240, %292 ], [ %.1.ph, %.thread645.sink.split ]
+  %1970 = load ptr, ptr %19, align 8
+  %.not323 = icmp eq ptr %1970, %20
+  br i1 %.not323, label %1971, label %29, !llvm.loop !22
 
-1972:                                             ; preds = %.thread645
-  %1973 = load ptr, ptr %0, align 8
-  %1974 = ptrtoint ptr %1973 to i64
-  %1975 = sub i64 %27, %1974
-  store i64 %1975, ptr %3, align 8
+1971:                                             ; preds = %.thread645
+  %1972 = load ptr, ptr %0, align 8
+  %1973 = ptrtoint ptr %1972 to i64
+  %1974 = sub i64 %27, %1973
+  store i64 %1974, ptr %3, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %1958, %1956, %1954, %1952, %276, %268, %260, %257, %253, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit341, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit341.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit332, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit, %1972, %1960, %306, %283, %28
-  %.0 = phi i32 [ 0, %28 ], [ 0, %306 ], [ -1, %1960 ], [ 0, %1972 ], [ -1, %283 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit332 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit341 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609 ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit341.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.thread ], [ %1959, %1958 ], [ %1957, %1956 ], [ %1955, %1954 ], [ %1953, %1952 ], [ %282, %276 ], [ %275, %268 ], [ %267, %260 ], [ %258, %257 ], [ %254, %253 ]
+.loopexit:                                        ; preds = %1957, %1955, %1953, %1951, %276, %268, %260, %257, %253, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit341, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit341.thread, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit332, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit, %1971, %1959, %305, %283, %28
+  %.0 = phi i32 [ 0, %28 ], [ 0, %305 ], [ -1, %1959 ], [ 0, %1971 ], [ -1, %283 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit332 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit341 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit352 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit363 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit374 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit385 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit396 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit407 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit419 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit431 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit443 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit455 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598 ], [ 2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609 ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit341.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit466.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit477.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit488.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit499.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit510.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit521.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit532.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit543.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit554.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit565.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit576.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit587.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit598.thread ], [ -2, %_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE16after_visit_procEbRm.exit609.thread ], [ %1958, %1957 ], [ %1956, %1955 ], [ %1954, %1953 ], [ %1952, %1951 ], [ %282, %276 ], [ %275, %268 ], [ %267, %260 ], [ %258, %257 ], [ %254, %253 ]
   ret i32 %.0
 }
 

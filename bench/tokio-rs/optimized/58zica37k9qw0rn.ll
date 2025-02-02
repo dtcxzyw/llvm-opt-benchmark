@@ -286,18 +286,19 @@ define internal fastcc void @"_ZN4core3ptr283drop_in_place$LT$hashbrown..scopegu
   br label %4
 
 4:                                                ; preds = %15, %0
-  %.sroa.0.08.i.i = phi i64 [ 0, %0 ], [ %spec.select6.i.i, %15 ]
-  %5 = icmp ult i64 %.sroa.0.08.i.i, %.0.val
-  %6 = zext i1 %5 to i64
-  %spec.select6.i.i = add nuw i64 %.sroa.0.08.i.i, %6
+  %.sroa.0.07.i.i = phi i64 [ 0, %0 ], [ %spec.select6.i.i, %15 ]
+  %5 = icmp uge i64 %.sroa.0.07.i.i, %.0.val
+  %not..i.i = xor i1 %5, true
+  %6 = zext i1 %not..i.i to i64
+  %spec.select6.i.i = add nuw i64 %.sroa.0.07.i.i, %6
   %7 = load ptr, ptr %.8.val, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.08.i.i
+  %8 = getelementptr inbounds i8, ptr %7, i64 %.sroa.0.07.i.i
   %9 = load i8, ptr %8, align 1, !noundef !4
   %10 = icmp sgt i8 %9, -1
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %4
-  %12 = sub nsw i64 0, %.sroa.0.08.i.i
+  %12 = sub nsw i64 0, %.sroa.0.07.i.i
   %13 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, i64 }, i64, { {} }, {} } } }, ptr %7, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 -24
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2), !noalias !45
@@ -310,9 +311,9 @@ define internal fastcc void @"_ZN4core3ptr283drop_in_place$LT$hashbrown..scopegu
   br label %15
 
 15:                                               ; preds = %11, %4
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %5, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %4, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h600526f153832d2cE.exit"
+  %.not.i.i.i = icmp ugt i64 %spec.select6.i.i, %.0.val
+  %or.cond.i.i = select i1 %5, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h600526f153832d2cE.exit", label %4
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h600526f153832d2cE.exit": ; preds = %15
   ret void

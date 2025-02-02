@@ -80,9 +80,9 @@ define internal fastcc noundef ptr @_agstrcanon(ptr noundef readonly %0, ptr nou
   store i8 34, ptr %1, align 1
   %9 = load i8, ptr %0, align 1
   %.not117 = icmp eq i8 %9, 0
-  br i1 %.not117, label %.thread153, label %.lr.ph
+  br i1 %.not117, label %.thread148, label %.lr.ph
 
-.thread153:                                       ; preds = %7
+.thread148:                                       ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 34, ptr %8, align 1
   store i8 0, ptr %10, align 1
@@ -113,24 +113,16 @@ define internal fastcc noundef ptr @_agstrcanon(ptr noundef readonly %0, ptr nou
   %18 = sext i8 %17 to i32
   %19 = icmp eq i8 %17, 34
   %20 = trunc nuw i8 %.063124.us to i1
-  br i1 %19, label %21, label %24
+  br i1 %19, label %24, label %21
 
 21:                                               ; preds = %.lr.ph.split.us
-  br i1 %20, label %is_escape.exit.thread.us, label %22
-
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %.074119.us, i64 1
-  store i8 92, ptr %.074119.us, align 1
-  br label %is_escape.exit.us
-
-24:                                               ; preds = %.lr.ph.split.us
   %.not.i.us = icmp ne i8 %17, 92
   %or.cond.not = or i1 %.not.i.us, %20
-  br i1 %or.cond.not, label %is_escape.exit.thread.us, label %25
+  br i1 %or.cond.not, label %.thread.us, label %22
 
-25:                                               ; preds = %24
-  %26 = load i8, ptr %.077127.us, align 1
-  switch i8 %26, label %is_escape.exit.thread.us [
+22:                                               ; preds = %21
+  %23 = load i8, ptr %.077127.us, align 1
+  switch i8 %23, label %.thread.us [
     i8 69, label %is_escape.exit.us
     i8 71, label %is_escape.exit.us
     i8 72, label %is_escape.exit.us
@@ -144,10 +136,18 @@ define internal fastcc noundef ptr @_agstrcanon(ptr noundef readonly %0, ptr nou
     i8 34, label %is_escape.exit.us
   ]
 
-is_escape.exit.thread.us:                         ; preds = %21, %25, %24
+24:                                               ; preds = %.lr.ph.split.us
+  br i1 %20, label %.thread.us, label %25
+
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds nuw i8, ptr %.074119.us, i64 1
+  store i8 92, ptr %.074119.us, align 1
+  br label %is_escape.exit.us
+
+.thread.us:                                       ; preds = %24, %22, %21
   br i1 %.061125.us, label %35, label %27
 
-27:                                               ; preds = %is_escape.exit.thread.us
+27:                                               ; preds = %.thread.us
   %28 = and i32 %18, -33
   %29 = add nsw i32 %28, -91
   %30 = icmp ult i32 %29, -26
@@ -162,7 +162,7 @@ is_escape.exit.thread.us:                         ; preds = %21, %25, %24
   %spec.select102.us = select i1 %or.cond99.us, i8 0, i8 %.063124.us
   br label %is_escape.exit.us
 
-35:                                               ; preds = %is_escape.exit.thread.us
+35:                                               ; preds = %.thread.us
   switch i8 %17, label %39 [
     i8 45, label %38
     i8 46, label %36
@@ -188,12 +188,12 @@ is_escape.exit.thread.us:                         ; preds = %21, %25, %24
   %spec.select97.us = select i1 %not.133, i1 true, i1 %.065123.us
   br label %is_escape.exit.us
 
-is_escape.exit.us:                                ; preds = %39, %38, %36, %27, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %22
-  %.175.us = phi ptr [ %23, %22 ], [ %.074119.us, %36 ], [ %.074119.us, %39 ], [ %.074119.us, %38 ], [ %.074119.us, %27 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ]
-  %.169.us = phi i32 [ %.068122.us, %22 ], [ %37, %36 ], [ %.068122.us, %39 ], [ %.068122.us, %38 ], [ %.068122.us, %27 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ]
-  %.166.us = phi i1 [ true, %22 ], [ %spec.select95.us, %36 ], [ %spec.select97.us, %39 ], [ %spec.select.us, %38 ], [ %spec.select101.us, %27 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ]
-  %.164.us = phi i8 [ %.063124.us, %22 ], [ 0, %36 ], [ 0, %39 ], [ 0, %38 ], [ %spec.select102.us, %27 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ]
-  %.162.us = phi i1 [ %.061125.us, %22 ], [ %.not89.us, %36 ], [ %41, %39 ], [ %.not90.us, %38 ], [ false, %27 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ]
+is_escape.exit.us:                                ; preds = %39, %38, %36, %27, %25, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22, %22
+  %.175.us = phi ptr [ %26, %25 ], [ %.074119.us, %36 ], [ %.074119.us, %39 ], [ %.074119.us, %38 ], [ %.074119.us, %27 ], [ %.074119.us, %22 ], [ %.074119.us, %22 ], [ %.074119.us, %22 ], [ %.074119.us, %22 ], [ %.074119.us, %22 ], [ %.074119.us, %22 ], [ %.074119.us, %22 ], [ %.074119.us, %22 ], [ %.074119.us, %22 ], [ %.074119.us, %22 ], [ %.074119.us, %22 ]
+  %.169.us = phi i32 [ %.068122.us, %25 ], [ %37, %36 ], [ %.068122.us, %39 ], [ %.068122.us, %38 ], [ %.068122.us, %27 ], [ %.068122.us, %22 ], [ %.068122.us, %22 ], [ %.068122.us, %22 ], [ %.068122.us, %22 ], [ %.068122.us, %22 ], [ %.068122.us, %22 ], [ %.068122.us, %22 ], [ %.068122.us, %22 ], [ %.068122.us, %22 ], [ %.068122.us, %22 ], [ %.068122.us, %22 ]
+  %.166.us = phi i1 [ true, %25 ], [ %spec.select95.us, %36 ], [ %spec.select97.us, %39 ], [ %spec.select.us, %38 ], [ %spec.select101.us, %27 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %22 ]
+  %.164.us = phi i8 [ 0, %25 ], [ 0, %36 ], [ 0, %39 ], [ 0, %38 ], [ %spec.select102.us, %27 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ], [ 1, %22 ]
+  %.162.us = phi i1 [ %.061125.us, %25 ], [ %.not89.us, %36 ], [ %41, %39 ], [ %.not90.us, %38 ], [ false, %27 ], [ %.061125.us, %22 ], [ %.061125.us, %22 ], [ %.061125.us, %22 ], [ %.061125.us, %22 ], [ %.061125.us, %22 ], [ %.061125.us, %22 ], [ %.061125.us, %22 ], [ %.061125.us, %22 ], [ %.061125.us, %22 ], [ %.061125.us, %22 ], [ %.061125.us, %22 ]
   %42 = getelementptr inbounds nuw i8, ptr %.175.us, i64 1
   store i8 %17, ptr %.175.us, align 1
   %43 = load i8, ptr %.077127.us, align 1
@@ -219,7 +219,7 @@ is_escape.exit.us:                                ; preds = %39, %38, %36, %27, 
   br i1 %46, label %48, label %51
 
 48:                                               ; preds = %.lr.ph.split
-  br i1 %47, label %is_escape.exit.thread, label %49
+  br i1 %47, label %.thread, label %49
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %.074119, i64 1
@@ -227,16 +227,16 @@ is_escape.exit.us:                                ; preds = %39, %38, %36, %27, 
   br label %is_escape.exit
 
 51:                                               ; preds = %.lr.ph.split
-  br i1 %47, label %is_escape.exit.thread, label %52
+  br i1 %47, label %.thread, label %52
 
 52:                                               ; preds = %51
   %53 = load i8, ptr %.pn118, align 1
   %.not.i = icmp eq i8 %53, 92
-  br i1 %.not.i, label %54, label %is_escape.exit.thread
+  br i1 %.not.i, label %54, label %.thread
 
 54:                                               ; preds = %52
   %55 = load i8, ptr %.077127, align 1
-  switch i8 %55, label %is_escape.exit.thread [
+  switch i8 %55, label %.thread [
     i8 69, label %is_escape.exit
     i8 71, label %is_escape.exit
     i8 72, label %is_escape.exit
@@ -250,10 +250,10 @@ is_escape.exit.us:                                ; preds = %39, %38, %36, %27, 
     i8 34, label %is_escape.exit
   ]
 
-is_escape.exit.thread:                            ; preds = %48, %54, %52, %51
+.thread:                                          ; preds = %54, %52, %48, %51
   br i1 %.061125, label %56, label %63
 
-56:                                               ; preds = %is_escape.exit.thread
+56:                                               ; preds = %.thread
   switch i8 %.073120, label %60 [
     i8 45, label %57
     i8 46, label %58
@@ -279,7 +279,7 @@ is_escape.exit.thread:                            ; preds = %48, %54, %52, %51
   %spec.select97 = select i1 %not., i1 true, i1 %.065123
   br label %is_escape.exit
 
-63:                                               ; preds = %is_escape.exit.thread
+63:                                               ; preds = %.thread
   %64 = and i32 %45, -33
   %65 = add nsw i32 %64, -91
   %66 = icmp ult i32 %65, -26
@@ -298,7 +298,7 @@ is_escape.exit:                                   ; preds = %54, %54, %54, %54, 
   %.175 = phi ptr [ %50, %49 ], [ %.074119, %58 ], [ %.074119, %60 ], [ %.074119, %57 ], [ %.074119, %63 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ]
   %.169 = phi i32 [ %.068122, %49 ], [ %59, %58 ], [ %.068122, %60 ], [ %.068122, %57 ], [ %.068122, %63 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ]
   %.166 = phi i1 [ true, %49 ], [ %spec.select95, %58 ], [ %spec.select97, %60 ], [ %spec.select, %57 ], [ %spec.select101, %63 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ]
-  %.164 = phi i8 [ %.063124, %49 ], [ 0, %58 ], [ 0, %60 ], [ 0, %57 ], [ %spec.select102, %63 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ]
+  %.164 = phi i8 [ 0, %49 ], [ 0, %58 ], [ 0, %60 ], [ 0, %57 ], [ %spec.select102, %63 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ]
   %.162 = phi i1 [ %.061125, %49 ], [ %.not89, %58 ], [ %62, %60 ], [ %.not90, %57 ], [ false, %63 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ]
   %71 = getelementptr inbounds nuw i8, ptr %.175, i64 1
   store i8 %.073120, ptr %.175, align 1
@@ -411,7 +411,7 @@ is_escape.exit:                                   ; preds = %54, %54, %54, %54, 
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.thread153, %129, %127
+.preheader:                                       ; preds = %.thread148, %129, %127
   br label %134
 
 131:                                              ; preds = %134

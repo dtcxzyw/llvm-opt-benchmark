@@ -15690,7 +15690,6 @@ if.then.i.i.i23:                                  ; preds = %if.end.i
   br label %common.resume
 
 if.end16:                                         ; preds = %invoke.cont13, %if.then
-  %b_old.sroa.10.2 = phi i8 [ %b_old.sroa.10.0, %if.then ], [ 1, %invoke.cont13 ]
   %19 = load ptr, ptr %curr.034, align 8
   %cmp18 = icmp eq ptr %prev.035, null
   br i1 %cmp18, label %if.then19, label %if.else
@@ -15717,7 +15716,7 @@ if.else28:                                        ; preds = %while.body
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else28, %if.end26
-  %b_old.sroa.10.3 = phi i8 [ %b_old.sroa.10.2, %if.end26 ], [ %b_old.sroa.10.0, %if.else28 ]
+  %b_old.sroa.10.3 = phi i8 [ 1, %if.end26 ], [ %b_old.sroa.10.0, %if.else28 ]
   %curr.1 = phi ptr [ %19, %if.end26 ], [ %23, %if.else28 ]
   %prev.1 = phi ptr [ %prev.035, %if.end26 ], [ %curr.034, %if.else28 ]
   %cmp.i = icmp ugt ptr %curr.1, inttoptr (i64 63 to ptr)
@@ -96152,7 +96151,6 @@ if.then.i.i.i23:                                  ; preds = %if.end.i
   br label %common.resume
 
 if.end15:                                         ; preds = %invoke.cont12, %if.then
-  %b_old.sroa.10.2 = phi i8 [ %b_old.sroa.10.0, %if.then ], [ 1, %invoke.cont12 ]
   %19 = load ptr, ptr %curr.034, align 8
   %cmp17 = icmp eq ptr %prev.035, null
   br i1 %cmp17, label %if.then18, label %if.else
@@ -96179,7 +96177,7 @@ if.else27:                                        ; preds = %while.body
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else27, %if.end25
-  %b_old.sroa.10.3 = phi i8 [ %b_old.sroa.10.2, %if.end25 ], [ %b_old.sroa.10.0, %if.else27 ]
+  %b_old.sroa.10.3 = phi i8 [ 1, %if.end25 ], [ %b_old.sroa.10.0, %if.else27 ]
   %curr.1 = phi ptr [ %19, %if.end25 ], [ %23, %if.else27 ]
   %prev.1 = phi ptr [ %prev.035, %if.end25 ], [ %curr.034, %if.else27 ]
   %cmp.i = icmp ugt ptr %curr.1, inttoptr (i64 63 to ptr)

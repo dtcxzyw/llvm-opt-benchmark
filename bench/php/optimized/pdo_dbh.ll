@@ -956,11 +956,11 @@ create_driver_specific_pdo_object.exit:           ; preds = %152, %144, %134
   br i1 %193, label %..critedge_crit_edge, label %thread-pre-split
 
 ..critedge_crit_edge:                             ; preds = %189
-  %.pre197 = load ptr, ptr %.0316.ph, align 8
+  %.pre198 = load ptr, ptr %.0316.ph, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %184
-  %194 = phi ptr [ %.pre197, %..critedge_crit_edge ], [ %185, %184 ]
+  %194 = phi ptr [ %.pre198, %..critedge_crit_edge ], [ %185, %184 ]
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %196 = load i64, ptr %195, align 8
   %.not413 = icmp eq i64 %196, 0
@@ -994,13 +994,13 @@ thread-pre-split:                                 ; preds = %189, %.critedge
 
 208:                                              ; preds = %204, %206
   %209 = phi i64 [ %205, %204 ], [ %207, %206 ]
-  %.not229 = icmp eq i64 %209, 0
+  %.not191 = icmp eq i64 %209, 0
   %.not416 = icmp eq ptr %.0372.ph, null
   %210 = select i1 %.not416, ptr @.str.39, ptr %.0372.ph
   %.not417 = icmp eq ptr %.0375.ph, null
   %211 = select i1 %.not417, ptr @.str.39, ptr %.0375.ph
   %212 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %.4, ptr noundef nonnull %210, ptr noundef nonnull %211) #11
-  br i1 %.not229, label %.thread95, label %213
+  br i1 %.not191, label %.thread95, label %213
 
 213:                                              ; preds = %.thread89, %208
   %.032094.in = phi i64 [ %200, %.thread89 ], [ %212, %208 ]
@@ -1049,8 +1049,8 @@ thread-pre-split:                                 ; preds = %189, %.critedge
   %239 = load i32, ptr %238, align 8
   %240 = or i32 %239, 1
   store i32 %240, ptr %238, align 8
-  %sext191 = add i64 %sext, 4294967296
-  %241 = ashr exact i64 %sext191, 32
+  %sext192 = add i64 %sext, 4294967296
+  %241 = ashr exact i64 %sext192, 32
   %242 = call noalias ptr @__zend_malloc(i64 noundef %241) #14
   %243 = getelementptr inbounds nuw i8, ptr %236, i64 80
   store ptr %242, ptr %243, align 8
@@ -1108,32 +1108,31 @@ thread-pre-split:                                 ; preds = %189, %.critedge
 
 .thread:                                          ; preds = %258, %.thread134
   %266 = phi ptr [ %167, %.thread134 ], [ %259, %258 ]
-  %.0330127145 = phi i8 [ 0, %.thread134 ], [ %.133192112, %258 ]
   %.1329129143 = phi ptr [ %.0328, %.thread134 ], [ %.2, %258 ]
   %267 = call noalias ptr @_estrdup(ptr noundef nonnull %266) #11
   %268 = getelementptr inbounds nuw i8, ptr %.1329129143, i64 40
   store ptr %267, ptr %268, align 8
-  %.not425200 = icmp eq ptr %.0372.ph, null
-  br i1 %.not425200, label %.thread216, label %.thread150
+  %.not425201 = icmp eq ptr %.0372.ph, null
+  br i1 %.not425201, label %.thread217, label %.thread150
 
 269:                                              ; preds = %263
   %270 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   store ptr null, ptr %270, align 8
   %.not426 = icmp eq ptr %.0375.ph, null
-  br i1 %.not426, label %.thread226, label %.thread155
+  br i1 %.not426, label %.thread227, label %.thread155
 
-.thread216:                                       ; preds = %.thread
+.thread217:                                       ; preds = %.thread
   %271 = getelementptr inbounds nuw i8, ptr %.1329129143, i64 16
   store ptr null, ptr %271, align 8
-  %.not426219 = icmp eq ptr %.0375.ph, null
-  br i1 %.not426219, label %280, label %.thread152
+  %.not426220 = icmp eq ptr %.0375.ph, null
+  br i1 %.not426220, label %280, label %.thread152
 
 .thread153:                                       ; preds = %263
   %272 = call noalias ptr @__zend_strdup(ptr noundef nonnull %.0372.ph) #11
   %273 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   store ptr %272, ptr %273, align 8
   %.not426154 = icmp eq ptr %.0375.ph, null
-  br i1 %.not426154, label %.thread226, label %.thread155
+  br i1 %.not426154, label %.thread227, label %.thread155
 
 .thread150:                                       ; preds = %.thread
   %274 = call noalias ptr @_estrdup(ptr noundef nonnull %.0372.ph) #11
@@ -1144,32 +1143,32 @@ thread-pre-split:                                 ; preds = %189, %.critedge
 
 .thread155:                                       ; preds = %269, %.thread153
   %276 = call noalias ptr @__zend_strdup(ptr noundef nonnull %.0375.ph) #11
-  br label %.thread226
+  br label %.thread227
 
-.thread152:                                       ; preds = %.thread216, %.thread150
+.thread152:                                       ; preds = %.thread217, %.thread150
   %277 = call noalias ptr @_estrdup(ptr noundef nonnull %.0375.ph) #11
   br label %280
 
-.thread226:                                       ; preds = %.thread155, %269, %.thread153
-  %.ph225 = phi ptr [ null, %.thread153 ], [ null, %269 ], [ %276, %.thread155 ]
+.thread227:                                       ; preds = %.thread155, %269, %.thread153
+  %.ph226 = phi ptr [ null, %.thread153 ], [ null, %269 ], [ %276, %.thread155 ]
   %278 = getelementptr inbounds nuw i8, ptr %.2, i64 24
-  store ptr %.ph225, ptr %278, align 8
+  store ptr %.ph226, ptr %278, align 8
   %279 = getelementptr inbounds nuw i8, ptr %.2, i64 176
   store i32 4, ptr %279, align 8
   br label %.thread156
 
-280:                                              ; preds = %.thread216, %.thread152, %.thread150
-  %281 = phi ptr [ %277, %.thread152 ], [ null, %.thread150 ], [ null, %.thread216 ]
+280:                                              ; preds = %.thread217, %.thread152, %.thread150
+  %281 = phi ptr [ %277, %.thread152 ], [ null, %.thread150 ], [ null, %.thread217 ]
   %282 = getelementptr inbounds nuw i8, ptr %.1329129143, i64 24
   store ptr %281, ptr %282, align 8
   %283 = getelementptr inbounds nuw i8, ptr %.1329129143, i64 176
   store i32 4, ptr %283, align 8
   br i1 %.not409, label %pdo_attr_lval.exit, label %.thread156
 
-.thread156:                                       ; preds = %.thread226, %257, %280
-  %.0330128166 = phi i8 [ %.0330127145, %280 ], [ %.133192112, %257 ], [ %.133192112, %.thread226 ]
-  %.1329130164 = phi ptr [ %.1329129143, %280 ], [ %.2, %257 ], [ %.2, %.thread226 ]
-  %.not424133162 = phi i1 [ false, %280 ], [ true, %257 ], [ false, %.thread226 ]
+.thread156:                                       ; preds = %.thread227, %257, %280
+  %.0330128166 = phi i8 [ 0, %280 ], [ %.133192112, %257 ], [ 1, %.thread227 ]
+  %.1329130164 = phi ptr [ %.1329129143, %280 ], [ %.2, %257 ], [ %.2, %.thread227 ]
+  %.not424133162 = phi i1 [ false, %280 ], [ true, %257 ], [ false, %.thread227 ]
   %284 = load ptr, ptr %.0378.ph, align 8
   %285 = call ptr @zend_hash_index_find(ptr noundef %284, i64 noundef 0) #11
   %.not11.i = icmp eq ptr %285, null
@@ -1228,7 +1227,7 @@ pdo_attr_lval.exit:                               ; preds = %280
 pdo_attr_lval.exit448:                            ; preds = %pdo_attr_lval.exit, %297, %311, %313
   %.not424133163187 = phi i1 [ %.not424133162, %311 ], [ %.not424133162, %313 ], [ %.not424133162, %297 ], [ false, %pdo_attr_lval.exit ]
   %.1329130165185 = phi ptr [ %.1329130164, %311 ], [ %.1329130164, %313 ], [ %.1329130164, %297 ], [ %.1329129143, %pdo_attr_lval.exit ]
-  %.0330128167183 = phi i8 [ %.0330128166, %311 ], [ %.0330128166, %313 ], [ %.0330128166, %297 ], [ %.0330127145, %pdo_attr_lval.exit ]
+  %.0330128167183 = phi i8 [ %.0330128166, %311 ], [ %.0330128166, %313 ], [ %.0330128166, %297 ], [ 0, %pdo_attr_lval.exit ]
   %.0.i447 = phi i64 [ %312, %311 ], [ %314, %313 ], [ 2, %297 ], [ 2, %pdo_attr_lval.exit ]
   %315 = trunc i64 %.0.i447 to i32
   %316 = getelementptr inbounds nuw i8, ptr %.1329130165185, i64 64
@@ -1305,8 +1304,8 @@ pdo_attr_lval.exit448:                            ; preds = %pdo_attr_lval.exit,
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %351 = getelementptr inbounds nuw i8, ptr %349, i64 24
   %352 = load i32, ptr %351, align 8
-  %.not434192 = icmp eq i32 %352, 0
-  br i1 %.not434192, label %.loopexit, label %.lr.ph.preheader
+  %.not434193 = icmp eq i32 %352, 0
+  br i1 %.not434193, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %348
   %353 = getelementptr inbounds nuw i8, ptr %349, i64 16
@@ -1314,35 +1313,35 @@ pdo_attr_lval.exit448:                            ; preds = %pdo_attr_lval.exit,
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %378
-  %.0305196 = phi i32 [ %379, %378 ], [ %352, %.lr.ph.preheader ]
-  %.0306195 = phi ptr [ %.1, %378 ], [ %354, %.lr.ph.preheader ]
-  %.0308194 = phi i32 [ %.1309, %378 ], [ 0, %.lr.ph.preheader ]
-  %.0310193 = phi ptr [ %.1311, %378 ], [ null, %.lr.ph.preheader ]
+  %.0305197 = phi i32 [ %379, %378 ], [ %352, %.lr.ph.preheader ]
+  %.0306196 = phi ptr [ %.1, %378 ], [ %354, %.lr.ph.preheader ]
+  %.0308195 = phi i32 [ %.1309, %378 ], [ 0, %.lr.ph.preheader ]
+  %.0310194 = phi ptr [ %.1311, %378 ], [ null, %.lr.ph.preheader ]
   %355 = load i32, ptr %350, align 8
   %356 = and i32 %355, 4
   %.not435 = icmp eq i32 %356, 0
   br i1 %.not435, label %361, label %357
 
 357:                                              ; preds = %.lr.ph
-  %358 = getelementptr inbounds nuw i8, ptr %.0306195, i64 16
-  %359 = zext i32 %.0308194 to i64
-  %360 = add i32 %.0308194, 1
+  %358 = getelementptr inbounds nuw i8, ptr %.0306196, i64 16
+  %359 = zext i32 %.0308195 to i64
+  %360 = add i32 %.0308195, 1
   br label %367
 
 361:                                              ; preds = %.lr.ph
-  %362 = getelementptr inbounds nuw i8, ptr %.0306195, i64 32
-  %363 = getelementptr inbounds nuw i8, ptr %.0306195, i64 16
+  %362 = getelementptr inbounds nuw i8, ptr %.0306196, i64 32
+  %363 = getelementptr inbounds nuw i8, ptr %.0306196, i64 16
   %364 = load i64, ptr %363, align 8
-  %365 = getelementptr inbounds nuw i8, ptr %.0306195, i64 24
+  %365 = getelementptr inbounds nuw i8, ptr %.0306196, i64 24
   %366 = load ptr, ptr %365, align 8
   br label %367
 
 367:                                              ; preds = %361, %357
   %.0312 = phi i64 [ %359, %357 ], [ %364, %361 ]
-  %.1311 = phi ptr [ %.0310193, %357 ], [ %366, %361 ]
-  %.1309 = phi i32 [ %360, %357 ], [ %.0308194, %361 ]
+  %.1311 = phi ptr [ %.0310194, %357 ], [ %366, %361 ]
+  %.1309 = phi i32 [ %360, %357 ], [ %.0308195, %361 ]
   %.1 = phi ptr [ %358, %357 ], [ %362, %361 ]
-  %368 = getelementptr inbounds nuw i8, ptr %.0306195, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %.0306196, i64 8
   %369 = load i8, ptr %368, align 8
   %370 = icmp ne i8 %369, 0
   %.not436 = icmp eq ptr %.1311, null
@@ -1354,17 +1353,17 @@ pdo_attr_lval.exit448:                            ; preds = %pdo_attr_lval.exit,
   br i1 %372, label %373, label %376
 
 373:                                              ; preds = %371
-  %374 = load ptr, ptr %.0306195, align 8
+  %374 = load ptr, ptr %.0306196, align 8
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   br label %376
 
 376:                                              ; preds = %371, %373
-  %.0315 = phi ptr [ %375, %373 ], [ %.0306195, %371 ]
+  %.0315 = phi ptr [ %375, %373 ], [ %.0306196, %371 ]
   %377 = call fastcc zeroext i1 @pdo_dbh_attribute_set(ptr noundef %.1329130165185, i64 noundef %.0312, ptr noundef nonnull %.0315)
   br label %378
 
 378:                                              ; preds = %367, %376
-  %379 = add i32 %.0305196, -1
+  %379 = add i32 %.0305197, -1
   %.not434 = icmp eq i32 %379, 0
   br i1 %.not434, label %.loopexit, label %.lr.ph
 

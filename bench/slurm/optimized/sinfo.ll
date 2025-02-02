@@ -2113,8 +2113,8 @@ define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr noundef reado
   store i16 0, ptr %4, align 2
   %77 = call ptr @list_iterator_create(ptr noundef nonnull %75) #13
   %78 = call ptr @list_next(ptr noundef %77) #13
-  %.not5165.i = icmp eq ptr %78, null
-  br i1 %.not5165.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  %.not5171.i = icmp eq ptr %78, null
+  br i1 %.not5171.i, label %.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %45, i64 224
@@ -2205,33 +2205,33 @@ define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr noundef reado
   br i1 %119, label %121, label %120
 
 120:                                              ; preds = %117
-  br i1 %.2.i, label %._crit_edge.thread71.i, label %122
+  br i1 %.2.i, label %.thread65.i, label %122
 
-._crit_edge.thread71.i:                           ; preds = %120
+.thread65.i:                                      ; preds = %120
   call void @list_iterator_destroy(ptr noundef %77) #13
   br label %_filter_out.exit
 
 121:                                              ; preds = %117
-  br i1 %.2.i, label %122, label %._crit_edge.thread.i
+  br i1 %.2.i, label %122, label %.sink.split
 
 122:                                              ; preds = %121, %120
   %123 = call ptr @list_next(ptr noundef %77) #13
   %.not51.i = icmp eq ptr %123, null
   br i1 %.not51.i, label %._crit_edge.i, label %81, !llvm.loop !16
 
-._crit_edge.thread.i:                             ; preds = %121, %76
-  call void @list_iterator_destroy(ptr noundef %77) #13
-  br label %124
-
 ._crit_edge.i:                                    ; preds = %122
   call void @list_iterator_destroy(ptr noundef %77) #13
   br i1 %.2.i, label %_filter_out.exit, label %124
 
-_filter_out.exit:                                 ; preds = %74, %._crit_edge.thread71.i, %._crit_edge.i
+_filter_out.exit:                                 ; preds = %74, %.thread65.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   br label %125
 
-124:                                              ; preds = %55, %63, %70, %._crit_edge.i, %._crit_edge.thread.i
+.sink.split:                                      ; preds = %121, %76
+  call void @list_iterator_destroy(ptr noundef %77) #13
+  br label %124
+
+124:                                              ; preds = %.sink.split, %55, %63, %70, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @slurm_xfree(ptr noundef nonnull %46) #13
   br label %125

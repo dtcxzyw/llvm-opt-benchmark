@@ -9882,13 +9882,13 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   br i1 %exitcond.not, label %.preheader, label %152, !llvm.loop !79
 
 .preheader:                                       ; preds = %152, %.preheader
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.preheader ], [ 0, %152 ]
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.preheader ], [ 0, %152 ]
   %158 = load ptr, ptr %13, align 8
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
-  %160 = getelementptr inbounds nuw [4 x i32], ptr %159, i64 0, i64 %indvars.iv105
+  %160 = getelementptr inbounds nuw [4 x i32], ptr %159, i64 0, i64 %indvars.iv104
   %161 = load i32, ptr %160, align 4
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  %163 = getelementptr inbounds nuw [4 x i32], ptr %162, i64 0, i64 %indvars.iv105
+  %163 = getelementptr inbounds nuw [4 x i32], ptr %162, i64 0, i64 %indvars.iv104
   %164 = load i32, ptr %163, align 4
   %165 = sext i32 %161 to i64
   %166 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %165
@@ -9899,9 +9899,9 @@ define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 derefer
   %171 = load i32, ptr %170, align 4
   %172 = or i32 %171, %168
   store i32 %172, ptr %170, align 4
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next106, 4
-  br i1 %exitcond108.not, label %.loopexit, label %.preheader, !llvm.loop !80
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %exitcond107.not = icmp eq i64 %indvars.iv.next105, 4
+  br i1 %exitcond107.not, label %.loopexit, label %.preheader, !llvm.loop !80
 
 .loopexit:                                        ; preds = %.preheader, %130
   %173 = load i32, ptr %18, align 8

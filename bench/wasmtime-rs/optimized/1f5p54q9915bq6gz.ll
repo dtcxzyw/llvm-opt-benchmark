@@ -1427,7 +1427,7 @@ define hidden void @"_ZN131_$LT$object..read..macho..relocation..MachORelocation
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 3, ptr %21, align 8
-  br label %132
+  br label %112
 
 22:                                               ; preds = %12
   %23 = shl i32 %.pre, 24
@@ -1519,38 +1519,37 @@ define hidden void @"_ZN131_$LT$object..read..macho..relocation..MachORelocation
 
 64:                                               ; preds = %"_ZN6object5macho19Relocation$LT$E$GT$4info17h27f0525f9c52cc90E.exit"
   %65 = trunc nuw i8 %.sink4.i to i1
-  switch i8 %.sink.i, label %71 [
+  %.sink3.i61 = and i8 %.sink3.in.i, 3
+  %66 = shl nuw nsw i8 8, %.sink3.i61
+  %67 = and i8 %.sink2.in.i, 1
+  %68 = xor i8 %67, 1
+  %.sroa.015.0 = zext nneg i8 %68 to i64
+  %.sroa.316.0 = zext nneg i32 %.sink5.i to i64
+  %69 = icmp eq i64 %.024.ph, 0
+  switch i8 %.sink.i, label %75 [
     i8 0, label %86
-    i8 1, label %91
-    i8 2, label %96
-    i8 4, label %101
-    i8 3, label %106
+    i8 1, label %87
+    i8 2, label %88
+    i8 4, label %89
+    i8 3, label %90
   ]
 
 .loopexit:                                        ; preds = %"_ZN6object5macho19Relocation$LT$E$GT$4info17h27f0525f9c52cc90E.exit", %56
-  %66 = trunc nuw i8 %.sink4.i to i1
+  %70 = trunc nuw i8 %.sink4.i to i1
   %.sink3.i61189 = and i8 %.sink3.in.i, 3
-  %67 = shl nuw nsw i8 8, %.sink3.i61189
-  %68 = and i8 %.sink2.in.i, 1
-  %69 = xor i8 %68, 1
-  %.sroa.015.0190 = zext nneg i8 %69 to i64
+  %71 = shl nuw nsw i8 8, %.sink3.i61189
+  %72 = and i8 %.sink2.in.i, 1
+  %73 = xor i8 %72, 1
+  %.sroa.015.0190 = zext nneg i8 %73 to i64
   %.sroa.316.0191 = zext nneg i32 %.sink5.i to i64
-  %70 = icmp eq i64 %.024.ph, 0
-  br i1 %66, label %115, label %.thread206
+  %74 = icmp eq i64 %.024.ph, 0
+  br i1 %70, label %95, label %.thread206
 
-71:                                               ; preds = %64
-  %.sink3.i61 = and i8 %.sink3.in.i, 3
-  %72 = shl nuw nsw i8 8, %.sink3.i61
-  %73 = and i8 %.sink2.in.i, 1
-  %74 = xor i8 %73, 1
-  %.sroa.015.0 = zext nneg i8 %74 to i64
-  %.sroa.316.0 = zext nneg i32 %.sink5.i to i64
-  %75 = icmp eq i64 %.024.ph, 0
+75:                                               ; preds = %64
   br i1 %65, label %.thread, label %.thread206
 
 76:                                               ; preds = %56
   %77 = trunc nuw i8 %.sink4.i to i1
-  %not.44 = xor i8 %.sink4.i, 1
   %.sink3.i61171 = and i8 %.sink3.in.i, 3
   %78 = shl nuw nsw i8 8, %.sink3.i61171
   %79 = and i8 %.sink2.in.i, 1
@@ -1558,7 +1557,7 @@ define hidden void @"_ZN131_$LT$object..read..macho..relocation..MachORelocation
   %.sroa.015.0172 = zext nneg i8 %80 to i64
   %.sroa.316.0173 = zext nneg i32 %.sink5.i to i64
   %81 = icmp eq i64 %.024.ph, 0
-  br i1 %77, label %115, label %.thread206
+  br i1 %77, label %95, label %.thread206
 
 82:                                               ; preds = %56
   %83 = zext nneg i32 %.sink5.i to i64
@@ -1567,69 +1566,33 @@ define hidden void @"_ZN131_$LT$object..read..macho..relocation..MachORelocation
   br label %.outer
 
 86:                                               ; preds = %64
-  %not. = xor i8 %.sink4.i, 1
-  %.sink3.i61174 = and i8 %.sink3.in.i, 3
-  %87 = shl nuw nsw i8 8, %.sink3.i61174
-  %88 = and i8 %.sink2.in.i, 1
-  %89 = xor i8 %88, 1
-  %.sroa.015.0175 = zext nneg i8 %89 to i64
-  %.sroa.316.0176 = zext nneg i32 %.sink5.i to i64
-  %90 = icmp eq i64 %.024.ph, 0
   br i1 %65, label %.thread.thread, label %.thread206
 
-91:                                               ; preds = %64
-  %.sink3.i61177 = and i8 %.sink3.in.i, 3
-  %92 = shl nuw nsw i8 8, %.sink3.i61177
-  %93 = and i8 %.sink2.in.i, 1
-  %94 = xor i8 %93, 1
-  %.sroa.015.0178 = zext nneg i8 %94 to i64
-  %.sroa.316.0179 = zext nneg i32 %.sink5.i to i64
-  %95 = icmp eq i64 %.024.ph, 0
+87:                                               ; preds = %64
   br i1 %65, label %.thread.thread, label %.thread206
 
-96:                                               ; preds = %64
-  %.sink3.i61180 = and i8 %.sink3.in.i, 3
-  %97 = shl nuw nsw i8 8, %.sink3.i61180
-  %98 = and i8 %.sink2.in.i, 1
-  %99 = xor i8 %98, 1
-  %.sroa.015.0181 = zext nneg i8 %99 to i64
-  %.sroa.316.0182 = zext nneg i32 %.sink5.i to i64
-  %100 = icmp eq i64 %.024.ph, 0
+88:                                               ; preds = %64
   br i1 %65, label %.thread.thread, label %.thread206
 
-101:                                              ; preds = %64
-  %.sink3.i61183 = and i8 %.sink3.in.i, 3
-  %102 = shl nuw nsw i8 8, %.sink3.i61183
-  %103 = and i8 %.sink2.in.i, 1
-  %104 = xor i8 %103, 1
-  %.sroa.015.0184 = zext nneg i8 %104 to i64
-  %.sroa.316.0185 = zext nneg i32 %.sink5.i to i64
-  %105 = icmp eq i64 %.024.ph, 0
+89:                                               ; preds = %64
   br i1 %65, label %.thread.thread, label %.thread206
 
-106:                                              ; preds = %64
-  %.sink3.i61186 = and i8 %.sink3.in.i, 3
-  %107 = shl nuw nsw i8 8, %.sink3.i61186
-  %108 = and i8 %.sink2.in.i, 1
-  %109 = xor i8 %108, 1
-  %.sroa.015.0187 = zext nneg i8 %109 to i64
-  %.sroa.316.0188 = zext nneg i32 %.sink5.i to i64
-  %110 = icmp eq i64 %.024.ph, 0
+90:                                               ; preds = %64
   br i1 %65, label %.thread.thread, label %.thread206
 
-.thread206:                                       ; preds = %49, %115, %.thread.thread, %.loopexit, %106, %101, %96, %91, %86, %76, %57, %130, %128, %126, %.thread, %.thread214, %71
-  %111 = phi i1 [ %116, %115 ], [ %75, %.thread ], [ %75, %130 ], [ %75, %128 ], [ %75, %126 ], [ %119, %.thread214 ], [ %75, %71 ], [ %63, %57 ], [ %81, %76 ], [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ %105, %101 ], [ %110, %106 ], [ %70, %.loopexit ], [ %55, %49 ], [ %.ph228, %.thread.thread ]
-  %.sroa.316.0166 = phi i64 [ %.sroa.316.0167, %115 ], [ %.sroa.316.0, %.thread ], [ %.sroa.316.0, %130 ], [ %.sroa.316.0, %128 ], [ %.sroa.316.0, %126 ], [ %.sroa.316.0167222, %.thread214 ], [ %.sroa.316.0, %71 ], [ %.sroa.316.0170, %57 ], [ %.sroa.316.0173, %76 ], [ %.sroa.316.0176, %86 ], [ %.sroa.316.0179, %91 ], [ %.sroa.316.0182, %96 ], [ %.sroa.316.0185, %101 ], [ %.sroa.316.0188, %106 ], [ %.sroa.316.0191, %.loopexit ], [ %.sroa.316.0154, %49 ], [ %.sroa.316.0167200.ph, %.thread.thread ]
-  %.sroa.015.0164 = phi i64 [ %.sroa.015.0165, %115 ], [ %.sroa.015.0, %.thread ], [ %.sroa.015.0, %130 ], [ %.sroa.015.0, %128 ], [ %.sroa.015.0, %126 ], [ %.sroa.015.0165223, %.thread214 ], [ %.sroa.015.0, %71 ], [ %.sroa.015.0169, %57 ], [ %.sroa.015.0172, %76 ], [ %.sroa.015.0175, %86 ], [ %.sroa.015.0178, %91 ], [ %.sroa.015.0181, %96 ], [ %.sroa.015.0184, %101 ], [ %.sroa.015.0187, %106 ], [ %.sroa.015.0190, %.loopexit ], [ %.sroa.015.0153, %49 ], [ %.sroa.015.0165201.ph, %.thread.thread ]
-  %112 = phi i8 [ %117, %115 ], [ %72, %.thread ], [ %72, %130 ], [ %72, %128 ], [ %72, %126 ], [ %118, %.thread214 ], [ %72, %71 ], [ %60, %57 ], [ %78, %76 ], [ %87, %86 ], [ %92, %91 ], [ %97, %96 ], [ %102, %101 ], [ %107, %106 ], [ %67, %.loopexit ], [ %52, %49 ], [ %.ph, %.thread.thread ]
-  %.sink3.i61162 = phi i8 [ %.sink3.i61163, %115 ], [ %.sink3.i61, %.thread ], [ %.sink3.i61, %130 ], [ %.sink3.i61, %128 ], [ %.sink3.i61, %126 ], [ %.sink3.i61163224, %.thread214 ], [ %.sink3.i61, %71 ], [ %.sink3.i61168, %57 ], [ %.sink3.i61171, %76 ], [ %.sink3.i61174, %86 ], [ %.sink3.i61177, %91 ], [ %.sink3.i61180, %96 ], [ %.sink3.i61183, %101 ], [ %.sink3.i61186, %106 ], [ %.sink3.i61189, %.loopexit ], [ %.sink3.i61152, %49 ], [ %.sink3.i61163202.ph, %.thread.thread ]
-  %.026160 = phi i8 [ 1, %115 ], [ 1, %.thread ], [ 1, %130 ], [ 1, %128 ], [ 1, %126 ], [ 1, %.thread214 ], [ 1, %71 ], [ 1, %57 ], [ 1, %76 ], [ 1, %86 ], [ 1, %91 ], [ 1, %96 ], [ 1, %101 ], [ 1, %106 ], [ 1, %.loopexit ], [ 1, %49 ], [ %.026161203.ph, %.thread.thread ]
-  %.027158 = phi i8 [ %.027159, %115 ], [ 0, %.thread ], [ 0, %130 ], [ 0, %128 ], [ 0, %126 ], [ %.027159226, %.thread214 ], [ 0, %71 ], [ %.30, %57 ], [ %not.44, %76 ], [ %not., %86 ], [ 0, %91 ], [ 0, %96 ], [ 0, %101 ], [ 0, %106 ], [ 0, %.loopexit ], [ %.29, %49 ], [ %.027159204.ph, %.thread.thread ]
-  %.sink.i126155 = phi i8 [ %.sink.i126156, %115 ], [ %.sink.i, %.thread ], [ 8, %130 ], [ 7, %128 ], [ 6, %126 ], [ %.sink.i126156227, %.thread214 ], [ %.sink.i, %71 ], [ %.sink.i, %57 ], [ 0, %76 ], [ 0, %86 ], [ 1, %91 ], [ 2, %96 ], [ 4, %101 ], [ 3, %106 ], [ %.sink.i, %.loopexit ], [ %.sink.i, %49 ], [ %.sink.i, %.thread.thread ]
-  %.1 = phi i64 [ %.024.ph, %115 ], [ %125, %.thread ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %121, %.thread214 ], [ %.024.ph, %71 ], [ %.024.ph, %57 ], [ %.024.ph, %76 ], [ %.024.ph, %86 ], [ %.024.ph, %91 ], [ %.024.ph, %96 ], [ %.024.ph, %101 ], [ %.024.ph, %106 ], [ %.024.ph, %.loopexit ], [ %.024.ph, %49 ], [ %123, %.thread.thread ]
-  %113 = zext i32 %.0.i.i40 to i64
-  %114 = zext i1 %111 to i8
-  store i64 %113, ptr %0, align 8
+.thread206:                                       ; preds = %49, %95, %.thread.thread, %.loopexit, %90, %89, %88, %87, %86, %76, %57, %110, %108, %106, %.thread, %.thread214, %75
+  %91 = phi i1 [ %96, %95 ], [ %69, %.thread ], [ %69, %110 ], [ %69, %108 ], [ %69, %106 ], [ %99, %.thread214 ], [ %69, %75 ], [ %63, %57 ], [ %81, %76 ], [ %69, %86 ], [ %69, %87 ], [ %69, %88 ], [ %69, %89 ], [ %69, %90 ], [ %74, %.loopexit ], [ %55, %49 ], [ %69, %.thread.thread ]
+  %.sroa.316.0166 = phi i64 [ %.sroa.316.0167, %95 ], [ %.sroa.316.0, %.thread ], [ %.sroa.316.0, %110 ], [ %.sroa.316.0, %108 ], [ %.sroa.316.0, %106 ], [ %.sroa.316.0167222, %.thread214 ], [ %.sroa.316.0, %75 ], [ %.sroa.316.0170, %57 ], [ %.sroa.316.0173, %76 ], [ %.sroa.316.0, %86 ], [ %.sroa.316.0, %87 ], [ %.sroa.316.0, %88 ], [ %.sroa.316.0, %89 ], [ %.sroa.316.0, %90 ], [ %.sroa.316.0191, %.loopexit ], [ %.sroa.316.0154, %49 ], [ %.sroa.316.0, %.thread.thread ]
+  %.sroa.015.0164 = phi i64 [ %.sroa.015.0165, %95 ], [ %.sroa.015.0, %.thread ], [ %.sroa.015.0, %110 ], [ %.sroa.015.0, %108 ], [ %.sroa.015.0, %106 ], [ %.sroa.015.0165223, %.thread214 ], [ %.sroa.015.0, %75 ], [ %.sroa.015.0169, %57 ], [ %.sroa.015.0172, %76 ], [ %.sroa.015.0, %86 ], [ %.sroa.015.0, %87 ], [ %.sroa.015.0, %88 ], [ %.sroa.015.0, %89 ], [ %.sroa.015.0, %90 ], [ %.sroa.015.0190, %.loopexit ], [ %.sroa.015.0153, %49 ], [ %.sroa.015.0, %.thread.thread ]
+  %92 = phi i8 [ %97, %95 ], [ %66, %.thread ], [ %66, %110 ], [ %66, %108 ], [ %66, %106 ], [ %98, %.thread214 ], [ %66, %75 ], [ %60, %57 ], [ %78, %76 ], [ %66, %86 ], [ %66, %87 ], [ %66, %88 ], [ %66, %89 ], [ %66, %90 ], [ %71, %.loopexit ], [ %52, %49 ], [ %66, %.thread.thread ]
+  %.sink3.i61162 = phi i8 [ %.sink3.i61163, %95 ], [ %.sink3.i61, %.thread ], [ %.sink3.i61, %110 ], [ %.sink3.i61, %108 ], [ %.sink3.i61, %106 ], [ %.sink3.i61163224, %.thread214 ], [ %.sink3.i61, %75 ], [ %.sink3.i61168, %57 ], [ %.sink3.i61171, %76 ], [ %.sink3.i61, %86 ], [ %.sink3.i61, %87 ], [ %.sink3.i61, %88 ], [ %.sink3.i61, %89 ], [ %.sink3.i61, %90 ], [ %.sink3.i61189, %.loopexit ], [ %.sink3.i61152, %49 ], [ %.sink3.i61, %.thread.thread ]
+  %.026160 = phi i8 [ 1, %95 ], [ 1, %.thread ], [ 1, %110 ], [ 1, %108 ], [ 1, %106 ], [ 1, %.thread214 ], [ 1, %75 ], [ 1, %57 ], [ 1, %76 ], [ 1, %86 ], [ 1, %87 ], [ 1, %88 ], [ 1, %89 ], [ 1, %90 ], [ 1, %.loopexit ], [ 1, %49 ], [ %.026161203.ph, %.thread.thread ]
+  %.027158 = phi i8 [ 0, %95 ], [ 0, %.thread ], [ 0, %110 ], [ 0, %108 ], [ 0, %106 ], [ %.027159226, %.thread214 ], [ 0, %75 ], [ %.30, %57 ], [ 1, %76 ], [ 1, %86 ], [ 0, %87 ], [ 0, %88 ], [ 0, %89 ], [ 0, %90 ], [ 0, %.loopexit ], [ %.29, %49 ], [ %.027159204.ph, %.thread.thread ]
+  %.sink.i126155 = phi i8 [ %.sink.i126156, %95 ], [ %.sink.i, %.thread ], [ 8, %110 ], [ 7, %108 ], [ 6, %106 ], [ %.sink.i126156227, %.thread214 ], [ %.sink.i, %75 ], [ %.sink.i, %57 ], [ 0, %76 ], [ 0, %86 ], [ 1, %87 ], [ 2, %88 ], [ 4, %89 ], [ 3, %90 ], [ %.sink.i, %.loopexit ], [ %.sink.i, %49 ], [ %.sink.i, %.thread.thread ]
+  %.1 = phi i64 [ %.024.ph, %95 ], [ %105, %.thread ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %101, %.thread214 ], [ %.024.ph, %75 ], [ %.024.ph, %57 ], [ %.024.ph, %76 ], [ %.024.ph, %86 ], [ %.024.ph, %87 ], [ %.024.ph, %88 ], [ %.024.ph, %89 ], [ %.024.ph, %90 ], [ %.024.ph, %.loopexit ], [ %.024.ph, %49 ], [ %103, %.thread.thread ]
+  %93 = zext i32 %.0.i.i40 to i64
+  %94 = zext i1 %91 to i8
+  store i64 %93, ptr %0, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.015.0164, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.49.sroa.4.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1645,75 +1608,69 @@ define hidden void @"_ZN131_$LT$object..read..macho..relocation..MachORelocation
   %.sroa.49.sroa.10.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.1, ptr %.sroa.49.sroa.10.0..sroa.49.0..sroa_idx.sroa_idx, align 8
   %.sroa.49.sroa.11.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %114, ptr %.sroa.49.sroa.11.0..sroa.49.0..sroa_idx.sroa_idx, align 8
+  store i8 %94, ptr %.sroa.49.sroa.11.0..sroa.49.0..sroa_idx.sroa_idx, align 8
   %.sroa.49.sroa.12.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 %.027158, ptr %.sroa.49.sroa.12.0..sroa.49.0..sroa_idx.sroa_idx, align 1
   %.sroa.49.sroa.13.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %.026160, ptr %.sroa.49.sroa.13.0..sroa.49.0..sroa_idx.sroa_idx, align 2
   %.sroa.49.sroa.14.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 43
-  store i8 %112, ptr %.sroa.49.sroa.14.0..sroa.49.0..sroa_idx.sroa_idx, align 1
-  br label %132
+  store i8 %92, ptr %.sroa.49.sroa.14.0..sroa.49.0..sroa_idx.sroa_idx, align 1
+  br label %112
 
-115:                                              ; preds = %.loopexit, %76
-  %116 = phi i1 [ %81, %76 ], [ %70, %.loopexit ]
+95:                                               ; preds = %.loopexit, %76
+  %96 = phi i1 [ %81, %76 ], [ %74, %.loopexit ]
   %.sroa.316.0167 = phi i64 [ %.sroa.316.0173, %76 ], [ %.sroa.316.0191, %.loopexit ]
   %.sroa.015.0165 = phi i64 [ %.sroa.015.0172, %76 ], [ %.sroa.015.0190, %.loopexit ]
-  %117 = phi i8 [ %78, %76 ], [ %67, %.loopexit ]
+  %97 = phi i8 [ %78, %76 ], [ %71, %.loopexit ]
   %.sink3.i61163 = phi i8 [ %.sink3.i61171, %76 ], [ %.sink3.i61189, %.loopexit ]
-  %.027159 = phi i8 [ %not.44, %76 ], [ 0, %.loopexit ]
   %.sink.i126156 = phi i8 [ 0, %76 ], [ %.sink.i, %.loopexit ]
   %cond = icmp eq i32 %.0.i.i, 7
   br i1 %cond, label %.thread214, label %.thread206
 
-.thread214:                                       ; preds = %115, %57
-  %.sink.i126156227 = phi i8 [ %.sink.i126156, %115 ], [ %.sink.i, %57 ]
-  %.027159226 = phi i8 [ %.027159, %115 ], [ %.30, %57 ]
-  %.sink3.i61163224 = phi i8 [ %.sink3.i61163, %115 ], [ %.sink3.i61168, %57 ]
-  %118 = phi i8 [ %117, %115 ], [ %60, %57 ]
-  %.sroa.015.0165223 = phi i64 [ %.sroa.015.0165, %115 ], [ %.sroa.015.0169, %57 ]
-  %.sroa.316.0167222 = phi i64 [ %.sroa.316.0167, %115 ], [ %.sroa.316.0170, %57 ]
-  %119 = phi i1 [ %116, %115 ], [ %63, %57 ]
-  %120 = zext nneg i8 %.sink3.i61163224 to i64
-  %.neg28 = shl nsw i64 -1, %120
-  %121 = add nsw i64 %.neg28, %.024.ph
+.thread214:                                       ; preds = %95, %57
+  %.sink.i126156227 = phi i8 [ %.sink.i126156, %95 ], [ %.sink.i, %57 ]
+  %.027159226 = phi i8 [ 0, %95 ], [ %.30, %57 ]
+  %.sink3.i61163224 = phi i8 [ %.sink3.i61163, %95 ], [ %.sink3.i61168, %57 ]
+  %98 = phi i8 [ %97, %95 ], [ %60, %57 ]
+  %.sroa.015.0165223 = phi i64 [ %.sroa.015.0165, %95 ], [ %.sroa.015.0169, %57 ]
+  %.sroa.316.0167222 = phi i64 [ %.sroa.316.0167, %95 ], [ %.sroa.316.0170, %57 ]
+  %99 = phi i1 [ %96, %95 ], [ %63, %57 ]
+  %100 = zext nneg i8 %.sink3.i61163224 to i64
+  %.neg28 = shl nsw i64 -1, %100
+  %101 = add nsw i64 %.neg28, %.024.ph
   br label %.thread206
 
-.thread.thread:                                   ; preds = %106, %101, %96, %91, %86
-  %.027159204.ph = phi i8 [ %not., %86 ], [ 2, %91 ], [ 2, %96 ], [ 4, %101 ], [ 4, %106 ]
-  %.026161203.ph = phi i8 [ 1, %86 ], [ 3, %91 ], [ 5, %96 ], [ 1, %101 ], [ 4, %106 ]
-  %.sink3.i61163202.ph = phi i8 [ %.sink3.i61174, %86 ], [ %.sink3.i61177, %91 ], [ %.sink3.i61180, %96 ], [ %.sink3.i61183, %101 ], [ %.sink3.i61186, %106 ]
-  %.ph = phi i8 [ %87, %86 ], [ %92, %91 ], [ %97, %96 ], [ %102, %101 ], [ %107, %106 ]
-  %.sroa.015.0165201.ph = phi i64 [ %.sroa.015.0175, %86 ], [ %.sroa.015.0178, %91 ], [ %.sroa.015.0181, %96 ], [ %.sroa.015.0184, %101 ], [ %.sroa.015.0187, %106 ]
-  %.sroa.316.0167200.ph = phi i64 [ %.sroa.316.0176, %86 ], [ %.sroa.316.0179, %91 ], [ %.sroa.316.0182, %96 ], [ %.sroa.316.0185, %101 ], [ %.sroa.316.0188, %106 ]
-  %.ph228 = phi i1 [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ %105, %101 ], [ %110, %106 ]
-  %122 = zext nneg i8 %.sink3.i61163202.ph to i64
-  %.neg235 = shl nsw i64 -1, %122
-  %123 = add nsw i64 %.neg235, %.024.ph
+.thread.thread:                                   ; preds = %90, %89, %88, %87, %86
+  %.027159204.ph = phi i8 [ 0, %86 ], [ 2, %87 ], [ 2, %88 ], [ 4, %89 ], [ 4, %90 ]
+  %.026161203.ph = phi i8 [ 1, %86 ], [ 3, %87 ], [ 5, %88 ], [ 1, %89 ], [ 4, %90 ]
+  %102 = zext nneg i8 %.sink3.i61 to i64
+  %.neg235 = shl nsw i64 -1, %102
+  %103 = add nsw i64 %.neg235, %.024.ph
   br label %.thread206
 
-.thread:                                          ; preds = %71
-  %124 = zext nneg i8 %.sink3.i61 to i64
-  %.neg = shl nsw i64 -1, %124
-  %125 = add nsw i64 %.neg, %.024.ph
+.thread:                                          ; preds = %75
+  %104 = zext nneg i8 %.sink3.i61 to i64
+  %.neg = shl nsw i64 -1, %104
+  %105 = add nsw i64 %.neg, %.024.ph
   switch i8 %.sink.i, label %.thread206 [
-    i8 6, label %126
-    i8 7, label %128
-    i8 8, label %130
+    i8 6, label %106
+    i8 7, label %108
+    i8 8, label %110
   ]
 
-126:                                              ; preds = %.thread
-  %127 = add nsw i64 %125, -1
+106:                                              ; preds = %.thread
+  %107 = add nsw i64 %105, -1
   br label %.thread206
 
-128:                                              ; preds = %.thread
-  %129 = add nsw i64 %125, -2
+108:                                              ; preds = %.thread
+  %109 = add nsw i64 %105, -2
   br label %.thread206
 
-130:                                              ; preds = %.thread
-  %131 = add nsw i64 %125, -4
+110:                                              ; preds = %.thread
+  %111 = add nsw i64 %105, -4
   br label %.thread206
 
-132:                                              ; preds = %.thread206, %20
+112:                                              ; preds = %.thread206, %20
   ret void
 }
 
@@ -1755,7 +1712,7 @@ define hidden void @"_ZN131_$LT$object..read..macho..relocation..MachORelocation
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 3, ptr %21, align 8
-  br label %132
+  br label %112
 
 22:                                               ; preds = %12
   %23 = shl i32 %.pre, 24
@@ -1847,38 +1804,37 @@ define hidden void @"_ZN131_$LT$object..read..macho..relocation..MachORelocation
 
 64:                                               ; preds = %"_ZN6object5macho19Relocation$LT$E$GT$4info17h27f0525f9c52cc90E.exit"
   %65 = trunc nuw i8 %.sink4.i to i1
-  switch i8 %.sink.i, label %71 [
+  %.sink3.i61 = and i8 %.sink3.in.i, 3
+  %66 = shl nuw nsw i8 8, %.sink3.i61
+  %67 = and i8 %.sink2.in.i, 1
+  %68 = xor i8 %67, 1
+  %.sroa.015.0 = zext nneg i8 %68 to i64
+  %.sroa.316.0 = zext nneg i32 %.sink5.i to i64
+  %69 = icmp eq i64 %.024.ph, 0
+  switch i8 %.sink.i, label %75 [
     i8 0, label %86
-    i8 1, label %91
-    i8 2, label %96
-    i8 4, label %101
-    i8 3, label %106
+    i8 1, label %87
+    i8 2, label %88
+    i8 4, label %89
+    i8 3, label %90
   ]
 
 .loopexit:                                        ; preds = %"_ZN6object5macho19Relocation$LT$E$GT$4info17h27f0525f9c52cc90E.exit", %56
-  %66 = trunc nuw i8 %.sink4.i to i1
+  %70 = trunc nuw i8 %.sink4.i to i1
   %.sink3.i61189 = and i8 %.sink3.in.i, 3
-  %67 = shl nuw nsw i8 8, %.sink3.i61189
-  %68 = and i8 %.sink2.in.i, 1
-  %69 = xor i8 %68, 1
-  %.sroa.015.0190 = zext nneg i8 %69 to i64
+  %71 = shl nuw nsw i8 8, %.sink3.i61189
+  %72 = and i8 %.sink2.in.i, 1
+  %73 = xor i8 %72, 1
+  %.sroa.015.0190 = zext nneg i8 %73 to i64
   %.sroa.316.0191 = zext nneg i32 %.sink5.i to i64
-  %70 = icmp eq i64 %.024.ph, 0
-  br i1 %66, label %115, label %.thread206
+  %74 = icmp eq i64 %.024.ph, 0
+  br i1 %70, label %95, label %.thread206
 
-71:                                               ; preds = %64
-  %.sink3.i61 = and i8 %.sink3.in.i, 3
-  %72 = shl nuw nsw i8 8, %.sink3.i61
-  %73 = and i8 %.sink2.in.i, 1
-  %74 = xor i8 %73, 1
-  %.sroa.015.0 = zext nneg i8 %74 to i64
-  %.sroa.316.0 = zext nneg i32 %.sink5.i to i64
-  %75 = icmp eq i64 %.024.ph, 0
+75:                                               ; preds = %64
   br i1 %65, label %.thread, label %.thread206
 
 76:                                               ; preds = %56
   %77 = trunc nuw i8 %.sink4.i to i1
-  %not.44 = xor i8 %.sink4.i, 1
   %.sink3.i61171 = and i8 %.sink3.in.i, 3
   %78 = shl nuw nsw i8 8, %.sink3.i61171
   %79 = and i8 %.sink2.in.i, 1
@@ -1886,7 +1842,7 @@ define hidden void @"_ZN131_$LT$object..read..macho..relocation..MachORelocation
   %.sroa.015.0172 = zext nneg i8 %80 to i64
   %.sroa.316.0173 = zext nneg i32 %.sink5.i to i64
   %81 = icmp eq i64 %.024.ph, 0
-  br i1 %77, label %115, label %.thread206
+  br i1 %77, label %95, label %.thread206
 
 82:                                               ; preds = %56
   %83 = zext nneg i32 %.sink5.i to i64
@@ -1895,69 +1851,33 @@ define hidden void @"_ZN131_$LT$object..read..macho..relocation..MachORelocation
   br label %.outer
 
 86:                                               ; preds = %64
-  %not. = xor i8 %.sink4.i, 1
-  %.sink3.i61174 = and i8 %.sink3.in.i, 3
-  %87 = shl nuw nsw i8 8, %.sink3.i61174
-  %88 = and i8 %.sink2.in.i, 1
-  %89 = xor i8 %88, 1
-  %.sroa.015.0175 = zext nneg i8 %89 to i64
-  %.sroa.316.0176 = zext nneg i32 %.sink5.i to i64
-  %90 = icmp eq i64 %.024.ph, 0
   br i1 %65, label %.thread.thread, label %.thread206
 
-91:                                               ; preds = %64
-  %.sink3.i61177 = and i8 %.sink3.in.i, 3
-  %92 = shl nuw nsw i8 8, %.sink3.i61177
-  %93 = and i8 %.sink2.in.i, 1
-  %94 = xor i8 %93, 1
-  %.sroa.015.0178 = zext nneg i8 %94 to i64
-  %.sroa.316.0179 = zext nneg i32 %.sink5.i to i64
-  %95 = icmp eq i64 %.024.ph, 0
+87:                                               ; preds = %64
   br i1 %65, label %.thread.thread, label %.thread206
 
-96:                                               ; preds = %64
-  %.sink3.i61180 = and i8 %.sink3.in.i, 3
-  %97 = shl nuw nsw i8 8, %.sink3.i61180
-  %98 = and i8 %.sink2.in.i, 1
-  %99 = xor i8 %98, 1
-  %.sroa.015.0181 = zext nneg i8 %99 to i64
-  %.sroa.316.0182 = zext nneg i32 %.sink5.i to i64
-  %100 = icmp eq i64 %.024.ph, 0
+88:                                               ; preds = %64
   br i1 %65, label %.thread.thread, label %.thread206
 
-101:                                              ; preds = %64
-  %.sink3.i61183 = and i8 %.sink3.in.i, 3
-  %102 = shl nuw nsw i8 8, %.sink3.i61183
-  %103 = and i8 %.sink2.in.i, 1
-  %104 = xor i8 %103, 1
-  %.sroa.015.0184 = zext nneg i8 %104 to i64
-  %.sroa.316.0185 = zext nneg i32 %.sink5.i to i64
-  %105 = icmp eq i64 %.024.ph, 0
+89:                                               ; preds = %64
   br i1 %65, label %.thread.thread, label %.thread206
 
-106:                                              ; preds = %64
-  %.sink3.i61186 = and i8 %.sink3.in.i, 3
-  %107 = shl nuw nsw i8 8, %.sink3.i61186
-  %108 = and i8 %.sink2.in.i, 1
-  %109 = xor i8 %108, 1
-  %.sroa.015.0187 = zext nneg i8 %109 to i64
-  %.sroa.316.0188 = zext nneg i32 %.sink5.i to i64
-  %110 = icmp eq i64 %.024.ph, 0
+90:                                               ; preds = %64
   br i1 %65, label %.thread.thread, label %.thread206
 
-.thread206:                                       ; preds = %49, %115, %.thread.thread, %.loopexit, %106, %101, %96, %91, %86, %76, %57, %130, %128, %126, %.thread, %.thread214, %71
-  %111 = phi i1 [ %116, %115 ], [ %75, %.thread ], [ %75, %130 ], [ %75, %128 ], [ %75, %126 ], [ %119, %.thread214 ], [ %75, %71 ], [ %63, %57 ], [ %81, %76 ], [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ %105, %101 ], [ %110, %106 ], [ %70, %.loopexit ], [ %55, %49 ], [ %.ph228, %.thread.thread ]
-  %.sroa.316.0166 = phi i64 [ %.sroa.316.0167, %115 ], [ %.sroa.316.0, %.thread ], [ %.sroa.316.0, %130 ], [ %.sroa.316.0, %128 ], [ %.sroa.316.0, %126 ], [ %.sroa.316.0167222, %.thread214 ], [ %.sroa.316.0, %71 ], [ %.sroa.316.0170, %57 ], [ %.sroa.316.0173, %76 ], [ %.sroa.316.0176, %86 ], [ %.sroa.316.0179, %91 ], [ %.sroa.316.0182, %96 ], [ %.sroa.316.0185, %101 ], [ %.sroa.316.0188, %106 ], [ %.sroa.316.0191, %.loopexit ], [ %.sroa.316.0154, %49 ], [ %.sroa.316.0167200.ph, %.thread.thread ]
-  %.sroa.015.0164 = phi i64 [ %.sroa.015.0165, %115 ], [ %.sroa.015.0, %.thread ], [ %.sroa.015.0, %130 ], [ %.sroa.015.0, %128 ], [ %.sroa.015.0, %126 ], [ %.sroa.015.0165223, %.thread214 ], [ %.sroa.015.0, %71 ], [ %.sroa.015.0169, %57 ], [ %.sroa.015.0172, %76 ], [ %.sroa.015.0175, %86 ], [ %.sroa.015.0178, %91 ], [ %.sroa.015.0181, %96 ], [ %.sroa.015.0184, %101 ], [ %.sroa.015.0187, %106 ], [ %.sroa.015.0190, %.loopexit ], [ %.sroa.015.0153, %49 ], [ %.sroa.015.0165201.ph, %.thread.thread ]
-  %112 = phi i8 [ %117, %115 ], [ %72, %.thread ], [ %72, %130 ], [ %72, %128 ], [ %72, %126 ], [ %118, %.thread214 ], [ %72, %71 ], [ %60, %57 ], [ %78, %76 ], [ %87, %86 ], [ %92, %91 ], [ %97, %96 ], [ %102, %101 ], [ %107, %106 ], [ %67, %.loopexit ], [ %52, %49 ], [ %.ph, %.thread.thread ]
-  %.sink3.i61162 = phi i8 [ %.sink3.i61163, %115 ], [ %.sink3.i61, %.thread ], [ %.sink3.i61, %130 ], [ %.sink3.i61, %128 ], [ %.sink3.i61, %126 ], [ %.sink3.i61163224, %.thread214 ], [ %.sink3.i61, %71 ], [ %.sink3.i61168, %57 ], [ %.sink3.i61171, %76 ], [ %.sink3.i61174, %86 ], [ %.sink3.i61177, %91 ], [ %.sink3.i61180, %96 ], [ %.sink3.i61183, %101 ], [ %.sink3.i61186, %106 ], [ %.sink3.i61189, %.loopexit ], [ %.sink3.i61152, %49 ], [ %.sink3.i61163202.ph, %.thread.thread ]
-  %.026160 = phi i8 [ 1, %115 ], [ 1, %.thread ], [ 1, %130 ], [ 1, %128 ], [ 1, %126 ], [ 1, %.thread214 ], [ 1, %71 ], [ 1, %57 ], [ 1, %76 ], [ 1, %86 ], [ 1, %91 ], [ 1, %96 ], [ 1, %101 ], [ 1, %106 ], [ 1, %.loopexit ], [ 1, %49 ], [ %.026161203.ph, %.thread.thread ]
-  %.027158 = phi i8 [ %.027159, %115 ], [ 0, %.thread ], [ 0, %130 ], [ 0, %128 ], [ 0, %126 ], [ %.027159226, %.thread214 ], [ 0, %71 ], [ %.30, %57 ], [ %not.44, %76 ], [ %not., %86 ], [ 0, %91 ], [ 0, %96 ], [ 0, %101 ], [ 0, %106 ], [ 0, %.loopexit ], [ %.29, %49 ], [ %.027159204.ph, %.thread.thread ]
-  %.sink.i126155 = phi i8 [ %.sink.i126156, %115 ], [ %.sink.i, %.thread ], [ 8, %130 ], [ 7, %128 ], [ 6, %126 ], [ %.sink.i126156227, %.thread214 ], [ %.sink.i, %71 ], [ %.sink.i, %57 ], [ 0, %76 ], [ 0, %86 ], [ 1, %91 ], [ 2, %96 ], [ 4, %101 ], [ 3, %106 ], [ %.sink.i, %.loopexit ], [ %.sink.i, %49 ], [ %.sink.i, %.thread.thread ]
-  %.1 = phi i64 [ %.024.ph, %115 ], [ %125, %.thread ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %121, %.thread214 ], [ %.024.ph, %71 ], [ %.024.ph, %57 ], [ %.024.ph, %76 ], [ %.024.ph, %86 ], [ %.024.ph, %91 ], [ %.024.ph, %96 ], [ %.024.ph, %101 ], [ %.024.ph, %106 ], [ %.024.ph, %.loopexit ], [ %.024.ph, %49 ], [ %123, %.thread.thread ]
-  %113 = zext i32 %.0.i.i40 to i64
-  %114 = zext i1 %111 to i8
-  store i64 %113, ptr %0, align 8
+.thread206:                                       ; preds = %49, %95, %.thread.thread, %.loopexit, %90, %89, %88, %87, %86, %76, %57, %110, %108, %106, %.thread, %.thread214, %75
+  %91 = phi i1 [ %96, %95 ], [ %69, %.thread ], [ %69, %110 ], [ %69, %108 ], [ %69, %106 ], [ %99, %.thread214 ], [ %69, %75 ], [ %63, %57 ], [ %81, %76 ], [ %69, %86 ], [ %69, %87 ], [ %69, %88 ], [ %69, %89 ], [ %69, %90 ], [ %74, %.loopexit ], [ %55, %49 ], [ %69, %.thread.thread ]
+  %.sroa.316.0166 = phi i64 [ %.sroa.316.0167, %95 ], [ %.sroa.316.0, %.thread ], [ %.sroa.316.0, %110 ], [ %.sroa.316.0, %108 ], [ %.sroa.316.0, %106 ], [ %.sroa.316.0167222, %.thread214 ], [ %.sroa.316.0, %75 ], [ %.sroa.316.0170, %57 ], [ %.sroa.316.0173, %76 ], [ %.sroa.316.0, %86 ], [ %.sroa.316.0, %87 ], [ %.sroa.316.0, %88 ], [ %.sroa.316.0, %89 ], [ %.sroa.316.0, %90 ], [ %.sroa.316.0191, %.loopexit ], [ %.sroa.316.0154, %49 ], [ %.sroa.316.0, %.thread.thread ]
+  %.sroa.015.0164 = phi i64 [ %.sroa.015.0165, %95 ], [ %.sroa.015.0, %.thread ], [ %.sroa.015.0, %110 ], [ %.sroa.015.0, %108 ], [ %.sroa.015.0, %106 ], [ %.sroa.015.0165223, %.thread214 ], [ %.sroa.015.0, %75 ], [ %.sroa.015.0169, %57 ], [ %.sroa.015.0172, %76 ], [ %.sroa.015.0, %86 ], [ %.sroa.015.0, %87 ], [ %.sroa.015.0, %88 ], [ %.sroa.015.0, %89 ], [ %.sroa.015.0, %90 ], [ %.sroa.015.0190, %.loopexit ], [ %.sroa.015.0153, %49 ], [ %.sroa.015.0, %.thread.thread ]
+  %92 = phi i8 [ %97, %95 ], [ %66, %.thread ], [ %66, %110 ], [ %66, %108 ], [ %66, %106 ], [ %98, %.thread214 ], [ %66, %75 ], [ %60, %57 ], [ %78, %76 ], [ %66, %86 ], [ %66, %87 ], [ %66, %88 ], [ %66, %89 ], [ %66, %90 ], [ %71, %.loopexit ], [ %52, %49 ], [ %66, %.thread.thread ]
+  %.sink3.i61162 = phi i8 [ %.sink3.i61163, %95 ], [ %.sink3.i61, %.thread ], [ %.sink3.i61, %110 ], [ %.sink3.i61, %108 ], [ %.sink3.i61, %106 ], [ %.sink3.i61163224, %.thread214 ], [ %.sink3.i61, %75 ], [ %.sink3.i61168, %57 ], [ %.sink3.i61171, %76 ], [ %.sink3.i61, %86 ], [ %.sink3.i61, %87 ], [ %.sink3.i61, %88 ], [ %.sink3.i61, %89 ], [ %.sink3.i61, %90 ], [ %.sink3.i61189, %.loopexit ], [ %.sink3.i61152, %49 ], [ %.sink3.i61, %.thread.thread ]
+  %.026160 = phi i8 [ 1, %95 ], [ 1, %.thread ], [ 1, %110 ], [ 1, %108 ], [ 1, %106 ], [ 1, %.thread214 ], [ 1, %75 ], [ 1, %57 ], [ 1, %76 ], [ 1, %86 ], [ 1, %87 ], [ 1, %88 ], [ 1, %89 ], [ 1, %90 ], [ 1, %.loopexit ], [ 1, %49 ], [ %.026161203.ph, %.thread.thread ]
+  %.027158 = phi i8 [ 0, %95 ], [ 0, %.thread ], [ 0, %110 ], [ 0, %108 ], [ 0, %106 ], [ %.027159226, %.thread214 ], [ 0, %75 ], [ %.30, %57 ], [ 1, %76 ], [ 1, %86 ], [ 0, %87 ], [ 0, %88 ], [ 0, %89 ], [ 0, %90 ], [ 0, %.loopexit ], [ %.29, %49 ], [ %.027159204.ph, %.thread.thread ]
+  %.sink.i126155 = phi i8 [ %.sink.i126156, %95 ], [ %.sink.i, %.thread ], [ 8, %110 ], [ 7, %108 ], [ 6, %106 ], [ %.sink.i126156227, %.thread214 ], [ %.sink.i, %75 ], [ %.sink.i, %57 ], [ 0, %76 ], [ 0, %86 ], [ 1, %87 ], [ 2, %88 ], [ 4, %89 ], [ 3, %90 ], [ %.sink.i, %.loopexit ], [ %.sink.i, %49 ], [ %.sink.i, %.thread.thread ]
+  %.1 = phi i64 [ %.024.ph, %95 ], [ %105, %.thread ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %101, %.thread214 ], [ %.024.ph, %75 ], [ %.024.ph, %57 ], [ %.024.ph, %76 ], [ %.024.ph, %86 ], [ %.024.ph, %87 ], [ %.024.ph, %88 ], [ %.024.ph, %89 ], [ %.024.ph, %90 ], [ %.024.ph, %.loopexit ], [ %.024.ph, %49 ], [ %103, %.thread.thread ]
+  %93 = zext i32 %.0.i.i40 to i64
+  %94 = zext i1 %91 to i8
+  store i64 %93, ptr %0, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.015.0164, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.49.sroa.4.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1973,75 +1893,69 @@ define hidden void @"_ZN131_$LT$object..read..macho..relocation..MachORelocation
   %.sroa.49.sroa.10.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.1, ptr %.sroa.49.sroa.10.0..sroa.49.0..sroa_idx.sroa_idx, align 8
   %.sroa.49.sroa.11.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %114, ptr %.sroa.49.sroa.11.0..sroa.49.0..sroa_idx.sroa_idx, align 8
+  store i8 %94, ptr %.sroa.49.sroa.11.0..sroa.49.0..sroa_idx.sroa_idx, align 8
   %.sroa.49.sroa.12.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 %.027158, ptr %.sroa.49.sroa.12.0..sroa.49.0..sroa_idx.sroa_idx, align 1
   %.sroa.49.sroa.13.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %.026160, ptr %.sroa.49.sroa.13.0..sroa.49.0..sroa_idx.sroa_idx, align 2
   %.sroa.49.sroa.14.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 43
-  store i8 %112, ptr %.sroa.49.sroa.14.0..sroa.49.0..sroa_idx.sroa_idx, align 1
-  br label %132
+  store i8 %92, ptr %.sroa.49.sroa.14.0..sroa.49.0..sroa_idx.sroa_idx, align 1
+  br label %112
 
-115:                                              ; preds = %.loopexit, %76
-  %116 = phi i1 [ %81, %76 ], [ %70, %.loopexit ]
+95:                                               ; preds = %.loopexit, %76
+  %96 = phi i1 [ %81, %76 ], [ %74, %.loopexit ]
   %.sroa.316.0167 = phi i64 [ %.sroa.316.0173, %76 ], [ %.sroa.316.0191, %.loopexit ]
   %.sroa.015.0165 = phi i64 [ %.sroa.015.0172, %76 ], [ %.sroa.015.0190, %.loopexit ]
-  %117 = phi i8 [ %78, %76 ], [ %67, %.loopexit ]
+  %97 = phi i8 [ %78, %76 ], [ %71, %.loopexit ]
   %.sink3.i61163 = phi i8 [ %.sink3.i61171, %76 ], [ %.sink3.i61189, %.loopexit ]
-  %.027159 = phi i8 [ %not.44, %76 ], [ 0, %.loopexit ]
   %.sink.i126156 = phi i8 [ 0, %76 ], [ %.sink.i, %.loopexit ]
   %cond = icmp eq i32 %.0.i.i, 7
   br i1 %cond, label %.thread214, label %.thread206
 
-.thread214:                                       ; preds = %115, %57
-  %.sink.i126156227 = phi i8 [ %.sink.i126156, %115 ], [ %.sink.i, %57 ]
-  %.027159226 = phi i8 [ %.027159, %115 ], [ %.30, %57 ]
-  %.sink3.i61163224 = phi i8 [ %.sink3.i61163, %115 ], [ %.sink3.i61168, %57 ]
-  %118 = phi i8 [ %117, %115 ], [ %60, %57 ]
-  %.sroa.015.0165223 = phi i64 [ %.sroa.015.0165, %115 ], [ %.sroa.015.0169, %57 ]
-  %.sroa.316.0167222 = phi i64 [ %.sroa.316.0167, %115 ], [ %.sroa.316.0170, %57 ]
-  %119 = phi i1 [ %116, %115 ], [ %63, %57 ]
-  %120 = zext nneg i8 %.sink3.i61163224 to i64
-  %.neg28 = shl nsw i64 -1, %120
-  %121 = add nsw i64 %.neg28, %.024.ph
+.thread214:                                       ; preds = %95, %57
+  %.sink.i126156227 = phi i8 [ %.sink.i126156, %95 ], [ %.sink.i, %57 ]
+  %.027159226 = phi i8 [ 0, %95 ], [ %.30, %57 ]
+  %.sink3.i61163224 = phi i8 [ %.sink3.i61163, %95 ], [ %.sink3.i61168, %57 ]
+  %98 = phi i8 [ %97, %95 ], [ %60, %57 ]
+  %.sroa.015.0165223 = phi i64 [ %.sroa.015.0165, %95 ], [ %.sroa.015.0169, %57 ]
+  %.sroa.316.0167222 = phi i64 [ %.sroa.316.0167, %95 ], [ %.sroa.316.0170, %57 ]
+  %99 = phi i1 [ %96, %95 ], [ %63, %57 ]
+  %100 = zext nneg i8 %.sink3.i61163224 to i64
+  %.neg28 = shl nsw i64 -1, %100
+  %101 = add nsw i64 %.neg28, %.024.ph
   br label %.thread206
 
-.thread.thread:                                   ; preds = %106, %101, %96, %91, %86
-  %.027159204.ph = phi i8 [ %not., %86 ], [ 2, %91 ], [ 2, %96 ], [ 4, %101 ], [ 4, %106 ]
-  %.026161203.ph = phi i8 [ 1, %86 ], [ 3, %91 ], [ 5, %96 ], [ 1, %101 ], [ 4, %106 ]
-  %.sink3.i61163202.ph = phi i8 [ %.sink3.i61174, %86 ], [ %.sink3.i61177, %91 ], [ %.sink3.i61180, %96 ], [ %.sink3.i61183, %101 ], [ %.sink3.i61186, %106 ]
-  %.ph = phi i8 [ %87, %86 ], [ %92, %91 ], [ %97, %96 ], [ %102, %101 ], [ %107, %106 ]
-  %.sroa.015.0165201.ph = phi i64 [ %.sroa.015.0175, %86 ], [ %.sroa.015.0178, %91 ], [ %.sroa.015.0181, %96 ], [ %.sroa.015.0184, %101 ], [ %.sroa.015.0187, %106 ]
-  %.sroa.316.0167200.ph = phi i64 [ %.sroa.316.0176, %86 ], [ %.sroa.316.0179, %91 ], [ %.sroa.316.0182, %96 ], [ %.sroa.316.0185, %101 ], [ %.sroa.316.0188, %106 ]
-  %.ph228 = phi i1 [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ %105, %101 ], [ %110, %106 ]
-  %122 = zext nneg i8 %.sink3.i61163202.ph to i64
-  %.neg235 = shl nsw i64 -1, %122
-  %123 = add nsw i64 %.neg235, %.024.ph
+.thread.thread:                                   ; preds = %90, %89, %88, %87, %86
+  %.027159204.ph = phi i8 [ 0, %86 ], [ 2, %87 ], [ 2, %88 ], [ 4, %89 ], [ 4, %90 ]
+  %.026161203.ph = phi i8 [ 1, %86 ], [ 3, %87 ], [ 5, %88 ], [ 1, %89 ], [ 4, %90 ]
+  %102 = zext nneg i8 %.sink3.i61 to i64
+  %.neg235 = shl nsw i64 -1, %102
+  %103 = add nsw i64 %.neg235, %.024.ph
   br label %.thread206
 
-.thread:                                          ; preds = %71
-  %124 = zext nneg i8 %.sink3.i61 to i64
-  %.neg = shl nsw i64 -1, %124
-  %125 = add nsw i64 %.neg, %.024.ph
+.thread:                                          ; preds = %75
+  %104 = zext nneg i8 %.sink3.i61 to i64
+  %.neg = shl nsw i64 -1, %104
+  %105 = add nsw i64 %.neg, %.024.ph
   switch i8 %.sink.i, label %.thread206 [
-    i8 6, label %126
-    i8 7, label %128
-    i8 8, label %130
+    i8 6, label %106
+    i8 7, label %108
+    i8 8, label %110
   ]
 
-126:                                              ; preds = %.thread
-  %127 = add nsw i64 %125, -1
+106:                                              ; preds = %.thread
+  %107 = add nsw i64 %105, -1
   br label %.thread206
 
-128:                                              ; preds = %.thread
-  %129 = add nsw i64 %125, -2
+108:                                              ; preds = %.thread
+  %109 = add nsw i64 %105, -2
   br label %.thread206
 
-130:                                              ; preds = %.thread
-  %131 = add nsw i64 %125, -4
+110:                                              ; preds = %.thread
+  %111 = add nsw i64 %105, -4
   br label %.thread206
 
-132:                                              ; preds = %.thread206, %20
+112:                                              ; preds = %.thread206, %20
   ret void
 }
 

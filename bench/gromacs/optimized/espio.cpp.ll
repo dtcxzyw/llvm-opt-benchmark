@@ -1795,7 +1795,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit42:        ; preds = %.outer.i37.split, %
 .critedge:                                        ; preds = %41, %_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53, %43, %44, %46
   %.329 = phi i32 [ %.026, %44 ], [ %.026, %46 ], [ %.026, %43 ], [ %.127124, %_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53 ], [ %.228, %41 ]
   %.3 = phi i32 [ %45, %44 ], [ %47, %46 ], [ %.024, %43 ], [ %.125125, %_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53 ], [ %.2, %41 ]
-  %.1 = phi i8 [ %.0, %44 ], [ %.0, %46 ], [ %.0, %43 ], [ 1, %_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53 ], [ 1, %41 ]
+  %.1 = phi i8 [ 0, %44 ], [ 0, %46 ], [ 0, %43 ], [ 1, %_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53 ], [ 1, %41 ]
   br label %6, !llvm.loop !26
 
 48:                                               ; preds = %_ZL17get_espresso_wordP8_IO_FILEPc.exit.thread

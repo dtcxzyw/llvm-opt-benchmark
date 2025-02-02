@@ -256,10 +256,10 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
   br i1 %1, label %.lr.ph61.split.us, label %.lr.ph61.split
 
 .lr.ph61.split.us:                                ; preds = %.lr.ph61, %.lr.ph61.split.us
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph61.split.us ], [ 0, %.lr.ph61 ]
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph61.split.us ], [ 0, %.lr.ph61 ]
   %.03857.us = phi i1 [ %spec.select, %.lr.ph61.split.us ], [ false, %.lr.ph61 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr %struct.DbInfo, ptr %8, i64 %indvars.iv68, i32 1
+  %9 = getelementptr %struct.DbInfo, ptr %8, i64 %indvars.iv67, i32 1
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @connectToServer(ptr noundef nonnull %0, ptr noundef %10) #6
   %12 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %11, ptr noundef nonnull @.str.22) #6
@@ -270,16 +270,16 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
   %spec.select = select i1 %16, i1 true, i1 %.03857.us
   tail call void @PQclear(ptr noundef %12) #6
   tail call void @PQfinish(ptr noundef %11) #6
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %17 = load i32, ptr %4, align 8
   %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next69, %18
+  %19 = icmp slt i64 %indvars.iv.next68, %18
   br i1 %19, label %.lr.ph61.split.us, label %._crit_edge62.thread, !llvm.loop !8
 
-.lr.ph61.split:                                   ; preds = %.lr.ph61, %53
-  %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph61 ]
-  %.03758 = phi ptr [ %.1.lcssa74, %53 ], [ null, %.lr.ph61 ]
-  %.03857 = phi i1 [ %.139.lcssa73, %53 ], [ false, %.lr.ph61 ]
+.lr.ph61.split:                                   ; preds = %.lr.ph61, %.sink.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.sink.split ], [ 0, %.lr.ph61 ]
+  %.03758 = phi ptr [ %.1.lcssa72.ph, %.sink.split ], [ null, %.lr.ph61 ]
+  %.03857 = phi i1 [ %.139.lcssa71.ph, %.sink.split ], [ false, %.lr.ph61 ]
   %20 = load ptr, ptr %7, align 8
   %21 = getelementptr %struct.DbInfo, ptr %20, i64 %indvars.iv, i32 1
   %22 = load ptr, ptr %21, align 8
@@ -291,10 +291,10 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
   %28 = icmp sgt i32 %25, 0
   br i1 %28, label %.lr.ph, label %.sink.split
 
-.lr.ph:                                           ; preds = %.lr.ph61.split, %43
-  %.152 = phi ptr [ %.2, %43 ], [ %.03758, %.lr.ph61.split ]
-  %.04051 = phi i8 [ %.141, %43 ], [ 0, %.lr.ph61.split ]
-  %.04350 = phi i32 [ %49, %43 ], [ 0, %.lr.ph61.split ]
+.lr.ph:                                           ; preds = %.lr.ph61.split, %42
+  %.152 = phi ptr [ %.2, %42 ], [ %.03758, %.lr.ph61.split ]
+  %.04051 = phi i1 [ true, %42 ], [ false, %.lr.ph61.split ]
+  %.04350 = phi i32 [ %48, %42 ], [ 0, %.lr.ph61.split ]
   %29 = icmp eq ptr %.152, null
   br i1 %29, label %30, label %37
 
@@ -312,86 +312,75 @@ define dso_local void @old_9_6_invalidate_hash_indexes(ptr noundef %0, i1 nounde
 
 37:                                               ; preds = %30, %.lr.ph
   %.2 = phi ptr [ %31, %30 ], [ %.152, %.lr.ph ]
-  %38 = trunc nuw i8 %.04051 to i1
-  br i1 %38, label %43, label %39
+  br i1 %.04051, label %42, label %38
 
-39:                                               ; preds = %37
+38:                                               ; preds = %37
   call void @initPQExpBuffer(ptr noundef nonnull %3) #6
-  %40 = load ptr, ptr %21, align 8
-  call void @appendPsqlMetaConnect(ptr noundef nonnull %3, ptr noundef %40) #6
-  %41 = load ptr, ptr %3, align 8
-  %42 = call i32 @fputs(ptr noundef %41, ptr noundef nonnull %.2)
+  %39 = load ptr, ptr %21, align 8
+  call void @appendPsqlMetaConnect(ptr noundef nonnull %3, ptr noundef %39) #6
+  %40 = load ptr, ptr %3, align 8
+  %41 = call i32 @fputs(ptr noundef %40, ptr noundef nonnull %.2)
   call void @termPQExpBuffer(ptr noundef nonnull %3) #6
-  br label %43
+  br label %42
 
-43:                                               ; preds = %39, %37
-  %.141 = phi i8 [ %.04051, %37 ], [ 1, %39 ]
-  %44 = call ptr @PQgetvalue(ptr noundef %24, i32 noundef %.04350, i32 noundef %26) #6
-  %45 = call ptr @quote_identifier(ptr noundef %44) #6
-  %46 = call ptr @PQgetvalue(ptr noundef %24, i32 noundef %.04350, i32 noundef %27) #6
-  %47 = call ptr @quote_identifier(ptr noundef %46) #6
-  %48 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.23, ptr noundef %45, ptr noundef %47) #6
-  %49 = add nuw nsw i32 %.04350, 1
-  %exitcond.not = icmp eq i32 %49, %25
+42:                                               ; preds = %38, %37
+  %43 = call ptr @PQgetvalue(ptr noundef %24, i32 noundef %.04350, i32 noundef %26) #6
+  %44 = call ptr @quote_identifier(ptr noundef %43) #6
+  %45 = call ptr @PQgetvalue(ptr noundef %24, i32 noundef %.04350, i32 noundef %27) #6
+  %46 = call ptr @quote_identifier(ptr noundef %45) #6
+  %47 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.23, ptr noundef %44, ptr noundef %46) #6
+  %48 = add nuw nsw i32 %.04350, 1
+  %exitcond.not = icmp eq i32 %48, %25
   br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph, !llvm.loop !9
 
-._crit_edge.split:                                ; preds = %43
-  %50 = trunc nuw i8 %.141 to i1
+._crit_edge.split:                                ; preds = %42
   call void @PQclear(ptr noundef %24) #6
-  br i1 %50, label %51, label %53
-
-51:                                               ; preds = %._crit_edge.split
-  %52 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %23, ptr noundef nonnull @.str.24) #6
+  %49 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %23, ptr noundef nonnull @.str.24) #6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph61.split, %51
-  %.sink = phi ptr [ %52, %51 ], [ %24, %.lr.ph61.split ]
-  %.1.lcssa74.ph = phi ptr [ %.2, %51 ], [ %.03758, %.lr.ph61.split ]
-  %.139.lcssa73.ph = phi i1 [ true, %51 ], [ %.03857, %.lr.ph61.split ]
+.sink.split:                                      ; preds = %.lr.ph61.split, %._crit_edge.split
+  %.sink = phi ptr [ %49, %._crit_edge.split ], [ %24, %.lr.ph61.split ]
+  %.1.lcssa72.ph = phi ptr [ %.2, %._crit_edge.split ], [ %.03758, %.lr.ph61.split ]
+  %.139.lcssa71.ph = phi i1 [ true, %._crit_edge.split ], [ %.03857, %.lr.ph61.split ]
   call void @PQclear(ptr noundef %.sink) #6
-  br label %53
-
-53:                                               ; preds = %.sink.split, %._crit_edge.split
-  %.1.lcssa74 = phi ptr [ %.2, %._crit_edge.split ], [ %.1.lcssa74.ph, %.sink.split ]
-  %.139.lcssa73 = phi i1 [ true, %._crit_edge.split ], [ %.139.lcssa73.ph, %.sink.split ]
   call void @PQfinish(ptr noundef %23) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %54 = load i32, ptr %4, align 8
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph61.split, label %._crit_edge62, !llvm.loop !8
+  %50 = load i32, ptr %4, align 8
+  %51 = sext i32 %50 to i64
+  %52 = icmp slt i64 %indvars.iv.next, %51
+  br i1 %52, label %.lr.ph61.split, label %._crit_edge62, !llvm.loop !8
 
 ._crit_edge62.thread:                             ; preds = %.lr.ph61.split.us
-  br i1 %spec.select, label %60, label %._crit_edge62.thread.thread
+  br i1 %spec.select, label %56, label %._crit_edge62.thread.thread
 
-._crit_edge62:                                    ; preds = %53
-  %.not = icmp eq ptr %.1.lcssa74, null
-  br i1 %.not, label %59, label %57
+._crit_edge62:                                    ; preds = %.sink.split
+  %.not = icmp eq ptr %.1.lcssa72.ph, null
+  br i1 %.not, label %55, label %53
 
-57:                                               ; preds = %._crit_edge62
-  %58 = call i32 @fclose(ptr noundef nonnull %.1.lcssa74)
-  br i1 %.139.lcssa73, label %60, label %._crit_edge62.thread.thread
+53:                                               ; preds = %._crit_edge62
+  %54 = call i32 @fclose(ptr noundef nonnull %.1.lcssa72.ph)
+  br i1 %.139.lcssa71.ph, label %56, label %._crit_edge62.thread.thread
 
-59:                                               ; preds = %._crit_edge62
-  br i1 %.139.lcssa73, label %60, label %._crit_edge62.thread.thread
+55:                                               ; preds = %._crit_edge62
+  br i1 %.139.lcssa71.ph, label %56, label %._crit_edge62.thread.thread
 
-60:                                               ; preds = %57, %._crit_edge62.thread, %59
+56:                                               ; preds = %53, %._crit_edge62.thread, %55
   call void (i32, ptr, ...) @report_status(i32 noundef 4, ptr noundef nonnull @.str.25) #6
-  br i1 %1, label %61, label %62
+  br i1 %1, label %57, label %58
 
-61:                                               ; preds = %60
+57:                                               ; preds = %56
   call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.26) #6
-  br label %63
+  br label %59
 
-62:                                               ; preds = %60
+58:                                               ; preds = %56
   call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.20) #6
-  br label %63
+  br label %59
 
-._crit_edge62.thread.thread:                      ; preds = %2, %57, %._crit_edge62.thread, %59
+._crit_edge62.thread.thread:                      ; preds = %2, %53, %._crit_edge62.thread, %55
   call void @check_ok() #6
-  br label %63
+  br label %59
 
-63:                                               ; preds = %61, %62, %._crit_edge62.thread.thread
+59:                                               ; preds = %57, %58, %._crit_edge62.thread.thread
   ret void
 }
 

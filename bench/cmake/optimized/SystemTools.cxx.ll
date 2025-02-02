@@ -190,7 +190,7 @@ define dso_local void @_ZN5cmsys11SystemTools7GetPathERSt6vectorINSt7__cxx1112ba
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph39
+.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph38
   %lpad.loopexit29 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -217,17 +217,17 @@ define dso_local void @_ZN5cmsys11SystemTools7GetPathERSt6vectorINSt7__cxx1112ba
 21:                                               ; preds = %19, %16, %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext 58, i64 noundef 0) #34
-  %.not2137 = icmp eq i64 %23, -1
-  br i1 %.not2137, label %._crit_edge, label %.lr.ph39
+  %.not2136 = icmp eq i64 %23, -1
+  br i1 %.not2136, label %._crit_edge, label %.lr.ph38
 
-.lr.ph39:                                         ; preds = %21, %35
+.lr.ph38:                                         ; preds = %21, %35
   %24 = phi i64 [ %37, %35 ], [ %23, %21 ]
-  %.0163238 = phi i64 [ %36, %35 ], [ 0, %21 ]
-  %25 = sub i64 %24, %.0163238
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.0163238, i64 noundef %25)
+  %.0163237 = phi i64 [ %36, %35 ], [ 0, %21 ]
+  %25 = sub i64 %24, %.0163237
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.0163237, i64 noundef %25)
           to label %26 unwind label %.loopexit.split-lp.loopexit
 
-26:                                               ; preds = %.lr.ph39
+26:                                               ; preds = %.lr.ph38
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %27, %28
@@ -255,22 +255,22 @@ define dso_local void @_ZN5cmsys11SystemTools7GetPathERSt6vectorINSt7__cxx1112ba
   %36 = add nuw i64 %24, 1
   %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext 58, i64 noundef %36) #34
   %.not21 = icmp eq i64 %37, -1
-  br i1 %.not21, label %._crit_edge, label %.lr.ph39, !llvm.loop !5
+  br i1 %.not21, label %._crit_edge, label %.lr.ph38, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %35, %21
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %10
   %40 = load ptr, ptr %5, align 8
-  %.not2834 = icmp eq ptr %39, %40
-  br i1 %.not2834, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph
+  %.not2833 = icmp eq ptr %39, %40
+  br i1 %.not2833, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %41
-  %.sroa.025.035 = phi ptr [ %42, %41 ], [ %39, %._crit_edge ]
-  invoke void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.035)
+  %.sroa.025.034 = phi ptr [ %42, %41 ], [ %39, %._crit_edge ]
+  invoke void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.025.034)
           to label %41 unwind label %.loopexit
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.035, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.034, i64 32
   %43 = load ptr, ptr %5, align 8
   %.not28 = icmp eq ptr %42, %43
   br i1 %.not28, label %_ZN5cmsys11SystemTools6GetEnvEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph, !llvm.loop !7
@@ -363,7 +363,7 @@ define dso_local void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx11
   br label %20
 
 20:                                               ; preds = %16, %12, %10
-  %.1 = phi i8 [ %.0, %10 ], [ %.0, %12 ], [ %spec.select, %16 ]
+  %.1 = phi i8 [ 1, %10 ], [ 0, %12 ], [ %spec.select, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.042, i64 1
   %22 = add i64 %.043, 1
   br label %6, !llvm.loop !8

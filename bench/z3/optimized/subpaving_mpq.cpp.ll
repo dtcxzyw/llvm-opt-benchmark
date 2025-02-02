@@ -4089,7 +4089,6 @@ entry:
   %b.addr.i = alloca ptr, align 8
   %ref.tmp.i34 = alloca %class.mpz, align 8
   %ref.tmp.i = alloca %class.mpz, align 8
-  %frombool1 = zext i1 %open to i8
   %m_num_mk_bounds = getelementptr inbounds nuw i8, ptr %this, i64 1136
   %0 = load i32, ptr %m_num_mk_bounds, align 8
   %inc = add i32 %0, 1
@@ -4130,9 +4129,8 @@ if.then:                                          ; preds = %entry
   %4 = load i32, ptr %m_den.i, align 8
   %cmp.i.i.i = icmp eq i32 %4, 1
   %5 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i, i1 false
-  %spec.select = select i1 %5, i8 %frombool1, i8 0
   %6 = load ptr, ptr %m_c.i, align 8
-  %tobool13 = trunc nuw i8 %spec.select to i1
+  %tobool13 = and i1 %5, %open
   br i1 %lower, label %if.end12, label %if.end12.thread
 
 if.end12:                                         ; preds = %if.then
@@ -4212,13 +4210,12 @@ if.else.i.i7.i:                                   ; preds = %_ZN11mpq_managerILb
   br label %if.end29
 
 if.end29:                                         ; preds = %if.else.i.i7.i, %if.then.i.i8.i, %if.end12.thread, %if.end12, %if.else20, %if.then16
-  %open.addr.1 = phi i8 [ 0, %if.then16 ], [ 0, %if.else20 ], [ %spec.select, %if.end12 ], [ %spec.select, %if.end12.thread ], [ %frombool1, %if.then.i.i8.i ], [ %frombool1, %if.else.i.i7.i ]
+  %open.addr.1.shrunk = phi i1 [ false, %if.then16 ], [ false, %if.else20 ], [ false, %if.end12 ], [ false, %if.end12.thread ], [ %open, %if.then.i.i8.i ], [ %open, %if.else.i.i7.i ]
   %bf.load31 = load i32, ptr %m_x, align 8
   %bf.shl = select i1 %lower, i32 536870912, i32 0
   %bf.clear33 = and i32 %bf.load31, 536870911
   %bf.set34 = or disjoint i32 %bf.shl, %bf.clear33
-  %bf.value38 = zext nneg i8 %open.addr.1 to i32
-  %bf.shl39 = shl nuw nsw i32 %bf.value38, 30
+  %bf.shl39 = select i1 %open.addr.1.shrunk, i32 1073741824, i32 0
   %bf.set41 = or disjoint i32 %bf.set34, %bf.shl39
   store i32 %bf.set41, ptr %m_x, align 8
   %m_timestamp = getelementptr inbounds nuw i8, ptr %this, i64 872

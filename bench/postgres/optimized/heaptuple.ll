@@ -1255,7 +1255,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 
 183:                                              ; preds = %164, %161, %158, %.thread171, %155, %132, %.thread172, %181, %179
   %.4 = phi i32 [ %.2143, %.thread172 ], [ %180, %181 ], [ %180, %179 ], [ %134, %132 ], [ %160, %158 ], [ %163, %161 ], [ %166, %164 ], [ %.2143, %.thread171 ], [ %.2143, %155 ]
-  %.2 = phi i8 [ %.0135, %.thread172 ], [ %.0135, %181 ], [ %.0135, %179 ], [ %.0135, %132 ], [ 0, %158 ], [ 0, %161 ], [ 0, %164 ], [ 0, %.thread171 ], [ 0, %155 ]
+  %.2 = phi i8 [ 1, %.thread172 ], [ 1, %181 ], [ 0, %179 ], [ 1, %132 ], [ 0, %158 ], [ 0, %161 ], [ 0, %164 ], [ 0, %.thread171 ], [ 0, %155 ]
   %184 = icmp eq i32 %.0134, %7
   br i1 %184, label %.loopexit.loopexit, label %185
 
@@ -1338,7 +1338,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 
 233:                                              ; preds = %231, %121, %227
   %.3 = phi i32 [ %229, %227 ], [ %.2143, %121 ], [ %229, %231 ]
-  %.1 = phi i8 [ %.2, %227 ], [ 0, %121 ], [ %spec.select, %231 ]
+  %.1 = phi i8 [ 0, %227 ], [ 0, %121 ], [ %spec.select, %231 ]
   %234 = add i32 %.0134, 1
   %.pre = load ptr, ptr %4, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 20
@@ -2433,8 +2433,8 @@ define dso_local void @heap_deform_tuple(ptr noundef readonly captures(none) %0,
   br label %94
 
 94:                                               ; preds = %75, %72, %69, %63, %66, %42, %.thread114, %92, %90
-  %.2101 = phi i32 [ %.099116, %.thread114 ], [ %91, %90 ], [ %91, %92 ], [ %44, %42 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %.099116, %63 ], [ %.099116, %66 ]
-  %.2 = phi i1 [ false, %.thread114 ], [ true, %90 ], [ false, %92 ], [ false, %42 ], [ true, %69 ], [ true, %72 ], [ true, %75 ], [ true, %63 ], [ true, %66 ]
+  %.2101 = phi i32 [ %.099116, %.thread114 ], [ %91, %90 ], [ %91, %92 ], [ %44, %42 ], [ %.099116, %66 ], [ %.099116, %63 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ]
+  %.2 = phi i1 [ false, %.thread114 ], [ true, %90 ], [ false, %92 ], [ false, %42 ], [ true, %66 ], [ true, %63 ], [ true, %69 ], [ true, %72 ], [ true, %75 ]
   %95 = zext i32 %.2101 to i64
   %96 = getelementptr i8, ptr %20, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %26, i64 86
@@ -2553,7 +2553,7 @@ fetch_att.exit:                                   ; preds = %103, %106, %109, %1
   %160 = phi i64 [ %126, %123 ], [ %154, %152 ], [ %158, %155 ]
   %161 = trunc i64 %160 to i32
   %162 = icmp slt i16 %121, 1
-  %spec.select = or i1 %162, %.2
+  %spec.select = or i1 %.2, %162
   br label %163
 
 163:                                              ; preds = %159, %37

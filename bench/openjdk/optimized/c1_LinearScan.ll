@@ -1105,7 +1105,7 @@ _ZN10LinearScan22create_unhandled_listsEPP8IntervalS2_PFbPKS0_ES6_.exit: ; preds
   br label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN19LIR_InsertionBuffer4moveEi7LIR_OprS0_P12CodeEmitInfo.exit
-  %.182 = phi i8 [ %.2, %_ZN19LIR_InsertionBuffer4moveEi7LIR_OprS0_P12CodeEmitInfo.exit ], [ %.02890, %.lr.ph.preheader ]
+  %.182 = phi i8 [ 1, %_ZN19LIR_InsertionBuffer4moveEi7LIR_OprS0_P12CodeEmitInfo.exit ], [ %.02890, %.lr.ph.preheader ]
   %.25881 = phi ptr [ %206, %_ZN19LIR_InsertionBuffer4moveEi7LIR_OprS0_P12CodeEmitInfo.exit ], [ %.15787, %.lr.ph.preheader ]
   %79 = getelementptr inbounds nuw i8, ptr %.25881, i64 88
   %80 = load ptr, ptr %79, align 8
@@ -1126,7 +1126,6 @@ _ZN10LinearScan22create_unhandled_listsEPP8IntervalS2_PFbPKS0_ES6_.exit: ; preds
   br label %88
 
 88:                                               ; preds = %86, %84
-  %.2 = phi i8 [ %.182, %84 ], [ 1, %86 ]
   %89 = getelementptr inbounds nuw i8, ptr %.25881, i64 72
   %.sroa.0.0.copyload.i.i = load i64, ptr %89, align 8
   %90 = and i64 %.sroa.0.0.copyload.i.i, 7
@@ -1396,7 +1395,7 @@ _ZN19LIR_InsertionBuffer4moveEi7LIR_OprS0_P12CodeEmitInfo.exit: ; preds = %_ZN22
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN19LIR_InsertionBuffer4moveEi7LIR_OprS0_P12CodeEmitInfo.exit, %.preheader, %78, %72, %62
   %.359 = phi ptr [ %.15787, %78 ], [ %.15787, %72 ], [ %.15787, %62 ], [ %.15787, %.preheader ], [ %.25881, %.lr.ph ], [ %206, %_ZN19LIR_InsertionBuffer4moveEi7LIR_OprS0_P12CodeEmitInfo.exit ]
-  %.3 = phi i8 [ %.02890, %78 ], [ %.02890, %72 ], [ %.02890, %62 ], [ %.02890, %.preheader ], [ %.182, %.lr.ph ], [ %.2, %_ZN19LIR_InsertionBuffer4moveEi7LIR_OprS0_P12CodeEmitInfo.exit ]
+  %.3 = phi i8 [ %.02890, %78 ], [ %.02890, %72 ], [ %.02890, %62 ], [ %.02890, %.preheader ], [ %.182, %.lr.ph ], [ 1, %_ZN19LIR_InsertionBuffer4moveEi7LIR_OprS0_P12CodeEmitInfo.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !9

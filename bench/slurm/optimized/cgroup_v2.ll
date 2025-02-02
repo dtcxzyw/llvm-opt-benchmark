@@ -3123,7 +3123,7 @@ define internal fastcc range(i32 -1, 1) i32 @_setup_controllers() unnamed_addr #
   br label %34
 
 34:                                               ; preds = %31, %.lr.ph.i
-  %.1.i = phi i8 [ %.014.i, %.lr.ph.i ], [ %spec.select.i, %31 ]
+  %.1.i = phi i8 [ 1, %.lr.ph.i ], [ %spec.select.i, %31 ]
   %35 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.97, ptr noundef %26, ptr noundef nonnull %.0513.i) #15
   %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %22) #15
   %37 = trunc nuw i8 %.1.i to i1

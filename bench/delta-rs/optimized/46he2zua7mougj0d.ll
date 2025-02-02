@@ -37638,12 +37638,12 @@ define hidden void @"_ZN88_$LT$hyper..client..dispatch..Callback$LT$T$C$U$GT$$u2
 
 _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.6150823513714300492.exit: ; preds = %11
   %spec.select = select i1 %12, i64 33, i64 18
-  %spec.select48 = select i1 %12, ptr @anon.e9ce603c112456c85c7de2587a584212.36, ptr @anon.e9ce603c112456c85c7de2587a584212.37
+  %spec.select56 = select i1 %12, ptr @anon.e9ce603c112456c85c7de2587a584212.36, ptr @anon.e9ce603c112456c85c7de2587a584212.37
   br label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.6150823513714300492.exit.thread
 
 _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.6150823513714300492.exit.thread: ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.6150823513714300492.exit, %1
   %13 = phi i64 [ 33, %1 ], [ %spec.select, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.6150823513714300492.exit ]
-  %14 = phi ptr [ @anon.e9ce603c112456c85c7de2587a584212.36, %1 ], [ %spec.select48, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.6150823513714300492.exit ]
+  %14 = phi ptr [ @anon.e9ce603c112456c85c7de2587a584212.36, %1 ], [ %spec.select56, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.6150823513714300492.exit ]
   %15 = tail call noundef nonnull align 8 ptr @_ZN5hyper5error5Error4with17h59b80ff404569f03E(ptr noalias noundef nonnull align 8 %7, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %16 = load i64, ptr %0, align 8, !range !612, !noundef !5

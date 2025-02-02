@@ -6676,7 +6676,7 @@ zend_compile_const_expr_new.exit:                 ; preds = %206, %211, %216
   unreachable
 
 234:                                              ; preds = %231, %226
-  %.1.i = phi i8 [ %.04.i, %231 ], [ 1, %226 ]
+  %.1.i = phi i8 [ 0, %231 ], [ 1, %226 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %226
@@ -26911,8 +26911,8 @@ zend_get_arg_num.exit:                            ; preds = %.critedge4.i, %.cri
   %.0128 = phi ptr [ null, %181 ], [ %116, %169 ], [ null, %167 ], [ %116, %124 ], [ %116, %zval_make_interned_string.exit ], [ %116, %171 ]
   %.1 = phi i1 [ %.0127191, %181 ], [ %.0127191, %169 ], [ %.0127191, %167 ], [ true, %124 ], [ true, %zval_make_interned_string.exit ], [ %spec.select, %171 ]
   %.2199.i = phi i32 [ %182, %181 ], [ %.0197.i195, %169 ], [ %.0.i114, %167 ], [ %.0197.i195, %124 ], [ %.0197.i195, %zval_make_interned_string.exit ], [ %.0197.i195, %171 ]
-  %.2196.i = phi i8 [ %.0194.i196, %181 ], [ 1, %169 ], [ 1, %167 ], [ 1, %124 ], [ 1, %zval_make_interned_string.exit ], [ 1, %171 ]
-  %.2.i = phi i8 [ %.0193.i197, %181 ], [ 1, %169 ], [ %.0193.i197, %167 ], [ 1, %124 ], [ 1, %zval_make_interned_string.exit ], [ 1, %171 ]
+  %.2196.i = phi i8 [ 0, %181 ], [ 1, %169 ], [ 1, %167 ], [ 1, %124 ], [ 1, %zval_make_interned_string.exit ], [ 1, %171 ]
+  %.2.i = phi i8 [ %.0193.i197, %181 ], [ 1, %169 ], [ 0, %167 ], [ 1, %124 ], [ 1, %zval_make_interned_string.exit ], [ 1, %171 ]
   %.0192.i = phi ptr [ %88, %181 ], [ %123, %169 ], [ %123, %167 ], [ %123, %124 ], [ %123, %zval_make_interned_string.exit ], [ %123, %171 ]
   %.0191.i = phi i32 [ %183, %181 ], [ %.0.i114, %169 ], [ %.0.i114, %167 ], [ -1, %124 ], [ -1, %zval_make_interned_string.exit ], [ -1, %171 ]
   %.0192.val270.i = load i16, ptr %.0192.i, align 8
@@ -27657,7 +27657,7 @@ zend_add_literal_string.exit:                     ; preds = %._crit_edge.i.i81, 
   %.1206.i = phi ptr [ %.0205.i192, %552 ], [ %.0205.i192, %zend_add_literal_string.exit ], [ null, %zend_compile_expr.exit121 ]
   %.1201.i = phi i8 [ %.0200.i194, %552 ], [ %.0200.i194, %zend_add_literal_string.exit ], [ 1, %zend_compile_expr.exit121 ]
   %.1198.i = phi i32 [ %.2199.i, %552 ], [ %.2199.i, %zend_add_literal_string.exit ], [ %.0197.i195, %zend_compile_expr.exit121 ]
-  %.1195.i = phi i8 [ %.2196.i, %552 ], [ %.2196.i, %zend_add_literal_string.exit ], [ %.0194.i196, %zend_compile_expr.exit121 ]
+  %.1195.i = phi i8 [ %.2196.i, %552 ], [ %.2196.i, %zend_add_literal_string.exit ], [ 0, %zend_compile_expr.exit121 ]
   %.1.i = phi i8 [ %.2.i, %552 ], [ %.2.i, %zend_add_literal_string.exit ], [ 1, %zend_compile_expr.exit121 ]
   %557 = getelementptr inbounds nuw i8, ptr %.sink233, i64 16
   store i32 %.sink, ptr %557, align 8

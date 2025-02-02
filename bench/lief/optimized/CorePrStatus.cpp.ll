@@ -2339,8 +2339,8 @@ define linkonce_odr hidden { i64, i8 } @_ZN4LIEF3ELF12get_reg_implINS0_12CorePrS
   %8 = alloca %"class.tl::expected.1140", align 8
   %.not = icmp ne i32 %3, 3
   %or.cond = icmp ugt i32 %0, 16
-  %or.cond41 = or i1 %or.cond, %.not
-  br i1 %or.cond41, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21, label %9
+  %or.cond47 = or i1 %or.cond, %.not
+  br i1 %or.cond47, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21, label %9
 
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
@@ -2463,8 +2463,8 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %9
   %45 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %46 = and i64 %44, 4294967296
-  %.not43 = icmp eq i64 %46, 0
-  br i1 %.not43, label %.thread, label %47
+  %.not48 = icmp eq i64 %46, 0
+  br i1 %.not48, label %.thread, label %47
 
 47:                                               ; preds = %.noexc19
   invoke void @_ZNK4LIEF12BinaryStream13increment_posEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 8)
@@ -2476,10 +2476,10 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %9
   %.sroa.9.0.extract.trunc33 = trunc nuw i64 %.sroa.9.0.extract.shift32 to i32
   br label %.thread
 
-.thread:                                          ; preds = %.noexc19, %.noexc14, %33, %19, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit, %48
-  %.sroa.030.1 = phi i32 [ %.sroa.030.0.extract.trunc31, %48 ], [ 2, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 2, %19 ], [ %31, %33 ], [ 5, %.noexc14 ], [ 5, %.noexc19 ]
-  %.sroa.9.sroa.0.1 = phi i32 [ %.sroa.9.0.extract.trunc33, %48 ], [ undef, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ undef, %19 ], [ 0, %33 ], [ undef, %.noexc14 ], [ undef, %.noexc19 ]
-  %.sroa.9.sroa.3.1 = phi i8 [ 1, %48 ], [ 0, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 0, %19 ], [ 1, %33 ], [ 0, %.noexc14 ], [ 0, %.noexc19 ]
+.thread:                                          ; preds = %.noexc14, %33, %.noexc19, %19, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit, %48
+  %.sroa.030.1 = phi i32 [ %.sroa.030.0.extract.trunc31, %48 ], [ 2, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 2, %19 ], [ 5, %.noexc19 ], [ %31, %33 ], [ 5, %.noexc14 ]
+  %.sroa.9.sroa.0.1 = phi i32 [ %.sroa.9.0.extract.trunc33, %48 ], [ undef, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ undef, %19 ], [ undef, %.noexc19 ], [ 0, %33 ], [ undef, %.noexc14 ]
+  %.sroa.9.sroa.3.1 = phi i8 [ 1, %48 ], [ 0, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 0, %19 ], [ 0, %.noexc19 ], [ 1, %33 ], [ 0, %.noexc14 ]
   %49 = load i8, ptr %12, align 8
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21
@@ -2509,8 +2509,8 @@ define linkonce_odr hidden { i64, i8 } @_ZN4LIEF3ELF12get_reg_implINS0_12CorePrS
   %8 = alloca %"class.tl::expected.1140", align 8
   %.not = icmp ne i32 %3, 62
   %or.cond = icmp ugt i32 %0, 20
-  %or.cond41 = or i1 %or.cond, %.not
-  br i1 %or.cond41, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21, label %9
+  %or.cond47 = or i1 %or.cond, %.not
+  br i1 %or.cond47, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21, label %9
 
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
@@ -2633,8 +2633,8 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %9
   %45 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %46 = and i64 %44, 4294967296
-  %.not43 = icmp eq i64 %46, 0
-  br i1 %.not43, label %.thread, label %47
+  %.not48 = icmp eq i64 %46, 0
+  br i1 %.not48, label %.thread, label %47
 
 47:                                               ; preds = %.noexc19
   invoke void @_ZNK4LIEF12BinaryStream13increment_posEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 8)
@@ -2646,10 +2646,10 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %9
   %.sroa.9.0.extract.trunc33 = trunc nuw i64 %.sroa.9.0.extract.shift32 to i32
   br label %.thread
 
-.thread:                                          ; preds = %.noexc19, %.noexc14, %33, %19, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit, %48
-  %.sroa.030.1 = phi i32 [ %.sroa.030.0.extract.trunc31, %48 ], [ 2, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 2, %19 ], [ %31, %33 ], [ 5, %.noexc14 ], [ 5, %.noexc19 ]
-  %.sroa.9.sroa.0.1 = phi i32 [ %.sroa.9.0.extract.trunc33, %48 ], [ undef, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ undef, %19 ], [ 0, %33 ], [ undef, %.noexc14 ], [ undef, %.noexc19 ]
-  %.sroa.9.sroa.3.1 = phi i8 [ 1, %48 ], [ 0, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 0, %19 ], [ 1, %33 ], [ 0, %.noexc14 ], [ 0, %.noexc19 ]
+.thread:                                          ; preds = %.noexc14, %33, %.noexc19, %19, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit, %48
+  %.sroa.030.1 = phi i32 [ %.sroa.030.0.extract.trunc31, %48 ], [ 2, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 2, %19 ], [ 5, %.noexc19 ], [ %31, %33 ], [ 5, %.noexc14 ]
+  %.sroa.9.sroa.0.1 = phi i32 [ %.sroa.9.0.extract.trunc33, %48 ], [ undef, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ undef, %19 ], [ undef, %.noexc19 ], [ 0, %33 ], [ undef, %.noexc14 ]
+  %.sroa.9.sroa.3.1 = phi i8 [ 1, %48 ], [ 0, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 0, %19 ], [ 0, %.noexc19 ], [ 1, %33 ], [ 0, %.noexc14 ]
   %49 = load i8, ptr %12, align 8
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21
@@ -2679,8 +2679,8 @@ define linkonce_odr hidden { i64, i8 } @_ZN4LIEF3ELF12get_reg_implINS0_12CorePrS
   %8 = alloca %"class.tl::expected.1140", align 8
   %.not = icmp ne i32 %3, 40
   %or.cond = icmp ugt i32 %0, 16
-  %or.cond41 = or i1 %or.cond, %.not
-  br i1 %or.cond41, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21, label %9
+  %or.cond47 = or i1 %or.cond, %.not
+  br i1 %or.cond47, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21, label %9
 
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
@@ -2803,8 +2803,8 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %9
   %45 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %46 = and i64 %44, 4294967296
-  %.not43 = icmp eq i64 %46, 0
-  br i1 %.not43, label %.thread, label %47
+  %.not48 = icmp eq i64 %46, 0
+  br i1 %.not48, label %.thread, label %47
 
 47:                                               ; preds = %.noexc19
   invoke void @_ZNK4LIEF12BinaryStream13increment_posEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 8)
@@ -2816,10 +2816,10 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %9
   %.sroa.9.0.extract.trunc33 = trunc nuw i64 %.sroa.9.0.extract.shift32 to i32
   br label %.thread
 
-.thread:                                          ; preds = %.noexc19, %.noexc14, %33, %19, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit, %48
-  %.sroa.030.1 = phi i32 [ %.sroa.030.0.extract.trunc31, %48 ], [ 2, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 2, %19 ], [ %31, %33 ], [ 5, %.noexc14 ], [ 5, %.noexc19 ]
-  %.sroa.9.sroa.0.1 = phi i32 [ %.sroa.9.0.extract.trunc33, %48 ], [ undef, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ undef, %19 ], [ 0, %33 ], [ undef, %.noexc14 ], [ undef, %.noexc19 ]
-  %.sroa.9.sroa.3.1 = phi i8 [ 1, %48 ], [ 0, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 0, %19 ], [ 1, %33 ], [ 0, %.noexc14 ], [ 0, %.noexc19 ]
+.thread:                                          ; preds = %.noexc14, %33, %.noexc19, %19, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit, %48
+  %.sroa.030.1 = phi i32 [ %.sroa.030.0.extract.trunc31, %48 ], [ 2, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 2, %19 ], [ 5, %.noexc19 ], [ %31, %33 ], [ 5, %.noexc14 ]
+  %.sroa.9.sroa.0.1 = phi i32 [ %.sroa.9.0.extract.trunc33, %48 ], [ undef, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ undef, %19 ], [ undef, %.noexc19 ], [ 0, %33 ], [ undef, %.noexc14 ]
+  %.sroa.9.sroa.3.1 = phi i8 [ 1, %48 ], [ 0, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 0, %19 ], [ 0, %.noexc19 ], [ 1, %33 ], [ 0, %.noexc14 ]
   %49 = load i8, ptr %12, align 8
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21
@@ -2849,8 +2849,8 @@ define linkonce_odr hidden { i64, i8 } @_ZN4LIEF3ELF12get_reg_implINS0_12CorePrS
   %8 = alloca %"class.tl::expected.1140", align 8
   %.not = icmp ne i32 %3, 183
   %or.cond = icmp ugt i32 %0, 33
-  %or.cond41 = or i1 %or.cond, %.not
-  br i1 %or.cond41, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21, label %9
+  %or.cond47 = or i1 %or.cond, %.not
+  br i1 %or.cond47, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21, label %9
 
 9:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -2973,8 +2973,8 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %9
   %45 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %46 = and i64 %44, 4294967296
-  %.not43 = icmp eq i64 %46, 0
-  br i1 %.not43, label %.thread, label %47
+  %.not48 = icmp eq i64 %46, 0
+  br i1 %.not48, label %.thread, label %47
 
 47:                                               ; preds = %.noexc19
   invoke void @_ZNK4LIEF12BinaryStream13increment_posEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 8)
@@ -2986,10 +2986,10 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %9
   %.sroa.9.0.extract.trunc33 = trunc nuw i64 %.sroa.9.0.extract.shift32 to i32
   br label %.thread
 
-.thread:                                          ; preds = %.noexc19, %.noexc14, %33, %19, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit, %48
-  %.sroa.030.1 = phi i32 [ %.sroa.030.0.extract.trunc31, %48 ], [ 2, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 2, %19 ], [ %31, %33 ], [ 5, %.noexc14 ], [ 5, %.noexc19 ]
-  %.sroa.9.sroa.0.1 = phi i32 [ %.sroa.9.0.extract.trunc33, %48 ], [ undef, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ undef, %19 ], [ 0, %33 ], [ undef, %.noexc14 ], [ undef, %.noexc19 ]
-  %.sroa.9.sroa.3.1 = phi i8 [ 1, %48 ], [ 0, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 0, %19 ], [ 1, %33 ], [ 0, %.noexc14 ], [ 0, %.noexc19 ]
+.thread:                                          ; preds = %.noexc14, %33, %.noexc19, %19, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit, %48
+  %.sroa.030.1 = phi i32 [ %.sroa.030.0.extract.trunc31, %48 ], [ 2, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 2, %19 ], [ 5, %.noexc19 ], [ %31, %33 ], [ 5, %.noexc14 ]
+  %.sroa.9.sroa.0.1 = phi i32 [ %.sroa.9.0.extract.trunc33, %48 ], [ undef, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ undef, %19 ], [ undef, %.noexc19 ], [ 0, %33 ], [ undef, %.noexc14 ]
+  %.sroa.9.sroa.3.1 = phi i8 [ 1, %48 ], [ 0, %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit ], [ 0, %19 ], [ 0, %.noexc19 ], [ 1, %33 ], [ 0, %.noexc14 ]
   %49 = load i8, ptr %12, align 8
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit21

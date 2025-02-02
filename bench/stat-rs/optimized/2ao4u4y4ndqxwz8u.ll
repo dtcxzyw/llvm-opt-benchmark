@@ -974,21 +974,22 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   br label %56
 
 56:                                               ; preds = %56, %52
-  %.sroa.0.012.i.i = phi i64 [ 0, %52 ], [ %spec.select8.i.i, %56 ]
-  %57 = icmp samesign ult i64 %.sroa.0.012.i.i, %44
-  %58 = zext i1 %57 to i64
-  %spec.select8.i.i = add nuw nsw i64 %.sroa.0.012.i.i, %58
-  %59 = icmp samesign ult i64 %.sroa.0.012.i.i, 12
+  %.sroa.0.011.i.i = phi i64 [ 0, %52 ], [ %spec.select8.i.i, %56 ]
+  %57 = icmp samesign uge i64 %.sroa.0.011.i.i, %44
+  %not..i.i = xor i1 %57, true
+  %58 = zext i1 %not..i.i to i64
+  %spec.select8.i.i = add nuw nsw i64 %.sroa.0.011.i.i, %58
+  %59 = icmp samesign ult i64 %.sroa.0.011.i.i, 12
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw ptr, ptr %45, i64 %.sroa.0.012.i.i
+  %60 = getelementptr inbounds nuw ptr, ptr %45, i64 %.sroa.0.011.i.i
   %61 = load ptr, ptr %60, align 8, !alias.scope !140, !noalias !143, !nonnull !4, !noundef !4
   store ptr %6, ptr %61, align 8, !noalias !150
-  %62 = trunc nuw nsw i64 %.sroa.0.012.i.i to i16
+  %62 = trunc nuw nsw i64 %.sroa.0.011.i.i to i16
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 184
   store i16 %62, ptr %63, align 8, !noalias !151
-  %.not.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i, %44
-  %or.cond.i.not.i = select i1 %57, i1 %.not.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i, label %56, label %64
+  %.not.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i, %44
+  %or.cond.i.i = select i1 %57, i1 true, i1 %.not.i.i.i.i
+  br i1 %or.cond.i.i, label %64, label %56
 
 64:                                               ; preds = %56
   store ptr %3, ptr %0, align 8

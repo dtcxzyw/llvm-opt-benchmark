@@ -2394,13 +2394,13 @@ define internal void @"_ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client.
   %31 = alloca [264 x i8], align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %33 = load i8, ptr %32, align 8, !range !7, !noundef !4
-  switch i8 %33, label %default.unreachable189 [
+  switch i8 %33, label %default.unreachable187 [
     i8 0, label %34
     i8 1, label %210
     i8 2, label %211
   ]
 
-default.unreachable189:                           ; preds = %3
+default.unreachable187:                           ; preds = %3
   unreachable
 
 34:                                               ; preds = %3
@@ -2421,7 +2421,7 @@ default.unreachable189:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %30)
-  br label %.thread176
+  br label %193
 
 38:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
@@ -2532,7 +2532,7 @@ default.unreachable189:                           ; preds = %3
   %62 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
-  br label %189
+  br label %188
 
 63:                                               ; preds = %61
   %.sroa.0.0.copyload.i = load i64, ptr %24, align 8, !alias.scope !506, !noalias !509
@@ -2589,7 +2589,7 @@ default.unreachable189:                           ; preds = %3
   %71 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  br label %189
+  br label %188
 
 "_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h998f411110dfdc04E.exit": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h499023d9c7489939E.exit.thread"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
@@ -2827,7 +2827,7 @@ default.unreachable189:                           ; preds = %3
 .thread134:                                       ; preds = %.body, %142
   %.pn28 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %143, %142 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %21)
-  br label %189
+  br label %188
 
 146:                                              ; preds = %.noexc.i45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %139, ptr noundef nonnull align 8 dereferenceable(56) %21, i64 56, i1 false)
@@ -2848,7 +2848,7 @@ default.unreachable189:                           ; preds = %3
           cleanup
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %19)
-  br label %.thread180
+  br label %.thread173
 
 149:                                              ; preds = %146
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %18)
@@ -2898,20 +2898,19 @@ default.unreachable189:                           ; preds = %3
   store i8 1, ptr %32, align 8
   ret void
 
-.thread180:                                       ; preds = %147, %161
+.thread173:                                       ; preds = %161, %147
   %.pn32 = phi { ptr, i32 } [ %162, %161 ], [ %148, %147 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %31)
-  br label %"_ZN4core3ptr55drop_in_place$LT$gpui..executor..BackgroundExecutor$GT$17h52dd96dc51d7eb26E.exit76"
+  br label %191
 
 161:                                              ; preds = %156
   %162 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread180
+  br label %.thread173
 
 163:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2ed81d2cde322964E.exit67"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  br i1 %.sroa.06.2, label %189, label %.thread168
+  br i1 %.sroa.06.2, label %188, label %.thread168
 
 164:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h499023d9c7489939E.exit"
   %165 = icmp ne ptr %.sroa.883.sroa.0.0.copyload, null
@@ -2998,7 +2997,7 @@ default.unreachable189:                           ; preds = %3
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.883.sroa.0.0.copyload, i64 noundef %.sroa.081.0.copyload82, i64 noundef 1) #15, !noalias !607
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2ed81d2cde322964E.exit67"
 
-186:                                              ; preds = %209, %191, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2ed81d2cde322964E.exit67", %193
+186:                                              ; preds = %209, %190, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2ed81d2cde322964E.exit67", %192
   %187 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #17
@@ -3013,49 +3012,42 @@ default.unreachable189:                           ; preds = %3
 .thread168:                                       ; preds = %163, %58
   %.pn32.pn.pn.ph = phi { ptr, i32 } [ %.pn16, %58 ], [ %.pn22.pn, %163 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %27)
-  br label %193
+  br label %192
 
-.noexc70:                                         ; preds = %191, %189
+.noexc70:                                         ; preds = %190, %188
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %27)
-  %188 = trunc nuw i8 %.sroa.04.1138 to i1
-  br i1 %188, label %193, label %.thread
+  br i1 %.sroa.04.1138, label %192, label %191
 
-.thread:                                          ; preds = %.noexc70
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %31)
-  br label %"_ZN4core3ptr55drop_in_place$LT$gpui..executor..BackgroundExecutor$GT$17h52dd96dc51d7eb26E.exit76"
-
-189:                                              ; preds = %.thread147, %.thread144, %.thread134, %163
+188:                                              ; preds = %.thread147, %.thread144, %.thread134, %163
   %.pn32.pn139 = phi { ptr, i32 } [ %.pn28, %.thread134 ], [ %.pn22.pn, %163 ], [ %62, %.thread144 ], [ %71, %.thread147 ]
-  %.sroa.04.1138 = phi i8 [ 0, %.thread134 ], [ 1, %163 ], [ 1, %.thread144 ], [ 1, %.thread147 ]
-  %190 = load i64, ptr %27, align 8, !range !569, !alias.scope !616, !noundef !4
-  %.not.i.i = icmp eq i64 %190, 3
-  br i1 %.not.i.i, label %.noexc70, label %191
+  %.sroa.04.1138 = phi i1 [ false, %.thread134 ], [ true, %163 ], [ true, %.thread144 ], [ true, %.thread147 ]
+  %189 = load i64, ptr %27, align 8, !range !569, !alias.scope !616, !noundef !4
+  %.not.i.i = icmp eq i64 %189, 3
+  br i1 %.not.i.i, label %.noexc70, label %190
 
-191:                                              ; preds = %189
+190:                                              ; preds = %188
   invoke void @"_ZN4core3ptr42drop_in_place$LT$http..response..Parts$GT$17h872f5dcc66297e8dE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %27)
           to label %.noexc70 unwind label %186
 
-192:                                              ; preds = %193
-  %.pre = trunc nuw i8 %.sroa.04.0171 to i1
+191:                                              ; preds = %.thread173, %.noexc70
+  %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn139, %.noexc70 ], [ %.pn32, %.thread173 ]
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %31)
-  br i1 %.pre, label %204, label %"_ZN4core3ptr55drop_in_place$LT$gpui..executor..BackgroundExecutor$GT$17h52dd96dc51d7eb26E.exit76"
+  br label %"_ZN4core3ptr55drop_in_place$LT$gpui..executor..BackgroundExecutor$GT$17h52dd96dc51d7eb26E.exit76"
 
-193:                                              ; preds = %.thread168, %.noexc70
+192:                                              ; preds = %.thread168, %.noexc70
   %.pn32.pn.pn172 = phi { ptr, i32 } [ %.pn32.pn.pn.ph, %.thread168 ], [ %.pn32.pn139, %.noexc70 ]
-  %.sroa.04.0171 = phi i8 [ 1, %.thread168 ], [ %.sroa.04.1138, %.noexc70 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$ureq..response..Response$GT$17h70141a7c79796b0dE"(ptr noalias noundef nonnull align 8 dereferenceable(264) %31) #16
-          to label %192 unwind label %186
+          to label %204 unwind label %186
 
-.thread176:                                       ; preds = %36, %194
+193:                                              ; preds = %194, %36
   %.pn11 = phi { ptr, i32 } [ %195, %194 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %.sroa.8)
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %31)
   br label %204
 
 194:                                              ; preds = %43
   %195 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread176
+  br label %193
 
 196:                                              ; preds = %43
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %17)
@@ -3075,8 +3067,8 @@ default.unreachable189:                           ; preds = %3
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h78325f3b4f14f129E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %197)
           to label %"_ZN4core3ptr55drop_in_place$LT$gpui..executor..BackgroundExecutor$GT$17h52dd96dc51d7eb26E.exit" unwind label %202
 
-"_ZN4core3ptr55drop_in_place$LT$gpui..executor..BackgroundExecutor$GT$17h52dd96dc51d7eb26E.exit76": ; preds = %.thread, %204, %209, %.thread180, %202, %192
-  %.pn37 = phi { ptr, i32 } [ %203, %202 ], [ %.pn32.pn.pn172, %192 ], [ %.pn32, %.thread180 ], [ %.pn32.pn.pn.pn179, %209 ], [ %.pn32.pn.pn.pn179, %204 ], [ %.pn32.pn139, %.thread ]
+"_ZN4core3ptr55drop_in_place$LT$gpui..executor..BackgroundExecutor$GT$17h52dd96dc51d7eb26E.exit76": ; preds = %204, %209, %191, %202
+  %.pn37 = phi { ptr, i32 } [ %203, %202 ], [ %.pn32.pn.pn.pn, %191 ], [ %.pn32.pn.pn.pn.ph, %209 ], [ %.pn32.pn.pn.pn.ph, %204 ]
   store i8 2, ptr %32, align 8
   resume { ptr, i32 } %.pn37
 
@@ -3085,8 +3077,9 @@ default.unreachable189:                           ; preds = %3
           cleanup
   br label %"_ZN4core3ptr55drop_in_place$LT$gpui..executor..BackgroundExecutor$GT$17h52dd96dc51d7eb26E.exit76"
 
-204:                                              ; preds = %.thread176, %192
-  %.pn32.pn.pn.pn179 = phi { ptr, i32 } [ %.pn11, %.thread176 ], [ %.pn32.pn.pn172, %192 ]
+204:                                              ; preds = %192, %193
+  %.pn32.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn11, %193 ], [ %.pn32.pn.pn172, %192 ]
+  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %31)
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @llvm.experimental.noalias.scope.decl(metadata !631)
   call void @llvm.experimental.noalias.scope.decl(metadata !634)

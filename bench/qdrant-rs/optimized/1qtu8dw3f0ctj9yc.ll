@@ -982,36 +982,36 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0558aaefa05ad62cE"(i64 noundef %10, i1 noundef zeroext false)
-          to label %14 unwind label %.thread
+          to label %13 unwind label %.thread
 
-12:                                               ; preds = %.thread39
-  br i1 %.1630, label %85, label %.thread52
+.thread38:                                        ; preds = %85
+  br i1 %.16.ph, label %86, label %.thread38.thread
 
 .thread:                                          ; preds = %2
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  br label %86
+
+13:                                               ; preds = %2
+  %14 = extractvalue { i64, ptr } %11, 0
+  %15 = extractvalue { i64, ptr } %11, 1
+  store i64 %14, ptr %8, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 0, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  %18 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h58485d1f81f88a61E"(i64 noundef %10, i1 noundef zeroext false)
+          to label %21 unwind label %19
+
+19:                                               ; preds = %13
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %85
 
-14:                                               ; preds = %2
-  %15 = extractvalue { i64, ptr } %11, 0
-  %16 = extractvalue { i64, ptr } %11, 1
-  store i64 %15, ptr %8, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %19 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h58485d1f81f88a61E"(i64 noundef %10, i1 noundef zeroext false)
-          to label %21 unwind label %.thread25
-
-.thread25:                                        ; preds = %14
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  br label %.thread39
-
-21:                                               ; preds = %14
-  %22 = extractvalue { i64, ptr } %19, 0
-  %23 = extractvalue { i64, ptr } %19, 1
+21:                                               ; preds = %13
+  %22 = extractvalue { i64, ptr } %18, 0
+  %23 = extractvalue { i64, ptr } %18, 1
   store i64 %22, ptr %7, align 8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %24, align 8
@@ -1058,9 +1058,9 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
 
 "_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5a6dd03fca67da5aE.llvm.4482545766329047864.exit.i": ; preds = %._crit_edge
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5c27f8e5a8ba6c5dE.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %45 unwind label %.thread42
+          to label %45 unwind label %.thread41
 
-.thread42:                                        ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5a6dd03fca67da5aE.llvm.4482545766329047864.exit.i"
+.thread41:                                        ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5a6dd03fca67da5aE.llvm.4482545766329047864.exit.i"
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.thread31
@@ -1073,7 +1073,7 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
   %38 = load i32, ptr %36, align 4, !noalias !166, !noundef !5
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %40 = load float, ptr %39, align 4, !noalias !166, !noundef !5
-  %41 = load i64, ptr %18, align 8, !alias.scope !167, !noundef !5
+  %41 = load i64, ptr %17, align 8, !alias.scope !167, !noundef !5
   %42 = load i64, ptr %8, align 8, !alias.scope !167, !noundef !5
   %43 = icmp eq i64 %41, %42
   br i1 %43, label %44, label %64
@@ -1083,7 +1083,7 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %44
-  %.pre.i = load i64, ptr %18, align 8, !alias.scope !167
+  %.pre.i = load i64, ptr %17, align 8, !alias.scope !167
   br label %64
 
 45:                                               ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5a6dd03fca67da5aE.llvm.4482545766329047864.exit.i"
@@ -1109,7 +1109,7 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
   %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr64drop_in_place$LT$sparse..common..sparse_vector..SparseVector$GT$17h00f33ca56422d285E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #19
-          to label %.thread52 unwind label %61, !noalias !170
+          to label %.thread38.thread unwind label %61, !noalias !170
 
 "_ZN91_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$validator..traits..Validate$GT$8validate17h5fb13d77d1e07b3cE.exit.i": ; preds = %45
   %55 = load ptr, ptr %3, align 8, !noalias !170, !noundef !5
@@ -1150,12 +1150,12 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
 
 64:                                               ; preds = %.noexc, %.lr.ph
   %65 = phi i64 [ %.pre.i, %.noexc ], [ %41, %.lr.ph ]
-  %66 = load ptr, ptr %17, align 8, !alias.scope !167, !nonnull !5, !noundef !5
+  %66 = load ptr, ptr %16, align 8, !alias.scope !167, !nonnull !5, !noundef !5
   %67 = getelementptr inbounds i32, ptr %66, i64 %65
   store i32 %38, ptr %67, align 4
-  %68 = load i64, ptr %18, align 8, !alias.scope !167, !noundef !5
+  %68 = load i64, ptr %17, align 8, !alias.scope !167, !noundef !5
   %69 = add i64 %68, 1
-  store i64 %69, ptr %18, align 8, !alias.scope !167
+  store i64 %69, ptr %17, align 8, !alias.scope !167
   %70 = load i64, ptr %25, align 8, !alias.scope !182, !noundef !5
   %71 = load i64, ptr %7, align 8, !alias.scope !182, !noundef !5
   %72 = icmp eq i64 %70, %71
@@ -1182,31 +1182,31 @@ define void @"_ZN134_$LT$sparse..common..sparse_vector..SparseVector$u20$as$u20$
   %82 = icmp eq ptr %81, %80
   br i1 %82, label %._crit_edge, label %.lr.ph
 
-83:                                               ; preds = %85, %.thread39, %.thread31, %28
+83:                                               ; preds = %86, %85, %.thread31, %28
   %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #20
   unreachable
 
-.thread31:                                        ; preds = %31, %28, %.thread42
-  %.pn34 = phi { ptr, i32 } [ %35, %.thread42 ], [ %29, %28 ], [ %32, %31 ]
+.thread31:                                        ; preds = %31, %28, %.thread41
+  %.pn34 = phi { ptr, i32 } [ %35, %.thread41 ], [ %29, %28 ], [ %32, %31 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h4fbf934b5652eaaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #19
-          to label %.thread39 unwind label %83
+          to label %85 unwind label %83
 
-.thread39:                                        ; preds = %.thread31, %.thread25
-  %.1630 = phi i1 [ true, %.thread25 ], [ false, %.thread31 ]
-  %.pn.pn29 = phi { ptr, i32 } [ %20, %.thread25 ], [ %.pn34, %.thread31 ]
+85:                                               ; preds = %.thread31, %19
+  %.pn.pn.ph = phi { ptr, i32 } [ %20, %19 ], [ %.pn34, %.thread31 ]
+  %.16.ph = phi i1 [ true, %19 ], [ false, %.thread31 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h9c8660b6c5b7e90eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #19
-          to label %12 unwind label %83
+          to label %.thread38 unwind label %83
 
-.thread52:                                        ; preds = %53, %85, %12
-  %.pn.pn.pn23 = phi { ptr, i32 } [ %.pn.pn.pn24, %85 ], [ %.pn.pn29, %12 ], [ %54, %53 ]
+.thread38.thread:                                 ; preds = %53, %86, %.thread38
+  %.pn.pn.pn23 = phi { ptr, i32 } [ %.pn.pn.pn24, %86 ], [ %.pn.pn.ph, %.thread38 ], [ %54, %53 ]
   resume { ptr, i32 } %.pn.pn.pn23
 
-85:                                               ; preds = %.thread, %12
-  %.pn.pn.pn24 = phi { ptr, i32 } [ %13, %.thread ], [ %.pn.pn29, %12 ]
+86:                                               ; preds = %.thread, %.thread38
+  %.pn.pn.pn24 = phi { ptr, i32 } [ %12, %.thread ], [ %.pn.pn.ph, %.thread38 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$$LP$u32$C$f32$RP$$GT$$GT$17h610d724b7fd20f78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #19
-          to label %.thread52 unwind label %83
+          to label %.thread38.thread unwind label %83
 }
 
 ; Function Attrs: nonlazybind uwtable

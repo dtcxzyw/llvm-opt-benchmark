@@ -4272,7 +4272,7 @@ _ZNK5clang12Preprocessor10MacroState9getLatestEv.exit101: ; preds = %_ZNK5clang1
 170:                                              ; preds = %.lr.ph
   %171 = and i8 %167, 8
   %.not163 = icmp ne i8 %171, 0
-  %brmerge = or i1 %.not163, %.060174
+  %brmerge = or i1 %.060174, %.not163
   br i1 %brmerge, label %208, label %.loopexit
 
 172:                                              ; preds = %.lr.ph

@@ -599,7 +599,7 @@ accumulate_append_subpath.exit249:                ; preds = %98, %94, %90, %accu
   br label %accumulate_append_subpath.exit250
 
 accumulate_append_subpath.exit250:                ; preds = %134, %129, %124, %.split, %.split204, %101, %accumulate_append_subpath.exit249
-  %.1181 = phi i8 [ %.0180373516, %accumulate_append_subpath.exit249 ], [ 0, %101 ], [ %.0180373516, %.split204 ], [ %.0180373516, %.split ], [ %.0180373516, %124 ], [ %.0180373516, %129 ], [ %.0180373516, %134 ]
+  %.1181 = phi i8 [ 0, %accumulate_append_subpath.exit249 ], [ 0, %101 ], [ 1, %.split204 ], [ 1, %.split ], [ 1, %124 ], [ 1, %129 ], [ 1, %134 ]
   %137 = load ptr, ptr %23, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %.not234 = icmp eq ptr %137, null

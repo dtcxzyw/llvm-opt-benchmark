@@ -5197,61 +5197,63 @@ _ZN4Luau16StringifierState4emitEPKc.exit30:       ; preds = %46, %38, %.lr.ph
   %56 = sub i64 %54, %55
   %.fr57 = freeze i64 %56
   %57 = icmp eq i64 %.fr57, 8
-  br i1 %57, label %.lr.ph55.split.us, label %.lr.ph55.split
+  br i1 %57, label %.lr.ph55.split.us, label %.lr.ph55.split.preheader
+
+.lr.ph55.split.preheader:                         ; preds = %.lr.ph55
+  %58 = trunc nuw i8 %.0.lcssa to i1
+  br label %.lr.ph55.split
 
 .lr.ph55.split.us:                                ; preds = %.lr.ph55, %_ZN4Luau16StringifierState4emitEPKc.exit36.us
   %.153.us = phi i8 [ %.2.us, %_ZN4Luau16StringifierState4emitEPKc.exit36.us ], [ %.0.lcssa, %.lr.ph55 ]
-  %.sroa.039.052.us = phi ptr [ %79, %_ZN4Luau16StringifierState4emitEPKc.exit36.us ], [ %53, %.lr.ph55 ]
-  %58 = load ptr, ptr %.sroa.039.052.us, align 8
-  %59 = tail call noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef %58)
-  br i1 %59, label %_ZN4Luau16StringifierState4emitEPKc.exit36.us, label %60
+  %.sroa.039.052.us = phi ptr [ %80, %_ZN4Luau16StringifierState4emitEPKc.exit36.us ], [ %53, %.lr.ph55 ]
+  %59 = load ptr, ptr %.sroa.039.052.us, align 8
+  %60 = tail call noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef %59)
+  br i1 %60, label %_ZN4Luau16StringifierState4emitEPKc.exit36.us, label %61
 
-60:                                               ; preds = %.lr.ph55.split.us
-  %61 = trunc nuw i8 %.153.us to i1
-  br i1 %61, label %_ZN4Luau16StringifierState4emitEPKc.exit32.us, label %62
+61:                                               ; preds = %.lr.ph55.split.us
+  %62 = trunc nuw i8 %.153.us to i1
+  br i1 %62, label %_ZN4Luau16StringifierState4emitEPKc.exit32.us, label %63
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %0, align 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load i64, ptr %65, align 8
-  %.not.i31.us = icmp eq i64 %66, 0
-  br i1 %.not.i31.us, label %75, label %67
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %0, align 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %67 = load i64, ptr %66, align 8
+  %.not.i31.us = icmp eq i64 %67, 0
+  br i1 %.not.i31.us, label %76, label %68
 
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #27
-  %71 = load ptr, ptr %63, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = load i64, ptr %72, align 8
-  %74 = icmp ugt i64 %70, %73
-  br i1 %74, label %_ZN4Luau16StringifierState4emitEPKc.exit32.us, label %75
+68:                                               ; preds = %63
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %70) #27
+  %72 = load ptr, ptr %64, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %74 = load i64, ptr %73, align 8
+  %75 = icmp ugt i64 %71, %74
+  br i1 %75, label %_ZN4Luau16StringifierState4emitEPKc.exit32.us, label %76
 
-75:                                               ; preds = %67, %62
-  %76 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull @.str.63)
+76:                                               ; preds = %68, %63
+  %77 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull @.str.63)
   br label %_ZN4Luau16StringifierState4emitEPKc.exit32.us
 
-_ZN4Luau16StringifierState4emitEPKc.exit32.us:    ; preds = %75, %67, %60
-  %.3.us = phi i8 [ 0, %60 ], [ %.153.us, %67 ], [ %.153.us, %75 ]
-  tail call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %58)
+_ZN4Luau16StringifierState4emitEPKc.exit32.us:    ; preds = %76, %68, %61
+  tail call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %59)
   br label %_ZN4Luau16StringifierState4emitEPKc.exit36.us
 
 _ZN4Luau16StringifierState4emitEPKc.exit36.us:    ; preds = %_ZN4Luau16StringifierState4emitEPKc.exit32.us, %.lr.ph55.split.us
-  %.2.us = phi i8 [ %.153.us, %.lr.ph55.split.us ], [ %.3.us, %_ZN4Luau16StringifierState4emitEPKc.exit32.us ]
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.039.052.us, i64 8
-  %.not46.us = icmp eq ptr %79, %52
+  %.2.us = phi i8 [ %.153.us, %.lr.ph55.split.us ], [ 0, %_ZN4Luau16StringifierState4emitEPKc.exit32.us ]
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.039.052.us, i64 8
+  %.not46.us = icmp eq ptr %80, %52
   br i1 %.not46.us, label %._crit_edge56, label %.lr.ph55.split.us
 
-.lr.ph55.split:                                   ; preds = %.lr.ph55, %_ZN4Luau16StringifierState4emitEPKc.exit36
-  %.153 = phi i8 [ %.3, %_ZN4Luau16StringifierState4emitEPKc.exit36 ], [ %.0.lcssa, %.lr.ph55 ]
-  %.sroa.039.052 = phi ptr [ %136, %_ZN4Luau16StringifierState4emitEPKc.exit36 ], [ %53, %.lr.ph55 ]
-  %80 = load ptr, ptr %.sroa.039.052, align 8
-  %81 = tail call noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef %80)
-  %82 = trunc nuw i8 %.153 to i1
-  br i1 %82, label %_ZN4Luau16StringifierState4emitEPKc.exit32, label %83
+.lr.ph55.split:                                   ; preds = %.lr.ph55.split.preheader, %_ZN4Luau16StringifierState4emitEPKc.exit36
+  %.153 = phi i1 [ false, %_ZN4Luau16StringifierState4emitEPKc.exit36 ], [ %58, %.lr.ph55.split.preheader ]
+  %.sroa.039.052 = phi ptr [ %136, %_ZN4Luau16StringifierState4emitEPKc.exit36 ], [ %53, %.lr.ph55.split.preheader ]
+  %81 = load ptr, ptr %.sroa.039.052, align 8
+  %82 = tail call noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef %81)
+  br i1 %.153, label %_ZN4Luau16StringifierState4emitEPKc.exit32, label %83
 
 83:                                               ; preds = %.lr.ph55.split
   %84 = load ptr, ptr %0, align 8
@@ -5278,8 +5280,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit36.us:    ; preds = %_ZN4Luau16Stringifi
   br label %_ZN4Luau16StringifierState4emitEPKc.exit32
 
 _ZN4Luau16StringifierState4emitEPKc.exit32:       ; preds = %96, %88, %.lr.ph55.split
-  %.3 = phi i8 [ 0, %.lr.ph55.split ], [ %.153, %88 ], [ %.153, %96 ]
-  %100 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %80)
+  %100 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %81)
   %.not.i.i = icmp eq ptr %100, null
   br i1 %.not.i.i, label %.critedge, label %101
 
@@ -5313,7 +5314,7 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %101
   br label %_ZN4Luau16StringifierState4emitEPKc.exit34
 
 _ZN4Luau16StringifierState4emitEPKc.exit34:       ; preds = %108, %116
-  tail call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %80)
+  tail call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %81)
   %120 = load ptr, ptr %0, align 8
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -5338,7 +5339,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit34:       ; preds = %108, %116
   br label %_ZN4Luau16StringifierState4emitEPKc.exit36
 
 .critedge:                                        ; preds = %_ZN4Luau16StringifierState4emitEPKc.exit32, %101
-  tail call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %80)
+  tail call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %81)
   br label %_ZN4Luau16StringifierState4emitEPKc.exit36
 
 _ZN4Luau16StringifierState4emitEPKc.exit36:       ; preds = %132, %124, %.critedge
@@ -11011,255 +11012,248 @@ _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.thread.i: ; preds = 
   br label %71
 
 71:                                               ; preds = %.lr.ph, %_ZN4Luau16StringifierState4emitEPKc.exit22
-  %.040 = phi i8 [ 1, %.lr.ph ], [ %.1, %_ZN4Luau16StringifierState4emitEPKc.exit22 ]
-  %.sroa.031.039 = phi ptr [ %65, %.lr.ph ], [ %141, %_ZN4Luau16StringifierState4emitEPKc.exit22 ]
-  %72 = trunc nuw i8 %.040 to i1
-  br i1 %72, label %_ZN4Luau16StringifierState4emitEPKc.exit19, label %73
+  %.040 = phi i1 [ true, %.lr.ph ], [ false, %_ZN4Luau16StringifierState4emitEPKc.exit22 ]
+  %.sroa.031.039 = phi ptr [ %65, %.lr.ph ], [ %140, %_ZN4Luau16StringifierState4emitEPKc.exit22 ]
+  br i1 %.040, label %_ZN4Luau16StringifierState4emitEPKc.exit19, label %72
 
-73:                                               ; preds = %71
-  %74 = load ptr, ptr %0, align 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load i64, ptr %76, align 8
-  %.not.i18 = icmp eq i64 %77, 0
-  br i1 %.not.i18, label %86, label %78
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %0, align 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %76 = load i64, ptr %75, align 8
+  %.not.i18 = icmp eq i64 %76, 0
+  br i1 %.not.i18, label %85, label %77
 
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %80) #27
-  %82 = load ptr, ptr %74, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load i64, ptr %83, align 8
-  %85 = icmp ugt i64 %81, %84
-  br i1 %85, label %_ZN4Luau16StringifierState4emitEPKc.exit19, label %86
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %79) #27
+  %81 = load ptr, ptr %73, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %83 = load i64, ptr %82, align 8
+  %84 = icmp ugt i64 %80, %83
+  br i1 %84, label %_ZN4Luau16StringifierState4emitEPKc.exit19, label %85
 
-86:                                               ; preds = %78, %73
-  %87 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull @.str.63)
+85:                                               ; preds = %77, %72
+  %86 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull @.str.63)
   br label %_ZN4Luau16StringifierState4emitEPKc.exit19
 
-_ZN4Luau16StringifierState4emitEPKc.exit19:       ; preds = %86, %78, %71
-  %.1 = phi i8 [ 0, %71 ], [ %.040, %78 ], [ %.040, %86 ]
-  %90 = load i32, ptr %68, align 8
-  %91 = zext i32 %90 to i64
-  %92 = load ptr, ptr %70, align 8
-  %93 = load ptr, ptr %69, align 8
+_ZN4Luau16StringifierState4emitEPKc.exit19:       ; preds = %85, %77, %71
+  %89 = load i32, ptr %68, align 8
+  %90 = zext i32 %89 to i64
+  %91 = load ptr, ptr %70, align 8
+  %92 = load ptr, ptr %69, align 8
+  %93 = ptrtoint ptr %91 to i64
   %94 = ptrtoint ptr %92 to i64
-  %95 = ptrtoint ptr %93 to i64
-  %96 = sub i64 %94, %95
-  %97 = sdiv exact i64 %96, 56
-  %98 = icmp ugt i64 %97, %91
-  br i1 %98, label %99, label %_ZN4Luau16StringifierState4emitEPKc.exit22
+  %95 = sub i64 %93, %94
+  %96 = sdiv exact i64 %95, 56
+  %97 = icmp ugt i64 %96, %90
+  br i1 %97, label %98, label %_ZN4Luau16StringifierState4emitEPKc.exit22
 
-99:                                               ; preds = %_ZN4Luau16StringifierState4emitEPKc.exit19
-  %100 = getelementptr inbounds nuw %"class.std::optional.140", ptr %93, i64 %91
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
-  %102 = load i8, ptr %101, align 8
-  %103 = trunc i8 %102 to i1
-  br i1 %103, label %104, label %_ZN4Luau16StringifierState4emitEPKc.exit22
+98:                                               ; preds = %_ZN4Luau16StringifierState4emitEPKc.exit19
+  %99 = getelementptr inbounds nuw %"class.std::optional.140", ptr %92, i64 %90
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
+  %101 = load i8, ptr %100, align 8
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %_ZN4Luau16StringifierState4emitEPKc.exit22
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr %0, align 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %108 = load i64, ptr %107, align 8
-  %.not.i20 = icmp eq i64 %108, 0
-  br i1 %.not.i20, label %117, label %109
+103:                                              ; preds = %98
+  %104 = load ptr, ptr %0, align 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %107 = load i64, ptr %106, align 8
+  %.not.i20 = icmp eq i64 %107, 0
+  br i1 %.not.i20, label %116, label %108
 
-109:                                              ; preds = %104
-  %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %111) #27
-  %113 = load ptr, ptr %105, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %115 = load i64, ptr %114, align 8
-  %116 = icmp ugt i64 %112, %115
-  br i1 %116, label %_ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %117
+108:                                              ; preds = %103
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %110) #27
+  %112 = load ptr, ptr %104, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %114 = load i64, ptr %113, align 8
+  %115 = icmp ugt i64 %111, %114
+  br i1 %115, label %_ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %116
 
-117:                                              ; preds = %109, %104
-  %118 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull align 8 dereferenceable(32) %100)
+116:                                              ; preds = %108, %103
+  %117 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %99)
   br label %_ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %109, %117
-  %121 = load ptr, ptr %0, align 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  %124 = load i64, ptr %123, align 8
-  %.not.i21 = icmp eq i64 %124, 0
-  br i1 %.not.i21, label %133, label %125
+_ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %108, %116
+  %120 = load ptr, ptr %0, align 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %123 = load i64, ptr %122, align 8
+  %.not.i21 = icmp eq i64 %123, 0
+  br i1 %.not.i21, label %132, label %124
 
-125:                                              ; preds = %_ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %127) #27
-  %129 = load ptr, ptr %121, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %131 = load i64, ptr %130, align 8
-  %132 = icmp ugt i64 %128, %131
-  br i1 %132, label %_ZN4Luau16StringifierState4emitEPKc.exit22, label %133
+124:                                              ; preds = %_ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %126 = load ptr, ptr %125, align 8
+  %127 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %126) #27
+  %128 = load ptr, ptr %120, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  %130 = load i64, ptr %129, align 8
+  %131 = icmp ugt i64 %127, %130
+  br i1 %131, label %_ZN4Luau16StringifierState4emitEPKc.exit22, label %132
 
-133:                                              ; preds = %125, %_ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %134 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %135 = load ptr, ptr %134, align 8
-  %136 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull @.str.64)
+132:                                              ; preds = %124, %_ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %133 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull @.str.64)
   br label %_ZN4Luau16StringifierState4emitEPKc.exit22
 
-_ZN4Luau16StringifierState4emitEPKc.exit22:       ; preds = %133, %125, %99, %_ZN4Luau16StringifierState4emitEPKc.exit19
-  %137 = load i32, ptr %68, align 8
-  %138 = add i32 %137, 1
-  store i32 %138, ptr %68, align 8
-  %139 = load ptr, ptr %.sroa.031.039, align 8
+_ZN4Luau16StringifierState4emitEPKc.exit22:       ; preds = %132, %124, %98, %_ZN4Luau16StringifierState4emitEPKc.exit19
+  %136 = load i32, ptr %68, align 8
+  %137 = add i32 %136, 1
+  store i32 %137, ptr %68, align 8
+  %138 = load ptr, ptr %.sroa.031.039, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %140 = load ptr, ptr %0, align 8
-  store ptr %140, ptr %5, align 8
-  call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %139)
+  %139 = load ptr, ptr %0, align 8
+  store ptr %139, ptr %5, align 8
+  call void @_ZN4Luau15TypeStringifier9stringifyEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %138)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 8
-  %.not = icmp eq ptr %141, %67
-  br i1 %.not, label %._crit_edge.loopexit, label %71
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.031.039, i64 8
+  %.not = icmp eq ptr %140, %67
+  br i1 %.not, label %._crit_edge, label %71
 
-._crit_edge.loopexit:                             ; preds = %_ZN4Luau16StringifierState4emitEPKc.exit22
-  %142 = trunc nuw i8 %.1 to i1
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %_ZN4Luau16StringifierState4emitEPKc.exit22, %64
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %143 = load i8, ptr %142, align 8
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %145, label %177
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %64
-  %.0.lcssa = phi i1 [ true, %64 ], [ %142, %._crit_edge.loopexit ]
-  %143 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %144 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %145 = load i8, ptr %144, align 8
-  %146 = trunc i8 %145 to i1
-  br i1 %146, label %147, label %179
+145:                                              ; preds = %._crit_edge
+  %146 = load ptr, ptr %141, align 8
+  %147 = call noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef %146)
+  br i1 %147, label %177, label %148
 
-147:                                              ; preds = %._crit_edge
-  %148 = load ptr, ptr %143, align 8
-  %149 = call noundef zeroext i1 @_ZN4Luau7isEmptyEPKNS_11TypePackVarE(ptr noundef %148)
-  br i1 %149, label %179, label %150
+148:                                              ; preds = %145
+  %149 = load ptr, ptr %141, align 8
+  %150 = call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %149)
+  %.not.i.i = icmp eq ptr %150, null
+  br i1 %.not.i.i, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread, label %151
 
-150:                                              ; preds = %147
-  %151 = load ptr, ptr %143, align 8
-  %152 = call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %151)
-  %.not.i.i = icmp eq ptr %152, null
-  br i1 %.not.i.i, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread, label %153
+151:                                              ; preds = %148
+  %152 = load i32, ptr %150, align 8
+  %153 = icmp eq i32 %152, 5
+  br i1 %153, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread
 
-153:                                              ; preds = %150
-  %154 = load i32, ptr %152, align 8
-  %155 = icmp eq i32 %154, 5
-  br i1 %155, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread
+_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %151
+  %154 = load i32, ptr @_ZN4FInt25DebugLuauVerboseTypeNamesE, align 8
+  %155 = icmp slt i32 %154, 1
+  br i1 %155, label %156, label %177
 
-_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %153
-  %156 = load i32, ptr @_ZN4FInt25DebugLuauVerboseTypeNamesE, align 8
-  %157 = icmp slt i32 %156, 1
-  br i1 %157, label %158, label %179
+156:                                              ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit
+  %157 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %158 = load i8, ptr %157, align 8
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %177, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread
 
-158:                                              ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit
-  %159 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %160 = load i8, ptr %159, align 8
-  %161 = trunc i8 %160 to i1
-  br i1 %161, label %179, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread
+_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread: ; preds = %148, %151, %156
+  br i1 %.not38, label %_ZN4Luau16StringifierState4emitEPKc.exit24, label %160
 
-_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread: ; preds = %150, %153, %158
-  br i1 %.0.lcssa, label %_ZN4Luau16StringifierState4emitEPKc.exit24, label %162
+160:                                              ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread
+  %161 = load ptr, ptr %0, align 8
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  %164 = load i64, ptr %163, align 8
+  %.not.i23 = icmp eq i64 %164, 0
+  br i1 %.not.i23, label %173, label %165
 
-162:                                              ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread
-  %163 = load ptr, ptr %0, align 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %166 = load i64, ptr %165, align 8
-  %.not.i23 = icmp eq i64 %166, 0
-  br i1 %.not.i23, label %175, label %167
+165:                                              ; preds = %160
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %167) #27
+  %169 = load ptr, ptr %161, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %171 = load i64, ptr %170, align 8
+  %172 = icmp ugt i64 %168, %171
+  br i1 %172, label %_ZN4Luau16StringifierState4emitEPKc.exit24, label %173
 
-167:                                              ; preds = %162
-  %168 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %169 = load ptr, ptr %168, align 8
-  %170 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %169) #27
-  %171 = load ptr, ptr %163, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
-  %173 = load i64, ptr %172, align 8
-  %174 = icmp ugt i64 %170, %173
-  br i1 %174, label %_ZN4Luau16StringifierState4emitEPKc.exit24, label %175
-
-175:                                              ; preds = %167, %162
-  %176 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %177 = load ptr, ptr %176, align 8
-  %178 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %177, ptr noundef nonnull @.str.63)
+173:                                              ; preds = %165, %160
+  %174 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %176 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull @.str.63)
   br label %_ZN4Luau16StringifierState4emitEPKc.exit24
 
-_ZN4Luau16StringifierState4emitEPKc.exit24:       ; preds = %175, %167, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread
-  call void @_ZN4Luau19TypePackStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %152)
-  br label %179
+_ZN4Luau16StringifierState4emitEPKc.exit24:       ; preds = %173, %165, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit.thread
+  call void @_ZN4Luau19TypePackStringifier9stringifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %150)
+  br label %177
 
-179:                                              ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit, %158, %_ZN4Luau16StringifierState4emitEPKc.exit24, %147, %._crit_edge
-  %180 = load ptr, ptr %0, align 8
+177:                                              ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit, %156, %_ZN4Luau16StringifierState4emitEPKc.exit24, %145, %._crit_edge
+  %178 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %2, ptr %4, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 96
-  %182 = getelementptr inbounds nuw i8, ptr %180, i64 112
-  %183 = load i64, ptr %182, align 8
-  %184 = icmp eq i64 %183, 0
-  br i1 %184, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %185
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 96
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 112
+  %181 = load i64, ptr %180, align 8
+  %182 = icmp eq i64 %181, 0
+  br i1 %182, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %183
 
-185:                                              ; preds = %179
-  %186 = getelementptr inbounds nuw i8, ptr %180, i64 120
-  %187 = load ptr, ptr %186, align 8
-  %188 = icmp eq ptr %2, %187
-  br i1 %188, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %189
+183:                                              ; preds = %177
+  %184 = getelementptr inbounds nuw i8, ptr %178, i64 120
+  %185 = load ptr, ptr %184, align 8
+  %186 = icmp eq ptr %2, %185
+  br i1 %186, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %187
 
-189:                                              ; preds = %185
-  %190 = getelementptr inbounds nuw i8, ptr %180, i64 104
-  %191 = load i64, ptr %190, align 8
-  %192 = add i64 %191, -1
-  %193 = ptrtoint ptr %2 to i64
-  %194 = lshr i64 %193, 4
-  %195 = lshr i64 %193, 9
-  %196 = xor i64 %194, %195
-  %197 = load ptr, ptr %181, align 8
-  br label %198
+187:                                              ; preds = %183
+  %188 = getelementptr inbounds nuw i8, ptr %178, i64 104
+  %189 = load i64, ptr %188, align 8
+  %190 = add i64 %189, -1
+  %191 = ptrtoint ptr %2 to i64
+  %192 = lshr i64 %191, 4
+  %193 = lshr i64 %191, 9
+  %194 = xor i64 %192, %193
+  %195 = load ptr, ptr %179, align 8
+  br label %196
 
-198:                                              ; preds = %204, %189
-  %.pn.i.i.i.i.i25 = phi i64 [ %196, %189 ], [ %206, %204 ]
-  %.01519.i.i.i.i.i26 = phi i64 [ 0, %189 ], [ %205, %204 ]
-  %.01620.i.i.i.i.i27 = and i64 %.pn.i.i.i.i.i25, %192
-  %199 = getelementptr inbounds %"struct.std::pair.321", ptr %197, i64 %.01620.i.i.i.i.i27
-  %200 = load ptr, ptr %199, align 8
-  %201 = icmp eq ptr %200, %2
-  br i1 %201, label %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i29, label %202
+196:                                              ; preds = %202, %187
+  %.pn.i.i.i.i.i25 = phi i64 [ %194, %187 ], [ %204, %202 ]
+  %.01519.i.i.i.i.i26 = phi i64 [ 0, %187 ], [ %203, %202 ]
+  %.01620.i.i.i.i.i27 = and i64 %.pn.i.i.i.i.i25, %190
+  %197 = getelementptr inbounds %"struct.std::pair.321", ptr %195, i64 %.01620.i.i.i.i.i27
+  %198 = load ptr, ptr %197, align 8
+  %199 = icmp eq ptr %198, %2
+  br i1 %199, label %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i29, label %200
 
-202:                                              ; preds = %198
-  %203 = icmp eq ptr %200, %187
-  br i1 %203, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %204
+200:                                              ; preds = %196
+  %201 = icmp eq ptr %198, %185
+  br i1 %201, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %202
 
-204:                                              ; preds = %202
-  %205 = add i64 %.01519.i.i.i.i.i26, 1
-  %206 = add i64 %205, %.01620.i.i.i.i.i27
-  %.not.i.i.i.i.i28 = icmp ugt i64 %205, %192
-  br i1 %.not.i.i.i.i.i28, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %198, !llvm.loop !99
+202:                                              ; preds = %200
+  %203 = add i64 %.01519.i.i.i.i.i26, 1
+  %204 = add i64 %203, %.01620.i.i.i.i.i27
+  %.not.i.i.i.i.i28 = icmp ugt i64 %203, %190
+  br i1 %.not.i.i.i.i.i28, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %196, !llvm.loop !99
 
-_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i29: ; preds = %198
-  %207 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %208 = load i8, ptr %207, align 1
-  %209 = and i8 %208, 1
-  %.not.i30 = icmp eq i8 %209, 0
-  br i1 %.not.i30, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %210
+_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i29: ; preds = %196
+  %205 = getelementptr inbounds nuw i8, ptr %197, i64 8
+  %206 = load i8, ptr %205, align 1
+  %207 = and i8 %206, 1
+  %.not.i30 = icmp eq i8 %207, 0
+  br i1 %.not.i30, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %208
 
-210:                                              ; preds = %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i29
-  %211 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPvbNS_16DenseHashPointerESt8equal_toIS1_EEixERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %181, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %212 = load i8, ptr %211, align 1
-  %213 = trunc i8 %212 to i1
-  br i1 %213, label %214, label %_ZN4Luau16StringifierState5unseeEPKv.exit
+208:                                              ; preds = %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i29
+  %209 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN4Luau12DenseHashMapIPvbNS_16DenseHashPointerESt8equal_toIS1_EEixERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %179, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %210 = load i8, ptr %209, align 1
+  %211 = trunc i8 %210 to i1
+  br i1 %211, label %212, label %_ZN4Luau16StringifierState5unseeEPKv.exit
 
-214:                                              ; preds = %210
-  store i8 0, ptr %211, align 1
-  %215 = getelementptr inbounds nuw i8, ptr %180, i64 136
-  %216 = load i64, ptr %215, align 8
-  %217 = add i64 %216, -1
-  store i64 %217, ptr %215, align 8
+212:                                              ; preds = %208
+  store i8 0, ptr %209, align 1
+  %213 = getelementptr inbounds nuw i8, ptr %178, i64 136
+  %214 = load i64, ptr %213, align 8
+  %215 = add i64 %214, -1
+  store i64 %215, ptr %213, align 8
   br label %_ZN4Luau16StringifierState5unseeEPKv.exit
 
-_ZN4Luau16StringifierState5unseeEPKv.exit:        ; preds = %202, %204, %179, %185, %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i29, %210, %214
+_ZN4Luau16StringifierState5unseeEPKv.exit:        ; preds = %200, %202, %177, %183, %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i29, %208, %212
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %_ZN4Luau16StringifierState4emitEPKc.exit
 

@@ -3332,20 +3332,20 @@ declare noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang7Builtin14TargetFeatures14getAndFeaturesEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.clang::Builtin::TargetFeatures::FeatureListStatus") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2, i64 %3) local_unnamed_addr #1 comdat align 2 {
   %5 = alloca %"struct.clang::Builtin::TargetFeatures::FeatureListStatus", align 8
-  %.not75 = icmp eq i64 %3, 0
-  br i1 %.not75, label %._crit_edge, label %.lr.ph72
+  %.not73 = icmp eq i64 %3, 0
+  br i1 %.not73, label %._crit_edge.thread, label %.lr.ph70
 
-.lr.ph72:                                         ; preds = %4
+.lr.ph70:                                         ; preds = %4
   %.sroa.658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %6
 
-6:                                                ; preds = %.lr.ph72, %49
-  %.071 = phi i32 [ 0, %.lr.ph72 ], [ %.2, %49 ]
-  %.03070 = phi i8 [ 1, %.lr.ph72 ], [ %.232, %49 ]
-  %.03369 = phi i64 [ 0, %.lr.ph72 ], [ %.235, %49 ]
-  %.03667 = phi i64 [ 0, %.lr.ph72 ], [ %50, %49 ]
-  %7 = getelementptr inbounds i8, ptr %2, i64 %.03667
+6:                                                ; preds = %.lr.ph70, %49
+  %.069 = phi i32 [ 0, %.lr.ph70 ], [ %.2, %49 ]
+  %.03068 = phi i8 [ 1, %.lr.ph70 ], [ %.232, %49 ]
+  %.03367 = phi i64 [ 0, %.lr.ph70 ], [ %.235, %49 ]
+  %.03665 = phi i64 [ 0, %.lr.ph70 ], [ %50, %49 ]
+  %7 = getelementptr inbounds i8, ptr %2, i64 %.03665
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %49 [
     i8 40, label %9
@@ -3355,43 +3355,43 @@ define linkonce_odr hidden void @_ZN5clang7Builtin14TargetFeatures14getAndFeatur
   ]
 
 9:                                                ; preds = %6
-  %10 = icmp eq i32 %.071, 0
-  %11 = add nuw i64 %.03667, 1
-  %spec.select = select i1 %10, i64 %11, i64 %.03369
-  %12 = add nsw i32 %.071, 1
+  %10 = icmp eq i32 %.069, 0
+  %11 = add nuw i64 %.03665, 1
+  %spec.select = select i1 %10, i64 %11, i64 %.03367
+  %12 = add nsw i32 %.069, 1
   br label %49
 
 13:                                               ; preds = %6
-  %14 = add nsw i32 %.071, -1
+  %14 = add nsw i32 %.069, -1
   br label %15
 
 15:                                               ; preds = %13, %6, %6
-  %.1 = phi i32 [ %.071, %6 ], [ %.071, %6 ], [ %14, %13 ]
+  %.1 = phi i32 [ %.069, %6 ], [ %.069, %6 ], [ %14, %13 ]
   %16 = icmp eq i32 %.1, 0
   br i1 %16, label %17, label %49
 
 17:                                               ; preds = %15
-  %18 = trunc i8 %.03070 to i1
-  %.not37 = icmp ne i64 %.03667, %.03369
+  %18 = trunc i8 %.03068 to i1
+  %.not37 = icmp ne i64 %.03665, %.03367
   %or.cond.not = select i1 %18, i1 %.not37, i1 false
   br i1 %or.cond.not, label %19, label %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit
 
 19:                                               ; preds = %17
-  %20 = call i64 @llvm.umin.i64(i64 %3, i64 %.03369)
+  %20 = call i64 @llvm.umin.i64(i64 %3, i64 %.03367)
   %21 = getelementptr inbounds i8, ptr %2, i64 %20
-  %22 = call i64 @llvm.usub.sat.i64(i64 %.03667, i64 %20)
+  %22 = call i64 @llvm.usub.sat.i64(i64 %.03665, i64 %20)
   %23 = icmp eq i8 %8, 41
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %.not76 = icmp ugt i64 %.03667, %20
-  br i1 %.not76, label %.lr.ph, label %_ZN5clang7Builtin14TargetFeatures19hasRequiredFeaturesEN4llvm9StringRefE.exit
+  %.not74 = icmp ugt i64 %.03665, %20
+  br i1 %.not74, label %.lr.ph, label %_ZN5clang7Builtin14TargetFeatures19hasRequiredFeaturesEN4llvm9StringRefE.exit
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
-  %.sroa.8.066 = phi i64 [ %.sroa.8.0.copyload, %.lr.ph ], [ %22, %24 ]
-  %.sroa.658.065 = phi ptr [ %.sroa.658.0.copyload, %.lr.ph ], [ %21, %24 ]
-  call void @_ZN5clang7Builtin14TargetFeatures14getAndFeaturesEN4llvm9StringRefE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::Builtin::TargetFeatures::FeatureListStatus") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %.sroa.658.065, i64 %.sroa.8.066)
+  %.sroa.8.064 = phi i64 [ %.sroa.8.0.copyload, %.lr.ph ], [ %22, %24 ]
+  %.sroa.658.063 = phi ptr [ %.sroa.658.0.copyload, %.lr.ph ], [ %21, %24 ]
+  call void @_ZN5clang7Builtin14TargetFeatures14getAndFeaturesEN4llvm9StringRefE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::Builtin::TargetFeatures::FeatureListStatus") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %.sroa.658.063, i64 %.sroa.8.064)
   %.sroa.056.0.copyload = load i8, ptr %5, align 8
   %.sroa.658.0.copyload = load ptr, ptr %.sroa.658.0..sroa_idx, align 8
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
@@ -3427,8 +3427,8 @@ _ZN5clang7Builtin14TargetFeatures19hasRequiredFeaturesEN4llvm9StringRefE.exit: ;
   br label %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit
 
 _ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit: ; preds = %_ZN5clang7Builtin14TargetFeatures19hasRequiredFeaturesEN4llvm9StringRefE.exit, %27, %36, %17
-  %.131 = phi i8 [ %.03070, %17 ], [ %.sroa.056.0.lcssa, %_ZN5clang7Builtin14TargetFeatures19hasRequiredFeaturesEN4llvm9StringRefE.exit ], [ %40, %36 ], [ 0, %27 ]
-  %41 = add nuw i64 %.03667, 1
+  %.131 = phi i8 [ %.03068, %17 ], [ %.sroa.056.0.lcssa, %_ZN5clang7Builtin14TargetFeatures19hasRequiredFeaturesEN4llvm9StringRefE.exit ], [ %40, %36 ], [ 0, %27 ]
+  %41 = add nuw i64 %.03665, 1
   %42 = icmp eq i8 %8, 124
   br i1 %42, label %43, label %49
 
@@ -3445,24 +3445,25 @@ _ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit: ; preds 
   br label %70
 
 49:                                               ; preds = %9, %6, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit, %15
-  %.235 = phi i64 [ %.03369, %6 ], [ %41, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %.03369, %15 ], [ %spec.select, %9 ]
-  %.232 = phi i8 [ %.03070, %6 ], [ %.131, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %.03070, %15 ], [ %.03070, %9 ]
-  %.2 = phi i32 [ %.071, %6 ], [ 0, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %.1, %15 ], [ %12, %9 ]
-  %50 = add nuw i64 %.03667, 1
+  %.235 = phi i64 [ %.03367, %6 ], [ %41, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %.03367, %15 ], [ %spec.select, %9 ]
+  %.232 = phi i8 [ %.03068, %6 ], [ %.131, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %.03068, %15 ], [ %.03068, %9 ]
+  %.2 = phi i32 [ %.069, %6 ], [ 0, %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit ], [ %.1, %15 ], [ %12, %9 ]
+  %50 = add nuw i64 %.03665, 1
   %exitcond.not = icmp eq i64 %50, %3
   br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %49, %4
-  %.033.lcssa = phi i64 [ 0, %4 ], [ %.235, %49 ]
-  %.030.lcssa = phi i8 [ 1, %4 ], [ %.232, %49 ]
-  %51 = trunc i8 %.030.lcssa to i1
-  %.not = icmp ne i64 %.033.lcssa, %3
-  %or.cond62.not = select i1 %51, i1 %.not, i1 false
-  br i1 %or.cond62.not, label %52, label %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit48
+._crit_edge:                                      ; preds = %49
+  %51 = trunc i8 %.232 to i1
+  br i1 %51, label %._crit_edge.thread, label %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit48
 
-52:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %4, %._crit_edge
+  %.033.lcssa77 = phi i64 [ %.235, %._crit_edge ], [ 0, %4 ]
+  %.not = icmp eq i64 %.033.lcssa77, %3
+  br i1 %.not, label %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit48, label %52
+
+52:                                               ; preds = %._crit_edge.thread
   %53 = load ptr, ptr %1, align 8
-  %.sroa.speculated5.i41 = call i64 @llvm.umin.i64(i64 %3, i64 %.033.lcssa)
+  %.sroa.speculated5.i41 = call i64 @llvm.umin.i64(i64 %3, i64 %.033.lcssa77)
   %54 = getelementptr inbounds i8, ptr %2, i64 %.sroa.speculated5.i41
   %55 = sub i64 %3, %.sroa.speculated5.i41
   %56 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %54, i64 %55) #13
@@ -3482,12 +3483,12 @@ _ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit: ; preds 
   %65 = load ptr, ptr %.sroa.0.0.i.i.i46, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i8, ptr %66, align 8
+  %68 = and i8 %67, 1
   br label %_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit48
 
-_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit48: ; preds = %63, %52, %._crit_edge
-  %.3 = phi i8 [ %.030.lcssa, %._crit_edge ], [ %67, %63 ], [ 0, %52 ]
-  %68 = and i8 %.3, 1
-  store i8 %68, ptr %0, align 8
+_ZNK4llvm9StringMapIbNS_15MallocAllocatorEE6lookupENS_9StringRefE.exit48: ; preds = %63, %52, %._crit_edge.thread, %._crit_edge
+  %.3 = phi i8 [ 1, %._crit_edge.thread ], [ 0, %._crit_edge ], [ %68, %63 ], [ 0, %52 ]
+  store i8 %.3, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
   br label %70

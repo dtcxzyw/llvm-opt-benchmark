@@ -2123,7 +2123,7 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit.thread: ; preds = %_ZNSt3mapIiN7g
   br label %139
 
 139:                                              ; preds = %135, %138, %129
-  %.1118 = phi i8 [ %.0117156, %129 ], [ 1, %138 ], [ %.0117156, %135 ]
+  %.1118 = phi i8 [ 1, %129 ], [ 1, %138 ], [ 0, %135 ]
   %140 = call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull %6)
   %141 = trunc nuw i8 %.1118 to i1
   %142 = call noundef i32 @_ZN7glslang10TPpContext4evalEiibRiRbPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, i32 noundef %140, i32 noundef %128, i1 noundef zeroext %141, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6)

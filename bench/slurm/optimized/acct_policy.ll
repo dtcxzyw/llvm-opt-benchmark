@@ -5654,7 +5654,7 @@ define dso_local i32 @acct_policy_get_max_nodes(ptr noundef readonly captures(no
   %spec.select136 = select i1 %.not31.i, ptr %16, ptr %10
   %21 = select i1 %.not31.i, ptr %10, ptr %16
   %22 = icmp eq ptr %16, %10
-  %spec.select183 = select i1 %22, ptr null, ptr %21
+  %spec.select181 = select i1 %22, ptr null, ptr %21
   br label %select.unfold
 
 23:                                               ; preds = %8
@@ -5668,7 +5668,7 @@ define dso_local i32 @acct_policy_get_max_nodes(ptr noundef readonly captures(no
 
 select.unfold:                                    ; preds = %17, %24, %14, %13
   %.1111.ph = phi ptr [ %10, %13 ], [ %10, %14 ], [ %26, %24 ], [ %spec.select136, %17 ]
-  %.0109.ph = phi ptr [ null, %13 ], [ null, %14 ], [ null, %24 ], [ %spec.select183, %17 ]
+  %.0109.ph = phi ptr [ null, %13 ], [ null, %14 ], [ null, %24 ], [ %spec.select181, %17 ]
   %27 = getelementptr inbounds nuw i8, ptr %.1111.ph, i64 160
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -5832,28 +5832,28 @@ _apply_limit_factor.exit92.thread.us.us:          ; preds = %97, %_apply_limit_f
   br i1 %.not79.us.us, label %_apply_limit_factor.exit92.thread._crit_edge, label %_apply_limit_factor.exit.us.us, !llvm.loop !31
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %90, label %_apply_limit_factor.exit.us, label %_apply_limit_factor.exit.us.us152
+  br i1 %90, label %_apply_limit_factor.exit.us, label %_apply_limit_factor.exit.us.us151
 
-_apply_limit_factor.exit.us.us152:                ; preds = %.lr.ph.split.us.split, %_apply_limit_factor.exit92.us.us157
-  %.056142.us.us155 = phi ptr [ %110, %_apply_limit_factor.exit92.us.us157 ], [ %5, %.lr.ph.split.us.split ]
-  %102 = getelementptr inbounds nuw i8, ptr %.056142.us.us155, i64 88
+_apply_limit_factor.exit.us.us151:                ; preds = %.lr.ph.split.us.split, %_apply_limit_factor.exit92.us.us155
+  %.056142.us.us153 = phi ptr [ %110, %_apply_limit_factor.exit92.us.us155 ], [ %5, %.lr.ph.split.us.split ]
+  %102 = getelementptr inbounds nuw i8, ptr %.056142.us.us153, i64 88
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %105 = load i64, ptr %104, align 8
   %106 = icmp ult i64 %105, %.061
-  br i1 %106, label %_apply_limit_factor.exit92.us.us157.thread, label %_apply_limit_factor.exit92.us.us157
+  br i1 %106, label %_apply_limit_factor.exit92.us.us155.thread, label %_apply_limit_factor.exit92.us.us155
 
-_apply_limit_factor.exit92.us.us157.thread:       ; preds = %_apply_limit_factor.exit.us.us152
+_apply_limit_factor.exit92.us.us155.thread:       ; preds = %_apply_limit_factor.exit.us.us151
   store i32 62, ptr %1, align 4
   br label %_apply_limit_factor.exit92.thread._crit_edge
 
-_apply_limit_factor.exit92.us.us157:              ; preds = %_apply_limit_factor.exit.us.us152
-  %107 = getelementptr inbounds nuw i8, ptr %.056142.us.us155, i64 312
+_apply_limit_factor.exit92.us.us155:              ; preds = %_apply_limit_factor.exit.us.us151
+  %107 = getelementptr inbounds nuw i8, ptr %.056142.us.us153, i64 312
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %110 = load ptr, ptr %109, align 8
-  %.not79.us.us165 = icmp eq ptr %110, null
-  br i1 %.not79.us.us165, label %_apply_limit_factor.exit92.thread._crit_edge, label %_apply_limit_factor.exit.us.us152, !llvm.loop !31
+  %.not79.us.us163 = icmp eq ptr %110, null
+  br i1 %.not79.us.us163, label %_apply_limit_factor.exit92.thread._crit_edge, label %_apply_limit_factor.exit.us.us151, !llvm.loop !31
 
 _apply_limit_factor.exit.us:                      ; preds = %.lr.ph.split.us.split, %125
   %.not146.us = phi i1 [ false, %125 ], [ true, %.lr.ph.split.us.split ]
@@ -6004,8 +6004,8 @@ _apply_limit_factor.exit92.thread:                ; preds = %156, %157, %162, %_
   %.not79 = icmp eq ptr %167, null
   br i1 %.not79, label %_apply_limit_factor.exit92.thread._crit_edge, label %.lr.ph.split, !llvm.loop !31
 
-_apply_limit_factor.exit92.thread._crit_edge:     ; preds = %_apply_limit_factor.exit92.thread.us.us, %_apply_limit_factor.exit92.us.us157, %125, %_apply_limit_factor.exit92.thread.us, %163, %_apply_limit_factor.exit92.thread, %_apply_limit_factor.exit92.us.us157.thread, %.lr.ph.split.us.split.us.split, %acct_policy_set_qos_order.exit
-  %.5 = phi i64 [ %.061, %acct_policy_set_qos_order.exit ], [ %.061, %.lr.ph.split.us.split.us.split ], [ %105, %_apply_limit_factor.exit92.us.us157.thread ], [ %.7, %_apply_limit_factor.exit92.thread ], [ %.7, %163 ], [ %.7.us, %_apply_limit_factor.exit92.thread.us ], [ %.7.us, %125 ], [ %.061, %_apply_limit_factor.exit92.us.us157 ], [ %.7.us.us, %_apply_limit_factor.exit92.thread.us.us ]
+_apply_limit_factor.exit92.thread._crit_edge:     ; preds = %_apply_limit_factor.exit92.thread.us.us, %_apply_limit_factor.exit92.us.us155, %125, %_apply_limit_factor.exit92.thread.us, %163, %_apply_limit_factor.exit92.thread, %_apply_limit_factor.exit92.us.us155.thread, %.lr.ph.split.us.split.us.split, %acct_policy_set_qos_order.exit
+  %.5 = phi i64 [ %.061, %acct_policy_set_qos_order.exit ], [ %.061, %.lr.ph.split.us.split.us.split ], [ %105, %_apply_limit_factor.exit92.us.us155.thread ], [ %.7, %_apply_limit_factor.exit92.thread ], [ %.7, %163 ], [ %.7.us, %_apply_limit_factor.exit92.thread.us ], [ %.7.us, %125 ], [ %.061, %_apply_limit_factor.exit92.us.us155 ], [ %.7.us.us, %_apply_limit_factor.exit92.thread.us.us ]
   call void @assoc_mgr_unlock(ptr noundef nonnull %3) #12
   %168 = trunc i64 %.5 to i32
   br label %169

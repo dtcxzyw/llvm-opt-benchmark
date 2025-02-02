@@ -5164,12 +5164,12 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end25, %entry
-  %2 = phi i64 [ %l, %entry ], [ %.pre28, %if.end25 ]
+  %2 = phi i64 [ %l, %entry ], [ %.pre32, %if.end25 ]
   %3 = phi i64 [ %addr1, %entry ], [ %.pre, %if.end25 ]
   %len.addr.0 = phi i64 [ %len, %entry ], [ %sub, %if.end25 ]
   %mr.addr.0 = phi ptr [ %mr, %entry ], [ %section.sroa.1.0.copyload.i, %if.end25 ]
   %addr.addr.0 = phi i64 [ %addr, %entry ], [ %add, %if.end25 ]
-  %result.0 = phi i32 [ 0, %entry ], [ %result.132, %if.end25 ]
+  %result.0 = phi i32 [ 0, %entry ], [ %result.131, %if.end25 ]
   %buf.0 = phi ptr [ %ptr, %entry ], [ %add.ptr, %if.end25 ]
   %.phi.trans.insert = getelementptr i8, ptr %mr.addr.0, i64 41
   %mr.val.i19.pre = load i8, ptr %.phi.trans.insert, align 1
@@ -5266,23 +5266,27 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb1.i
     i32 4, label %sw.bb3.i
-    i32 8, label %if.end19
+    i32 8, label %sw.bb5.i
   ]
 
 sw.bb.i:                                          ; preds = %memory_access_size.exit
   %conv.i22 = trunc i64 %16 to i8
   store i8 %conv.i22, ptr %buf.0, align 1
-  br i1 %call.i, label %if.end22, label %if.then21
+  br label %if.end19
 
 sw.bb1.i:                                         ; preds = %memory_access_size.exit
   %conv2.i = trunc i64 %16 to i16
   store i16 %conv2.i, ptr %buf.0, align 1
-  br i1 %call.i, label %if.end22, label %if.then21
+  br label %if.end19
 
 sw.bb3.i:                                         ; preds = %memory_access_size.exit
   %conv4.i = trunc i64 %16 to i32
   store i32 %conv4.i, ptr %buf.0, align 1
-  br i1 %call.i, label %if.end22, label %if.then21
+  br label %if.end19
+
+sw.bb5.i:                                         ; preds = %memory_access_size.exit
+  store i64 %16, ptr %buf.0, align 1
+  br label %if.end19
 
 do.body.i23:                                      ; preds = %memory_access_size.exit
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.85, i32 noundef 418, ptr noundef nonnull @__func__.stn_he_p, ptr noundef null) #27
@@ -5296,16 +5300,15 @@ if.else17:                                        ; preds = %land.lhs.true6.i, %
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.0, ptr align 1 %call18, i64 %18, i1 false)
   br label %if.end22
 
-if.end19:                                         ; preds = %memory_access_size.exit
-  store i64 %16, ptr %buf.0, align 1
+if.end19:                                         ; preds = %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
   br i1 %call.i, label %if.end22, label %if.then21
 
-if.then21:                                        ; preds = %sw.bb3.i, %sw.bb1.i, %sw.bb.i, %if.end19
+if.then21:                                        ; preds = %if.end19
   call void @qemu_mutex_unlock_iothread() #28
   br label %if.end22
 
-if.end22:                                         ; preds = %if.then, %if.else17, %sw.bb3.i, %sw.bb1.i, %sw.bb.i, %if.then21, %if.end19
-  %result.132 = phi i32 [ %or15, %if.then21 ], [ %or15, %if.end19 ], [ %or15, %sw.bb.i ], [ %or15, %sw.bb1.i ], [ %or15, %sw.bb3.i ], [ %or, %if.then ], [ %result.0, %if.else17 ]
+if.end22:                                         ; preds = %if.then, %if.else17, %if.then21, %if.end19
+  %result.131 = phi i32 [ %or15, %if.then21 ], [ %or15, %if.end19 ], [ %or, %if.then ], [ %result.0, %if.else17 ]
   %19 = load i64, ptr %l.addr, align 8
   %sub = sub i64 %len.addr.0, %19
   %tobool23.not = icmp eq i64 %sub, 0
@@ -5323,11 +5326,11 @@ if.end25:                                         ; preds = %if.end22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
   %.pre = load i64, ptr %addr1.addr, align 8
-  %.pre28 = load i64, ptr %l.addr, align 8
+  %.pre32 = load i64, ptr %l.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.end22
-  ret i32 %result.132
+  ret i32 %result.131
 }
 
 declare i32 @memory_region_dispatch_read(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32) local_unnamed_addr #3
@@ -8391,12 +8394,12 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end26, %entry
-  %2 = phi i64 [ %l, %entry ], [ %.pre25, %if.end26 ]
+  %2 = phi i64 [ %l, %entry ], [ %.pre29, %if.end26 ]
   %3 = phi i64 [ %addr1, %entry ], [ %.pre, %if.end26 ]
   %mr.addr.0 = phi ptr [ %mr, %entry ], [ %section.sroa.1.0.copyload.i, %if.end26 ]
   %len.addr.0 = phi i64 [ %len, %entry ], [ %sub, %if.end26 ]
   %addr.addr.0 = phi i64 [ %addr, %entry ], [ %add, %if.end26 ]
-  %result.0 = phi i32 [ 0, %entry ], [ %result.129, %if.end26 ]
+  %result.0 = phi i32 [ 0, %entry ], [ %result.128, %if.end26 ]
   %buf.0 = phi ptr [ %ptr, %entry ], [ %add.ptr, %if.end26 ]
   %.phi.trans.insert = getelementptr i8, ptr %mr.addr.0, i64 41
   %mr.val.i17.pre = load i8, ptr %.phi.trans.insert, align 1
@@ -8535,7 +8538,7 @@ if.then22:                                        ; preds = %if.end20
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then, %if.else18, %if.then22, %if.end20
-  %result.129 = phi i32 [ %or17, %if.then22 ], [ %or17, %if.end20 ], [ %or, %if.then ], [ %result.0, %if.else18 ]
+  %result.128 = phi i32 [ %or17, %if.then22 ], [ %or17, %if.end20 ], [ %or, %if.then ], [ %result.0, %if.else18 ]
   %18 = load i64, ptr %l.addr, align 8
   %sub = sub i64 %len.addr.0, %18
   %tobool24.not = icmp eq i64 %sub, 0
@@ -8553,11 +8556,11 @@ if.end26:                                         ; preds = %if.end23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
   %.pre = load i64, ptr %addr1.addr, align 8
-  %.pre25 = load i64, ptr %l.addr, align 8
+  %.pre29 = load i64, ptr %l.addr, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.end23
-  ret i32 %result.129
+  ret i32 %result.128
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

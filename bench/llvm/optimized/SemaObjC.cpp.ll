@@ -4241,7 +4241,7 @@ _ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i: ; preds = %235, %22
   br label %425
 
 _ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.thread.i: ; preds = %242, %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit.i
-  %spec.select222.i = phi i8 [ %.0.i135.i, %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i ], [ %.0.i135.i, %242 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit.i ]
+  %spec.select222.i = phi i8 [ 1, %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i ], [ 0, %242 ], [ 1, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit.i ]
   %.092.i = phi ptr [ null, %_ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i ], [ %244, %242 ], [ null, %_ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit.i ]
   %.0.copyload.i.i.i.i.i138.i = load i64, ptr %25, align 8
   %256 = and i64 %.0.copyload.i.i.i.i.i138.i, -16

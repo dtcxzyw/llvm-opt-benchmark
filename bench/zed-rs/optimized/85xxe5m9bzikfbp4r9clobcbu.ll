@@ -3817,49 +3817,49 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
   %21 = load i64, ptr %20, align 8, !alias.scope !287, !noalias !290
   %22 = icmp ne i64 %21, -2245953032506112620
   %or.cond.i.not = select i1 %19, i1 true, i1 %22
-  br i1 %or.cond.i.not, label %24, label %30
+  br i1 %or.cond.i.not, label %23, label %29
 
-23:                                               ; preds = %73, %80
-  %eh.lpad-body19 = phi { ptr, i32 } [ %74, %73 ], [ %81, %80 ]
-  call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef 88, i64 noundef 8) #21
-  br label %93
-
-24:                                               ; preds = %7
+23:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !292
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.fff36cc68246ac94b37a0dcd7e7b55e1.20, i64 noundef 43, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.fff36cc68246ac94b37a0dcd7e7b55e1.21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fff36cc68246ac94b37a0dcd7e7b55e1.59) #25
-          to label %27 unwind label %25, !noalias !292
+          to label %26 unwind label %24, !noalias !292
 
-25:                                               ; preds = %24
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %23
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hc09da0d65c549604E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #24
-          to label %.thread unwind label %28, !noalias !292
+          to label %98 unwind label %27, !noalias !292
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   unreachable
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #23, !noalias !292
   unreachable
 
-30:                                               ; preds = %7
+29:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %32 = load ptr, ptr %31, align 8, !invariant.load !4, !nonnull !4
-  %33 = invoke { ptr, ptr } %32(ptr noundef nonnull %2)
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %31 = load ptr, ptr %30, align 8, !invariant.load !4, !nonnull !4
+  %32 = invoke { ptr, ptr } %31(ptr noundef nonnull %2)
           to label %36 unwind label %34
 
-34:                                               ; preds = %30
+33:                                               ; preds = %80, %73
+  %eh.lpad-body19 = phi { ptr, i32 } [ %74, %73 ], [ %81, %80 ]
+  call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef 88, i64 noundef 8) #21
+  br label %93
+
+34:                                               ; preds = %29
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.thread41
 
-36:                                               ; preds = %30
-  %37 = extractvalue { ptr, ptr } %33, 0
-  %38 = extractvalue { ptr, ptr } %33, 1
+36:                                               ; preds = %29
+  %37 = extractvalue { ptr, ptr } %32, 0
+  %38 = extractvalue { ptr, ptr } %32, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr %37, ptr %9, align 8, !noalias !299
@@ -3954,7 +3954,7 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
 73:                                               ; preds = %71
   %74 = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %33
 
 75:                                               ; preds = %62, %71
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -3978,7 +3978,7 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
   %81 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr111drop_in_place$LT$dev_server_projects..Store..handle_dev_server_projects_update..$u7b$$u7b$closure$u7d$$u7d$$GT$17h90c790afa9ef70f0E.llvm.17903372834228012966"(ptr noundef nonnull align 8 dereferenceable(168) %13) #24
-          to label %23 unwind label %82
+          to label %33 unwind label %82
 
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
@@ -4005,14 +4005,14 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
   br label %"_ZN4core3ptr54drop_in_place$LT$rpc..proto_client..AnyProtoClient$GT$17h621d8c0875306b0eE.exit"
 
 .noexc21:                                         ; preds = %97, %93
-  br i1 %or.cond.i.not, label %99, label %98
+  br i1 %or.cond.i.not, label %100, label %99
 
 "_ZN4core3ptr54drop_in_place$LT$rpc..proto_client..AnyProtoClient$GT$17h621d8c0875306b0eE.exit": ; preds = %88, %84
   %89 = insertvalue { ptr, ptr } poison, ptr %77, 0
   %90 = insertvalue { ptr, ptr } %89, ptr @anon.1a44a6aef2099518eecb4d9bbd5e2b69.0.llvm.17903372834228012966, 1
   ret { ptr, ptr } %90
 
-91:                                               ; preds = %97, %99, %.thread, %.thread41
+91:                                               ; preds = %97, %100, %98, %.thread41
   %92 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #23
@@ -4021,10 +4021,10 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
 .thread41:                                        ; preds = %53, %42, %34
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %43, %42 ], [ %54, %53 ]
   invoke void @"_ZN4core3ptr83drop_in_place$LT$gpui..app..entity_map..Model$LT$dev_server_projects..Store$GT$$GT$17hcd745f4f27229dddE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #24
-          to label %.thread unwind label %91
+          to label %98 unwind label %91
 
-93:                                               ; preds = %23, %.thread
-  %.pn.pn34 = phi { ptr, i32 } [ %.pn.pn35, %.thread ], [ %eh.lpad-body19, %23 ]
+93:                                               ; preds = %33, %98
+  %.pn.pn34 = phi { ptr, i32 } [ %.pn.pn.ph, %98 ], [ %eh.lpad-body19, %33 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !345)
   call void @llvm.experimental.noalias.scope.decl(metadata !348)
   call void @llvm.experimental.noalias.scope.decl(metadata !351)
@@ -4038,17 +4038,17 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hba0fdfecb2f3e680E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15)
           to label %.noexc21 unwind label %91
 
-.thread:                                          ; preds = %.thread41, %25
-  %.pn.pn35 = phi { ptr, i32 } [ %26, %25 ], [ %eh.lpad-body, %.thread41 ]
+98:                                               ; preds = %.thread41, %24
+  %.pn.pn.ph = phi { ptr, i32 } [ %eh.lpad-body, %.thread41 ], [ %25, %24 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$gpui..app..async_context..AsyncAppContext$GT$17h57600951d2afe025E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6) #24
           to label %93 unwind label %91
 
-98:                                               ; preds = %99, %.noexc21
+99:                                               ; preds = %100, %.noexc21
   resume { ptr, i32 } %.pn.pn34
 
-99:                                               ; preds = %.noexc21
+100:                                              ; preds = %.noexc21
   invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$proto..AnyTypedEnvelope$GT$$GT$17hc0d887ce9ce27e08E"(ptr nonnull %2, ptr nonnull %3) #24
-          to label %98 unwind label %91
+          to label %99 unwind label %91
 }
 
 ; Function Attrs: nonlazybind uwtable

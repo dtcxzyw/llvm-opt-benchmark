@@ -49159,7 +49159,6 @@ _ZN3smt10theory_lra3imp14reset_evidenceEv.exit:   ; preds = %_ZN6vectorISt4pairI
   br label %if.end31
 
 if.end31:                                         ; preds = %_ZN3smt10theory_lra3imp14reset_evidenceEv.exit, %if.end24
-  %first.2 = phi i8 [ 0, %_ZN3smt10theory_lra3imp14reset_evidenceEv.exit ], [ %first.0, %if.end24 ]
   %53 = load ptr, ptr %this, align 8
   %ctx.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 16
   %54 = load ptr, ptr %ctx.i.i.i, align 8
@@ -49219,7 +49218,7 @@ _ZN3smt10theory_lra3imp22updt_unassigned_boundsEii.exit: ; preds = %lor.lhs.fals
 
 for.inc:                                          ; preds = %if.end18, %for.body, %_ZN3smt10theory_lra3imp22updt_unassigned_boundsEii.exit
   %count.1 = phi i32 [ %count.0, %for.body ], [ %count.0, %if.end18 ], [ %inc, %_ZN3smt10theory_lra3imp22updt_unassigned_boundsEii.exit ]
-  %first.1 = phi i8 [ %first.0, %for.body ], [ %first.0, %if.end18 ], [ %first.2, %_ZN3smt10theory_lra3imp22updt_unassigned_boundsEii.exit ]
+  %first.1 = phi i8 [ %first.0, %for.body ], [ %first.0, %if.end18 ], [ 0, %_ZN3smt10theory_lra3imp22updt_unassigned_boundsEii.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !194
 

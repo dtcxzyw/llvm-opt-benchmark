@@ -37846,17 +37846,16 @@ _ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread51: ; preds = %23, %23, %23, %23
   %76 = load ptr, ptr %74, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %.not4263 = icmp ne ptr %76, null
-  %.not42.not.not = select i1 %75, i1 %.not4263, i1 false
-  %brmerge.not = select i1 %.not42.not.not, i1 %.13472, i1 false
-  %.134.mux = select i1 %.not42.not.not, i1 true, i1 %.13472
-  br i1 %brmerge.not, label %77, label %79
+  %.not42.not = select i1 %75, i1 %.not4263, i1 false
+  br i1 %.not42.not, label %77, label %79
 
 77:                                               ; preds = %.lr.ph75
   %78 = icmp eq ptr %76, %49
-  br i1 %78, label %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread, label %79
+  %or.cond = select i1 %.13472, i1 %78, i1 false
+  br i1 %or.cond, label %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread, label %79
 
-79:                                               ; preds = %.lr.ph75, %77
-  %.235 = phi i1 [ true, %77 ], [ %.134.mux, %.lr.ph75 ]
+79:                                               ; preds = %77, %.lr.ph75
+  %.235 = phi i1 [ %.13472, %.lr.ph75 ], [ true, %77 ]
   %80 = getelementptr inbounds nuw i8, ptr %.03273, i64 40
   %.not41 = icmp eq ptr %80, %73
   br i1 %.not41, label %._crit_edge76.loopexit, label %.lr.ph75

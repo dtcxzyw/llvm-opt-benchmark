@@ -1908,7 +1908,7 @@ land.lhs.true.us:                                 ; preds = %for.body.us
   br label %if.end.us
 
 if.end.us:                                        ; preds = %land.lhs.true.us, %for.body.us
-  %atomic_flush.2.us = phi i8 [ %atomic_flush.011.us, %for.body.us ], [ %spec.select.us, %land.lhs.true.us ]
+  %atomic_flush.2.us = phi i8 [ 1, %for.body.us ], [ %spec.select.us, %land.lhs.true.us ]
   %id_.i.us = getelementptr inbounds nuw i8, ptr %4, i64 3392
   %6 = load i64, ptr %id_.i.us, align 16
   %cmp6.us = icmp ugt i64 %6, %max_memtable_id
@@ -1994,7 +1994,7 @@ lpad:                                             ; preds = %lpad.split.us, %lpa
   resume { ptr, i32 } %.us-phi14
 
 if.end:                                           ; preds = %land.lhs.true, %for.body
-  %atomic_flush.2 = phi i8 [ %atomic_flush.011, %for.body ], [ %spec.select, %land.lhs.true ]
+  %atomic_flush.2 = phi i8 [ 1, %for.body ], [ %spec.select, %land.lhs.true ]
   %id_.i = getelementptr inbounds nuw i8, ptr %17, i64 3392
   %20 = load i64, ptr %id_.i, align 16
   %cmp6 = icmp ugt i64 %20, %max_memtable_id

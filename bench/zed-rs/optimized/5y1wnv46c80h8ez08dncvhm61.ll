@@ -10018,7 +10018,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 
 14:                                               ; preds = %13
   invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.b244ddacf973f5fee137b0ea6cb9ab8a.102.llvm.4491288516430033680, i64 noundef 18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b244ddacf973f5fee137b0ea6cb9ab8a.103.llvm.4491288516430033680) #18
-          to label %.noexc unwind label %.thread
+          to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %14
   unreachable
@@ -10030,277 +10030,277 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %19 = getelementptr inbounds [0 x ptr], ptr %17, i64 0, i64 %18
   br label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjusted_current_node17h42783e54d25dff00E.llvm.4491288516430033680.exit"
 
-.thread:                                          ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjusted_current_node17h42783e54d25dff00E.llvm.4491288516430033680.exit", %14
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %14, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjusted_current_node17h42783e54d25dff00E.llvm.4491288516430033680.exit"
+  %21 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread34
+  br label %129
 
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjusted_current_node17h42783e54d25dff00E.llvm.4491288516430033680.exit": ; preds = %15, %3
   %.sroa.0.0.i = phi ptr [ %19, %15 ], [ %10, %3 ]
-  %21 = invoke { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.0.i)
-          to label %22 unwind label %.thread
+  %22 = invoke { ptr, ptr } @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$9elem_name17h4e753bf026563d2eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.0.i)
+          to label %23 unwind label %20
 
-22:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjusted_current_node17h42783e54d25dff00E.llvm.4491288516430033680.exit"
-  %23 = extractvalue { ptr, ptr } %21, 0
-  %24 = load i64, ptr %23, align 8, !range !57, !noundef !4
-  %25 = and i64 %24, 3
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %31
+23:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21adjusted_current_node17h42783e54d25dff00E.llvm.4491288516430033680.exit"
+  %24 = extractvalue { ptr, ptr } %22, 0
+  %25 = load i64, ptr %24, align 8, !range !57, !noundef !4
+  %26 = and i64 %25, 3
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %32
 
-27:                                               ; preds = %22
-  %28 = inttoptr i64 %24 to ptr
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = atomicrmw add ptr %29, i64 1 seq_cst, align 8
-  br label %31
+28:                                               ; preds = %23
+  %29 = inttoptr i64 %25 to ptr
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = atomicrmw add ptr %30, i64 1 seq_cst, align 8
+  br label %32
 
-31:                                               ; preds = %22, %27
-  store i64 %24, ptr %6, align 8
-  switch i64 %24, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit" [
-    i64 4294967298, label %34
-    i64 17179869186, label %59
+32:                                               ; preds = %23, %28
+  store i64 %25, ptr %6, align 8
+  switch i64 %25, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit" [
+    i64 4294967298, label %35
+    i64 17179869186, label %60
   ]
 
-"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit": ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i", %34, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$19adjust_svg_tag_name17h0c165ab345d93183E.exit", %31
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val6 = load ptr, ptr %32, align 8, !alias.scope !522, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val7 = load i64, ptr %33, align 8, !alias.scope !522, !noundef !4
+"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit": ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i", %35, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$19adjust_svg_tag_name17h0c165ab345d93183E.exit", %32
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val6 = load ptr, ptr %33, align 8, !alias.scope !522, !nonnull !4, !noundef !4
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val7 = load i64, ptr %34, align 8, !alias.scope !522, !noundef !4
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17hf6425241a582cffbE"(ptr nonnull %.val6, i64 %.val7)
-          to label %100 unwind label %.body.thread27.loopexit.split-lp
+          to label %101 unwind label %.body.thread27.loopexit.split-lp
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val8 = load ptr, ptr %35, align 8, !alias.scope !525, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val9 = load i64, ptr %36, align 8, !alias.scope !525, !noundef !4
-  %37 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %.val8, i64 %.val9
-  %38 = icmp eq i64 %.val9, 0
-  br i1 %38, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit.i"
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val8 = load ptr, ptr %36, align 8, !alias.scope !525, !nonnull !4, !noundef !4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val9 = load i64, ptr %37, align 8, !alias.scope !525, !noundef !4
+  %38 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %.val8, i64 %.val9
+  %39 = icmp eq i64 %.val9, 0
+  br i1 %39, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit.i"
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit.i": ; preds = %34, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i"
-  %.sroa.0.013.i = phi ptr [ %39, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i" ], [ %.val8, %34 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 40
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 8
-  %41 = load i64, ptr %40, align 8, !range !57, !noundef !4
-  %42 = and i64 %41, 3
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %44, label %.thread.i
+"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit.i": ; preds = %35, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i"
+  %.sroa.0.013.i = phi ptr [ %40, %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i" ], [ %.val8, %35 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 8
+  %42 = load i64, ptr %41, align 8, !range !57, !noundef !4
+  %43 = and i64 %42, 3
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %45, label %.thread.i
 
-44:                                               ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit.i"
-  %45 = inttoptr i64 %41 to ptr
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = atomicrmw add ptr %46, i64 1 seq_cst, align 8
-  %48 = atomicrmw sub ptr %46, i64 1 seq_cst, align 8, !noalias !1159
-  %49 = icmp eq i64 %48, 1
-  br i1 %49, label %51, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i"
+45:                                               ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit.i"
+  %46 = inttoptr i64 %42 to ptr
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = atomicrmw add ptr %47, i64 1 seq_cst, align 8
+  %49 = atomicrmw sub ptr %47, i64 1 seq_cst, align 8, !noalias !1159
+  %50 = icmp eq i64 %49, 1
+  br i1 %50, label %52, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i"
 
 .thread.i:                                        ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit.i"
-  %50 = icmp eq i64 %41, 3818225926146
-  br i1 %50, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.i", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i"
+  %51 = icmp eq i64 %42, 3818225926146
+  br i1 %51, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.i", label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i"
 
-51:                                               ; preds = %44
-  %52 = invoke noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2)
+52:                                               ; preds = %45
+  %53 = invoke noundef ptr @_ZN4core4sync6atomic11atomic_load17h4be985e8b17abd04E.llvm.5096816904524340452(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, i64 16), i8 noundef 2)
           to label %.noexc12 unwind label %.body.thread27.loopexit
 
-.noexc12:                                         ; preds = %51
-  %.not.i.i.i.i.i.i = icmp eq ptr %52, inttoptr (i64 2 to ptr)
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i.i", label %53
+.noexc12:                                         ; preds = %52
+  %.not.i.i.i.i.i.i = icmp eq ptr %53, inttoptr (i64 2 to ptr)
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i.i", label %54
 
-53:                                               ; preds = %.noexc12
+54:                                               ; preds = %.noexc12
   invoke void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h88e844a06093b331E"(ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E)
           to label %.noexc13 unwind label %.body.thread27.loopexit
 
-.noexc13:                                         ; preds = %53
-  %54 = load ptr, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, align 8, !noalias !1162, !noundef !4
-  %55 = icmp ne ptr %54, null
-  tail call void @llvm.assume(i1 %55)
+.noexc13:                                         ; preds = %54
+  %55 = load ptr, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, align 8, !noalias !1162, !noundef !4
+  %56 = icmp ne ptr %55, null
+  tail call void @llvm.assume(i1 %56)
   br label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i.i"
 
 "_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i.i": ; preds = %.noexc13, %.noexc12
-  invoke void @_ZN12string_cache11dynamic_set3Set6remove17h358d1c715f07230eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, ptr noundef nonnull %45)
+  invoke void @_ZN12string_cache11dynamic_set3Set6remove17h358d1c715f07230eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h9e98e538ba0bdcd7E, ptr noundef nonnull %46)
           to label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i" unwind label %.body.thread27.loopexit
 
 "_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.i": ; preds = %.thread.i
   invoke void @"_ZN4core3ptr53drop_in_place$LT$markup5ever..interface..QualName$GT$17h8230ef8e9ca34766E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.0.013.i)
-          to label %57 unwind label %.body.thread
+          to label %58 unwind label %.body.thread
 
 .body.thread:                                     ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.i"
-  %56 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
   store i64 25769803778, ptr %.sroa.0.013.i, align 8
-  store i64 4655744548866, ptr %40, align 8
+  store i64 4655744548866, ptr %41, align 8
   %.sroa.4.0..sroa.0.0.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 16
   store i64 0, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx.i, align 8
   br label %.body.thread27
 
-57:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.i"
+58:                                               ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.i"
   store i64 25769803778, ptr %.sroa.0.013.i, align 8
-  store i64 4655744548866, ptr %40, align 8
+  store i64 4655744548866, ptr %41, align 8
   %.sroa.4.0..sroa.0.0.i.sroa_idx6.i = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 16
   store i64 0, ptr %.sroa.4.0..sroa.0.0.i.sroa_idx6.i, align 8
   br label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i"
 
-"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i": ; preds = %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i.i", %57, %.thread.i, %44
-  %58 = icmp eq ptr %39, %37
-  br i1 %58, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit.i"
+"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$24adjust_mathml_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h7d3c76871bd54afaE.exit.thread.i": ; preds = %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i.i", %58, %.thread.i, %45
+  %59 = icmp eq ptr %40, %38
+  br i1 %59, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3807c0ab9ca60b24E.exit.i"
 
-59:                                               ; preds = %31
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %61 = load i64, ptr %60, align 8, !alias.scope !1165, !noundef !4
-  switch i64 %61, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$19adjust_svg_tag_name17h0c165ab345d93183E.exit" [
+60:                                               ; preds = %32
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %62 = load i64, ptr %61, align 8, !alias.scope !1165, !noundef !4
+  switch i64 %62, label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$19adjust_svg_tag_name17h0c165ab345d93183E.exit" [
     i64 455266533378, label %.sink.split.i
-    i64 2126008811522, label %62
-    i64 4518305595394, label %63
-    i64 2615635083266, label %64
-    i64 3040836845570, label %65
-    i64 2521145802754, label %66
-    i64 51539607554, label %67
-    i64 2838973382658, label %68
-    i64 3629247365122, label %69
-    i64 4080218931202, label %70
-    i64 528280977410, label %71
-    i64 1198295875586, label %72
-    i64 605590388738, label %73
-    i64 747324309506, label %74
-    i64 3466038607874, label %75
-    i64 1262720385026, label %76
-    i64 2869038153730, label %77
-    i64 356482285570, label %78
-    i64 2186138353666, label %79
-    i64 4282082394114, label %80
-    i64 3393024163842, label %81
-    i64 3745211482114, label %82
-    i64 1391569403906, label %83
-    i64 3655017168898, label %84
-    i64 2138893713410, label %85
-    i64 4209067950082, label %86
-    i64 1000727379970, label %87
-    i64 2942052597762, label %88
-    i64 4754528796674, label %89
-    i64 4067334029314, label %90
-    i64 828928688130, label %91
-    i64 1610612736002, label %92
-    i64 3732326580226, label %93
-    i64 2332167241730, label %94
-    i64 2100239007746, label %95
-    i64 485331304450, label %96
-    i64 597000454146, label %97
+    i64 2126008811522, label %63
+    i64 4518305595394, label %64
+    i64 2615635083266, label %65
+    i64 3040836845570, label %66
+    i64 2521145802754, label %67
+    i64 51539607554, label %68
+    i64 2838973382658, label %69
+    i64 3629247365122, label %70
+    i64 4080218931202, label %71
+    i64 528280977410, label %72
+    i64 1198295875586, label %73
+    i64 605590388738, label %74
+    i64 747324309506, label %75
+    i64 3466038607874, label %76
+    i64 1262720385026, label %77
+    i64 2869038153730, label %78
+    i64 356482285570, label %79
+    i64 2186138353666, label %80
+    i64 4282082394114, label %81
+    i64 3393024163842, label %82
+    i64 3745211482114, label %83
+    i64 1391569403906, label %84
+    i64 3655017168898, label %85
+    i64 2138893713410, label %86
+    i64 4209067950082, label %87
+    i64 1000727379970, label %88
+    i64 2942052597762, label %89
+    i64 4754528796674, label %90
+    i64 4067334029314, label %91
+    i64 828928688130, label %92
+    i64 1610612736002, label %93
+    i64 3732326580226, label %94
+    i64 2332167241730, label %95
+    i64 2100239007746, label %96
+    i64 485331304450, label %97
+    i64 597000454146, label %98
   ]
 
-.sink.split.i:                                    ; preds = %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %59
-  %.sink.i = phi i64 [ 3792456122370, %97 ], [ 1073741824002, %96 ], [ 3770981285890, %95 ], [ 3139621093378, %94 ], [ 1194000908290, %93 ], [ 3358664425474, %92 ], [ 1915555414018, %91 ], [ 515396075522, %90 ], [ 412316860418, %89 ], [ 3594887626754, %88 ], [ 584115552258, %87 ], [ 2645699854338, %86 ], [ 1125281431554, %85 ], [ 4402341478402, %84 ], [ 2211908157442, %83 ], [ 4213362917378, %82 ], [ 1133871366146, %81 ], [ 4685809319938, %80 ], [ 2594160246786, %79 ], [ 4625679777794, %78 ], [ 1404454305794, %77 ], [ 927712935938, %76 ], [ 1885490642946, %75 ], [ 335007449090, %74 ], [ 3066606649346, %73 ], [ 3332894621698, %72 ], [ 3435973836802, %71 ], [ 1056561954818, %70 ], [ 1035087118338, %69 ], [ 4857608011778, %68 ], [ 3371549327362, %67 ], [ 1224065679362, %66 ], [ 3161095929858, %65 ], [ 2074469203970, %64 ], [ 1181116006402, %63 ], [ 4733053960194, %62 ], [ 4359391805442, %59 ]
-  store i64 %.sink.i, ptr %60, align 8, !alias.scope !1165
+.sink.split.i:                                    ; preds = %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %60
+  %.sink.i = phi i64 [ 3792456122370, %98 ], [ 1073741824002, %97 ], [ 3770981285890, %96 ], [ 3139621093378, %95 ], [ 1194000908290, %94 ], [ 3358664425474, %93 ], [ 1915555414018, %92 ], [ 515396075522, %91 ], [ 412316860418, %90 ], [ 3594887626754, %89 ], [ 584115552258, %88 ], [ 2645699854338, %87 ], [ 1125281431554, %86 ], [ 4402341478402, %85 ], [ 2211908157442, %84 ], [ 4213362917378, %83 ], [ 1133871366146, %82 ], [ 4685809319938, %81 ], [ 2594160246786, %80 ], [ 4625679777794, %79 ], [ 1404454305794, %78 ], [ 927712935938, %77 ], [ 1885490642946, %76 ], [ 335007449090, %75 ], [ 3066606649346, %74 ], [ 3332894621698, %73 ], [ 3435973836802, %72 ], [ 1056561954818, %71 ], [ 1035087118338, %70 ], [ 4857608011778, %69 ], [ 3371549327362, %68 ], [ 1224065679362, %67 ], [ 3161095929858, %66 ], [ 2074469203970, %65 ], [ 1181116006402, %64 ], [ 4733053960194, %63 ], [ 4359391805442, %60 ]
+  store i64 %.sink.i, ptr %61, align 8, !alias.scope !1165
   br label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$19adjust_svg_tag_name17h0c165ab345d93183E.exit"
 
-62:                                               ; preds = %59
+63:                                               ; preds = %60
   br label %.sink.split.i
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   br label %.sink.split.i
 
-64:                                               ; preds = %59
+65:                                               ; preds = %60
   br label %.sink.split.i
 
-65:                                               ; preds = %59
+66:                                               ; preds = %60
   br label %.sink.split.i
 
-66:                                               ; preds = %59
+67:                                               ; preds = %60
   br label %.sink.split.i
 
-67:                                               ; preds = %59
+68:                                               ; preds = %60
   br label %.sink.split.i
 
-68:                                               ; preds = %59
+69:                                               ; preds = %60
   br label %.sink.split.i
 
-69:                                               ; preds = %59
+70:                                               ; preds = %60
   br label %.sink.split.i
 
-70:                                               ; preds = %59
+71:                                               ; preds = %60
   br label %.sink.split.i
 
-71:                                               ; preds = %59
+72:                                               ; preds = %60
   br label %.sink.split.i
 
-72:                                               ; preds = %59
+73:                                               ; preds = %60
   br label %.sink.split.i
 
-73:                                               ; preds = %59
+74:                                               ; preds = %60
   br label %.sink.split.i
 
-74:                                               ; preds = %59
+75:                                               ; preds = %60
   br label %.sink.split.i
 
-75:                                               ; preds = %59
+76:                                               ; preds = %60
   br label %.sink.split.i
 
-76:                                               ; preds = %59
+77:                                               ; preds = %60
   br label %.sink.split.i
 
-77:                                               ; preds = %59
+78:                                               ; preds = %60
   br label %.sink.split.i
 
-78:                                               ; preds = %59
+79:                                               ; preds = %60
   br label %.sink.split.i
 
-79:                                               ; preds = %59
+80:                                               ; preds = %60
   br label %.sink.split.i
 
-80:                                               ; preds = %59
+81:                                               ; preds = %60
   br label %.sink.split.i
 
-81:                                               ; preds = %59
+82:                                               ; preds = %60
   br label %.sink.split.i
 
-82:                                               ; preds = %59
+83:                                               ; preds = %60
   br label %.sink.split.i
 
-83:                                               ; preds = %59
+84:                                               ; preds = %60
   br label %.sink.split.i
 
-84:                                               ; preds = %59
+85:                                               ; preds = %60
   br label %.sink.split.i
 
-85:                                               ; preds = %59
+86:                                               ; preds = %60
   br label %.sink.split.i
 
-86:                                               ; preds = %59
+87:                                               ; preds = %60
   br label %.sink.split.i
 
-87:                                               ; preds = %59
+88:                                               ; preds = %60
   br label %.sink.split.i
 
-88:                                               ; preds = %59
+89:                                               ; preds = %60
   br label %.sink.split.i
 
-89:                                               ; preds = %59
+90:                                               ; preds = %60
   br label %.sink.split.i
 
-90:                                               ; preds = %59
+91:                                               ; preds = %60
   br label %.sink.split.i
 
-91:                                               ; preds = %59
+92:                                               ; preds = %60
   br label %.sink.split.i
 
-92:                                               ; preds = %59
+93:                                               ; preds = %60
   br label %.sink.split.i
 
-93:                                               ; preds = %59
+94:                                               ; preds = %60
   br label %.sink.split.i
 
-94:                                               ; preds = %59
+95:                                               ; preds = %60
   br label %.sink.split.i
 
-95:                                               ; preds = %59
+96:                                               ; preds = %60
   br label %.sink.split.i
 
-96:                                               ; preds = %59
+97:                                               ; preds = %60
   br label %.sink.split.i
 
-97:                                               ; preds = %59
+98:                                               ; preds = %60
   br label %.sink.split.i
 
-.body.thread27.loopexit:                          ; preds = %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i.i", %53, %51
+.body.thread27.loopexit:                          ; preds = %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h6ef0aa1cb44f6be4E.exit.i.i.i.i", %54, %52
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread27
@@ -10310,100 +10310,100 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
           cleanup
   br label %.body.thread27
 
-"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$19adjust_svg_tag_name17h0c165ab345d93183E.exit": ; preds = %.sink.split.i, %59
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val10 = load ptr, ptr %98, align 8, !alias.scope !534, !nonnull !4, !noundef !4
-  %99 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val11 = load i64, ptr %99, align 8, !alias.scope !534, !noundef !4
+"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$19adjust_svg_tag_name17h0c165ab345d93183E.exit": ; preds = %.sink.split.i, %60
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val10 = load ptr, ptr %99, align 8, !alias.scope !534, !nonnull !4, !noundef !4
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val11 = load i64, ptr %100, align 8, !alias.scope !534, !noundef !4
   invoke fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h43d21c4c0c3e6b8dE"(ptr nonnull %.val10, i64 %.val11)
           to label %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit" unwind label %.body.thread27.loopexit.split-lp
 
-100:                                              ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit"
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %102 = load i8, ptr %101, align 1, !range !5, !noundef !4
-  %103 = trunc nuw i8 %102 to i1
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %105 = load i64, ptr %104, align 8, !range !57, !noundef !4
-  br i1 %103, label %111, label %106
+101:                                              ; preds = %"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$17adjust_attributes17h032bbfd79a2156f0E.exit"
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 33
+  %103 = load i8, ptr %102, align 1, !range !5, !noundef !4
+  %104 = trunc nuw i8 %103 to i1
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %106 = load i64, ptr %105, align 8, !range !57, !noundef !4
+  br i1 %104, label %112, label %107
 
-106:                                              ; preds = %100
+107:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %107 = call fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef %24, i64 noundef %105, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4)
+  %108 = call fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext false, i64 noundef %25, i64 noundef %106, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %108 = load i64, ptr %107, align 8, !noalias !1168, !noundef !4
-  %109 = add i64 %108, -1
-  store i64 %109, ptr %107, align 8, !noalias !1168
-  %110 = icmp eq i64 %109, 0
-  br i1 %110, label %.noexc15, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
+  %109 = load i64, ptr %108, align 8, !noalias !1168, !noundef !4
+  %110 = add i64 %109, -1
+  store i64 %110, ptr %108, align 8, !noalias !1168
+  %111 = icmp eq i64 %110, 0
+  br i1 %111, label %.noexc15, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
-111:                                              ; preds = %100
+112:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %112 = call fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext true, i64 noundef %24, i64 noundef %105, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
+  %113 = call fastcc noundef nonnull ptr @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14insert_element17ha772ae336bd83e98E"(ptr noalias noundef align 8 dereferenceable(192) %1, i1 noundef zeroext true, i64 noundef %25, i64 noundef %106, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %113 = load i64, ptr %112, align 8, !noalias !1173, !noundef !4
-  %114 = add i64 %113, -1
-  store i64 %114, ptr %112, align 8, !noalias !1173
-  %115 = icmp eq i64 %114, 0
-  br i1 %115, label %.noexc16, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
+  %114 = load i64, ptr %113, align 8, !noalias !1173, !noundef !4
+  %115 = add i64 %114, -1
+  store i64 %115, ptr %113, align 8, !noalias !1173
+  %116 = icmp eq i64 %115, 0
+  br i1 %116, label %.noexc16, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
-.noexc15:                                         ; preds = %106
-  %116 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %116)
-  %117 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %118 = load i64, ptr %117, align 8, !noalias !1168, !noundef !4
-  %119 = add i64 %118, -1
-  store i64 %119, ptr %117, align 8, !noalias !1168
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.sink.split", label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
+.noexc15:                                         ; preds = %107
+  %117 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %117)
+  %118 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %119 = load i64, ptr %118, align 8, !noalias !1168, !noundef !4
+  %120 = add i64 %119, -1
+  store i64 %120, ptr %118, align 8, !noalias !1168
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.sink.split", label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 "_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.sink.split": ; preds = %.noexc15, %.noexc16
-  %.sink = phi ptr [ %112, %.noexc16 ], [ %107, %.noexc15 ]
+  %.sink = phi ptr [ %113, %.noexc16 ], [ %108, %.noexc15 ]
   %storemerge.ph = phi i64 [ -9223372036854775803, %.noexc16 ], [ -9223372036854775804, %.noexc15 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 136, i64 noundef 8) #16, !noalias !4
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
-"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.sink.split", %111, %.noexc16, %106, %.noexc15
-  %storemerge = phi i64 [ -9223372036854775804, %.noexc15 ], [ -9223372036854775804, %106 ], [ -9223372036854775803, %.noexc16 ], [ -9223372036854775803, %111 ], [ %storemerge.ph, %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.sink.split" ]
+"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.sink.split", %112, %.noexc16, %107, %.noexc15
+  %storemerge = phi i64 [ -9223372036854775804, %.noexc15 ], [ -9223372036854775804, %107 ], [ -9223372036854775803, %.noexc16 ], [ -9223372036854775803, %112 ], [ %storemerge.ph, %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.sink.split" ]
   store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
 
-.noexc16:                                         ; preds = %111
-  %121 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %121)
-  %122 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %123 = load i64, ptr %122, align 8, !noalias !1173, !noundef !4
-  %124 = add i64 %123, -1
-  store i64 %124, ptr %122, align 8, !noalias !1173
-  %125 = icmp eq i64 %124, 0
-  br i1 %125, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.sink.split", label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
+.noexc16:                                         ; preds = %112
+  %122 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  tail call void @"_ZN4core3ptr44drop_in_place$LT$markup5ever_rcdom..Node$GT$17hed3cc8b884d652aeE.llvm.5005022800651993668"(ptr noalias noundef nonnull align 8 dereferenceable(120) %122)
+  %123 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %124 = load i64, ptr %123, align 8, !noalias !1173, !noundef !4
+  %125 = add i64 %124, -1
+  store i64 %125, ptr %123, align 8, !noalias !1173
+  %126 = icmp eq i64 %125, 0
+  br i1 %126, label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit.sink.split", label %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit"
 
 .body.thread27:                                   ; preds = %.body.thread27.loopexit, %.body.thread27.loopexit.split-lp, %.body.thread
-  %eh.lpad-body26 = phi { ptr, i32 } [ %56, %.body.thread ], [ %lpad.loopexit, %.body.thread27.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread27.loopexit.split-lp ]
+  %eh.lpad-body26 = phi { ptr, i32 } [ %57, %.body.thread ], [ %lpad.loopexit, %.body.thread27.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread27.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$17h0ed4ac647496d4d2E.llvm.4491288516430033680"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #17
-          to label %.thread34 unwind label %126
+          to label %129 unwind label %127
 
-126:                                              ; preds = %.thread34, %.thread30, %.body.thread27
-  %127 = landingpad { ptr, i32 }
+127:                                              ; preds = %129, %.thread30, %.body.thread27
+  %128 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #15
   unreachable
 
-.thread34:                                        ; preds = %.body.thread27, %.thread
-  %.pn22 = phi { ptr, i32 } [ %20, %.thread ], [ %eh.lpad-body26, %.body.thread27 ]
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val = load i64, ptr %128, align 8, !range !57, !noundef !4
+129:                                              ; preds = %.body.thread27, %20
+  %.pn.ph = phi { ptr, i32 } [ %21, %20 ], [ %eh.lpad-body26, %.body.thread27 ]
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.val = load i64, ptr %130, align 8, !range !57, !noundef !4
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE"(i64 %.val) #17
-          to label %.thread30 unwind label %126
+          to label %.thread30 unwind label %127
 
-129:                                              ; preds = %.thread30
-  resume { ptr, i32 } %.pn22
+131:                                              ; preds = %.thread30
+  resume { ptr, i32 } %.pn.ph
 
-.thread30:                                        ; preds = %.thread34
+.thread30:                                        ; preds = %129
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$markup5ever..interface..Attribute$GT$$GT$17h00c74149d762a6e5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #17
-          to label %129 unwind label %126
+          to label %131 unwind label %127
 }
 
 ; Function Attrs: nonlazybind uwtable

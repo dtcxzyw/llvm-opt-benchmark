@@ -774,12 +774,12 @@ lpad32:                                           ; preds = %invoke.cont180, %if
   br label %ehcleanup
 
 lpad42.loopexit.loopexit:                         ; preds = %if.then2.i.i143, %invoke.cont117
-  %lpad.loopexit414 = landingpad { ptr, i32 }
+  %lpad.loopexit423 = landingpad { ptr, i32 }
           cleanup
   br label %lpad42
 
 lpad42.loopexit.loopexit.split-lp:                ; preds = %if.then.i160
-  %lpad.loopexit.split-lp415 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp424 = landingpad { ptr, i32 }
           cleanup
   br label %lpad42
 
@@ -794,7 +794,7 @@ lpad42.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i219, %if.t
   br label %lpad42
 
 lpad42:                                           ; preds = %lpad42.loopexit.loopexit, %lpad42.loopexit.loopexit.split-lp, %lpad42.loopexit.split-lp.loopexit, %lpad42.loopexit.split-lp.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit306, %lpad42.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp307, %lpad42.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit414, %lpad42.loopexit.loopexit ], [ %lpad.loopexit.split-lp415, %lpad42.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit306, %lpad42.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp307, %lpad42.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit423, %lpad42.loopexit.loopexit ], [ %lpad.loopexit.split-lp424, %lpad42.loopexit.loopexit.split-lp ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %lit) #20
   br label %ehcleanup
 
@@ -1010,10 +1010,10 @@ invoke.cont115.preheader:                         ; preds = %_ZNK15ref_vector_co
   %idxprom.i.i128 = zext i32 %i.0 to i64
   br label %invoke.cont115
 
-invoke.cont115:                                   ; preds = %invoke.cont115.preheader, %for.inc147
-  %indvars.iv393 = phi i64 [ 0, %invoke.cont115.preheader ], [ %indvars.iv.next394, %for.inc147 ]
+invoke.cont115:                                   ; preds = %invoke.cont115.preheader, %for.inc147.thread407
+  %indvars.iv392 = phi i64 [ %indvars.iv.next393411, %for.inc147.thread407 ], [ 0, %invoke.cont115.preheader ]
   %79 = load ptr, ptr %m_nodes.i.i46, align 8
-  %arrayidx.i.i126 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv393
+  %arrayidx.i.i126 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv392
   %80 = load ptr, ptr %arrayidx.i.i126, align 8
   %81 = load ptr, ptr %m_nodes.i.i, align 8
   %arrayidx.i.i129 = getelementptr inbounds nuw ptr, ptr %81, i64 %idxprom.i.i128
@@ -1054,11 +1054,11 @@ invoke.cont117:                                   ; preds = %if.then.i3.i139, %_
           to label %invoke.cont123 unwind label %lpad42.loopexit.loopexit
 
 invoke.cont123:                                   ; preds = %invoke.cont117
-  br i1 %call124, label %invoke.cont127, label %for.inc147
+  br i1 %call124, label %invoke.cont127, label %for.inc147.thread407
 
 invoke.cont127:                                   ; preds = %invoke.cont123
   %88 = load ptr, ptr %m_nodes.i.i46, align 8
-  %arrayidx.i.i149 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv393
+  %arrayidx.i.i149 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv392
   %89 = load ptr, ptr %arrayidx.i.i149, align 8
   %90 = load ptr, ptr %processed, align 8
   %cmp.i150 = icmp eq ptr %90, null
@@ -1096,11 +1096,11 @@ _ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165:   ; preds = %lor.lhs.false.i151,
   %97 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i167 = icmp eq ptr %97, null
   %98 = load ptr, ptr %processed, align 8
-  %.fr378 = freeze ptr %98
-  %cmp.i.i.i176 = icmp eq ptr %.fr378, null
-  %arrayidx.i.i.i178 = getelementptr inbounds i8, ptr %.fr378, i64 -4
-  %brmerge427 = select i1 %cmp.i.i.i176, i1 true, i1 %cmp.i.i167
-  br i1 %brmerge427, label %cleanup, label %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split
+  %.fr377 = freeze ptr %98
+  %cmp.i.i.i176 = icmp eq ptr %.fr377, null
+  %arrayidx.i.i.i178 = getelementptr inbounds i8, ptr %.fr377, i64 -4
+  %brmerge457 = select i1 %cmp.i.i.i176, i1 true, i1 %cmp.i.i167
+  br i1 %brmerge457, label %cleanup, label %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split
 
 _ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split: ; preds = %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165
   %arrayidx.i.i169 = getelementptr inbounds i8, ptr %97, i64 -4
@@ -1111,17 +1111,17 @@ _ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split: ; preds = %_ZN6vecto
 invoke.cont137.lr.ph:                             ; preds = %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split
   %100 = load i32, ptr %arrayidx.i.i.i178, align 4
   %101 = zext i32 %100 to i64
-  %add.ptr.i.i179 = getelementptr inbounds nuw ptr, ptr %.fr378, i64 %101
+  %add.ptr.i.i179 = getelementptr inbounds nuw ptr, ptr %.fr377, i64 %101
   %cmp.not3.not.i180 = icmp eq i32 %100, 0
   br i1 %cmp.not3.not.i180, label %cleanup, label %invoke.cont137.preheader
 
 invoke.cont137.preheader:                         ; preds = %invoke.cont137.lr.ph
-  %wide.trip.count391 = zext i32 %99 to i64
+  %wide.trip.count390 = zext i32 %99 to i64
   br label %invoke.cont137
 
 invoke.cont137:                                   ; preds = %invoke.cont137.preheader, %for.inc143
-  %indvars.iv388 = phi i64 [ 0, %invoke.cont137.preheader ], [ %indvars.iv.next389, %for.inc143 ]
-  %arrayidx.i.i175 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv388
+  %indvars.iv387 = phi i64 [ 0, %invoke.cont137.preheader ], [ %indvars.iv.next388, %for.inc143 ]
+  %arrayidx.i.i175 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv387
   %102 = load ptr, ptr %arrayidx.i.i175, align 8
   br label %for.body.i182
 
@@ -1131,31 +1131,31 @@ for.cond.i185:                                    ; preds = %for.body.i182
   br i1 %cmp.not.not.i187, label %for.inc147.loopexit, label %for.body.i182, !llvm.loop !8
 
 for.body.i182:                                    ; preds = %invoke.cont137, %for.cond.i185
-  %it.04.i183 = phi ptr [ %incdec.ptr.i186, %for.cond.i185 ], [ %.fr378, %invoke.cont137 ]
+  %it.04.i183 = phi ptr [ %incdec.ptr.i186, %for.cond.i185 ], [ %.fr377, %invoke.cont137 ]
   %103 = load ptr, ptr %it.04.i183, align 8
   %cmp3.i184 = icmp eq ptr %103, %102
   br i1 %cmp3.i184, label %for.inc143, label %for.cond.i185
 
 for.inc143:                                       ; preds = %for.body.i182
-  %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
-  %exitcond392.not = icmp eq i64 %indvars.iv.next389, %wide.trip.count391
-  br i1 %exitcond392.not, label %cleanup, label %invoke.cont137, !llvm.loop !10
+  %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
+  %exitcond391.not = icmp eq i64 %indvars.iv.next388, %wide.trip.count390
+  br i1 %exitcond391.not, label %cleanup, label %invoke.cont137, !llvm.loop !10
 
 for.inc147.loopexit:                              ; preds = %for.cond.i185
-  %104 = trunc nuw i64 %indvars.iv388 to i32
+  %104 = trunc nuw i64 %indvars.iv387 to i32
   br label %cleanup
 
-for.inc147:                                       ; preds = %invoke.cont123
-  %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
-  %cmp109.not = icmp samesign ult i64 %indvars.iv.next394, %78
-  br i1 %cmp109.not, label %invoke.cont115, label %if.end150.invoke.cont156thread-pre-split_crit_edge, !llvm.loop !11
+for.inc147.thread407:                             ; preds = %invoke.cont123
+  %indvars.iv.next393411 = add nuw nsw i64 %indvars.iv392, 1
+  %cmp109412.not = icmp samesign ult i64 %indvars.iv.next393411, %78
+  br i1 %cmp109412.not, label %invoke.cont115, label %if.end150.invoke.cont156thread-pre-split_crit_edge, !llvm.loop !11
 
-if.end150.invoke.cont156thread-pre-split_crit_edge: ; preds = %for.inc147
-  %.pre395 = zext i32 %i.0 to i64
+if.end150.invoke.cont156thread-pre-split_crit_edge: ; preds = %for.inc147.thread407
+  %.pre394 = zext i32 %i.0 to i64
   br label %invoke.cont156
 
 invoke.cont156:                                   ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit116, %if.end150.invoke.cont156thread-pre-split_crit_edge, %invoke.cont94
-  %idxprom.i.i191.pre-phi = phi i64 [ %idxprom.i.i, %invoke.cont94 ], [ %.pre395, %if.end150.invoke.cont156thread-pre-split_crit_edge ], [ %idxprom.i.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit116 ]
+  %idxprom.i.i191.pre-phi = phi i64 [ %idxprom.i.i, %invoke.cont94 ], [ %.pre394, %if.end150.invoke.cont156thread-pre-split_crit_edge ], [ %idxprom.i.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit116 ]
   %105 = load ptr, ptr %m_nodes.i.i, align 8
   %arrayidx.i.i192 = getelementptr inbounds nuw ptr, ptr %105, i64 %idxprom.i.i191.pre-phi
   %106 = load ptr, ptr %cube, align 8
@@ -1231,10 +1231,10 @@ cleanup.loopexit:                                 ; preds = %for.cond.i90
   %118 = trunc nuw i64 %indvars.iv to i32
   br label %cleanup
 
-cleanup:                                          ; preds = %for.inc, %for.inc143, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165, %for.cond.preheader, %invoke.cont137.lr.ph, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split, %for.inc147.loopexit, %cleanup.loopexit, %for.cond.preheader.split.split, %invoke.cont82.lr.ph, %invoke.cont163, %invoke.cont55
-  %dirty.1 = phi i1 [ %dirty.0, %invoke.cont55 ], [ %dirty.0, %invoke.cont163 ], [ true, %invoke.cont82.lr.ph ], [ true, %for.cond.preheader.split.split ], [ true, %cleanup.loopexit ], [ true, %for.inc147.loopexit ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ true, %invoke.cont137.lr.ph ], [ true, %for.cond.preheader ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ true, %for.inc143 ], [ true, %for.inc ]
-  %i.1 = phi i32 [ %inc57, %invoke.cont55 ], [ %inc169, %invoke.cont163 ], [ 0, %invoke.cont82.lr.ph ], [ 0, %for.cond.preheader.split.split ], [ %118, %cleanup.loopexit ], [ %104, %for.inc147.loopexit ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ 0, %invoke.cont137.lr.ph ], [ 0, %for.cond.preheader ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ %99, %for.inc143 ], [ %55, %for.inc ]
-  %num_failures.1 = phi i32 [ %num_failures.0, %invoke.cont55 ], [ %inc165, %invoke.cont163 ], [ 0, %invoke.cont82.lr.ph ], [ 0, %for.cond.preheader.split.split ], [ 0, %cleanup.loopexit ], [ 0, %for.inc147.loopexit ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ 0, %invoke.cont137.lr.ph ], [ 0, %for.cond.preheader ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ 0, %for.inc143 ], [ 0, %for.inc ]
+cleanup:                                          ; preds = %for.inc, %for.inc143, %for.inc147.loopexit, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split, %invoke.cont137.lr.ph, %for.cond.preheader, %cleanup.loopexit, %for.cond.preheader.split.split, %invoke.cont82.lr.ph, %invoke.cont163, %invoke.cont55
+  %dirty.1 = phi i1 [ %dirty.0, %invoke.cont55 ], [ %dirty.0, %invoke.cont163 ], [ true, %invoke.cont82.lr.ph ], [ true, %for.cond.preheader.split.split ], [ true, %cleanup.loopexit ], [ true, %for.cond.preheader ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ true, %invoke.cont137.lr.ph ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ true, %for.inc147.loopexit ], [ true, %for.inc143 ], [ true, %for.inc ]
+  %i.1 = phi i32 [ %inc57, %invoke.cont55 ], [ %inc169, %invoke.cont163 ], [ 0, %invoke.cont82.lr.ph ], [ 0, %for.cond.preheader.split.split ], [ %118, %cleanup.loopexit ], [ 0, %for.cond.preheader ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ 0, %invoke.cont137.lr.ph ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ %104, %for.inc147.loopexit ], [ %99, %for.inc143 ], [ %55, %for.inc ]
+  %num_failures.1 = phi i32 [ %num_failures.0, %invoke.cont55 ], [ %inc165, %invoke.cont163 ], [ 0, %invoke.cont82.lr.ph ], [ 0, %for.cond.preheader.split.split ], [ 0, %cleanup.loopexit ], [ 0, %for.cond.preheader ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165 ], [ 0, %invoke.cont137.lr.ph ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit165.split.split ], [ 0, %for.inc147.loopexit ], [ 0, %for.inc143 ], [ 0, %for.inc ]
   br i1 %tobool.not.i, label %while.cond.backedge, label %if.then.i.i.i226
 
 while.cond.backedge:                              ; preds = %cleanup, %if.then.i.i.i226, %if.then2.i.i.i231

@@ -43017,7 +43017,7 @@ _ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8iteratorppEv.exit.i74: 
   br i1 %cmp.i.not.i76, label %for.inc, label %for.body.i62
 
 for.inc:                                          ; preds = %while.body.i.i.i.i56, %for.body.i62, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8iteratorppEv.exit.i74, %while.body.i.i.i71, %_ZNK14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE5beginEv.exit.i59, %if.then36, %_ZN3sat6solver12check_domainENS_7literalES1_.exit41, %land.lhs.true, %for.body
-  %all_found.2 = phi i8 [ %all_found.1168, %for.body ], [ 0, %land.lhs.true ], [ 0, %_ZN3sat6solver12check_domainENS_7literalES1_.exit41 ], [ %all_found.1168, %if.then36 ], [ %all_found.1168, %_ZNK14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE5beginEv.exit.i59 ], [ %all_found.1168, %while.body.i.i.i71 ], [ %all_found.1168, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8iteratorppEv.exit.i74 ], [ %all_found.1168, %for.body.i62 ], [ %all_found.1168, %while.body.i.i.i.i56 ]
+  %all_found.2 = phi i8 [ %all_found.1168, %for.body ], [ 0, %land.lhs.true ], [ 0, %_ZN3sat6solver12check_domainENS_7literalES1_.exit41 ], [ 1, %if.then36 ], [ %all_found.1168, %_ZNK14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE5beginEv.exit.i59 ], [ %all_found.1168, %while.body.i.i.i71 ], [ %all_found.1168, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8iteratorppEv.exit.i74 ], [ %all_found.1168, %for.body.i62 ], [ %all_found.1168, %while.body.i.i.i.i56 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.0167, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %sw.epilog, label %for.body
@@ -43169,7 +43169,7 @@ _ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8iteratorppEv.exit.i139:
   br i1 %cmp.i.not.i141, label %for.inc72, label %for.body.i127
 
 for.inc72:                                        ; preds = %while.body.i.i.i.i121, %for.body.i127, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8iteratorppEv.exit.i139, %while.body.i.i.i136, %_ZNK14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE5beginEv.exit.i124, %if.then64, %_ZN3sat6solver12check_domainENS_7literalES1_.exit106, %land.lhs.true62
-  %all_found.4 = phi i8 [ 0, %land.lhs.true62 ], [ 0, %_ZN3sat6solver12check_domainENS_7literalES1_.exit106 ], [ %all_found.3165, %if.then64 ], [ %all_found.3165, %_ZNK14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE5beginEv.exit.i124 ], [ %all_found.3165, %while.body.i.i.i136 ], [ %all_found.3165, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8iteratorppEv.exit.i139 ], [ %all_found.3165, %for.body.i127 ], [ %all_found.3165, %while.body.i.i.i.i121 ]
+  %all_found.4 = phi i8 [ 0, %land.lhs.true62 ], [ 0, %_ZN3sat6solver12check_domainENS_7literalES1_.exit106 ], [ 1, %if.then64 ], [ %all_found.3165, %_ZNK14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE5beginEv.exit.i124 ], [ %all_found.3165, %while.body.i.i.i136 ], [ %all_found.3165, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8iteratorppEv.exit.i139 ], [ %all_found.3165, %for.body.i127 ], [ %all_found.3165, %while.body.i.i.i.i121 ]
   %incdec.ptr73 = getelementptr inbounds nuw i8, ptr %__begin349.0164, i64 4
   %cmp54.not = icmp eq ptr %incdec.ptr73, %add.ptr.i84
   br i1 %cmp54.not, label %sw.epilog, label %for.body55

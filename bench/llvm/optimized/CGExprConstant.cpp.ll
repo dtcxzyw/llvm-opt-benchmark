@@ -9678,7 +9678,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
   %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   %133 = getelementptr inbounds nuw i8, ptr %14, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %14, ptr noundef nonnull %133, i64 noundef 32) #20
-  br i1 %6, label %.thread, label %136
+  br i1 %6, label %223, label %136
 
 .critedge2.thread:                                ; preds = %._crit_edge, %103
   %134 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -9688,11 +9688,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
 .critedge2:                                       ; preds = %110
   %135 = getelementptr inbounds nuw i8, ptr %14, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %14, ptr noundef nonnull %135, i64 noundef 32) #20
-  br i1 %6, label %.thread, label %136
+  br i1 %6, label %223, label %136
 
 136:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit, %.critedge2.thread, %.critedge2
   %137 = phi ptr [ %134, %.critedge2.thread ], [ %135, %.critedge2 ], [ %133, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ]
-  %.059178 = phi i8 [ 1, %.critedge2.thread ], [ 0, %.critedge2 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ]
+  %.059178 = phi i1 [ true, %.critedge2.thread ], [ false, %.critedge2 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ]
   %.sroa.4.0176 = phi i64 [ %2, %.critedge2.thread ], [ %2, %.critedge2 ], [ %132, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ]
   %.sroa.0122.0174 = phi ptr [ %1, %.critedge2.thread ], [ %1, %.critedge2 ], [ %131, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ]
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -9701,7 +9701,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
 
 139:                                              ; preds = %136, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit97
   %.057201 = phi i64 [ 0, %136 ], [ %198, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit97 ]
-  %.2200 = phi i8 [ %.059178, %136 ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit97 ]
+  %.2200 = phi i1 [ %.059178, %136 ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit97 ]
   %.sroa.0115.0199 = phi i64 [ 0, %136 ], [ %197, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit97 ]
   %140 = getelementptr inbounds ptr, ptr %1, i64 %.057201
   %141 = load ptr, ptr %140, align 8
@@ -9720,8 +9720,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
   %152 = getelementptr inbounds %"class.clang::CharUnits", ptr %3, i64 %.057201
   %153 = load i64, ptr %152, align 8
   %154 = sub nsw i64 %153, %4
-  %.not189 = icmp eq i64 %154, %151
-  %spec.select = select i1 %.not189, i8 %.2200, i8 1
+  %.not189 = icmp ne i64 %154, %151
+  %spec.select = select i1 %.not189, i1 true, i1 %.2200
   %.not190 = icmp eq i64 %154, %.sroa.0115.0199
   br i1 %.not190, label %171, label %155
 
@@ -9809,12 +9809,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit97: ; pr
   br i1 %.not68, label %199, label %139, !llvm.loop !90
 
 199:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit97
-  %200 = trunc nuw i8 %spec.select to i1
-  %201 = icmp slt i64 %197, %spec.select186
-  %or.cond = select i1 %200, i1 %201, i1 false
-  br i1 %or.cond, label %202, label %220
+  br i1 %spec.select, label %200, label %223
 
-202:                                              ; preds = %199
+200:                                              ; preds = %199
+  %201 = icmp slt i64 %197, %spec.select186
+  br i1 %201, label %202, label %218
+
+202:                                              ; preds = %200
   %203 = sub nsw i64 %spec.select186, %197
   %.val75.val = load ptr, ptr %138, align 8
   %204 = icmp sgt i64 %203, 1
@@ -9846,34 +9847,31 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit102: ; p
   %216 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #20
   %217 = add i64 %216, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %217) #20
-  br label %220
+  br label %218
 
-.thread:                                          ; preds = %.critedge2, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit
-  %.ph = phi ptr [ %133, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ], [ %135, %.critedge2 ]
-  %.sroa.4.0177.ph = phi i64 [ %132, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ], [ %2, %.critedge2 ]
-  %.sroa.0122.0175.ph = phi ptr [ %131, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ], [ %1, %.critedge2 ]
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %219 = load ptr, ptr %218, align 8
+218:                                              ; preds = %200, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit102
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %220 = load ptr, ptr %219, align 8
+  %221 = load ptr, ptr %14, align 8
+  %222 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #20
   br label %226
 
-220:                                              ; preds = %199, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit102
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %222 = load ptr, ptr %221, align 8
-  br i1 %200, label %223, label %226
-
-223:                                              ; preds = %220
-  %224 = load ptr, ptr %14, align 8
-  %225 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #20
+223:                                              ; preds = %.critedge2, %199, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit
+  %.ph = phi ptr [ %133, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ], [ %137, %199 ], [ %135, %.critedge2 ]
+  %.sroa.4.0177.ph = phi i64 [ %132, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ], [ %.sroa.4.0176, %199 ], [ %2, %.critedge2 ]
+  %.sroa.0122.0175.ph = phi ptr [ %131, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit ], [ %.sroa.0122.0174, %199 ], [ %1, %.critedge2 ]
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %225 = load ptr, ptr %224, align 8
   br label %226
 
-226:                                              ; preds = %220, %.thread, %223
-  %227 = phi i1 [ true, %223 ], [ false, %.thread ], [ false, %220 ]
-  %228 = phi ptr [ %222, %223 ], [ %219, %.thread ], [ %222, %220 ]
-  %.sroa.0122.0175184 = phi ptr [ %.sroa.0122.0174, %223 ], [ %.sroa.0122.0175.ph, %.thread ], [ %.sroa.0122.0174, %220 ]
-  %.sroa.4.0177182 = phi i64 [ %.sroa.4.0176, %223 ], [ %.sroa.4.0177.ph, %.thread ], [ %.sroa.4.0176, %220 ]
-  %229 = phi ptr [ %137, %223 ], [ %.ph, %.thread ], [ %137, %220 ]
-  %.sroa.3107.0 = phi i64 [ %225, %223 ], [ %.sroa.4.0177.ph, %.thread ], [ %.sroa.4.0176, %220 ]
-  %.sroa.0106.0 = phi ptr [ %224, %223 ], [ %.sroa.0122.0175.ph, %.thread ], [ %.sroa.0122.0174, %220 ]
+226:                                              ; preds = %223, %218
+  %227 = phi i1 [ true, %218 ], [ false, %223 ]
+  %228 = phi ptr [ %220, %218 ], [ %225, %223 ]
+  %.sroa.0122.0175184 = phi ptr [ %.sroa.0122.0174, %218 ], [ %.sroa.0122.0175.ph, %223 ]
+  %.sroa.4.0177182 = phi i64 [ %.sroa.4.0176, %218 ], [ %.sroa.4.0177.ph, %223 ]
+  %229 = phi ptr [ %137, %218 ], [ %.ph, %223 ]
+  %.sroa.3107.0 = phi i64 [ %222, %218 ], [ %.sroa.4.0177.ph, %223 ]
+  %.sroa.0106.0 = phi ptr [ %221, %218 ], [ %.sroa.0122.0175.ph, %223 ]
   %230 = call noundef ptr @_ZN4llvm14ConstantStruct18getTypeForElementsERNS_11LLVMContextENS_8ArrayRefIPNS_8ConstantEEEb(ptr noundef nonnull align 8 dereferenceable(8) %228, ptr %.sroa.0106.0, i64 %.sroa.3107.0, i1 noundef zeroext %227) #20
   %231 = load i32, ptr %19, align 8
   %232 = and i32 %231, 255

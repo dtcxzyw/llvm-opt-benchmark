@@ -29933,9 +29933,11 @@ lpad.i.i875:                                      ; preds = %init.i.i873
 
 invoke.cont223:                                   ; preds = %invoke.cont.i.i876, %init.check.i.i871, %if.else222
   %202 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
-  %cmp.i870 = icmp ne ptr %198, %202
-  %brmerge.not = select i1 %cmp.i870, i1 %lastAllStar.01594, i1 false
-  br i1 %brmerge.not, label %if.then227, label %if.end259
+  %cmp.i870 = icmp eq ptr %198, %202
+  %lastAllStar.0.not = xor i1 %lastAllStar.01594, true
+  %brmerge = select i1 %cmp.i870, i1 true, i1 %lastAllStar.0.not
+  %lastAllStar.0.mux = select i1 %cmp.i870, i1 %lastAllStar.01594, i1 false
+  br i1 %brmerge, label %if.end259, label %if.then227
 
 if.then227:                                       ; preds = %invoke.cont223
   %203 = load ptr, ptr %curr, align 8
@@ -30078,7 +30080,7 @@ lpad252:                                          ; preds = %if.then13.i4.i915, 
   br label %ehcleanup329
 
 if.end259:                                        ; preds = %invoke.cont223, %invoke.cont231, %if.then13.i.i935, %if.then.i.i928, %invoke.cont253, %if.then13.i.i866, %if.then.i.i859, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5clearEv.exit, %if.then13.i.i782, %if.then.i.i775, %invoke.cont200, %cleanup.done243
-  %lastAllStar.1 = phi i1 [ %lastAllStar.01594, %invoke.cont223 ], [ true, %cleanup.done243 ], [ false, %invoke.cont200 ], [ false, %if.then.i.i775 ], [ false, %if.then13.i.i782 ], [ %lastAllStar.01594, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5clearEv.exit ], [ %lastAllStar.01594, %if.then.i.i859 ], [ %lastAllStar.01594, %if.then13.i.i866 ], [ true, %invoke.cont253 ], [ true, %if.then.i.i928 ], [ true, %if.then13.i.i935 ], [ true, %invoke.cont231 ]
+  %lastAllStar.1 = phi i1 [ %lastAllStar.0.mux, %invoke.cont223 ], [ true, %cleanup.done243 ], [ false, %invoke.cont200 ], [ false, %if.then.i.i775 ], [ false, %if.then13.i.i782 ], [ %lastAllStar.01594, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5clearEv.exit ], [ %lastAllStar.01594, %if.then.i.i859 ], [ %lastAllStar.01594, %if.then13.i.i866 ], [ true, %invoke.cont253 ], [ true, %if.then.i.i928 ], [ true, %if.then13.i.i935 ], [ true, %invoke.cont231 ]
   %216 = load ptr, ptr %curr, align 8
   %217 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i938 = icmp eq i8 %217, 0

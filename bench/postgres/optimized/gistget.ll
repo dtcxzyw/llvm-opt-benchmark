@@ -213,12 +213,12 @@ getNextGISTSearchItem.exit.i:                     ; preds = %63, %95
   %97 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %getNextNearest.exit, label %getNextGISTSearchItem.exit.i, !llvm.loop !5
+  br i1 %99, label %getNextNearest.exit, label %getNextGISTSearchItem.exit.i
 
 .loopexit:                                        ; preds = %242
   %100 = load i16, ptr %46, align 2
   %101 = icmp ult i16 %100, %246
-  br i1 %101, label %._crit_edge, label %153, !llvm.loop !7
+  br i1 %101, label %._crit_edge, label %153, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.lcssa = phi i16 [ %48, %.preheader ], [ %100, %.loopexit ]
@@ -436,7 +436,7 @@ BufferGetPage.exit.i:                             ; preds = %200, %194
   %225 = load i32, ptr %209, align 8
   %226 = sext i32 %225 to i64
   %227 = icmp slt i64 %indvars.iv.next.i, %226
-  br i1 %227, label %216, label %._crit_edge.i, !llvm.loop !8
+  br i1 %227, label %216, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %216
   %228 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -485,7 +485,7 @@ getNextGISTSearchItem.exit:                       ; preds = %gistkillitems.exit
   tail call void @pfree(ptr noundef nonnull %238) #8
   %246 = load i16, ptr %47, align 8
   %247 = icmp eq i16 %246, 0
-  br i1 %247, label %180, label %.loopexit, !llvm.loop !7
+  br i1 %247, label %180, label %.loopexit, !llvm.loop !5
 
 getNextNearest.exit:                              ; preds = %gistkillitems.exit, %getNextGISTSearchItem.exit, %95, %getNextGISTSearchItem.exit.i, %.thread.i, %63, %9, %150
   %.0 = phi i1 [ true, %150 ], [ false, %9 ], [ true, %.thread.i ], [ false, %63 ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %95 ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
@@ -751,7 +751,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
   %153 = load i32, ptr %101, align 4
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next.i, %154
-  br i1 %155, label %148, label %gistindex_keytest.exit, !llvm.loop !9
+  br i1 %155, label %148, label %gistindex_keytest.exit, !llvm.loop !8
 
 156:                                              ; preds = %.thread189, %.lr.ph.i
   %.1141 = phi i8 [ 0, %.lr.ph.i ], [ %.2142, %.thread189 ]
@@ -903,7 +903,7 @@ index_getattr.exit129.thread:                     ; preds = %198
   %239 = getelementptr i8, ptr %.06680.i, i64 72
   %240 = add nsw i32 %.06779.i, -1
   %241 = icmp sgt i32 %.06779.i, 1
-  br i1 %241, label %156, label %._crit_edge.i, !llvm.loop !10
+  br i1 %241, label %156, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.thread189, %.preheader77.i
   %.0140 = phi i8 [ 0, %.preheader77.i ], [ %.2142, %.thread189 ]
@@ -1053,7 +1053,7 @@ index_getattr.exit.thread:                        ; preds = %292, %index_getattr
   %326 = getelementptr i8, ptr %.06981.i, i64 16
   %327 = add nsw i32 %.16883.i, -1
   %328 = icmp sgt i32 %.16883.i, 1
-  br i1 %328, label %250, label %gistindex_keytest.exit.loopexit166, !llvm.loop !11
+  br i1 %328, label %250, label %gistindex_keytest.exit.loopexit166, !llvm.loop !10
 
 gistindex_keytest.exit.loopexit166:               ; preds = %index_getattr.exit.thread
   %329 = and i8 %.1, 1
@@ -1208,7 +1208,7 @@ gistindex_keytest.exit:                           ; preds = %index_getattr.exit1
 405:                                              ; preds = %110, %339, %401, %367, %gistindex_keytest.exit
   %406 = add i16 %.0158, 1
   %.not111 = icmp ugt i16 %406, %94
-  br i1 %.not111, label %._crit_edge, label %110, !llvm.loop !12
+  br i1 %.not111, label %._crit_edge, label %110, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %405, %86
   call void @UnlockReleaseBuffer(i32 noundef %17) #8
@@ -1427,4 +1427,3 @@ attributes #8 = { nounwind }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}

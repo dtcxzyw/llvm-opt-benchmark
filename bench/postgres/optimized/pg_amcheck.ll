@@ -856,19 +856,19 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %or.cond = select i1 %242, i1 %244, i1 false
   %245 = icmp eq i32 %241, 0
   %or.cond3 = or i1 %245, %or.cond
-  br i1 %or.cond3, label %246, label %.sink.split423
+  br i1 %or.cond3, label %246, label %.sink.split422
 
 246:                                              ; preds = %238
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.61, ptr noundef %239) #12
-  br label %.sink.split423
+  br label %.sink.split422
 
-.sink.split423:                                   ; preds = %238, %246
+.sink.split422:                                   ; preds = %238, %246
   %.sink = phi i8 [ 0, %246 ], [ 1, %238 ]
   %247 = getelementptr inbounds nuw i8, ptr %190, i64 16
   store i8 %.sink, ptr %247, align 8
   br label %248
 
-248:                                              ; preds = %.sink.split423, %232
+248:                                              ; preds = %.sink.split422, %232
   call void @PQclear(ptr noundef %215) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #12
@@ -1394,7 +1394,6 @@ compile_relation_list_one_db.exit:                ; preds = %431, %352
   br i1 %481, label %483, label %.preheader
 
 .preheader:                                       ; preds = %.preheader251, %._crit_edge
-  %.0167.lcssa375 = phi i8 [ %.1168, %._crit_edge ], [ 0, %.preheader251 ]
   %.1165306 = load ptr, ptr %5, align 8
   %.not213307 = icmp eq ptr %.1165306, null
   br i1 %.not213307, label %._crit_edge312.thread, label %.lr.ph311
@@ -1651,7 +1650,7 @@ prepare_btree_command.exit:                       ; preds = %595, %585, %prepare
 
 .thread247:                                       ; preds = %.lr.ph321, %503
   call void @termPQExpBuffer(ptr noundef nonnull %6) #12
-  br label %612
+  br label %611
 
 .loopexit:                                        ; preds = %prepare_btree_command.exit, %499
   %.0176.lcssa = phi i64 [ 0, %499 ], [ %506, %prepare_btree_command.exit ]
@@ -1662,41 +1661,40 @@ prepare_btree_command.exit:                       ; preds = %595, %585, %prepare
 
 608:                                              ; preds = %.loopexit
   %609 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef nonnull %497) #12
-  %spec.select237 = select i1 %609, i8 %.0167.lcssa375, i8 1
+  %not. = xor i1 %609, true
   br label %610
 
 610:                                              ; preds = %608, %.loopexit
-  %.4 = phi i8 [ %.0167.lcssa375, %.loopexit ], [ %spec.select237, %608 ]
+  %.4 = phi i1 [ false, %.loopexit ], [ %not., %608 ]
   call fastcc void @progress_report(i64 noundef %487, i64 noundef %.0176.lcssa, i64 noundef %.1242, i64 noundef %.0174.lcssa, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
-  %611 = trunc i8 %.4 to i1
-  br label %612
+  br label %611
 
-612:                                              ; preds = %.thread247, %610
-  %.3170 = phi i1 [ %611, %610 ], [ true, %.thread247 ]
+611:                                              ; preds = %.thread247, %610
+  %.3170 = phi i1 [ %.4, %610 ], [ true, %.thread247 ]
   %.not221 = icmp eq ptr %497, null
-  br i1 %.not221, label %614, label %613
+  br i1 %.not221, label %613, label %612
 
-613:                                              ; preds = %612
+612:                                              ; preds = %611
   call void @ParallelSlotsTerminate(ptr noundef nonnull %497) #12
   call void @pg_free(ptr noundef nonnull %497) #12
-  br label %614
+  br label %613
 
-614:                                              ; preds = %613, %612
-  br i1 %.3170, label %615, label %616
+613:                                              ; preds = %612, %611
+  br i1 %.3170, label %614, label %615
 
-615:                                              ; preds = %614
+614:                                              ; preds = %613
   call void @exit(i32 noundef 1) #13
   unreachable
 
-616:                                              ; preds = %614
+615:                                              ; preds = %613
   %.b207 = load i1, ptr @all_checks_pass, align 1
-  br i1 %.b207, label %617, label %618
+  br i1 %.b207, label %616, label %617
 
-617:                                              ; preds = %616
+616:                                              ; preds = %615
   call void @exit(i32 noundef 2) #13
   unreachable
 
-618:                                              ; preds = %616
+617:                                              ; preds = %615
   ret i32 0
 }
 

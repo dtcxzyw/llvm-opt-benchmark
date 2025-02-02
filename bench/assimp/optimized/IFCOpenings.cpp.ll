@@ -13812,14 +13812,13 @@ for.inc200.sink.split:                            ; preds = %if.then.i117, %if.t
   %.sink = phi ptr [ %71, %.noexc128 ], [ %incdec.ptr.i126, %if.then.i125 ], [ %incdec.ptr.i, %if.then.i117 ]
   %firstPoint.sroa.6.4.ph = phi double [ %firstPoint.sroa.6.31039, %.noexc128 ], [ %firstPoint.sroa.6.31039, %if.then.i125 ], [ %vn.sroa.5.01037, %if.then.i117 ]
   %firstPoint.sroa.0.4.ph = phi double [ %firstPoint.sroa.0.31040, %.noexc128 ], [ %firstPoint.sroa.0.31040, %if.then.i125 ], [ %vn.sroa.0.01036, %if.then.i117 ]
-  %gotFirstPoint.2.ph = phi i8 [ 0, %.noexc128 ], [ 0, %if.then.i125 ], [ %gotFirstPoint.11041, %if.then.i117 ]
   store ptr %.sink, ptr %_M_finish.i115, align 8
   br label %for.inc200
 
 for.inc200:                                       ; preds = %for.inc200.sink.split, %if.then168, %if.else.i, %if.else
   %firstPoint.sroa.6.4 = phi double [ %firstPoint.sroa.6.31039, %if.else ], [ %vn.sroa.5.01037, %if.else.i ], [ %intersection.sroa.6.3, %if.then168 ], [ %firstPoint.sroa.6.4.ph, %for.inc200.sink.split ]
   %firstPoint.sroa.0.4 = phi double [ %firstPoint.sroa.0.31040, %if.else ], [ %vn.sroa.0.01036, %if.else.i ], [ %intersection.sroa.0.3, %if.then168 ], [ %firstPoint.sroa.0.4.ph, %for.inc200.sink.split ]
-  %gotFirstPoint.2 = phi i8 [ %gotFirstPoint.11041, %if.else ], [ %gotFirstPoint.11041, %if.else.i ], [ 1, %if.then168 ], [ %gotFirstPoint.2.ph, %for.inc200.sink.split ]
+  %gotFirstPoint.2 = phi i8 [ %gotFirstPoint.11041, %if.else ], [ 0, %if.else.i ], [ 1, %if.then168 ], [ 0, %for.inc200.sink.split ]
   %vI133.0 = add nuw i64 %vI133.01042, 1
   %exitcond1082.not = icmp eq i64 %vI133.0, %add
   br i1 %exitcond1082.not, label %for.end202.loopexit, label %for.body139, !llvm.loop !298

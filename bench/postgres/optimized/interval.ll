@@ -1179,12 +1179,13 @@ AddVerboseIntPart.exit300:                        ; preds = %AddVerboseIntPart.e
   br i1 %277, label %.sink.split, label %279
 
 .sink.split:                                      ; preds = %276, %274
+  %.1331.ph = phi i8 [ 0, %274 ], [ 1, %276 ]
   %278 = getelementptr i8, ptr %.0.i298, i64 2
   store i8 45, ptr %267, align 1
   br label %279
 
 279:                                              ; preds = %.sink.split, %272, %276, %274
-  %.1331 = phi i8 [ %.14, %274 ], [ %.14, %276 ], [ 1, %272 ], [ %.14, %.sink.split ]
+  %.1331 = phi i8 [ 1, %274 ], [ 0, %276 ], [ 1, %272 ], [ %.1331.ph, %.sink.split ]
   %.4 = phi ptr [ %267, %274 ], [ %267, %276 ], [ %267, %272 ], [ %278, %.sink.split ]
   %280 = icmp eq i32 %1, 0
   %281 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)

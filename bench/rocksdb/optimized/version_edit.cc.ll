@@ -1902,6 +1902,7 @@ if.end124:                                        ; preds = %call3.i.i606.noexc,
   %tobool126 = trunc i8 %65 to i1
   %tobool126.not = xor i1 %tobool126, true
   %brmerge = select i1 %tobool126.not, i1 true, i1 %min_log_num_written.01029
+  %min_log_num_written.0.mux = select i1 %tobool126, i1 true, i1 %min_log_num_written.01029
   br i1 %brmerge, label %if.end136, label %if.then128
 
 if.then128:                                       ; preds = %if.end124
@@ -1955,7 +1956,7 @@ lpad131:                                          ; preds = %call3.i.i633.noexc,
   br label %ehcleanup
 
 if.end136:                                        ; preds = %if.end124, %invoke.cont135
-  %min_log_num_written.1 = phi i1 [ true, %invoke.cont135 ], [ %min_log_num_written.01029, %if.end124 ]
+  %min_log_num_written.1 = phi i1 [ true, %invoke.cont135 ], [ %min_log_num_written.0.mux, %if.end124 ]
   %oldest_blob_file_number = getelementptr inbounds nuw i8, ptr %add.ptr.i269, i64 192
   %68 = load i64, ptr %oldest_blob_file_number, align 8
   %cmp137.not = icmp eq i64 %68, 0

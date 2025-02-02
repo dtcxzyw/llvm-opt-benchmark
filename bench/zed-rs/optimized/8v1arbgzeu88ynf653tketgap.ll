@@ -84385,7 +84385,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN90_$LT$futures_lite..stream..NextFu
   br label %_ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit
 
 _ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit: ; preds = %6, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i", %20
-  %.sroa.0.0.i.i = phi i8 [ %23, %20 ], [ %4, %6 ], [ %4, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i" ]
+  %.sroa.0.0.i.i = phi i8 [ %23, %20 ], [ 1, %6 ], [ %4, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i" ]
   ret i8 %.sroa.0.0.i.i
 }
 

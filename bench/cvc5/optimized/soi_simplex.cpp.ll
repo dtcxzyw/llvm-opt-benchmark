@@ -4267,7 +4267,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end31, %land.lhs.true, %if.then
-  %success.1 = phi i8 [ %success.0495, %cond.end31 ], [ %success.0495, %land.lhs.true ], [ 1, %if.then ]
+  %success.1 = phi i8 [ 1, %cond.end31 ], [ 0, %land.lhs.true ], [ 1, %if.then ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %iter.sroa.0.0494, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %cond.end31, !llvm.loop !37

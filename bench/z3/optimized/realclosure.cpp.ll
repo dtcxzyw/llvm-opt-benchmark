@@ -12347,7 +12347,7 @@ _ZN11mpq_managerILb0EE3lcmERK3mpqS3_RS1_.exit:    ; preds = %.noexc188
   br label %for.inc66
 
 for.inc66:                                        ; preds = %if.then.i.i8.i, %if.else.i.i7.i, %_ZN11mpq_managerILb0EE3lcmERK3mpqS3_RS1_.exit, %invoke.cont44, %invoke.cont39
-  %found_z.1 = phi i8 [ %found_z.0465, %_ZN11mpq_managerILb0EE3lcmERK3mpqS3_RS1_.exit ], [ %found_z.0465, %invoke.cont44 ], [ %found_z.0465, %invoke.cont39 ], [ 1, %if.else.i.i7.i ], [ 1, %if.then.i.i8.i ]
+  %found_z.1 = phi i8 [ 1, %_ZN11mpq_managerILb0EE3lcmERK3mpqS3_RS1_.exit ], [ %found_z.0465, %invoke.cont44 ], [ %found_z.0465, %invoke.cont39 ], [ 1, %if.else.i.i7.i ], [ 1, %if.then.i.i8.i ]
   %indvars.iv.next473 = add nuw nsw i64 %indvars.iv472, 1
   %exitcond475.not = icmp eq i64 %indvars.iv.next473, %wide.trip.count
   br i1 %exitcond475.not, label %for.end68, label %invoke.cont39, !llvm.loop !37

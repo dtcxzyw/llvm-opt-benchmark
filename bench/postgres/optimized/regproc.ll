@@ -603,10 +603,10 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   store i8 0, ptr %30, align 1
   br label %43
 
-43:                                               ; preds = %98, %42
-  %storemerge = phi i32 [ 0, %42 ], [ %103, %98 ]
-  %.081 = phi i1 [ false, %42 ], [ %77, %98 ]
-  %.1 = phi ptr [ %23, %42 ], [ %.4, %98 ]
+43:                                               ; preds = %100, %42
+  %storemerge = phi i32 [ 0, %42 ], [ %105, %100 ]
+  %.081 = phi i1 [ false, %42 ], [ %79, %100 ]
+  %.1 = phi ptr [ %23, %42 ], [ %.4, %100 ]
   store i32 %storemerge, ptr %3, align 4
   br label %44
 
@@ -623,7 +623,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   br i1 %50, label %51, label %.preheader
 
 51:                                               ; preds = %48
-  br i1 %.081, label %52, label %104
+  br i1 %.081, label %52, label %106
 
 52:                                               ; preds = %51
   %53 = call zeroext i1 @errsave_start(ptr noundef %5, ptr noundef null) #9
@@ -639,7 +639,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   %57 = phi i8 [ %.pr, %.thread ], [ %49, %48 ]
   %.083 = phi i32 [ %.184, %.thread ], [ 0, %48 ]
   %.279 = phi i8 [ %.380, %.thread ], [ 0, %48 ]
-  %.3 = phi ptr [ %68, %.thread ], [ %.2, %48 ]
+  %.3 = phi ptr [ %69, %.thread ], [ %.2, %48 ]
   switch i8 %57, label %.preheader._crit_edge [
     i8 0, label %.thread96
     i8 34, label %58
@@ -648,7 +648,7 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
 
 .preheader._crit_edge:                            ; preds = %.preheader
   %.pre = trunc i8 %.279 to i1
-  br i1 %.pre, label %.thread, label %63
+  br i1 %.pre, label %.thread, label %64
 
 58:                                               ; preds = %.preheader
   %59 = xor i8 %.279, 1
@@ -658,118 +658,122 @@ define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, 
   %61 = trunc i8 %.279 to i1
   %62 = icmp ne i32 %.083, 0
   %or.cond.not = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond.not, label %.thread, label %75
+  br i1 %or.cond.not, label %63, label %77
 
-63:                                               ; preds = %.preheader._crit_edge
+63:                                               ; preds = %60
+  %spec.select = and i8 %.279, 1
+  br label %.thread
+
+64:                                               ; preds = %.preheader._crit_edge
   switch i8 %57, label %.thread [
-    i8 40, label %64
-    i8 91, label %64
-    i8 41, label %66
-    i8 93, label %66
+    i8 40, label %65
+    i8 91, label %65
+    i8 41, label %67
+    i8 93, label %67
   ]
 
-64:                                               ; preds = %63, %63
-  %65 = add i32 %.083, 1
+65:                                               ; preds = %64, %64
+  %66 = add i32 %.083, 1
   br label %.thread
 
-66:                                               ; preds = %63, %63
-  %67 = add i32 %.083, -1
+67:                                               ; preds = %64, %64
+  %68 = add i32 %.083, -1
   br label %.thread
 
-.thread:                                          ; preds = %60, %.preheader._crit_edge, %58, %66, %64, %63
-  %.184 = phi i32 [ %.083, %58 ], [ %.083, %63 ], [ %67, %66 ], [ %65, %64 ], [ %.083, %.preheader._crit_edge ], [ %.083, %60 ]
-  %.380 = phi i8 [ %59, %58 ], [ %.279, %63 ], [ %.279, %66 ], [ %.279, %64 ], [ %.279, %.preheader._crit_edge ], [ %.279, %60 ]
-  %68 = getelementptr i8, ptr %.3, i64 1
-  %.pr = load i8, ptr %68, align 1
+.thread:                                          ; preds = %63, %.preheader._crit_edge, %58, %67, %65, %64
+  %.184 = phi i32 [ %.083, %58 ], [ %.083, %64 ], [ %68, %67 ], [ %66, %65 ], [ %.083, %.preheader._crit_edge ], [ %.083, %63 ]
+  %.380 = phi i8 [ %59, %58 ], [ 0, %64 ], [ 0, %67 ], [ 0, %65 ], [ 1, %.preheader._crit_edge ], [ %spec.select, %63 ]
+  %69 = getelementptr i8, ptr %.3, i64 1
+  %.pr = load i8, ptr %69, align 1
   br label %.preheader, !llvm.loop !11
 
 .thread96:                                        ; preds = %.preheader
-  %69 = trunc i8 %.279 to i1
-  %70 = icmp ne i32 %.083, 0
-  %or.cond397 = select i1 %69, i1 true, i1 %70
-  br i1 %or.cond397, label %split, label %.thread98
+  %70 = trunc i8 %.279 to i1
+  %71 = icmp ne i32 %.083, 0
+  %or.cond397 = select i1 %70, i1 true, i1 %71
+  br i1 %or.cond397, label %72, label %.thread98
 
-split:                                            ; preds = %.thread96
-  %71 = call zeroext i1 @errsave_start(ptr noundef %5, ptr noundef null) #9
-  br i1 %71, label %72, label %.loopexit
+72:                                               ; preds = %.thread96
+  %73 = call zeroext i1 @errsave_start(ptr noundef %5, ptr noundef null) #9
+  br i1 %73, label %74, label %.loopexit
 
-72:                                               ; preds = %split
-  %73 = call i32 @errcode(i32 noundef 33685634) #9
-  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43) #9
+74:                                               ; preds = %72
+  %75 = call i32 @errcode(i32 noundef 33685634) #9
+  %76 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43) #9
   call void @errsave_finish(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 1973, ptr noundef nonnull @__func__.parseNameAndArgTypes) #9
   br label %.loopexit
 
-75:                                               ; preds = %60
-  %76 = getelementptr i8, ptr %.3, i64 1
+77:                                               ; preds = %60
+  %78 = getelementptr i8, ptr %.3, i64 1
   store i8 0, ptr %.3, align 1
   br label %.thread98
 
-.thread98:                                        ; preds = %.thread96, %75
-  %77 = phi i1 [ true, %75 ], [ false, %.thread96 ]
-  %.4 = phi ptr [ %76, %75 ], [ %.3, %.thread96 ]
-  %78 = getelementptr i8, ptr %.3, i64 -1
-  %.not107 = icmp ult ptr %78, %.2
+.thread98:                                        ; preds = %.thread96, %77
+  %79 = phi i1 [ true, %77 ], [ false, %.thread96 ]
+  %.4 = phi ptr [ %78, %77 ], [ %.3, %.thread96 ]
+  %80 = getelementptr i8, ptr %.3, i64 -1
+  %.not107 = icmp ult ptr %80, %.2
   br i1 %.not107, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread98, %82
-  %79 = phi ptr [ %83, %82 ], [ %78, %.thread98 ]
-  %80 = load i8, ptr %79, align 1
-  %81 = call zeroext i1 @scanner_isspace(i8 noundef signext %80) #9
-  br i1 %81, label %82, label %._crit_edge
+.lr.ph:                                           ; preds = %.thread98, %84
+  %81 = phi ptr [ %85, %84 ], [ %80, %.thread98 ]
+  %82 = load i8, ptr %81, align 1
+  %83 = call zeroext i1 @scanner_isspace(i8 noundef signext %82) #9
+  br i1 %83, label %84, label %._crit_edge
 
-82:                                               ; preds = %.lr.ph
-  store i8 0, ptr %79, align 1
-  %83 = getelementptr i8, ptr %79, i64 -1
-  %.not = icmp ult ptr %83, %.2
+84:                                               ; preds = %.lr.ph
+  store i8 0, ptr %81, align 1
+  %85 = getelementptr i8, ptr %81, i64 -1
+  %.not = icmp ult ptr %85, %.2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %82, %.lr.ph, %.thread98
-  br i1 %1, label %84, label %88
+._crit_edge:                                      ; preds = %84, %.lr.ph, %.thread98
+  br i1 %1, label %86, label %90
 
-84:                                               ; preds = %._crit_edge
-  %85 = call i32 @pg_strcasecmp(ptr noundef nonnull %.2, ptr noundef nonnull @.str.44) #9
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %88
+86:                                               ; preds = %._crit_edge
+  %87 = call i32 @pg_strcasecmp(ptr noundef nonnull %.2, ptr noundef nonnull @.str.44) #9
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %90
 
-87:                                               ; preds = %84
+89:                                               ; preds = %86
   store i32 0, ptr %7, align 4
   store i32 -1, ptr %8, align 4
-  br label %90
+  br label %92
 
-88:                                               ; preds = %84, %._crit_edge
-  %89 = call zeroext i1 @parseTypeString(ptr noundef nonnull %.2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %5) #9
-  br i1 %89, label %90, label %.loopexit
+90:                                               ; preds = %86, %._crit_edge
+  %91 = call zeroext i1 @parseTypeString(ptr noundef nonnull %.2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %5) #9
+  br i1 %91, label %92, label %.loopexit
 
-90:                                               ; preds = %88, %87
-  %91 = load i32, ptr %3, align 4
-  %92 = icmp sgt i32 %91, 99
-  br i1 %92, label %93, label %98
+92:                                               ; preds = %90, %89
+  %93 = load i32, ptr %3, align 4
+  %94 = icmp sgt i32 %93, 99
+  br i1 %94, label %95, label %100
 
-93:                                               ; preds = %90
-  %94 = call zeroext i1 @errsave_start(ptr noundef %5, ptr noundef null) #9
-  br i1 %94, label %95, label %.loopexit
+95:                                               ; preds = %92
+  %96 = call zeroext i1 @errsave_start(ptr noundef %5, ptr noundef null) #9
+  br i1 %96, label %97, label %.loopexit
 
-95:                                               ; preds = %93
-  %96 = call i32 @errcode(i32 noundef 50856197) #9
-  %97 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #9
+97:                                               ; preds = %95
+  %98 = call i32 @errcode(i32 noundef 50856197) #9
+  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #9
   call void @errsave_finish(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 2009, ptr noundef nonnull @__func__.parseNameAndArgTypes) #9
   br label %.loopexit
 
-98:                                               ; preds = %90
-  %99 = load i32, ptr %7, align 4
-  %100 = sext i32 %91 to i64
-  %101 = getelementptr i32, ptr %4, i64 %100
-  store i32 %99, ptr %101, align 4
-  %102 = load i32, ptr %3, align 4
-  %103 = add i32 %102, 1
+100:                                              ; preds = %92
+  %101 = load i32, ptr %7, align 4
+  %102 = sext i32 %93 to i64
+  %103 = getelementptr i32, ptr %4, i64 %102
+  store i32 %101, ptr %103, align 4
+  %104 = load i32, ptr %3, align 4
+  %105 = add i32 %104, 1
   br label %43
 
-104:                                              ; preds = %51
+106:                                              ; preds = %51
   call void @pfree(ptr noundef %9) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %88, %95, %93, %72, %split, %54, %52, %39, %37, %22, %19, %17, %104
-  %.0 = phi i1 [ true, %104 ], [ false, %17 ], [ false, %19 ], [ false, %22 ], [ false, %37 ], [ false, %39 ], [ false, %52 ], [ false, %54 ], [ false, %split ], [ false, %72 ], [ false, %93 ], [ false, %95 ], [ false, %88 ]
+.loopexit:                                        ; preds = %90, %97, %95, %74, %72, %54, %52, %39, %37, %22, %19, %17, %106
+  %.0 = phi i1 [ true, %106 ], [ false, %17 ], [ false, %19 ], [ false, %22 ], [ false, %37 ], [ false, %39 ], [ false, %52 ], [ false, %54 ], [ false, %72 ], [ false, %74 ], [ false, %95 ], [ false, %97 ], [ false, %90 ]
   ret i1 %.0
 }
 

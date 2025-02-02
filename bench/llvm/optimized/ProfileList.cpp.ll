@@ -479,37 +479,34 @@ switch.lookup:
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %.sroa.411.0..sroa_idx, align 8
   %11 = tail call i64 @_ZNK5clang11ProfileList9inSectionEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %switch.load24, i64 %switch.load, ptr nonnull @.str.6, i64 8, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4)
-  %.sroa.4.0.extract.shift = lshr i64 %11, 32
-  %12 = trunc nuw i64 %.sroa.4.0.extract.shift to i1
-  br i1 %12, label %19, label %13
+  %.not = icmp samesign ult i64 %11, 4294967296
+  br i1 %.not, label %12, label %19
 
-13:                                               ; preds = %switch.lookup
-  %14 = load ptr, ptr %0, align 8
+12:                                               ; preds = %switch.lookup
+  %13 = load ptr, ptr %0, align 8
   store ptr %1, ptr %5, align 8
   %.sroa.411.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %.sroa.411.0..sroa_idx12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %15 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr nonnull %switch.load24, i64 %switch.load, ptr nonnull @.str.7, i64 4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6) #9
-  br i1 %15, label %19, label %16
+  %14 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr nonnull %switch.load24, i64 %switch.load, ptr nonnull @.str.7, i64 4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6) #9
+  br i1 %14, label %19, label %15
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %0, align 8
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %0, align 8
   store ptr %1, ptr %7, align 8
   %.sroa.411.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %.sroa.411.0..sroa_idx14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr nonnull %switch.load24, i64 %switch.load, ptr nonnull @.str.4, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8) #9
-  %spec.select = select i1 %18, i64 0, i64 %11
-  %spec.select22 = zext i1 %18 to i64
+  %17 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr nonnull %switch.load24, i64 %switch.load, ptr nonnull @.str.4, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8) #9
+  %spec.select = select i1 %17, i64 0, i64 %11
+  %18 = select i1 %17, i64 4294967296, i64 0
   br label %19
 
-19:                                               ; preds = %16, %13, %switch.lookup
-  %.sroa.021.0 = phi i64 [ %11, %switch.lookup ], [ 2, %13 ], [ %spec.select, %16 ]
-  %.sroa.4.0 = phi i64 [ %.sroa.4.0.extract.shift, %switch.lookup ], [ 1, %13 ], [ %spec.select22, %16 ]
-  %.sroa.4.0.insert.ext = shl nuw nsw i64 %.sroa.4.0, 32
-  %.sroa.4.0.insert.shift = and i64 %.sroa.4.0.insert.ext, 1095216660480
+19:                                               ; preds = %15, %12, %switch.lookup
+  %.sroa.021.0 = phi i64 [ %11, %switch.lookup ], [ 2, %12 ], [ %spec.select, %15 ]
+  %.sroa.4.0 = phi i64 [ 4294967296, %switch.lookup ], [ 4294967296, %12 ], [ %18, %15 ]
   %.sroa.021.0.insert.ext = and i64 %.sroa.021.0, 4294967295
-  %.sroa.021.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.021.0.insert.ext
+  %.sroa.021.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.021.0.insert.ext
   ret i64 %.sroa.021.0.insert.insert
 }
 
@@ -551,37 +548,34 @@ switch.lookup:
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %.sroa.411.0..sroa_idx, align 8
   %11 = tail call i64 @_ZNK5clang11ProfileList9inSectionEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %switch.load24, i64 %switch.load, ptr nonnull @.str.8, i64 6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4)
-  %.sroa.4.0.extract.shift = lshr i64 %11, 32
-  %12 = trunc nuw i64 %.sroa.4.0.extract.shift to i1
-  br i1 %12, label %19, label %13
+  %.not = icmp samesign ult i64 %11, 4294967296
+  br i1 %.not, label %12, label %19
 
-13:                                               ; preds = %switch.lookup
-  %14 = load ptr, ptr %0, align 8
+12:                                               ; preds = %switch.lookup
+  %13 = load ptr, ptr %0, align 8
   store ptr %1, ptr %5, align 8
   %.sroa.411.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %.sroa.411.0..sroa_idx12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %15 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr nonnull %switch.load24, i64 %switch.load, ptr nonnull @.str.9, i64 4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6) #9
-  br i1 %15, label %19, label %16
+  %14 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr nonnull %switch.load24, i64 %switch.load, ptr nonnull @.str.9, i64 4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6) #9
+  br i1 %14, label %19, label %15
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %0, align 8
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %0, align 8
   store ptr %1, ptr %7, align 8
   %.sroa.411.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %.sroa.411.0..sroa_idx14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %18 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr nonnull %switch.load24, i64 %switch.load, ptr nonnull @.str.5, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8) #9
-  %spec.select = select i1 %18, i64 0, i64 %11
-  %spec.select22 = zext i1 %18 to i64
+  %17 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr nonnull %switch.load24, i64 %switch.load, ptr nonnull @.str.5, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8) #9
+  %spec.select = select i1 %17, i64 0, i64 %11
+  %18 = select i1 %17, i64 4294967296, i64 0
   br label %19
 
-19:                                               ; preds = %16, %13, %switch.lookup
-  %.sroa.021.0 = phi i64 [ %11, %switch.lookup ], [ 2, %13 ], [ %spec.select, %16 ]
-  %.sroa.4.0 = phi i64 [ %.sroa.4.0.extract.shift, %switch.lookup ], [ 1, %13 ], [ %spec.select22, %16 ]
-  %.sroa.4.0.insert.ext = shl nuw nsw i64 %.sroa.4.0, 32
-  %.sroa.4.0.insert.shift = and i64 %.sroa.4.0.insert.ext, 1095216660480
+19:                                               ; preds = %15, %12, %switch.lookup
+  %.sroa.021.0 = phi i64 [ %11, %switch.lookup ], [ 2, %12 ], [ %spec.select, %15 ]
+  %.sroa.4.0 = phi i64 [ 4294967296, %switch.lookup ], [ 4294967296, %12 ], [ %18, %15 ]
   %.sroa.021.0.insert.ext = and i64 %.sroa.021.0, 4294967295
-  %.sroa.021.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.021.0.insert.ext
+  %.sroa.021.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.021.0.insert.ext
   ret i64 %.sroa.021.0.insert.insert
 }
 

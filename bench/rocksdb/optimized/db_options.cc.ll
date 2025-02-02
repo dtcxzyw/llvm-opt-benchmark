@@ -12791,23 +12791,23 @@ if.then:                                          ; preds = %land.lhs.true
   %opt_map_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %1 = load ptr, ptr %opt_map_, align 8
   %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.end23.thread, label %if.else
+  br i1 %cmp, label %if.then20, label %if.else
 
 if.else:                                          ; preds = %if.then
   %call.i = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %opt_name)
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %if.end23.thread, label %if.end18
+  br i1 %cmp.i, label %if.then20, label %if.end18
 
 if.end18:                                         ; preds = %if.else
   %second = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %call16 = tail call noundef zeroext i1 @_ZNK7rocksdb14OptionTypeInfo14AreEqualByNameERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSB_(ptr noundef nonnull align 8 dereferenceable(180) %opt_info, ptr noundef nonnull align 8 dereferenceable(80) %config_options, ptr noundef nonnull align 8 dereferenceable(32) %opt_name, ptr noundef %this_ptr, ptr noundef nonnull align 8 dereferenceable(32) %second)
-  br i1 %call16, label %if.end23.thread, label %if.end57
+  br i1 %call16, label %if.then20, label %if.end57
 
-if.end23.thread:                                  ; preds = %if.end18, %if.then, %if.else
+if.then20:                                        ; preds = %if.else, %if.then, %if.end18
   %call21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %mismatch, ptr noundef nonnull @.str.221)
   br label %land.lhs.true25
 
-land.lhs.true25:                                  ; preds = %if.end23.thread, %entry
+land.lhs.true25:                                  ; preds = %entry, %if.then20
   %type_.i = getelementptr inbounds nuw i8, ptr %opt_info, i64 168
   %2 = load i32, ptr %type_.i, align 8
   %3 = and i32 %2, -2
@@ -12885,8 +12885,8 @@ if.then53:                                        ; preds = %land.rhs
   %call54 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mismatch, ptr noundef nonnull align 8 dereferenceable(32) %opt_name)
   br label %if.end57
 
-if.end57:                                         ; preds = %if.end18, %land.lhs.true, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit, %land.lhs.true46, %if.then33, %if.then53, %land.rhs, %land.lhs.true27, %land.lhs.true25
-  %equals.2 = phi i1 [ true, %land.lhs.true46 ], [ false, %if.then53 ], [ true, %land.rhs ], [ true, %if.then33 ], [ true, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit ], [ true, %land.lhs.true27 ], [ true, %land.lhs.true25 ], [ false, %land.lhs.true ], [ false, %if.end18 ]
+if.end57:                                         ; preds = %land.lhs.true, %if.end18, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit, %land.lhs.true46, %if.then33, %if.then53, %land.rhs, %land.lhs.true27, %land.lhs.true25
+  %equals.2 = phi i1 [ true, %land.lhs.true46 ], [ false, %if.then53 ], [ true, %land.rhs ], [ true, %if.then33 ], [ true, %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12ConfigurableEEEPKT_PKv.exit ], [ true, %land.lhs.true27 ], [ true, %land.lhs.true25 ], [ false, %if.end18 ], [ false, %land.lhs.true ]
   ret i1 %equals.2
 }
 

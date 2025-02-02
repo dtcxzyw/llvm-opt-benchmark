@@ -2221,7 +2221,6 @@ copy_str.exit337.i:                               ; preds = %473, %RARRAY_AREF.e
   br label %480
 
 480:                                              ; preds = %479, %477
-  %.2218.i = phi i8 [ %.0216.i, %477 ], [ 1, %479 ]
   %481 = call ptr @rb_ary_ptr_use_start(i64 noundef %453) #25
   %482 = getelementptr i64, ptr %481, i64 %.0215.i
   store i64 %476, ptr %482, align 8
@@ -2238,7 +2237,7 @@ RARRAY_ASET.exit339.i:                            ; preds = %484, %480
   br label %485
 
 485:                                              ; preds = %RARRAY_ASET.exit339.i, %copy_str.exit337.i
-  %.1217.i = phi i8 [ %.2218.i, %RARRAY_ASET.exit339.i ], [ %.0216.i, %copy_str.exit337.i ]
+  %.1217.i = phi i8 [ 1, %RARRAY_ASET.exit339.i ], [ %.0216.i, %copy_str.exit337.i ]
   %486 = add nsw i64 %.0215.i, 1
   br label %457, !llvm.loop !41
 

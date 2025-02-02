@@ -140,8 +140,8 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br i1 %30, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %12, %16, %20, %24, %29, %3
-  %.031 = phi i8 [ 0, %3 ], [ %.132, %29 ], [ %.132, %24 ], [ %.132, %20 ], [ %.132, %16 ], [ %.132, %12 ]
-  %.029.shrunk = phi i1 [ false, %3 ], [ true, %29 ], [ false, %24 ], [ false, %20 ], [ false, %16 ], [ false, %12 ]
+  %.031 = phi i8 [ 0, %3 ], [ 1, %29 ], [ %.132, %24 ], [ %.132, %20 ], [ %.132, %16 ], [ %.132, %12 ]
+  %.029 = phi i1 [ false, %3 ], [ true, %29 ], [ false, %24 ], [ false, %20 ], [ false, %16 ], [ false, %12 ]
   %.0 = phi i16 [ 0, %3 ], [ %.1, %29 ], [ %.1, %24 ], [ %.1, %20 ], [ %.1, %16 ], [ %.1, %12 ]
   br label %32
 
@@ -190,7 +190,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br label %51
 
 51:                                               ; preds = %50, %48
-  br i1 %.029.shrunk, label %52, label %55
+  br i1 %.029, label %52, label %55
 
 52:                                               ; preds = %51
   %53 = load i8, ptr @ignore_checksum_failure, align 1

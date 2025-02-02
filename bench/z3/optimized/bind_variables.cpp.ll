@@ -1491,7 +1491,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187:  ; preds = %lor.lhs.false.i174,
 
 for.inc:                                          ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit172, %if.else53
   %some_diff.1 = phi i1 [ %some_diff.0376, %if.else53 ], [ %some_diff.0376, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit172 ], [ %spec.select, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187 ]
-  %all_visited.1 = phi i8 [ %all_visited.0378, %if.else53 ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit172 ], [ %all_visited.0378, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187 ]
+  %all_visited.1 = phi i8 [ 0, %if.else53 ], [ 0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit172 ], [ 1, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit187 ]
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
   %95 = load i32, ptr %m_num_args.i, align 8
   %96 = zext i32 %95 to i64

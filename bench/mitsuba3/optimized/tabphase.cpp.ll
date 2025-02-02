@@ -1312,50 +1312,50 @@ define linkonce_odr hidden noundef float @_ZNK7mitsuba22ContinuousDistributionIf
   br i1 %19, label %.lr.ph.split.us.split.us.i, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i: ; preds = %.lr.ph.split.us.i
-  %umax67.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
+  %umax69.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i
   %21 = load float, ptr %20, align 4
-  %.fr62.i = freeze float %21
-  %22 = fcmp contract uge float %.fr62.i, %6
+  %.fr64.i = freeze float %21
+  %22 = fcmp contract uge float %.fr64.i, %6
   br i1 %22, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit41, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.preheader.i
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.preheader.i: ; preds = %.lr.ph.split.us.split.us.i
-  %umax69.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
+  %umax71.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   br label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i: ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.preheader.i
-  %.048.us.us.i = phi i64 [ %26, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i ], [ 0, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.preheader.i ]
-  %.04347.us.us.i = phi i32 [ %..i.us.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i ], [ %8, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.preheader.i ]
-  %23 = add i32 %.04347.us.us.i, %10
+  %.050.us.us.i = phi i64 [ %26, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i ], [ 0, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.preheader.i ]
+  %.04349.us.us.i = phi i32 [ %..i.us.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i ], [ %8, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.preheader.i ]
+  %23 = add i32 %.04349.us.us.i, %10
   %24 = lshr i32 %23, 1
   %25 = add nuw i32 %24, 1
   %..i.us.us.i = tail call noundef i32 @llvm.umin.i32(i32 %10, i32 %25)
-  %26 = add nuw nsw i64 %.048.us.us.i, 1
-  %exitcond70.not.i = icmp eq i64 %26, %umax69.i
-  br i1 %exitcond70.not.i, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit41, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i, !llvm.loop !14
+  %26 = add nuw nsw i64 %.050.us.us.i, 1
+  %exitcond72.not.i = icmp eq i64 %26, %umax71.i
+  br i1 %exitcond72.not.i, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit41, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i, !llvm.loop !14
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i: ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i
-  %.048.us.i = phi i64 [ %34, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i ], [ 0, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i ]
-  %.04347.us.i = phi i32 [ %spec.select.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i ], [ %8, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i ]
-  %.04446.us.i = phi i32 [ %.145.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i ], [ %10, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i ]
-  %27 = add i32 %.04446.us.i, %.04347.us.i
+  %.050.us.i = phi i64 [ %34, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i ], [ 0, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i ]
+  %.04349.us.i = phi i32 [ %.147.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i ], [ %8, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i ]
+  %.04448.us.i = phi i32 [ %.145.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i ], [ %10, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i ]
+  %27 = add i32 %.04448.us.i, %.04349.us.i
   %28 = lshr i32 %27, 1
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw float, ptr %20, i64 %29
   %31 = load float, ptr %30, align 4
   %32 = fcmp contract uge float %31, %6
   %33 = add nuw i32 %28, 1
-  %..i.us.i = tail call noundef i32 @llvm.umin.i32(i32 %.04446.us.i, i32 %33)
-  %spec.select.us.i = select i1 %32, i32 %.04347.us.i, i32 %..i.us.i
-  %.145.us.i = select i1 %32, i32 %28, i32 %.04446.us.i
-  %34 = add nuw nsw i64 %.048.us.i, 1
-  %exitcond68.not.i = icmp eq i64 %34, %umax67.i
-  br i1 %exitcond68.not.i, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit41, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i, !llvm.loop !14
+  %..i.us.i = tail call noundef i32 @llvm.umin.i32(i32 %.04448.us.i, i32 %33)
+  %.147.us.i = select i1 %32, i32 %.04349.us.i, i32 %..i.us.i
+  %.145.us.i = select i1 %32, i32 %28, i32 %.04448.us.i
+  %34 = add nuw nsw i64 %.050.us.i, 1
+  %exitcond70.not.i = icmp eq i64 %34, %umax69.i
+  br i1 %exitcond70.not.i, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit41, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i, !llvm.loop !14
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit41: ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i, %3, %.lr.ph.split.us.split.us.i
-  %.043.lcssa.i = phi i32 [ %8, %3 ], [ %8, %.lr.ph.split.us.split.us.i ], [ %..i.us.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i ], [ %spec.select.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i ]
+  %.043.lcssa.i = phi i32 [ %8, %3 ], [ %8, %.lr.ph.split.us.split.us.i ], [ %..i.us.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.us.i ], [ %.147.us.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i ]
   %35 = zext i32 %.043.lcssa.i to i64
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i64, ptr %36, align 8

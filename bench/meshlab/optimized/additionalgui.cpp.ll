@@ -855,7 +855,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
 
 87:                                               ; preds = %._crit_edge103, %70, %83, %63, %61
   %88 = phi ptr [ %60, %63 ], [ %60, %61 ], [ %60, %70 ], [ %.pre, %._crit_edge103 ], [ %84, %83 ]
-  %.1 = phi i8 [ %.092, %63 ], [ %.092, %61 ], [ 0, %70 ], [ 1, %._crit_edge103 ], [ %86, %83 ]
+  %.1 = phi i8 [ 1, %63 ], [ 0, %61 ], [ 0, %70 ], [ 1, %._crit_edge103 ], [ %86, %83 ]
   %89 = invoke noundef zeroext i1 @_ZNK7QAction11isSeparatorEv(ptr noundef nonnull align 8 dereferenceable(16) %88)
           to label %90 unwind label %.loopexit.split-lp.loopexit
 

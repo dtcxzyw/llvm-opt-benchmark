@@ -3807,7 +3807,7 @@ land.lhs.true.i.i.i:                              ; preds = %for.end22.i.i.i
   br label %for.inc26.i.i.i
 
 for.inc26.i.i.i:                                  ; preds = %land.lhs.true.i.i.i, %for.end22.i.i.i
-  %top_allowed.1.i.i.i = phi i8 [ %top_allowed.0289.i.i.i, %for.end22.i.i.i ], [ %spec.select.i.i.i, %land.lhs.true.i.i.i ]
+  %top_allowed.1.i.i.i = phi i8 [ 0, %for.end22.i.i.i ], [ %spec.select.i.i.i, %land.lhs.true.i.i.i ]
   %cmp.not.i.i.i.i60 = icmp ult i64 %i.0288.i.i.i, 256
   br i1 %cmp.not.i.i.i.i60, label %if.end.i.i.i.i67, label %for.end28.i.i.i
 
@@ -7328,7 +7328,7 @@ invoke.cont33.i.i.i:                              ; preds = %for.end32.i.i.i
   br label %for.inc37.i.i.i
 
 for.inc37.i.i.i:                                  ; preds = %invoke.cont33.i.i.i, %for.end32.i.i.i
-  %top_allowed.1.i.i.i599 = phi i8 [ %top_allowed.0761.i.i.i, %for.end32.i.i.i ], [ %spec.select.i.i.i630, %invoke.cont33.i.i.i ]
+  %top_allowed.1.i.i.i599 = phi i8 [ 0, %for.end32.i.i.i ], [ %spec.select.i.i.i630, %invoke.cont33.i.i.i ]
   %598 = load i64, ptr %m_num_bits.i.i226.i, align 8
   %sub.i.i.i.i600 = add i64 %598, -1
   %cmp.i.i.i275.i = icmp uge i64 %i.0760.i.i.i, %sub.i.i.i.i600
@@ -14902,53 +14902,55 @@ if.end:                                           ; preds = %for.body
   %3 = load i64, ptr %m_size.i.i.i, align 8, !noalias !533
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
   %cmp.i.i.i.i.not76 = icmp eq i64 %3, 0
-  br i1 %cmp.i.i.i.i.not76, label %for.inc20, label %for.body7
+  br i1 %cmp.i.i.i.i.not76, label %for.inc20, label %for.body7.preheader
 
-for.body7:                                        ; preds = %if.end, %for.inc
-  %seen.279 = phi i8 [ %seen.3, %for.inc ], [ %seen.084, %if.end ]
-  %ekey.278 = phi i32 [ %ekey.3, %for.inc ], [ %ekey.083, %if.end ]
-  %__begin2.sroa.0.077 = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc ], [ %2, %if.end ]
-  %4 = load i32, ptr %__begin2.sroa.0.077, align 4
-  %call9 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 noundef %4)
+for.body7.preheader:                              ; preds = %if.end
+  %4 = trunc nuw i8 %seen.084 to i1
+  br label %for.body7
+
+for.body7:                                        ; preds = %for.body7.preheader, %for.inc
+  %seen.279 = phi i1 [ true, %for.inc ], [ %4, %for.body7.preheader ]
+  %ekey.278 = phi i32 [ %ekey.3, %for.inc ], [ %ekey.083, %for.body7.preheader ]
+  %__begin2.sroa.0.077 = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc ], [ %2, %for.body7.preheader ]
+  %5 = load i32, ptr %__begin2.sroa.0.077, align 4
+  %call9 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 noundef %5)
   %ekey.i = getelementptr inbounds nuw i8, ptr %call9, i64 32
-  %5 = load i32, ptr %ekey.i, align 8
-  %cmp.i21 = icmp eq i32 %5, -1
+  %6 = load i32, ptr %ekey.i, align 8
+  %cmp.i21 = icmp eq i32 %6, -1
   br i1 %cmp.i21, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body7
   %minOffset.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
-  %6 = load i64, ptr %minOffset.i.i, align 8
-  %cmp.not.i.i = icmp eq i64 %6, 0
+  %7 = load i64, ptr %minOffset.i.i, align 8
+  %cmp.not.i.i = icmp eq i64 %7, 0
   %minLength.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 24
-  %7 = load i64, ptr %minLength.i.i, align 8
-  %cmp3.i.i = icmp eq i64 %7, 0
+  %8 = load i64, ptr %minLength.i.i, align 8
+  %cmp3.i.i = icmp eq i64 %8, 0
   %or.cond6.i = select i1 %cmp.not.i.i, i1 %cmp3.i.i, i1 false
   br i1 %or.cond6.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %if.end.i
   %ir.val.i = load i32, ptr %call9, align 8
   %switch.tableidx = add i32 %ir.val.i, -2
-  %8 = icmp ult i32 %switch.tableidx, 15
-  br i1 %8, label %switch.hole_check, label %if.end12
+  %9 = icmp ult i32 %switch.tableidx, 15
+  br i1 %9, label %switch.hole_check, label %if.end12
 
 if.end12:                                         ; preds = %switch.hole_check, %if.end3.i
-  %tobool = trunc nuw i8 %seen.279 to i1
-  br i1 %tobool, label %if.else, label %for.inc
+  br i1 %seen.279, label %if.else, label %for.inc
 
 if.else:                                          ; preds = %if.end12
-  %cmp.not = icmp eq i32 %ekey.278, %5
+  %cmp.not = icmp eq i32 %ekey.278, %6
   br i1 %cmp.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.end12, %if.else
-  %ekey.3 = phi i32 [ %ekey.278, %if.else ], [ %5, %if.end12 ]
-  %seen.3 = phi i8 [ %seen.279, %if.else ], [ 1, %if.end12 ]
+  %ekey.3 = phi i32 [ %ekey.278, %if.else ], [ %6, %if.end12 ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.077, i64 4
   %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.i.not, label %for.inc20, label %for.body7
 
 for.inc20:                                        ; preds = %for.inc, %if.end, %for.body
   %ekey.1 = phi i32 [ %ekey.083, %for.body ], [ %ekey.083, %if.end ], [ %ekey.3, %for.inc ]
-  %seen.1 = phi i8 [ %seen.084, %for.body ], [ %seen.084, %if.end ], [ %seen.3, %for.inc ]
+  %seen.1 = phi i8 [ %seen.084, %for.body ], [ %seen.084, %if.end ], [ 1, %for.inc ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.085, align 8
   %cmp.i.i.i.i.i.i.i.not = icmp eq ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.not, label %for.end22, label %for.body
@@ -14968,66 +14970,68 @@ for.body29:                                       ; preds = %for.end22, %for.inc
   %seen.497 = phi i8 [ %seen.5, %for.inc65 ], [ %seen.0.lcssa, %for.end22 ]
   %ekey.496 = phi i32 [ %ekey.5, %for.inc65 ], [ %ekey.0.lcssa, %for.end22 ]
   %source.i.i.i27 = getelementptr inbounds nuw i8, ptr %__begin125.sroa.0.098, i64 16
-  %9 = load ptr, ptr %source.i.i.i27, align 8
-  %index.i31 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %10 = load i64, ptr %index.i31, align 8
-  %cmp.i32 = icmp ult i64 %10, 4
+  %10 = load ptr, ptr %source.i.i.i27, align 8
+  %index.i31 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %11 = load i64, ptr %index.i31, align 8
+  %cmp.i32 = icmp ult i64 %11, 4
   br i1 %cmp.i32, label %for.inc65, label %if.end35
 
 if.end35:                                         ; preds = %for.body29
-  %reports40 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %11 = load ptr, ptr %reports40, align 8, !noalias !543
-  %m_size.i.i.i34 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %12 = load i64, ptr %m_size.i.i.i34, align 8, !noalias !550
-  %add.ptr.i.i.i35 = getelementptr inbounds i32, ptr %11, i64 %12
-  %cmp.i.i.i.i36.not88 = icmp eq i64 %12, 0
-  br i1 %cmp.i.i.i.i36.not88, label %for.inc65, label %for.body45
+  %reports40 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %12 = load ptr, ptr %reports40, align 8, !noalias !543
+  %m_size.i.i.i34 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %13 = load i64, ptr %m_size.i.i.i34, align 8, !noalias !550
+  %add.ptr.i.i.i35 = getelementptr inbounds i32, ptr %12, i64 %13
+  %cmp.i.i.i.i36.not88 = icmp eq i64 %13, 0
+  br i1 %cmp.i.i.i.i36.not88, label %for.inc65, label %for.body45.preheader
 
-for.body45:                                       ; preds = %if.end35, %for.inc62
-  %seen.691 = phi i8 [ %seen.7, %for.inc62 ], [ %seen.497, %if.end35 ]
-  %ekey.690 = phi i32 [ %ekey.7, %for.inc62 ], [ %ekey.496, %if.end35 ]
-  %__begin241.sroa.0.089 = phi ptr [ %incdec.ptr.i.i.i.i57, %for.inc62 ], [ %11, %if.end35 ]
-  %13 = load i32, ptr %__begin241.sroa.0.089, align 4
-  %call49 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 noundef %13)
+for.body45.preheader:                             ; preds = %if.end35
+  %14 = trunc nuw i8 %seen.497 to i1
+  br label %for.body45
+
+for.body45:                                       ; preds = %for.body45.preheader, %for.inc62
+  %seen.691 = phi i1 [ true, %for.inc62 ], [ %14, %for.body45.preheader ]
+  %ekey.690 = phi i32 [ %ekey.7, %for.inc62 ], [ %ekey.496, %for.body45.preheader ]
+  %__begin241.sroa.0.089 = phi ptr [ %incdec.ptr.i.i.i.i57, %for.inc62 ], [ %12, %for.body45.preheader ]
+  %15 = load i32, ptr %__begin241.sroa.0.089, align 4
+  %call49 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 noundef %15)
   %ekey.i37 = getelementptr inbounds nuw i8, ptr %call49, i64 32
-  %14 = load i32, ptr %ekey.i37, align 8
-  %cmp.i38 = icmp eq i32 %14, -1
+  %16 = load i32, ptr %ekey.i37, align 8
+  %cmp.i38 = icmp eq i32 %16, -1
   br i1 %cmp.i38, label %return, label %if.end.i39
 
 if.end.i39:                                       ; preds = %for.body45
   %minOffset.i.i40 = getelementptr inbounds nuw i8, ptr %call49, i64 8
-  %15 = load i64, ptr %minOffset.i.i40, align 8
-  %cmp.not.i.i41 = icmp eq i64 %15, 0
+  %17 = load i64, ptr %minOffset.i.i40, align 8
+  %cmp.not.i.i41 = icmp eq i64 %17, 0
   %minLength.i.i45 = getelementptr inbounds nuw i8, ptr %call49, i64 24
-  %16 = load i64, ptr %minLength.i.i45, align 8
-  %cmp3.i.i46 = icmp eq i64 %16, 0
+  %18 = load i64, ptr %minLength.i.i45, align 8
+  %cmp3.i.i46 = icmp eq i64 %18, 0
   %or.cond6.i50 = select i1 %cmp.not.i.i41, i1 %cmp3.i.i46, i1 false
   br i1 %or.cond6.i50, label %if.end3.i52, label %return
 
 if.end3.i52:                                      ; preds = %if.end.i39
   %ir.val.i53 = load i32, ptr %call49, align 8
   %switch.tableidx106 = add i32 %ir.val.i53, -2
-  %17 = icmp ult i32 %switch.tableidx106, 15
-  br i1 %17, label %switch.hole_check107, label %if.end52
+  %19 = icmp ult i32 %switch.tableidx106, 15
+  br i1 %19, label %switch.hole_check107, label %if.end52
 
 if.end52:                                         ; preds = %switch.hole_check107, %if.end3.i52
-  %tobool53 = trunc nuw i8 %seen.691 to i1
-  br i1 %tobool53, label %if.else56, label %for.inc62
+  br i1 %seen.691, label %if.else56, label %for.inc62
 
 if.else56:                                        ; preds = %if.end52
-  %cmp58.not = icmp eq i32 %ekey.690, %14
+  %cmp58.not = icmp eq i32 %ekey.690, %16
   br i1 %cmp58.not, label %for.inc62, label %return
 
 for.inc62:                                        ; preds = %if.end52, %if.else56
-  %ekey.7 = phi i32 [ %ekey.690, %if.else56 ], [ %14, %if.end52 ]
-  %seen.7 = phi i8 [ %seen.691, %if.else56 ], [ 1, %if.end52 ]
+  %ekey.7 = phi i32 [ %ekey.690, %if.else56 ], [ %16, %if.end52 ]
   %incdec.ptr.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %__begin241.sroa.0.089, i64 4
   %cmp.i.i.i.i36.not = icmp eq ptr %incdec.ptr.i.i.i.i57, %add.ptr.i.i.i35
   br i1 %cmp.i.i.i.i36.not, label %for.inc65, label %for.body45
 
 for.inc65:                                        ; preds = %for.inc62, %if.end35, %for.body29
   %ekey.5 = phi i32 [ %ekey.496, %for.body29 ], [ %ekey.496, %if.end35 ], [ %ekey.7, %for.inc62 ]
-  %seen.5 = phi i8 [ %seen.497, %for.body29 ], [ %seen.497, %if.end35 ], [ %seen.7, %for.inc62 ]
+  %seen.5 = phi i8 [ %seen.497, %for.body29 ], [ %seen.497, %if.end35 ], [ 1, %for.inc62 ]
   %__begin125.sroa.0.0 = load ptr, ptr %__begin125.sroa.0.098, align 8
   %cmp.i.i.i.i.i.i.i26.not = icmp eq ptr %__begin125.sroa.0.0, %m_header.i.i.i.i.i.i23
   br i1 %cmp.i.i.i.i.i.i.i26.not, label %return, label %for.body29

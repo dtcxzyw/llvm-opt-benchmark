@@ -727,7 +727,7 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %2
   %16 = trunc i8 %15 to i1
   br i1 %16, label %common.resume.sink.split, label %common.resume
 
-.preheader:                                       ; preds = %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit, %30
+.preheader:                                       ; preds = %_ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit, %31
   %17 = invoke noundef zeroext i1 @_ZNK4LIEF12BinaryStreamcvbEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %18 unwind label %13
 
@@ -767,31 +767,31 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %2
           to label %29 unwind label %13
 
 29:                                               ; preds = %28
-  %.sroa.013.0.extract.trunc = trunc i64 %26 to i32
-  %.not31 = icmp eq i32 %.sroa.013.0.extract.trunc, 0
-  br i1 %.not31, label %.loopexit, label %30
+  %.sroa.013.0.extract.trunc25 = trunc i64 %26 to i32
+  %30 = icmp eq i32 %.sroa.013.0.extract.trunc25, 0
+  br i1 %30, label %.loopexit, label %31
 
-30:                                               ; preds = %29
-  %31 = icmp eq i32 %0, %.sroa.013.0.extract.trunc
-  br i1 %31, label %.loopexit.split.loop.exit24, label %.preheader, !llvm.loop !7
+31:                                               ; preds = %29
+  %32 = icmp eq i32 %0, %.sroa.013.0.extract.trunc25
+  br i1 %32, label %.loopexit.split.loop.exit36, label %.preheader, !llvm.loop !7
 
-.loopexit.split.loop.exit24:                      ; preds = %30
-  %.sroa.2.0.extract.shift.le = lshr i64 %26, 32
-  %.sroa.2.0.extract.trunc.le = trunc nuw i64 %.sroa.2.0.extract.shift.le to i32
+.loopexit.split.loop.exit36:                      ; preds = %31
+  %.sroa.2.0.extract.shift26.le = lshr i64 %26, 32
+  %.sroa.2.0.extract.trunc27.le = trunc nuw i64 %.sroa.2.0.extract.shift26.le to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.noexc8, %29, %18, %.loopexit.split.loop.exit24, %11
-  %.sroa.015.0 = phi i32 [ %12, %11 ], [ %.sroa.2.0.extract.trunc.le, %.loopexit.split.loop.exit24 ], [ 2, %18 ], [ 2, %29 ], [ 2, %.noexc8 ]
-  %.sroa.6.sroa.2.0 = phi i8 [ 0, %11 ], [ 1, %.loopexit.split.loop.exit24 ], [ 0, %18 ], [ 0, %29 ], [ 0, %.noexc8 ]
-  %32 = load i8, ptr %8, align 8
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %34, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit10
+.loopexit:                                        ; preds = %29, %18, %.noexc8, %.loopexit.split.loop.exit36, %11
+  %.sroa.015.0 = phi i32 [ %12, %11 ], [ %.sroa.2.0.extract.trunc27.le, %.loopexit.split.loop.exit36 ], [ 2, %.noexc8 ], [ 2, %18 ], [ 2, %29 ]
+  %.sroa.6.sroa.2.0 = phi i8 [ 0, %11 ], [ 1, %.loopexit.split.loop.exit36 ], [ 0, %.noexc8 ], [ 0, %18 ], [ 0, %29 ]
+  %33 = load i8, ptr %8, align 8
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit10
 
-34:                                               ; preds = %.loopexit
+35:                                               ; preds = %.loopexit
   call void @_ZN4LIEF10SpanStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %5) #23
   br label %_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit10
 
-_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit10: ; preds = %.loopexit, %34
+_ZN2tl8expectedIN4LIEF10SpanStreamE11lief_errorsED2Ev.exit10: ; preds = %.loopexit, %35
   %.sroa.015.0.insert.ext = zext i32 %.sroa.015.0 to i64
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.015.0.insert.ext, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.6.sroa.2.0, 1
@@ -1053,10 +1053,10 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %2
   br i1 %38, label %common.resume.sink.split, label %common.resume
 
 39:                                               ; preds = %34
-  %.sroa.2.0.extract.shift = lshr i64 %32, 32
-  %.sroa.0.0.extract.trunc = trunc i64 %32 to i32
-  store i32 %.sroa.0.0.extract.trunc, ptr %6, align 4
-  %40 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
+  %.sroa.0.0.extract.trunc14 = trunc i64 %32 to i32
+  %.sroa.2.0.extract.shift15 = lshr i64 %32, 32
+  store i32 %.sroa.0.0.extract.trunc14, ptr %6, align 4
+  %40 = icmp eq i32 %.sroa.0.0.extract.trunc14, 0
   br i1 %40, label %.loopexit.loopexit, label %41
 
 41:                                               ; preds = %39
@@ -1064,10 +1064,10 @@ _ZN4LIEF10SpanStream11from_vectorERKSt6vectorIhSaIhEE.exit: ; preds = %2
           to label %43 unwind label %35
 
 43:                                               ; preds = %41
-  store i64 %.sroa.2.0.extract.shift, ptr %42, align 8
+  store i64 %.sroa.2.0.extract.shift15, ptr %42, align 8
   br label %22, !llvm.loop !22
 
-.loopexit.loopexit:                               ; preds = %.noexc6, %24, %39
+.loopexit.loopexit:                               ; preds = %24, %39, %.noexc6
   %.pre = load i8, ptr %9, align 8
   br label %.loopexit
 

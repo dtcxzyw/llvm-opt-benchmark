@@ -21878,7 +21878,7 @@ if.else.i:                                        ; preds = %if.then.i208
   br label %for.inc.i204
 
 for.inc.i204:                                     ; preds = %if.else.i, %if.then.i208, %_ZNK5nlsat6solver3imp7max_varEN3sat7literalE.exit.i202
-  %found_lvl.1.i = phi i8 [ %found_lvl.013.i, %_ZNK5nlsat6solver3imp7max_varEN3sat7literalE.exit.i202 ], [ %found_lvl.013.i, %if.else.i ], [ 1, %if.then.i208 ]
+  %found_lvl.1.i = phi i8 [ %found_lvl.013.i, %_ZNK5nlsat6solver3imp7max_varEN3sat7literalE.exit.i202 ], [ 1, %if.else.i ], [ 1, %if.then.i208 ]
   %new_lvl.1.i = phi i32 [ %new_lvl.014.i, %_ZNK5nlsat6solver3imp7max_varEN3sat7literalE.exit.i202 ], [ %spec.select.i209, %if.else.i ], [ %94, %if.then.i208 ]
   %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i194, 1
   %exitcond.not.i206 = icmp eq i64 %indvars.iv.next.i205, %wide.trip.count.i192

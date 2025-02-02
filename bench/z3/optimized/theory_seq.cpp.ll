@@ -29007,18 +29007,16 @@ for.body.lr.ph:                                   ; preds = %_ZNK15ref_vector_co
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %first.032 = phi i8 [ 1, %for.body.lr.ph ], [ %first.1, %if.end ]
+  %first.032 = phi i1 [ true, %for.body.lr.ph ], [ false, %if.end ]
   %__begin1.031 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %if.end ]
   %3 = load ptr, ptr %__begin1.031, align 8
-  %tobool = trunc nuw i8 %first.032 to i1
-  br i1 %tobool, label %if.end, label %if.else
+  br i1 %first.032, label %if.end, label %if.else
 
 if.else:                                          ; preds = %for.body
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.7)
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %if.else
-  %first.1 = phi i8 [ %first.032, %if.else ], [ 0, %for.body ]
   %4 = load ptr, ptr %m, align 8
   tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef %3, i32 noundef 2)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.031, i64 8
@@ -29026,7 +29024,7 @@ if.end:                                           ; preds = %for.body, %if.else
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %if.end, %entry, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit
-  %first.0.lcssa = phi i8 [ 1, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ 1, %entry ], [ %first.1, %if.end ]
+  %cmp.not3039 = phi i1 [ true, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ true, %entry ], [ false, %if.end ]
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.37)
   %m_nodes.i18 = getelementptr inbounds nuw i8, ptr %e, i64 24
   %5 = load ptr, ptr %m_nodes.i18, align 8
@@ -29046,18 +29044,16 @@ for.body13.lr.ph:                                 ; preds = %_ZNK15ref_vector_co
   br label %for.body13
 
 for.body13:                                       ; preds = %for.body13.lr.ph, %if.end19
-  %first.235 = phi i8 [ %first.0.lcssa, %for.body13.lr.ph ], [ %first.3, %if.end19 ]
+  %first.235 = phi i1 [ %cmp.not3039, %for.body13.lr.ph ], [ false, %if.end19 ]
   %__begin17.034 = phi ptr [ %5, %for.body13.lr.ph ], [ %incdec.ptr24, %if.end19 ]
   %8 = load ptr, ptr %__begin17.034, align 8
-  %tobool15 = trunc nuw i8 %first.235 to i1
-  br i1 %tobool15, label %if.end19, label %if.else17
+  br i1 %first.235, label %if.end19, label %if.else17
 
 if.else17:                                        ; preds = %for.body13
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.7)
   br label %if.end19
 
 if.end19:                                         ; preds = %for.body13, %if.else17
-  %first.3 = phi i8 [ %first.235, %if.else17 ], [ 0, %for.body13 ]
   %9 = load ptr, ptr %m21, align 8
   tail call void @_Z17ast_ll_bounded_ppRSoR11ast_managerP3astj(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(976) %9, ptr noundef %8, i32 noundef 2)
   %incdec.ptr24 = getelementptr inbounds nuw i8, ptr %__begin17.034, i64 8

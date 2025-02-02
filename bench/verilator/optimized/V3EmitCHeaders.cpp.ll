@@ -9234,7 +9234,6 @@ _ZN7AstNode9privateIsI8AstClassPK13AstNodeModuleEEbPKS_.exit62.thread: ; preds =
           to label %_ZN11EmitCHeader13decorateFirstERbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65 unwind label %51
 
 _ZN11EmitCHeader13decorateFirstERbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65: ; preds = %_ZN7AstNode9privateIsI8AstClassPK13AstNodeModuleEEbPKS_.exit62.thread, %80, %77
-  %.3 = phi i8 [ %.0, %_ZN7AstNode9privateIsI8AstClassPK13AstNodeModuleEEbPKS_.exit62.thread ], [ 0, %80 ], [ 0, %77 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #20
   %84 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc66 unwind label %110
@@ -9416,7 +9415,7 @@ _ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %184
 
 126:                                              ; preds = %_ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit93, %_ZN7AstNode9privateIsI8AstClassPK13AstNodeModuleEEbPKS_.exit62, %_ZNK9V3Options8coverageEv.exit
-  %.1 = phi i8 [ %.0, %_ZN7AstNode9privateIsI8AstClassPK13AstNodeModuleEEbPKS_.exit62 ], [ %.3, %_ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit93 ], [ %.0, %_ZNK9V3Options8coverageEv.exit ]
+  %.1 = phi i8 [ %.0, %_ZN7AstNode9privateIsI8AstClassPK13AstNodeModuleEEbPKS_.exit62 ], [ 0, %_ZN21EmitCBaseVisitorConst4putsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit93 ], [ %.0, %_ZNK9V3Options8coverageEv.exit ]
   %127 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 913), align 1
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %183

@@ -3697,12 +3697,12 @@ _ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread: ; preds = %_ZNSt8optio
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  br label %111
+  br label %110
 
 36:                                               ; preds = %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit.i
   %37 = load i8, ptr %0, align 8, !noalias !9
   %.not.i = icmp eq i8 %37, 11
-  br i1 %.not.i, label %38, label %.thread
+  br i1 %.not.i, label %38, label %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread14
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3712,7 +3712,7 @@ _ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread: ; preds = %_ZNSt8optio
   %43 = udiv i32 %3, %42
   %44 = urem i32 %3, %42
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %.thread
+  br i1 %45, label %46, label %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread14
 
 46:                                               ; preds = %38
   %47 = zext i32 %43 to i64
@@ -3861,7 +3861,7 @@ _ZNSt8optionalIN4llvm5APIntEED2Ev.exit41.i:       ; preds = %91, %88, %85, %82
   br label %_ZN4llvm5APIntD2Ev.exit42.i
 
 _ZN4llvm5APIntD2Ev.exit42.i:                      ; preds = %103, %100, %97, %.thread.i, %61
-  %104 = phi i8 [ 0, %103 ], [ 0, %100 ], [ 0, %97 ], [ 1, %.thread.i ], [ 0, %61 ]
+  %104 = phi i1 [ false, %103 ], [ false, %100 ], [ false, %97 ], [ true, %.thread.i ], [ false, %61 ]
   %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %7) #16, !noalias !9
   %106 = load ptr, ptr %7, align 8, !noalias !9
   %107 = icmp eq ptr %106, %48
@@ -3871,7 +3871,7 @@ _ZN4llvm5APIntD2Ev.exit42.i:                      ; preds = %103, %100, %97, %.t
   call void @free(ptr noundef %106) #16, !noalias !9
   br label %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit
 
-.thread:                                          ; preds = %38, %36
+_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread14: ; preds = %36, %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
@@ -3886,27 +3886,26 @@ _ZL20getSplatableConstantPKN4llvm8ConstantEj.exit: ; preds = %_ZN4llvm5APIntD2Ev
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %110 = trunc nuw i8 %104 to i1
-  br i1 %110, label %111, label %131
+  br i1 %104, label %110, label %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit
 
-111:                                              ; preds = %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit
-  %112 = phi ptr [ %35, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread ], [ %109, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit ]
-  %113 = load ptr, ptr %12, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %115 = load i32, ptr %114, align 8
-  %116 = and i32 %115, 255
-  %117 = add nsw i32 %116, -17
-  %spec.select.i.i = icmp ult i32 %117, 2
-  br i1 %spec.select.i.i, label %118, label %_ZNK4llvm4Type13getScalarTypeEv.exit
+110:                                              ; preds = %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit
+  %111 = phi ptr [ %35, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread ], [ %109, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit ]
+  %112 = load ptr, ptr %12, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load i32, ptr %113, align 8
+  %115 = and i32 %114, 255
+  %116 = add nsw i32 %115, -17
+  %spec.select.i.i = icmp ult i32 %116, 2
+  br i1 %spec.select.i.i, label %117, label %121
 
-118:                                              ; preds = %111
-  %119 = getelementptr inbounds nuw i8, ptr %113, i64 16
+117:                                              ; preds = %110
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %119, align 8
-  %121 = load ptr, ptr %120, align 8
-  br label %_ZNK4llvm4Type13getScalarTypeEv.exit
+  br label %121
 
-_ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %111, %118
-  %.0.i = phi ptr [ %121, %118 ], [ %113, %111 ]
+121:                                              ; preds = %117, %110
+  %.0.i = phi ptr [ %120, %117 ], [ %112, %110 ]
   %122 = call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i) #20
   %.fca.0.extract = extractvalue { i64, i8 } %122, 0
   %.fca.1.extract = extractvalue { i64, i8 } %122, 1
@@ -3924,35 +3923,29 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %111, %118
   %128 = select i1 %or.cond3, i32 %.sroa.speculated, i32 64
   %129 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
   %130 = call fastcc noundef ptr @_ZL15rebuildConstantRN4llvm11LLVMContextEPNS_4TypeERKNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull %.0.i, ptr noundef nonnull align 8 dereferenceable(12) %10, i32 noundef %128)
-  %.pre = load i8, ptr %112, align 8
-  br label %131
+  %.pre = load i8, ptr %111, align 8
+  %131 = trunc i8 %.pre to i1
+  br i1 %131, label %132, label %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit
 
-131:                                              ; preds = %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit, %_ZNK4llvm4Type13getScalarTypeEv.exit
-  %132 = phi ptr [ %112, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %109, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit ]
-  %133 = phi i8 [ %.pre, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %104, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit ]
-  %.0 = phi ptr [ %130, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ null, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit ]
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %135, label %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit
+132:                                              ; preds = %121
+  store i8 0, ptr %111, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %134 = load i32, ptr %133, align 8
+  %135 = icmp ugt i32 %134, 64
+  br i1 %135, label %136, label %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit
 
-135:                                              ; preds = %131
-  store i8 0, ptr %132, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %137 = load i32, ptr %136, align 8
-  %138 = icmp ugt i32 %137, 64
-  br i1 %138, label %139, label %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit
+136:                                              ; preds = %132
+  %137 = load ptr, ptr %10, align 8
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit, label %139
 
-139:                                              ; preds = %135
-  %140 = load ptr, ptr %10, align 8
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit, label %142
-
-142:                                              ; preds = %139
-  call void @_ZdaPv(ptr noundef nonnull %140) #19
+139:                                              ; preds = %136
+  call void @_ZdaPv(ptr noundef nonnull %137) #19
   br label %_ZNSt8optionalIN4llvm5APIntEED2Ev.exit
 
-_ZNSt8optionalIN4llvm5APIntEED2Ev.exit:           ; preds = %.thread, %131, %135, %139, %142
-  %.016 = phi ptr [ null, %.thread ], [ %.0, %131 ], [ %.0, %135 ], [ %.0, %139 ], [ %.0, %142 ]
-  ret ptr %.016
+_ZNSt8optionalIN4llvm5APIntEED2Ev.exit:           ; preds = %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread14, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit, %121, %132, %136, %139
+  %.017 = phi ptr [ %130, %121 ], [ %130, %132 ], [ %130, %136 ], [ %130, %139 ], [ null, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit ], [ null, %_ZL20getSplatableConstantPKN4llvm8ConstantEj.exit.thread14 ]
+  ret ptr %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

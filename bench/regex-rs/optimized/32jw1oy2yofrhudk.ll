@@ -8992,8 +8992,9 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder17add_capture_start
 34:                                               ; preds = %24, %105
   %35 = phi i64 [ %23, %24 ], [ %110, %105 ]
   %.sroa.067.095 = phi i64 [ 0, %24 ], [ %spec.select, %105 ]
-  %36 = icmp ult i64 %.sroa.067.095, %25
-  %37 = zext i1 %36 to i64
+  %36 = icmp uge i64 %.sroa.067.095, %25
+  %not. = xor i1 %36, true
+  %37 = zext i1 %not. to i64
   %spec.select = add nuw i64 %.sroa.067.095, %37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i64 0, ptr %9, align 8
@@ -9044,8 +9045,8 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder17add_capture_start
 
 52:                                               ; preds = %45
   %53 = sub nuw nsw i64 %29, %47
-  %.not98 = icmp eq i64 %47, %29
-  br i1 %.not98, label %._crit_edge, label %.lr.ph
+  %.not97 = icmp eq i64 %47, %29
+  br i1 %.not97, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h828bb2bfe11cec52E.exit61"
   %.val39.pre = load i64, ptr %22, align 8
@@ -9057,8 +9058,8 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder17add_capture_start
   br i1 %54, label %57, label %.invoke, !prof !81
 
 .lr.ph:                                           ; preds = %52, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h828bb2bfe11cec52E.exit61"
-  %.sroa.015.097 = phi i64 [ %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h828bb2bfe11cec52E.exit61" ], [ 0, %52 ]
-  %55 = add nuw i64 %.sroa.015.097, 1
+  %.sroa.015.096 = phi i64 [ %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h828bb2bfe11cec52E.exit61" ], [ 0, %52 ]
+  %55 = add nuw i64 %.sroa.015.096, 1
   %.val37 = load i64, ptr %22, align 8, !noundef !4
   %56 = icmp ugt i64 %.val37, %20
   br i1 %56, label %90, label %.invoke, !prof !81
@@ -9189,9 +9190,9 @@ define void @_ZN14regex_automata3nfa8thompson7builder7Builder17add_capture_start
   %110 = add i64 %109, 1
   store i64 %110, ptr %22, align 8, !alias.scope !1743, !noalias !1746
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %.not.i = icmp ule i64 %spec.select, %25
-  %or.cond.not = select i1 %36, i1 %.not.i, i1 false
-  br i1 %or.cond.not, label %34, label %.loopexit
+  %.not.i = icmp ugt i64 %spec.select, %25
+  %or.cond = select i1 %36, i1 true, i1 %.not.i
+  br i1 %or.cond, label %.loopexit, label %34
 
 111:                                              ; preds = %15
   store i64 -9223372036854775802, ptr %0, align 8

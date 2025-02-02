@@ -9966,7 +9966,7 @@ define void @_ZN10PacketList14drawFarOverlayEv(ptr noundef nonnull align 8 deref
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %104, label %15
+  br i1 %.not, label %102, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -9975,7 +9975,7 @@ define void @_ZN10PacketList14drawFarOverlayEv(ptr noundef nonnull align 8 deref
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 512), align 8
   %.not38 = icmp eq i32 %18, 0
   %or.cond44 = select i1 %.not37, i1 true, i1 %.not38
-  br i1 %or.cond44, label %104, label %19
+  br i1 %or.cond44, label %102, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -10026,14 +10026,14 @@ define void @_ZN10PacketList14drawFarOverlayEv(ptr noundef nonnull align 8 deref
           to label %56 unwind label %89
 
 56:                                               ; preds = %19
-  br i1 %55, label %.thread, label %57
+  br i1 %55, label %96, label %57
 
 57:                                               ; preds = %56
   %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 32), align 8
   %59 = icmp ne i32 %58, 0
   %60 = icmp sgt i32 %54, 0
   %or.cond = and i1 %60, %59
-  br i1 %or.cond, label %61, label %.thread
+  br i1 %or.cond, label %61, label %96
 
 61:                                               ; preds = %57
   invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %4)
@@ -10069,26 +10069,30 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  br label %.outer
+
+.outer:                                           ; preds = %.thread, %.lr.ph
+  %.152.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph ]
+  %.03451.ph = phi i32 [ %93, %.thread ], [ 0, %.lr.ph ]
   br label %76
 
-76:                                               ; preds = %.lr.ph, %92
-  %.153 = phi i8 [ 0, %.lr.ph ], [ %.2, %92 ]
-  %.03452 = phi i32 [ 0, %.lr.ph ], [ %93, %92 ]
+76:                                               ; preds = %.outer, %91
+  %.03451 = phi i32 [ %92, %91 ], [ %.03451.ph, %.outer ]
   %77 = load ptr, ptr %47, align 8
-  %78 = invoke noundef ptr @_ZN15PacketListModel11getRowFdataEi(ptr noundef nonnull align 8 dereferenceable(164) %77, i32 noundef %.03452)
-          to label %79 unwind label %.loopexit
+  %78 = invoke noundef ptr @_ZN15PacketListModel11getRowFdataEi(ptr noundef nonnull align 8 dereferenceable(164) %77, i32 noundef %.03451)
+          to label %79 unwind label %.loopexit.loopexit
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 50
   %81 = load i16, ptr %80, align 2
   %82 = and i16 %81, 112
   %or.cond46 = icmp eq i16 %82, 0
-  br i1 %or.cond46, label %92, label %83
+  br i1 %or.cond46, label %91, label %83
 
 83:                                               ; preds = %79
   %84 = and i16 %81, 32
   %.not40 = icmp eq i16 %84, 0
-  %85 = mul i32 %.03452, %46
+  %85 = mul i32 %.03451, %46
   %86 = sdiv i32 %85, %54
   %87 = select i1 %.not40, i32 1, i32 %71
   %88 = select i1 %.not40, i32 %70, i32 %72
@@ -10098,80 +10102,85 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %65
   store i32 %88, ptr %74, align 4
   store i32 %86, ptr %75, align 4
   invoke void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %2, i32 noundef 1)
-          to label %_ZN8QPainter8drawLineEiiii.exit unwind label %.loopexit
-
-_ZN8QPainter8drawLineEiiii.exit:                  ; preds = %83
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %92
+          to label %.thread unwind label %.loopexit.loopexit.split-lp
 
 89:                                               ; preds = %61, %19
   %90 = landingpad { ptr, i32 }
           cleanup
-  br label %105
+  br label %103
 
-.loopexit:                                        ; preds = %76, %83
-  %lpad.loopexit = landingpad { ptr, i32 }
+.loopexit.loopexit:                               ; preds = %76
+  %lpad.loopexit57 = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %.loopexit
 
-.loopexit.split-lp:                               ; preds = %62, %63, %_ZNK8QPalette4textEv.exit, %69, %95, %65
+.loopexit.loopexit.split-lp:                      ; preds = %83
+  %lpad.loopexit.split-lp58 = landingpad { ptr, i32 }
+          cleanup
+  br label %.loopexit
+
+.loopexit.split-lp:                               ; preds = %62, %63, %_ZNK8QPalette4textEv.exit, %69, %._crit_edge.thread, %65
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %.loopexit
 
-91:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit57, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp58, %.loopexit.loopexit.split-lp ]
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
-  br label %105
+  br label %103
 
-92:                                               ; preds = %_ZN8QPainter8drawLineEiiii.exit, %79
-  %.2 = phi i8 [ %.153, %79 ], [ 1, %_ZN8QPainter8drawLineEiiii.exit ]
-  %93 = add nuw nsw i32 %.03452, 1
-  %exitcond.not = icmp eq i32 %93, %54
+91:                                               ; preds = %79
+  %92 = add nuw nsw i32 %.03451, 1
+  %exitcond.not = icmp eq i32 %92, %54
   br i1 %exitcond.not, label %._crit_edge, label %76, !llvm.loop !145
 
-._crit_edge:                                      ; preds = %92
-  %94 = trunc nuw i8 %.2 to i1
-  br i1 %94, label %95, label %98
+.thread:                                          ; preds = %83
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  %93 = add nuw nsw i32 %.03451, 1
+  %exitcond.not54 = icmp eq i32 %93, %54
+  br i1 %exitcond.not54, label %._crit_edge.thread, label %.outer, !llvm.loop !145
 
-95:                                               ; preds = %._crit_edge
-  %96 = load ptr, ptr %20, align 8
-  invoke void @_ZN16OverlayScrollBar20setMarkedPacketImageER6QImage(ptr noundef nonnull align 8 dereferenceable(196) %96, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %97 unwind label %.loopexit.split-lp
+._crit_edge:                                      ; preds = %91
+  br i1 %.152.ph, label %._crit_edge.thread, label %.critedge
 
-97:                                               ; preds = %95
+._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
+  %94 = load ptr, ptr %20, align 8
+  invoke void @_ZN16OverlayScrollBar20setMarkedPacketImageER6QImage(ptr noundef nonnull align 8 dereferenceable(196) %94, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %95 unwind label %.loopexit.split-lp
+
+95:                                               ; preds = %._crit_edge.thread
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
-  br label %103
+  br label %101
 
-98:                                               ; preds = %._crit_edge
+.critedge:                                        ; preds = %._crit_edge
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
-  br label %.thread
+  br label %96
 
-.thread:                                          ; preds = %98, %57, %56
+96:                                               ; preds = %56, %57, %.critedge
   call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
-  %99 = load ptr, ptr %20, align 8
-  invoke void @_ZN16OverlayScrollBar20setMarkedPacketImageER6QImage(ptr noundef nonnull align 8 dereferenceable(196) %99, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %100 unwind label %101
+  %97 = load ptr, ptr %20, align 8
+  invoke void @_ZN16OverlayScrollBar20setMarkedPacketImageER6QImage(ptr noundef nonnull align 8 dereferenceable(196) %97, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %98 unwind label %99
 
-100:                                              ; preds = %.thread
+98:                                               ; preds = %96
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
-  br label %103
+  br label %101
 
-101:                                              ; preds = %.thread
-  %102 = landingpad { ptr, i32 }
+99:                                               ; preds = %96
+  %100 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #21
-  br label %105
+  br label %103
 
-103:                                              ; preds = %97, %100
+101:                                              ; preds = %95, %98
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
-  br label %104
+  br label %102
 
-104:                                              ; preds = %12, %15, %103
+102:                                              ; preds = %12, %15, %101
   ret void
 
-105:                                              ; preds = %101, %91, %89
-  %.pn = phi { ptr, i32 } [ %102, %101 ], [ %lpad.phi, %91 ], [ %90, %89 ]
+103:                                              ; preds = %99, %.loopexit, %89
+  %.pn = phi { ptr, i32 } [ %100, %99 ], [ %lpad.phi, %.loopexit ], [ %90, %89 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #21
   resume { ptr, i32 } %.pn
 }

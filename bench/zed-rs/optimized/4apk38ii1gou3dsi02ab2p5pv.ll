@@ -2425,7 +2425,7 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
 37:                                               ; preds = %93, %38
   %.pn18 = phi { ptr, i32 } [ %39, %38 ], [ %.pn16, %93 ]
   invoke void @"_ZN4core3ptr93drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$snippet_provider..Snippet$GT$$GT$$GT$17h26ae27902c3b1271E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #25
-          to label %261 unwind label %257
+          to label %263 unwind label %257
 
 38:                                               ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h672f27e7521ae527E.exit.thread", %2
   %39 = landingpad { ptr, i32 }
@@ -2517,8 +2517,8 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
   %92 = icmp eq ptr %89, null
   br i1 %92, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h672f27e7521ae527E.exit.thread", label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h672f27e7521ae527E.exit"
 
-93:                                               ; preds = %260, %259, %94
-  %.pn16 = phi { ptr, i32 } [ %95, %94 ], [ %.pn14, %260 ], [ %.pn14, %259 ]
+93:                                               ; preds = %262, %261, %94
+  %.pn16 = phi { ptr, i32 } [ %95, %94 ], [ %.pn14, %262 ], [ %.pn14, %261 ]
   invoke void @"_ZN4core3ptr129drop_in_place$LT$std..collections..hash..map..IntoIter$LT$alloc..string..String$C$snippet_provider..format..VSCodeSnippet$GT$$GT$17ha52e5cfa9835fd3eE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %32) #25
           to label %37 unwind label %257
 
@@ -2706,11 +2706,11 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
   ret void
 
-.body22:                                          ; preds = %202, %206, %193, %143, %140, %115, %.thread
-  %.pn14 = phi { ptr, i32 } [ %.pn1262, %.thread ], [ %144, %143 ], [ %lpad.phi, %140 ], [ %116, %115 ], [ %203, %202 ], [ %203, %206 ], [ %194, %193 ]
-  %.sroa.06.1 = phi i1 [ false, %.thread ], [ %.sroa.06.0, %143 ], [ true, %140 ], [ true, %115 ], [ false, %202 ], [ false, %206 ], [ false, %193 ]
+.body22:                                          ; preds = %202, %206, %193, %143, %140, %115, %260
+  %.pn14 = phi { ptr, i32 } [ %.pn12.ph, %260 ], [ %144, %143 ], [ %lpad.phi, %140 ], [ %116, %115 ], [ %194, %193 ], [ %203, %206 ], [ %203, %202 ]
+  %.sroa.06.1 = phi i1 [ false, %260 ], [ %.sroa.06.0, %143 ], [ true, %140 ], [ true, %115 ], [ false, %193 ], [ false, %206 ], [ false, %202 ]
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$snippet_provider..format..ListOrDirect$GT$17h6c456b5f4506a725E"(ptr noalias noundef align 8 dereferenceable(32) %30) #25
-          to label %259 unwind label %257
+          to label %261 unwind label %257
 
 143:                                              ; preds = %"_ZN16snippet_provider16file_to_snippets28_$u7b$$u7b$closure$u7d$$u7d$17h1fc6eed6ee222bcbE.exit.i", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0736806da6a969d4E.exit"
   %.sroa.06.0 = phi i1 [ false, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0736806da6a969d4E.exit" ], [ true, %"_ZN16snippet_provider16file_to_snippets28_$u7b$$u7b$closure$u7d$$u7d$17h1fc6eed6ee222bcbE.exit.i" ]
@@ -2748,20 +2748,20 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
   store ptr %14, ptr %62, align 8, !noalias !364
   store ptr @anon.a2e902e78e4debc2a6f986888344800e.1.llvm.4731052299134177300, ptr %63, align 8, !noalias !364
   %148 = invoke noundef zeroext i1 @"_ZN77_$LT$snippet_provider..format..ListOrDirect$u20$as$u20$core..fmt..Display$GT$3fmt17hb6dd16ab4ec28f96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %21, ptr noalias noundef nonnull align 8 dereferenceable(64) %13)
-          to label %150 unwind label %.loopexit76, !noalias !369
+          to label %150 unwind label %.loopexit70, !noalias !369
 
-.loopexit76:                                      ; preds = %147
-  %lpad.loopexit78 = landingpad { ptr, i32 }
+.loopexit70:                                      ; preds = %147
+  %lpad.loopexit72 = landingpad { ptr, i32 }
           cleanup
   br label %149
 
-.loopexit.split-lp77:                             ; preds = %151
-  %lpad.loopexit.split-lp79 = landingpad { ptr, i32 }
+.loopexit.split-lp71:                             ; preds = %151
+  %lpad.loopexit.split-lp73 = landingpad { ptr, i32 }
           cleanup
   br label %149
 
-149:                                              ; preds = %.loopexit.split-lp77, %.loopexit76
-  %lpad.phi80 = phi { ptr, i32 } [ %lpad.loopexit78, %.loopexit76 ], [ %lpad.loopexit.split-lp79, %.loopexit.split-lp77 ]
+149:                                              ; preds = %.loopexit.split-lp71, %.loopexit70
+  %lpad.phi74 = phi { ptr, i32 } [ %lpad.loopexit72, %.loopexit70 ], [ %lpad.loopexit.split-lp73, %.loopexit.split-lp71 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb299dd3a0e6f6d25E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #25
           to label %.body.i unwind label %152, !noalias !369
 
@@ -2771,7 +2771,7 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
 
 151:                                              ; preds = %150
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.a2e902e78e4debc2a6f986888344800e.3.llvm.4731052299134177300, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.a2e902e78e4debc2a6f986888344800e.18.llvm.4731052299134177300, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2e902e78e4debc2a6f986888344800e.5.llvm.4731052299134177300) #24
-          to label %.noexc.i.i unwind label %.loopexit.split-lp77, !noalias !369
+          to label %.noexc.i.i unwind label %.loopexit.split-lp71, !noalias !369
 
 .noexc.i.i:                                       ; preds = %151
   unreachable
@@ -2784,7 +2784,7 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
 
 .body.i:                                          ; preds = %149
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$snippet_provider..format..ListOrDirect$GT$17h6c456b5f4506a725E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #25
-          to label %.thread unwind label %166, !noalias !370
+          to label %260 unwind label %166, !noalias !370
 
 154:                                              ; preds = %150
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !364
@@ -2845,22 +2845,22 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
   store ptr %11, ptr %70, align 8, !noalias !385
   store ptr @anon.a2e902e78e4debc2a6f986888344800e.1.llvm.4731052299134177300, ptr %71, align 8, !noalias !385
   %169 = invoke noundef zeroext i1 @"_ZN77_$LT$snippet_provider..format..ListOrDirect$u20$as$u20$core..fmt..Display$GT$3fmt17hb6dd16ab4ec28f96E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %30, ptr noalias noundef nonnull align 8 dereferenceable(64) %10)
-          to label %171 unwind label %.loopexit81, !noalias !389
+          to label %171 unwind label %.loopexit75, !noalias !389
 
-.loopexit81:                                      ; preds = %168
-  %lpad.loopexit83 = landingpad { ptr, i32 }
+.loopexit75:                                      ; preds = %168
+  %lpad.loopexit77 = landingpad { ptr, i32 }
           cleanup
   br label %170
 
-.loopexit.split-lp82:                             ; preds = %172
-  %lpad.loopexit.split-lp84 = landingpad { ptr, i32 }
+.loopexit.split-lp76:                             ; preds = %172
+  %lpad.loopexit.split-lp78 = landingpad { ptr, i32 }
           cleanup
   br label %170
 
-170:                                              ; preds = %.loopexit.split-lp82, %.loopexit81
-  %lpad.phi85 = phi { ptr, i32 } [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
+170:                                              ; preds = %.loopexit.split-lp76, %.loopexit75
+  %lpad.phi79 = phi { ptr, i32 } [ %lpad.loopexit77, %.loopexit75 ], [ %lpad.loopexit.split-lp78, %.loopexit.split-lp76 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb299dd3a0e6f6d25E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #25
-          to label %.thread63 unwind label %173, !noalias !389
+          to label %259 unwind label %173, !noalias !389
 
 171:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !385
@@ -2868,7 +2868,7 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
 
 172:                                              ; preds = %171
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.a2e902e78e4debc2a6f986888344800e.3.llvm.4731052299134177300, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.a2e902e78e4debc2a6f986888344800e.18.llvm.4731052299134177300, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2e902e78e4debc2a6f986888344800e.5.llvm.4731052299134177300) #24
-          to label %.noexc.i unwind label %.loopexit.split-lp82, !noalias !389
+          to label %.noexc.i unwind label %.loopexit.split-lp76, !noalias !389
 
 .noexc.i:                                         ; preds = %172
   unreachable
@@ -2882,7 +2882,7 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
 175:                                              ; preds = %236, %165, %157
   %176 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %260
 
 "_ZN16snippet_provider16file_to_snippets28_$u7b$$u7b$closure$u7d$$u7d$17h3a1874b142136873E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb299dd3a0e6f6d25E.exit.i.i", %165
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -2893,7 +2893,7 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
 177:                                              ; preds = %225
   %178 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread63
+  br label %259
 
 179:                                              ; preds = %171
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !385
@@ -3150,32 +3150,32 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
   %256 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hb299dd3a0e6f6d25E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #25
-          to label %.thread63 unwind label %257
+          to label %259 unwind label %257
 
-257:                                              ; preds = %260, %.thread, %.thread63, %255, %.body22, %93, %37
+257:                                              ; preds = %262, %260, %259, %255, %.body22, %93, %37
   %258 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #26
   unreachable
 
-.thread63:                                        ; preds = %255, %170, %177
-  %.pn66 = phi { ptr, i32 } [ %178, %177 ], [ %lpad.phi85, %170 ], [ %256, %255 ]
+259:                                              ; preds = %255, %170, %177
+  %.pn.ph = phi { ptr, i32 } [ %256, %255 ], [ %178, %177 ], [ %lpad.phi79, %170 ]
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0736806da6a969d4E"(ptr noalias noundef align 8 dereferenceable(24) %27) #25
-          to label %.thread unwind label %257
+          to label %260 unwind label %257
 
-.thread:                                          ; preds = %.thread63, %.body.i, %175
-  %.pn1262 = phi { ptr, i32 } [ %176, %175 ], [ %lpad.phi80, %.body.i ], [ %.pn66, %.thread63 ]
+260:                                              ; preds = %259, %.body.i, %175
+  %.pn12.ph = phi { ptr, i32 } [ %.pn.ph, %259 ], [ %176, %175 ], [ %lpad.phi74, %.body.i ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hc585adbd83c2e8ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %29) #25
           to label %.body22 unwind label %257
 
-259:                                              ; preds = %.body22
-  br i1 %.sroa.06.1, label %260, label %93
+261:                                              ; preds = %.body22
+  br i1 %.sroa.06.1, label %262, label %93
 
-260:                                              ; preds = %259
+262:                                              ; preds = %261
   invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$snippet_provider..format..ListOrDirect$GT$$GT$17h783ed06df19e909eE"(ptr noalias noundef align 8 dereferenceable(32) %57) #25
           to label %93 unwind label %257
 
-261:                                              ; preds = %37
+263:                                              ; preds = %37
   resume { ptr, i32 } %.pn18
 }
 

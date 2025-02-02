@@ -6113,18 +6113,19 @@ define internal fastcc void @"_ZN4core3ptr331drop_in_place$LT$hashbrown..scopegu
   br label %8
 
 8:                                                ; preds = %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit.i.i", %.preheader.i.i
-  %.sroa.0.08.i.i = phi i64 [ 0, %.preheader.i.i ], [ %spec.select6.i.i, %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit.i.i" ]
-  %9 = icmp ult i64 %.sroa.0.08.i.i, %.0.val
-  %10 = zext i1 %9 to i64
-  %spec.select6.i.i = add nuw i64 %.sroa.0.08.i.i, %10
+  %.sroa.0.07.i.i = phi i64 [ 0, %.preheader.i.i ], [ %spec.select6.i.i, %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit.i.i" ]
+  %9 = icmp uge i64 %.sroa.0.07.i.i, %.0.val
+  %not..i.i = xor i1 %9, true
+  %10 = zext i1 %not..i.i to i64
+  %spec.select6.i.i = add nuw i64 %.sroa.0.07.i.i, %10
   %11 = load ptr, ptr %.8.val, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %11, i64 %.sroa.0.08.i.i
+  %12 = getelementptr inbounds i8, ptr %11, i64 %.sroa.0.07.i.i
   %13 = load i8, ptr %12, align 1, !noundef !4
   %14 = icmp sgt i8 %13, -1
   br i1 %14, label %15, label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit.i.i"
 
 15:                                               ; preds = %8
-  %16 = sub nsw i64 0, %.sroa.0.08.i.i
+  %16 = sub nsw i64 0, %.sroa.0.07.i.i
   %17 = getelementptr inbounds { i32, [1 x i32], { ptr, [3 x i64] } }, ptr %11, i64 %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1132)
   %18 = getelementptr inbounds i8, ptr %17, i64 -32
@@ -6160,9 +6161,9 @@ define internal fastcc void @"_ZN4core3ptr331drop_in_place$LT$hashbrown..scopegu
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit.i.i"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit.i.i": ; preds = %25, %21, %15, %8
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %9, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %8, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hacd310392019c2efE.exit"
+  %.not.i.i.i = icmp ugt i64 %spec.select6.i.i, %.0.val
+  %or.cond.i.i = select i1 %9, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hacd310392019c2efE.exit", label %8
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hacd310392019c2efE.exit": ; preds = %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit.i.i", %0
   ret void

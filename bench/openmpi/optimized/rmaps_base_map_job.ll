@@ -733,62 +733,62 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
 
 398:                                              ; preds = %395
   %399 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %100, i16 noundef zeroext 276, ptr noundef null, i16 noundef zeroext 1) #14
-  br i1 %399, label %403, label %400
+  br i1 %399, label %405, label %400
 
 400:                                              ; preds = %398
   %401 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %100, i16 noundef zeroext 282, ptr noundef null, i16 noundef zeroext 1) #14
-  %402 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 288), align 8
-  %spec.select = select i1 %401, i8 0, i8 %402
-  %spec.select988 = select i1 %401, ptr null, ptr %397
-  br label %403
+  br i1 %401, label %405, label %402
 
-403:                                              ; preds = %400, %398
-  %.1601 = phi i8 [ 1, %398 ], [ %spec.select, %400 ]
-  %.1597 = phi ptr [ %397, %398 ], [ %spec.select988, %400 ]
-  %404 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
-  %or.cond751 = icmp ult i32 %404, 64
-  br i1 %or.cond751, label %405, label %422
+402:                                              ; preds = %400
+  %403 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 288), align 8
+  %404 = trunc i8 %403 to i1
+  br label %405
 
-405:                                              ; preds = %403
-  %406 = zext nneg i32 %404 to i64
-  %407 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %406, i32 2
-  %408 = load i32, ptr %407, align 4
-  %409 = icmp sgt i32 %408, 4
-  br i1 %409, label %410, label %422
+405:                                              ; preds = %400, %398, %402
+  %.1601 = phi i1 [ %404, %402 ], [ true, %398 ], [ false, %400 ]
+  %.1597 = phi ptr [ %397, %402 ], [ %397, %398 ], [ null, %400 ]
+  %406 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
+  %or.cond751 = icmp ult i32 %406, 64
+  br i1 %or.cond751, label %407, label %423
 
-410:                                              ; preds = %405
-  %411 = getelementptr inbounds nuw i8, ptr %44, i64 168
-  %412 = call ptr @prte_util_print_jobids(ptr noundef nonnull %411) #14
-  %413 = trunc i8 %.1601 to i1
-  %414 = select i1 %413, ptr @.str.16, ptr @.str.17
-  %415 = icmp eq ptr %.1597, null
-  br i1 %415, label %419, label %416
+407:                                              ; preds = %405
+  %408 = zext nneg i32 %406 to i64
+  %409 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %408, i32 2
+  %410 = load i32, ptr %409, align 4
+  %411 = icmp sgt i32 %410, 4
+  br i1 %411, label %412, label %423
 
-416:                                              ; preds = %410
-  %417 = getelementptr inbounds nuw i8, ptr %.1597, i64 168
-  %418 = call ptr @prte_util_print_jobids(ptr noundef nonnull %417) #14
-  br label %419
+412:                                              ; preds = %407
+  %413 = getelementptr inbounds nuw i8, ptr %44, i64 168
+  %414 = call ptr @prte_util_print_jobids(ptr noundef nonnull %413) #14
+  %415 = select i1 %.1601, ptr @.str.16, ptr @.str.17
+  %416 = icmp eq ptr %.1597, null
+  br i1 %416, label %420, label %417
 
-419:                                              ; preds = %410, %416
-  %420 = phi ptr [ %418, %416 ], [ @.str.18, %410 ]
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %404, ptr noundef nonnull @.str.15, ptr noundef %412, ptr noundef nonnull %414, ptr noundef %420) #14
-  br label %422
+417:                                              ; preds = %412
+  %418 = getelementptr inbounds nuw i8, ptr %.1597, i64 168
+  %419 = call ptr @prte_util_print_jobids(ptr noundef nonnull %418) #14
+  br label %420
+
+420:                                              ; preds = %412, %417
+  %421 = phi ptr [ %419, %417 ], [ @.str.18, %412 ]
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %406, ptr noundef nonnull @.str.15, ptr noundef %414, ptr noundef nonnull %415, ptr noundef %421) #14
+  br label %423
 
 .thread865:                                       ; preds = %392, %395
-  %421 = load ptr, ptr %4, align 8
-  call void @PMIx_Proc_free(ptr noundef %421, i64 noundef 1) #14
+  %422 = load ptr, ptr %4, align 8
+  call void @PMIx_Proc_free(ptr noundef %422, i64 noundef 1) #14
   store ptr null, ptr %4, align 8
   br label %.thread869
 
-422:                                              ; preds = %419, %405, %403
-  %423 = load ptr, ptr %4, align 8
-  call void @PMIx_Proc_free(ptr noundef %423, i64 noundef 1) #14
+423:                                              ; preds = %420, %407, %405
+  %424 = load ptr, ptr %4, align 8
+  call void @PMIx_Proc_free(ptr noundef %424, i64 noundef 1) #14
   store ptr null, ptr %4, align 8
-  %424 = trunc i8 %.1601 to i1
   %.not691 = icmp eq ptr %.1597, null
-  br i1 %424, label %425, label %465
+  br i1 %.1601, label %425, label %465
 
-425:                                              ; preds = %422
+425:                                              ; preds = %423
   br i1 %.not691, label %.thread869, label %426
 
 426:                                              ; preds = %425
@@ -845,7 +845,6 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %.thread876.sink.split
 
 .thread869:                                       ; preds = %390, %.thread865, %425
-  %.3603861874 = phi i8 [ %.1601, %425 ], [ 1, %.thread865 ], [ 1, %390 ]
   %455 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %100, i16 noundef zeroext 279, ptr noundef null, i16 noundef zeroext 1) #14
   br i1 %455, label %.thread887, label %456
 
@@ -866,7 +865,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   %464 = call i32 @prte_set_attribute(ptr noundef nonnull %100, i16 noundef zeroext 280, i1 noundef zeroext false, ptr noundef null, i16 noundef zeroext 1) #14
   br label %.thread887
 
-465:                                              ; preds = %422
+465:                                              ; preds = %423
   br i1 %.not691, label %.thread887, label %.thread876
 
 .thread876.sink.split:                            ; preds = %452, %450, %447
@@ -875,6 +874,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %.thread876
 
 .thread876:                                       ; preds = %.thread876.sink.split, %443, %445, %465
+  %.3603860882 = phi i8 [ 0, %465 ], [ 1, %445 ], [ 1, %443 ], [ 1, %.thread876.sink.split ]
   %467 = load ptr, ptr %74, align 8
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 136
   %469 = load i16, ptr %468, align 8
@@ -908,9 +908,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
 
 .thread887:                                       ; preds = %.thread869, %456, %463, %461, %477, %479, %.thread876, %465
   %.not692885 = phi i1 [ false, %477 ], [ false, %479 ], [ false, %.thread876 ], [ true, %465 ], [ true, %461 ], [ true, %463 ], [ true, %456 ], [ true, %.thread869 ]
-  %.3603860883 = phi i8 [ %.1601, %477 ], [ %.1601, %479 ], [ %.1601, %.thread876 ], [ %.1601, %465 ], [ %.3603861874, %461 ], [ %.3603861874, %463 ], [ %.3603861874, %456 ], [ %.3603861874, %.thread869 ]
+  %.3603860883 = phi i8 [ %.3603860882, %477 ], [ %.3603860882, %479 ], [ %.3603860882, %.thread876 ], [ 0, %465 ], [ 1, %461 ], [ 1, %463 ], [ 1, %456 ], [ 1, %.thread869 ]
   %.3599863881 = phi ptr [ %.1597, %477 ], [ %.1597, %479 ], [ %.1597, %.thread876 ], [ null, %465 ], [ null, %461 ], [ null, %463 ], [ null, %456 ], [ null, %.thread869 ]
-  %485 = phi i1 [ %424, %477 ], [ %424, %479 ], [ %424, %.thread876 ], [ false, %465 ], [ true, %461 ], [ true, %463 ], [ true, %456 ], [ true, %.thread869 ]
+  %485 = phi i1 [ %.1601, %477 ], [ %.1601, %479 ], [ %.1601, %.thread876 ], [ false, %465 ], [ true, %461 ], [ true, %463 ], [ true, %456 ], [ true, %.thread869 ]
   %486 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %487 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %100, i16 noundef zeroext 237, ptr noundef nonnull %486, i16 noundef zeroext 3) #14
   %488 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %100, i16 noundef zeroext 277, ptr noundef nonnull %8, i16 noundef zeroext 13) #14
@@ -1282,9 +1282,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %1724
 
 701:                                              ; preds = %633, %646, %659, %671, %665, %654, %638, %625
-  %.sink989 = phi i16 [ 8, %633 ], [ 2, %646 ], [ 6, %659 ], [ 4, %671 ], [ 5, %665 ], [ 3, %654 ], [ 7, %638 ], [ 1, %625 ]
+  %.sink988 = phi i16 [ 8, %633 ], [ 2, %646 ], [ 6, %659 ], [ 4, %671 ], [ 5, %665 ], [ 3, %654 ], [ 7, %638 ], [ 1, %625 ]
   %702 = getelementptr inbounds nuw i8, ptr %9, i64 42
-  store i16 %.sink989, ptr %702, align 2
+  store i16 %.sink988, ptr %702, align 2
   %703 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %703) #14
   call void @PMIx_Argv_free(ptr noundef nonnull %585) #14
@@ -2120,7 +2120,7 @@ pmix_obj_run_destructors.exit809:                 ; preds = %.lr.ph.i806, %._cri
   br i1 %.not720, label %1142, label %.critedge765
 
 1142:                                             ; preds = %1140
-  %1143 = trunc i8 %.0600 to i1
+  %1143 = trunc nuw i8 %.0600 to i1
   br i1 %1143, label %1144, label %1165
 
 1144:                                             ; preds = %1142
@@ -2302,7 +2302,7 @@ switch.early.test:                                ; preds = %.critedge765
   br label %.critedge771
 
 1241:                                             ; preds = %1236
-  %1242 = trunc i8 %.0600 to i1
+  %1242 = trunc nuw i8 %.0600 to i1
   br i1 %1242, label %1243, label %1264
 
 1243:                                             ; preds = %1241
@@ -3137,10 +3137,10 @@ pmix_pointer_array_get_item.exit821:              ; preds = %1499, %1512
   br label %1724
 
 1724:                                             ; preds = %1701, %1719, %1714, %1704, %.loopexit, %1673, %1668, %1658, %1614, %1634, %1629, %1619, %1588, %1607, %1602, %1592, %1547, %1567, %1562, %1552, %1518, %1538, %1533, %1523, %1475, %1494, %1489, %1479, %1397, %1419, %1414, %1404, %1358, %1378, %1373, %1363, %1309, %1333, %1328, %1318, %1272, %1291, %1286, %1276, %1204, %1227, %1222, %1212, %1173, %1192, %1187, %1177, %1106, %1126, %1121, %1111, %1076, %1098, %1093, %1083, %1044, %1065, %1060, %1050, %pmix_obj_run_destructors.exit796, %810, %805, %795, %674, %696, %691, %681, %587, %609, %604, %594, %558, %577, %572, %562, %358, %378, %373, %363, %330, %350, %345, %335, %302, %322, %317, %307, %270, %290, %285, %275, %242, %262, %257, %247, %210, %230, %225, %215, %183, %203, %198, %188, %155, %175, %170, %160, %127, %147, %142, %132, %48, %69, %64, %54
-  %.sink991 = phi i32 [ 69, %54 ], [ 69, %64 ], [ 69, %69 ], [ 69, %48 ], [ 69, %132 ], [ 69, %142 ], [ 69, %147 ], [ 69, %127 ], [ 69, %160 ], [ 69, %170 ], [ 69, %175 ], [ 69, %155 ], [ 69, %188 ], [ 69, %198 ], [ 69, %203 ], [ 69, %183 ], [ 69, %215 ], [ 69, %225 ], [ 69, %230 ], [ 69, %210 ], [ 69, %247 ], [ 69, %257 ], [ 69, %262 ], [ 69, %242 ], [ 69, %275 ], [ 69, %285 ], [ 69, %290 ], [ 69, %270 ], [ 69, %307 ], [ 69, %317 ], [ 69, %322 ], [ 69, %302 ], [ 69, %335 ], [ 69, %345 ], [ 69, %350 ], [ 69, %330 ], [ 69, %363 ], [ 69, %373 ], [ 69, %378 ], [ 69, %358 ], [ 69, %562 ], [ 69, %572 ], [ 69, %577 ], [ 69, %558 ], [ 69, %594 ], [ 69, %604 ], [ 69, %609 ], [ 69, %587 ], [ 69, %681 ], [ 69, %691 ], [ 69, %696 ], [ 69, %674 ], [ 69, %795 ], [ 69, %805 ], [ 69, %810 ], [ 69, %pmix_obj_run_destructors.exit796 ], [ 69, %1050 ], [ 69, %1060 ], [ 69, %1065 ], [ 69, %1044 ], [ 69, %1083 ], [ 69, %1093 ], [ 69, %1098 ], [ 69, %1076 ], [ 69, %1111 ], [ 69, %1121 ], [ 69, %1126 ], [ 69, %1106 ], [ 69, %1177 ], [ 69, %1187 ], [ 69, %1192 ], [ 69, %1173 ], [ 69, %1212 ], [ 69, %1222 ], [ 69, %1227 ], [ 69, %1204 ], [ 69, %1276 ], [ 69, %1286 ], [ 69, %1291 ], [ 69, %1272 ], [ 69, %1318 ], [ 69, %1328 ], [ 69, %1333 ], [ 69, %1309 ], [ 69, %1363 ], [ 69, %1373 ], [ 69, %1378 ], [ 69, %1358 ], [ 69, %1404 ], [ 69, %1414 ], [ 69, %1419 ], [ 69, %1397 ], [ 69, %1479 ], [ 69, %1489 ], [ 69, %1494 ], [ 69, %1475 ], [ 69, %1523 ], [ 69, %1533 ], [ 69, %1538 ], [ 69, %1518 ], [ 69, %1552 ], [ 69, %1562 ], [ 69, %1567 ], [ 69, %1547 ], [ 69, %1592 ], [ 69, %1602 ], [ 69, %1607 ], [ 69, %1588 ], [ 69, %1619 ], [ 69, %1629 ], [ 69, %1634 ], [ 69, %1614 ], [ 69, %1658 ], [ 69, %1668 ], [ 69, %1673 ], [ 69, %.loopexit ], [ 6, %1704 ], [ 6, %1714 ], [ 6, %1719 ], [ 6, %1701 ]
+  %.sink990 = phi i32 [ 69, %54 ], [ 69, %64 ], [ 69, %69 ], [ 69, %48 ], [ 69, %132 ], [ 69, %142 ], [ 69, %147 ], [ 69, %127 ], [ 69, %160 ], [ 69, %170 ], [ 69, %175 ], [ 69, %155 ], [ 69, %188 ], [ 69, %198 ], [ 69, %203 ], [ 69, %183 ], [ 69, %215 ], [ 69, %225 ], [ 69, %230 ], [ 69, %210 ], [ 69, %247 ], [ 69, %257 ], [ 69, %262 ], [ 69, %242 ], [ 69, %275 ], [ 69, %285 ], [ 69, %290 ], [ 69, %270 ], [ 69, %307 ], [ 69, %317 ], [ 69, %322 ], [ 69, %302 ], [ 69, %335 ], [ 69, %345 ], [ 69, %350 ], [ 69, %330 ], [ 69, %363 ], [ 69, %373 ], [ 69, %378 ], [ 69, %358 ], [ 69, %562 ], [ 69, %572 ], [ 69, %577 ], [ 69, %558 ], [ 69, %594 ], [ 69, %604 ], [ 69, %609 ], [ 69, %587 ], [ 69, %681 ], [ 69, %691 ], [ 69, %696 ], [ 69, %674 ], [ 69, %795 ], [ 69, %805 ], [ 69, %810 ], [ 69, %pmix_obj_run_destructors.exit796 ], [ 69, %1050 ], [ 69, %1060 ], [ 69, %1065 ], [ 69, %1044 ], [ 69, %1083 ], [ 69, %1093 ], [ 69, %1098 ], [ 69, %1076 ], [ 69, %1111 ], [ 69, %1121 ], [ 69, %1126 ], [ 69, %1106 ], [ 69, %1177 ], [ 69, %1187 ], [ 69, %1192 ], [ 69, %1173 ], [ 69, %1212 ], [ 69, %1222 ], [ 69, %1227 ], [ 69, %1204 ], [ 69, %1276 ], [ 69, %1286 ], [ 69, %1291 ], [ 69, %1272 ], [ 69, %1318 ], [ 69, %1328 ], [ 69, %1333 ], [ 69, %1309 ], [ 69, %1363 ], [ 69, %1373 ], [ 69, %1378 ], [ 69, %1358 ], [ 69, %1404 ], [ 69, %1414 ], [ 69, %1419 ], [ 69, %1397 ], [ 69, %1479 ], [ 69, %1489 ], [ 69, %1494 ], [ 69, %1475 ], [ 69, %1523 ], [ 69, %1533 ], [ 69, %1538 ], [ 69, %1518 ], [ 69, %1552 ], [ 69, %1562 ], [ 69, %1567 ], [ 69, %1547 ], [ 69, %1592 ], [ 69, %1602 ], [ 69, %1607 ], [ 69, %1588 ], [ 69, %1619 ], [ 69, %1629 ], [ 69, %1634 ], [ 69, %1614 ], [ 69, %1658 ], [ 69, %1668 ], [ 69, %1673 ], [ 69, %.loopexit ], [ 6, %1704 ], [ 6, %1714 ], [ 6, %1719 ], [ 6, %1701 ]
   %.0577 = phi ptr [ %2, %54 ], [ %2, %64 ], [ %2, %69 ], [ %2, %48 ], [ %2, %132 ], [ %2, %142 ], [ %2, %147 ], [ %2, %127 ], [ %2, %160 ], [ %2, %170 ], [ %2, %175 ], [ %2, %155 ], [ %2, %188 ], [ %2, %198 ], [ %2, %203 ], [ %2, %183 ], [ %2, %215 ], [ %2, %225 ], [ %2, %230 ], [ %2, %210 ], [ %2, %247 ], [ %2, %257 ], [ %2, %262 ], [ %2, %242 ], [ %2, %275 ], [ %2, %285 ], [ %2, %290 ], [ %2, %270 ], [ %2, %307 ], [ %2, %317 ], [ %2, %322 ], [ %2, %302 ], [ %2, %335 ], [ %2, %345 ], [ %2, %350 ], [ %2, %330 ], [ %2, %363 ], [ %2, %373 ], [ %2, %378 ], [ %2, %358 ], [ %2, %562 ], [ %2, %572 ], [ %2, %577 ], [ %2, %558 ], [ %2, %594 ], [ %2, %604 ], [ %2, %609 ], [ %2, %587 ], [ %2, %681 ], [ %2, %691 ], [ %2, %696 ], [ %2, %674 ], [ %2, %795 ], [ %2, %805 ], [ %2, %810 ], [ %2, %pmix_obj_run_destructors.exit796 ], [ %2, %1050 ], [ %2, %1060 ], [ %2, %1065 ], [ %2, %1044 ], [ %2, %1083 ], [ %2, %1093 ], [ %2, %1098 ], [ %2, %1076 ], [ %2, %1111 ], [ %2, %1121 ], [ %2, %1126 ], [ %2, %1106 ], [ %2, %1177 ], [ %2, %1187 ], [ %2, %1192 ], [ %2, %1173 ], [ %2, %1212 ], [ %2, %1222 ], [ %2, %1227 ], [ %2, %1204 ], [ %2, %1276 ], [ %2, %1286 ], [ %2, %1291 ], [ %2, %1272 ], [ %2, %1318 ], [ %2, %1328 ], [ %2, %1333 ], [ %2, %1309 ], [ %2, %1363 ], [ %2, %1373 ], [ %2, %1378 ], [ %2, %1358 ], [ %2, %1404 ], [ %2, %1414 ], [ %2, %1419 ], [ %2, %1397 ], [ %.1, %1479 ], [ %.1, %1489 ], [ %.1, %1494 ], [ %.1, %1475 ], [ %2, %1523 ], [ %2, %1533 ], [ %2, %1538 ], [ %2, %1518 ], [ %2, %1552 ], [ %2, %1562 ], [ %2, %1567 ], [ %2, %1547 ], [ %2, %1592 ], [ %2, %1602 ], [ %2, %1607 ], [ %2, %1588 ], [ %2, %1619 ], [ %2, %1629 ], [ %2, %1634 ], [ %2, %1614 ], [ %2, %1658 ], [ %2, %1668 ], [ %2, %1673 ], [ %2, %.loopexit ], [ %2, %1704 ], [ %2, %1714 ], [ %2, %1719 ], [ %2, %1701 ]
   %1725 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_state, i64 16), align 8
-  call void %1725(ptr noundef nonnull %44, i32 noundef %.sink991) #14
+  call void %1725(ptr noundef nonnull %44, i32 noundef %.sink990) #14
   %1726 = getelementptr inbounds nuw i8, ptr %44, i64 472
   %1727 = load ptr, ptr %1726, align 8
   %1728 = getelementptr inbounds nuw i8, ptr %1727, i64 160

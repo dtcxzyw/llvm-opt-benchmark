@@ -1436,17 +1436,19 @@ land.lhs.true:                                    ; preds = %for.body
   %7 = load float, ptr %m_cost, align 8
   %conv = fpext float %7 to double
   %cmp10 = fcmp ult double %3, %conv
+  br i1 %cmp10, label %for.inc, label %land.lhs.true11
+
+land.lhs.true11:                                  ; preds = %land.lhs.true
   %cmp15 = fcmp ule double %cost_limit.120, %conv
   %or.cond.not = select i1 %init.019, i1 %cmp15, i1 false
-  %or.cond = select i1 %cmp10, i1 true, i1 %or.cond.not
-  br i1 %or.cond, label %for.inc, label %if.then16
+  br i1 %or.cond.not, label %for.inc, label %if.then16
 
-if.then16:                                        ; preds = %land.lhs.true
+if.then16:                                        ; preds = %land.lhs.true11
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then16
-  %init.1 = phi i1 [ %init.019, %for.body ], [ true, %if.then16 ], [ %init.019, %land.lhs.true ]
-  %cost_limit.2 = phi double [ %cost_limit.120, %for.body ], [ %conv, %if.then16 ], [ %cost_limit.120, %land.lhs.true ]
+for.inc:                                          ; preds = %land.lhs.true11, %for.body, %land.lhs.true, %if.then16
+  %init.1 = phi i1 [ %init.019, %for.body ], [ true, %if.then16 ], [ %init.019, %land.lhs.true ], [ true, %land.lhs.true11 ]
+  %cost_limit.2 = phi double [ %cost_limit.120, %for.body ], [ %conv, %if.then16 ], [ %cost_limit.120, %land.lhs.true ], [ %cost_limit.120, %land.lhs.true11 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.018, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %if.end20, label %for.body

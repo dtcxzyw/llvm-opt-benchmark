@@ -2757,7 +2757,6 @@ VirtualXactLockTableCleanup.exit:                 ; preds = %15, %27
   br label %109
 
 109:                                              ; preds = %105, %103
-  %.198 = phi i8 [ %.097.ph131, %103 ], [ 1, %105 ]
   %110 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %111 = load i32, ptr %110, align 4
   store i32 0, ptr @FastPathLocalUseCount, align 4
@@ -2817,7 +2816,7 @@ FastPathUnGrantRelationLock.exit:                 ; preds = %137
   br i1 %.1.i, label %.outer.backedge, label %140
 
 .outer.backedge:                                  ; preds = %FastPathUnGrantRelationLock.exit, %140
-  %.097.ph.be = phi i8 [ 0, %140 ], [ %.198, %FastPathUnGrantRelationLock.exit ]
+  %.097.ph.be = phi i8 [ 0, %140 ], [ 1, %FastPathUnGrantRelationLock.exit ]
   call fastcc void @RemoveLocalLock(ptr noundef nonnull %41)
   %139 = call ptr @hash_seq_search(ptr noundef nonnull %4) #16
   %.not125 = icmp eq ptr %139, null

@@ -735,9 +735,8 @@ if.end82:                                         ; preds = %invoke.cont79, %lan
   br label %land.rhs
 
 land.rhs:                                         ; preds = %if.end82, %cleanup
-  %success.061 = phi i8 [ 1, %if.end82 ], [ %success.3, %cleanup ]
   %call.i52 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %current) #21
-  br i1 %call.i52, label %while.end.loopexit, label %while.body
+  br i1 %call.i52, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   invoke void @_ZN4base8FilePathC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %target_path, ptr noundef nonnull align 8 dereferenceable(32) %to_path)
@@ -787,19 +786,14 @@ land.lhs.true110:                                 ; preds = %if.then99
   %call111 = tail call ptr @__errno_location() #22
   %21 = load i32, ptr %call111, align 4
   %cmp112.not = icmp eq i32 %21, 17
-  %spec.select21 = select i1 %cmp112.not, i8 %success.061, i8 0
   br label %if.end126
 
 if.then119:                                       ; preds = %if.end95
   %call121 = invoke noundef zeroext i1 @_ZN4base8CopyFileERKNS_8FilePathES2_(ptr noundef nonnull align 8 dereferenceable(32) %current, ptr noundef nonnull align 8 dereferenceable(32) %target_path)
-          to label %invoke.cont120 unwind label %lpad87
+          to label %if.end126 unwind label %lpad87
 
-invoke.cont120:                                   ; preds = %if.then119
-  %spec.select22 = select i1 %call121, i8 %success.061, i8 0
-  br label %if.end126
-
-if.end126:                                        ; preds = %invoke.cont120, %land.lhs.true110, %if.end95, %if.then99
-  %success.3 = phi i8 [ %success.061, %if.then99 ], [ %spec.select21, %land.lhs.true110 ], [ %success.061, %if.end95 ], [ %spec.select22, %invoke.cont120 ]
+if.end126:                                        ; preds = %if.then119, %land.lhs.true110, %if.end95, %if.then99
+  %success.3 = phi i1 [ true, %if.then99 ], [ %cmp112.not, %land.lhs.true110 ], [ true, %if.end95 ], [ %call121, %if.then119 ]
   invoke void @_ZN4base14FileEnumerator4NextEv(ptr nonnull sret(%"class.base::FilePath") align 8 %ref.tmp127, ptr noundef nonnull align 8 dereferenceable(184) %traversal)
           to label %invoke.cont128 unwind label %lpad87
 
@@ -829,21 +823,15 @@ lpad129:                                          ; preds = %invoke.cont128
 
 cleanup:                                          ; preds = %invoke.cont130, %invoke.cont137
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target_path) #21
-  %tobool83 = trunc nuw i8 %success.3 to i1
-  br i1 %tobool83, label %land.rhs, label %while.end.loopexit
+  br i1 %success.3, label %land.rhs, label %while.end
 
 ehcleanup143:                                     ; preds = %lpad129, %lpad87
   %.pn14 = phi { ptr, i32 } [ %18, %lpad87 ], [ %22, %lpad129 ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target_path) #21
   br label %ehcleanup146
 
-while.end.loopexit:                               ; preds = %land.rhs, %cleanup
-  %success.1.ph = phi i8 [ %success.3, %cleanup ], [ %success.061, %land.rhs ]
-  %23 = trunc nuw i8 %success.1.ph to i1
-  br label %while.end
-
-while.end:                                        ; preds = %while.end.loopexit, %cleanup.thread
-  %success.1 = phi i1 [ false, %cleanup.thread ], [ %23, %while.end.loopexit ]
+while.end:                                        ; preds = %cleanup, %land.rhs, %cleanup.thread
+  %call.i5272 = phi i1 [ false, %cleanup.thread ], [ %call.i52, %land.rhs ], [ %call.i52, %cleanup ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %from_path_base) #21
   br label %cleanup147
 
@@ -853,7 +841,7 @@ ehcleanup146:                                     ; preds = %lpad67.loopexit, %l
   br label %ehcleanup148
 
 cleanup147:                                       ; preds = %invoke.cont55, %while.end
-  %retval.3 = phi i1 [ %success.1, %while.end ], [ false, %invoke.cont55 ]
+  %retval.3 = phi i1 [ %call.i5272, %while.end ], [ false, %invoke.cont55 ]
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %current) #21
   call void @_ZN4base14FileEnumeratorD1Ev(ptr noundef nonnull align 8 dereferenceable(184) %traversal) #21
   br label %cleanup151
@@ -1015,7 +1003,7 @@ while.body:                                       ; preds = %do.end, %invoke.con
 invoke.cont17:                                    ; preds = %while.body
   %conv19 = sext i32 %call18 to i64
   %or.cond.not = icmp sgt i32 %call18, 0
-  br i1 %or.cond.not, label %do.body, label %while.end.loopexit16
+  br i1 %or.cond.not, label %do.body, label %while.end.loopexit14
 
 lpad16.loopexit:                                  ; preds = %do.body
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1042,8 +1030,8 @@ do.body:                                          ; preds = %invoke.cont17, %if.
           to label %invoke.cont27 unwind label %lpad16.loopexit
 
 invoke.cont27:                                    ; preds = %do.body
-  %cmp30 = icmp slt i32 %call28, 0
-  br i1 %cmp30, label %while.end, label %if.end32
+  %cmp30 = icmp sgt i32 %call28, -1
+  br i1 %cmp30, label %if.end32, label %while.end
 
 if.end32:                                         ; preds = %invoke.cont27
   %conv29 = zext nneg i32 %call28 to i64
@@ -1054,12 +1042,12 @@ if.end32:                                         ; preds = %invoke.cont27
 do.end:                                           ; preds = %if.end32
   br label %while.body, !llvm.loop !21
 
-while.end.loopexit16:                             ; preds = %invoke.cont17
+while.end.loopexit14:                             ; preds = %invoke.cont17
   %cmp = icmp eq i32 %call18, 0
   br label %while.end
 
-while.end:                                        ; preds = %invoke.cont27, %while.end.loopexit16
-  %result.1 = phi i1 [ %cmp, %while.end.loopexit16 ], [ false, %invoke.cont27 ]
+while.end:                                        ; preds = %invoke.cont27, %while.end.loopexit14
+  %result.1 = phi i1 [ %cmp, %while.end.loopexit14 ], [ false, %invoke.cont27 ]
   %8 = load ptr, ptr %buffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i

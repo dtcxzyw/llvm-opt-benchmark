@@ -834,7 +834,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   br i1 %.not, label %213, label %212
 
 176:                                              ; preds = %210, %177, %169
-  %.sroa.0197.3 = phi i8 [ 1, %177 ], [ 0, %210 ], [ 1, %169 ]
+  %.sroa.0197.3 = phi i1 [ true, %177 ], [ false, %210 ], [ true, %169 ]
   %.sroa.0198.3 = phi i1 [ %.sroa.0198.4, %177 ], [ false, %210 ], [ true, %169 ]
   %.pn417 = phi { ptr, i32 } [ %178, %177 ], [ %202, %210 ], [ %.pn.pn, %169 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %99) #11
@@ -881,7 +881,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
 
 191:                                              ; preds = %472, %189
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %99)
-          to label %480 unwind label %.thread438
+          to label %479 unwind label %.thread438
 
 192:                                              ; preds = %183
   %193 = load i8, ptr %35, align 1
@@ -949,7 +949,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   store i8 %193, ptr %.sroa.13.0..sroa_idx, align 1
   br label %211
 
-207:                                              ; preds = %494, %492, %491, %490, %473, %457, %415, %397, %379, %349, %317, %214, %210, %209, %201, %176, %169
+207:                                              ; preds = %493, %491, %490, %489, %473, %457, %415, %397, %379, %349, %317, %214, %210, %209, %201, %176, %169
   %208 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
@@ -963,7 +963,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %30) #11
           to label %176 unwind label %207
 
-211:                                              ; preds = %489, %204
+211:                                              ; preds = %488, %204
   ret void
 
 212:                                              ; preds = %174
@@ -971,24 +971,24 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   store ptr %.sroa.3.0.copyload, ptr %.sroa.2221.0..sroa_idx, align 8
   store i64 %.sroa.4.0.copyload, ptr %.sroa.3222.0..sroa_idx, align 8
   invoke void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hfe218f5af45360d3E"(ptr nonnull sret([48 x i8]) align 8 %26, i32 61, ptr align 1 %.sroa.3.0.copyload, i64 %.sroa.4.0.copyload)
-          to label %215 unwind label %.loopexit463
+          to label %215 unwind label %.loopexit464
 
 213:                                              ; preds = %174
   invoke void @"_ZN97_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$pyo3_build_config..errors..Context$LT$T$GT$$GT$7context28_$u7b$$u7b$closure$u7d$$u7d$17h6e702e567f8cf5d8E"(ptr nonnull sret([40 x i8]) align 8 %27, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.16, i64 31, ptr %.sroa.3.0.copyload)
           to label %475 unwind label %.loopexit.split-lp
 
-214:                                              ; preds = %.loopexit463, %.loopexit.split-lp464, %463, %447, %403, %385, %367, %338, %473, %457, %415, %412, %397, %394, %379, %376, %349, %346, %317
-  %.pn = phi { ptr, i32 } [ %474, %473 ], [ %464, %463 ], [ %458, %457 ], [ %448, %447 ], [ %413, %412 ], [ %416, %415 ], [ %404, %403 ], [ %395, %394 ], [ %398, %397 ], [ %386, %385 ], [ %377, %376 ], [ %380, %379 ], [ %368, %367 ], [ %347, %346 ], [ %350, %349 ], [ %339, %338 ], [ %318, %317 ], [ %lpad.loopexit465, %.loopexit463 ], [ %lpad.loopexit.split-lp466, %.loopexit.split-lp464 ]
+214:                                              ; preds = %.loopexit464, %.loopexit.split-lp465, %463, %447, %403, %385, %367, %338, %473, %457, %415, %412, %397, %394, %379, %376, %349, %346, %317
+  %.pn = phi { ptr, i32 } [ %474, %473 ], [ %464, %463 ], [ %458, %457 ], [ %448, %447 ], [ %413, %412 ], [ %416, %415 ], [ %404, %403 ], [ %395, %394 ], [ %398, %397 ], [ %386, %385 ], [ %377, %376 ], [ %380, %379 ], [ %368, %367 ], [ %347, %346 ], [ %350, %349 ], [ %339, %338 ], [ %318, %317 ], [ %lpad.loopexit466, %.loopexit464 ], [ %lpad.loopexit.split-lp467, %.loopexit.split-lp465 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %96) #11
           to label %169 unwind label %207
 
-.loopexit463:                                     ; preds = %212, %215, %222, %234, %242, %244, %249, %251, %256, %258, %263, %265, %270, %272, %277, %279, %284, %286, %291, %293, %298, %300, %305, %307, %312, %313, %319, %321, %322, %326, %327, %334, %351, %355, %356, %363, %381, %399, %417, %421, %422, %429, %433, %434, %443, %459
-  %lpad.loopexit465 = landingpad { ptr, i32 }
+.loopexit464:                                     ; preds = %212, %215, %222, %234, %242, %244, %249, %251, %256, %258, %263, %265, %270, %272, %277, %279, %284, %286, %291, %293, %298, %300, %305, %307, %312, %313, %319, %321, %322, %326, %327, %334, %351, %355, %356, %363, %381, %399, %417, %421, %422, %429, %433, %434, %443, %459
+  %lpad.loopexit466 = landingpad { ptr, i32 }
           cleanup
   br label %214
 
-.loopexit.split-lp464:                            ; preds = %221, %228, %237
-  %lpad.loopexit.split-lp466 = landingpad { ptr, i32 }
+.loopexit.split-lp465:                            ; preds = %221, %228, %237
+  %lpad.loopexit.split-lp467 = landingpad { ptr, i32 }
           cleanup
   br label %214
 
@@ -1000,7 +1000,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   store i8 1, ptr %.sroa.2239.sroa.4.0..sroa.2239.0..sroa_idx.sroa_idx, align 8
   store i8 0, ptr %.sroa.2239.sroa.5.0..sroa.2239.0..sroa_idx.sroa_idx, align 1
   %216 = invoke { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebffd8a6d1b640fdE"(ptr nonnull align 8 %95)
-          to label %217 unwind label %.loopexit463
+          to label %217 unwind label %.loopexit464
 
 217:                                              ; preds = %215
   %218 = extractvalue { ptr, i64 } %216, 0
@@ -1010,11 +1010,11 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
 
 221:                                              ; preds = %217
   invoke void @_ZN4core6option13expect_failed17h7f842a57ad883afaE(ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.17, i64 43, ptr nonnull align 8 @anon.dad0e75df92840e57918e2f8bf1337b7.18) #13
-          to label %224 unwind label %.loopexit.split-lp464
+          to label %224 unwind label %.loopexit.split-lp465
 
 222:                                              ; preds = %217
   %223 = invoke { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebffd8a6d1b640fdE"(ptr nonnull align 8 %95)
-          to label %225 unwind label %.loopexit463
+          to label %225 unwind label %.loopexit464
 
 224:                                              ; preds = %221
   unreachable
@@ -1040,14 +1040,14 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %233 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 1, ptr %233, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %25, ptr nonnull align 8 %24)
-          to label %237 unwind label %.loopexit.split-lp464
+          to label %237 unwind label %.loopexit.split-lp465
 
 234:                                              ; preds = %225
   %235 = extractvalue { ptr, i64 } %223, 1
   store ptr %226, ptr %94, align 8
   store i64 %235, ptr %108, align 8
   %236 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.21, i64 14)
-          to label %241 unwind label %.loopexit463
+          to label %241 unwind label %.loopexit464
 
 237:                                              ; preds = %228
   %.sroa.035.0.copyload = load i64, ptr %25, align 8
@@ -1061,7 +1061,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %.sroa.348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 %.sroa.540.0.copyload, ptr %.sroa.348.0..sroa_idx, align 8
   invoke void @"_ZN101_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h2eb1619e5ed8e45eE"(ptr nonnull sret([40 x i8]) align 8 %20, ptr nonnull align 8 %21)
-          to label %238 unwind label %.loopexit.split-lp464
+          to label %238 unwind label %.loopexit.split-lp465
 
 238:                                              ; preds = %237
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1078,130 +1078,130 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
 
 242:                                              ; preds = %241
   %243 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.22, i64 7)
-          to label %248 unwind label %.loopexit463
+          to label %248 unwind label %.loopexit464
 
 244:                                              ; preds = %241
   %245 = load ptr, ptr %94, align 8
   %246 = load i64, ptr %108, align 8
   %247 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %245, i64 %246)
-          to label %459 unwind label %.loopexit463
+          to label %459 unwind label %.loopexit464
 
 248:                                              ; preds = %242
   br i1 %243, label %251, label %249
 
 249:                                              ; preds = %248
   %250 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.23, i64 6)
-          to label %255 unwind label %.loopexit463
+          to label %255 unwind label %.loopexit464
 
 251:                                              ; preds = %248
   %252 = load ptr, ptr %94, align 8
   %253 = load i64, ptr %108, align 8
   %254 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %252, i64 %253)
-          to label %443 unwind label %.loopexit463
+          to label %443 unwind label %.loopexit464
 
 255:                                              ; preds = %249
   br i1 %250, label %258, label %256
 
 256:                                              ; preds = %255
   %257 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.24, i64 4)
-          to label %262 unwind label %.loopexit463
+          to label %262 unwind label %.loopexit464
 
 258:                                              ; preds = %255
   %259 = load ptr, ptr %94, align 8
   %260 = load i64, ptr %108, align 8
   %261 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %259, i64 %260)
-          to label %429 unwind label %.loopexit463
+          to label %429 unwind label %.loopexit464
 
 262:                                              ; preds = %256
   br i1 %257, label %265, label %263
 
 263:                                              ; preds = %262
   %264 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.25, i64 8)
-          to label %269 unwind label %.loopexit463
+          to label %269 unwind label %.loopexit464
 
 265:                                              ; preds = %262
   %266 = load ptr, ptr %94, align 8
   %267 = load i64, ptr %108, align 8
   %268 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %266, i64 %267)
-          to label %417 unwind label %.loopexit463
+          to label %417 unwind label %.loopexit464
 
 269:                                              ; preds = %263
   br i1 %264, label %272, label %270
 
 270:                                              ; preds = %269
   %271 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.26, i64 7)
-          to label %276 unwind label %.loopexit463
+          to label %276 unwind label %.loopexit464
 
 272:                                              ; preds = %269
   %273 = load ptr, ptr %94, align 8
   %274 = load i64, ptr %108, align 8
   %275 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %273, i64 %274)
-          to label %399 unwind label %.loopexit463
+          to label %399 unwind label %.loopexit464
 
 276:                                              ; preds = %270
   br i1 %271, label %279, label %277
 
 277:                                              ; preds = %276
   %278 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.27, i64 10)
-          to label %283 unwind label %.loopexit463
+          to label %283 unwind label %.loopexit464
 
 279:                                              ; preds = %276
   %280 = load ptr, ptr %94, align 8
   %281 = load i64, ptr %108, align 8
   %282 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %280, i64 %281)
-          to label %381 unwind label %.loopexit463
+          to label %381 unwind label %.loopexit464
 
 283:                                              ; preds = %277
   br i1 %278, label %286, label %284
 
 284:                                              ; preds = %283
   %285 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.28, i64 13)
-          to label %290 unwind label %.loopexit463
+          to label %290 unwind label %.loopexit464
 
 286:                                              ; preds = %283
   %287 = load ptr, ptr %94, align 8
   %288 = load i64, ptr %108, align 8
   %289 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %287, i64 %288)
-          to label %363 unwind label %.loopexit463
+          to label %363 unwind label %.loopexit464
 
 290:                                              ; preds = %284
   br i1 %285, label %293, label %291
 
 291:                                              ; preds = %290
   %292 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.29, i64 11)
-          to label %297 unwind label %.loopexit463
+          to label %297 unwind label %.loopexit464
 
 293:                                              ; preds = %290
   %294 = load ptr, ptr %94, align 8
   %295 = load i64, ptr %108, align 8
   %296 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %294, i64 %295)
-          to label %351 unwind label %.loopexit463
+          to label %351 unwind label %.loopexit464
 
 297:                                              ; preds = %291
   br i1 %292, label %300, label %298
 
 298:                                              ; preds = %297
   %299 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.30, i64 32)
-          to label %304 unwind label %.loopexit463
+          to label %304 unwind label %.loopexit464
 
 300:                                              ; preds = %297
   %301 = load ptr, ptr %94, align 8
   %302 = load i64, ptr %108, align 8
   %303 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %301, i64 %302)
-          to label %334 unwind label %.loopexit463
+          to label %334 unwind label %.loopexit464
 
 304:                                              ; preds = %298
   br i1 %299, label %307, label %305
 
 305:                                              ; preds = %304
   %306 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %218, i64 %219, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.31, i64 23)
-          to label %311 unwind label %.loopexit463
+          to label %311 unwind label %.loopexit464
 
 307:                                              ; preds = %304
   %308 = load ptr, ptr %94, align 8
   %309 = load i64, ptr %108, align 8
   %310 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %308, i64 %309)
-          to label %322 unwind label %.loopexit463
+          to label %322 unwind label %.loopexit464
 
 311:                                              ; preds = %305
   br i1 %306, label %313, label %312
@@ -1217,13 +1217,13 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   store ptr %37, ptr %112, align 8
   store i64 1, ptr %113, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %39, ptr nonnull align 8 %38)
-          to label %316 unwind label %.loopexit463
+          to label %316 unwind label %.loopexit464
 
 313:                                              ; preds = %311
   %314 = load ptr, ptr %94, align 8
   %315 = load i64, ptr %108, align 8
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %19, ptr align 1 %314, i64 %315)
-          to label %321 unwind label %.loopexit463
+          to label %321 unwind label %.loopexit464
 
 316:                                              ; preds = %312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
@@ -1245,7 +1245,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
 
 319:                                              ; preds = %316
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %40)
-          to label %320 unwind label %.loopexit463
+          to label %320 unwind label %.loopexit464
 
 320:                                              ; preds = %466, %450, %423, %357, %328, %321, %439, %414, %396, %378, %348, %319
   %.sroa.0167.1 = phi i8 [ %.sroa.0167.0, %439 ], [ %.sroa.0167.0, %414 ], [ %.sroa.0167.0, %396 ], [ %.sroa.0167.0, %378 ], [ %.sroa.0167.0, %348 ], [ %.sroa.0167.0, %321 ], [ %.sroa.0167.0, %319 ], [ %.sroa.0167.0, %328 ], [ %.sroa.0167.0, %357 ], [ %.sroa.0167.0, %423 ], [ 1, %450 ], [ %.sroa.0167.0, %466 ]
@@ -1263,13 +1263,13 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
 321:                                              ; preds = %313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08356c97073d9cd2E"(ptr nonnull align 8 %99, ptr nonnull align 8 %44)
-          to label %320 unwind label %.loopexit463
+          to label %320 unwind label %.loopexit464
 
 322:                                              ; preds = %307
   %323 = extractvalue { ptr, i64 } %310, 0
   %324 = extractvalue { ptr, i64 } %310, 1
   %325 = invoke i8 @"_ZN51_$LT$bool$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h04873727b5fd4af0E"(ptr align 1 %323, i64 %324)
-          to label %326 unwind label %.loopexit463
+          to label %326 unwind label %.loopexit464
 
 326:                                              ; preds = %322
   store ptr %94, ptr %45, align 8
@@ -1280,12 +1280,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   store ptr %45, ptr %120, align 8
   store i64 1, ptr %121, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %47, ptr nonnull align 8 %46)
-          to label %327 unwind label %.loopexit463
+          to label %327 unwind label %.loopexit464
 
 327:                                              ; preds = %326
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nonnull sret([40 x i8]) align 8 %48, i8 %325, ptr nonnull align 8 %6)
-          to label %328 unwind label %.loopexit463
+          to label %328 unwind label %.loopexit464
 
 328:                                              ; preds = %327
   %329 = load i64, ptr %48, align 8
@@ -1307,7 +1307,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %335 = extractvalue { ptr, i64 } %303, 0
   %336 = extractvalue { ptr, i64 } %303, 1
   invoke void @"_ZN83_$LT$pyo3_build_config..impl_..BuildFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h08bdc4a8b6379d7fE"(ptr nonnull sret([48 x i8]) align 8 %52, ptr align 1 %335, i64 %336)
-          to label %337 unwind label %.loopexit463
+          to label %337 unwind label %.loopexit464
 
 337:                                              ; preds = %334
   store ptr %94, ptr %49, align 8
@@ -1367,7 +1367,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %352 = extractvalue { ptr, i64 } %296, 0
   %353 = extractvalue { ptr, i64 } %296, 1
   %354 = invoke i64 @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17hb43bac1669c6c293E"(ptr align 1 %352, i64 %353)
-          to label %355 unwind label %.loopexit463
+          to label %355 unwind label %.loopexit464
 
 355:                                              ; preds = %351
   store ptr %94, ptr %54, align 8
@@ -1378,12 +1378,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   store ptr %54, ptr %129, align 8
   store i64 1, ptr %130, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %56, ptr nonnull align 8 %55)
-          to label %356 unwind label %.loopexit463
+          to label %356 unwind label %.loopexit464
 
 356:                                              ; preds = %355
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha246876f5443c4d5E"(ptr nonnull sret([40 x i8]) align 8 %57, i64 %354, ptr nonnull align 8 %8)
-          to label %357 unwind label %.loopexit463
+          to label %357 unwind label %.loopexit464
 
 357:                                              ; preds = %356
   %358 = load i64, ptr %57, align 8
@@ -1405,7 +1405,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %364 = extractvalue { ptr, i64 } %289, 0
   %365 = extractvalue { ptr, i64 } %289, 1
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %10, ptr align 1 %364, i64 %365)
-          to label %366 unwind label %.loopexit463
+          to label %366 unwind label %.loopexit464
 
 366:                                              ; preds = %363
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
@@ -1470,7 +1470,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %382 = extractvalue { ptr, i64 } %282, 0
   %383 = extractvalue { ptr, i64 } %282, 1
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %12, ptr align 1 %382, i64 %383)
-          to label %384 unwind label %.loopexit463
+          to label %384 unwind label %.loopexit464
 
 384:                                              ; preds = %381
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
@@ -1535,7 +1535,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %400 = extractvalue { ptr, i64 } %275, 0
   %401 = extractvalue { ptr, i64 } %275, 1
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %14, ptr align 1 %400, i64 %401)
-          to label %402 unwind label %.loopexit463
+          to label %402 unwind label %.loopexit464
 
 402:                                              ; preds = %399
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
@@ -1600,7 +1600,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %418 = extractvalue { ptr, i64 } %268, 0
   %419 = extractvalue { ptr, i64 } %268, 1
   %420 = invoke i8 @"_ZN51_$LT$bool$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h04873727b5fd4af0E"(ptr align 1 %418, i64 %419)
-          to label %421 unwind label %.loopexit463
+          to label %421 unwind label %.loopexit464
 
 421:                                              ; preds = %417
   store ptr %94, ptr %76, align 8
@@ -1611,12 +1611,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   store ptr %76, ptr %149, align 8
   store i64 1, ptr %150, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %78, ptr nonnull align 8 %77)
-          to label %422 unwind label %.loopexit463
+          to label %422 unwind label %.loopexit464
 
 422:                                              ; preds = %421
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nonnull sret([40 x i8]) align 8 %79, i8 %420, ptr nonnull align 8 %15)
-          to label %423 unwind label %.loopexit463
+          to label %423 unwind label %.loopexit464
 
 423:                                              ; preds = %422
   %424 = load i64, ptr %79, align 8
@@ -1638,7 +1638,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %430 = extractvalue { ptr, i64 } %261, 0
   %431 = extractvalue { ptr, i64 } %261, 1
   %432 = invoke i8 @"_ZN51_$LT$bool$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h04873727b5fd4af0E"(ptr align 1 %430, i64 %431)
-          to label %433 unwind label %.loopexit463
+          to label %433 unwind label %.loopexit464
 
 433:                                              ; preds = %429
   store ptr %94, ptr %80, align 8
@@ -1649,12 +1649,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   store ptr %80, ptr %154, align 8
   store i64 1, ptr %155, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %82, ptr nonnull align 8 %81)
-          to label %434 unwind label %.loopexit463
+          to label %434 unwind label %.loopexit464
 
 434:                                              ; preds = %433
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nonnull sret([40 x i8]) align 8 %83, i8 %432, ptr nonnull align 8 %16)
-          to label %435 unwind label %.loopexit463
+          to label %435 unwind label %.loopexit464
 
 435:                                              ; preds = %434
   %436 = load i64, ptr %83, align 8
@@ -1680,7 +1680,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %444 = extractvalue { ptr, i64 } %254, 0
   %445 = extractvalue { ptr, i64 } %254, 1
   invoke void @"_ZN86_$LT$pyo3_build_config..impl_..PythonVersion$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h3af3442b56cd7b50E"(ptr nonnull sret([40 x i8]) align 8 %87, ptr align 1 %444, i64 %445)
-          to label %446 unwind label %.loopexit463
+          to label %446 unwind label %.loopexit464
 
 446:                                              ; preds = %443
   store ptr %94, ptr %84, align 8
@@ -1732,7 +1732,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %460 = extractvalue { ptr, i64 } %247, 0
   %461 = extractvalue { ptr, i64 } %247, 1
   invoke void @"_ZN93_$LT$pyo3_build_config..impl_..PythonImplementation$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1202e372ead01e0cE"(ptr nonnull sret([40 x i8]) align 8 %92, ptr align 1 %460, i64 %461)
-          to label %462 unwind label %.loopexit463
+          to label %462 unwind label %.loopexit464
 
 462:                                              ; preds = %459
   store ptr %94, ptr %89, align 8
@@ -1805,91 +1805,75 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   br label %472
 
 477:                                              ; preds = %176
-  %478 = trunc nuw i8 %.sroa.0197.3 to i1
-  br i1 %478, label %490, label %.thread1199
+  br i1 %.sroa.0197.3, label %489, label %486
 
 .thread438:                                       ; preds = %191
-  %479 = landingpad { ptr, i32 }
+  %478 = landingpad { ptr, i32 }
+          cleanup
+  br label %489
+
+479:                                              ; preds = %191
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %100)
+          to label %482 unwind label %480
+
+480:                                              ; preds = %479
+  %481 = landingpad { ptr, i32 }
           cleanup
   br label %490
 
-480:                                              ; preds = %191
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %100)
-          to label %483 unwind label %.thread445
+482:                                              ; preds = %479
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101)
+          to label %485 unwind label %483
 
-481:                                              ; preds = %490
-  %.pre1193 = trunc nuw i8 %.sroa.0197.4442 to i1
-  br i1 %.pre1193, label %491, label %.thread1199
-
-.thread445:                                       ; preds = %480
-  %482 = landingpad { ptr, i32 }
+483:                                              ; preds = %482
+  %484 = landingpad { ptr, i32 }
           cleanup
   br label %491
 
-483:                                              ; preds = %480
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101)
-          to label %486 unwind label %.thread452
-
-.thread1199:                                      ; preds = %481, %477
-  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.5443, %481 ], [ %.sroa.0198.3, %477 ]
-  %.pn423.ph = phi { ptr, i32 } [ %.pn419444, %481 ], [ %.pn417, %477 ]
-  br i1 %.sroa.0198.9.ph, label %494, label %493
-
-484:                                              ; preds = %491
-  %.pre = trunc nuw i8 %.sroa.0197.7449 to i1
-  br i1 %.pre, label %492, label %487
-
-.thread452:                                       ; preds = %483
-  %485 = landingpad { ptr, i32 }
-          cleanup
-  br label %492
-
-486:                                              ; preds = %483
+485:                                              ; preds = %482
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102)
-          to label %489 unwind label %.thread458
+          to label %488 unwind label %.thread459
 
-487:                                              ; preds = %492, %484
-  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9456, %492 ], [ %.sroa.0198.8450, %484 ]
-  %.pn425 = phi { ptr, i32 } [ %.pn423457, %492 ], [ %.pn421451, %484 ]
-  br i1 %.sroa.0198.10, label %494, label %493
+486:                                              ; preds = %477, %491
+  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9.ph, %491 ], [ %.sroa.0198.3, %477 ]
+  %.pn425 = phi { ptr, i32 } [ %.pn423.ph, %491 ], [ %.pn417, %477 ]
+  br i1 %.sroa.0198.10, label %493, label %492
 
-.thread458:                                       ; preds = %486
-  %488 = landingpad { ptr, i32 }
+.thread459:                                       ; preds = %485
+  %487 = landingpad { ptr, i32 }
           cleanup
-  br label %494
+  br label %493
 
-489:                                              ; preds = %486
+488:                                              ; preds = %485
   call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %103)
   br label %211
 
-490:                                              ; preds = %.thread438, %477
-  %.pn419444 = phi { ptr, i32 } [ %479, %.thread438 ], [ %.pn417, %477 ]
+489:                                              ; preds = %.thread438, %477
+  %.pn419444 = phi { ptr, i32 } [ %478, %.thread438 ], [ %.pn417, %477 ]
   %.sroa.0198.5443 = phi i1 [ true, %.thread438 ], [ %.sroa.0198.3, %477 ]
-  %.sroa.0197.4442 = phi i8 [ 1, %.thread438 ], [ %.sroa.0197.3, %477 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %100) #11
-          to label %481 unwind label %207
+          to label %490 unwind label %207
 
-491:                                              ; preds = %.thread445, %481
-  %.pn421451 = phi { ptr, i32 } [ %482, %.thread445 ], [ %.pn419444, %481 ]
-  %.sroa.0198.8450 = phi i1 [ true, %.thread445 ], [ %.sroa.0198.5443, %481 ]
-  %.sroa.0197.7449 = phi i8 [ 1, %.thread445 ], [ %.sroa.0197.4442, %481 ]
+490:                                              ; preds = %480, %489
+  %.sroa.0198.8.ph = phi i1 [ %.sroa.0198.5443, %489 ], [ true, %480 ]
+  %.pn421.ph = phi { ptr, i32 } [ %.pn419444, %489 ], [ %481, %480 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101) #11
-          to label %484 unwind label %207
+          to label %491 unwind label %207
 
-492:                                              ; preds = %.thread452, %484
-  %.pn423457 = phi { ptr, i32 } [ %485, %.thread452 ], [ %.pn421451, %484 ]
-  %.sroa.0198.9456 = phi i1 [ true, %.thread452 ], [ %.sroa.0198.8450, %484 ]
+491:                                              ; preds = %483, %490
+  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.8.ph, %490 ], [ true, %483 ]
+  %.pn423.ph = phi { ptr, i32 } [ %.pn421.ph, %490 ], [ %484, %483 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102) #11
-          to label %487 unwind label %207
+          to label %486 unwind label %207
 
-493:                                              ; preds = %.thread1199, %494, %487
-  %.pn425461 = phi { ptr, i32 } [ %.pn425462, %494 ], [ %.pn425, %487 ], [ %.pn423.ph, %.thread1199 ]
-  resume { ptr, i32 } %.pn425461
+492:                                              ; preds = %493, %486
+  %.pn425462 = phi { ptr, i32 } [ %.pn425463, %493 ], [ %.pn425, %486 ]
+  resume { ptr, i32 } %.pn425462
 
-494:                                              ; preds = %.thread1199, %.thread458, %487
-  %.pn425462 = phi { ptr, i32 } [ %488, %.thread458 ], [ %.pn425, %487 ], [ %.pn423.ph, %.thread1199 ]
+493:                                              ; preds = %.thread459, %486
+  %.pn425463 = phi { ptr, i32 } [ %487, %.thread459 ], [ %.pn425, %486 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %103) #11
-          to label %493 unwind label %207
+          to label %492 unwind label %207
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2142,7 +2126,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   br i1 %.not, label %212, label %211
 
 175:                                              ; preds = %209, %176, %168
-  %.sroa.0197.3 = phi i8 [ 1, %176 ], [ 0, %209 ], [ 1, %168 ]
+  %.sroa.0197.3 = phi i1 [ true, %176 ], [ false, %209 ], [ true, %168 ]
   %.sroa.0198.3 = phi i1 [ %.sroa.0198.4, %176 ], [ false, %209 ], [ true, %168 ]
   %.pn417 = phi { ptr, i32 } [ %177, %176 ], [ %201, %209 ], [ %.pn.pn, %168 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %98) #11
@@ -2189,7 +2173,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
 
 190:                                              ; preds = %471, %188
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %98)
-          to label %479 unwind label %.thread438
+          to label %478 unwind label %.thread438
 
 191:                                              ; preds = %182
   %192 = load i8, ptr %34, align 1
@@ -2257,7 +2241,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   store i8 %192, ptr %.sroa.13.0..sroa_idx, align 1
   br label %210
 
-206:                                              ; preds = %493, %491, %490, %489, %472, %456, %414, %396, %378, %348, %316, %213, %209, %208, %200, %175, %168
+206:                                              ; preds = %492, %490, %489, %488, %472, %456, %414, %396, %378, %348, %316, %213, %209, %208, %200, %175, %168
   %207 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
@@ -2271,7 +2255,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %29) #11
           to label %175 unwind label %206
 
-210:                                              ; preds = %488, %203
+210:                                              ; preds = %487, %203
   ret void
 
 211:                                              ; preds = %173
@@ -2279,24 +2263,24 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   store ptr %.sroa.3.0.copyload, ptr %.sroa.2221.0..sroa_idx, align 8
   store i64 %.sroa.4.0.copyload, ptr %.sroa.3222.0..sroa_idx, align 8
   invoke void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hfe218f5af45360d3E"(ptr nonnull sret([48 x i8]) align 8 %25, i32 61, ptr align 1 %.sroa.3.0.copyload, i64 %.sroa.4.0.copyload)
-          to label %214 unwind label %.loopexit463
+          to label %214 unwind label %.loopexit464
 
 212:                                              ; preds = %173
   invoke void @"_ZN97_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$pyo3_build_config..errors..Context$LT$T$GT$$GT$7context28_$u7b$$u7b$closure$u7d$$u7d$17h6e702e567f8cf5d8E"(ptr nonnull sret([40 x i8]) align 8 %26, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.16, i64 31, ptr %.sroa.3.0.copyload)
           to label %474 unwind label %.loopexit.split-lp
 
-213:                                              ; preds = %.loopexit463, %.loopexit.split-lp464, %462, %446, %402, %384, %366, %337, %472, %456, %414, %411, %396, %393, %378, %375, %348, %345, %316
-  %.pn = phi { ptr, i32 } [ %473, %472 ], [ %463, %462 ], [ %457, %456 ], [ %447, %446 ], [ %412, %411 ], [ %415, %414 ], [ %403, %402 ], [ %394, %393 ], [ %397, %396 ], [ %385, %384 ], [ %376, %375 ], [ %379, %378 ], [ %367, %366 ], [ %346, %345 ], [ %349, %348 ], [ %338, %337 ], [ %317, %316 ], [ %lpad.loopexit465, %.loopexit463 ], [ %lpad.loopexit.split-lp466, %.loopexit.split-lp464 ]
+213:                                              ; preds = %.loopexit464, %.loopexit.split-lp465, %462, %446, %402, %384, %366, %337, %472, %456, %414, %411, %396, %393, %378, %375, %348, %345, %316
+  %.pn = phi { ptr, i32 } [ %473, %472 ], [ %463, %462 ], [ %457, %456 ], [ %447, %446 ], [ %412, %411 ], [ %415, %414 ], [ %403, %402 ], [ %394, %393 ], [ %397, %396 ], [ %385, %384 ], [ %376, %375 ], [ %379, %378 ], [ %367, %366 ], [ %346, %345 ], [ %349, %348 ], [ %338, %337 ], [ %317, %316 ], [ %lpad.loopexit466, %.loopexit464 ], [ %lpad.loopexit.split-lp467, %.loopexit.split-lp465 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %95) #11
           to label %168 unwind label %206
 
-.loopexit463:                                     ; preds = %211, %214, %221, %233, %241, %243, %248, %250, %255, %257, %262, %264, %269, %271, %276, %278, %283, %285, %290, %292, %297, %299, %304, %306, %311, %312, %318, %320, %321, %325, %326, %333, %350, %354, %355, %362, %380, %398, %416, %420, %421, %428, %432, %433, %442, %458
-  %lpad.loopexit465 = landingpad { ptr, i32 }
+.loopexit464:                                     ; preds = %211, %214, %221, %233, %241, %243, %248, %250, %255, %257, %262, %264, %269, %271, %276, %278, %283, %285, %290, %292, %297, %299, %304, %306, %311, %312, %318, %320, %321, %325, %326, %333, %350, %354, %355, %362, %380, %398, %416, %420, %421, %428, %432, %433, %442, %458
+  %lpad.loopexit466 = landingpad { ptr, i32 }
           cleanup
   br label %213
 
-.loopexit.split-lp464:                            ; preds = %220, %227, %236
-  %lpad.loopexit.split-lp466 = landingpad { ptr, i32 }
+.loopexit.split-lp465:                            ; preds = %220, %227, %236
+  %lpad.loopexit.split-lp467 = landingpad { ptr, i32 }
           cleanup
   br label %213
 
@@ -2308,7 +2292,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   store i8 1, ptr %.sroa.2239.sroa.4.0..sroa.2239.0..sroa_idx.sroa_idx, align 8
   store i8 0, ptr %.sroa.2239.sroa.5.0..sroa.2239.0..sroa_idx.sroa_idx, align 1
   %215 = invoke { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebffd8a6d1b640fdE"(ptr nonnull align 8 %94)
-          to label %216 unwind label %.loopexit463
+          to label %216 unwind label %.loopexit464
 
 216:                                              ; preds = %214
   %217 = extractvalue { ptr, i64 } %215, 0
@@ -2318,11 +2302,11 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
 
 220:                                              ; preds = %216
   invoke void @_ZN4core6option13expect_failed17h7f842a57ad883afaE(ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.17, i64 43, ptr nonnull align 8 @anon.dad0e75df92840e57918e2f8bf1337b7.18) #13
-          to label %223 unwind label %.loopexit.split-lp464
+          to label %223 unwind label %.loopexit.split-lp465
 
 221:                                              ; preds = %216
   %222 = invoke { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebffd8a6d1b640fdE"(ptr nonnull align 8 %94)
-          to label %224 unwind label %.loopexit463
+          to label %224 unwind label %.loopexit464
 
 223:                                              ; preds = %220
   unreachable
@@ -2348,14 +2332,14 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %232 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 1, ptr %232, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %24, ptr nonnull align 8 %23)
-          to label %236 unwind label %.loopexit.split-lp464
+          to label %236 unwind label %.loopexit.split-lp465
 
 233:                                              ; preds = %224
   %234 = extractvalue { ptr, i64 } %222, 1
   store ptr %225, ptr %93, align 8
   store i64 %234, ptr %107, align 8
   %235 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.21, i64 14)
-          to label %240 unwind label %.loopexit463
+          to label %240 unwind label %.loopexit464
 
 236:                                              ; preds = %227
   %.sroa.035.0.copyload = load i64, ptr %24, align 8
@@ -2369,7 +2353,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %.sroa.348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %.sroa.540.0.copyload, ptr %.sroa.348.0..sroa_idx, align 8
   invoke void @"_ZN101_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h2eb1619e5ed8e45eE"(ptr nonnull sret([40 x i8]) align 8 %19, ptr nonnull align 8 %20)
-          to label %237 unwind label %.loopexit.split-lp464
+          to label %237 unwind label %.loopexit.split-lp465
 
 237:                                              ; preds = %236
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2386,130 +2370,130 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
 
 241:                                              ; preds = %240
   %242 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.22, i64 7)
-          to label %247 unwind label %.loopexit463
+          to label %247 unwind label %.loopexit464
 
 243:                                              ; preds = %240
   %244 = load ptr, ptr %93, align 8
   %245 = load i64, ptr %107, align 8
   %246 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %244, i64 %245)
-          to label %458 unwind label %.loopexit463
+          to label %458 unwind label %.loopexit464
 
 247:                                              ; preds = %241
   br i1 %242, label %250, label %248
 
 248:                                              ; preds = %247
   %249 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.23, i64 6)
-          to label %254 unwind label %.loopexit463
+          to label %254 unwind label %.loopexit464
 
 250:                                              ; preds = %247
   %251 = load ptr, ptr %93, align 8
   %252 = load i64, ptr %107, align 8
   %253 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %251, i64 %252)
-          to label %442 unwind label %.loopexit463
+          to label %442 unwind label %.loopexit464
 
 254:                                              ; preds = %248
   br i1 %249, label %257, label %255
 
 255:                                              ; preds = %254
   %256 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.24, i64 4)
-          to label %261 unwind label %.loopexit463
+          to label %261 unwind label %.loopexit464
 
 257:                                              ; preds = %254
   %258 = load ptr, ptr %93, align 8
   %259 = load i64, ptr %107, align 8
   %260 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %258, i64 %259)
-          to label %428 unwind label %.loopexit463
+          to label %428 unwind label %.loopexit464
 
 261:                                              ; preds = %255
   br i1 %256, label %264, label %262
 
 262:                                              ; preds = %261
   %263 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.25, i64 8)
-          to label %268 unwind label %.loopexit463
+          to label %268 unwind label %.loopexit464
 
 264:                                              ; preds = %261
   %265 = load ptr, ptr %93, align 8
   %266 = load i64, ptr %107, align 8
   %267 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %265, i64 %266)
-          to label %416 unwind label %.loopexit463
+          to label %416 unwind label %.loopexit464
 
 268:                                              ; preds = %262
   br i1 %263, label %271, label %269
 
 269:                                              ; preds = %268
   %270 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.26, i64 7)
-          to label %275 unwind label %.loopexit463
+          to label %275 unwind label %.loopexit464
 
 271:                                              ; preds = %268
   %272 = load ptr, ptr %93, align 8
   %273 = load i64, ptr %107, align 8
   %274 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %272, i64 %273)
-          to label %398 unwind label %.loopexit463
+          to label %398 unwind label %.loopexit464
 
 275:                                              ; preds = %269
   br i1 %270, label %278, label %276
 
 276:                                              ; preds = %275
   %277 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.27, i64 10)
-          to label %282 unwind label %.loopexit463
+          to label %282 unwind label %.loopexit464
 
 278:                                              ; preds = %275
   %279 = load ptr, ptr %93, align 8
   %280 = load i64, ptr %107, align 8
   %281 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %279, i64 %280)
-          to label %380 unwind label %.loopexit463
+          to label %380 unwind label %.loopexit464
 
 282:                                              ; preds = %276
   br i1 %277, label %285, label %283
 
 283:                                              ; preds = %282
   %284 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.28, i64 13)
-          to label %289 unwind label %.loopexit463
+          to label %289 unwind label %.loopexit464
 
 285:                                              ; preds = %282
   %286 = load ptr, ptr %93, align 8
   %287 = load i64, ptr %107, align 8
   %288 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %286, i64 %287)
-          to label %362 unwind label %.loopexit463
+          to label %362 unwind label %.loopexit464
 
 289:                                              ; preds = %283
   br i1 %284, label %292, label %290
 
 290:                                              ; preds = %289
   %291 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.29, i64 11)
-          to label %296 unwind label %.loopexit463
+          to label %296 unwind label %.loopexit464
 
 292:                                              ; preds = %289
   %293 = load ptr, ptr %93, align 8
   %294 = load i64, ptr %107, align 8
   %295 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %293, i64 %294)
-          to label %350 unwind label %.loopexit463
+          to label %350 unwind label %.loopexit464
 
 296:                                              ; preds = %290
   br i1 %291, label %299, label %297
 
 297:                                              ; preds = %296
   %298 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.30, i64 32)
-          to label %303 unwind label %.loopexit463
+          to label %303 unwind label %.loopexit464
 
 299:                                              ; preds = %296
   %300 = load ptr, ptr %93, align 8
   %301 = load i64, ptr %107, align 8
   %302 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %300, i64 %301)
-          to label %333 unwind label %.loopexit463
+          to label %333 unwind label %.loopexit464
 
 303:                                              ; preds = %297
   br i1 %298, label %306, label %304
 
 304:                                              ; preds = %303
   %305 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.31, i64 23)
-          to label %310 unwind label %.loopexit463
+          to label %310 unwind label %.loopexit464
 
 306:                                              ; preds = %303
   %307 = load ptr, ptr %93, align 8
   %308 = load i64, ptr %107, align 8
   %309 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %307, i64 %308)
-          to label %321 unwind label %.loopexit463
+          to label %321 unwind label %.loopexit464
 
 310:                                              ; preds = %304
   br i1 %305, label %312, label %311
@@ -2525,13 +2509,13 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   store ptr %36, ptr %111, align 8
   store i64 1, ptr %112, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %38, ptr nonnull align 8 %37)
-          to label %315 unwind label %.loopexit463
+          to label %315 unwind label %.loopexit464
 
 312:                                              ; preds = %310
   %313 = load ptr, ptr %93, align 8
   %314 = load i64, ptr %107, align 8
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %18, ptr align 1 %313, i64 %314)
-          to label %320 unwind label %.loopexit463
+          to label %320 unwind label %.loopexit464
 
 315:                                              ; preds = %311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
@@ -2553,7 +2537,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
 
 318:                                              ; preds = %315
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %39)
-          to label %319 unwind label %.loopexit463
+          to label %319 unwind label %.loopexit464
 
 319:                                              ; preds = %465, %449, %422, %356, %327, %320, %438, %413, %395, %377, %347, %318
   %.sroa.0167.1 = phi i8 [ %.sroa.0167.0, %438 ], [ %.sroa.0167.0, %413 ], [ %.sroa.0167.0, %395 ], [ %.sroa.0167.0, %377 ], [ %.sroa.0167.0, %347 ], [ %.sroa.0167.0, %320 ], [ %.sroa.0167.0, %318 ], [ %.sroa.0167.0, %327 ], [ %.sroa.0167.0, %356 ], [ %.sroa.0167.0, %422 ], [ 1, %449 ], [ %.sroa.0167.0, %465 ]
@@ -2571,13 +2555,13 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
 320:                                              ; preds = %312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08356c97073d9cd2E"(ptr nonnull align 8 %98, ptr nonnull align 8 %43)
-          to label %319 unwind label %.loopexit463
+          to label %319 unwind label %.loopexit464
 
 321:                                              ; preds = %306
   %322 = extractvalue { ptr, i64 } %309, 0
   %323 = extractvalue { ptr, i64 } %309, 1
   %324 = invoke i8 @"_ZN51_$LT$bool$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h04873727b5fd4af0E"(ptr align 1 %322, i64 %323)
-          to label %325 unwind label %.loopexit463
+          to label %325 unwind label %.loopexit464
 
 325:                                              ; preds = %321
   store ptr %93, ptr %44, align 8
@@ -2588,12 +2572,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   store ptr %44, ptr %119, align 8
   store i64 1, ptr %120, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %46, ptr nonnull align 8 %45)
-          to label %326 unwind label %.loopexit463
+          to label %326 unwind label %.loopexit464
 
 326:                                              ; preds = %325
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nonnull sret([40 x i8]) align 8 %47, i8 %324, ptr nonnull align 8 %5)
-          to label %327 unwind label %.loopexit463
+          to label %327 unwind label %.loopexit464
 
 327:                                              ; preds = %326
   %328 = load i64, ptr %47, align 8
@@ -2615,7 +2599,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %334 = extractvalue { ptr, i64 } %302, 0
   %335 = extractvalue { ptr, i64 } %302, 1
   invoke void @"_ZN83_$LT$pyo3_build_config..impl_..BuildFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h08bdc4a8b6379d7fE"(ptr nonnull sret([48 x i8]) align 8 %51, ptr align 1 %334, i64 %335)
-          to label %336 unwind label %.loopexit463
+          to label %336 unwind label %.loopexit464
 
 336:                                              ; preds = %333
   store ptr %93, ptr %48, align 8
@@ -2675,7 +2659,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %351 = extractvalue { ptr, i64 } %295, 0
   %352 = extractvalue { ptr, i64 } %295, 1
   %353 = invoke i64 @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17hb43bac1669c6c293E"(ptr align 1 %351, i64 %352)
-          to label %354 unwind label %.loopexit463
+          to label %354 unwind label %.loopexit464
 
 354:                                              ; preds = %350
   store ptr %93, ptr %53, align 8
@@ -2686,12 +2670,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   store ptr %53, ptr %128, align 8
   store i64 1, ptr %129, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %55, ptr nonnull align 8 %54)
-          to label %355 unwind label %.loopexit463
+          to label %355 unwind label %.loopexit464
 
 355:                                              ; preds = %354
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha246876f5443c4d5E"(ptr nonnull sret([40 x i8]) align 8 %56, i64 %353, ptr nonnull align 8 %7)
-          to label %356 unwind label %.loopexit463
+          to label %356 unwind label %.loopexit464
 
 356:                                              ; preds = %355
   %357 = load i64, ptr %56, align 8
@@ -2713,7 +2697,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %363 = extractvalue { ptr, i64 } %288, 0
   %364 = extractvalue { ptr, i64 } %288, 1
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %9, ptr align 1 %363, i64 %364)
-          to label %365 unwind label %.loopexit463
+          to label %365 unwind label %.loopexit464
 
 365:                                              ; preds = %362
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -2778,7 +2762,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %381 = extractvalue { ptr, i64 } %281, 0
   %382 = extractvalue { ptr, i64 } %281, 1
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %11, ptr align 1 %381, i64 %382)
-          to label %383 unwind label %.loopexit463
+          to label %383 unwind label %.loopexit464
 
 383:                                              ; preds = %380
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
@@ -2843,7 +2827,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %399 = extractvalue { ptr, i64 } %274, 0
   %400 = extractvalue { ptr, i64 } %274, 1
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %13, ptr align 1 %399, i64 %400)
-          to label %401 unwind label %.loopexit463
+          to label %401 unwind label %.loopexit464
 
 401:                                              ; preds = %398
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
@@ -2908,7 +2892,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %417 = extractvalue { ptr, i64 } %267, 0
   %418 = extractvalue { ptr, i64 } %267, 1
   %419 = invoke i8 @"_ZN51_$LT$bool$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h04873727b5fd4af0E"(ptr align 1 %417, i64 %418)
-          to label %420 unwind label %.loopexit463
+          to label %420 unwind label %.loopexit464
 
 420:                                              ; preds = %416
   store ptr %93, ptr %75, align 8
@@ -2919,12 +2903,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   store ptr %75, ptr %148, align 8
   store i64 1, ptr %149, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %77, ptr nonnull align 8 %76)
-          to label %421 unwind label %.loopexit463
+          to label %421 unwind label %.loopexit464
 
 421:                                              ; preds = %420
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %77, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nonnull sret([40 x i8]) align 8 %78, i8 %419, ptr nonnull align 8 %14)
-          to label %422 unwind label %.loopexit463
+          to label %422 unwind label %.loopexit464
 
 422:                                              ; preds = %421
   %423 = load i64, ptr %78, align 8
@@ -2946,7 +2930,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %429 = extractvalue { ptr, i64 } %260, 0
   %430 = extractvalue { ptr, i64 } %260, 1
   %431 = invoke i8 @"_ZN51_$LT$bool$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h04873727b5fd4af0E"(ptr align 1 %429, i64 %430)
-          to label %432 unwind label %.loopexit463
+          to label %432 unwind label %.loopexit464
 
 432:                                              ; preds = %428
   store ptr %93, ptr %79, align 8
@@ -2957,12 +2941,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   store ptr %79, ptr %153, align 8
   store i64 1, ptr %154, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %81, ptr nonnull align 8 %80)
-          to label %433 unwind label %.loopexit463
+          to label %433 unwind label %.loopexit464
 
 433:                                              ; preds = %432
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %81, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nonnull sret([40 x i8]) align 8 %82, i8 %431, ptr nonnull align 8 %15)
-          to label %434 unwind label %.loopexit463
+          to label %434 unwind label %.loopexit464
 
 434:                                              ; preds = %433
   %435 = load i64, ptr %82, align 8
@@ -2988,7 +2972,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %443 = extractvalue { ptr, i64 } %253, 0
   %444 = extractvalue { ptr, i64 } %253, 1
   invoke void @"_ZN86_$LT$pyo3_build_config..impl_..PythonVersion$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h3af3442b56cd7b50E"(ptr nonnull sret([40 x i8]) align 8 %86, ptr align 1 %443, i64 %444)
-          to label %445 unwind label %.loopexit463
+          to label %445 unwind label %.loopexit464
 
 445:                                              ; preds = %442
   store ptr %93, ptr %83, align 8
@@ -3040,7 +3024,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %459 = extractvalue { ptr, i64 } %246, 0
   %460 = extractvalue { ptr, i64 } %246, 1
   invoke void @"_ZN93_$LT$pyo3_build_config..impl_..PythonImplementation$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1202e372ead01e0cE"(ptr nonnull sret([40 x i8]) align 8 %91, ptr align 1 %459, i64 %460)
-          to label %461 unwind label %.loopexit463
+          to label %461 unwind label %.loopexit464
 
 461:                                              ; preds = %458
   store ptr %93, ptr %88, align 8
@@ -3113,91 +3097,75 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   br label %471
 
 476:                                              ; preds = %175
-  %477 = trunc nuw i8 %.sroa.0197.3 to i1
-  br i1 %477, label %489, label %.thread1199
+  br i1 %.sroa.0197.3, label %488, label %485
 
 .thread438:                                       ; preds = %190
-  %478 = landingpad { ptr, i32 }
+  %477 = landingpad { ptr, i32 }
+          cleanup
+  br label %488
+
+478:                                              ; preds = %190
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99)
+          to label %481 unwind label %479
+
+479:                                              ; preds = %478
+  %480 = landingpad { ptr, i32 }
           cleanup
   br label %489
 
-479:                                              ; preds = %190
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99)
-          to label %482 unwind label %.thread445
+481:                                              ; preds = %478
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100)
+          to label %484 unwind label %482
 
-480:                                              ; preds = %489
-  %.pre1193 = trunc nuw i8 %.sroa.0197.4442 to i1
-  br i1 %.pre1193, label %490, label %.thread1199
-
-.thread445:                                       ; preds = %479
-  %481 = landingpad { ptr, i32 }
+482:                                              ; preds = %481
+  %483 = landingpad { ptr, i32 }
           cleanup
   br label %490
 
-482:                                              ; preds = %479
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100)
-          to label %485 unwind label %.thread452
-
-.thread1199:                                      ; preds = %480, %476
-  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.5443, %480 ], [ %.sroa.0198.3, %476 ]
-  %.pn423.ph = phi { ptr, i32 } [ %.pn419444, %480 ], [ %.pn417, %476 ]
-  br i1 %.sroa.0198.9.ph, label %493, label %492
-
-483:                                              ; preds = %490
-  %.pre = trunc nuw i8 %.sroa.0197.7449 to i1
-  br i1 %.pre, label %491, label %486
-
-.thread452:                                       ; preds = %482
-  %484 = landingpad { ptr, i32 }
-          cleanup
-  br label %491
-
-485:                                              ; preds = %482
+484:                                              ; preds = %481
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101)
-          to label %488 unwind label %.thread458
+          to label %487 unwind label %.thread459
 
-486:                                              ; preds = %491, %483
-  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9456, %491 ], [ %.sroa.0198.8450, %483 ]
-  %.pn425 = phi { ptr, i32 } [ %.pn423457, %491 ], [ %.pn421451, %483 ]
-  br i1 %.sroa.0198.10, label %493, label %492
+485:                                              ; preds = %476, %490
+  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9.ph, %490 ], [ %.sroa.0198.3, %476 ]
+  %.pn425 = phi { ptr, i32 } [ %.pn423.ph, %490 ], [ %.pn417, %476 ]
+  br i1 %.sroa.0198.10, label %492, label %491
 
-.thread458:                                       ; preds = %485
-  %487 = landingpad { ptr, i32 }
+.thread459:                                       ; preds = %484
+  %486 = landingpad { ptr, i32 }
           cleanup
-  br label %493
+  br label %492
 
-488:                                              ; preds = %485
+487:                                              ; preds = %484
   call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102)
   br label %210
 
-489:                                              ; preds = %.thread438, %476
-  %.pn419444 = phi { ptr, i32 } [ %478, %.thread438 ], [ %.pn417, %476 ]
+488:                                              ; preds = %.thread438, %476
+  %.pn419444 = phi { ptr, i32 } [ %477, %.thread438 ], [ %.pn417, %476 ]
   %.sroa.0198.5443 = phi i1 [ true, %.thread438 ], [ %.sroa.0198.3, %476 ]
-  %.sroa.0197.4442 = phi i8 [ 1, %.thread438 ], [ %.sroa.0197.3, %476 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99) #11
-          to label %480 unwind label %206
+          to label %489 unwind label %206
 
-490:                                              ; preds = %.thread445, %480
-  %.pn421451 = phi { ptr, i32 } [ %481, %.thread445 ], [ %.pn419444, %480 ]
-  %.sroa.0198.8450 = phi i1 [ true, %.thread445 ], [ %.sroa.0198.5443, %480 ]
-  %.sroa.0197.7449 = phi i8 [ 1, %.thread445 ], [ %.sroa.0197.4442, %480 ]
+489:                                              ; preds = %479, %488
+  %.sroa.0198.8.ph = phi i1 [ %.sroa.0198.5443, %488 ], [ true, %479 ]
+  %.pn421.ph = phi { ptr, i32 } [ %.pn419444, %488 ], [ %480, %479 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100) #11
-          to label %483 unwind label %206
+          to label %490 unwind label %206
 
-491:                                              ; preds = %.thread452, %483
-  %.pn423457 = phi { ptr, i32 } [ %484, %.thread452 ], [ %.pn421451, %483 ]
-  %.sroa.0198.9456 = phi i1 [ true, %.thread452 ], [ %.sroa.0198.8450, %483 ]
+490:                                              ; preds = %482, %489
+  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.8.ph, %489 ], [ true, %482 ]
+  %.pn423.ph = phi { ptr, i32 } [ %.pn421.ph, %489 ], [ %483, %482 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101) #11
-          to label %486 unwind label %206
+          to label %485 unwind label %206
 
-492:                                              ; preds = %.thread1199, %493, %486
-  %.pn425461 = phi { ptr, i32 } [ %.pn425462, %493 ], [ %.pn425, %486 ], [ %.pn423.ph, %.thread1199 ]
-  resume { ptr, i32 } %.pn425461
+491:                                              ; preds = %492, %485
+  %.pn425462 = phi { ptr, i32 } [ %.pn425463, %492 ], [ %.pn425, %485 ]
+  resume { ptr, i32 } %.pn425462
 
-493:                                              ; preds = %.thread1199, %.thread458, %486
-  %.pn425462 = phi { ptr, i32 } [ %487, %.thread458 ], [ %.pn425, %486 ], [ %.pn423.ph, %.thread1199 ]
+492:                                              ; preds = %.thread459, %485
+  %.pn425463 = phi { ptr, i32 } [ %486, %.thread459 ], [ %.pn425, %485 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102) #11
-          to label %492 unwind label %206
+          to label %491 unwind label %206
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3450,7 +3418,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   br i1 %.not, label %212, label %211
 
 175:                                              ; preds = %209, %176, %168
-  %.sroa.0197.3 = phi i8 [ 1, %176 ], [ 0, %209 ], [ 1, %168 ]
+  %.sroa.0197.3 = phi i1 [ true, %176 ], [ false, %209 ], [ true, %168 ]
   %.sroa.0198.3 = phi i1 [ %.sroa.0198.4, %176 ], [ false, %209 ], [ true, %168 ]
   %.pn417 = phi { ptr, i32 } [ %177, %176 ], [ %201, %209 ], [ %.pn.pn, %168 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %98) #11
@@ -3497,7 +3465,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
 
 190:                                              ; preds = %471, %188
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8f1a61e8620504c8E"(ptr nonnull align 8 %98)
-          to label %479 unwind label %.thread438
+          to label %478 unwind label %.thread438
 
 191:                                              ; preds = %182
   %192 = load i8, ptr %34, align 1
@@ -3565,7 +3533,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   store i8 %192, ptr %.sroa.13.0..sroa_idx, align 1
   br label %210
 
-206:                                              ; preds = %493, %491, %490, %489, %472, %456, %414, %396, %378, %348, %316, %213, %209, %208, %200, %175, %168
+206:                                              ; preds = %492, %490, %489, %488, %472, %456, %414, %396, %378, %348, %316, %213, %209, %208, %200, %175, %168
   %207 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
@@ -3579,7 +3547,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %29) #11
           to label %175 unwind label %206
 
-210:                                              ; preds = %488, %203
+210:                                              ; preds = %487, %203
   ret void
 
 211:                                              ; preds = %173
@@ -3587,24 +3555,24 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   store ptr %.sroa.3.0.copyload, ptr %.sroa.2221.0..sroa_idx, align 8
   store i64 %.sroa.4.0.copyload, ptr %.sroa.3222.0..sroa_idx, align 8
   invoke void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17hfe218f5af45360d3E"(ptr nonnull sret([48 x i8]) align 8 %25, i32 61, ptr align 1 %.sroa.3.0.copyload, i64 %.sroa.4.0.copyload)
-          to label %214 unwind label %.loopexit463
+          to label %214 unwind label %.loopexit464
 
 212:                                              ; preds = %173
   invoke void @"_ZN97_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$pyo3_build_config..errors..Context$LT$T$GT$$GT$7context28_$u7b$$u7b$closure$u7d$$u7d$17h6e702e567f8cf5d8E"(ptr nonnull sret([40 x i8]) align 8 %26, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.16, i64 31, ptr %.sroa.3.0.copyload)
           to label %474 unwind label %.loopexit.split-lp
 
-213:                                              ; preds = %.loopexit463, %.loopexit.split-lp464, %462, %446, %402, %384, %366, %337, %472, %456, %414, %411, %396, %393, %378, %375, %348, %345, %316
-  %.pn = phi { ptr, i32 } [ %473, %472 ], [ %463, %462 ], [ %457, %456 ], [ %447, %446 ], [ %412, %411 ], [ %415, %414 ], [ %403, %402 ], [ %394, %393 ], [ %397, %396 ], [ %385, %384 ], [ %376, %375 ], [ %379, %378 ], [ %367, %366 ], [ %346, %345 ], [ %349, %348 ], [ %338, %337 ], [ %317, %316 ], [ %lpad.loopexit465, %.loopexit463 ], [ %lpad.loopexit.split-lp466, %.loopexit.split-lp464 ]
+213:                                              ; preds = %.loopexit464, %.loopexit.split-lp465, %462, %446, %402, %384, %366, %337, %472, %456, %414, %411, %396, %393, %378, %375, %348, %345, %316
+  %.pn = phi { ptr, i32 } [ %473, %472 ], [ %463, %462 ], [ %457, %456 ], [ %447, %446 ], [ %412, %411 ], [ %415, %414 ], [ %403, %402 ], [ %394, %393 ], [ %397, %396 ], [ %385, %384 ], [ %376, %375 ], [ %379, %378 ], [ %367, %366 ], [ %346, %345 ], [ %349, %348 ], [ %338, %337 ], [ %317, %316 ], [ %lpad.loopexit466, %.loopexit464 ], [ %lpad.loopexit.split-lp467, %.loopexit.split-lp465 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %95) #11
           to label %168 unwind label %206
 
-.loopexit463:                                     ; preds = %211, %214, %221, %233, %241, %243, %248, %250, %255, %257, %262, %264, %269, %271, %276, %278, %283, %285, %290, %292, %297, %299, %304, %306, %311, %312, %318, %320, %321, %325, %326, %333, %350, %354, %355, %362, %380, %398, %416, %420, %421, %428, %432, %433, %442, %458
-  %lpad.loopexit465 = landingpad { ptr, i32 }
+.loopexit464:                                     ; preds = %211, %214, %221, %233, %241, %243, %248, %250, %255, %257, %262, %264, %269, %271, %276, %278, %283, %285, %290, %292, %297, %299, %304, %306, %311, %312, %318, %320, %321, %325, %326, %333, %350, %354, %355, %362, %380, %398, %416, %420, %421, %428, %432, %433, %442, %458
+  %lpad.loopexit466 = landingpad { ptr, i32 }
           cleanup
   br label %213
 
-.loopexit.split-lp464:                            ; preds = %220, %227, %236
-  %lpad.loopexit.split-lp466 = landingpad { ptr, i32 }
+.loopexit.split-lp465:                            ; preds = %220, %227, %236
+  %lpad.loopexit.split-lp467 = landingpad { ptr, i32 }
           cleanup
   br label %213
 
@@ -3616,7 +3584,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   store i8 1, ptr %.sroa.2239.sroa.4.0..sroa.2239.0..sroa_idx.sroa_idx, align 8
   store i8 0, ptr %.sroa.2239.sroa.5.0..sroa.2239.0..sroa_idx.sroa_idx, align 1
   %215 = invoke { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebffd8a6d1b640fdE"(ptr nonnull align 8 %94)
-          to label %216 unwind label %.loopexit463
+          to label %216 unwind label %.loopexit464
 
 216:                                              ; preds = %214
   %217 = extractvalue { ptr, i64 } %215, 0
@@ -3626,11 +3594,11 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
 
 220:                                              ; preds = %216
   invoke void @_ZN4core6option13expect_failed17h7f842a57ad883afaE(ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.17, i64 43, ptr nonnull align 8 @anon.dad0e75df92840e57918e2f8bf1337b7.18) #13
-          to label %223 unwind label %.loopexit.split-lp464
+          to label %223 unwind label %.loopexit.split-lp465
 
 221:                                              ; preds = %216
   %222 = invoke { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebffd8a6d1b640fdE"(ptr nonnull align 8 %94)
-          to label %224 unwind label %.loopexit463
+          to label %224 unwind label %.loopexit464
 
 223:                                              ; preds = %220
   unreachable
@@ -3656,14 +3624,14 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %232 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 1, ptr %232, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %24, ptr nonnull align 8 %23)
-          to label %236 unwind label %.loopexit.split-lp464
+          to label %236 unwind label %.loopexit.split-lp465
 
 233:                                              ; preds = %224
   %234 = extractvalue { ptr, i64 } %222, 1
   store ptr %225, ptr %93, align 8
   store i64 %234, ptr %107, align 8
   %235 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.21, i64 14)
-          to label %240 unwind label %.loopexit463
+          to label %240 unwind label %.loopexit464
 
 236:                                              ; preds = %227
   %.sroa.035.0.copyload = load i64, ptr %24, align 8
@@ -3677,7 +3645,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %.sroa.348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %.sroa.540.0.copyload, ptr %.sroa.348.0..sroa_idx, align 8
   invoke void @"_ZN101_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h2eb1619e5ed8e45eE"(ptr nonnull sret([40 x i8]) align 8 %19, ptr nonnull align 8 %20)
-          to label %237 unwind label %.loopexit.split-lp464
+          to label %237 unwind label %.loopexit.split-lp465
 
 237:                                              ; preds = %236
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3694,130 +3662,130 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
 
 241:                                              ; preds = %240
   %242 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.22, i64 7)
-          to label %247 unwind label %.loopexit463
+          to label %247 unwind label %.loopexit464
 
 243:                                              ; preds = %240
   %244 = load ptr, ptr %93, align 8
   %245 = load i64, ptr %107, align 8
   %246 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %244, i64 %245)
-          to label %458 unwind label %.loopexit463
+          to label %458 unwind label %.loopexit464
 
 247:                                              ; preds = %241
   br i1 %242, label %250, label %248
 
 248:                                              ; preds = %247
   %249 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.23, i64 6)
-          to label %254 unwind label %.loopexit463
+          to label %254 unwind label %.loopexit464
 
 250:                                              ; preds = %247
   %251 = load ptr, ptr %93, align 8
   %252 = load i64, ptr %107, align 8
   %253 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %251, i64 %252)
-          to label %442 unwind label %.loopexit463
+          to label %442 unwind label %.loopexit464
 
 254:                                              ; preds = %248
   br i1 %249, label %257, label %255
 
 255:                                              ; preds = %254
   %256 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.24, i64 4)
-          to label %261 unwind label %.loopexit463
+          to label %261 unwind label %.loopexit464
 
 257:                                              ; preds = %254
   %258 = load ptr, ptr %93, align 8
   %259 = load i64, ptr %107, align 8
   %260 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %258, i64 %259)
-          to label %428 unwind label %.loopexit463
+          to label %428 unwind label %.loopexit464
 
 261:                                              ; preds = %255
   br i1 %256, label %264, label %262
 
 262:                                              ; preds = %261
   %263 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.25, i64 8)
-          to label %268 unwind label %.loopexit463
+          to label %268 unwind label %.loopexit464
 
 264:                                              ; preds = %261
   %265 = load ptr, ptr %93, align 8
   %266 = load i64, ptr %107, align 8
   %267 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %265, i64 %266)
-          to label %416 unwind label %.loopexit463
+          to label %416 unwind label %.loopexit464
 
 268:                                              ; preds = %262
   br i1 %263, label %271, label %269
 
 269:                                              ; preds = %268
   %270 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.26, i64 7)
-          to label %275 unwind label %.loopexit463
+          to label %275 unwind label %.loopexit464
 
 271:                                              ; preds = %268
   %272 = load ptr, ptr %93, align 8
   %273 = load i64, ptr %107, align 8
   %274 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %272, i64 %273)
-          to label %398 unwind label %.loopexit463
+          to label %398 unwind label %.loopexit464
 
 275:                                              ; preds = %269
   br i1 %270, label %278, label %276
 
 276:                                              ; preds = %275
   %277 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.27, i64 10)
-          to label %282 unwind label %.loopexit463
+          to label %282 unwind label %.loopexit464
 
 278:                                              ; preds = %275
   %279 = load ptr, ptr %93, align 8
   %280 = load i64, ptr %107, align 8
   %281 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %279, i64 %280)
-          to label %380 unwind label %.loopexit463
+          to label %380 unwind label %.loopexit464
 
 282:                                              ; preds = %276
   br i1 %277, label %285, label %283
 
 283:                                              ; preds = %282
   %284 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.28, i64 13)
-          to label %289 unwind label %.loopexit463
+          to label %289 unwind label %.loopexit464
 
 285:                                              ; preds = %282
   %286 = load ptr, ptr %93, align 8
   %287 = load i64, ptr %107, align 8
   %288 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %286, i64 %287)
-          to label %362 unwind label %.loopexit463
+          to label %362 unwind label %.loopexit464
 
 289:                                              ; preds = %283
   br i1 %284, label %292, label %290
 
 290:                                              ; preds = %289
   %291 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.29, i64 11)
-          to label %296 unwind label %.loopexit463
+          to label %296 unwind label %.loopexit464
 
 292:                                              ; preds = %289
   %293 = load ptr, ptr %93, align 8
   %294 = load i64, ptr %107, align 8
   %295 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %293, i64 %294)
-          to label %350 unwind label %.loopexit463
+          to label %350 unwind label %.loopexit464
 
 296:                                              ; preds = %290
   br i1 %291, label %299, label %297
 
 297:                                              ; preds = %296
   %298 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.30, i64 32)
-          to label %303 unwind label %.loopexit463
+          to label %303 unwind label %.loopexit464
 
 299:                                              ; preds = %296
   %300 = load ptr, ptr %93, align 8
   %301 = load i64, ptr %107, align 8
   %302 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %300, i64 %301)
-          to label %333 unwind label %.loopexit463
+          to label %333 unwind label %.loopexit464
 
 303:                                              ; preds = %297
   br i1 %298, label %306, label %304
 
 304:                                              ; preds = %303
   %305 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr nonnull align 1 %217, i64 %218, ptr nonnull align 1 @anon.dad0e75df92840e57918e2f8bf1337b7.31, i64 23)
-          to label %310 unwind label %.loopexit463
+          to label %310 unwind label %.loopexit464
 
 306:                                              ; preds = %303
   %307 = load ptr, ptr %93, align 8
   %308 = load i64, ptr %107, align 8
   %309 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h87665dc57899d2b6E"(ptr align 1 %307, i64 %308)
-          to label %321 unwind label %.loopexit463
+          to label %321 unwind label %.loopexit464
 
 310:                                              ; preds = %304
   br i1 %305, label %312, label %311
@@ -3833,13 +3801,13 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   store ptr %36, ptr %111, align 8
   store i64 1, ptr %112, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %38, ptr nonnull align 8 %37)
-          to label %315 unwind label %.loopexit463
+          to label %315 unwind label %.loopexit464
 
 312:                                              ; preds = %310
   %313 = load ptr, ptr %93, align 8
   %314 = load i64, ptr %107, align 8
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %18, ptr align 1 %313, i64 %314)
-          to label %320 unwind label %.loopexit463
+          to label %320 unwind label %.loopexit464
 
 315:                                              ; preds = %311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
@@ -3861,7 +3829,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
 
 318:                                              ; preds = %315
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %39)
-          to label %319 unwind label %.loopexit463
+          to label %319 unwind label %.loopexit464
 
 319:                                              ; preds = %465, %449, %422, %356, %327, %320, %438, %413, %395, %377, %347, %318
   %.sroa.0167.1 = phi i8 [ %.sroa.0167.0, %438 ], [ %.sroa.0167.0, %413 ], [ %.sroa.0167.0, %395 ], [ %.sroa.0167.0, %377 ], [ %.sroa.0167.0, %347 ], [ %.sroa.0167.0, %320 ], [ %.sroa.0167.0, %318 ], [ %.sroa.0167.0, %327 ], [ %.sroa.0167.0, %356 ], [ %.sroa.0167.0, %422 ], [ 1, %449 ], [ %.sroa.0167.0, %465 ]
@@ -3879,13 +3847,13 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
 320:                                              ; preds = %312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h08356c97073d9cd2E"(ptr nonnull align 8 %98, ptr nonnull align 8 %43)
-          to label %319 unwind label %.loopexit463
+          to label %319 unwind label %.loopexit464
 
 321:                                              ; preds = %306
   %322 = extractvalue { ptr, i64 } %309, 0
   %323 = extractvalue { ptr, i64 } %309, 1
   %324 = invoke i8 @"_ZN51_$LT$bool$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h04873727b5fd4af0E"(ptr align 1 %322, i64 %323)
-          to label %325 unwind label %.loopexit463
+          to label %325 unwind label %.loopexit464
 
 325:                                              ; preds = %321
   store ptr %93, ptr %44, align 8
@@ -3896,12 +3864,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   store ptr %44, ptr %119, align 8
   store i64 1, ptr %120, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %46, ptr nonnull align 8 %45)
-          to label %326 unwind label %.loopexit463
+          to label %326 unwind label %.loopexit464
 
 326:                                              ; preds = %325
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nonnull sret([40 x i8]) align 8 %47, i8 %324, ptr nonnull align 8 %5)
-          to label %327 unwind label %.loopexit463
+          to label %327 unwind label %.loopexit464
 
 327:                                              ; preds = %326
   %328 = load i64, ptr %47, align 8
@@ -3923,7 +3891,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %334 = extractvalue { ptr, i64 } %302, 0
   %335 = extractvalue { ptr, i64 } %302, 1
   invoke void @"_ZN83_$LT$pyo3_build_config..impl_..BuildFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h08bdc4a8b6379d7fE"(ptr nonnull sret([48 x i8]) align 8 %51, ptr align 1 %334, i64 %335)
-          to label %336 unwind label %.loopexit463
+          to label %336 unwind label %.loopexit464
 
 336:                                              ; preds = %333
   store ptr %93, ptr %48, align 8
@@ -3983,7 +3951,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %351 = extractvalue { ptr, i64 } %295, 0
   %352 = extractvalue { ptr, i64 } %295, 1
   %353 = invoke i64 @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17hb43bac1669c6c293E"(ptr align 1 %351, i64 %352)
-          to label %354 unwind label %.loopexit463
+          to label %354 unwind label %.loopexit464
 
 354:                                              ; preds = %350
   store ptr %93, ptr %53, align 8
@@ -3994,12 +3962,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   store ptr %53, ptr %128, align 8
   store i64 1, ptr %129, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %55, ptr nonnull align 8 %54)
-          to label %355 unwind label %.loopexit463
+          to label %355 unwind label %.loopexit464
 
 355:                                              ; preds = %354
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha246876f5443c4d5E"(ptr nonnull sret([40 x i8]) align 8 %56, i64 %353, ptr nonnull align 8 %7)
-          to label %356 unwind label %.loopexit463
+          to label %356 unwind label %.loopexit464
 
 356:                                              ; preds = %355
   %357 = load i64, ptr %56, align 8
@@ -4021,7 +3989,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %363 = extractvalue { ptr, i64 } %288, 0
   %364 = extractvalue { ptr, i64 } %288, 1
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %9, ptr align 1 %363, i64 %364)
-          to label %365 unwind label %.loopexit463
+          to label %365 unwind label %.loopexit464
 
 365:                                              ; preds = %362
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -4086,7 +4054,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %381 = extractvalue { ptr, i64 } %281, 0
   %382 = extractvalue { ptr, i64 } %281, 1
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %11, ptr align 1 %381, i64 %382)
-          to label %383 unwind label %.loopexit463
+          to label %383 unwind label %.loopexit464
 
 383:                                              ; preds = %380
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
@@ -4151,7 +4119,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %399 = extractvalue { ptr, i64 } %274, 0
   %400 = extractvalue { ptr, i64 } %274, 1
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %13, ptr align 1 %399, i64 %400)
-          to label %401 unwind label %.loopexit463
+          to label %401 unwind label %.loopexit464
 
 401:                                              ; preds = %398
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
@@ -4216,7 +4184,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %417 = extractvalue { ptr, i64 } %267, 0
   %418 = extractvalue { ptr, i64 } %267, 1
   %419 = invoke i8 @"_ZN51_$LT$bool$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h04873727b5fd4af0E"(ptr align 1 %417, i64 %418)
-          to label %420 unwind label %.loopexit463
+          to label %420 unwind label %.loopexit464
 
 420:                                              ; preds = %416
   store ptr %93, ptr %75, align 8
@@ -4227,12 +4195,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   store ptr %75, ptr %148, align 8
   store i64 1, ptr %149, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %77, ptr nonnull align 8 %76)
-          to label %421 unwind label %.loopexit463
+          to label %421 unwind label %.loopexit464
 
 421:                                              ; preds = %420
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %77, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nonnull sret([40 x i8]) align 8 %78, i8 %419, ptr nonnull align 8 %14)
-          to label %422 unwind label %.loopexit463
+          to label %422 unwind label %.loopexit464
 
 422:                                              ; preds = %421
   %423 = load i64, ptr %78, align 8
@@ -4254,7 +4222,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %429 = extractvalue { ptr, i64 } %260, 0
   %430 = extractvalue { ptr, i64 } %260, 1
   %431 = invoke i8 @"_ZN51_$LT$bool$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h04873727b5fd4af0E"(ptr align 1 %429, i64 %430)
-          to label %432 unwind label %.loopexit463
+          to label %432 unwind label %.loopexit464
 
 432:                                              ; preds = %428
   store ptr %93, ptr %79, align 8
@@ -4265,12 +4233,12 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   store ptr %79, ptr %153, align 8
   store i64 1, ptr %154, align 8
   invoke void @_ZN5alloc3fmt6format17h72c60442ffeb1482E(ptr nonnull sret([24 x i8]) align 8 %81, ptr nonnull align 8 %80)
-          to label %433 unwind label %.loopexit463
+          to label %433 unwind label %.loopexit464
 
 433:                                              ; preds = %432
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %81, i64 24, i1 false)
   invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nonnull sret([40 x i8]) align 8 %82, i8 %431, ptr nonnull align 8 %15)
-          to label %434 unwind label %.loopexit463
+          to label %434 unwind label %.loopexit464
 
 434:                                              ; preds = %433
   %435 = load i64, ptr %82, align 8
@@ -4296,7 +4264,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %443 = extractvalue { ptr, i64 } %253, 0
   %444 = extractvalue { ptr, i64 } %253, 1
   invoke void @"_ZN86_$LT$pyo3_build_config..impl_..PythonVersion$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h3af3442b56cd7b50E"(ptr nonnull sret([40 x i8]) align 8 %86, ptr align 1 %443, i64 %444)
-          to label %445 unwind label %.loopexit463
+          to label %445 unwind label %.loopexit464
 
 445:                                              ; preds = %442
   store ptr %93, ptr %83, align 8
@@ -4348,7 +4316,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %459 = extractvalue { ptr, i64 } %246, 0
   %460 = extractvalue { ptr, i64 } %246, 1
   invoke void @"_ZN93_$LT$pyo3_build_config..impl_..PythonImplementation$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1202e372ead01e0cE"(ptr nonnull sret([40 x i8]) align 8 %91, ptr align 1 %459, i64 %460)
-          to label %461 unwind label %.loopexit463
+          to label %461 unwind label %.loopexit464
 
 461:                                              ; preds = %458
   store ptr %93, ptr %88, align 8
@@ -4421,91 +4389,75 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   br label %471
 
 476:                                              ; preds = %175
-  %477 = trunc nuw i8 %.sroa.0197.3 to i1
-  br i1 %477, label %489, label %.thread1199
+  br i1 %.sroa.0197.3, label %488, label %485
 
 .thread438:                                       ; preds = %190
-  %478 = landingpad { ptr, i32 }
+  %477 = landingpad { ptr, i32 }
+          cleanup
+  br label %488
+
+478:                                              ; preds = %190
+  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99)
+          to label %481 unwind label %479
+
+479:                                              ; preds = %478
+  %480 = landingpad { ptr, i32 }
           cleanup
   br label %489
 
-479:                                              ; preds = %190
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99)
-          to label %482 unwind label %.thread445
+481:                                              ; preds = %478
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100)
+          to label %484 unwind label %482
 
-480:                                              ; preds = %489
-  %.pre1193 = trunc nuw i8 %.sroa.0197.4442 to i1
-  br i1 %.pre1193, label %490, label %.thread1199
-
-.thread445:                                       ; preds = %479
-  %481 = landingpad { ptr, i32 }
+482:                                              ; preds = %481
+  %483 = landingpad { ptr, i32 }
           cleanup
   br label %490
 
-482:                                              ; preds = %479
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100)
-          to label %485 unwind label %.thread452
-
-.thread1199:                                      ; preds = %480, %476
-  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.5443, %480 ], [ %.sroa.0198.3, %476 ]
-  %.pn423.ph = phi { ptr, i32 } [ %.pn419444, %480 ], [ %.pn417, %476 ]
-  br i1 %.sroa.0198.9.ph, label %493, label %492
-
-483:                                              ; preds = %490
-  %.pre = trunc nuw i8 %.sroa.0197.7449 to i1
-  br i1 %.pre, label %491, label %486
-
-.thread452:                                       ; preds = %482
-  %484 = landingpad { ptr, i32 }
-          cleanup
-  br label %491
-
-485:                                              ; preds = %482
+484:                                              ; preds = %481
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101)
-          to label %488 unwind label %.thread458
+          to label %487 unwind label %.thread459
 
-486:                                              ; preds = %491, %483
-  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9456, %491 ], [ %.sroa.0198.8450, %483 ]
-  %.pn425 = phi { ptr, i32 } [ %.pn423457, %491 ], [ %.pn421451, %483 ]
-  br i1 %.sroa.0198.10, label %493, label %492
+485:                                              ; preds = %476, %490
+  %.sroa.0198.10 = phi i1 [ %.sroa.0198.9.ph, %490 ], [ %.sroa.0198.3, %476 ]
+  %.pn425 = phi { ptr, i32 } [ %.pn423.ph, %490 ], [ %.pn417, %476 ]
+  br i1 %.sroa.0198.10, label %492, label %491
 
-.thread458:                                       ; preds = %485
-  %487 = landingpad { ptr, i32 }
+.thread459:                                       ; preds = %484
+  %486 = landingpad { ptr, i32 }
           cleanup
-  br label %493
+  br label %492
 
-488:                                              ; preds = %485
+487:                                              ; preds = %484
   call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102)
   br label %210
 
-489:                                              ; preds = %.thread438, %476
-  %.pn419444 = phi { ptr, i32 } [ %478, %.thread438 ], [ %.pn417, %476 ]
+488:                                              ; preds = %.thread438, %476
+  %.pn419444 = phi { ptr, i32 } [ %477, %.thread438 ], [ %.pn417, %476 ]
   %.sroa.0198.5443 = phi i1 [ true, %.thread438 ], [ %.sroa.0198.3, %476 ]
-  %.sroa.0197.4442 = phi i8 [ 1, %.thread438 ], [ %.sroa.0197.3, %476 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$17h3b30116dcfa5fed9E"(ptr nonnull align 8 %99) #11
-          to label %480 unwind label %206
+          to label %489 unwind label %206
 
-490:                                              ; preds = %.thread445, %480
-  %.pn421451 = phi { ptr, i32 } [ %481, %.thread445 ], [ %.pn419444, %480 ]
-  %.sroa.0198.8450 = phi i1 [ true, %.thread445 ], [ %.sroa.0198.5443, %480 ]
-  %.sroa.0197.7449 = phi i8 [ 1, %.thread445 ], [ %.sroa.0197.4442, %480 ]
+489:                                              ; preds = %479, %488
+  %.sroa.0198.8.ph = phi i1 [ %.sroa.0198.5443, %488 ], [ true, %479 ]
+  %.pn421.ph = phi { ptr, i32 } [ %.pn419444, %488 ], [ %480, %479 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %100) #11
-          to label %483 unwind label %206
+          to label %490 unwind label %206
 
-491:                                              ; preds = %.thread452, %483
-  %.pn423457 = phi { ptr, i32 } [ %484, %.thread452 ], [ %.pn421451, %483 ]
-  %.sroa.0198.9456 = phi i1 [ true, %.thread452 ], [ %.sroa.0198.8450, %483 ]
+490:                                              ; preds = %482, %489
+  %.sroa.0198.9.ph = phi i1 [ %.sroa.0198.8.ph, %489 ], [ true, %482 ]
+  %.pn423.ph = phi { ptr, i32 } [ %.pn421.ph, %489 ], [ %483, %482 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %101) #11
-          to label %486 unwind label %206
+          to label %485 unwind label %206
 
-492:                                              ; preds = %.thread1199, %493, %486
-  %.pn425461 = phi { ptr, i32 } [ %.pn425462, %493 ], [ %.pn425, %486 ], [ %.pn423.ph, %.thread1199 ]
-  resume { ptr, i32 } %.pn425461
+491:                                              ; preds = %492, %485
+  %.pn425462 = phi { ptr, i32 } [ %.pn425463, %492 ], [ %.pn425, %485 ]
+  resume { ptr, i32 } %.pn425462
 
-493:                                              ; preds = %.thread1199, %.thread458, %486
-  %.pn425462 = phi { ptr, i32 } [ %487, %.thread458 ], [ %.pn425, %486 ], [ %.pn423.ph, %.thread1199 ]
+492:                                              ; preds = %.thread459, %485
+  %.pn425463 = phi { ptr, i32 } [ %486, %.thread459 ], [ %.pn425, %485 ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2bab4e6e04e18b24E"(ptr nonnull align 8 %102) #11
-          to label %492 unwind label %206
+          to label %491 unwind label %206
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

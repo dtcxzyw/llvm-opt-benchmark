@@ -12287,7 +12287,7 @@ define hidden void @"_ZN182_$LT$context_servers..manager.._..$LT$impl$u20$serde.
 
 170:                                              ; preds = %58
   %171 = invoke noundef nonnull align 8 ptr @_ZN5serde2de5Error15duplicate_field17h1f906dff84bdd377E(ptr noalias noundef nonnull readonly align 1 @anon.bcf37e4d9964a71d6eb08f4e1a91cade.76, i64 noundef 3)
-          to label %178 unwind label %.loopexit.split-lp
+          to label %179 unwind label %.loopexit.split-lp
 
 172:                                              ; preds = %58
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.665.sroa.6)
@@ -12316,20 +12316,20 @@ define hidden void @"_ZN182_$LT$context_servers..manager.._..$LT$impl$u20$serde.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12253, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12253.8..sroa_idx, i64 24, i1 false), !noalias !2970
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !2966
   %.pre = load i64, ptr %17, align 8, !range !416, !alias.scope !2971
+  %178 = icmp eq i64 %.pre, 0
   br label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4a62e9ce54eabc60E.exit.thread"
 
-178:                                              ; preds = %170
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %171, ptr %179, align 8
+179:                                              ; preds = %170
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %171, ptr %180, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %225
 
 "_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4a62e9ce54eabc60E.exit.thread": ; preds = %172, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4a62e9ce54eabc60E.exit.thread331"
-  %180 = phi i64 [ %.pre, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4a62e9ce54eabc60E.exit.thread331" ], [ %59, %172 ]
+  %181 = phi i1 [ %178, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4a62e9ce54eabc60E.exit.thread331" ], [ true, %172 ]
   %.sroa.7252.3323 = phi ptr [ %176, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17h4a62e9ce54eabc60E.exit.thread331" ], [ null, %172 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.665.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12253, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12253)
-  %181 = icmp eq i64 %180, 0
   %182 = load ptr, ptr %25, align 8
   %183 = icmp eq ptr %182, null
   %or.cond = select i1 %181, i1 true, i1 %183
@@ -12501,9 +12501,9 @@ define hidden void @"_ZN182_$LT$context_servers..manager.._..$LT$impl$u20$serde.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   br label %229
 
-225:                                              ; preds = %185, %178, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17ha839a0fc1a9e54d5E.exit.thread", %160, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit218.thread", %113, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit.thread", %78, %195
-  %.sroa.0131.5 = phi i8 [ %.sroa.0131.6, %195 ], [ 1, %78 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit.thread" ], [ 1, %113 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit218.thread" ], [ 1, %160 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17ha839a0fc1a9e54d5E.exit.thread" ], [ 1, %178 ], [ 1, %185 ]
-  %.sroa.0133.5 = phi i8 [ %.sroa.0133.7, %195 ], [ 1, %78 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit.thread" ], [ 1, %113 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit218.thread" ], [ 1, %160 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17ha839a0fc1a9e54d5E.exit.thread" ], [ 1, %178 ], [ 1, %185 ]
+225:                                              ; preds = %185, %179, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17ha839a0fc1a9e54d5E.exit.thread", %160, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit218.thread", %113, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit.thread", %78, %195
+  %.sroa.0131.5 = phi i8 [ %.sroa.0131.6, %195 ], [ 1, %78 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit.thread" ], [ 1, %113 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit218.thread" ], [ 1, %160 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17ha839a0fc1a9e54d5E.exit.thread" ], [ 1, %179 ], [ 1, %185 ]
+  %.sroa.0133.5 = phi i8 [ %.sroa.0133.7, %195 ], [ 1, %78 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit.thread" ], [ 1, %113 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17he8e690e364245adfE.exit218.thread" ], [ 1, %160 ], [ 1, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17ha839a0fc1a9e54d5E.exit.thread" ], [ 1, %179 ], [ 1, %185 ]
   %226 = load i64, ptr %17, align 8, !range !416, !noundef !4
   %trunc179 = trunc nuw i64 %226 to i1
   br i1 %trunc179, label %232, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17hca139e2823d4fc3cE.exit"

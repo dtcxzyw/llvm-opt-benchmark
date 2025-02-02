@@ -16135,7 +16135,7 @@ define hidden void @_ZN7Compile30eliminate_redundant_card_marksEP4Node(ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %.03440, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp ne i32 %18, 1
-  %or.cond.not = or i1 %19, %.03139
+  %or.cond.not = or i1 %.03139, %19
   br i1 %or.cond.not, label %.critedge, label %20
 
 20:                                               ; preds = %.lr.ph41
@@ -20819,7 +20819,7 @@ define hidden noundef zeroext i1 @_ZN7Compile26coarsened_locks_consistentEv(ptr 
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %24, %26, %28
-  %.1 = phi i8 [ %.02228, %28 ], [ %.02228, %26 ], [ 1, %24 ]
+  %.1 = phi i8 [ 0, %28 ], [ 1, %26 ], [ 1, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %18, !llvm.loop !97

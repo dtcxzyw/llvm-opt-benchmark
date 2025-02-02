@@ -5158,7 +5158,7 @@ _ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit22: ; preds = %14
 
 147:                                              ; preds = %131, %._crit_edge50, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit22, %141, %45
   %.sroa.024.1 = phi i32 [ %.sroa.024.041, %45 ], [ %.sroa.024.041, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit22 ], [ %.sroa.024.041, %141 ], [ %140, %._crit_edge50 ], [ %.sroa.024.041, %131 ]
-  %.sroa.225.1 = phi i8 [ %.sroa.225.042, %45 ], [ 0, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit22 ], [ %.sroa.225.2, %141 ], [ 1, %._crit_edge50 ], [ %.sroa.225.2, %131 ]
+  %.sroa.225.1 = phi i8 [ %.sroa.225.042, %45 ], [ 0, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit22 ], [ 0, %141 ], [ 1, %._crit_edge50 ], [ 1, %131 ]
   %.1 = phi i8 [ %.043, %45 ], [ %.2, %_ZNSt8optionalIN4llvm11raw_ostream6ColorsEEaSESt9nullopt_t.exit22 ], [ %.2, %141 ], [ %.2, %._crit_edge50 ], [ %.2, %131 ]
   %148 = load ptr, ptr %36, align 8
   %149 = load ptr, ptr %9, align 8

@@ -10017,7 +10017,7 @@ ehcleanup113:                                     ; preds = %ehcleanup107, %lpad
 
 if.end118:                                        ; preds = %for.cond90, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit301, %invoke.cont87, %land.lhs.true, %if.end77
   %retSet.1 = phi i1 [ %cmp49, %land.lhs.true ], [ %cmp49, %if.end77 ], [ true, %invoke.cont87 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit301 ], [ true, %for.cond90 ]
-  %ret.4 = phi i8 [ %ret.1, %land.lhs.true ], [ %ret.1, %if.end77 ], [ %ret.1, %invoke.cont87 ], [ %ret.1, %for.cond90 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit301 ]
+  %ret.4 = phi i8 [ 1, %land.lhs.true ], [ %ret.1, %if.end77 ], [ 0, %invoke.cont87 ], [ 0, %for.cond90 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit301 ]
   switch i16 %bf.clear.i118, label %if.end241 [
     i16 339, label %if.then120
     i16 334, label %if.then243

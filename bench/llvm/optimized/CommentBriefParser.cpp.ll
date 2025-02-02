@@ -40,12 +40,11 @@ define dso_local void @_ZN5clang8comments11BriefParser5ParseB5cxx11Ev(ptr dead_o
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %2
   %.024.ph.ph = phi i1 [ false, %2 ], [ %.024.ph.ph.be, %.outer.outer.backedge ]
-  %.023.ph.ph = phi i8 [ 0, %2 ], [ %.023.ph.ph.be, %.outer.outer.backedge ]
   %.0.ph.ph = phi i8 [ 1, %2 ], [ %.0.ph.ph.be, %.outer.outer.backedge ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
-  %.023.ph = phi i8 [ %.023.ph.ph, %.outer.outer ], [ %.023.ph39, %.outer.backedge ]
+  %.023.ph = phi i8 [ 0, %.outer.outer ], [ %.023.ph39, %.outer.backedge ]
   %.0.ph = phi i8 [ %.0.ph.ph, %.outer.outer ], [ %.us-phi81, %.outer.backedge ]
   %.0.ph.fr = freeze i8 %.0.ph
   br label %.outer38
@@ -222,8 +221,7 @@ define dso_local void @_ZN5clang8comments11BriefParser5ParseB5cxx11Ev(ptr dead_o
 
 .outer.outer.backedge:                            ; preds = %.split77.us, %90, %89
   %.024.ph.ph.be = phi i1 [ false, %89 ], [ false, %90 ], [ true, %.split77.us ]
-  %.023.ph.ph.be = phi i8 [ %.023.ph39, %89 ], [ %.023.ph39, %90 ], [ 0, %.split77.us ]
-  %.0.ph.ph.be = phi i8 [ %.us-phi81, %89 ], [ %spec.select, %90 ], [ 0, %.split77.us ]
+  %.0.ph.ph.be = phi i8 [ 0, %89 ], [ %spec.select, %90 ], [ 0, %.split77.us ]
   br label %.outer.outer, !llvm.loop !4
 
 ..loopexit43_crit_edge:                           ; preds = %65

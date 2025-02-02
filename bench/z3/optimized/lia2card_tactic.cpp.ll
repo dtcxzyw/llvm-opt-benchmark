@@ -20028,7 +20028,7 @@ land.rhs.i.i.i161:                                ; preds = %land.rhs.i.i.i145
   br label %if.else97
 
 _ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %land.lhs.true.i152, %_ZNK17arith_recognizers10is_to_realEPK4expr.exit.i
-  %m212225 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m212224 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %50 = load i32, ptr %44, align 8
   %cmp.i.i.i.i.i.i165 = icmp eq i32 %50, 0
   %m_kind.i.i.i.i.i.i166 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -20056,7 +20056,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %invoke.cont84 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont84:                                    ; preds = %invoke.cont81
-  %56 = load ptr, ptr %m212225, align 8
+  %56 = load ptr, ptr %m212224, align 8
   %call.i171 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 8 dereferenceable(976) %56, i32 noundef 0, i32 noundef 8, ptr noundef %53)
           to label %invoke.cont86 unwind label %lpad3.loopexit.split-lp
 
@@ -20074,7 +20074,7 @@ invoke.cont90:                                    ; preds = %invoke.cont88
           to label %cleanup unwind label %lpad3.loopexit.split-lp
 
 if.else97:                                        ; preds = %land.rhs.i.i.i161, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %if.else75
-  %m213.ph = phi ptr [ %m, %if.else75 ], [ %m212225, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ %m212, %land.rhs.i.i.i161 ]
+  %m213.ph = phi ptr [ %m, %if.else75 ], [ %m212224, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ %m212, %land.rhs.i.i.i161 ]
   %call99 = invoke noundef zeroext i1 @_ZN15lia2card_tactic10is_numeralEP4exprR8rational(ptr noundef nonnull align 8 dereferenceable(784) %this, ptr noundef nonnull %x, ptr noundef nonnull align 8 dereferenceable(32) %r)
           to label %invoke.cont98 unwind label %lpad3.loopexit.split-lp
 

@@ -21385,10 +21385,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.0160.0222, i64 1
   %83 = load i8, ptr %82, align 1
-  %84 = icmp eq i8 %83, 47
-  %85 = select i1 %84, i8 47, i8 42
-  %spec.select189 = select i1 %84, ptr %82, ptr %.sroa.0160.0222
-  %spec.select190 = select i1 %84, i8 0, i8 %.163223
+  %84 = icmp ne i8 %83, 47
+  %85 = select i1 %84, i8 42, i8 47
+  %spec.select189 = select i1 %84, ptr %.sroa.0160.0222, ptr %82
+  %spec.select190 = zext i1 %84 to i8
   br label %.critedge
 
 .loopexit204:                                     ; preds = %66, %73
@@ -21468,7 +21468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .critedge:                                        ; preds = %.critedge6..critedge_crit_edge, %81, %.critedge2.thread, %79
   %107 = phi i8 [ %78, %79 ], [ %.pre, %.critedge6..critedge_crit_edge ], [ 42, %.critedge2.thread ], [ %85, %81 ]
   %.sroa.0160.1 = phi ptr [ %.sroa.0160.0222, %79 ], [ %.sroa.0160.0222, %.critedge6..critedge_crit_edge ], [ %100, %.critedge2.thread ], [ %spec.select189, %81 ]
-  %.264 = phi i8 [ %.163223, %79 ], [ %.163223, %.critedge6..critedge_crit_edge ], [ 1, %.critedge2.thread ], [ %spec.select190, %81 ]
+  %.264 = phi i8 [ 1, %79 ], [ 0, %.critedge6..critedge_crit_edge ], [ 1, %.critedge2.thread ], [ %spec.select190, %81 ]
   %.260 = phi i1 [ %.058226, %79 ], [ %spec.select, %.critedge6..critedge_crit_edge ], [ false, %.critedge2.thread ], [ %.058226, %81 ]
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.0160.1, i64 1
   %109 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #34
@@ -21476,7 +21476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not, label %.critedge4, label %.lr.ph, !llvm.loop !70
 
 .critedge4:                                       ; preds = %.critedge, %95, %99, %92, %74
-  %.163.lcssa = phi i8 [ %.062, %74 ], [ %.163223, %92 ], [ %.163223, %99 ], [ %.163223, %95 ], [ %.264, %.critedge ]
+  %.163.lcssa = phi i8 [ %.062, %74 ], [ 0, %92 ], [ 0, %99 ], [ 0, %95 ], [ %.264, %.critedge ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %.noexc92 unwind label %.loopexit.split-lp200
 

@@ -9960,16 +9960,16 @@ _ZN4Luau6Parser25incrementRecursionCounterEPKc.exit: ; preds = %2
 _ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE.exit: ; preds = %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %.not.i = icmp eq i32 %15, 33
-  br i1 %.not.i, label %.thread53, label %25
+  br i1 %.not.i, label %.thread49, label %25
 
-.thread53:                                        ; preds = %_ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE.exit
+.thread49:                                        ; preds = %_ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false)
   call void (ptr, ptr, ptr, ...) @_ZN4Luau6Parser6reportERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull @.str.146)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %.thread
 
-.thread:                                          ; preds = %17, %16, %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit, %.thread53
-  %.sroa.034.052 = phi i32 [ 0, %.thread53 ], [ 0, %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit ], [ 1, %16 ], [ 2, %17 ]
+.thread:                                          ; preds = %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit, %16, %17, %.thread49
+  %.sroa.034.048 = phi i32 [ 0, %.thread49 ], [ 0, %_ZN4Luau6Parser25incrementRecursionCounterEPKc.exit ], [ 1, %16 ], [ 2, %17 ]
   call void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(840) %0)
   %18 = call noundef ptr @_ZN4Luau6Parser9parseExprEj(ptr noundef nonnull align 8 dereferenceable(840) %0, i32 noundef 8)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -9980,7 +9980,7 @@ _ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE.exit: ; preds = %_ZN4Luau6Parser25in
   %23 = load i64, ptr %22, align 4
   store i64 %23, ptr %21, align 8
   %24 = call noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %20, i64 noundef 40)
-  call void @_ZN4Luau12AstExprUnaryC1ERKNS_8LocationENS0_2OpEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 4 dereferenceable(16) %4, i32 noundef %.sroa.034.052, ptr noundef %18)
+  call void @_ZN4Luau12AstExprUnaryC1ERKNS_8LocationENS0_2OpEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 4 dereferenceable(16) %4, i32 noundef %.sroa.034.048, ptr noundef %18)
   br label %27
 
 25:                                               ; preds = %_ZN4Luau6Parser12parseUnaryOpERKNS_6LexemeE.exit

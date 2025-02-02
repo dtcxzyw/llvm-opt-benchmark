@@ -3233,7 +3233,7 @@ _ZNSt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS2_EE2atEm.exit._crit_edge: ; p
 
 131:                                              ; preds = %_ZNSt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS2_EE2atEm.exit._crit_edge, %130, %122
   %132 = phi float [ %.pre79, %_ZNSt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS2_EE2atEm.exit._crit_edge ], [ %125, %130 ], [ %125, %122 ]
-  %.1 = phi i8 [ %.03671, %_ZNSt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS2_EE2atEm.exit._crit_edge ], [ 1, %130 ], [ %.03671, %122 ]
+  %.1 = phi i8 [ 1, %_ZNSt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS2_EE2atEm.exit._crit_edge ], [ 1, %130 ], [ 0, %122 ]
   %133 = fdiv float %99, %132
   %134 = insertelement <4 x float> poison, float %133, i64 0
   %135 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %134)

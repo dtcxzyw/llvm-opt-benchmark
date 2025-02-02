@@ -54,35 +54,35 @@ define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt.
   call void @_ZN4core3fmt9Formatter9debug_set17h2ae33b7930f14437E(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br label %5
 
-5:                                                ; preds = %2, %19
-  %.sroa.5.013 = phi i8 [ 0, %2 ], [ %6, %19 ]
-  %.not12 = icmp eq i8 %.sroa.5.013, -1
-  %6 = add nuw i8 %.sroa.5.013, 1
+5:                                                ; preds = %2, %20
+  %.sroa.5.012 = phi i8 [ 0, %2 ], [ %7, %20 ]
+  %6 = icmp eq i8 %.sroa.5.012, -1
+  %7 = add nuw i8 %.sroa.5.012, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store i8 %.sroa.5.013, ptr %3, align 1
-  %7 = lshr i8 %.sroa.5.013, 6
-  %8 = zext nneg i8 %7 to i64
-  %9 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %8
-  %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = and i8 %.sroa.5.013, 63
-  %12 = zext nneg i8 %11 to i64
-  %13 = shl nuw i64 1, %12
-  %14 = and i64 %10, %13
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %19, label %17
+  store i8 %.sroa.5.012, ptr %3, align 1
+  %8 = lshr i8 %.sroa.5.012, 6
+  %9 = zext nneg i8 %8 to i64
+  %10 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %9
+  %11 = load i64, ptr %10, align 8, !noundef !4
+  %12 = and i8 %.sroa.5.012, 63
+  %13 = zext nneg i8 %12 to i64
+  %14 = shl nuw i64 1, %13
+  %15 = and i64 %11, %14
+  %.not = icmp eq i64 %15, 0
+  br i1 %.not, label %20, label %18
 
-15:                                               ; preds = %19
-  %16 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugSet6finish17h05eb3b4316072867E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+16:                                               ; preds = %20
+  %17 = call noundef zeroext i1 @_ZN4core3fmt8builders8DebugSet6finish17h05eb3b4316072867E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret i1 %16
+  ret i1 %17
 
-17:                                               ; preds = %5
-  %18 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugSet5entry17ha9015dea4de680a9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d1b9525942f9ba567902bbdf202cce7f.2)
-  br label %19
+18:                                               ; preds = %5
+  %19 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugSet5entry17ha9015dea4de680a9E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d1b9525942f9ba567902bbdf202cce7f.2)
+  br label %20
 
-19:                                               ; preds = %5, %17
+20:                                               ; preds = %5, %18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br i1 %.not12, label %15, label %5
+  br i1 %6, label %16, label %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -11985,8 +11985,8 @@ define internal fastcc void @_resv_node_replace(ptr noundef %0) unnamed_addr #0 
 
 48:                                               ; preds = %.lr.ph, %_free_resv_select_members.exit
   %49 = phi ptr [ %15, %.lr.ph ], [ %78, %_free_resv_select_members.exit ]
-  %.082 = phi i32 [ %26, %.lr.ph ], [ %167, %_free_resv_select_members.exit ]
-  %.05881 = phi i8 [ 1, %.lr.ph ], [ %.1, %_free_resv_select_members.exit ]
+  %.082 = phi i32 [ %26, %.lr.ph ], [ %166, %_free_resv_select_members.exit ]
+  %.05881 = phi i1 [ true, %.lr.ph ], [ false, %_free_resv_select_members.exit ]
   %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %51 = and i64 %50, 16384
   %.not62 = icmp eq i64 %51, 0
@@ -12082,7 +12082,7 @@ define internal fastcc void @_resv_node_replace(ptr noundef %0) unnamed_addr #0 
   call void @slurm_xfree(ptr noundef nonnull %46) #21
   %97 = icmp eq i32 %96, 0
   %98 = load ptr, ptr %42, align 8
-  br i1 %97, label %99, label %166
+  br i1 %97, label %99, label %165
 
 99:                                               ; preds = %89
   %100 = load ptr, ptr %44, align 8
@@ -12177,141 +12177,138 @@ define internal fastcc void @_resv_node_replace(ptr noundef %0) unnamed_addr #0 
   %140 = load ptr, ptr %42, align 8
   call void @job_mgr_list_delete_job(ptr noundef %140) #21
   store ptr null, ptr %42, align 8
-  %141 = trunc nuw i8 %.05881 to i1
-  br i1 %141, label %._crit_edge, label %142
+  br i1 %.05881, label %._crit_edge, label %141
 
 ._crit_edge:                                      ; preds = %137
   %.pre85 = load ptr, ptr %2, align 8
-  br label %145
+  br label %144
 
-142:                                              ; preds = %137
-  %143 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
-  %144 = and i64 %143, 16384
-  %.not71 = icmp eq i64 %144, 0
+141:                                              ; preds = %137
+  %142 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
+  %143 = and i64 %142, 16384
+  %.not71 = icmp eq i64 %143, 0
   %.pre86 = load ptr, ptr %2, align 8
-  br i1 %.not71, label %.loopexit, label %145
+  br i1 %.not71, label %.loopexit, label %144
 
-145:                                              ; preds = %._crit_edge, %142
-  %146 = phi ptr [ %.pre85, %._crit_edge ], [ %.pre86, %142 ]
-  %147 = load ptr, ptr %13, align 8
-  %148 = call ptr @bit_copy(ptr noundef %147) #21
-  store ptr %148, ptr %11, align 8
-  %149 = load ptr, ptr %13, align 8
-  %150 = call ptr @bit_copy(ptr noundef %149) #21
-  store ptr %150, ptr %12, align 8
-  call void @bit_and_not(ptr noundef %148, ptr noundef %146) #21
-  call void @bit_and(ptr noundef %150, ptr noundef %146) #21
-  %151 = call ptr @bitmap2node_name(ptr noundef %148) #21
-  store ptr %151, ptr %10, align 8
-  %152 = call ptr @bitmap2node_name(ptr noundef %150) #21
-  store ptr %152, ptr %9, align 8
-  %153 = call i32 @get_log_level() #21
-  %154 = icmp sgt i32 %153, 3
-  br i1 %154, label %155, label %161
+144:                                              ; preds = %._crit_edge, %141
+  %145 = phi ptr [ %.pre85, %._crit_edge ], [ %.pre86, %141 ]
+  %146 = load ptr, ptr %13, align 8
+  %147 = call ptr @bit_copy(ptr noundef %146) #21
+  store ptr %147, ptr %11, align 8
+  %148 = load ptr, ptr %13, align 8
+  %149 = call ptr @bit_copy(ptr noundef %148) #21
+  store ptr %149, ptr %12, align 8
+  call void @bit_and_not(ptr noundef %147, ptr noundef %145) #21
+  call void @bit_and(ptr noundef %149, ptr noundef %145) #21
+  %150 = call ptr @bitmap2node_name(ptr noundef %147) #21
+  store ptr %150, ptr %10, align 8
+  %151 = call ptr @bitmap2node_name(ptr noundef %149) #21
+  store ptr %151, ptr %9, align 8
+  %152 = call i32 @get_log_level() #21
+  %153 = icmp sgt i32 %152, 3
+  br i1 %153, label %154, label %160
 
-155:                                              ; preds = %145
-  %156 = load ptr, ptr %27, align 8
-  %157 = call i32 @bit_set_count(ptr noundef %148) #21
-  %158 = call i64 @bit_size(ptr noundef %148) #21
-  %159 = call i32 @bit_set_count(ptr noundef %150) #21
-  %160 = call i64 @bit_size(ptr noundef %150) #21
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.238, ptr noundef nonnull @__func__._resv_node_replace, ptr noundef %156, i32 noundef %157, i64 noundef %158, ptr noundef %151, i32 noundef %159, i64 noundef %160, ptr noundef %152) #21
-  br label %161
+154:                                              ; preds = %144
+  %155 = load ptr, ptr %27, align 8
+  %156 = call i32 @bit_set_count(ptr noundef %147) #21
+  %157 = call i64 @bit_size(ptr noundef %147) #21
+  %158 = call i32 @bit_set_count(ptr noundef %149) #21
+  %159 = call i64 @bit_size(ptr noundef %149) #21
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.238, ptr noundef nonnull @__func__._resv_node_replace, ptr noundef %155, i32 noundef %156, i64 noundef %157, ptr noundef %150, i32 noundef %158, i64 noundef %159, ptr noundef %151) #21
+  br label %160
 
-161:                                              ; preds = %155, %145
+160:                                              ; preds = %154, %144
   call void @slurm_xfree(ptr noundef nonnull %9) #21
   call void @slurm_xfree(ptr noundef nonnull %10) #21
-  %.not72 = icmp eq ptr %148, null
-  br i1 %.not72, label %163, label %162
+  %.not72 = icmp eq ptr %147, null
+  br i1 %.not72, label %162, label %161
 
-162:                                              ; preds = %161
+161:                                              ; preds = %160
   call void @slurm_bit_free(ptr noundef nonnull %11) #21
-  br label %163
+  br label %162
 
-163:                                              ; preds = %162, %161
+162:                                              ; preds = %161, %160
   store ptr null, ptr %11, align 8
-  %.not73 = icmp eq ptr %150, null
-  br i1 %.not73, label %165, label %164
+  %.not73 = icmp eq ptr %149, null
+  br i1 %.not73, label %164, label %163
 
-164:                                              ; preds = %163
+163:                                              ; preds = %162
   call void @slurm_bit_free(ptr noundef nonnull %12) #21
-  br label %165
+  br label %164
 
-165:                                              ; preds = %164, %163
+164:                                              ; preds = %163, %162
   store ptr null, ptr %12, align 8
   br label %.loopexit
 
-166:                                              ; preds = %89
+165:                                              ; preds = %89
   call void @job_mgr_list_delete_job(ptr noundef %98) #21
-  %167 = sdiv i32 %.082, 2
-  %168 = trunc nuw i8 %.05881 to i1
-  br i1 %168, label %172, label %169
+  %166 = sdiv i32 %.082, 2
+  br i1 %.05881, label %170, label %167
 
-169:                                              ; preds = %166
-  %170 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
-  %171 = and i64 %170, 16384
-  %.not66 = icmp eq i64 %171, 0
-  br i1 %.not66, label %177, label %172
+167:                                              ; preds = %165
+  %168 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
+  %169 = and i64 %168, 16384
+  %.not66 = icmp eq i64 %169, 0
+  br i1 %.not66, label %175, label %170
 
-172:                                              ; preds = %169, %166
-  %173 = call i32 @get_log_level() #21
-  %174 = icmp sgt i32 %173, 3
-  br i1 %174, label %175, label %177
+170:                                              ; preds = %167, %165
+  %171 = call i32 @get_log_level() #21
+  %172 = icmp sgt i32 %171, 3
+  br i1 %172, label %173, label %175
 
-175:                                              ; preds = %172
-  %176 = load ptr, ptr %27, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.239, ptr noundef nonnull @__func__._resv_node_replace, ptr noundef %176) #21
-  br label %177
+173:                                              ; preds = %170
+  %174 = load ptr, ptr %27, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.239, ptr noundef nonnull @__func__._resv_node_replace, ptr noundef %174) #21
+  br label %175
 
-177:                                              ; preds = %172, %175, %169
-  %.1 = phi i8 [ %.05881, %169 ], [ 0, %175 ], [ 0, %172 ]
-  %178 = load ptr, ptr %5, align 8
-  %.not.i = icmp eq ptr %178, null
-  br i1 %.not.i, label %180, label %179
+175:                                              ; preds = %170, %173, %167
+  %176 = load ptr, ptr %5, align 8
+  %.not.i = icmp eq ptr %176, null
+  br i1 %.not.i, label %178, label %177
 
-179:                                              ; preds = %177
+177:                                              ; preds = %175
   call void @slurm_bit_free(ptr noundef nonnull %5) #21
-  br label %180
+  br label %178
 
-180:                                              ; preds = %179, %177
+178:                                              ; preds = %177, %175
   store ptr null, ptr %5, align 8
-  %181 = load ptr, ptr %47, align 8
-  %.not11.i = icmp eq ptr %181, null
-  br i1 %.not11.i, label %183, label %182
+  %179 = load ptr, ptr %47, align 8
+  %.not11.i = icmp eq ptr %179, null
+  br i1 %.not11.i, label %181, label %180
 
-182:                                              ; preds = %180
-  call void @list_destroy(ptr noundef nonnull %181) #21
-  br label %183
+180:                                              ; preds = %178
+  call void @list_destroy(ptr noundef nonnull %179) #21
+  br label %181
 
-183:                                              ; preds = %182, %180
+181:                                              ; preds = %180, %178
   store ptr null, ptr %47, align 8
-  %184 = load ptr, ptr %44, align 8
-  %.not12.i = icmp eq ptr %184, null
-  br i1 %.not12.i, label %_free_resv_select_members.exit, label %185
+  %182 = load ptr, ptr %44, align 8
+  %.not12.i = icmp eq ptr %182, null
+  br i1 %.not12.i, label %_free_resv_select_members.exit, label %183
 
-185:                                              ; preds = %183
+183:                                              ; preds = %181
   call void @slurm_bit_free(ptr noundef nonnull %44) #21
   br label %_free_resv_select_members.exit
 
-_free_resv_select_members.exit:                   ; preds = %183, %185
+_free_resv_select_members.exit:                   ; preds = %181, %183
   store ptr null, ptr %44, align 8
   %.082.off = add i32 %.082, 1
   %.not61 = icmp ult i32 %.082.off, 3
   br i1 %.not61, label %.loopexit, label %48, !llvm.loop !78
 
-.loopexit:                                        ; preds = %_free_resv_select_members.exit, %142, %22, %165
-  %186 = phi ptr [ %15, %22 ], [ %146, %165 ], [ %.pre86, %142 ], [ %78, %_free_resv_select_members.exit ]
-  %.not74 = icmp eq ptr %186, null
-  br i1 %.not74, label %188, label %187
+.loopexit:                                        ; preds = %_free_resv_select_members.exit, %141, %22, %164
+  %184 = phi ptr [ %15, %22 ], [ %145, %164 ], [ %.pre86, %141 ], [ %78, %_free_resv_select_members.exit ]
+  %.not74 = icmp eq ptr %184, null
+  br i1 %.not74, label %186, label %185
 
-187:                                              ; preds = %.loopexit
+185:                                              ; preds = %.loopexit
   call void @slurm_bit_free(ptr noundef nonnull %2) #21
-  br label %188
+  br label %186
 
-188:                                              ; preds = %187, %.loopexit
+186:                                              ; preds = %185, %.loopexit
   store ptr null, ptr %2, align 8
-  %189 = call i64 @time(ptr noundef null) #21
-  store i64 %189, ptr @last_resv_update, align 8
+  %187 = call i64 @time(ptr noundef null) #21
+  store i64 %187, ptr @last_resv_update, align 8
   call void @schedule_resv_save() #21
   ret void
 }

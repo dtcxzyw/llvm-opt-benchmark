@@ -578,8 +578,8 @@ entry:
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %0, i64 %conv.i
-  %cmp.not49 = icmp eq i32 %1, 0
-  br i1 %cmp.not49, label %if.then9, label %for.body.lr.ph
+  %cmp.not51 = icmp eq i32 %1, 0
+  br i1 %cmp.not51, label %if.then9, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %scopeDescDataOffset_ = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -587,47 +587,50 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %start.053 = phi i32 [ 0, %for.body.lr.ph ], [ %start.1, %for.inc ]
-  %end.052 = phi i32 [ 0, %for.body.lr.ph ], [ %end.2, %for.inc ]
-  %foundFile.051 = phi i8 [ 0, %for.body.lr.ph ], [ %foundFile.1, %for.inc ]
-  %__begin1.050 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %tobool = trunc nuw i8 %foundFile.051 to i1
-  br i1 %tobool, label %if.then, label %if.end
+  %start.055 = phi i32 [ 0, %for.body.lr.ph ], [ %start.1, %for.inc ]
+  %end.054 = phi i32 [ 0, %for.body.lr.ph ], [ %end.2, %for.inc ]
+  %foundFile.053 = phi i8 [ 0, %for.body.lr.ph ], [ %foundFile.1, %for.inc ]
+  %__begin1.052 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %tobool = trunc nuw i8 %foundFile.053 to i1
+  br i1 %tobool, label %for.end.thread, label %if.end
 
-if.then:                                          ; preds = %for.body
-  %3 = load i32, ptr %__begin1.050, align 1
-  br label %for.end
+for.end.thread:                                   ; preds = %for.body
+  %3 = load i32, ptr %__begin1.052, align 1
+  br label %if.end10
 
 if.end:                                           ; preds = %for.body
-  %filenameId3 = getelementptr inbounds nuw i8, ptr %__begin1.050, i64 4
+  %filenameId3 = getelementptr inbounds nuw i8, ptr %__begin1.052, i64 4
   %4 = load i32, ptr %filenameId3, align 1
   %cmp4 = icmp eq i32 %4, %filenameId
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %if.end
-  %5 = load i32, ptr %__begin1.050, align 1
+  %5 = load i32, ptr %__begin1.052, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.then5
-  %foundFile.1 = phi i8 [ 1, %if.then5 ], [ %foundFile.051, %if.end ]
-  %end.2 = phi i32 [ %2, %if.then5 ], [ %end.052, %if.end ]
-  %start.1 = phi i32 [ %5, %if.then5 ], [ %start.053, %if.end ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.050, i64 12
+  %foundFile.1 = phi i8 [ 1, %if.then5 ], [ 0, %if.end ]
+  %end.2 = phi i32 [ %2, %if.then5 ], [ %end.054, %if.end ]
+  %start.1 = phi i32 [ %5, %if.then5 ], [ %start.055, %if.end ]
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.052, i64 12
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %for.inc, %if.then
-  %foundFile.047 = phi i8 [ %foundFile.051, %if.then ], [ %foundFile.1, %for.inc ]
-  %start.044 = phi i32 [ %start.053, %if.then ], [ %start.1, %for.inc ]
-  %end.1 = phi i32 [ %3, %if.then ], [ %end.2, %for.inc ]
-  %tobool8 = trunc nuw i8 %foundFile.047 to i1
-  br i1 %tobool8, label %while.cond.preheader, label %if.then9
+for.end:                                          ; preds = %for.inc
+  %6 = trunc nuw i8 %foundFile.1 to i1
+  br i1 %6, label %if.end10, label %if.then9
 
-while.cond.preheader:                             ; preds = %for.end
-  %cmp1177 = icmp ult i32 %start.044, %end.1
-  br i1 %cmp1177, label %while.body.lr.ph, label %if.then50
+if.then9:                                         ; preds = %entry, %for.end
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %agg.result, i8 0, i64 17, i1 false)
+  br label %return
 
-while.body.lr.ph:                                 ; preds = %while.cond.preheader
+if.end10:                                         ; preds = %for.end.thread, %for.end
+  %start.047 = phi i32 [ %start.055, %for.end.thread ], [ %start.1, %for.end ]
+  %end.134 = phi i32 [ %3, %for.end.thread ], [ %end.2, %for.end ]
+  %cmp1179 = icmp ult i32 %start.047, %end.134
+  br i1 %cmp1179, label %while.body.lr.ph, label %if.then50
+
+while.body.lr.ph:                                 ; preds = %if.end10
   %ref_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %agg.tmp.sroa.2.0.call12.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 128
   %data.sroa.2.0.data_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %fdid, i64 8
@@ -640,12 +643,12 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %hasValue_.i = getelementptr inbounds nuw i8, ptr %loc, i64 32
   %line17 = getelementptr inbounds nuw i8, ptr %loc, i64 12
   %column19 = getelementptr inbounds nuw i8, ptr %loc, i64 16
-  %6 = and i64 %targetColumn.coerce.fr, 4294967296
-  %tobool.i19.not33 = icmp eq i64 %6, 0
-  br i1 %tobool.i19.not33, label %while.body.us, label %while.body
+  %7 = and i64 %targetColumn.coerce.fr, 4294967296
+  %tobool.i19.not36 = icmp eq i64 %7, 0
+  br i1 %tobool.i19.not36, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.end.us
-  %offset.082.us = phi i32 [ %fdid.val.us, %while.end.us ], [ %start.044, %while.body.lr.ph ]
+  %offset.084.us = phi i32 [ %fdid.val.us, %while.end.us ], [ %start.047, %while.body.lr.ph ]
   %agg.tmp.sroa.0.0.copyload.us = load ptr, ptr %ref_.i, align 8
   %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.call12.sroa_idx, align 8
   store ptr %agg.tmp.sroa.0.0.copyload.us, ptr %fdid, align 8
@@ -653,58 +656,54 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %current_.i, i8 0, i64 28, i1 false)
   store i32 -1, ptr %envReg.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i.i)
-  %call.i.i.us = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload.us, i64 %agg.tmp.sroa.2.0.copyload.us, i32 noundef %offset.082.us, ptr noundef nonnull %result.i.i) #16
-  %add.i.i.us = add i32 %call.i.i.us, %offset.082.us
-  %7 = load i64, ptr %result.i.i, align 8
+  %call.i.i.us = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload.us, i64 %agg.tmp.sroa.2.0.copyload.us, i32 noundef %offset.084.us, ptr noundef nonnull %result.i.i) #16
+  %add.i.i.us = add i32 %call.i.i.us, %offset.084.us
+  %8 = load i64, ptr %result.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i.i)
-  %conv.i17.us = trunc i64 %7 to i32
+  %conv.i17.us = trunc i64 %8 to i32
   store i32 %conv.i17.us, ptr %functionIndex_.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i1.i)
   %call.i6.i.us = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload.us, i64 %agg.tmp.sroa.2.0.copyload.us, i32 noundef %add.i.i.us, ptr noundef nonnull %result.i1.i) #16
   %add.i7.i.us = add i32 %call.i6.i.us, %add.i.i.us
-  %8 = load i64, ptr %result.i1.i, align 8
+  %9 = load i64, ptr %result.i1.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i1.i)
-  %conv3.i.us = trunc i64 %8 to i32
+  %conv3.i.us = trunc i64 %9 to i32
   store i32 %conv3.i.us, ptr %line.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i8.i)
   %call.i13.i.us = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload.us, i64 %agg.tmp.sroa.2.0.copyload.us, i32 noundef %add.i7.i.us, ptr noundef nonnull %result.i8.i) #16
   %add.i14.i.us = add i32 %call.i13.i.us, %add.i7.i.us
   store i32 %add.i14.i.us, ptr %offset_.i, align 8
-  %9 = load i64, ptr %result.i8.i, align 8
+  %10 = load i64, ptr %result.i8.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i8.i)
-  %conv6.i.us = trunc i64 %9 to i32
+  %conv6.i.us = trunc i64 %10 to i32
   store i32 %conv6.i.us, ptr %column.i, align 8
   call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
-  %10 = load i8, ptr %hasValue_.i, align 4
-  %tobool.i56.us = trunc i8 %10 to i1
-  br i1 %tobool.i56.us, label %while.body15.us.us, label %while.end.us
+  %11 = load i8, ptr %hasValue_.i, align 4
+  %tobool.i58.us = trunc i8 %11 to i1
+  br i1 %tobool.i58.us, label %while.body15.us.us, label %while.end.us
 
 while.end.us:                                     ; preds = %if.end45.us.us, %while.body.us
   %fdid.val.us = load i32, ptr %offset_.i, align 8
-  %cmp11.us = icmp ult i32 %fdid.val.us, %end.1
+  %cmp11.us = icmp ult i32 %fdid.val.us, %end.134
   br i1 %cmp11.us, label %while.body.us, label %if.then50, !llvm.loop !11
 
 while.body15.us.us:                               ; preds = %while.body.us, %if.end45.us.us
-  %11 = load i32, ptr %line17, align 4
-  %cmp20.us.us = icmp eq i32 %11, %targetLine
+  %12 = load i32, ptr %line17, align 4
+  %cmp20.us.us = icmp eq i32 %12, %targetLine
   br i1 %cmp20.us.us, label %if.then25.loopexit, label %if.end45.us.us
 
 if.end45.us.us:                                   ; preds = %while.body15.us.us
   call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
-  %12 = load i8, ptr %hasValue_.i, align 4
-  %tobool.i.us.us = trunc i8 %12 to i1
+  %13 = load i8, ptr %hasValue_.i, align 4
+  %tobool.i.us.us = trunc i8 %13 to i1
   br i1 %tobool.i.us.us, label %while.body15.us.us, label %while.end.us, !llvm.loop !12
 
-if.then9:                                         ; preds = %entry, %for.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %agg.result, i8 0, i64 17, i1 false)
-  br label %return
-
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
-  %offset.082 = phi i32 [ %fdid.val, %while.end ], [ %start.044, %while.body.lr.ph ]
-  %best.sroa.9.081 = phi i32 [ %best.sroa.9.1.lcssa, %while.end ], [ 0, %while.body.lr.ph ]
-  %best.sroa.7.080 = phi i32 [ %best.sroa.7.1.lcssa, %while.end ], [ 0, %while.body.lr.ph ]
-  %best.sroa.3.079 = phi i32 [ %best.sroa.3.1.lcssa, %while.end ], [ -1, %while.body.lr.ph ]
-  %best.sroa.0.078 = phi i32 [ %best.sroa.0.1.lcssa, %while.end ], [ 0, %while.body.lr.ph ]
+  %offset.084 = phi i32 [ %fdid.val, %while.end ], [ %start.047, %while.body.lr.ph ]
+  %best.sroa.9.083 = phi i32 [ %best.sroa.9.1.lcssa, %while.end ], [ 0, %while.body.lr.ph ]
+  %best.sroa.7.082 = phi i32 [ %best.sroa.7.1.lcssa, %while.end ], [ 0, %while.body.lr.ph ]
+  %best.sroa.3.081 = phi i32 [ %best.sroa.3.1.lcssa, %while.end ], [ -1, %while.body.lr.ph ]
+  %best.sroa.0.080 = phi i32 [ %best.sroa.0.1.lcssa, %while.end ], [ 0, %while.body.lr.ph ]
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %ref_.i, align 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call12.sroa_idx, align 8
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %fdid, align 8
@@ -712,108 +711,108 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %current_.i, i8 0, i64 28, i1 false)
   store i32 -1, ptr %envReg.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i.i)
-  %call.i.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i32 noundef %offset.082, ptr noundef nonnull %result.i.i) #16
-  %add.i.i = add i32 %call.i.i, %offset.082
-  %13 = load i64, ptr %result.i.i, align 8
+  %call.i.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i32 noundef %offset.084, ptr noundef nonnull %result.i.i) #16
+  %add.i.i = add i32 %call.i.i, %offset.084
+  %14 = load i64, ptr %result.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i.i)
-  %conv.i17 = trunc i64 %13 to i32
+  %conv.i17 = trunc i64 %14 to i32
   store i32 %conv.i17, ptr %functionIndex_.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i1.i)
   %call.i6.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i32 noundef %add.i.i, ptr noundef nonnull %result.i1.i) #16
   %add.i7.i = add i32 %call.i6.i, %add.i.i
-  %14 = load i64, ptr %result.i1.i, align 8
+  %15 = load i64, ptr %result.i1.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i1.i)
-  %conv3.i = trunc i64 %14 to i32
+  %conv3.i = trunc i64 %15 to i32
   store i32 %conv3.i, ptr %line.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i8.i)
   %call.i13.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i32 noundef %add.i7.i, ptr noundef nonnull %result.i8.i) #16
   %add.i14.i = add i32 %call.i13.i, %add.i7.i
   store i32 %add.i14.i, ptr %offset_.i, align 8
-  %15 = load i64, ptr %result.i8.i, align 8
+  %16 = load i64, ptr %result.i8.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i8.i)
-  %conv6.i = trunc i64 %15 to i32
+  %conv6.i = trunc i64 %16 to i32
   store i32 %conv6.i, ptr %column.i, align 8
   call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
-  %16 = load i8, ptr %hasValue_.i, align 4
-  %tobool.i56 = trunc i8 %16 to i1
-  br i1 %tobool.i56, label %while.body15, label %while.end
+  %17 = load i8, ptr %hasValue_.i, align 4
+  %tobool.i58 = trunc i8 %17 to i1
+  br i1 %tobool.i58, label %while.body15, label %while.end
 
 while.body15:                                     ; preds = %while.body, %if.end45
-  %best.sroa.9.160 = phi i32 [ %best.sroa.9.2, %if.end45 ], [ %best.sroa.9.081, %while.body ]
-  %best.sroa.7.159 = phi i32 [ %best.sroa.7.2, %if.end45 ], [ %best.sroa.7.080, %while.body ]
-  %best.sroa.3.158 = phi i32 [ %best.sroa.3.2, %if.end45 ], [ %best.sroa.3.079, %while.body ]
-  %best.sroa.0.157 = phi i32 [ %best.sroa.0.2, %if.end45 ], [ %best.sroa.0.078, %while.body ]
-  %17 = load i32, ptr %line17, align 4
-  %18 = load i32, ptr %column19, align 4
-  %cmp20 = icmp eq i32 %17, %targetLine
+  %best.sroa.9.162 = phi i32 [ %best.sroa.9.2, %if.end45 ], [ %best.sroa.9.083, %while.body ]
+  %best.sroa.7.161 = phi i32 [ %best.sroa.7.2, %if.end45 ], [ %best.sroa.7.082, %while.body ]
+  %best.sroa.3.160 = phi i32 [ %best.sroa.3.2, %if.end45 ], [ %best.sroa.3.081, %while.body ]
+  %best.sroa.0.159 = phi i32 [ %best.sroa.0.2, %if.end45 ], [ %best.sroa.0.080, %while.body ]
+  %18 = load i32, ptr %line17, align 4
+  %19 = load i32, ptr %column19, align 4
+  %cmp20 = icmp eq i32 %18, %targetLine
   br i1 %cmp20, label %if.then21, label %if.end45
 
 if.then21:                                        ; preds = %while.body15
-  %cmp24 = icmp eq i32 %18, %targetColumn.sroa.0.0.extract.trunc
+  %cmp24 = icmp eq i32 %19, %targetColumn.sroa.0.0.extract.trunc
   br i1 %cmp24, label %if.then25, label %if.end28
 
 if.then25.loopexit:                               ; preds = %while.body15.us.us
-  %19 = load i32, ptr %column19, align 4
+  %20 = load i32, ptr %column19, align 4
   br label %if.then25
 
 if.then25:                                        ; preds = %if.then21, %if.then25.loopexit
-  %.us-phi66 = phi i32 [ %19, %if.then25.loopexit ], [ %targetColumn.sroa.0.0.extract.trunc, %if.then21 ]
+  %.us-phi68 = phi i32 [ %20, %if.then25.loopexit ], [ %targetColumn.sroa.0.0.extract.trunc, %if.then21 ]
   %fdid.val15 = load i32, ptr %functionIndex_.i, align 4
-  %20 = load i32, ptr %loc, align 4
+  %21 = load i32, ptr %loc, align 4
   store i32 %fdid.val15, ptr %agg.result, align 4
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
-  store i32 %20, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 4
+  store i32 %21, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 4
   %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %targetLine, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx, align 4
   %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
-  store i32 %.us-phi66, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx, align 4
+  store i32 %.us-phi68, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx, align 4
   %hasValue_.i23 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i8 1, ptr %hasValue_.i23, align 4
   br label %return
 
 if.end28:                                         ; preds = %if.then21
-  %cmp29 = icmp eq i32 %best.sroa.3.158, -1
+  %cmp29 = icmp eq i32 %best.sroa.3.160, -1
   br i1 %cmp29, label %if.then39, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.end28
-  %cmp32.not = icmp ugt i32 %18, %targetColumn.sroa.0.0.extract.trunc
+  %cmp32.not = icmp ugt i32 %19, %targetColumn.sroa.0.0.extract.trunc
   br i1 %cmp32.not, label %if.end45, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false30
-  %cmp35 = icmp ugt i32 %best.sroa.9.160, %targetColumn.sroa.0.0.extract.trunc
-  %cmp38 = icmp ugt i32 %18, %best.sroa.9.160
+  %cmp35 = icmp ugt i32 %best.sroa.9.162, %targetColumn.sroa.0.0.extract.trunc
+  %cmp38 = icmp ugt i32 %19, %best.sroa.9.162
   %or.cond = select i1 %cmp35, i1 true, i1 %cmp38
   br i1 %or.cond, label %if.then39, label %if.end45
 
 if.then39:                                        ; preds = %land.lhs.true, %if.end28
   %fdid.val16 = load i32, ptr %functionIndex_.i, align 4
-  %21 = load i32, ptr %loc, align 4
+  %22 = load i32, ptr %loc, align 4
   br label %if.end45
 
 if.end45:                                         ; preds = %land.lhs.true, %lor.lhs.false30, %if.then39, %while.body15
-  %best.sroa.0.2 = phi i32 [ %fdid.val16, %if.then39 ], [ %best.sroa.0.157, %lor.lhs.false30 ], [ %best.sroa.0.157, %land.lhs.true ], [ %best.sroa.0.157, %while.body15 ]
-  %best.sroa.3.2 = phi i32 [ %21, %if.then39 ], [ %best.sroa.3.158, %lor.lhs.false30 ], [ %best.sroa.3.158, %land.lhs.true ], [ %best.sroa.3.158, %while.body15 ]
-  %best.sroa.7.2 = phi i32 [ %targetLine, %if.then39 ], [ %best.sroa.7.159, %lor.lhs.false30 ], [ %best.sroa.7.159, %land.lhs.true ], [ %best.sroa.7.159, %while.body15 ]
-  %best.sroa.9.2 = phi i32 [ %18, %if.then39 ], [ %best.sroa.9.160, %lor.lhs.false30 ], [ %best.sroa.9.160, %land.lhs.true ], [ %best.sroa.9.160, %while.body15 ]
+  %best.sroa.0.2 = phi i32 [ %fdid.val16, %if.then39 ], [ %best.sroa.0.159, %lor.lhs.false30 ], [ %best.sroa.0.159, %land.lhs.true ], [ %best.sroa.0.159, %while.body15 ]
+  %best.sroa.3.2 = phi i32 [ %22, %if.then39 ], [ %best.sroa.3.160, %lor.lhs.false30 ], [ %best.sroa.3.160, %land.lhs.true ], [ %best.sroa.3.160, %while.body15 ]
+  %best.sroa.7.2 = phi i32 [ %targetLine, %if.then39 ], [ %best.sroa.7.161, %lor.lhs.false30 ], [ %best.sroa.7.161, %land.lhs.true ], [ %best.sroa.7.161, %while.body15 ]
+  %best.sroa.9.2 = phi i32 [ %19, %if.then39 ], [ %best.sroa.9.162, %lor.lhs.false30 ], [ %best.sroa.9.162, %land.lhs.true ], [ %best.sroa.9.162, %while.body15 ]
   call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
-  %22 = load i8, ptr %hasValue_.i, align 4
-  %tobool.i = trunc i8 %22 to i1
+  %23 = load i8, ptr %hasValue_.i, align 4
+  %tobool.i = trunc i8 %23 to i1
   br i1 %tobool.i, label %while.body15, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end45, %while.body
-  %best.sroa.0.1.lcssa = phi i32 [ %best.sroa.0.078, %while.body ], [ %best.sroa.0.2, %if.end45 ]
-  %best.sroa.3.1.lcssa = phi i32 [ %best.sroa.3.079, %while.body ], [ %best.sroa.3.2, %if.end45 ]
-  %best.sroa.7.1.lcssa = phi i32 [ %best.sroa.7.080, %while.body ], [ %best.sroa.7.2, %if.end45 ]
-  %best.sroa.9.1.lcssa = phi i32 [ %best.sroa.9.081, %while.body ], [ %best.sroa.9.2, %if.end45 ]
+  %best.sroa.0.1.lcssa = phi i32 [ %best.sroa.0.080, %while.body ], [ %best.sroa.0.2, %if.end45 ]
+  %best.sroa.3.1.lcssa = phi i32 [ %best.sroa.3.081, %while.body ], [ %best.sroa.3.2, %if.end45 ]
+  %best.sroa.7.1.lcssa = phi i32 [ %best.sroa.7.082, %while.body ], [ %best.sroa.7.2, %if.end45 ]
+  %best.sroa.9.1.lcssa = phi i32 [ %best.sroa.9.083, %while.body ], [ %best.sroa.9.2, %if.end45 ]
   %fdid.val = load i32, ptr %offset_.i, align 8
-  %cmp11 = icmp ult i32 %fdid.val, %end.1
+  %cmp11 = icmp ult i32 %fdid.val, %end.134
   br i1 %cmp11, label %while.body, label %while.end47, !llvm.loop !11
 
 while.end47:                                      ; preds = %while.end
   %cmp49 = icmp eq i32 %best.sroa.3.1.lcssa, -1
   br i1 %cmp49, label %if.then50, label %if.end51
 
-if.then50:                                        ; preds = %while.end.us, %while.cond.preheader, %while.end47
+if.then50:                                        ; preds = %while.end.us, %if.end10, %while.end47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %agg.result, i8 0, i64 17, i1 false)
   br label %return
 

@@ -472,7 +472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
 
 130:                                              ; preds = %126
   %131 = trunc nuw i8 %127 to i1
-  br i1 %131, label %132, label %._crit_edge.i.i.i
+  br i1 %131, label %132, label %.thread
 
 132:                                              ; preds = %130
   %133 = load ptr, ptr %118, align 8, !tbaa !14
@@ -480,7 +480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
   %135 = icmp eq ptr %133, %134
   br i1 %135, label %137, label %.thread
 
-._crit_edge.i.i.i:                                ; preds = %130, %126
+._crit_edge.i.i.i:                                ; preds = %126
   %136 = icmp eq i8 %128, %127
   br i1 %136, label %141, label %.thread
 
@@ -806,7 +806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
   call void @_ZN5boost14token_iteratorINS_22escaped_list_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS3_SaIcEEEEESC_ED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %16) #22
   br label %293
 
-.thread:                                          ; preds = %._crit_edge.i.i.i, %132, %137
+.thread:                                          ; preds = %130, %._crit_edge.i.i.i, %132, %137
   %269 = load i64, ptr %123, align 8, !tbaa !10
   %270 = icmp eq i64 %269, 0
   br i1 %270, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, label %271
@@ -1220,7 +1220,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit38: ; preds = %_ZN
 
 142:                                              ; preds = %138
   %143 = trunc nuw i8 %139 to i1
-  br i1 %143, label %144, label %._crit_edge.i.i.i
+  br i1 %143, label %144, label %.thread
 
 144:                                              ; preds = %142
   %145 = load ptr, ptr %130, align 8, !tbaa !14
@@ -1228,7 +1228,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit38: ; preds = %_ZN
   %147 = icmp eq ptr %145, %146
   br i1 %147, label %149, label %.thread
 
-._crit_edge.i.i.i:                                ; preds = %142, %138
+._crit_edge.i.i.i:                                ; preds = %138
   %148 = icmp eq i8 %140, %139
   br i1 %148, label %153, label %.thread
 
@@ -1568,7 +1568,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit70: ; preds = %_ZN
   call void @_ZN5boost14token_iteratorINS_22escaped_list_separatorIwSt11char_traitsIwEEEN9__gnu_cxx17__normal_iteratorIPKwNSt7__cxx1112basic_stringIwS3_SaIwEEEEESC_ED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %16) #22
   br label %320
 
-.thread:                                          ; preds = %._crit_edge.i.i.i, %144, %149
+.thread:                                          ; preds = %142, %._crit_edge.i.i.i, %144, %149
   %295 = load i64, ptr %135, align 8, !tbaa !28
   %296 = icmp eq i64 %295, 0
   br i1 %296, label %_ZNSt6vectorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EE9push_backERKS5_.exit, label %297

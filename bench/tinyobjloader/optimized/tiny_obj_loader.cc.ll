@@ -14436,37 +14436,37 @@ while.cond.preheader:                             ; preds = %if.then4, %if.else
   br i1 %cmp21.not, label %return, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %land.lhs.true, %while.cond.preheader
-  %curr.2.ph147 = phi ptr [ %curr.0, %while.cond.preheader ], [ %incdec.ptr, %land.lhs.true ]
-  %sign.075.ph146 = phi i8 [ %sign.0, %while.cond.preheader ], [ %0, %land.lhs.true ]
+  %curr.2.ph142 = phi ptr [ %curr.0, %while.cond.preheader ], [ %incdec.ptr, %land.lhs.true ]
+  %sign.075.ph141 = phi i8 [ %sign.0, %while.cond.preheader ], [ %0, %land.lhs.true ]
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
-  %read.0110 = phi i32 [ %inc, %while.body ], [ 0, %land.rhs.preheader ]
-  %curr.2109 = phi ptr [ %incdec.ptr30, %while.body ], [ %curr.2.ph147, %land.rhs.preheader ]
-  %mantissa.1108 = phi double [ %add, %while.body ], [ 0.000000e+00, %land.rhs.preheader ]
-  %2 = load i8, ptr %curr.2109, align 1
+  %read.0105 = phi i32 [ %inc, %while.body ], [ 0, %land.rhs.preheader ]
+  %curr.2104 = phi ptr [ %incdec.ptr30, %while.body ], [ %curr.2.ph142, %land.rhs.preheader ]
+  %mantissa.1103 = phi double [ %add, %while.body ], [ 0.000000e+00, %land.rhs.preheader ]
+  %2 = load i8, ptr %curr.2104, align 1
   %conv24 = sext i8 %2 to i32
   %sub25 = add nsw i32 %conv24, -48
   %cmp26 = icmp ugt i32 %sub25, 9
   br i1 %cmp26, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %mul = fmul double %mantissa.1108, 1.000000e+01
+  %mul = fmul double %mantissa.1103, 1.000000e+01
   %conv29 = uitofp nneg i32 %sub25 to double
   %add = fadd double %mul, %conv29
-  %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %curr.2109, i64 1
-  %inc = add nuw nsw i32 %read.0110, 1
+  %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %curr.2104, i64 1
+  %inc = add nuw nsw i32 %read.0105, 1
   %cmp31.not = icmp eq ptr %incdec.ptr30, %s_end
   br i1 %cmp31.not, label %cond.end144, label %land.rhs, !llvm.loop !75
 
 while.end:                                        ; preds = %land.rhs
-  %3 = icmp eq i32 %read.0110, 0
+  %3 = icmp eq i32 %read.0105, 0
   br i1 %3, label %return, label %if.end39
 
 if.end39:                                         ; preds = %if.else13, %while.end
-  %sign.074.ph = phi i8 [ 43, %if.else13 ], [ %sign.075.ph146, %while.end ]
-  %mantissa.0.ph = phi double [ 0.000000e+00, %if.else13 ], [ %mantissa.1108, %while.end ]
-  %curr.1.ph = phi ptr [ %s, %if.else13 ], [ %curr.2109, %while.end ]
+  %sign.074.ph = phi i8 [ 43, %if.else13 ], [ %sign.075.ph141, %while.end ]
+  %mantissa.0.ph = phi double [ 0.000000e+00, %if.else13 ], [ %mantissa.1103, %while.end ]
+  %curr.1.ph = phi ptr [ %s, %if.else13 ], [ %curr.2104, %while.end ]
   %.pr = load i8, ptr %curr.1.ph, align 1
   switch i8 %.pr, label %cond.end144 [
     i8 46, label %while.cond46.preheader
@@ -14475,18 +14475,18 @@ if.end39:                                         ; preds = %if.else13, %while.e
   ]
 
 while.cond46.preheader:                           ; preds = %land.lhs.true, %if.end39
-  %sign.07482171 = phi i8 [ %sign.074.ph, %if.end39 ], [ %0, %land.lhs.true ]
-  %mantissa.083169 = phi double [ %mantissa.0.ph, %if.end39 ], [ 0.000000e+00, %land.lhs.true ]
-  %curr.184168 = phi ptr [ %curr.1.ph, %if.end39 ], [ %incdec.ptr, %land.lhs.true ]
-  %curr.3119 = getelementptr inbounds nuw i8, ptr %curr.184168, i64 1
-  %end_not_reached.2.in.not120 = icmp eq ptr %curr.3119, %s_end
-  br i1 %end_not_reached.2.in.not120, label %cond.end144, label %land.rhs48
+  %sign.07482166 = phi i8 [ %sign.074.ph, %if.end39 ], [ %0, %land.lhs.true ]
+  %mantissa.083164 = phi double [ %mantissa.0.ph, %if.end39 ], [ 0.000000e+00, %land.lhs.true ]
+  %curr.184163 = phi ptr [ %curr.1.ph, %if.end39 ], [ %incdec.ptr, %land.lhs.true ]
+  %curr.3114 = getelementptr inbounds nuw i8, ptr %curr.184163, i64 1
+  %end_not_reached.2.in.not115 = icmp eq ptr %curr.3114, %s_end
+  br i1 %end_not_reached.2.in.not115, label %cond.end144, label %land.rhs48
 
 land.rhs48:                                       ; preds = %while.cond46.preheader, %cond.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %cond.end ], [ 1, %while.cond46.preheader ]
-  %curr.3123 = phi ptr [ %curr.3, %cond.end ], [ %curr.3119, %while.cond46.preheader ]
-  %mantissa.3121 = phi double [ %8, %cond.end ], [ %mantissa.083169, %while.cond46.preheader ]
-  %4 = load i8, ptr %curr.3123, align 1
+  %curr.3118 = phi ptr [ %curr.3, %cond.end ], [ %curr.3114, %while.cond46.preheader ]
+  %mantissa.3116 = phi double [ %8, %cond.end ], [ %mantissa.083164, %while.cond46.preheader ]
+  %4 = load i8, ptr %curr.3118, align 1
   %conv49 = sext i8 %4 to i32
   %sub50 = add nsw i32 %conv49, -48
   %cmp51 = icmp ult i32 %sub50, 10
@@ -14511,24 +14511,24 @@ cond.false:                                       ; preds = %while.body53
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi double [ %5, %cond.true ], [ %call.i, %cond.false ]
-  %8 = tail call double @llvm.fmuladd.f64(double %conv56, double %cond, double %mantissa.3121)
+  %8 = tail call double @llvm.fmuladd.f64(double %conv56, double %cond, double %mantissa.3116)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %curr.3 = getelementptr inbounds nuw i8, ptr %curr.3123, i64 1
+  %curr.3 = getelementptr inbounds nuw i8, ptr %curr.3118, i64 1
   %end_not_reached.2.in.not = icmp eq ptr %curr.3, %s_end
   br i1 %end_not_reached.2.in.not, label %cond.end144, label %land.rhs48, !llvm.loop !76
 
 if.end77:                                         ; preds = %land.rhs48, %if.end39, %if.end39
-  %sign.07482170 = phi i8 [ %sign.074.ph, %if.end39 ], [ %sign.074.ph, %if.end39 ], [ %sign.07482171, %land.rhs48 ]
+  %sign.07482165 = phi i8 [ %sign.074.ph, %if.end39 ], [ %sign.074.ph, %if.end39 ], [ %sign.07482166, %land.rhs48 ]
   %9 = phi i8 [ %.pr, %if.end39 ], [ %.pr, %if.end39 ], [ %4, %land.rhs48 ]
-  %curr.491 = phi ptr [ %curr.1.ph, %if.end39 ], [ %curr.1.ph, %if.end39 ], [ %curr.3123, %land.rhs48 ]
-  %mantissa.490 = phi double [ %mantissa.0.ph, %if.end39 ], [ %mantissa.0.ph, %if.end39 ], [ %mantissa.3121, %land.rhs48 ]
+  %mantissa.4.ph = phi double [ %mantissa.0.ph, %if.end39 ], [ %mantissa.0.ph, %if.end39 ], [ %mantissa.3116, %land.rhs48 ]
+  %curr.4.ph = phi ptr [ %curr.1.ph, %if.end39 ], [ %curr.1.ph, %if.end39 ], [ %curr.3118, %land.rhs48 ]
   switch i8 %9, label %cond.end144 [
     i8 101, label %if.then83
     i8 69, label %if.then83
   ]
 
 if.then83:                                        ; preds = %if.end77, %if.end77
-  %incdec.ptr84 = getelementptr inbounds nuw i8, ptr %curr.491, i64 1
+  %incdec.ptr84 = getelementptr inbounds nuw i8, ptr %curr.4.ph, i64 1
   %cmp85.not = icmp eq ptr %incdec.ptr84, %s_end
   %.pre = load i8, ptr %incdec.ptr84, align 1
   br i1 %cmp85.not, label %if.else96, label %land.lhs.true88
@@ -14540,7 +14540,7 @@ land.lhs.true88:                                  ; preds = %if.then83
   ]
 
 if.then94:                                        ; preds = %land.lhs.true88, %land.lhs.true88
-  %incdec.ptr95 = getelementptr inbounds nuw i8, ptr %curr.491, i64 2
+  %incdec.ptr95 = getelementptr inbounds nuw i8, ptr %curr.4.ph, i64 2
   %10 = icmp eq i8 %.pre, 43
   %11 = select i1 %10, i32 1, i32 -1
   br label %if.end103
@@ -14554,54 +14554,54 @@ if.else96:                                        ; preds = %land.lhs.true88, %i
 if.end103:                                        ; preds = %if.else96, %if.then94
   %exp_sign.0 = phi i32 [ %11, %if.then94 ], [ 1, %if.else96 ]
   %curr.5 = phi ptr [ %incdec.ptr95, %if.then94 ], [ %incdec.ptr84, %if.else96 ]
-  %end_not_reached.4.in.not125 = icmp eq ptr %curr.5, %s_end
-  br i1 %end_not_reached.4.in.not125, label %return, label %land.rhs108
+  %end_not_reached.4.in.not120 = icmp eq ptr %curr.5, %s_end
+  br i1 %end_not_reached.4.in.not120, label %return, label %land.rhs108
 
 land.rhs108:                                      ; preds = %if.end103, %if.end116
-  %read.2128 = phi i32 [ %inc122, %if.end116 ], [ 0, %if.end103 ]
-  %curr.6127 = phi ptr [ %incdec.ptr121, %if.end116 ], [ %curr.5, %if.end103 ]
-  %exponent.1126 = phi i32 [ %add120, %if.end116 ], [ 0, %if.end103 ]
-  %12 = load i8, ptr %curr.6127, align 1
+  %read.2123 = phi i32 [ %inc122, %if.end116 ], [ 0, %if.end103 ]
+  %curr.6122 = phi ptr [ %incdec.ptr121, %if.end116 ], [ %curr.5, %if.end103 ]
+  %exponent.1121 = phi i32 [ %add120, %if.end116 ], [ 0, %if.end103 ]
+  %12 = load i8, ptr %curr.6122, align 1
   %conv109 = sext i8 %12 to i32
   %sub110 = add nsw i32 %conv109, -48
   %cmp111 = icmp ult i32 %sub110, 10
   br i1 %cmp111, label %while.body113, label %while.end125
 
 while.body113:                                    ; preds = %land.rhs108
-  %cmp114 = icmp sgt i32 %exponent.1126, 214748364
+  %cmp114 = icmp sgt i32 %exponent.1121, 214748364
   br i1 %cmp114, label %return, label %if.end116
 
 if.end116:                                        ; preds = %while.body113
-  %mul117 = mul nsw i32 %exponent.1126, 10
+  %mul117 = mul nsw i32 %exponent.1121, 10
   %add120 = add nsw i32 %sub110, %mul117
-  %incdec.ptr121 = getelementptr inbounds nuw i8, ptr %curr.6127, i64 1
-  %inc122 = add nuw nsw i32 %read.2128, 1
+  %incdec.ptr121 = getelementptr inbounds nuw i8, ptr %curr.6122, i64 1
+  %inc122 = add nuw nsw i32 %read.2123, 1
   %end_not_reached.4.in.not = icmp eq ptr %incdec.ptr121, %s_end
   br i1 %end_not_reached.4.in.not, label %assemble, label %land.rhs108, !llvm.loop !77
 
 while.end125:                                     ; preds = %land.rhs108
-  %13 = icmp eq i32 %read.2128, 0
+  %13 = icmp eq i32 %read.2123, 0
   br i1 %13, label %return, label %assemble
 
 assemble:                                         ; preds = %if.end116, %while.end125
-  %exponent.1.lcssa.ph179 = phi i32 [ %exponent.1126, %while.end125 ], [ %add120, %if.end116 ]
-  %tobool138.not = icmp eq i32 %exponent.1.lcssa.ph179, 0
+  %exponent.1.lcssa.ph174 = phi i32 [ %exponent.1121, %while.end125 ], [ %add120, %if.end116 ]
+  %tobool138.not = icmp eq i32 %exponent.1.lcssa.ph174, 0
   br i1 %tobool138.not, label %cond.end144, label %cond.true139
 
 cond.true139:                                     ; preds = %assemble
-  %mul129180 = mul nsw i32 %exponent.1.lcssa.ph179, %exp_sign.0
-  %conv.i67 = sitofp i32 %mul129180 to double
+  %mul129175 = mul nsw i32 %exponent.1.lcssa.ph174, %exp_sign.0
+  %conv.i67 = sitofp i32 %mul129175 to double
   %call.i68 = tail call noundef double @pow(double noundef 5.000000e+00, double noundef %conv.i67) #26
-  %mul141 = fmul double %mantissa.490, %call.i68
-  %call142 = tail call double @ldexp(double noundef %mul141, i32 noundef %mul129180) #26
+  %mul141 = fmul double %mantissa.4.ph, %call.i68
+  %call142 = tail call double @ldexp(double noundef %mul141, i32 noundef %mul129175) #26
   br label %cond.end144
 
 cond.end144:                                      ; preds = %while.body, %cond.end, %while.cond46.preheader, %if.end77, %if.end39, %assemble, %cond.true139
-  %cmp135103.in = phi i8 [ %sign.07482170, %cond.true139 ], [ %sign.07482170, %assemble ], [ %sign.07482170, %if.end77 ], [ %sign.074.ph, %if.end39 ], [ %sign.07482171, %while.cond46.preheader ], [ %sign.07482171, %cond.end ], [ %sign.075.ph146, %while.body ]
-  %cond145 = phi double [ %call142, %cond.true139 ], [ %mantissa.490, %assemble ], [ %mantissa.490, %if.end77 ], [ %mantissa.0.ph, %if.end39 ], [ %mantissa.083169, %while.cond46.preheader ], [ %8, %cond.end ], [ %add, %while.body ]
-  %cmp135103 = icmp eq i8 %cmp135103.in, 43
+  %cmp13598.in = phi i8 [ %sign.07482165, %cond.true139 ], [ %sign.07482165, %assemble ], [ %sign.07482165, %if.end77 ], [ %sign.074.ph, %if.end39 ], [ %sign.07482166, %while.cond46.preheader ], [ %sign.07482166, %cond.end ], [ %sign.075.ph141, %while.body ]
+  %cond145 = phi double [ %call142, %cond.true139 ], [ %mantissa.4.ph, %assemble ], [ %mantissa.4.ph, %if.end77 ], [ %mantissa.0.ph, %if.end39 ], [ %mantissa.083164, %while.cond46.preheader ], [ %8, %cond.end ], [ %add, %while.body ]
+  %cmp13598 = icmp eq i8 %cmp13598.in, 43
   %14 = fneg double %cond145
-  %mul146 = select i1 %cmp135103, double %cond145, double %14
+  %mul146 = select i1 %cmp13598, double %cond145, double %14
   store double %mul146, ptr %result, align 8
   br label %return
 

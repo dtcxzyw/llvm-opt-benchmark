@@ -3715,7 +3715,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit60:                  ; preds = %105, %114, %_ZNSt6v
 .critedge:                                        ; preds = %..critedge_crit_edge, %._crit_edge, %312, %.loopexit, %161, %.thread, %150, %137
   %324 = phi ptr [ %148, %150 ], [ %148, %.thread ], [ %.pre137, %..critedge_crit_edge ], [ %148, %137 ], [ %148, %161 ], [ %148, %.loopexit ], [ %148, %312 ], [ %148, %._crit_edge ]
   %325 = phi ptr [ %122, %150 ], [ %122, %.thread ], [ %.pre, %..critedge_crit_edge ], [ %122, %137 ], [ %122, %161 ], [ %122, %.loopexit ], [ %122, %312 ], [ %122, %._crit_edge ]
-  %.2 = phi i8 [ %.149116, %150 ], [ %.149116, %.thread ], [ %.149116, %..critedge_crit_edge ], [ %.149116, %137 ], [ 0, %161 ], [ 0, %.loopexit ], [ 0, %312 ], [ 0, %._crit_edge ]
+  %.2 = phi i8 [ 1, %150 ], [ %.149116, %.thread ], [ %.149116, %..critedge_crit_edge ], [ 0, %137 ], [ 0, %161 ], [ 0, %.loopexit ], [ 0, %312 ], [ 0, %._crit_edge ]
   %326 = icmp eq ptr %325, %324
   br i1 %326, label %._crit_edge118, label %.lr.ph117, !llvm.loop !41
 

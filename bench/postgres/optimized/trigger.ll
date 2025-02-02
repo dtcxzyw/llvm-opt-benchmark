@@ -6639,22 +6639,19 @@ define dso_local noundef ptr @MakeTransitionCaptureState(ptr noundef readonly %0
 .thread61:                                        ; preds = %6, %21
   %.0455567 = phi i8 [ %.045, %21 ], [ 0, %6 ]
   %.0445766 = phi i8 [ %.044, %21 ], [ %8, %6 ]
-  %.0435965 = phi i8 [ %.043.in, %21 ], [ 0, %6 ]
   %23 = trunc i8 %.0445766 to i1
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %.thread61.thread, %.thread61
-  %.043596573 = phi i8 [ 0, %.thread61.thread ], [ %.0435965, %.thread61 ]
-  %.044576672 = phi i8 [ 0, %.thread61.thread ], [ %.0445766, %.thread61 ]
   %.045556771 = phi i8 [ %10, %.thread61.thread ], [ %.0455567, %.thread61 ]
   %25 = trunc i8 %.045556771 to i1
   br i1 %25, label %26, label %145
 
 26:                                               ; preds = %24, %.thread61, %21, %19
   %27 = phi i1 [ false, %24 ], [ false, %.thread61 ], [ false, %21 ], [ true, %19 ]
-  %.04360 = phi i8 [ %.043596573, %24 ], [ %.0435965, %.thread61 ], [ %.043.in, %21 ], [ %.043.in, %19 ]
-  %.04458 = phi i8 [ %.044576672, %24 ], [ %.0445766, %.thread61 ], [ %.044, %21 ], [ %.044, %19 ]
-  %.04556 = phi i8 [ %.045556771, %24 ], [ %.0455567, %.thread61 ], [ %.045, %21 ], [ %.045, %19 ]
+  %.04360 = phi i8 [ 0, %24 ], [ 0, %.thread61 ], [ 1, %21 ], [ %.043.in, %19 ]
+  %.04458 = phi i8 [ 0, %24 ], [ 1, %.thread61 ], [ %.044, %21 ], [ %.044, %19 ]
+  %.04556 = phi i8 [ 1, %24 ], [ %.0455567, %.thread61 ], [ %.045, %21 ], [ %.045, %19 ]
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %33
@@ -8704,48 +8701,48 @@ define dso_local void @AfterTriggerSetState(ptr noundef readonly captures(none) 
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %56 = and i8 %53, 1
   store i8 %56, ptr %55, align 1
-  br label %.thread159
+  br label %.thread163
 
 57:                                               ; preds = %44
   %58 = tail call ptr @table_open(i32 noundef 2606, i32 noundef 1) #15
   %59 = load ptr, ptr %45, align 8
   %.not = icmp eq ptr %59, null
-  br i1 %.not, label %._crit_edge212, label %.lr.ph197
+  br i1 %.not, label %._crit_edge221, label %.lr.ph206
 
-.lr.ph197:                                        ; preds = %57
+.lr.ph206:                                        ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load i32, ptr %60, align 4
   %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.lr.ph326, label %._crit_edge198
+  br i1 %65, label %.lr.ph339, label %._crit_edge207
 
-._crit_edge198:                                   ; preds = %.thread147.thread277, %.lr.ph197
-  %.0195.lcssa = phi ptr [ null, %.lr.ph197 ], [ %.4, %.thread147.thread277 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.0195.lcssa, i64 4
-  %.not130 = icmp eq ptr %.0195.lcssa, null
-  br i1 %.not130, label %._crit_edge212, label %.lr.ph211
+._crit_edge207:                                   ; preds = %._crit_edge, %.lr.ph206
+  %.0204.lcssa = phi ptr [ null, %.lr.ph206 ], [ %.4, %._crit_edge ]
+  %66 = getelementptr inbounds nuw i8, ptr %.0204.lcssa, i64 4
+  %.not130 = icmp eq ptr %.0204.lcssa, null
+  br i1 %.not130, label %._crit_edge221, label %.lr.ph220
 
-.lr.ph211:                                        ; preds = %._crit_edge198
-  %67 = getelementptr inbounds nuw i8, ptr %.0195.lcssa, i64 16
+.lr.ph220:                                        ; preds = %._crit_edge207
+  %67 = getelementptr inbounds nuw i8, ptr %.0204.lcssa, i64 16
   %68 = load i32, ptr %66, align 4
   %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %.lr.ph219, label %._crit_edge212
+  br i1 %69, label %.lr.ph228, label %._crit_edge221
 
-.lr.ph326:                                        ; preds = %.lr.ph197, %.thread147.thread277
-  %.sroa.057.0193325 = phi ptr [ %.sroa.057.1, %.thread147.thread277 ], [ undef, %.lr.ph197 ]
-  %.0195324 = phi ptr [ %.4, %.thread147.thread277 ], [ null, %.lr.ph197 ]
-  %indvars.iv255323 = phi i64 [ %indvars.iv.next256, %.thread147.thread277 ], [ 0, %.lr.ph197 ]
+.lr.ph339:                                        ; preds = %.lr.ph206, %._crit_edge
+  %.sroa.057.0202338 = phi ptr [ %.sroa.057.1, %._crit_edge ], [ undef, %.lr.ph206 ]
+  %.0204337 = phi ptr [ %.4, %._crit_edge ], [ null, %.lr.ph206 ]
+  %indvars.iv271336 = phi i64 [ %indvars.iv.next272, %._crit_edge ], [ 0, %.lr.ph206 ]
   %70 = load ptr, ptr %61, align 8
-  %71 = getelementptr %union.ListCell, ptr %70, i64 %indvars.iv255323
+  %71 = getelementptr %union.ListCell, ptr %70, i64 %indvars.iv271336
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not138 = icmp eq ptr %74, null
   br i1 %.not138, label %89, label %75
 
-75:                                               ; preds = %.lr.ph326
+75:                                               ; preds = %.lr.ph339
   %76 = load i32, ptr @MyDatabaseId, align 4
   %77 = call ptr @get_database_name(i32 noundef %76) #15
   %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %77) #17
@@ -8766,7 +8763,7 @@ define dso_local void @AfterTriggerSetState(ptr noundef readonly captures(none) 
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5739, ptr noundef nonnull @__func__.AfterTriggerSetState) #15
   unreachable
 
-89:                                               ; preds = %75, %.lr.ph326
+89:                                               ; preds = %75, %.lr.ph339
   %90 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %91 = load ptr, ptr %90, align 8
   %.not140 = icmp eq ptr %91, null
@@ -8774,7 +8771,7 @@ define dso_local void @AfterTriggerSetState(ptr noundef readonly captures(none) 
 
 92:                                               ; preds = %89
   %93 = call i32 @LookupExplicitNamespace(ptr noundef nonnull %91, i1 noundef zeroext false) #15
-  %94 = ptrtoint ptr %.sroa.057.0193325 to i64
+  %94 = ptrtoint ptr %.sroa.057.0202338 to i64
   %.sroa.057.0.insert.ext = zext i32 %93 to i64
   %.sroa.057.0.insert.mask = and i64 %94, -4294967296
   %.sroa.057.0.insert.insert = or disjoint i64 %.sroa.057.0.insert.mask, %.sroa.057.0.insert.ext
@@ -8787,23 +8784,23 @@ define dso_local void @AfterTriggerSetState(ptr noundef readonly captures(none) 
   br label %99
 
 99:                                               ; preds = %97, %92
-  %.sroa.057.1 = phi ptr [ %95, %92 ], [ %.sroa.057.0193325, %97 ]
+  %.sroa.057.1 = phi ptr [ %95, %92 ], [ %.sroa.057.0202338, %97 ]
   %.0120 = phi ptr [ %96, %92 ], [ %98, %97 ]
   %.not141 = icmp eq ptr %.0120, null
-  br i1 %.not141, label %.loopexit, label %.lr.ph184
+  br i1 %.not141, label %._crit_edge193, label %.lr.ph192
 
-.lr.ph184:                                        ; preds = %99
+.lr.ph192:                                        ; preds = %99
   %100 = getelementptr inbounds nuw i8, ptr %.0120, i64 4
   %101 = getelementptr inbounds nuw i8, ptr %.0120, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %103 = load i32, ptr %100, align 4
   %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.lr.ph319, label %.loopexit
+  br i1 %104, label %.lr.ph332, label %._crit_edge193
 
-.lr.ph319:                                        ; preds = %.lr.ph184, %._crit_edge
-  %indvars.iv318 = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph184 ]
+.lr.ph332:                                        ; preds = %.lr.ph192, %._crit_edge.thread
+  %indvars.iv331 = phi i64 [ %indvars.iv.next, %._crit_edge.thread ], [ 0, %.lr.ph192 ]
   %105 = load ptr, ptr %101, align 8
-  %106 = getelementptr %union.ListCell, ptr %105, i64 %indvars.iv318
+  %106 = getelementptr %union.ListCell, ptr %105, i64 %indvars.iv331
   %107 = load i32, ptr %106, align 8
   %108 = load ptr, ptr %102, align 8
   %109 = ptrtoint ptr %108 to i64
@@ -8812,66 +8809,66 @@ define dso_local void @AfterTriggerSetState(ptr noundef readonly captures(none) 
   call void @ScanKeyInit(ptr noundef nonnull %62, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %110) #15
   %111 = call ptr @systable_beginscan(ptr noundef %58, i32 noundef 2664, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %2) #15
   %112 = call ptr @systable_getnext(ptr noundef %111) #15
-  %.not143176 = icmp eq ptr %112, null
-  br i1 %.not143176, label %._crit_edge, label %.lr.ph
+  %.not143185.not = icmp eq ptr %112, null
+  br i1 %.not143185.not, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph319, %134
-  %113 = phi ptr [ %135, %134 ], [ %112, %.lr.ph319 ]
-  %.3177 = phi ptr [ %.4, %134 ], [ %.0195324, %.lr.ph319 ]
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 22
-  %117 = load i8, ptr %116, align 2
-  %118 = zext i8 %117 to i64
-  %119 = getelementptr i8, ptr %115, i64 %118
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 73
-  %121 = load i8, ptr %120, align 1
-  %122 = trunc i8 %121 to i1
-  br i1 %122, label %123, label %126
+._crit_edge.thread:                               ; preds = %.lr.ph332
+  call void @systable_endscan(ptr noundef %111) #15
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv331, 1
+  %113 = load i32, ptr %100, align 4
+  %114 = sext i32 %113 to i64
+  %115 = icmp slt i64 %indvars.iv.next, %114
+  br i1 %115, label %.lr.ph332, label %._crit_edge193
 
-123:                                              ; preds = %.lr.ph
-  %124 = load i32, ptr %119, align 4
-  %125 = call ptr @lappend_oid(ptr noundef %.3177, i32 noundef %124) #15
-  br label %134
+.lr.ph:                                           ; preds = %.lr.ph332, %137
+  %116 = phi ptr [ %138, %137 ], [ %112, %.lr.ph332 ]
+  %.3186 = phi ptr [ %.4, %137 ], [ %.0204337, %.lr.ph332 ]
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 22
+  %120 = load i8, ptr %119, align 2
+  %121 = zext i8 %120 to i64
+  %122 = getelementptr i8, ptr %118, i64 %121
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 73
+  %124 = load i8, ptr %123, align 1
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %126, label %129
 
 126:                                              ; preds = %.lr.ph
-  %127 = load i8, ptr %63, align 8
-  %128 = trunc i8 %127 to i1
-  br i1 %128, label %129, label %134
+  %127 = load i32, ptr %122, align 4
+  %128 = call ptr @lappend_oid(ptr noundef %.3186, i32 noundef %127) #15
+  br label %137
 
-129:                                              ; preds = %126
-  %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %130)
-  %131 = call i32 @errcode(i32 noundef 151027844) #15
-  %132 = load ptr, ptr %102, align 8
-  %133 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.68, ptr noundef %132) #15
+129:                                              ; preds = %.lr.ph
+  %130 = load i8, ptr %63, align 8
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %132, label %137
+
+132:                                              ; preds = %129
+  %133 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %133)
+  %134 = call i32 @errcode(i32 noundef 151027844) #15
+  %135 = load ptr, ptr %102, align 8
+  %136 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.68, ptr noundef %135) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5789, ptr noundef nonnull @__func__.AfterTriggerSetState) #15
   unreachable
 
-134:                                              ; preds = %126, %123
-  %.4 = phi ptr [ %125, %123 ], [ %.3177, %126 ]
-  %135 = call ptr @systable_getnext(ptr noundef %111) #15
-  %.not143 = icmp eq ptr %135, null
-  br i1 %.not143, label %.thread147.thread277, label %.lr.ph, !llvm.loop !54
+137:                                              ; preds = %129, %126
+  %.4 = phi ptr [ %128, %126 ], [ %.3186, %129 ]
+  %138 = call ptr @systable_getnext(ptr noundef %111) #15
+  %.not143 = icmp eq ptr %138, null
+  br i1 %.not143, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
-.thread147.thread277:                             ; preds = %134
+._crit_edge:                                      ; preds = %137
   call void @systable_endscan(ptr noundef %111) #15
   call void @list_free(ptr noundef nonnull %.0120) #15
-  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255323, 1
-  %136 = load i32, ptr %60, align 4
-  %137 = sext i32 %136 to i64
-  %138 = icmp slt i64 %indvars.iv.next256, %137
-  br i1 %138, label %.lr.ph326, label %._crit_edge198
-
-._crit_edge:                                      ; preds = %.lr.ph319
-  call void @systable_endscan(ptr noundef %111) #15
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv318, 1
-  %139 = load i32, ptr %100, align 4
+  %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271336, 1
+  %139 = load i32, ptr %60, align 4
   %140 = sext i32 %139 to i64
-  %141 = icmp slt i64 %indvars.iv.next, %140
-  br i1 %141, label %.lr.ph319, label %.loopexit
+  %141 = icmp slt i64 %indvars.iv.next272, %140
+  br i1 %141, label %.lr.ph339, label %._crit_edge207
 
-.loopexit:                                        ; preds = %.lr.ph184, %99, %._crit_edge
+._crit_edge193:                                   ; preds = %99, %.lr.ph192, %._crit_edge.thread
   call void @list_free(ptr noundef %.0120) #15
   %142 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   call void @llvm.assume(i1 %142)
@@ -8882,22 +8879,22 @@ define dso_local void @AfterTriggerSetState(ptr noundef readonly captures(none) 
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5812, ptr noundef nonnull @__func__.AfterTriggerSetState) #15
   unreachable
 
-.lr.ph219:                                        ; preds = %.lr.ph211, %._crit_edge206
-  %indvars.iv258 = phi i64 [ %indvars.iv.next259, %._crit_edge206 ], [ 0, %.lr.ph211 ]
-  %.5209217 = phi ptr [ %.6.lcssa, %._crit_edge206 ], [ %.0195.lcssa, %.lr.ph211 ]
+.lr.ph228:                                        ; preds = %.lr.ph220, %._crit_edge215
+  %indvars.iv274 = phi i64 [ %indvars.iv.next275, %._crit_edge215 ], [ 0, %.lr.ph220 ]
+  %.5218226 = phi ptr [ %.6.lcssa, %._crit_edge215 ], [ %.0204.lcssa, %.lr.ph220 ]
   %147 = load ptr, ptr %67, align 8
-  %148 = getelementptr %union.ListCell, ptr %147, i64 %indvars.iv258
+  %148 = getelementptr %union.ListCell, ptr %147, i64 %indvars.iv274
   %149 = load i32, ptr %148, align 8
   %150 = zext i32 %149 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 11, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %150) #15
   %151 = call ptr @systable_beginscan(ptr noundef %58, i32 noundef 2579, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #15
   %152 = call ptr @systable_getnext(ptr noundef %151) #15
-  %.not137202 = icmp eq ptr %152, null
-  br i1 %.not137202, label %._crit_edge206, label %.lr.ph205
+  %.not137211 = icmp eq ptr %152, null
+  br i1 %.not137211, label %._crit_edge215, label %.lr.ph214
 
-.lr.ph205:                                        ; preds = %.lr.ph219, %.lr.ph205
-  %153 = phi ptr [ %162, %.lr.ph205 ], [ %152, %.lr.ph219 ]
-  %.6203 = phi ptr [ %161, %.lr.ph205 ], [ %.5209217, %.lr.ph219 ]
+.lr.ph214:                                        ; preds = %.lr.ph228, %.lr.ph214
+  %153 = phi ptr [ %162, %.lr.ph214 ], [ %152, %.lr.ph228 ]
+  %.6212 = phi ptr [ %161, %.lr.ph214 ], [ %.5218226, %.lr.ph228 ]
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 22
@@ -8905,50 +8902,50 @@ define dso_local void @AfterTriggerSetState(ptr noundef readonly captures(none) 
   %158 = zext i8 %157 to i64
   %159 = getelementptr i8, ptr %155, i64 %158
   %160 = load i32, ptr %159, align 4
-  %161 = call ptr @lappend_oid(ptr noundef %.6203, i32 noundef %160) #15
+  %161 = call ptr @lappend_oid(ptr noundef %.6212, i32 noundef %160) #15
   %162 = call ptr @systable_getnext(ptr noundef %151) #15
   %.not137 = icmp eq ptr %162, null
-  br i1 %.not137, label %._crit_edge206, label %.lr.ph205, !llvm.loop !55
+  br i1 %.not137, label %._crit_edge215, label %.lr.ph214, !llvm.loop !55
 
-._crit_edge206:                                   ; preds = %.lr.ph205, %.lr.ph219
-  %.6.lcssa = phi ptr [ %.5209217, %.lr.ph219 ], [ %161, %.lr.ph205 ]
+._crit_edge215:                                   ; preds = %.lr.ph214, %.lr.ph228
+  %.6.lcssa = phi ptr [ %.5218226, %.lr.ph228 ], [ %161, %.lr.ph214 ]
   call void @systable_endscan(ptr noundef %151) #15
-  %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
+  %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %163 = load i32, ptr %66, align 4
   %164 = sext i32 %163 to i64
-  %165 = icmp slt i64 %indvars.iv.next259, %164
-  br i1 %165, label %.lr.ph219, label %._crit_edge212
+  %165 = icmp slt i64 %indvars.iv.next275, %164
+  br i1 %165, label %.lr.ph228, label %._crit_edge221
 
-._crit_edge212:                                   ; preds = %._crit_edge206, %57, %.lr.ph211, %._crit_edge198
-  %.5.lcssa = phi ptr [ null, %._crit_edge198 ], [ %.0195.lcssa, %.lr.ph211 ], [ null, %57 ], [ %.6.lcssa, %._crit_edge206 ]
+._crit_edge221:                                   ; preds = %._crit_edge215, %57, %.lr.ph220, %._crit_edge207
+  %.5.lcssa = phi ptr [ null, %._crit_edge207 ], [ %.0204.lcssa, %.lr.ph220 ], [ null, %57 ], [ %.6.lcssa, %._crit_edge215 ]
   call void @table_close(ptr noundef %58, i32 noundef 1) #15
   %166 = call ptr @table_open(i32 noundef 2620, i32 noundef 1) #15
   %167 = getelementptr inbounds nuw i8, ptr %.5.lcssa, i64 4
   %.not132 = icmp eq ptr %.5.lcssa, null
-  br i1 %.not132, label %._crit_edge231.thread, label %.lr.ph230
+  br i1 %.not132, label %._crit_edge240.thread, label %.lr.ph239
 
-.lr.ph230:                                        ; preds = %._crit_edge212
+.lr.ph239:                                        ; preds = %._crit_edge221
   %168 = getelementptr inbounds nuw i8, ptr %.5.lcssa, i64 16
   %169 = load i32, ptr %167, align 4
   %170 = icmp sgt i32 %169, 0
-  br i1 %170, label %.lr.ph239, label %._crit_edge231.thread
+  br i1 %170, label %.lr.ph248, label %._crit_edge240.thread
 
-.lr.ph239:                                        ; preds = %.lr.ph230, %._crit_edge225
-  %indvars.iv261 = phi i64 [ %indvars.iv.next262, %._crit_edge225 ], [ 0, %.lr.ph230 ]
-  %.0108228237 = phi ptr [ %.1109.lcssa, %._crit_edge225 ], [ null, %.lr.ph230 ]
+.lr.ph248:                                        ; preds = %.lr.ph239, %._crit_edge234
+  %indvars.iv277 = phi i64 [ %indvars.iv.next278, %._crit_edge234 ], [ 0, %.lr.ph239 ]
+  %.0108237246 = phi ptr [ %.1109.lcssa, %._crit_edge234 ], [ null, %.lr.ph239 ]
   %171 = load ptr, ptr %168, align 8
-  %172 = getelementptr %union.ListCell, ptr %171, i64 %indvars.iv261
+  %172 = getelementptr %union.ListCell, ptr %171, i64 %indvars.iv277
   %173 = load i32, ptr %172, align 8
   %174 = zext i32 %173 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 11, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %174) #15
   %175 = call ptr @systable_beginscan(ptr noundef %166, i32 noundef 2699, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #15
   %176 = call ptr @systable_getnext(ptr noundef %175) #15
-  %.not136221 = icmp eq ptr %176, null
-  br i1 %.not136221, label %._crit_edge225, label %.lr.ph224
+  %.not136230 = icmp eq ptr %176, null
+  br i1 %.not136230, label %._crit_edge234, label %.lr.ph233
 
-.lr.ph224:                                        ; preds = %.lr.ph239, %190
-  %177 = phi ptr [ %191, %190 ], [ %176, %.lr.ph239 ]
-  %.1109222 = phi ptr [ %.2110, %190 ], [ %.0108228237, %.lr.ph239 ]
+.lr.ph233:                                        ; preds = %.lr.ph248, %190
+  %177 = phi ptr [ %191, %190 ], [ %176, %.lr.ph248 ]
+  %.1109231 = phi ptr [ %.2110, %190 ], [ %.0108237246, %.lr.ph248 ]
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 22
@@ -8960,81 +8957,81 @@ define dso_local void @AfterTriggerSetState(ptr noundef readonly captures(none) 
   %186 = trunc i8 %185 to i1
   br i1 %186, label %187, label %190
 
-187:                                              ; preds = %.lr.ph224
+187:                                              ; preds = %.lr.ph233
   %188 = load i32, ptr %183, align 4
-  %189 = call ptr @lappend_oid(ptr noundef %.1109222, i32 noundef %188) #15
+  %189 = call ptr @lappend_oid(ptr noundef %.1109231, i32 noundef %188) #15
   br label %190
 
-190:                                              ; preds = %187, %.lr.ph224
-  %.2110 = phi ptr [ %189, %187 ], [ %.1109222, %.lr.ph224 ]
+190:                                              ; preds = %187, %.lr.ph233
+  %.2110 = phi ptr [ %189, %187 ], [ %.1109231, %.lr.ph233 ]
   %191 = call ptr @systable_getnext(ptr noundef %175) #15
   %.not136 = icmp eq ptr %191, null
-  br i1 %.not136, label %._crit_edge225, label %.lr.ph224, !llvm.loop !56
+  br i1 %.not136, label %._crit_edge234, label %.lr.ph233, !llvm.loop !56
 
-._crit_edge225:                                   ; preds = %190, %.lr.ph239
-  %.1109.lcssa = phi ptr [ %.0108228237, %.lr.ph239 ], [ %.2110, %190 ]
+._crit_edge234:                                   ; preds = %190, %.lr.ph248
+  %.1109.lcssa = phi ptr [ %.0108237246, %.lr.ph248 ], [ %.2110, %190 ]
   call void @systable_endscan(ptr noundef %175) #15
-  %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
+  %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %192 = load i32, ptr %167, align 4
   %193 = sext i32 %192 to i64
-  %194 = icmp slt i64 %indvars.iv.next262, %193
-  br i1 %194, label %.lr.ph239, label %._crit_edge231
+  %194 = icmp slt i64 %indvars.iv.next278, %193
+  br i1 %194, label %.lr.ph248, label %._crit_edge240
 
-._crit_edge231.thread:                            ; preds = %._crit_edge212, %.lr.ph230
+._crit_edge240.thread:                            ; preds = %._crit_edge221, %.lr.ph239
   call void @table_close(ptr noundef %166, i32 noundef 1) #15
-  br label %.thread159
+  br label %.thread163
 
-._crit_edge231:                                   ; preds = %._crit_edge225
+._crit_edge240:                                   ; preds = %._crit_edge234
   call void @table_close(ptr noundef %166, i32 noundef 1) #15
   %195 = getelementptr inbounds nuw i8, ptr %.1109.lcssa, i64 4
   %.not134 = icmp eq ptr %.1109.lcssa, null
-  br i1 %.not134, label %.thread159, label %.lr.ph248
+  br i1 %.not134, label %.thread163, label %.lr.ph257
 
-.lr.ph248:                                        ; preds = %._crit_edge231
+.lr.ph257:                                        ; preds = %._crit_edge240
   %196 = getelementptr inbounds nuw i8, ptr %.1109.lcssa, i64 16
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %198 = load i32, ptr %195, align 4
   %199 = icmp sgt i32 %198, 0
-  br i1 %199, label %.lr.ph329, label %.thread159
+  br i1 %199, label %.lr.ph342, label %.thread163
 
-.lr.ph329:                                        ; preds = %.lr.ph248, %238
-  %indvars.iv267328 = phi i64 [ %indvars.iv.next268, %238 ], [ 0, %.lr.ph248 ]
+.lr.ph342:                                        ; preds = %.lr.ph257, %238
+  %indvars.iv283341 = phi i64 [ %indvars.iv.next284, %238 ], [ 0, %.lr.ph257 ]
   %200 = load ptr, ptr %196, align 8
-  %201 = getelementptr %union.ListCell, ptr %200, i64 %indvars.iv267328
+  %201 = getelementptr %union.ListCell, ptr %200, i64 %indvars.iv283341
   %202 = load i32, ptr %201, align 8
   %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 8), align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 4
   %205 = load i32, ptr %204, align 4
   %206 = icmp sgt i32 %205, 0
-  br i1 %206, label %.lr.ph245, label %.critedge
+  br i1 %206, label %.lr.ph254, label %.critedge
 
-.lr.ph245:                                        ; preds = %.lr.ph329
+.lr.ph254:                                        ; preds = %.lr.ph342
   %207 = getelementptr inbounds nuw i8, ptr %203, i64 12
   %wide.trip.count = zext nneg i32 %205 to i64
   br label %209
 
 208:                                              ; preds = %209
-  %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count
+  %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %209, !llvm.loop !57
 
-209:                                              ; preds = %.lr.ph245, %208
-  %indvars.iv264 = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next265, %208 ]
-  %210 = getelementptr [0 x %struct.SetConstraintTriggerData], ptr %207, i64 0, i64 %indvars.iv264
+209:                                              ; preds = %.lr.ph254, %208
+  %indvars.iv280 = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next281, %208 ]
+  %210 = getelementptr [0 x %struct.SetConstraintTriggerData], ptr %207, i64 0, i64 %indvars.iv280
   %211 = load i32, ptr %210, align 4
   %212 = icmp eq i32 %211, %202
   br i1 %212, label %213, label %208
 
 213:                                              ; preds = %209
   %214 = load i8, ptr %197, align 8
-  %.idx = shl nuw nsw i64 %indvars.iv264, 3
+  %.idx = shl nuw nsw i64 %indvars.iv280, 3
   %.offs = or disjoint i64 %.idx, 4
   %215 = getelementptr i8, ptr %207, i64 %.offs
   %216 = and i8 %214, 1
   store i8 %216, ptr %215, align 4
   br label %238
 
-.critedge:                                        ; preds = %208, %.lr.ph329
+.critedge:                                        ; preds = %208, %.lr.ph342
   %217 = load i8, ptr %197, align 8
   %218 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %219 = load i32, ptr %218, align 4
@@ -9075,52 +9072,48 @@ SetConstraintStateAddItem.exit:                   ; preds = %.critedge, %220
   br label %238
 
 238:                                              ; preds = %213, %SetConstraintStateAddItem.exit
-  %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267328, 1
+  %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283341, 1
   %239 = load i32, ptr %195, align 4
   %240 = sext i32 %239 to i64
-  %241 = icmp slt i64 %indvars.iv.next268, %240
-  br i1 %241, label %.lr.ph329, label %.thread159
+  %241 = icmp slt i64 %indvars.iv.next284, %240
+  br i1 %241, label %.lr.ph342, label %.thread163
 
-.thread159:                                       ; preds = %238, %.lr.ph248, %._crit_edge231.thread, %._crit_edge231, %48
+.thread163:                                       ; preds = %238, %.lr.ph257, %._crit_edge240.thread, %._crit_edge240, %48
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %243 = load i8, ptr %242, align 8
   %244 = trunc i8 %243 to i1
-  br i1 %244, label %259, label %.preheader
+  br i1 %244, label %256, label %.preheader
 
-.preheader:                                       ; preds = %.thread159, %252
-  %.0105 = phi i8 [ %.2107, %252 ], [ 0, %.thread159 ]
+.preheader:                                       ; preds = %.thread163, %251
+  %.0105 = phi i1 [ true, %251 ], [ false, %.thread163 ]
   %245 = call fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), ptr noundef null, i1 noundef zeroext true)
-  br i1 %245, label %246, label %256
+  br i1 %245, label %246, label %255
 
 246:                                              ; preds = %.preheader
   %247 = load i32, ptr @afterTriggers, align 8
   %248 = add i32 %247, 1
   store i32 %248, ptr @afterTriggers, align 8
-  %249 = trunc nuw i8 %.0105 to i1
-  br i1 %249, label %252, label %250
+  br i1 %.0105, label %251, label %249
 
-250:                                              ; preds = %246
-  %251 = call ptr @GetTransactionSnapshot() #15
-  call void @PushActiveSnapshot(ptr noundef %251) #15
-  br label %252
+249:                                              ; preds = %246
+  %250 = call ptr @GetTransactionSnapshot() #15
+  call void @PushActiveSnapshot(ptr noundef %250) #15
+  br label %251
 
-252:                                              ; preds = %250, %246
-  %.2107 = phi i8 [ %.0105, %246 ], [ 1, %250 ]
-  %253 = call zeroext i1 @IsSubTransaction() #15
-  %254 = xor i1 %253, true
-  %255 = call fastcc zeroext i1 @afterTriggerInvokeEvents(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), i32 noundef %247, ptr noundef null, i1 noundef zeroext %254)
-  br i1 %255, label %256, label %.preheader, !llvm.loop !58
+251:                                              ; preds = %249, %246
+  %252 = call zeroext i1 @IsSubTransaction() #15
+  %253 = xor i1 %252, true
+  %254 = call fastcc zeroext i1 @afterTriggerInvokeEvents(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), i32 noundef %247, ptr noundef null, i1 noundef zeroext %253)
+  br i1 %254, label %.thread166, label %.preheader, !llvm.loop !58
 
-256:                                              ; preds = %252, %.preheader
-  %.1106 = phi i8 [ %.2107, %252 ], [ %.0105, %.preheader ]
-  %257 = trunc nuw i8 %.1106 to i1
-  br i1 %257, label %258, label %259
+255:                                              ; preds = %.preheader
+  br i1 %.0105, label %.thread166, label %256
 
-258:                                              ; preds = %256
+.thread166:                                       ; preds = %251, %255
   call void @PopActiveSnapshot() #15
-  br label %259
+  br label %256
 
-259:                                              ; preds = %256, %258, %.thread159
+256:                                              ; preds = %255, %.thread166, %.thread163
   ret void
 }
 

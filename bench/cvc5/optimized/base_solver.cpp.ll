@@ -15292,7 +15292,7 @@ terminate.lpad.i332:                              ; preds = %if.then13.i.i331
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit333: ; preds = %invoke.cont72, %if.then.i.i325, %if.then13.i.i331
   %51 = load i64, ptr %lenNeed, align 8
   %cmp58 = icmp ult i64 %spec.select, %51
-  %52 = and i1 %cmp58, %call73
+  %52 = and i1 %call73, %cmp58
   br i1 %52, label %while.body60, label %while.end81, !llvm.loop !161
 
 while.end81:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit333, %while.cond57.preheader

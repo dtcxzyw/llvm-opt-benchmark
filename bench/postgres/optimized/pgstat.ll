@@ -748,148 +748,144 @@ pgstat_write_statsfile.exit:                      ; preds = %17, %19, %113, %124
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 10001) i64 @pgstat_report_stat(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = zext i1 %0 to i8
   %.b22 = load i1, ptr @pgStatForceNextFlush, align 1
-  br i1 %.b22, label %3, label %4
+  br i1 %.b22, label %2, label %3
 
-3:                                                ; preds = %1
+2:                                                ; preds = %1
   store i1 false, ptr @pgStatForceNextFlush, align 1
-  br label %4
+  br label %3
 
-4:                                                ; preds = %3, %1
-  %.019 = phi i8 [ 1, %3 ], [ %2, %1 ]
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
-  %6 = icmp eq ptr %5, null
-  %7 = icmp eq ptr %5, @pgStatPending
-  %spec.select.i = or i1 %6, %7
-  br i1 %spec.select.i, label %8, label %16
+3:                                                ; preds = %2, %1
+  %.019 = phi i1 [ true, %2 ], [ %0, %1 ]
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
+  %5 = icmp eq ptr %4, null
+  %6 = icmp eq ptr %4, @pgStatPending
+  %spec.select.i = or i1 %5, %6
+  br i1 %spec.select.i, label %7, label %15
 
-8:                                                ; preds = %4
-  %9 = load i8, ptr @have_iostats, align 1
-  %10 = trunc i8 %9 to i1
-  br i1 %10, label %16, label %11
+7:                                                ; preds = %3
+  %8 = load i8, ptr @have_iostats, align 1
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %15, label %10
 
-11:                                               ; preds = %8
-  %12 = load i8, ptr @have_slrustats, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %16, label %14
+10:                                               ; preds = %7
+  %11 = load i8, ptr @have_slrustats, align 1
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %15, label %13
 
-14:                                               ; preds = %11
-  %15 = tail call zeroext i1 @pgstat_have_pending_wal() #17
-  br i1 %15, label %16, label %65
+13:                                               ; preds = %10
+  %14 = tail call zeroext i1 @pgstat_have_pending_wal() #17
+  br i1 %14, label %15, label %63
 
-16:                                               ; preds = %14, %11, %8, %4
-  %17 = trunc nuw i8 %.019 to i1
-  br i1 %17, label %18, label %20
+15:                                               ; preds = %13, %10, %7, %3
+  br i1 %.019, label %16, label %18
 
-18:                                               ; preds = %16
-  %19 = tail call i64 @GetCurrentTimestamp() #17
-  br label %._crit_edge
+16:                                               ; preds = %15
+  %17 = tail call i64 @GetCurrentTimestamp() #17
+  br label %32
 
-20:                                               ; preds = %16
-  %21 = tail call i64 @GetCurrentTransactionStopTimestamp() #17
-  %22 = load i64, ptr @pgstat_report_stat.pending_since, align 8
-  %23 = icmp sgt i64 %22, 0
-  br i1 %23, label %24, label %26
+18:                                               ; preds = %15
+  %19 = tail call i64 @GetCurrentTransactionStopTimestamp() #17
+  %20 = load i64, ptr @pgstat_report_stat.pending_since, align 8
+  %21 = icmp sgt i64 %20, 0
+  br i1 %21, label %22, label %24
 
-24:                                               ; preds = %20
-  %25 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %22, i64 noundef %21, i32 noundef 60000) #17
-  br i1 %25, label %._crit_edge, label %26
+22:                                               ; preds = %18
+  %23 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %20, i64 noundef %19, i32 noundef 60000) #17
+  br i1 %23, label %32, label %24
 
-26:                                               ; preds = %24, %20
-  %27 = load i64, ptr @pgstat_report_stat.last_flush, align 8
-  %28 = icmp sgt i64 %27, 0
-  br i1 %28, label %29, label %._crit_edge
+24:                                               ; preds = %22, %18
+  %25 = load i64, ptr @pgstat_report_stat.last_flush, align 8
+  %26 = icmp sgt i64 %25, 0
+  br i1 %26, label %27, label %32
 
-29:                                               ; preds = %26
-  %30 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %27, i64 noundef %21, i32 noundef 1000) #17
-  br i1 %30, label %._crit_edge, label %31
+27:                                               ; preds = %24
+  %28 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %25, i64 noundef %19, i32 noundef 1000) #17
+  br i1 %28, label %32, label %29
 
-31:                                               ; preds = %29
-  %32 = load i64, ptr @pgstat_report_stat.pending_since, align 8
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.sink.split, label %65
+29:                                               ; preds = %27
+  %30 = load i64, ptr @pgstat_report_stat.pending_since, align 8
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %.sink.split, label %63
 
-._crit_edge:                                      ; preds = %24, %29, %26, %18
-  %.1 = phi i8 [ %.019, %18 ], [ %.019, %29 ], [ %.019, %26 ], [ 1, %24 ]
-  %.018 = phi i64 [ %19, %18 ], [ %21, %29 ], [ %21, %26 ], [ %21, %24 ]
+32:                                               ; preds = %22, %27, %24, %16
+  %33 = phi i1 [ false, %16 ], [ true, %27 ], [ true, %24 ], [ false, %22 ]
+  %.018 = phi i64 [ %17, %16 ], [ %19, %27 ], [ %19, %24 ], [ %19, %22 ]
   tail call void @pgstat_update_dbstats(i64 noundef %.018) #17
-  %34 = trunc nuw i8 %.1 to i1
-  %35 = xor i1 %34, true
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
-  %37 = icmp eq ptr %36, @pgStatPending
-  %.not1821.i = icmp eq ptr %36, null
-  %.not18.i = or i1 %37, %.not1821.i
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
+  %35 = icmp eq ptr %34, @pgStatPending
+  %.not1821.i = icmp eq ptr %34, null
+  %.not18.i = or i1 %35, %.not1821.i
   br i1 %.not18.i, label %pgstat_flush_pending_entries.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge, %55
-  %.01220.i = phi i1 [ %.1.i, %55 ], [ false, %._crit_edge ]
-  %.11419.i = phi ptr [ %.114.val.i, %55 ], [ %36, %._crit_edge ]
-  %38 = getelementptr i8, ptr %.11419.i, i64 -24
-  %39 = load ptr, ptr %38, align 8
-  %.sroa.0.0.copyload.i = load i32, ptr %39, align 8
-  %40 = zext i32 %.sroa.0.0.copyload.i to i64
-  %41 = getelementptr [12 x %struct.PgStat_KindInfo], ptr @pgstat_kind_infos, i64 0, i64 %40, i32 5
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call zeroext i1 %42(ptr noundef nonnull %38, i1 noundef zeroext %35) #17
-  %44 = getelementptr i8, ptr %.11419.i, i64 8
-  %.114.val.i = load ptr, ptr %44, align 8
+.lr.ph.i:                                         ; preds = %32, %53
+  %.01220.i = phi i1 [ %.1.i, %53 ], [ false, %32 ]
+  %.11419.i = phi ptr [ %.114.val.i, %53 ], [ %34, %32 ]
+  %36 = getelementptr i8, ptr %.11419.i, i64 -24
+  %37 = load ptr, ptr %36, align 8
+  %.sroa.0.0.copyload.i = load i32, ptr %37, align 8
+  %38 = zext i32 %.sroa.0.0.copyload.i to i64
+  %39 = getelementptr [12 x %struct.PgStat_KindInfo], ptr @pgstat_kind_infos, i64 0, i64 %38, i32 5
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call zeroext i1 %40(ptr noundef nonnull %36, i1 noundef zeroext %33) #17
+  %42 = getelementptr i8, ptr %.11419.i, i64 8
+  %.114.val.i = load ptr, ptr %42, align 8
   %.not17.i = icmp eq ptr %.114.val.i, @pgStatPending
-  br i1 %43, label %45, label %55
+  br i1 %41, label %43, label %53
 
-45:                                               ; preds = %.lr.ph.i
-  %46 = load ptr, ptr %38, align 8
-  %47 = load i32, ptr %46, align 8
-  %48 = getelementptr i8, ptr %.11419.i, i64 -8
-  %49 = load ptr, ptr %48, align 8
-  %.not.not.i.i = icmp eq i32 %47, 2
-  br i1 %.not.not.i.i, label %50, label %pgstat_delete_pending_entry.exit.i
+43:                                               ; preds = %.lr.ph.i
+  %44 = load ptr, ptr %36, align 8
+  %45 = load i32, ptr %44, align 8
+  %46 = getelementptr i8, ptr %.11419.i, i64 -8
+  %47 = load ptr, ptr %46, align 8
+  %.not.not.i.i = icmp eq i32 %45, 2
+  br i1 %.not.not.i.i, label %48, label %pgstat_delete_pending_entry.exit.i
 
-50:                                               ; preds = %45
-  tail call void @pgstat_relation_delete_pending_cb(ptr noundef nonnull %38) #17
+48:                                               ; preds = %43
+  tail call void @pgstat_relation_delete_pending_cb(ptr noundef nonnull %36) #17
   br label %pgstat_delete_pending_entry.exit.i
 
-pgstat_delete_pending_entry.exit.i:               ; preds = %50, %45
-  tail call void @pfree(ptr noundef %49) #17
-  store ptr null, ptr %48, align 8
-  %51 = load ptr, ptr %44, align 8
+pgstat_delete_pending_entry.exit.i:               ; preds = %48, %43
+  tail call void @pfree(ptr noundef %47) #17
+  store ptr null, ptr %46, align 8
+  %49 = load ptr, ptr %42, align 8
+  %50 = load ptr, ptr %.11419.i, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store ptr %49, ptr %51, align 8
   %52 = load ptr, ptr %.11419.i, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %51, ptr %53, align 8
-  %54 = load ptr, ptr %.11419.i, align 8
-  store ptr %54, ptr %51, align 8
-  br label %55
+  store ptr %52, ptr %49, align 8
+  br label %53
 
-55:                                               ; preds = %pgstat_delete_pending_entry.exit.i, %.lr.ph.i
+53:                                               ; preds = %pgstat_delete_pending_entry.exit.i, %.lr.ph.i
   %.1.i = phi i1 [ %.01220.i, %pgstat_delete_pending_entry.exit.i ], [ true, %.lr.ph.i ]
   %.not22.i = icmp eq ptr %.114.val.i, null
   %.not.i = or i1 %.not17.i, %.not22.i
   br i1 %.not.i, label %pgstat_flush_pending_entries.exit, label %.lr.ph.i, !llvm.loop !8
 
-pgstat_flush_pending_entries.exit:                ; preds = %55, %._crit_edge
-  %.012.lcssa.i = phi i1 [ false, %._crit_edge ], [ %.1.i, %55 ]
-  %56 = tail call zeroext i1 @pgstat_flush_io(i1 noundef zeroext %35) #17
-  %57 = or i1 %.012.lcssa.i, %56
-  %58 = tail call zeroext i1 @pgstat_flush_wal(i1 noundef zeroext %35) #17
+pgstat_flush_pending_entries.exit:                ; preds = %53, %32
+  %.012.lcssa.i = phi i1 [ false, %32 ], [ %.1.i, %53 ]
+  %54 = tail call zeroext i1 @pgstat_flush_io(i1 noundef zeroext %33) #17
+  %55 = or i1 %.012.lcssa.i, %54
+  %56 = tail call zeroext i1 @pgstat_flush_wal(i1 noundef zeroext %33) #17
+  %57 = or i1 %55, %56
+  %58 = tail call zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %33) #17
   %59 = or i1 %57, %58
-  %60 = tail call zeroext i1 @pgstat_slru_flush(i1 noundef zeroext %35) #17
-  %61 = or i1 %59, %60
   store i64 %.018, ptr @pgstat_report_stat.last_flush, align 8
-  br i1 %61, label %62, label %.sink.split
+  br i1 %59, label %60, label %.sink.split
 
-62:                                               ; preds = %pgstat_flush_pending_entries.exit
-  %63 = load i64, ptr @pgstat_report_stat.pending_since, align 8
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %.sink.split, label %65
+60:                                               ; preds = %pgstat_flush_pending_entries.exit
+  %61 = load i64, ptr @pgstat_report_stat.pending_since, align 8
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %.sink.split, label %63
 
-.sink.split:                                      ; preds = %pgstat_flush_pending_entries.exit, %62, %31
-  %.018.sink = phi i64 [ %21, %31 ], [ %.018, %62 ], [ 0, %pgstat_flush_pending_entries.exit ]
-  %.0.ph = phi i64 [ 10000, %31 ], [ 10000, %62 ], [ 0, %pgstat_flush_pending_entries.exit ]
+.sink.split:                                      ; preds = %pgstat_flush_pending_entries.exit, %60, %29
+  %.018.sink = phi i64 [ %19, %29 ], [ %.018, %60 ], [ 0, %pgstat_flush_pending_entries.exit ]
+  %.0.ph = phi i64 [ 10000, %29 ], [ 10000, %60 ], [ 0, %pgstat_flush_pending_entries.exit ]
   store i64 %.018.sink, ptr @pgstat_report_stat.pending_since, align 8
-  br label %65
+  br label %63
 
-65:                                               ; preds = %.sink.split, %62, %31, %14
-  %.0 = phi i64 [ 0, %14 ], [ 10000, %31 ], [ 10000, %62 ], [ %.0.ph, %.sink.split ]
+63:                                               ; preds = %.sink.split, %60, %29, %13
+  %.0 = phi i64 [ 0, %13 ], [ 10000, %29 ], [ 10000, %60 ], [ %.0.ph, %.sink.split ]
   ret i64 %.0
 }
 

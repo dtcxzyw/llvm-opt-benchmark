@@ -315,7 +315,7 @@ if.then80:                                        ; preds = %land.lhs.true78
 
 if.end83:                                         ; preds = %entry, %invoke.cont18, %land.lhs.true78, %while.end
   %it.sroa.0.1327 = phi ptr [ %it.sroa.0.1333, %land.lhs.true78 ], [ %it.sroa.0.1, %while.end ], [ %incdec.ptr.i, %invoke.cont18 ], [ %0, %entry ]
-  %check_mode.0177326 = phi i8 [ %check_mode.0177332, %land.lhs.true78 ], [ %check_mode.0177, %while.end ], [ %check_mode.0219, %invoke.cont18 ], [ 0, %entry ]
+  %check_mode.0177326 = phi i8 [ 1, %land.lhs.true78 ], [ %check_mode.0177, %while.end ], [ %check_mode.0219, %invoke.cont18 ], [ 0, %entry ]
   %check_args.sroa.9.0185325 = phi i1 [ %check_args.sroa.9.0185331, %land.lhs.true78 ], [ %check_args.sroa.9.0185, %while.end ], [ %check_args.sroa.9.0217, %invoke.cont18 ], [ false, %entry ]
   %check_args.sroa.6.0189324 = phi i1 [ %check_args.sroa.6.0189330, %land.lhs.true78 ], [ %check_args.sroa.6.0189, %while.end ], [ %check_args.sroa.6.0216, %invoke.cont18 ], [ false, %entry ]
   %check_args.sroa.3.0193323 = phi i8 [ %check_args.sroa.3.0193329, %land.lhs.true78 ], [ %check_args.sroa.3.0193, %while.end ], [ %check_args.sroa.3.0215, %invoke.cont18 ], [ 0, %entry ]

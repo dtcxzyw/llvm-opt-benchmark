@@ -1736,14 +1736,12 @@ if.end34.thread:                                  ; preds = %if.then32
 
 if.then39:                                        ; preds = %if.end34.thread
   %tobool40 = trunc nuw i8 %new_tail.0285 to i1
-  br i1 %tobool40, label %for.inc77, label %for.cond42.preheader
+  %cmp43280 = icmp eq i64 %indvars.iv300, 0
+  %or.cond.not = or i1 %cmp43280, %tobool40
+  br i1 %or.cond.not, label %for.inc77, label %for.body44
 
-for.cond42.preheader:                             ; preds = %if.then39
-  %cmp43280.not = icmp eq i64 %indvars.iv300, 0
-  br i1 %cmp43280.not, label %for.inc77, label %for.body44
-
-for.body44:                                       ; preds = %for.cond42.preheader, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond42.preheader ]
+for.body44:                                       ; preds = %if.then39, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.then39 ]
   %arrayidx.i50 = getelementptr inbounds nuw [0 x ptr], ptr %m_tail.i.i, i64 0, i64 %indvars.iv
   %33 = load ptr, ptr %arrayidx.i50, align 8
   %34 = ptrtoint ptr %33 to i64
@@ -2035,8 +2033,8 @@ _ZN6vectorIbLb0EjE9push_backEOb.exit110:          ; preds = %lor.lhs.false.i96, 
   store i32 %inc.i104, ptr %arrayidx10.i103, align 4
   br label %for.inc77
 
-for.inc77:                                        ; preds = %for.inc, %for.cond42.preheader, %if.end34, %_ZN6vectorIbLb0EjE9push_backEOb.exit110, %if.else, %if.then39
-  %new_tail.1 = phi i8 [ %new_tail.0285, %_ZN6vectorIbLb0EjE9push_backEOb.exit110 ], [ %new_tail.0285, %if.else ], [ %new_tail.0285, %if.then39 ], [ %new_tail.0285, %if.end34 ], [ 1, %for.cond42.preheader ], [ 1, %for.inc ]
+for.inc77:                                        ; preds = %for.inc, %if.end34, %_ZN6vectorIbLb0EjE9push_backEOb.exit110, %if.else, %if.then39
+  %new_tail.1 = phi i8 [ 1, %_ZN6vectorIbLb0EjE9push_backEOb.exit110 ], [ 0, %if.else ], [ 1, %if.then39 ], [ %new_tail.0285, %if.end34 ], [ 1, %for.inc ]
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
   %71 = load i32, ptr %m_uninterp_cnt.i, align 4
   %72 = zext i32 %71 to i64

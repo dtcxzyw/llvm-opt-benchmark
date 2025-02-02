@@ -828,8 +828,8 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %if.then
-  %tobool7.pre-phi = phi i1 [ %cmp.i, %if.then ], [ false, %for.body ]
   %3 = phi i32 [ %xor7.i.i, %if.then ], [ %0, %for.body ]
+  %carry.1 = phi i1 [ %cmp.i, %if.then ], [ false, %for.body ]
   %arrayidx3 = getelementptr inbounds nuw [64 x i32], ptr %data_, i64 0, i64 %i.026
   %add4 = add nuw nsw i64 %i.026, 1
   %shr.i.i.i7 = lshr i32 %3, 22
@@ -853,7 +853,7 @@ if.end:                                           ; preds = %for.body, %if.then
   %xor7.i.i24 = xor i32 %shr6.i.i23, %mul.i5.i22
   store i32 %xor7.i.i24, ptr %arrayidx3, align 4
   %cmp.i25 = icmp eq i32 %shr4.i.i20, %add4.i17
-  %5 = or i1 %cmp.i25, %tobool7.pre-phi
+  %5 = or i1 %carry.1, %cmp.i25
   %exitcond.not = icmp eq i64 %add4, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 

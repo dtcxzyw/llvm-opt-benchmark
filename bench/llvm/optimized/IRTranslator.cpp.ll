@@ -24627,7 +24627,6 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2
 361:                                              ; preds = %358, %339
   %362 = trunc nuw i8 %.0118316 to i1
   %brmerge = select i1 %362, i1 true, i1 %338
-  %.0118.mux = and i8 %.0118316, 1
   br i1 %brmerge, label %_ZL26checkForMustTailInVarArgFnbRKN4llvm10BasicBlockE.exit, label %363
 
 363:                                              ; preds = %361
@@ -24675,7 +24674,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm8DebugLocC2
   br label %_ZL26checkForMustTailInVarArgFnbRKN4llvm10BasicBlockE.exit
 
 _ZL26checkForMustTailInVarArgFnbRKN4llvm10BasicBlockE.exit: ; preds = %361, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb1ELb1EEEEEZL26checkForMustTailInVarArgFnbRKS6_E3$_0EEbOT_T0_.exit.i"
-  %.1119 = phi i8 [ %.0118.mux, %361 ], [ %386, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb1ELb1EEEEEZL26checkForMustTailInVarArgFnbRKS6_E3$_0EEbOT_T0_.exit.i" ]
+  %.1119 = phi i8 [ %.0118316, %361 ], [ %386, %"_ZN4llvm6any_ofINS_14iterator_rangeINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb1ELb1EEEEEZL26checkForMustTailInVarArgFnbRKS6_E3$_0EEbOT_T0_.exit.i" ]
   %387 = getelementptr inbounds nuw i8, ptr %.sroa.0271.0317, i64 8
   %.sroa.0271.0 = load ptr, ptr %387, align 8
   %.not296 = icmp eq ptr %.sroa.0271.0, %337

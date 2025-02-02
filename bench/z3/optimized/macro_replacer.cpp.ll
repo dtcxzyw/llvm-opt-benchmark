@@ -8453,9 +8453,8 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %erase_patterns.039 = phi i8 [ 0, %entry ], [ %spec.select, %for.body ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body
+  br i1 %exitcond.not, label %land.rhs7.lr.ph, label %for.body
 
 for.body:                                         ; preds = %land.rhs
   %1 = load i32, ptr %m_num_decls.i.i.i, align 4
@@ -8466,18 +8465,11 @@ for.body:                                         ; preds = %land.rhs
   %2 = load ptr, ptr %arrayidx.i, align 8
   %arrayidx = getelementptr inbounds nuw ptr, ptr %new_patterns, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
-  %cmp3.not = icmp eq ptr %2, %3
-  %spec.select = select i1 %cmp3.not, i8 %erase_patterns.039, i8 1
+  %cmp3.not.not = icmp eq ptr %2, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %tobool = trunc nuw i8 %spec.select to i1
-  br i1 %tobool, label %for.end, label %land.rhs, !llvm.loop !34
+  br i1 %cmp3.not.not, label %land.rhs, label %land.lhs.true.critedge, !llvm.loop !34
 
-for.end:                                          ; preds = %for.body, %land.rhs
-  %erase_patterns.0.lcssa = phi i8 [ %spec.select, %for.body ], [ %erase_patterns.039, %land.rhs ]
-  %tobool641 = trunc nuw i8 %erase_patterns.0.lcssa to i1
-  br i1 %tobool641, label %land.lhs.true.critedge, label %land.rhs7.lr.ph
-
-land.rhs7.lr.ph:                                  ; preds = %for.end
+land.rhs7.lr.ph:                                  ; preds = %land.rhs
   %m_num_no_patterns.i = getelementptr inbounds nuw i8, ptr %old_q, i64 76
   %4 = load i32, ptr %m_num_no_patterns.i, align 4
   %wide.trip.count47 = zext i32 %4 to i64
@@ -8485,7 +8477,6 @@ land.rhs7.lr.ph:                                  ; preds = %for.end
 
 land.rhs7:                                        ; preds = %land.rhs7.lr.ph, %for.body11
   %indvars.iv45 = phi i64 [ 0, %land.rhs7.lr.ph ], [ %indvars.iv.next46, %for.body11 ]
-  %erase_patterns.242 = phi i8 [ %erase_patterns.0.lcssa, %land.rhs7.lr.ph ], [ %spec.select17, %for.body11 ]
   %exitcond48.not = icmp eq i64 %indvars.iv45, %wide.trip.count47
   br i1 %exitcond48.not, label %if.end34, label %for.body11
 
@@ -8498,15 +8489,13 @@ for.body11:                                       ; preds = %land.rhs7
   %6 = load ptr, ptr %arrayidx.i24, align 8
   %arrayidx14 = getelementptr inbounds nuw ptr, ptr %new_no_patterns, i64 %indvars.iv45
   %7 = load ptr, ptr %arrayidx14, align 8
-  %cmp15.not = icmp eq ptr %6, %7
-  %spec.select17 = select i1 %cmp15.not, i8 %erase_patterns.242, i8 1
+  %cmp15.not.not = icmp eq ptr %6, %7
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %tobool6 = trunc nuw i8 %spec.select17 to i1
-  br i1 %tobool6, label %land.lhs.true.critedge, label %land.rhs7, !llvm.loop !35
+  br i1 %cmp15.not.not, label %land.rhs7, label %land.lhs.true.critedge, !llvm.loop !35
 
-land.lhs.true.critedge:                           ; preds = %for.body11, %for.end
+land.lhs.true.critedge:                           ; preds = %for.body, %for.body11
   %8 = load ptr, ptr %this, align 8
-  %call23.c = tail call noundef ptr @_ZN11ast_manager17update_quantifierEP10quantifierjPKP4exprjS5_S3_(ptr noundef nonnull align 8 dereferenceable(976) %8, ptr noundef %old_q, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %new_body)
+  %call23.c = tail call noundef ptr @_ZN11ast_manager17update_quantifierEP10quantifierjPKP4exprjS5_S3_(ptr noundef nonnull align 8 dereferenceable(976) %8, ptr noundef nonnull %old_q, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef %new_body)
   %tobool.not.i = icmp eq ptr %call23.c, null
   br i1 %tobool.not.i, label %if.end.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
@@ -8545,7 +8534,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %if.end.i, %if.then.
   br i1 %cmp.i.not, label %if.end34, label %if.then29
 
 if.then29:                                        ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %call32 = tail call noundef ptr @_ZN11ast_manager10mk_rewriteEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef %old_q, ptr noundef %call23.c)
+  %call32 = tail call noundef ptr @_ZN11ast_manager10mk_rewriteEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull %old_q, ptr noundef %call23.c)
   %tobool.not.i25 = icmp eq ptr %call32, null
   br i1 %tobool.not.i25, label %if.end.i29, label %_ZN11ast_manager7inc_refEP3ast.exit.i26
 

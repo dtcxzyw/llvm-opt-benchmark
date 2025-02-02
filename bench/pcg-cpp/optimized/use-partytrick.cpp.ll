@@ -225,8 +225,8 @@ call4.i.i.i.noexc:                                ; preds = %if.then.i15
   br label %if.end.i
 
 if.end.i:                                         ; preds = %call4.i.i.i.noexc, %for.body.i
-  %tobool7.pre-phi.i = phi i1 [ %cmp.i.i, %call4.i.i.i.noexc ], [ false, %for.body.i ]
   %11 = phi i32 [ %xor7.i.i.i, %call4.i.i.i.noexc ], [ %8, %for.body.i ]
+  %carry.1.i = phi i1 [ %cmp.i.i, %call4.i.i.i.noexc ], [ false, %for.body.i ]
   %shr.i.i.i7.i = lshr i32 %11, 22
   %xor.i.i.i8.i = xor i32 %shr.i.i.i7.i, %11
   %mul.i.i9.i = mul i32 %xor.i.i.i8.i, -1397199511
@@ -252,7 +252,7 @@ call4.i.i12.i.noexc:                              ; preds = %if.end.i
   %xor7.i.i24.i = xor i32 %shr6.i.i23.i, %mul.i5.i22.i
   store i32 %xor7.i.i24.i, ptr %arrayidx.i14, align 4
   %cmp.i25.i = icmp eq i32 %shr4.i.i20.i, %add4.i17.i
-  %13 = or i1 %tobool7.pre-phi.i, %cmp.i25.i
+  %13 = or i1 %carry.1.i, %cmp.i25.i
   %exitcond.not.i = icmp eq i64 %add4.i, 64
   br i1 %exitcond.not.i, label %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit.loopexit, label %for.body.i, !llvm.loop !7
 

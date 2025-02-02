@@ -4872,17 +4872,18 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i1
   br label %76
 
 76:                                               ; preds = %76, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i15
-  %.sroa.0.09.i.i = phi i16 [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i15 ], [ %spec.select7.i.i, %76 ]
-  %77 = icmp ult i16 %.sroa.0.09.i.i, %.sroa.0.0.sroa.speculated.i.i.i
-  %78 = zext i1 %77 to i16
-  %spec.select7.i.i = add nuw i16 %.sroa.0.09.i.i, %78
+  %.sroa.0.08.i.i = phi i16 [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i.i15 ], [ %spec.select7.i.i, %76 ]
+  %77 = icmp uge i16 %.sroa.0.08.i.i, %.sroa.0.0.sroa.speculated.i.i.i
+  %not..i.i = xor i1 %77, true
+  %78 = zext i1 %not..i.i to i16
+  %spec.select7.i.i = add nuw i16 %.sroa.0.08.i.i, %78
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3), !noalias !1164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(9) %8, i64 9, i1 false)
-  call void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noalias noundef nonnull align 8 dereferenceable(32) %74, i16 noundef %.sroa.0.09.i.i, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(9) %3), !noalias !1164
+  call void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noalias noundef nonnull align 8 dereferenceable(32) %74, i16 noundef %.sroa.0.08.i.i, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(9) %3), !noalias !1164
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3), !noalias !1164
-  %.not.i.i.i = icmp ule i16 %spec.select7.i.i, %.sroa.0.0.sroa.speculated.i.i.i
-  %or.cond.not.i.i = select i1 %77, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %76, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_forward.exit
+  %.not.i.i.i = icmp ugt i16 %spec.select7.i.i, %.sroa.0.0.sroa.speculated.i.i.i
+  %or.cond.i.i = select i1 %77, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_forward.exit, label %76
 
 79:                                               ; preds = %.lr.ph.i
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 32
@@ -5092,17 +5093,18 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i9: 
   br label %49
 
 49:                                               ; preds = %49, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i9
-  %.sroa.0.09.i = phi i16 [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i9 ], [ %spec.select7.i, %49 ]
-  %50 = icmp ult i16 %.sroa.0.09.i, %.sroa.0.0.sroa.speculated.i.i
-  %51 = zext i1 %50 to i16
-  %spec.select7.i = add nuw i16 %.sroa.0.09.i, %51
+  %.sroa.0.08.i = phi i16 [ 0, %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid15current_row_mut.exit.i9 ], [ %spec.select7.i, %49 ]
+  %50 = icmp uge i16 %.sroa.0.08.i, %.sroa.0.0.sroa.speculated.i.i
+  %not..i = xor i1 %50, true
+  %51 = zext i1 %not..i to i16
+  %spec.select7.i = add nuw i16 %.sroa.0.08.i, %51
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3), !noalias !1245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(9) %8, i64 9, i1 false)
-  call void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noalias noundef nonnull align 8 dereferenceable(32) %47, i16 noundef %.sroa.0.09.i, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(9) %3), !noalias !1245
+  call void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row5erase(ptr noalias noundef nonnull align 8 dereferenceable(32) %47, i16 noundef %.sroa.0.08.i, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(9) %3), !noalias !1245
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3), !noalias !1245
-  %.not.i.i = icmp ule i16 %spec.select7.i, %.sroa.0.0.sroa.speculated.i.i
-  %or.cond.not.i = select i1 %50, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i, label %49, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_row_forward.exit
+  %.not.i.i = icmp ugt i16 %spec.select7.i, %.sroa.0.0.sroa.speculated.i.i
+  %or.cond.i = select i1 %50, i1 true, i1 %.not.i.i
+  br i1 %or.cond.i, label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_row_forward.exit, label %49
 
 52:                                               ; preds = %2
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 340

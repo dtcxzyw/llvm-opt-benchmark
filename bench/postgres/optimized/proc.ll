@@ -1418,8 +1418,8 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not156 = icmp eq ptr %36, null
-  %.not157185213 = icmp eq ptr %36, %34
-  %.not157185 = select i1 %.not156, i1 true, i1 %.not157185213
+  %.not157185212 = icmp eq ptr %36, %34
+  %.not157185 = select i1 %.not156, i1 true, i1 %.not157185212
   br i1 %.not157185, label %.loopexit182, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %44
@@ -1524,7 +1524,7 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 84:                                               ; preds = %.split.us
   tail call void @RememberSimpleDeadLock(ptr noundef %28, i32 noundef %15, ptr noundef %17, ptr noundef nonnull %.us-phi192) #13
-  %.pre210 = load ptr, ptr @MyProc, align 8
+  %.pre209 = load ptr, ptr @MyProc, align 8
   br label %.loopexit
 
 85:                                               ; preds = %.split.us
@@ -1534,9 +1534,9 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 88:                                               ; preds = %85
   %89 = tail call zeroext i1 @LockCheckConflicts(ptr noundef nonnull %1, i32 noundef %15, ptr noundef %17, ptr noundef %19) #13
-  br i1 %89, label %._crit_edge209, label %90
+  br i1 %89, label %._crit_edge208, label %90
 
-._crit_edge209:                                   ; preds = %88
+._crit_edge208:                                   ; preds = %88
   %.pre = load ptr, ptr @MyProc, align 8
   br label %97
 
@@ -1557,8 +1557,8 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %.not160 = icmp eq ptr %96, %27
   br i1 %.not160, label %.loopexit, label %.lr.ph191.split, !llvm.loop !22
 
-97:                                               ; preds = %._crit_edge209, %85
-  %98 = phi ptr [ %.pre, %._crit_edge209 ], [ %28, %85 ]
+97:                                               ; preds = %._crit_edge208, %85
+  %98 = phi ptr [ %.pre, %._crit_edge208 ], [ %28, %85 ]
   %99 = load ptr, ptr %.us-phi192, align 8
   store ptr %99, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -1573,7 +1573,7 @@ define dso_local i32 @ProcSleep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %117
 
 .loopexit:                                        ; preds = %94, %62, %50, %47, %84, %.loopexit182
-  %105 = phi ptr [ %28, %.loopexit182 ], [ %.pre210, %84 ], [ %28, %47 ], [ %28, %50 ], [ %28, %62 ], [ %28, %94 ]
+  %105 = phi ptr [ %28, %.loopexit182 ], [ %.pre209, %84 ], [ %28, %47 ], [ %28, %50 ], [ %28, %62 ], [ %28, %94 ]
   %.0142.ph = phi i1 [ false, %.loopexit182 ], [ true, %84 ], [ false, %47 ], [ false, %50 ], [ false, %62 ], [ false, %94 ]
   %106 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %107 = load ptr, ptr %106, align 8
@@ -1754,19 +1754,19 @@ dclist_push_tail.exit:                            ; preds = %.loopexit, %109
   %197 = load ptr, ptr @MyProc, align 8
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, null
-  br i1 %199, label %.preheader234, label %200
+  br i1 %199, label %.preheader233, label %200
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %202 = load ptr, ptr %201, align 8
   %203 = icmp eq ptr %202, null
-  br i1 %203, label %.preheader234, label %204
+  br i1 %203, label %.preheader233, label %204
 
 204:                                              ; preds = %200
   %205 = call i32 @DeadLockCheck(ptr noundef nonnull %197) #13
   store i32 %205, ptr @deadlock_state, align 4
   %206 = icmp eq i32 %205, 3
-  br i1 %206, label %207, label %.preheader234
+  br i1 %206, label %207, label %.preheader233
 
 207:                                              ; preds = %204
   %208 = load ptr, ptr @MyProc, align 8
@@ -1774,13 +1774,13 @@ dclist_push_tail.exit:                            ; preds = %.loopexit, %109
   %210 = load ptr, ptr %209, align 8
   %211 = call i32 @LockTagHashCode(ptr noundef %210) #13
   call void @RemoveFromWaitQueue(ptr noundef %208, i32 noundef %211) #13
-  br label %.preheader234
+  br label %.preheader233
 
-.preheader234:                                    ; preds = %207, %204, %200, %196
+.preheader233:                                    ; preds = %207, %204, %200, %196
   br label %212
 
-212:                                              ; preds = %.preheader234, %212
-  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %212 ], [ 16, %.preheader234 ]
+212:                                              ; preds = %.preheader233, %212
+  %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %212 ], [ 16, %.preheader233 ]
   %indvars.iv.next10.i = add nsw i64 %indvars.iv9.i, -1
   %213 = load ptr, ptr @MainLWLockArray, align 8
   %214 = getelementptr %union.LWLockPadded, ptr %213, i64 %indvars.iv9.i
@@ -1803,14 +1803,16 @@ CheckDeadLock.exit:                               ; preds = %212
   br label %220
 
 220:                                              ; preds = %219, %217, %169, %179, %175
-  %.1146 = phi i8 [ 1, %179 ], [ %.0145, %175 ], [ %.0145, %169 ], [ %.0145, %219 ], [ %.0145, %217 ]
+  %.1146 = phi i8 [ 1, %179 ], [ 0, %175 ], [ %.0145, %169 ], [ %.0145, %219 ], [ %.0145, %217 ]
   %221 = load ptr, ptr @MyProc, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 32
   %223 = load volatile i32, ptr %222, align 8
   %224 = load i32, ptr @deadlock_state, align 4
-  %225 = icmp eq i32 %224, 4
-  %brmerge.not = select i1 %225, i1 %.0143, i1 false
-  br i1 %brmerge.not, label %226, label %270
+  %225 = icmp ne i32 %224, 4
+  %.0143.not = xor i1 %.0143, true
+  %brmerge = select i1 %225, i1 true, i1 %.0143.not
+  %.0143.mux = select i1 %225, i1 %.0143, i1 false
+  br i1 %brmerge, label %270, label %226
 
 226:                                              ; preds = %220
   %227 = call ptr @GetBlockingAutoVacuumPgproc() #13
@@ -1887,7 +1889,7 @@ CheckDeadLock.exit:                               ; preds = %212
   br label %270
 
 270:                                              ; preds = %220, %226, %263, %266, %268, %260
-  %.1144 = phi i1 [ %.0143, %220 ], [ false, %260 ], [ false, %268 ], [ false, %266 ], [ false, %263 ], [ false, %226 ]
+  %.1144 = phi i1 [ %.0143.mux, %220 ], [ false, %260 ], [ false, %268 ], [ false, %266 ], [ false, %263 ], [ false, %226 ]
   %271 = load i8, ptr @log_lock_waits, align 1
   %272 = trunc i8 %271 to i1
   %273 = load i32, ptr @deadlock_state, align 4
@@ -1917,8 +1919,8 @@ CheckDeadLock.exit:                               ; preds = %212
   %288 = call zeroext i1 @LWLockAcquire(ptr noundef %26, i32 noundef 1) #13
   %289 = load ptr, ptr %165, align 8
   %.not169 = icmp eq ptr %289, null
-  %.not170194214 = icmp eq ptr %289, %164
-  %.not170194 = select i1 %.not169, i1 true, i1 %.not170194214
+  %.not170194213 = icmp eq ptr %289, %164
+  %.not170194 = select i1 %.not169, i1 true, i1 %.not170194213
   br i1 %.not170194, label %._crit_edge, label %.lr.ph199
 
 .lr.ph199:                                        ; preds = %275, %303
@@ -2014,7 +2016,7 @@ CheckDeadLock.exit:                               ; preds = %212
   %327 = load ptr, ptr %10, align 8
   %328 = load ptr, ptr %9, align 8
   %329 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.0135.lcssa, ptr noundef %327, ptr noundef %328) #13
-  br label %.sink.split226
+  br label %.sink.split225
 
 330:                                              ; preds = %319
   %331 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
@@ -2025,7 +2027,7 @@ CheckDeadLock.exit:                               ; preds = %212
   %334 = load ptr, ptr %8, align 8
   %335 = load i32, ptr %12, align 4
   %336 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %333, ptr noundef %278, ptr noundef %334, i64 noundef %286, i32 noundef %335) #13
-  br label %.sink.split226
+  br label %.sink.split225
 
 337:                                              ; preds = %319
   %338 = load i32, ptr @deadlock_state, align 4
@@ -2044,14 +2046,14 @@ CheckDeadLock.exit:                               ; preds = %212
   %346 = load ptr, ptr %10, align 8
   %347 = load ptr, ptr %9, align 8
   %348 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.0135.lcssa, ptr noundef %346, ptr noundef %347) #13
-  br label %.sink.split226
+  br label %.sink.split225
 
-.sink.split226:                                   ; preds = %322, %341, %332
-  %.sink227 = phi i32 [ 1559, %332 ], [ 1579, %341 ], [ 1555, %322 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink227, ptr noundef nonnull @__func__.ProcSleep) #13
+.sink.split225:                                   ; preds = %322, %341, %332
+  %.sink226 = phi i32 [ 1559, %332 ], [ 1579, %341 ], [ 1555, %322 ]
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink226, ptr noundef nonnull @__func__.ProcSleep) #13
   br label %349
 
-349:                                              ; preds = %.sink.split226, %330, %339, %337, %320
+349:                                              ; preds = %.sink.split225, %330, %339, %337, %320
   store i32 1, ptr @deadlock_state, align 4
   %350 = load ptr, ptr %8, align 8
   call void @pfree(ptr noundef %350) #13
@@ -2115,13 +2117,13 @@ CheckDeadLock.exit:                               ; preds = %212
 
 377:                                              ; preds = %371
   call void @GrantAwaitedLock() #13
-  %.pre211 = load ptr, ptr @MyProc, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre211, i64 32
-  %.pre212 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre210 = load ptr, ptr @MyProc, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre210, i64 32
+  %.pre211 = load i32, ptr %.phi.trans.insert, align 8
   br label %378
 
 378:                                              ; preds = %371, %377, %127, %90
-  %.0 = phi i32 [ 2, %127 ], [ 0, %90 ], [ %.pre212, %377 ], [ %375, %371 ]
+  %.0 = phi i32 [ 2, %127 ], [ 0, %90 ], [ %.pre211, %377 ], [ %375, %371 ]
   ret i32 %.0
 }
 

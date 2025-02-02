@@ -891,10 +891,10 @@ _ZL15vl_decodexdigitc.exit23:                     ; preds = %_ZL15vl_decodexdigi
           to label %67 unwind label %.loopexit47
 
 67:                                               ; preds = %.invoke, %_ZL15vl_decodexdigitc.exit23, %63, %11, %17, %65, %23
-  %.sroa.024.1 = phi ptr [ %.sroa.024.051, %17 ], [ %.sroa.024.051, %11 ], [ %24, %23 ], [ %.sroa.024.051, %63 ], [ %.sroa.024.051, %65 ], [ %39, %_ZL15vl_decodexdigitc.exit23 ], [ %.sroa.024.051, %.invoke ]
-  %.116 = phi i1 [ false, %17 ], [ true, %11 ], [ false, %23 ], [ true, %63 ], [ false, %65 ], [ false, %_ZL15vl_decodexdigitc.exit23 ], [ false, %.invoke ]
-  %.114 = phi i8 [ %14, %17 ], [ %14, %11 ], [ %.01353, %23 ], [ %.01353, %63 ], [ %.01353, %65 ], [ %.01353, %_ZL15vl_decodexdigitc.exit23 ], [ %.01353, %.invoke ]
-  %.1 = phi i32 [ 0, %17 ], [ %15, %11 ], [ 0, %23 ], [ 0, %63 ], [ %.054, %65 ], [ 0, %_ZL15vl_decodexdigitc.exit23 ], [ 0, %.invoke ]
+  %.sroa.024.1 = phi ptr [ %.sroa.024.051, %17 ], [ %.sroa.024.051, %11 ], [ %24, %23 ], [ %.sroa.024.051, %65 ], [ %.sroa.024.051, %63 ], [ %39, %_ZL15vl_decodexdigitc.exit23 ], [ %.sroa.024.051, %.invoke ]
+  %.116 = phi i1 [ false, %17 ], [ true, %11 ], [ false, %23 ], [ false, %65 ], [ true, %63 ], [ false, %_ZL15vl_decodexdigitc.exit23 ], [ false, %.invoke ]
+  %.114 = phi i8 [ %14, %17 ], [ %14, %11 ], [ %.01353, %23 ], [ %.01353, %65 ], [ %.01353, %63 ], [ %.01353, %_ZL15vl_decodexdigitc.exit23 ], [ %.01353, %.invoke ]
+  %.1 = phi i32 [ 0, %17 ], [ %15, %11 ], [ 0, %23 ], [ %.054, %65 ], [ 0, %63 ], [ 0, %_ZL15vl_decodexdigitc.exit23 ], [ 0, %.invoke ]
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.024.1, i64 1
   %69 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %.not46 = icmp eq ptr %68, %69

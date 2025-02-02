@@ -1711,7 +1711,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %8, %17,
 
 45:                                               ; preds = %32, %38, %42, %34
   %.111 = phi i1 [ %.01025, %34 ], [ %.01025, %42 ], [ true, %38 ], [ false, %32 ]
-  %.19 = phi i8 [ %.0826, %34 ], [ %.0826, %42 ], [ %.0826, %38 ], [ 1, %32 ]
+  %.19 = phi i8 [ %.0826, %34 ], [ %.0826, %42 ], [ 0, %38 ], [ 1, %32 ]
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %2, align 8

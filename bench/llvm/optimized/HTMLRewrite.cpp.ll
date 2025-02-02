@@ -365,7 +365,7 @@ _ZN4llvm9StringRefC2EPKc.exit29.us.us:            ; preds = %17
   br label %19
 
 19:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit29.us.us, %17, %_ZN4llvm9StringRefC2EPKc.exit27.us.us, %14, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us
-  %.2.us.us = phi i8 [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us.us ], [ 0, %14 ], [ %.02237.us.us, %17 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us.us ]
+  %.2.us.us = phi i8 [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ %.02237.us.us, %.lr.ph.split.us.split.us ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us.us ], [ 0, %14 ], [ 1, %17 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us.us ]
   %.1.us.us = phi i32 [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %.lr.ph.split.us.split.us ], [ %.02138.us.us, %_ZN4llvm9StringRefC2EPKc.exit27.us.us ], [ %.02138.us.us, %14 ], [ %.039.us.us, %17 ], [ %.039.us.us, %_ZN4llvm9StringRefC2EPKc.exit29.us.us ]
   %20 = add i32 %.039.us.us, 1
   %.not.us.us = icmp eq i32 %20, %2
@@ -407,7 +407,7 @@ _ZN4llvm9StringRefC2EPKc.exit29.us:               ; preds = %27
   br label %30
 
 30:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit29.us, %27, %_ZN4llvm9StringRefC2EPKc.exit27.us, %24, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split
-  %.2.us = phi i8 [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us ], [ 0, %24 ], [ %.02237.us, %27 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us ]
+  %.2.us = phi i8 [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ %.02237.us, %.lr.ph.split.us.split ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us ], [ 0, %24 ], [ 1, %27 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us ]
   %.1.us = phi i32 [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %.lr.ph.split.us.split ], [ %.02138.us, %_ZN4llvm9StringRefC2EPKc.exit27.us ], [ %.02138.us, %24 ], [ %.039.us, %27 ], [ %.039.us, %_ZN4llvm9StringRefC2EPKc.exit29.us ]
   %31 = add i32 %.039.us, 1
   %.not.us = icmp eq i32 %31, %2
@@ -452,7 +452,7 @@ _ZN4llvm9StringRefC2EPKc.exit29.us44:             ; preds = %39
   br label %41
 
 41:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit29.us44, %39, %_ZN4llvm9StringRefC2EPKc.exit27.us43, %35, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split.us
-  %.2.us45 = phi i8 [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us43 ], [ 0, %35 ], [ %.02237.us42, %39 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us44 ]
+  %.2.us45 = phi i8 [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ %.02237.us42, %.lr.ph.split.split.us ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27.us43 ], [ 0, %35 ], [ 1, %39 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29.us44 ]
   %.1.us46 = phi i32 [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %.lr.ph.split.split.us ], [ %.02138.us41, %_ZN4llvm9StringRefC2EPKc.exit27.us43 ], [ %.02138.us41, %35 ], [ %.039.us40, %39 ], [ %.039.us40, %_ZN4llvm9StringRefC2EPKc.exit29.us44 ]
   %42 = add i32 %.039.us40, 1
   %.not.us47 = icmp eq i32 %42, %2
@@ -495,7 +495,7 @@ _ZN4llvm9StringRefC2EPKc.exit29:                  ; preds = %50
   br label %53
 
 53:                                               ; preds = %50, %_ZN4llvm9StringRefC2EPKc.exit29, %46, %_ZN4llvm9StringRefC2EPKc.exit27, %.lr.ph.split.split, %.lr.ph.split.split, %.lr.ph.split.split, %.lr.ph.split.split, %.lr.ph.split.split
-  %.2 = phi i8 [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27 ], [ 0, %46 ], [ %.02237, %50 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29 ]
+  %.2 = phi i8 [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ %.02237, %.lr.ph.split.split ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit27 ], [ 0, %46 ], [ 1, %50 ], [ 1, %_ZN4llvm9StringRefC2EPKc.exit29 ]
   %.1 = phi i32 [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %.lr.ph.split.split ], [ %.02138, %_ZN4llvm9StringRefC2EPKc.exit27 ], [ %.02138, %46 ], [ %.039, %50 ], [ %.039, %_ZN4llvm9StringRefC2EPKc.exit29 ]
   %54 = add i32 %.039, 1
   %.not = icmp eq i32 %54, %2

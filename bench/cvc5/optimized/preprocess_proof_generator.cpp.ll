@@ -2641,7 +2641,7 @@ ehcleanup257:                                     ; preds = %ehcleanup255, %lpad
   br label %ehcleanup259
 
 if.end258:                                        ; preds = %if.then13.i.i886, %if.then.i.i879, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit876, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit715
-  %proofStepProcessed.2 = phi i8 [ %proofStepProcessed.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit715 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit876 ], [ 1, %if.then.i.i879 ], [ 1, %if.then13.i.i886 ]
+  %proofStepProcessed.2 = phi i8 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit715 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit876 ], [ 1, %if.then.i.i879 ], [ 1, %if.then13.i.i886 ]
   %109 = load ptr, ptr %pr, align 8
   %bf.load.i.i889 = load i64, ptr %109, align 8
   %110 = and i64 %bf.load.i.i889, 1152920405095219200
@@ -2674,7 +2674,7 @@ ehcleanup259:                                     ; preds = %ehcleanup257, %lpad
   br label %ehcleanup382
 
 if.end260:                                        ; preds = %if.then13.i.i898, %if.then.i.i891, %if.end258, %cond.true164
-  %proofStepProcessed.1 = phi i8 [ %proofStepProcessed.0, %cond.true164 ], [ %proofStepProcessed.2, %if.end258 ], [ %proofStepProcessed.2, %if.then.i.i891 ], [ %proofStepProcessed.2, %if.then13.i.i898 ]
+  %proofStepProcessed.1 = phi i8 [ 1, %cond.true164 ], [ %proofStepProcessed.2, %if.end258 ], [ %proofStepProcessed.2, %if.then.i.i891 ], [ %proofStepProcessed.2, %if.then13.i.i898 ]
   %113 = load ptr, ptr %_M_finish.i901, align 8
   %114 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i902 = icmp eq ptr %113, %114

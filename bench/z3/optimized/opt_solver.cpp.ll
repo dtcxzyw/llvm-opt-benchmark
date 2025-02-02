@@ -2231,7 +2231,6 @@ ehcleanup52:                                      ; preds = %ehcleanup, %lpad8, 
 
 if.end53:                                         ; preds = %if.end51, %entry
   %w.sroa.0.0 = phi i64 [ %call.i.i, %if.end51 ], [ 0, %entry ]
-  %w.sroa.15.0 = phi i8 [ 1, %if.end51 ], [ 0, %entry ]
   %m_last_model = getelementptr inbounds nuw i8, ptr %this, i64 960
   %7 = load ptr, ptr %m_last_model, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
@@ -2355,73 +2354,45 @@ if.end78:                                         ; preds = %if.end65, %if.then6
   br i1 %tobool.i15, label %if.then81, label %if.end106
 
 if.then81:                                        ; preds = %if.end78
-  %tobool.i17 = trunc nuw i8 %w.sroa.15.0 to i1
-  br i1 %tobool.i17, label %if.then.i18, label %_ZN9stopwatch4stopEv.exit
+  br i1 %tobool.i, label %if.then.i18, label %_ZN9stopwatch4stopEv.exit
 
 if.then.i18:                                      ; preds = %if.then81
   %call.i.i19 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
   %sub.i.i.i = sub i64 %call.i.i19, %w.sroa.0.0
+  %21 = sdiv i64 %sub.i.i.i, 1000000
+  %22 = sitofp i64 %21 to double
   br label %_ZN9stopwatch4stopEv.exit
 
 _ZN9stopwatch4stopEv.exit:                        ; preds = %if.then81, %if.then.i18
-  %w.sroa.7.0 = phi i64 [ %sub.i.i.i, %if.then.i18 ], [ 0, %if.then81 ]
-  %w.sroa.15.2 = phi i8 [ 0, %if.then.i18 ], [ %w.sroa.15.0, %if.then81 ]
+  %w.sroa.7.0 = phi double [ %22, %if.then.i18 ], [ 0.000000e+00, %if.then81 ]
   %call82 = call noundef i32 @_Z19get_verbosity_levelv()
   %cmp83.not = icmp eq i32 %call82, 0
   br i1 %cmp83.not, label %if.end106, label %if.then84
 
 if.then84:                                        ; preds = %_ZN9stopwatch4stopEv.exit
   %call85 = call noundef zeroext i1 @_Z11is_threadedv()
-  br i1 %call85, label %if.then86, label %if.else95
+  br i1 %call85, label %_ZNK9stopwatch11get_secondsEv.exit, label %_ZNK9stopwatch11get_secondsEv.exit36
 
-if.then86:                                        ; preds = %if.then84
+_ZNK9stopwatch11get_secondsEv.exit:               ; preds = %if.then84
   call void @_Z12verbose_lockv()
   %call87 = call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
   %call88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call87, ptr noundef nonnull @.str.16)
   %call89 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo5lbool(ptr noundef nonnull align 8 dereferenceable(8) %call88, i32 noundef %r.addr.0.i52)
   %call90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call89, ptr noundef nonnull @.str.17)
   %call91 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %call90, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
-  %tobool.i21 = trunc nuw i8 %w.sroa.15.2 to i1
-  br i1 %tobool.i21, label %_ZN9stopwatch4stopEv.exit.i, label %_ZNK9stopwatch11get_secondsEv.exit
-
-_ZN9stopwatch4stopEv.exit.i:                      ; preds = %if.then86
-  %call.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
-  %sub.i.i.i.i = sub i64 %w.sroa.7.0, %w.sroa.0.0
-  %add.i.i.i = add i64 %sub.i.i.i.i, %call.i.i.i
-  %call.i.i4.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
-  br label %_ZNK9stopwatch11get_secondsEv.exit
-
-_ZNK9stopwatch11get_secondsEv.exit:               ; preds = %if.then86, %_ZN9stopwatch4stopEv.exit.i
-  %w.sroa.7.1 = phi i64 [ %add.i.i.i, %_ZN9stopwatch4stopEv.exit.i ], [ %w.sroa.7.0, %if.then86 ]
-  %div.i.i.i = sdiv i64 %w.sroa.7.1, 1000000
-  %conv.i = sitofp i64 %div.i.i.i to double
-  %div.i = fdiv double %conv.i, 1.000000e+03
+  %div.i = fdiv double %w.sroa.7.0, 1.000000e+03
   %call93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call91, double noundef %div.i)
   %call94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call93, ptr noundef nonnull @.str.18)
   call void @_Z14verbose_unlockv()
   br label %if.end106
 
-if.else95:                                        ; preds = %if.then84
+_ZNK9stopwatch11get_secondsEv.exit36:             ; preds = %if.then84
   %call96 = call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
   %call97 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call96, ptr noundef nonnull @.str.16)
   %call98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo5lbool(ptr noundef nonnull align 8 dereferenceable(8) %call97, i32 noundef %r.addr.0.i52)
   %call99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call98, ptr noundef nonnull @.str.17)
   %call100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %call99, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
-  %tobool.i24 = trunc nuw i8 %w.sroa.15.2 to i1
-  br i1 %tobool.i24, label %_ZN9stopwatch4stopEv.exit.i29, label %_ZNK9stopwatch11get_secondsEv.exit36
-
-_ZN9stopwatch4stopEv.exit.i29:                    ; preds = %if.else95
-  %call.i.i.i30 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
-  %sub.i.i.i.i32 = sub i64 %w.sroa.7.0, %w.sroa.0.0
-  %add.i.i.i34 = add i64 %sub.i.i.i.i32, %call.i.i.i30
-  %call.i.i4.i35 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
-  br label %_ZNK9stopwatch11get_secondsEv.exit36
-
-_ZNK9stopwatch11get_secondsEv.exit36:             ; preds = %if.else95, %_ZN9stopwatch4stopEv.exit.i29
-  %w.sroa.7.2 = phi i64 [ %add.i.i.i34, %_ZN9stopwatch4stopEv.exit.i29 ], [ %w.sroa.7.0, %if.else95 ]
-  %div.i.i.i26 = sdiv i64 %w.sroa.7.2, 1000000
-  %conv.i27 = sitofp i64 %div.i.i.i26 to double
-  %div.i28 = fdiv double %conv.i27, 1.000000e+03
+  %div.i28 = fdiv double %w.sroa.7.0, 1.000000e+03
   %call102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call100, double noundef %div.i28)
   %call103 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call102, ptr noundef nonnull @.str.18)
   br label %if.end106

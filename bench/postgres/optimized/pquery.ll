@@ -1195,7 +1195,6 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br label %46
 
 46:                                               ; preds = %45, %44
-  %.2 = phi i8 [ %.0496270, %45 ], [ 1, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 18
   %48 = load i8, ptr %47, align 2
   %49 = trunc i8 %48 to i1
@@ -1236,7 +1235,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br label %65
 
 65:                                               ; preds = %63, %64, %55, %58
-  %.3 = phi i8 [ %.2, %58 ], [ %.2, %55 ], [ %.0496270, %63 ], [ %.0496270, %64 ]
+  %.3 = phi i8 [ 1, %58 ], [ 1, %55 ], [ %.0496270, %63 ], [ %.0496270, %64 ]
   %66 = load ptr, ptr %22, align 8
   tail call void @MemoryContextDeleteChildren(ptr noundef %66) #10
   %67 = load ptr, ptr %14, align 8

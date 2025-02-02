@@ -8904,7 +8904,6 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.86254
   %trunc = trunc nuw i64 %147 to i1
   %148 = load ptr, ptr %50, align 8, !nonnull !9, !align !317
   %149 = load i64, ptr %51, align 8
-  %.sroa.043.0 = select i1 %trunc, ptr null, ptr %148
   %.sroa.445.0 = select i1 %trunc, i64 undef, i64 %149
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   %150 = load ptr, ptr %52, align 8, !nonnull !9, !noundef !9
@@ -8947,22 +8946,22 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.86254
   br label %215
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0c8d1735cb873e68E.exit": ; preds = %152
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.b22475c6f4646dc536b9171d4d0a0d13.115, ptr noundef nonnull readonly align 1 dereferenceable(6) %.sroa.043.0, i64 6), !alias.scope !1707
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(6) @anon.b22475c6f4646dc536b9171d4d0a0d13.115, ptr noundef nonnull readonly align 1 dereferenceable(6) %148, i64 6), !alias.scope !1707
   %162 = icmp eq i32 %bcmp.i.i, 0
   br i1 %162, label %163, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0c8d1735cb873e68E.exit.thread"
 
 163:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0c8d1735cb873e68E.exit"
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
-  %164 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h32b354c0d1a4b28bE"(i64 noundef %.sroa.445.0, i1 noundef zeroext false)
+  %164 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h32b354c0d1a4b28bE"(i64 noundef %149, i1 noundef zeroext false)
           to label %.noexc83 unwind label %144
 
 .noexc83:                                         ; preds = %163
   %165 = extractvalue { i64, ptr } %164, 1
   %166 = icmp ne ptr %165, null
   call void @llvm.assume(i1 %166)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %.sroa.043.0, i64 %.sroa.445.0, i1 false)
-  %167 = getelementptr inbounds i8, ptr %165, i64 %.sroa.445.0
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %148, i64 %149, i1 false)
+  %167 = getelementptr inbounds i8, ptr %165, i64 %149
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc83, %.lr.ph.i.i

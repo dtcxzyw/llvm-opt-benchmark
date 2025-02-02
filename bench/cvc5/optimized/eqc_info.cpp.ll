@@ -1059,7 +1059,7 @@ if.then13.i.i.i491.invoke:                        ; preds = %if.else.i.i.i489, %
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink)
           to label %cleanup211.critedge unwind label %lpad28
 
-cond.true151:                                     ; preds = %if.end129, %invoke.cont83, %invoke.cont78, %invoke.cont74
+cond.true151:                                     ; preds = %invoke.cont74, %invoke.cont78, %invoke.cont83, %if.end129
   %59 = load ptr, ptr %t, align 8
   store ptr %59, ptr %agg.tmp169, align 8
   %bf.load.i.i646 = load i64, ptr %59, align 8
@@ -1254,13 +1254,13 @@ if.then13.i.i.i797:                               ; preds = %if.else.i.i.i795
           to label %cleanup211 unwind label %lpad
 
 cleanup211.critedge.sink.split:                   ; preds = %if.then142, %if.then136
-  %bf.load.i.i.i485.sink868 = phi i64 [ %bf.load.i.i.i471, %if.then136 ], [ %bf.load.i.i.i485, %if.then142 ]
-  %.sink867 = phi ptr [ %55, %if.then136 ], [ %57, %if.then142 ]
-  %bf.value.i.i.i494 = add i64 %bf.load.i.i.i485.sink868, 1099511627776
+  %bf.load.i.i.i485.sink865 = phi i64 [ %bf.load.i.i.i471, %if.then136 ], [ %bf.load.i.i.i485, %if.then142 ]
+  %.sink864 = phi ptr [ %55, %if.then136 ], [ %57, %if.then142 ]
+  %bf.value.i.i.i494 = add i64 %bf.load.i.i.i485.sink865, 1099511627776
   %bf.shl.i.i.i495 = and i64 %bf.value.i.i.i494, 1152920405095219200
-  %bf.clear7.i.i.i496 = and i64 %bf.load.i.i.i485.sink868, -1152920405095219201
+  %bf.clear7.i.i.i496 = and i64 %bf.load.i.i.i485.sink865, -1152920405095219201
   %bf.set.i.i.i497 = or disjoint i64 %bf.shl.i.i.i495, %bf.clear7.i.i.i496
-  store i64 %bf.set.i.i.i497, ptr %.sink867, align 8, !noalias !14
+  store i64 %bf.set.i.i.i497, ptr %.sink864, align 8, !noalias !14
   br label %cleanup211.critedge
 
 cleanup211.critedge:                              ; preds = %cleanup211.critedge.sink.split, %if.then13.i.i.i491.invoke, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit686, %if.then.i.i689, %if.then13.i.i695, %if.else.i.i.i489, %if.else.i.i.i475

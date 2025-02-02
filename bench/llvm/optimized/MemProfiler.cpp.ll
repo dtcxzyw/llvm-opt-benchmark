@@ -2505,11 +2505,11 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i.i:                   ; preds = %294, %_ZNSt10unique
   br label %.thread340.sink.split.i
 
 .thread340.sink.split.i:                          ; preds = %._ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i13_crit_edge.i.i.i, %299, %274
-  %.sink509.i = phi ptr [ %300, %299 ], [ %268, %._ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i13_crit_edge.i.i.i ], [ %268, %274 ]
-  %301 = load ptr, ptr %.sink509.i, align 8, !noalias !69
+  %.sink506.i = phi ptr [ %300, %299 ], [ %268, %._ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i13_crit_edge.i.i.i ], [ %268, %274 ]
+  %301 = load ptr, ptr %.sink506.i, align 8, !noalias !69
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %303 = load ptr, ptr %302, align 8, !noalias !69
-  call void %303(ptr noundef nonnull align 8 dereferenceable(8) %.sink509.i) #19, !noalias !69
+  call void %303(ptr noundef nonnull align 8 dereferenceable(8) %.sink506.i) #19, !noalias !69
   br label %.thread340.i
 
 .thread340.i:                                     ; preds = %.thread340.sink.split.i, %299
@@ -3445,9 +3445,8 @@ _ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_
   br i1 %or.cond.i, label %.thread.i, label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
 .thread.i:                                        ; preds = %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i, %639
-  %.1102330.i = phi i8 [ 1, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i ], [ %.0101406.i, %639 ]
-  %.sroa.0257.1328.i = phi ptr [ %.sroa.0.0.i.i154.i, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i ], [ %.sroa.0257.0401.i, %639 ]
-  %.sroa.0255.1326.i = phi ptr [ %.sroa.0.0.i.i165.i, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i ], [ %.sroa.0255.0400.i, %639 ]
+  %.sroa.0257.1328.i = phi ptr [ %.sroa.0257.0401.i, %639 ], [ %.sroa.0.0.i.i154.i, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i ]
+  %.sroa.0255.1326.i = phi ptr [ %.sroa.0255.0400.i, %639 ], [ %.sroa.0.0.i.i165.i, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i ]
   %.not.i.i29 = icmp eq ptr %.sroa.8.3403.i, %.sroa.16.3402.i
   br i1 %.not.i.i29, label %667, label %665
 
@@ -3501,7 +3500,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit.i:        ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %665, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i
-  %.1102329.i = phi i8 [ %.1102330.i, %665 ], [ %.1102330.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.0101406.i, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i ]
+  %.1102329.i = phi i8 [ 1, %665 ], [ 1, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ 0, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i ]
   %.sroa.0257.1327.i = phi ptr [ %.sroa.0257.1328.i, %665 ], [ %.sroa.0257.1328.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.0.0.i.i154.i, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i ]
   %.sroa.0255.1325.i = phi ptr [ %.sroa.0255.1326.i, %665 ], [ %.sroa.0255.1326.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.0.0.i.i165.i, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i ]
   %.sroa.16.4.i = phi ptr [ %.sroa.16.3402.i, %665 ], [ %685, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.16.3402.i, %_ZNSt3mapImSt3setISt4pairIPKSt6vectorIN4llvm7memprof5FrameESaIS5_EEjESt4lessISA_ESaISA_EESB_ImESaIS1_IKmSE_EEE4findERSG_.exit.i ]

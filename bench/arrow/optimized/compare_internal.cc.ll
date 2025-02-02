@@ -385,7 +385,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.i, label %for.inc, label %for.body.i, !llvm.loop !4
 
 for.inc:                                          ; preds = %for.body.i, %if.end.i, %if.end66, %cond.end, %if.then16, %if.then18
-  %is_first_column.1 = phi i8 [ %is_first_column.0228, %if.then18 ], [ %is_first_column.0228, %if.then16 ], [ %is_first_column.0228, %cond.end ], [ 0, %if.end66 ], [ 0, %if.end.i ], [ 0, %for.body.i ]
+  %is_first_column.1 = phi i8 [ 1, %if.then18 ], [ 0, %if.then16 ], [ %is_first_column.0228, %cond.end ], [ 0, %if.end66 ], [ 0, %if.end.i ], [ 0, %for.body.i ]
   %inc = add nuw i64 %icol.0226, 1
   %36 = load ptr, ptr %_M_finish.i, align 8
   %37 = load ptr, ptr %cols, align 8

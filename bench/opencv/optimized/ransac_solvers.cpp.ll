@@ -35089,7 +35089,7 @@ _ZZZN2cv4usac6Ransac3runERNS_3PtrINS0_12RansacOutputEEEENKUlRKNS_5RangeEE_clES8_
           to label %_ZZZN2cv4usac6Ransac3runERNS_3PtrINS0_12RansacOutputEEEENKUlRKNS_5RangeEE_clES8_ENKUliE_clEi.exit122 unwind label %.loopexit.split-lp.loopexit
 
 _ZZZN2cv4usac6Ransac3runERNS_3PtrINS0_12RansacOutputEEEENKUlRKNS_5RangeEE_clES8_ENKUliE_clEi.exit122: ; preds = %720, %.noexc120, %724, %690, %693, %697, %702, %706
-  %.5 = phi i8 [ %.2313, %690 ], [ %.2313, %702 ], [ %.2313, %706 ], [ %.2313, %697 ], [ %.2313, %693 ], [ 1, %724 ], [ 1, %.noexc120 ], [ 1, %720 ]
+  %.5 = phi i8 [ %.2313, %690 ], [ 1, %702 ], [ 0, %706 ], [ %.2313, %697 ], [ %.2313, %693 ], [ 1, %724 ], [ 1, %.noexc120 ], [ 1, %720 ]
   %725 = load i32, ptr %4, align 4
   %726 = add nsw i32 %725, 1
   store i32 %726, ptr %4, align 4

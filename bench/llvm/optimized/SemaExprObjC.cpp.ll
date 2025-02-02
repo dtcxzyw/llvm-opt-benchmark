@@ -26583,7 +26583,6 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %36, %42
   br label %72
 
 72:                                               ; preds = %55, %53
-  %.2 = phi i8 [ %.0308, %53 ], [ 1, %55 ]
   %73 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %.sroa.0.0.copyload.i40 = load i32, ptr %73, align 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %22, i32 %.sroa.0.0.copyload.i40, i32 noundef 5690, i1 noundef zeroext false) #18
@@ -26594,7 +26593,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %36, %42
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN5clang4Decl14getDeclContextEv.exit, %32, %50, %72, %48
-  %.1 = phi i8 [ %.0308, %32 ], [ %.0308, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %.0308, %48 ], [ %.0308, %50 ], [ %.2, %72 ]
+  %.1 = phi i8 [ %.0308, %32 ], [ %.0308, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %.0308, %48 ], [ %.0308, %50 ], [ 1, %72 ]
   %75 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %.0.copyload.i.i.i.i42 = load i64, ptr %75, align 8
   %.0.in = and i64 %.0.copyload.i.i.i.i42, -8

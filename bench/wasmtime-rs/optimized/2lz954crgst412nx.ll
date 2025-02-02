@@ -4851,7 +4851,7 @@ _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unw
   br label %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit59
 
 _ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit59: ; preds = %92, %75, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i56, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit
-  %.sroa.068.0 = phi i32 [ 0, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit ], [ 0, %92 ], [ %72, %75 ], [ %72, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i56 ]
+  %.sroa.068.0 = phi i32 [ 0, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit ], [ 0, %92 ], [ 0, %75 ], [ 1, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i56 ]
   %.sroa.469.0 = phi i32 [ undef, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator4List6append17h6b0a00bd1f0d8e31E.exit ], [ undef, %92 ], [ %74, %75 ], [ %74, %_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator9SlotState13unwrap_unused17h5d00cb88aba1929aE.exit.i56 ]
   %118 = load i64, ptr %31, align 8, !noundef !4
   %119 = icmp ugt i64 %118, %29

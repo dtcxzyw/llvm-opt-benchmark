@@ -10784,7 +10784,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit127:           ; preds = %114, %128
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit, %_ZNK5clang9NamedDecl7getNameEv.exit127, %112
-  %.080352.shrunk = phi i1 [ true, %_ZNK5clang9NamedDecl7getNameEv.exit127 ], [ false, %112 ], [ false, %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit ]
+  %.080352 = phi i1 [ true, %_ZNK5clang9NamedDecl7getNameEv.exit127 ], [ false, %112 ], [ false, %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit ]
   %142 = load ptr, ptr %92, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 152
   %144 = load ptr, ptr %143, align 8
@@ -11122,7 +11122,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit153:           ; preds = %282, %292
 
 .thread353:                                       ; preds = %170, %185, %190, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_7CodeGen12EHScopeStack15stable_iteratorENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixEOS5_.exit, %181, %305
   %.pre-phi433 = phi ptr [ %172, %170 ], [ %172, %185 ], [ %172, %190 ], [ %172, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_7CodeGen12EHScopeStack15stable_iteratorENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixEOS5_.exit ], [ %172, %181 ], [ %.pre432, %305 ]
-  %.181356.shrunk = phi i1 [ %.080352.shrunk, %170 ], [ %.080352.shrunk, %185 ], [ %.080352.shrunk, %190 ], [ %.080352.shrunk, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_7CodeGen12EHScopeStack15stable_iteratorENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixEOS5_.exit ], [ %.080352.shrunk, %181 ], [ false, %305 ]
+  %.181356 = phi i1 [ %.080352, %170 ], [ %.080352, %185 ], [ %.080352, %190 ], [ %.080352, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_7CodeGen12EHScopeStack15stable_iteratorENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixEOS5_.exit ], [ %.080352, %181 ], [ false, %305 ]
   %306 = phi ptr [ null, %170 ], [ null, %185 ], [ null, %190 ], [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang11ParmVarDeclENS2_7CodeGen12EHScopeStack15stable_iteratorENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_EixEOS5_.exit ], [ null, %181 ], [ %37, %305 ]
   %.079357 = xor i1 %34, true
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -11591,7 +11591,7 @@ _ZN5clang7CodeGen15CodeGenFunction17setAddrOfLocalVarEPKNS_7VarDeclENS0_7Address
   %511 = and i64 %.0.copyload.i.i.i.i186, -8
   %512 = inttoptr i64 %511 to ptr
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %514 = call noundef ptr @_ZN5clang7CodeGen11CGDebugInfo24EmitDeclareOfArgVariableEPKNS_7VarDeclEPN4llvm5ValueEjRNS0_11CGBuilderTyEb(ptr noundef nonnull align 8 dereferenceable(2472) %499, ptr noundef nonnull %1, ptr noundef %512, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(160) %513, i1 noundef zeroext %.181356.shrunk) #18
+  %514 = call noundef ptr @_ZN5clang7CodeGen11CGDebugInfo24EmitDeclareOfArgVariableEPKNS_7VarDeclEPN4llvm5ValueEjRNS0_11CGBuilderTyEb(ptr noundef nonnull align 8 dereferenceable(2472) %499, ptr noundef nonnull %1, ptr noundef %512, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(160) %513, i1 noundef zeroext %.181356) #18
   %515 = load i32, ptr %56, align 4
   %516 = and i32 %515, 127
   %.not381 = icmp eq i32 %516, 40

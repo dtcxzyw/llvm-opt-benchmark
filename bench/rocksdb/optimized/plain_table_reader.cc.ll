@@ -3367,7 +3367,7 @@ cleanup:                                          ; preds = %if.then44, %if.then
   %prev_key_prefix_slice.sroa.0.1.ph = phi ptr [ %prev_key_prefix_slice.sroa.0.2, %if.then44 ], [ %prev_key_prefix_slice.sroa.0.0113, %if.then ], [ %prev_key_prefix_slice.sroa.0.2, %land.lhs.true ], [ %prev_key_prefix_slice.sroa.0.2, %invoke.cont41 ]
   %prev_key_prefix_slice.sroa.5.1.ph = phi i64 [ %prev_key_prefix_slice.sroa.5.2, %if.then44 ], [ %prev_key_prefix_slice.sroa.5.0114, %if.then ], [ %prev_key_prefix_slice.sroa.5.2, %land.lhs.true ], [ %prev_key_prefix_slice.sroa.5.2, %invoke.cont41 ]
   %cond.ph = phi i1 [ false, %if.then44 ], [ false, %if.then ], [ true, %land.lhs.true ], [ true, %invoke.cont41 ]
-  %is_first_record.1.ph = phi i8 [ %is_first_record.0115, %if.then44 ], [ %is_first_record.0115, %if.then ], [ 0, %land.lhs.true ], [ 0, %invoke.cont41 ]
+  %is_first_record.1.ph = phi i8 [ 1, %if.then44 ], [ %is_first_record.0115, %if.then ], [ 0, %land.lhs.true ], [ 0, %invoke.cont41 ]
   %.pr = load ptr, ptr %state_.i2.i, align 8
   %cmp.not.i.i39 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i39, label %_ZN7rocksdb6StatusD2Ev.exit41, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i40

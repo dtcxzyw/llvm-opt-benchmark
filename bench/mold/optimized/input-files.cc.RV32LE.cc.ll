@@ -17944,7 +17944,6 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.e
 
 while.end:                                        ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit55, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit, %if.end
   %n.0.lcssa = phi ptr [ null, %if.end ], [ null, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit ], [ %n.0.lcssa.i31, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit55 ]
-  %b.sroa.9.1 = phi i8 [ %b.sroa.9.6, %if.end ], [ 1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit ], [ 1, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit55 ]
   %22 = load atomic i64, ptr %my_mask acquire, align 8
   %cmp.not.i = icmp eq i64 %m.0, %22
   br i1 %cmp.not.i, label %if.end25, label %if.then.i89
@@ -18012,7 +18011,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i95
 
 exists:                                           ; preds = %land.rhs.i.i.i, %land.rhs.us.i, %land.lhs.true.i, %if.then.i95, %if.end25, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit
   %m.1 = phi i64 [ %m.0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ %m.0, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit ], [ %m.3.ph, %if.end25 ], [ %m.3.ph, %if.then.i95 ], [ %m.3.ph, %land.lhs.true.i ], [ %m.0, %land.rhs.us.i ], [ %m.0, %land.rhs.i.i.i ]
-  %b.sroa.9.2 = phi i8 [ 0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ %b.sroa.9.6, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit ], [ %b.sroa.9.1, %if.end25 ], [ %b.sroa.9.1, %if.then.i95 ], [ %b.sroa.9.1, %land.lhs.true.i ], [ %b.sroa.9.6, %land.rhs.us.i ], [ %b.sroa.9.6, %land.rhs.i.i.i ]
+  %b.sroa.9.2 = phi i8 [ 0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ %b.sroa.9.6, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit ], [ 1, %if.end25 ], [ 1, %if.then.i95 ], [ 1, %land.lhs.true.i ], [ %b.sroa.9.6, %land.rhs.us.i ], [ %b.sroa.9.6, %land.rhs.i.i.i ]
   %tmp_n.addr.2 = phi ptr [ %tmp_n.addr.1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ %tmp_n.addr.0, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit ], [ null, %if.end25 ], [ null, %if.then.i95 ], [ null, %land.lhs.true.i ], [ %tmp_n.addr.0, %land.rhs.us.i ], [ %tmp_n.addr.0, %land.rhs.i.i.i ]
   %return_value.0 = phi i1 [ false, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ false, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit ], [ true, %if.end25 ], [ true, %if.then.i95 ], [ true, %land.lhs.true.i ], [ false, %land.rhs.us.i ], [ false, %land.rhs.i.i.i ]
   %grow_segment.1 = phi i64 [ %grow_segment.0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ %grow_segment.0, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf11ComdatGroupE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_S9_EEEE13search_bucketIS6_EEPNSH_4nodeERKT_PNS1_13hash_map_baseISG_NSB_13spin_rw_mutexEE6bucketE.exit ], [ 0, %if.end25 ], [ 0, %if.then.i95 ], [ %spec.select.i, %land.lhs.true.i ], [ %grow_segment.0, %land.rhs.us.i ], [ %grow_segment.0, %land.rhs.i.i.i ]
@@ -18126,7 +18125,7 @@ cleanup.sink.split:                               ; preds = %cond.end.i117, %seq
 
 cleanup:                                          ; preds = %cleanup.sink.split, %for.end.i.i, %exists
   %m.2 = phi i64 [ %m.1, %exists ], [ %22, %for.end.i.i ], [ %m.1, %cleanup.sink.split ]
-  %b.sroa.9.3 = phi i8 [ %b.sroa.9.2, %exists ], [ %b.sroa.9.1, %for.end.i.i ], [ %b.sroa.9.2, %cleanup.sink.split ]
+  %b.sroa.9.3 = phi i8 [ %b.sroa.9.2, %exists ], [ 1, %for.end.i.i ], [ %b.sroa.9.2, %cleanup.sink.split ]
   %tmp_n.addr.3 = phi ptr [ %tmp_n.addr.2, %exists ], [ %tmp_n.addr.1, %for.end.i.i ], [ %tmp_n.addr.2, %cleanup.sink.split ]
   %return_value.1 = phi i1 [ %return_value.0, %exists ], [ false, %for.end.i.i ], [ %return_value.0, %cleanup.sink.split ]
   %grow_segment.2 = phi i64 [ %grow_segment.1, %exists ], [ %grow_segment.0, %for.end.i.i ], [ %grow_segment.1, %cleanup.sink.split ]
@@ -18395,7 +18394,6 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exi
   br i1 %call.i16, label %if.end14, label %restart.loopexit
 
 if.end14:                                         ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit, %if.then
-  %b_old.sroa.6.2 = phi i8 [ %b_old.sroa.6.136, %if.then ], [ 1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit ]
   %14 = load ptr, ptr %curr.037, align 8
   %cmp16 = icmp eq ptr %prev.038, null
   br i1 %cmp16, label %if.then17, label %if.else
@@ -18422,7 +18420,7 @@ if.else24:                                        ; preds = %while.body
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else24, %if.end23
-  %b_old.sroa.6.3 = phi i8 [ %b_old.sroa.6.2, %if.end23 ], [ %b_old.sroa.6.136, %if.else24 ]
+  %b_old.sroa.6.3 = phi i8 [ 1, %if.end23 ], [ %b_old.sroa.6.136, %if.else24 ]
   %curr.1 = phi ptr [ %14, %if.end23 ], [ %18, %if.else24 ]
   %prev.1 = phi ptr [ %prev.038, %if.end23 ], [ %curr.037, %if.else24 ]
   %cmp.i = icmp ugt ptr %curr.1, inttoptr (i64 63 to ptr)
@@ -26088,7 +26086,6 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.e
 
 while.end:                                        ; preds = %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV32LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEE13search_bucketIS6_EEPNSJ_4nodeERKT_PNS1_13hash_map_baseISI_NSD_13spin_rw_mutexEE6bucketE.exit55, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit, %if.end
   %n.0.lcssa = phi ptr [ null, %if.end ], [ null, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit ], [ %n.0.lcssa.i31, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV32LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEE13search_bucketIS6_EEPNSJ_4nodeERKT_PNS1_13hash_map_baseISI_NSD_13spin_rw_mutexEE6bucketE.exit55 ]
-  %b.sroa.9.1 = phi i8 [ %b.sroa.9.6, %if.end ], [ 1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit ], [ 1, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV32LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEE13search_bucketIS6_EEPNSJ_4nodeERKT_PNS1_13hash_map_baseISI_NSD_13spin_rw_mutexEE6bucketE.exit55 ]
   %22 = load atomic i64, ptr %my_mask acquire, align 8
   %cmp.not.i = icmp eq i64 %m.0, %22
   br i1 %cmp.not.i, label %if.end25, label %if.then.i89
@@ -26156,7 +26153,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i95
 
 exists:                                           ; preds = %land.rhs.i.i.i, %land.rhs.us.i, %land.lhs.true.i, %if.then.i95, %if.end25, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV32LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEE13search_bucketIS6_EEPNSJ_4nodeERKT_PNS1_13hash_map_baseISI_NSD_13spin_rw_mutexEE6bucketE.exit
   %m.1 = phi i64 [ %m.0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ %m.0, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV32LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEE13search_bucketIS6_EEPNSJ_4nodeERKT_PNS1_13hash_map_baseISI_NSD_13spin_rw_mutexEE6bucketE.exit ], [ %m.3.ph, %if.end25 ], [ %m.3.ph, %if.then.i95 ], [ %m.3.ph, %land.lhs.true.i ], [ %m.0, %land.rhs.us.i ], [ %m.0, %land.rhs.i.i.i ]
-  %b.sroa.9.2 = phi i8 [ 0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ %b.sroa.9.6, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV32LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEE13search_bucketIS6_EEPNSJ_4nodeERKT_PNS1_13hash_map_baseISI_NSD_13spin_rw_mutexEE6bucketE.exit ], [ %b.sroa.9.1, %if.end25 ], [ %b.sroa.9.1, %if.then.i95 ], [ %b.sroa.9.1, %land.lhs.true.i ], [ %b.sroa.9.6, %land.rhs.us.i ], [ %b.sroa.9.6, %land.rhs.i.i.i ]
+  %b.sroa.9.2 = phi i8 [ 0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ %b.sroa.9.6, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV32LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEE13search_bucketIS6_EEPNSJ_4nodeERKT_PNS1_13hash_map_baseISI_NSD_13spin_rw_mutexEE6bucketE.exit ], [ 1, %if.end25 ], [ 1, %if.then.i95 ], [ 1, %land.lhs.true.i ], [ %b.sroa.9.6, %land.rhs.us.i ], [ %b.sroa.9.6, %land.rhs.i.i.i ]
   %tmp_n.addr.2 = phi ptr [ %tmp_n.addr.1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ %tmp_n.addr.0, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV32LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEE13search_bucketIS6_EEPNSJ_4nodeERKT_PNS1_13hash_map_baseISI_NSD_13spin_rw_mutexEE6bucketE.exit ], [ null, %if.end25 ], [ null, %if.then.i95 ], [ null, %land.lhs.true.i ], [ %tmp_n.addr.0, %land.rhs.us.i ], [ %tmp_n.addr.0, %land.rhs.i.i.i ]
   %return_value.0 = phi i1 [ false, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ false, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV32LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEE13search_bucketIS6_EEPNSJ_4nodeERKT_PNS1_13hash_map_baseISI_NSD_13spin_rw_mutexEE6bucketE.exit ], [ true, %if.end25 ], [ true, %if.then.i95 ], [ true, %land.lhs.true.i ], [ false, %land.rhs.us.i ], [ false, %land.rhs.i.i.i ]
   %grow_segment.1 = phi i64 [ %grow_segment.0, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE19downgrade_to_readerEv.exit ], [ %grow_segment.0, %_ZNK3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV32LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEE13search_bucketIS6_EEPNSJ_4nodeERKT_PNS1_13hash_map_baseISI_NSD_13spin_rw_mutexEE6bucketE.exit ], [ 0, %if.end25 ], [ 0, %if.then.i95 ], [ %spec.select.i, %land.lhs.true.i ], [ %grow_segment.0, %land.rhs.us.i ], [ %grow_segment.0, %land.rhs.i.i.i ]
@@ -26270,7 +26267,7 @@ cleanup.sink.split:                               ; preds = %cond.end.i117, %seq
 
 cleanup:                                          ; preds = %cleanup.sink.split, %for.end.i.i, %exists
   %m.2 = phi i64 [ %m.1, %exists ], [ %22, %for.end.i.i ], [ %m.1, %cleanup.sink.split ]
-  %b.sroa.9.3 = phi i8 [ %b.sroa.9.2, %exists ], [ %b.sroa.9.1, %for.end.i.i ], [ %b.sroa.9.2, %cleanup.sink.split ]
+  %b.sroa.9.3 = phi i8 [ %b.sroa.9.2, %exists ], [ 1, %for.end.i.i ], [ %b.sroa.9.2, %cleanup.sink.split ]
   %tmp_n.addr.3 = phi ptr [ %tmp_n.addr.2, %exists ], [ %tmp_n.addr.1, %for.end.i.i ], [ %tmp_n.addr.2, %cleanup.sink.split ]
   %return_value.1 = phi i1 [ %return_value.0, %exists ], [ false, %for.end.i.i ], [ %return_value.0, %cleanup.sink.split ]
   %grow_segment.2 = phi i64 [ %grow_segment.1, %exists ], [ %grow_segment.0, %for.end.i.i ], [ %grow_segment.1, %cleanup.sink.split ]
@@ -26562,7 +26559,6 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exi
   br i1 %call.i16, label %if.end14, label %restart.loopexit
 
 if.end14:                                         ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit, %if.then
-  %b_old.sroa.6.2 = phi i8 [ %b_old.sroa.6.136, %if.then ], [ 1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit ]
   %14 = load ptr, ptr %curr.037, align 8
   %cmp16 = icmp eq ptr %prev.038, null
   br i1 %cmp16, label %if.then17, label %if.else
@@ -26589,7 +26585,7 @@ if.else24:                                        ; preds = %while.body
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else24, %if.end23
-  %b_old.sroa.6.3 = phi i8 [ %b_old.sroa.6.2, %if.end23 ], [ %b_old.sroa.6.136, %if.else24 ]
+  %b_old.sroa.6.3 = phi i8 [ 1, %if.end23 ], [ %b_old.sroa.6.136, %if.else24 ]
   %curr.1 = phi ptr [ %14, %if.end23 ], [ %18, %if.else24 ]
   %prev.1 = phi ptr [ %prev.038, %if.end23 ], [ %curr.037, %if.else24 ]
   %cmp.i = icmp ugt ptr %curr.1, inttoptr (i64 63 to ptr)

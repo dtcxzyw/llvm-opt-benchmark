@@ -539,7 +539,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %91, %93
   br label %101
 
 .loopexit:                                        ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit65, %_ZN4llvm11raw_ostreamlsEPKc.exit61
-  %.2.lcssa = phi i8 [ %.1, %_ZN4llvm11raw_ostreamlsEPKc.exit61 ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit65 ]
+  %.2.lcssa = phi i8 [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit61 ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit65 ]
   %.sroa.071.0 = load ptr, ptr %.sroa.071.087, align 8
   %.not81 = icmp eq ptr %.sroa.071.0, %1
   br i1 %.not81, label %._crit_edge, label %101, !llvm.loop !4
@@ -574,7 +574,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %91, %93
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit35
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit35:    ; preds = %113, %112, %110, %101
-  %.1 = phi i8 [ %.086, %101 ], [ 0, %110 ], [ 0, %112 ], [ 0, %113 ]
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.071.087, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
@@ -26049,7 +26048,7 @@ _ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit14: ; preds 
 
 _ZN5clang6format19UnwrappedLineParser19parseRequiresClauseEPNS0_11FormatTokenE.exit: ; preds = %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit14, %76, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit16, %31, %95, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit, %46, %42, %36, %35, %33
   %.18 = phi i1 [ %.07.ph23, %95 ], [ true, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ %.07.ph23, %46 ], [ %.07.ph23, %42 ], [ %.07.ph23, %36 ], [ %.07.ph23, %35 ], [ %.07.ph23, %33 ], [ %.07.ph23, %31 ], [ %.07.ph23, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit16 ], [ %.07.ph23, %76 ], [ %.07.ph23, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit14 ]
-  %.1 = phi i8 [ %.06.ph24, %95 ], [ %.06.ph24, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ %.06.ph24, %46 ], [ %.06.ph24, %42 ], [ %spec.select, %36 ], [ %.06.ph24, %35 ], [ %.06.ph24, %33 ], [ %.06.ph24, %31 ], [ %.06.ph24, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit16 ], [ %.06.ph24, %76 ], [ %.06.ph24, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit14 ]
+  %.1 = phi i8 [ 1, %95 ], [ %.06.ph24, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ %.06.ph24, %46 ], [ %.06.ph24, %42 ], [ %spec.select, %36 ], [ %.06.ph24, %35 ], [ %.06.ph24, %33 ], [ %.06.ph24, %31 ], [ %.06.ph24, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit16 ], [ %.06.ph24, %76 ], [ %.06.ph24, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit14 ]
   %96 = load ptr, ptr %7, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i16, ptr %97, align 8
@@ -28475,7 +28474,7 @@ _ZN5clang6format19UnwrappedLineParser11isOnNewLineERKNS0_11FormatTokenE.exit.thr
   %53 = phi i8 [ %.pre, %_ZN5clang6format19UnwrappedLineParser11isOnNewLineERKNS0_11FormatTokenE.exit._ZN5clang6format19UnwrappedLineParser11isOnNewLineERKNS0_11FormatTokenE.exit.thread_crit_edge ], [ %49, %47 ]
   %54 = and i8 %53, 4
   %.not37 = icmp eq i8 %54, 0
-  %brmerge.not = select i1 %.not37, i1 %.051, i1 false
+  %brmerge.not = and i1 %.not37, %.051
   br i1 %brmerge.not, label %56, label %.thread
 
 55:                                               ; preds = %34
@@ -28508,7 +28507,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES
   br label %67
 
 67:                                               ; preds = %56, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit
-  %.140 = phi i1 [ %.051, %56 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit ]
+  %.140 = phi i1 [ true, %56 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format11FormatTokenELb1EE9push_backES4_.exit ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !154

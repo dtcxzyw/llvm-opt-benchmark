@@ -241,7 +241,7 @@ _ZN4llvm4copyIRNS_9StringRefEN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEE
   br label %66
 
 66:                                               ; preds = %65, %63, %58
-  %.1.i = phi i8 [ %.01925.i, %58 ], [ %spec.select.i, %63 ], [ %spec.select21.i, %65 ]
+  %.1.i = phi i8 [ 0, %58 ], [ %spec.select.i, %63 ], [ %spec.select21.i, %65 ]
   %67 = add nuw nsw i64 %.01826.i, 1
   %exitcond.not.i = icmp eq i64 %67, 312
   br i1 %exitcond.not.i, label %68, label %.preheader.i, !llvm.loop !8

@@ -9458,7 +9458,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_GetValueINS_7VtArrayIfEEEEb
 573:                                              ; preds = %.noexc75.i, %568
   %.0.i.i15 = phi i32 [ %572, %.noexc75.i ], [ %569, %568 ]
   %574 = icmp eq i32 %.0.i.i15, 2
-  br i1 %574, label %577, label %.critedge.sink.split.i
+  br i1 %574, label %577, label %.thread.thread.i
 
 575:                                              ; preds = %636, %632, %620, %617, %614, %611, %609, %600, %597, %594, %592, %584, %582, %579, %577, %571, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_GetValueINS_7VtArrayIfEEEEbRKNS_7VtValueEPT_.exit.i13, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIfEEEERKT_v.exit.i.i25, %556, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIfEEEEbv.exit.i.i11
   %576 = landingpad { ptr, i32 }
@@ -9472,10 +9472,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_GetValueINS_7VtArrayIfEEEEb
 
 579:                                              ; preds = %577
   invoke void (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug6Helper3MsgEPKcz(ptr noundef nonnull @.str.48, i64 noundef %578, i64 noundef %405)
-          to label %.critedge.sink.split.i unwind label %575
+          to label %.thread.thread.i unwind label %575
 
 580:                                              ; preds = %567
-  br i1 %565, label %581, label %.critedge.sink.split.i
+  br i1 %565, label %581, label %.thread.thread.i
 
 581:                                              ; preds = %580
   switch i64 %405, label %629 [
@@ -9597,11 +9597,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_GetValueINS_7VtArrayIfEEEEb
 634:                                              ; preds = %.noexc84.i, %629
   %.0.i83.i = phi i32 [ %633, %.noexc84.i ], [ %630, %629 ]
   %635 = icmp eq i32 %.0.i83.i, 2
-  br i1 %635, label %636, label %.critedge.sink.split.i
+  br i1 %635, label %636, label %.thread.thread.i
 
 636:                                              ; preds = %634
   invoke void (ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug6Helper3MsgEPKcz(ptr noundef nonnull @.str.55, i64 noundef %405)
-          to label %.critedge.sink.split.i unwind label %575
+          to label %.thread.thread.i unwind label %575
+
+.thread.thread.i:                                 ; preds = %636, %634, %580, %579, %573
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #21
+  br label %.critedge.i7
 
 .thread.sink.split.i:                             ; preds = %626, %606, %587
   %.sink128.i = phi ptr [ %3, %587 ], [ %4, %606 ], [ %5, %626 ]
@@ -9853,11 +9857,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.i: ; preds =
   %.041.i = phi i1 [ %745, %744 ], [ %747, %746 ], [ %760, %759 ], [ %762, %761 ], [ %732, %.invoke.i8 ]
   br i1 %.041.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ConformSdrDefaultValueERKNS_7VtValueERKNS_7TfTokenEmRKSt13unordered_mapIS4_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11HashFunctorESt8equal_toIS4_ESaISt4pairIS5_SD_EEES6_.exit, label %.critedge.i7
 
-.critedge.sink.split.i:                           ; preds = %636, %634, %580, %579, %573
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #21
-  br label %.critedge.i7
-
-.critedge.i7:                                     ; preds = %.critedge.sink.split.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.i, %750, %729, %722, %720, %713, %540, %531, %507, %500, %498, %491, %465, %458, %454, %447
+.critedge.i7:                                     ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingIiEEbv.exit.i, %750, %729, %722, %720, %713, %.thread.thread.i, %540, %531, %507, %500, %498, %491, %465, %458, %454, %447
   %763 = load atomic i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_32SDR_TYPE_CONFORMANCE__DebugCodesEE5nodesE seq_cst, align 4, !noalias !87
   %764 = icmp eq i32 %763, 0
   br i1 %764, label %765, label %767

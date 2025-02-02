@@ -1428,7 +1428,7 @@ if.end30:                                         ; preds = %if.else23
   br i1 %call.i.i89, label %if.then32, label %if.else41
 
 if.then32:                                        ; preds = %land.lhs.true, %if.then9, %if.end30
-  %hint_ok.1235 = phi i8 [ %hint_ok.0275, %if.end30 ], [ %spec.select, %land.lhs.true ], [ %hint_ok.0275, %if.then9 ]
+  %hint_ok.1235 = phi i8 [ 1, %if.end30 ], [ %spec.select, %land.lhs.true ], [ 0, %if.then9 ]
   %is_unique.1234 = phi i1 [ false, %if.end30 ], [ %is_unique.0274, %land.lhs.true ], [ %is_unique.0274, %if.then9 ]
   call void @_ZN8rational12power_of_twoEj(ptr nonnull sret(%class.rational) align 8 %ref.tmp33, i32 noundef %cond.i)
   %41 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
@@ -1584,7 +1584,7 @@ lpad38:                                           ; preds = %_ZNK2dd3bdd2hiEv.ex
   br label %eh.resume
 
 if.else41:                                        ; preds = %land.lhs.true19, %if.else23, %if.then17, %if.end30
-  %hint_ok.1227 = phi i8 [ %hint_ok.0275, %if.end30 ], [ %spec.select15, %land.lhs.true19 ], [ %hint_ok.0275, %if.else23 ], [ %hint_ok.0275, %if.then17 ]
+  %hint_ok.1227 = phi i8 [ 1, %if.end30 ], [ %spec.select15, %land.lhs.true19 ], [ 0, %if.else23 ], [ 0, %if.then17 ]
   %is_unique.1225 = phi i1 [ false, %if.end30 ], [ %is_unique.0274, %land.lhs.true19 ], [ false, %if.else23 ], [ %is_unique.0274, %if.then17 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %64 = load ptr, ptr %m.i, align 8, !noalias !26

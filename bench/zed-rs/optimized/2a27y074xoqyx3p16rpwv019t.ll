@@ -5331,7 +5331,7 @@ define hidden void @_ZN13x11_clipboard9Clipboard4load17h93796b8249c53c12E(ptr de
   br label %.loopexit123
 
 "_ZN4core3ptr71drop_in_place$LT$x11rb_protocol..protocol..xproto..GetPropertyReply$GT$17h93ea28e9df5f7593E.exit255.i": ; preds = %97, %83, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i266.i", %209, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i254.i", %128, %94
-  %.sroa.0.1.i = phi i1 [ %.sroa.0.0.ph.i, %94 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i254.i" ], [ true, %128 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i266.i" ], [ true, %209 ], [ true, %97 ], [ %.sroa.0.0.ph.i, %83 ]
+  %.sroa.0.1.i = phi i1 [ %.sroa.0.0.ph.i, %94 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i254.i" ], [ true, %128 ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10989238744551635161.exit.i.i1.i.i266.i" ], [ true, %209 ], [ %.sroa.0.0.ph.i, %83 ], [ true, %97 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$x11rb_protocol..protocol..Event$GT$17h3d48ad7b437c0c1fE.llvm.2317975020751253692"(ptr noalias noundef nonnull align 8 dereferenceable(160) %20)
           to label %.noexc50 unwind label %.loopexit.split-lp.loopexit
 

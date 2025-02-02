@@ -1477,7 +1477,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %510 = icmp sgt i32 %509, 0
   %511 = icmp sgt i32 %.269, 0
   %512 = select i1 %510, i1 %511, i1 false
-  %513 = trunc i8 %.060 to i1
+  %513 = trunc nuw i8 %.060 to i1
   br i1 %512, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %500, %668

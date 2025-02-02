@@ -10437,21 +10437,21 @@ sw.epilog.i:                                      ; preds = %for.body.i, %for.bo
   br label %for.body.i, !llvm.loop !21
 
 for.body9.i:                                      ; preds = %sw.epilog25.i, %for.cond6.preheader.i
-  %opts.247.i = phi ptr [ %incdec.ptr2.i, %for.cond6.preheader.i ], [ %incdec.ptr24.i, %sw.epilog25.i ]
-  %16 = load i8, ptr %opts.247.i, align 1
+  %opts.246.i = phi ptr [ %incdec.ptr2.i, %for.cond6.preheader.i ], [ %incdec.ptr24.i, %sw.epilog25.i ]
+  %16 = load i8, ptr %opts.246.i, align 1
   switch i8 %16, label %sw.epilog25.i [
     i8 44, label %sw.bb11.i
     i8 0, label %sw.bb21.i
   ]
 
 sw.bb11.i:                                        ; preds = %for.body9.i
-  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %opts.247.i, i64 1
+  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %opts.246.i, i64 1
   %17 = load i8, ptr %incdec.ptr12.i, align 1
   %cmp14.i = icmp eq i8 %17, 0
   br i1 %cmp14.i, label %if.then16.i, label %if.end18.i
 
 if.then16.i:                                      ; preds = %sw.bb11.i
-  %sub.ptr.lhs.cast.i33.i = ptrtoint ptr %opts.247.i to i64
+  %sub.ptr.lhs.cast.i33.i = ptrtoint ptr %opts.246.i to i64
   %reass.sub2187 = sub i64 %sub.ptr.lhs.cast.i33.i, %13
   %add.i36.i = add i64 %reass.sub2187, 1
   %cond.i37.i = call i64 @llvm.umin.i64(i64 %add.i36.i, i64 64)
@@ -10467,16 +10467,16 @@ if.end18.i:                                       ; preds = %if.then16.i, %sw.bb
   br label %while.body
 
 sw.bb21.i:                                        ; preds = %for.body9.i
-  %20 = ptrtoint ptr %opts.247.i to i64
+  %20 = ptrtoint ptr %opts.246.i to i64
   %sub22.i = sub i64 %20, %12
   br label %while.body
 
 sw.epilog25.i:                                    ; preds = %for.body9.i
-  %incdec.ptr24.i = getelementptr inbounds nuw i8, ptr %opts.247.i, i64 1
+  %incdec.ptr24.i = getelementptr inbounds nuw i8, ptr %opts.246.i, i64 1
   br label %for.body9.i, !llvm.loop !22
 
 while.body:                                       ; preds = %sw.bb21.i, %if.end18.i
-  %opts.1 = phi ptr [ %opts.247.i, %sw.bb21.i ], [ %incdec.ptr12.i, %if.end18.i ]
+  %opts.1 = phi ptr [ %opts.246.i, %sw.bb21.i ], [ %incdec.ptr12.i, %if.end18.i ]
   %vlen.4 = phi i64 [ %sub22.i, %sw.bb21.i ], [ %sub20.i, %if.end18.i ]
   %cmp16 = icmp eq i64 %sub3.i, 12
   br i1 %cmp16, label %land.lhs.true18, label %if.end54

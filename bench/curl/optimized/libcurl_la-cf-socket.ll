@@ -2474,8 +2474,8 @@ sub_1.i:                                          ; preds = %if.then7.i
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = sub nsw i32 102, %41
-  %.not126.i = icmp eq i8 %40, 102
-  br i1 %.not126.i, label %sub_2.i, label %if.then7.tail.i
+  %.not127.i = icmp eq i8 %40, 102
+  br i1 %.not127.i, label %sub_2.i, label %if.then7.tail.i
 
 sub_2.i:                                          ; preds = %sub_1.i
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 2
@@ -2551,7 +2551,7 @@ if.end58.i:                                       ; preds = %if.end37.i
   br i1 %cmp10.i, label %if.then149.i, label %if.then60.i
 
 if.then60.i:                                      ; preds = %if.end58.i, %sw.bb.i, %if.end22.i
-  %dev.097109.i = phi ptr [ %dev.096.i, %if.end58.i ], [ %add.ptr20.i, %if.end22.i ], [ %dev.096.i, %sw.bb.i ]
+  %dev.097110.i = phi ptr [ %dev.096.i, %if.end58.i ], [ %dev.096.i, %sw.bb.i ], [ %add.ptr20.i, %if.end22.i ]
   %ip_version.i = getelementptr inbounds nuw i8, ptr %31, i64 1167
   %51 = load i8, ptr %ip_version.i, align 1
   switch i32 %30, label %if.end71.i [
@@ -2568,7 +2568,7 @@ if.end71.sink.split.i:                            ; preds = %if.then68.i, %if.th
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.end71.sink.split.i, %if.then60.i
-  %call72.i = call i32 @Curl_resolv(ptr noundef nonnull %data, ptr noundef nonnull %dev.097109.i, i32 noundef 80, i1 noundef zeroext false, ptr noundef nonnull %h.i) #13
+  %call72.i = call i32 @Curl_resolv(ptr noundef nonnull %data, ptr noundef nonnull %dev.097110.i, i32 noundef 80, i1 noundef zeroext false, ptr noundef nonnull %h.i) #13
   %cmp73.i = icmp eq i32 %call72.i, 1
   br i1 %cmp73.i, label %if.then75.i, label %if.end77.i
 
@@ -2596,7 +2596,7 @@ if.then92.i:                                      ; preds = %land.lhs.true84.i
   %56 = load ptr, ptr %55, align 8
   %ai_family.i = getelementptr inbounds nuw i8, ptr %56, i64 4
   %57 = load i32, ptr %ai_family.i, align 4
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.24, ptr noundef nonnull %dev.097109.i, i32 noundef %30, ptr noundef nonnull %myhost.i, i32 noundef %57) #13
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.24, ptr noundef nonnull %dev.097110.i, i32 noundef %30, ptr noundef nonnull %myhost.i, i32 noundef %57) #13
   br label %do.end96.i
 
 do.end96.i:                                       ; preds = %if.then92.i, %land.lhs.true84.i
@@ -2665,12 +2665,12 @@ if.then142.i:                                     ; preds = %land.lhs.true137.i
   br label %if.end169.i
 
 if.then149.i:                                     ; preds = %if.end77.i, %if.end58.i
-  %dev.097103113.i = phi ptr [ %dev.096.i, %if.end58.i ], [ %dev.097109.i, %if.end77.i ]
+  %dev.097103114.i = phi ptr [ %dev.096.i, %if.end58.i ], [ %dev.097110.i, %if.end77.i ]
   %errorbuf.i = getelementptr inbounds nuw i8, ptr %data, i64 5044
   %bf.load150.i = load i32, ptr %errorbuf.i, align 4
   %bf.clear151.i = and i32 %bf.load150.i, -9
   store i32 %bf.clear151.i, ptr %errorbuf.i, align 4
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.25, ptr noundef nonnull %dev.097103113.i) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.25, ptr noundef nonnull %dev.097103114.i) #13
   br label %if.then97.thread
 
 if.else153.i:                                     ; preds = %land.lhs.true5.i, %if.end.i82
@@ -2696,9 +2696,9 @@ if.then163.i:                                     ; preds = %if.else153.i
 if.end169.i:                                      ; preds = %if.then163.i, %if.then156.i, %if.else153.i, %if.then142.i, %land.lhs.true137.i, %if.end130.i, %if.then121.i, %if.end116.i, %if.then108.i
   %sizeof_sa.1.i = phi i32 [ 28, %if.then156.i ], [ 16, %if.then163.i ], [ 0, %if.else153.i ], [ 0, %if.then108.i ], [ 28, %if.end116.i ], [ 28, %if.end130.i ], [ 28, %if.then121.i ], [ 0, %land.lhs.true137.i ], [ 16, %if.then142.i ]
   %call170.i = call i32 @setsockopt(i32 noundef %32, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %on.i, i32 noundef 4) #13
-  %call171122.i = call i32 @bind(i32 noundef %32, ptr noundef nonnull %sa.i, i32 noundef %sizeof_sa.1.i) #13
-  %cmp172123.i = icmp sgt i32 %call171122.i, -1
-  br i1 %cmp172123.i, label %if.then174.i, label %if.end202.preheader.i
+  %call171123.i = call i32 @bind(i32 noundef %32, ptr noundef nonnull %sa.i, i32 noundef %sizeof_sa.1.i) #13
+  %cmp172124.i = icmp sgt i32 %call171123.i, -1
+  br i1 %cmp172124.i, label %if.then174.i, label %if.end202.preheader.i
 
 if.end202.preheader.i:                            ; preds = %if.end169.i
   %verbose215.i = getelementptr inbounds nuw i8, ptr %data, i64 2706
@@ -2744,9 +2744,9 @@ do.end198.i:                                      ; preds = %if.then195.i, %land
 
 if.end202.i:                                      ; preds = %do.end224.i, %if.end202.preheader.i
   %indvars.iv.i = phi i32 [ %62, %if.end202.preheader.i ], [ %indvars.iv.next.i, %do.end224.i ]
-  %portnum.0124.i = phi i32 [ %conv.i, %if.end202.preheader.i ], [ %dec.i, %do.end224.i ]
-  %dec.i = add nsw i32 %portnum.0124.i, -1
-  %cmp203.i = icmp sgt i32 %portnum.0124.i, 1
+  %portnum.0125.i = phi i32 [ %conv.i, %if.end202.preheader.i ], [ %dec.i, %do.end224.i ]
+  %dec.i = add nsw i32 %portnum.0125.i, -1
+  %cmp203.i = icmp sgt i32 %portnum.0125.i, 1
   br i1 %cmp203.i, label %if.then205.i, label %for.end.i
 
 if.then205.i:                                     ; preds = %if.end202.i

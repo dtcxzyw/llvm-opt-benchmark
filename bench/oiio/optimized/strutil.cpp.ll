@@ -10584,8 +10584,8 @@ if.then5.i:                                       ; preds = %_ZN18OpenImageIO_v2
 if.end:                                           ; preds = %if.then5.i, %entry
   %p.sroa.0.0 = phi ptr [ %0, %entry ], [ %add.ptr.i.i, %if.then5.i ]
   %p.sroa.10.0 = phi i64 [ %1, %entry ], [ %sub.i.i, %if.then5.i ]
-  %cmp84.not = icmp eq i64 %values.coerce1, 0
-  br i1 %cmp84.not, label %land.lhs.true35, label %for.body.lr.ph
+  %cmp92.not = icmp eq i64 %values.coerce1, 0
+  br i1 %cmp92.not, label %land.lhs.true35, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %m_len.i4.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
@@ -10594,18 +10594,18 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.088 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %p.sroa.10.187 = phi i64 [ %p.sroa.10.0, %for.body.lr.ph ], [ %p.sroa.10.2, %for.inc ]
-  %p.sroa.0.186 = phi ptr [ %p.sroa.0.0, %for.body.lr.ph ], [ %p.sroa.0.2, %for.inc ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %values.coerce0, i64 %i.088
+  %i.095 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %p.sroa.10.194 = phi i64 [ %p.sroa.10.0, %for.body.lr.ph ], [ %p.sroa.10.2, %for.inc ]
+  %p.sroa.0.193 = phi ptr [ %p.sroa.0.0, %for.body.lr.ph ], [ %p.sroa.0.2, %for.inc ]
+  %arrayidx.i = getelementptr inbounds i32, ptr %values.coerce0, i64 %i.095
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endpos.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
-  %tobool.not6.i.i.i = icmp eq i64 %p.sroa.10.187, 0
+  %tobool.not6.i.i.i = icmp eq i64 %p.sroa.10.194, 0
   br i1 %tobool.not6.i.i.i, label %_ZN18OpenImageIO_v2_6_07Strutil11parse_valueERNS_17basic_string_viewIcSt11char_traitsIcEEERib.exit.thread, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %for.body, %while.body.i.i.i
-  %p.sroa.5.0.i.i = phi i64 [ %sub.i.i.i.i, %while.body.i.i.i ], [ %p.sroa.10.187, %for.body ]
-  %p.sroa.0.0.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.i.i.i ], [ %p.sroa.0.186, %for.body ]
+  %p.sroa.5.0.i.i = phi i64 [ %sub.i.i.i.i, %while.body.i.i.i ], [ %p.sroa.10.194, %for.body ]
+  %p.sroa.0.0.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.i.i.i ], [ %p.sroa.0.193, %for.body ]
   %5 = load i8, ptr %p.sroa.0.0.i.i, align 1
   switch i8 %5, label %if.end.i.i [
     i8 32, label %while.body.i.i.i
@@ -10644,7 +10644,7 @@ land.lhs.true:                                    ; preds = %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %7 = load i64, ptr %m_len.i19, align 8
   %tobool20.not = icmp ne i64 %7, 0
-  %cmp22 = icmp ult i64 %i.088, %sub
+  %cmp22 = icmp ult i64 %i.095, %sub
   %or.cond = and i1 %cmp22, %tobool20.not
   br i1 %or.cond, label %if.then23, label %for.inc
 
@@ -10692,7 +10692,7 @@ if.then5.i42:                                     ; preds = %_ZN18OpenImageIO_v2
 for.inc:                                          ; preds = %if.then5.i42, %land.lhs.true
   %p.sroa.0.2 = phi ptr [ %ref.tmp.sroa.0.0.i.i, %land.lhs.true ], [ %add.ptr.i.i44, %if.then5.i42 ]
   %p.sroa.10.2 = phi i64 [ %ref.tmp.sroa.3.0.i.i, %land.lhs.true ], [ %sub.i.i43, %if.then5.i42 ]
-  %inc = add nuw i64 %i.088, 1
+  %inc = add nuw i64 %i.095, 1
   %cmp = icmp ult i64 %inc, %values.coerce1
   br i1 %cmp, label %for.body, label %land.lhs.true35, !llvm.loop !215
 
@@ -10756,9 +10756,9 @@ if.then52:                                        ; preds = %if.end48
   store i64 %p.sroa.10.3, ptr %m_len.i.i, align 8
   br label %if.end53
 
-if.end53:                                         ; preds = %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i38, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i33, %_ZN18OpenImageIO_v2_6_07Strutil11parse_valueERNS_17basic_string_viewIcSt11char_traitsIcEEERib.exit.thread, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i65, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i60, %if.end48, %if.then52
-  %tobool49123 = phi i1 [ true, %if.end48 ], [ true, %if.then52 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i60 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i65 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11parse_valueERNS_17basic_string_viewIcSt11char_traitsIcEEERib.exit.thread ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i33 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i38 ]
-  ret i1 %tobool49123
+if.end53:                                         ; preds = %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i38, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i33, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i65, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i60, %_ZN18OpenImageIO_v2_6_07Strutil11parse_valueERNS_17basic_string_viewIcSt11char_traitsIcEEERib.exit.thread, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i, %if.end48, %if.then52
+  %tobool4989 = phi i1 [ true, %if.end48 ], [ true, %if.then52 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11parse_valueERNS_17basic_string_viewIcSt11char_traitsIcEEERib.exit.thread ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i60 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i65 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i33 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i38 ]
+  ret i1 %tobool4989
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10819,8 +10819,8 @@ if.then5.i:                                       ; preds = %_ZN18OpenImageIO_v2
 if.end:                                           ; preds = %if.then5.i, %entry
   %p.sroa.0.0 = phi ptr [ %0, %entry ], [ %add.ptr.i.i, %if.then5.i ]
   %p.sroa.10.0 = phi i64 [ %1, %entry ], [ %sub.i.i, %if.then5.i ]
-  %cmp88.not = icmp eq i64 %values.coerce1, 0
-  br i1 %cmp88.not, label %land.lhs.true35, label %for.body.lr.ph
+  %cmp95.not = icmp eq i64 %values.coerce1, 0
+  br i1 %cmp95.not, label %land.lhs.true35, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
   %m_len.i4.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
@@ -10829,18 +10829,18 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.092 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %p.sroa.10.191 = phi i64 [ %p.sroa.10.0, %for.body.lr.ph ], [ %p.sroa.10.2, %for.inc ]
-  %p.sroa.0.190 = phi ptr [ %p.sroa.0.0, %for.body.lr.ph ], [ %p.sroa.0.2, %for.inc ]
-  %arrayidx.i = getelementptr inbounds float, ptr %values.coerce0, i64 %i.092
+  %i.098 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %p.sroa.10.197 = phi i64 [ %p.sroa.10.0, %for.body.lr.ph ], [ %p.sroa.10.2, %for.inc ]
+  %p.sroa.0.196 = phi ptr [ %p.sroa.0.0, %for.body.lr.ph ], [ %p.sroa.0.2, %for.inc ]
+  %arrayidx.i = getelementptr inbounds float, ptr %values.coerce0, i64 %i.098
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endpos.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
-  %tobool.not6.i.i.i = icmp eq i64 %p.sroa.10.191, 0
+  %tobool.not6.i.i.i = icmp eq i64 %p.sroa.10.197, 0
   br i1 %tobool.not6.i.i.i, label %_ZN18OpenImageIO_v2_6_07Strutil11parse_valueERNS_17basic_string_viewIcSt11char_traitsIcEEERfb.exit.thread, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %for.body, %while.body.i.i.i
-  %p.sroa.5.0.i.i = phi i64 [ %sub.i.i.i.i, %while.body.i.i.i ], [ %p.sroa.10.191, %for.body ]
-  %p.sroa.0.0.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.i.i.i ], [ %p.sroa.0.190, %for.body ]
+  %p.sroa.5.0.i.i = phi i64 [ %sub.i.i.i.i, %while.body.i.i.i ], [ %p.sroa.10.197, %for.body ]
+  %p.sroa.0.0.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.i.i.i ], [ %p.sroa.0.196, %for.body ]
   %5 = load i8, ptr %p.sroa.0.0.i.i, align 1
   switch i8 %5, label %if.end.i.i [
     i8 32, label %while.body.i.i.i
@@ -10889,7 +10889,7 @@ land.lhs.true:                                    ; preds = %invoke.cont2.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %9 = load i64, ptr %m_len.i19, align 8
   %tobool20.not = icmp ne i64 %9, 0
-  %cmp22 = icmp ult i64 %i.092, %sub
+  %cmp22 = icmp ult i64 %i.098, %sub
   %or.cond = and i1 %cmp22, %tobool20.not
   br i1 %or.cond, label %if.then23, label %for.inc
 
@@ -10937,7 +10937,7 @@ if.then5.i42:                                     ; preds = %_ZN18OpenImageIO_v2
 for.inc:                                          ; preds = %if.then5.i42, %land.lhs.true
   %p.sroa.0.2 = phi ptr [ %ref.tmp.sroa.0.0.i.i, %land.lhs.true ], [ %add.ptr.i.i44, %if.then5.i42 ]
   %p.sroa.10.2 = phi i64 [ %ref.tmp.sroa.3.0.i.i, %land.lhs.true ], [ %sub.i.i43, %if.then5.i42 ]
-  %inc = add nuw i64 %i.092, 1
+  %inc = add nuw i64 %i.098, 1
   %cmp = icmp ult i64 %inc, %values.coerce1
   br i1 %cmp, label %for.body, label %land.lhs.true35, !llvm.loop !216
 
@@ -11001,9 +11001,9 @@ if.then52:                                        ; preds = %if.end48
   store i64 %p.sroa.10.3, ptr %m_len.i.i, align 8
   br label %if.end53
 
-if.end53:                                         ; preds = %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i38, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i33, %_ZN18OpenImageIO_v2_6_07Strutil11parse_valueERNS_17basic_string_viewIcSt11char_traitsIcEEERfb.exit.thread, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i65, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i60, %if.end48, %if.then52
-  %tobool49127 = phi i1 [ true, %if.end48 ], [ true, %if.then52 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i60 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i65 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11parse_valueERNS_17basic_string_viewIcSt11char_traitsIcEEERfb.exit.thread ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i33 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i38 ]
-  ret i1 %tobool49127
+if.end53:                                         ; preds = %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i38, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i33, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i65, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i60, %_ZN18OpenImageIO_v2_6_07Strutil11parse_valueERNS_17basic_string_viewIcSt11char_traitsIcEEERfb.exit.thread, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i, %if.end48, %if.then52
+  %tobool4989 = phi i1 [ true, %if.end48 ], [ true, %if.then52 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11parse_valueERNS_17basic_string_viewIcSt11char_traitsIcEEERfb.exit.thread ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i60 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i65 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil15skip_whitespaceERNS_17basic_string_viewIcSt11char_traitsIcEEE.exit.i33 ], [ false, %_ZN18OpenImageIO_v2_6_07Strutil11starts_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_.exit.i38 ]
+  ret i1 %tobool4989
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

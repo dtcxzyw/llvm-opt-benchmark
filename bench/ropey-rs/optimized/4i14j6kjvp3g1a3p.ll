@@ -636,8 +636,8 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i: ;
   %.sroa.01.08.i.i = phi i64 [ %41, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %40 = phi i64 [ %44, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %41 = add nuw nsw i64 %.sroa.01.08.i.i, 1
-  %.idx2084 = shl nuw nsw i64 %.sroa.01.08.i.i, 5
-  %42 = getelementptr i8, ptr %39, i64 %.idx2084
+  %.idx2081 = shl nuw nsw i64 %.sroa.01.08.i.i, 5
+  %42 = getelementptr i8, ptr %39, i64 %.idx2081
   %43 = load i64, ptr %42, align 8, !alias.scope !56, !noalias !51, !noundef !7
   %44 = add i64 %43, %40
   %exitcond.not.i.i = icmp eq i64 %41, %36
@@ -655,13 +655,13 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %.lr.ph.i
 
 47:                                               ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit
   %48 = icmp eq i64 %2, 0
-  %.pre1952 = load i8, ptr %26, align 8, !range !38
+  %.pre1949 = load i8, ptr %26, align 8, !range !38
   br i1 %48, label %49, label %69
 
 49:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
-  %trunc.i229 = trunc nuw i8 %.pre1952 to i1
+  %trunc.i229 = trunc nuw i8 %.pre1949 to i1
   br i1 %trunc.i229, label %55, label %50
 
 50:                                               ; preds = %49
@@ -673,9 +673,9 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %.lr.ph.i
   %54 = load i64, ptr %53, align 8, !noalias !60, !noundef !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !60
   call void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE.llvm.15236414416081531888(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %21, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %54)
-  %.phi.trans.insert1949 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.pre1950 = load i64, ptr %.phi.trans.insert1949, align 8
-  %.pre1951.pre = load i8, ptr %26, align 8, !range !38
+  %.phi.trans.insert1946 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.pre1947 = load i64, ptr %.phi.trans.insert1946, align 8
+  %.pre1948.pre = load i8, ptr %26, align 8, !range !38
   br label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241
 
 55:                                               ; preds = %49
@@ -703,27 +703,27 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230
   %.sroa.01.08.i.i233 = phi i64 [ %63, %.lr.ph.i.i232 ], [ 0, %.lr.ph.i.i232.preheader ]
   %62 = phi i64 [ %66, %.lr.ph.i.i232 ], [ 0, %.lr.ph.i.i232.preheader ]
   %63 = add nuw nsw i64 %.sroa.01.08.i.i233, 1
-  %.idx2086 = shl nuw nsw i64 %.sroa.01.08.i.i233, 5
-  %64 = getelementptr i8, ptr %61, i64 %.idx2086
+  %.idx2083 = shl nuw nsw i64 %.sroa.01.08.i.i233, 5
+  %64 = getelementptr i8, ptr %61, i64 %.idx2083
   %65 = load i64, ptr %64, align 8, !alias.scope !77, !noalias !72, !noundef !7
   %66 = add i64 %65, %62
   %exitcond.not.i.i235 = icmp eq i64 %63, %58
   br i1 %exitcond.not.i.i235, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241, label %.lr.ph.i.i232
 
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241: ; preds = %.lr.ph.i.i232, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230, %50
-  %.pre1951 = phi i8 [ %.pre1951.pre, %50 ], [ %.pre1952, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230 ], [ %.pre1952, %.lr.ph.i.i232 ]
-  %67 = phi i64 [ %.pre1950, %50 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230 ], [ %66, %.lr.ph.i.i232 ]
+  %.pre1948 = phi i8 [ %.pre1948.pre, %50 ], [ %.pre1949, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230 ], [ %.pre1949, %.lr.ph.i.i232 ]
+  %67 = phi i64 [ %.pre1947, %50 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i230 ], [ %66, %.lr.ph.i.i232 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
   %68 = icmp eq i64 %3, %67
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241, %47
-  %70 = phi i8 [ %.pre1951, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241 ], [ %.pre1952, %47 ]
-  %trunc1641 = trunc nuw i8 %70 to i1
-  br i1 %trunc1641, label %.lr.ph1646, label %._crit_edge1647
+  %70 = phi i8 [ %.pre1948, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241 ], [ %.pre1949, %47 ]
+  %trunc1638 = trunc nuw i8 %70 to i1
+  br i1 %trunc1638, label %.lr.ph1643, label %._crit_edge1644
 
 71:                                               ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit241
-  %trunc.i242 = trunc nuw i8 %.pre1951 to i1
+  %trunc.i242 = trunc nuw i8 %.pre1948 to i1
   br i1 %trunc.i242, label %72, label %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit
 
 72:                                               ; preds = %71
@@ -759,8 +759,8 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245
   %.sroa.01.08.i.i261 = phi i64 [ %85, %.lr.ph.i.i260 ], [ 0, %.lr.ph.i.i247 ]
   %84 = phi i64 [ %88, %.lr.ph.i.i260 ], [ 0, %.lr.ph.i.i247 ]
   %85 = add nuw nsw i64 %.sroa.01.08.i.i261, 1
-  %.idx1960 = shl nuw nsw i64 %.sroa.01.08.i.i261, 5
-  %.offs = or disjoint i64 %.idx1960, 8
+  %.idx1957 = shl nuw nsw i64 %.sroa.01.08.i.i261, 5
+  %.offs = or disjoint i64 %.idx1957, 8
   %86 = getelementptr inbounds nuw i8, ptr %78, i64 %.offs
   %87 = load i64, ptr %86, align 8, !alias.scope !95, !noalias !100, !noundef !7
   %88 = add i64 %87, %84
@@ -771,9 +771,9 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245
   %.sroa.01.08.i.i274 = phi i64 [ %90, %.lr.ph.i.i273 ], [ 0, %.lr.ph.i.i260 ]
   %89 = phi i64 [ %93, %.lr.ph.i.i273 ], [ 0, %.lr.ph.i.i260 ]
   %90 = add nuw nsw i64 %.sroa.01.08.i.i274, 1
-  %.idx1961 = shl nuw nsw i64 %.sroa.01.08.i.i274, 5
-  %.offs1962 = or disjoint i64 %.idx1961, 16
-  %91 = getelementptr inbounds nuw i8, ptr %78, i64 %.offs1962
+  %.idx1958 = shl nuw nsw i64 %.sroa.01.08.i.i274, 5
+  %.offs1959 = or disjoint i64 %.idx1958, 16
+  %91 = getelementptr inbounds nuw i8, ptr %78, i64 %.offs1959
   %92 = load i64, ptr %91, align 8, !alias.scope !103, !noalias !108, !noundef !7
   %93 = add i64 %92, %89
   %exitcond.not.i.i276 = icmp eq i64 %90, %75
@@ -783,24 +783,24 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245
   %.sroa.01.08.i.i287 = phi i64 [ %94, %.lr.ph.i.i286 ], [ 0, %.lr.ph.i.i273 ]
   %storemerge7.i.i288 = phi i64 [ %97, %.lr.ph.i.i286 ], [ 0, %.lr.ph.i.i273 ]
   %94 = add nuw nsw i64 %.sroa.01.08.i.i287, 1
-  %.idx1963 = shl nuw nsw i64 %.sroa.01.08.i.i287, 5
-  %.offs1964 = or disjoint i64 %.idx1963, 24
-  %95 = getelementptr inbounds nuw i8, ptr %78, i64 %.offs1964
+  %.idx1960 = shl nuw nsw i64 %.sroa.01.08.i.i287, 5
+  %.offs1961 = or disjoint i64 %.idx1960, 24
+  %95 = getelementptr inbounds nuw i8, ptr %78, i64 %.offs1961
   %96 = load i64, ptr %95, align 8, !alias.scope !111, !noalias !116, !noundef !7
   %97 = add i64 %96, %storemerge7.i.i288
   %exitcond.not.i.i289 = icmp eq i64 %94, %75
   br i1 %exitcond.not.i.i289, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295, label %.lr.ph.i.i286
 
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295: ; preds = %.lr.ph.i.i286, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245
-  %.lcssa6.i.i2781976 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %93, %.lr.ph.i.i286 ]
-  %.lcssa.i.i254196619691975 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %83, %.lr.ph.i.i286 ]
-  %.lcssa4.i.i26619701974 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %88, %.lr.ph.i.i286 ]
+  %.lcssa6.i.i2781973 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %93, %.lr.ph.i.i286 ]
+  %.lcssa.i.i254196319661972 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %83, %.lr.ph.i.i286 ]
+  %.lcssa4.i.i26619671971 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %88, %.lr.ph.i.i286 ]
   %storemerge.lcssa.i.i294 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i245 ], [ %97, %.lr.ph.i.i286 ]
   store ptr %1, ptr %0, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.428.0..sroa_idx, i8 0, i64 32, i1 false)
-  store i64 %.lcssa.i.i254196619691975, ptr %.sroa.529.0..sroa_idx, align 8
+  store i64 %.lcssa.i.i254196319661972, ptr %.sroa.529.0..sroa_idx, align 8
   br label %341
 
 _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %71
@@ -832,72 +832,72 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %71
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17), !noalias !124
   %115 = getelementptr inbounds i8, ptr %104, i64 %106
   %116 = icmp eq i64 %106, 0
-  br i1 %116, label %.preheader, label %.lr.ph1799
+  br i1 %116, label %.preheader, label %.lr.ph1796
 
-.preheader:                                       ; preds = %.lr.ph1799, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i152"
-  %.sroa.0.0.i153.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i152" ], [ %122, %.lr.ph1799 ]
+.preheader:                                       ; preds = %.lr.ph1796, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i152"
+  %.sroa.0.0.i153.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i152" ], [ %122, %.lr.ph1796 ]
   %117 = icmp eq i64 %110, 0
-  br i1 %117, label %._crit_edge1807, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.preheader"
+  br i1 %117, label %._crit_edge1804, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.preheader"
 
-.lr.ph1799:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i152", %.lr.ph1799
-  %.sroa.0.0.i1531798 = phi i64 [ %122, %.lr.ph1799 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i152" ]
-  %.sroa.0707.01797 = phi ptr [ %118, %.lr.ph1799 ], [ %104, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i152" ]
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0707.01797, i64 1
-  %119 = load i8, ptr %.sroa.0707.01797, align 1, !noundef !7
+.lr.ph1796:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i152", %.lr.ph1796
+  %.sroa.0.0.i1531795 = phi i64 [ %122, %.lr.ph1796 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i152" ]
+  %.sroa.0707.01794 = phi ptr [ %118, %.lr.ph1796 ], [ %104, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i152" ]
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0707.01794, i64 1
+  %119 = load i8, ptr %.sroa.0707.01794, align 1, !noundef !7
   %120 = icmp ugt i8 %119, -17
   %121 = zext i1 %120 to i64
-  %122 = add i64 %.sroa.0.0.i1531798, %121
+  %122 = add i64 %.sroa.0.0.i1531795, %121
   %123 = icmp eq ptr %118, %115
-  br i1 %123, label %.preheader, label %.lr.ph1799
+  br i1 %123, label %.preheader, label %.lr.ph1796
 
-._crit_edge1807:                                  ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread", %.preheader
+._crit_edge1804:                                  ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread", %.preheader
   %.sroa.0.2.i156.lcssa = phi i64 [ %.sroa.0.0.i153.lcssa, %.preheader ], [ %136, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread" ]
   %124 = getelementptr inbounds i8, ptr %112, i64 %114
   %125 = icmp eq i64 %114, 0
-  br i1 %125, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159, label %.lr.ph1812
+  br i1 %125, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159, label %.lr.ph1809
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.preheader": ; preds = %.preheader, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread"
-  %.sroa.0.2.i1561805 = phi i64 [ %136, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread" ], [ %.sroa.0.0.i153.lcssa, %.preheader ]
-  %.sroa.5710.01804 = phi i64 [ %127, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread" ], [ %110, %.preheader ]
-  %.sroa.0709.01803 = phi ptr [ %126, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread" ], [ %108, %.preheader ]
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5710.01804, i64 255)
-  %126 = getelementptr inbounds nuw <2 x i64>, ptr %.sroa.0709.01803, i64 %.sroa.0.0.sroa.speculated.i.i
-  %127 = sub i64 %.sroa.5710.01804, %.sroa.0.0.sroa.speculated.i.i
+  %.sroa.0.2.i1561802 = phi i64 [ %136, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread" ], [ %.sroa.0.0.i153.lcssa, %.preheader ]
+  %.sroa.5710.01801 = phi i64 [ %127, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread" ], [ %110, %.preheader ]
+  %.sroa.0709.01800 = phi ptr [ %126, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread" ], [ %108, %.preheader ]
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5710.01801, i64 255)
+  %126 = getelementptr inbounds nuw <2 x i64>, ptr %.sroa.0709.01800, i64 %.sroa.0.0.sroa.speculated.i.i
+  %127 = sub i64 %.sroa.5710.01801, %.sroa.0.0.sroa.speculated.i.i
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit"
 
-.lr.ph1812:                                       ; preds = %._crit_edge1807, %.lr.ph1812
-  %.sroa.0.3.i1571810 = phi i64 [ %132, %.lr.ph1812 ], [ %.sroa.0.2.i156.lcssa, %._crit_edge1807 ]
-  %.sroa.0717.01809 = phi ptr [ %128, %.lr.ph1812 ], [ %112, %._crit_edge1807 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0717.01809, i64 1
-  %129 = load i8, ptr %.sroa.0717.01809, align 1, !noundef !7
+.lr.ph1809:                                       ; preds = %._crit_edge1804, %.lr.ph1809
+  %.sroa.0.3.i1571807 = phi i64 [ %132, %.lr.ph1809 ], [ %.sroa.0.2.i156.lcssa, %._crit_edge1804 ]
+  %.sroa.0717.01806 = phi ptr [ %128, %.lr.ph1809 ], [ %112, %._crit_edge1804 ]
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0717.01806, i64 1
+  %129 = load i8, ptr %.sroa.0717.01806, align 1, !noundef !7
   %130 = icmp ugt i8 %129, -17
   %131 = zext i1 %130 to i64
-  %132 = add i64 %.sroa.0.3.i1571810, %131
+  %132 = add i64 %.sroa.0.3.i1571807, %131
   %133 = icmp eq ptr %128, %124
-  br i1 %133, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159, label %.lr.ph1812
+  br i1 %133, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159, label %.lr.ph1809
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit"
   %134 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %143, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i = extractelement <2 x i64> %134, i64 0
   %.sroa.0.8.vec.extract.i = extractelement <2 x i64> %134, i64 1
-  %135 = add i64 %.sroa.0.8.vec.extract.i, %.sroa.0.2.i1561805
+  %135 = add i64 %.sroa.0.8.vec.extract.i, %.sroa.0.2.i1561802
   %136 = add i64 %135, %.sroa.0.0.vec.extract.i
   %137 = icmp eq i64 %127, 0
-  br i1 %137, label %._crit_edge1807, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.preheader"
+  br i1 %137, label %._crit_edge1804, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.preheader"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.preheader", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit"
-  %.sroa.0714.01801 = phi ptr [ %139, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ], [ %.sroa.0709.01803, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.preheader" ]
+  %.sroa.0714.01798 = phi ptr [ %139, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ], [ %.sroa.0709.01800, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.preheader" ]
   %138 = phi <16 x i8> [ %143, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ], [ zeroinitializer, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.preheader" ]
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.0714.01801, i64 16
-  %140 = load <16 x i8>, ptr %.sroa.0714.01801, align 16, !alias.scope !129, !noalias !132
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.0714.01798, i64 16
+  %140 = load <16 x i8>, ptr %.sroa.0714.01798, align 16, !alias.scope !129, !noalias !132
   %141 = icmp ugt <16 x i8> %140, splat (i8 -17)
   %142 = zext <16 x i1> %141 to <16 x i8>
   %143 = add <16 x i8> %138, %142
   %144 = icmp eq ptr %139, %126
   br i1 %144, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit"
 
-_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; preds = %.lr.ph1812, %._crit_edge1807, %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit
-  %.sroa.0.1.i158 = phi i64 [ 0, %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit ], [ %.sroa.0.2.i156.lcssa, %._crit_edge1807 ], [ %132, %.lr.ph1812 ]
+_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; preds = %.lr.ph1809, %._crit_edge1804, %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit
+  %.sroa.0.1.i158 = phi i64 [ 0, %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit ], [ %.sroa.0.2.i156.lcssa, %._crit_edge1804 ], [ %132, %.lr.ph1809 ]
   %145 = ptrtoint ptr %99 to i64
   %146 = add i64 %145, 15
   %147 = and i64 %146, 15
@@ -907,38 +907,38 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; pre
   br i1 %.not.i107, label %149, label %151
 
 149:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159
-  %.sroa.015.0.i108 = phi i64 [ %.sroa.02.0.i119.lcssa1979, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit" ], [ 0, %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159 ]
+  %.sroa.015.0.i108 = phi i64 [ %.sroa.02.0.i119.lcssa1976, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit" ], [ 0, %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159 ]
   %.sroa.9.0.i109 = phi i64 [ %191, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit" ], [ %101, %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159 ]
   %.sroa.0.0.i110 = phi ptr [ %192, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit" ], [ %99, %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159 ]
   %150 = icmp ugt i64 %.sroa.9.0.i109, 15
-  br i1 %150, label %.lr.ph1825, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117
+  br i1 %150, label %.lr.ph1822, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117
 
 151:                                              ; preds = %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159
-  %.not1840 = icmp eq i64 %101, 0
-  br i1 %.not1840, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", label %.lr.ph1817
+  %.not1837 = icmp eq i64 %101, 0
+  br i1 %.not1837, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", label %.lr.ph1814
 
-.lr.ph1817:                                       ; preds = %151, %.thread
-  %.sroa.08.0.i1201815 = phi i64 [ %180, %.thread ], [ 0, %151 ]
-  %.sroa.02.0.i1191814 = phi i64 [ %.sroa.02.1.i122, %.thread ], [ 0, %151 ]
-  %152 = getelementptr inbounds nuw [0 x i8], ptr %99, i64 0, i64 %.sroa.08.0.i1201815
+.lr.ph1814:                                       ; preds = %151, %.thread
+  %.sroa.08.0.i1201812 = phi i64 [ %180, %.thread ], [ 0, %151 ]
+  %.sroa.02.0.i1191811 = phi i64 [ %.sroa.02.1.i122, %.thread ], [ 0, %151 ]
+  %152 = getelementptr inbounds nuw [0 x i8], ptr %99, i64 0, i64 %.sroa.08.0.i1201812
   %153 = load i8, ptr %152, align 1, !alias.scope !135, !noundef !7
   %154 = add i8 %153, -10
   %spec.select.i302 = icmp ult i8 %154, 4
   br i1 %spec.select.i302, label %156, label %155
 
-155:                                              ; preds = %.lr.ph1817
+155:                                              ; preds = %.lr.ph1814
   switch i8 %153, label %.thread [
     i8 -62, label %159
     i8 -30, label %167
   ]
 
-156:                                              ; preds = %.lr.ph1817
-  %157 = add nuw i64 %.sroa.02.0.i1191814, 1
+156:                                              ; preds = %.lr.ph1814
+  %157 = add nuw i64 %.sroa.02.0.i1191811, 1
   %158 = icmp eq i8 %153, 13
   br i1 %158, label %183, label %.thread
 
 159:                                              ; preds = %155
-  %160 = add nuw nsw i64 %.sroa.08.0.i1201815, 1
+  %160 = add nuw nsw i64 %.sroa.08.0.i1201812, 1
   %161 = icmp ult i64 %160, %101
   br i1 %161, label %162, label %.thread
 
@@ -947,16 +947,16 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; pre
   %164 = load i8, ptr %163, align 1, !alias.scope !135, !noundef !7
   %165 = icmp eq i8 %164, -123
   %166 = zext i1 %165 to i64
-  %spec.select = add nuw i64 %.sroa.02.0.i1191814, %166
+  %spec.select = add nuw i64 %.sroa.02.0.i1191811, %166
   br label %.thread
 
 167:                                              ; preds = %155
-  %168 = add nuw nsw i64 %.sroa.08.0.i1201815, 2
+  %168 = add nuw nsw i64 %.sroa.08.0.i1201812, 2
   %169 = icmp ult i64 %168, %101
   br i1 %169, label %170, label %.thread
 
 170:                                              ; preds = %167
-  %171 = add nuw nsw i64 %.sroa.08.0.i1201815, 1
+  %171 = add nuw nsw i64 %.sroa.08.0.i1201812, 1
   %172 = getelementptr inbounds nuw [0 x i8], ptr %99, i64 0, i64 %171
   %173 = load i8, ptr %172, align 1, !alias.scope !135, !noundef !7
   %174 = icmp eq i8 %173, -128
@@ -968,19 +968,19 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; pre
   %.mask.i123 = and i8 %177, -2
   %178 = icmp eq i8 %.mask.i123, -88
   %179 = zext i1 %178 to i64
-  %spec.select.i124 = add nuw i64 %.sroa.02.0.i1191814, %179
+  %spec.select.i124 = add nuw i64 %.sroa.02.0.i1191811, %179
   br label %.thread
 
 .thread:                                          ; preds = %162, %155, %159, %186, %183, %175, %170, %167, %156
-  %.sroa.02.1.i122 = phi i64 [ %157, %183 ], [ %157, %156 ], [ %.sroa.02.0.i1191814, %170 ], [ %.sroa.02.0.i1191814, %167 ], [ %spec.select.i124, %175 ], [ %spec.select25.i125, %186 ], [ %.sroa.02.0.i1191814, %159 ], [ %.sroa.02.0.i1191814, %155 ], [ %spec.select, %162 ]
-  %180 = add nuw nsw i64 %.sroa.08.0.i1201815, 1
+  %.sroa.02.1.i122 = phi i64 [ %157, %183 ], [ %157, %156 ], [ %.sroa.02.0.i1191811, %170 ], [ %.sroa.02.0.i1191811, %167 ], [ %spec.select.i124, %175 ], [ %spec.select25.i125, %186 ], [ %.sroa.02.0.i1191811, %159 ], [ %.sroa.02.0.i1191811, %155 ], [ %spec.select, %162 ]
+  %180 = add nuw nsw i64 %.sroa.08.0.i1201812, 1
   %181 = icmp samesign ult i64 %180, %.sroa.0.0.sroa.speculated.i
   %182 = icmp ult i64 %.sroa.02.1.i122, %101
   %or.cond.i121 = select i1 %181, i1 %182, i1 false
-  br i1 %or.cond.i121, label %.lr.ph1817, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126
+  br i1 %or.cond.i121, label %.lr.ph1814, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126
 
 183:                                              ; preds = %156
-  %184 = add nuw nsw i64 %.sroa.08.0.i1201815, 1
+  %184 = add nuw nsw i64 %.sroa.08.0.i1201812, 1
   %185 = icmp ult i64 %184, %101
   br i1 %185, label %186, label %.thread
 
@@ -988,31 +988,31 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit159: ; pre
   %187 = getelementptr inbounds nuw [0 x i8], ptr %99, i64 0, i64 %184
   %188 = load i8, ptr %187, align 1, !alias.scope !135, !noundef !7
   %189 = icmp eq i8 %188, 10
-  %spec.select25.i125 = select i1 %189, i64 %.sroa.02.0.i1191814, i64 %157
+  %spec.select25.i125 = select i1 %189, i64 %.sroa.02.0.i1191811, i64 %157
   br label %.thread
 
 _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds = %.thread
-  %.not2089 = icmp ult i64 %.sroa.08.0.i1201815, %101
-  br i1 %.not2089, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", label %190
+  %.not2086 = icmp ult i64 %.sroa.08.0.i1201812, %101
+  br i1 %.not2086, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", label %190
 
 190:                                              ; preds = %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %180, i64 noundef %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.22) #16, !noalias !138
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit": ; preds = %151, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126
-  %.sroa.08.0.i120.lcssa1980 = phi i64 [ %180, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126 ], [ 0, %151 ]
-  %.sroa.02.0.i119.lcssa1979 = phi i64 [ %.sroa.02.1.i122, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126 ], [ 0, %151 ]
-  %191 = sub nuw i64 %101, %.sroa.08.0.i120.lcssa1980
-  %192 = getelementptr inbounds i8, ptr %99, i64 %.sroa.08.0.i120.lcssa1980
+  %.sroa.08.0.i120.lcssa1977 = phi i64 [ %180, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126 ], [ 0, %151 ]
+  %.sroa.02.0.i119.lcssa1976 = phi i64 [ %.sroa.02.1.i122, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126 ], [ 0, %151 ]
+  %191 = sub nuw i64 %101, %.sroa.08.0.i120.lcssa1977
+  %192 = getelementptr inbounds i8, ptr %99, i64 %.sroa.08.0.i120.lcssa1977
   br label %149
 
-.lr.ph1825:                                       ; preds = %149, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303"
-  %.sroa.0.1.i1141823 = phi ptr [ %294, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ], [ %.sroa.0.0.i110, %149 ]
-  %.sroa.9.1.i1131822 = phi i64 [ %293, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ], [ %.sroa.9.0.i109, %149 ]
-  %.sroa.015.1.i1121821 = phi i64 [ %.sroa.015.2.i116, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ], [ %.sroa.015.0.i108, %149 ]
-  %.sroa.020.0.i1111820 = phi i64 [ %.sroa.020.1.i115, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ], [ 0, %149 ]
+.lr.ph1822:                                       ; preds = %149, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303"
+  %.sroa.0.1.i1141820 = phi ptr [ %294, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ], [ %.sroa.0.0.i110, %149 ]
+  %.sroa.9.1.i1131819 = phi i64 [ %293, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ], [ %.sroa.9.0.i109, %149 ]
+  %.sroa.015.1.i1121818 = phi i64 [ %.sroa.015.2.i116, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ], [ %.sroa.015.0.i108, %149 ]
+  %.sroa.020.0.i1111817 = phi i64 [ %.sroa.020.1.i115, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ], [ 0, %149 ]
   %193 = phi <16 x i8> [ %292, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ], [ zeroinitializer, %149 ]
-  %194 = load <2 x i64>, ptr %.sroa.0.1.i1141823, align 16
+  %194 = load <2 x i64>, ptr %.sroa.0.1.i1141820, align 16
   %195 = bitcast <2 x i64> %194 to <16 x i8>
   %196 = icmp eq <16 x i8> %195, splat (i8 -62)
   %197 = sext <16 x i1> %196 to <16 x i8>
@@ -1034,24 +1034,24 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
   %.sroa.01.8.vec.extract.i182 = extractelement <2 x i64> %199, i64 1
   %212 = icmp eq i64 %.sroa.01.8.vec.extract.i182, 0
   %.sroa.0.0.i183 = select i1 %211, i1 %212, i1 false
-  %bc1958 = bitcast <2 x i64> %194 to <16 x i8>
-  %213 = extractelement <16 x i8> %bc1958, i64 15
-  %bc1959 = bitcast <2 x i64> %194 to <16 x i8>
-  %214 = extractelement <16 x i8> %bc1959, i64 14
+  %bc1955 = bitcast <2 x i64> %194 to <16 x i8>
+  %213 = extractelement <16 x i8> %bc1955, i64 15
+  %bc1956 = bitcast <2 x i64> %194 to <16 x i8>
+  %214 = extractelement <16 x i8> %bc1956, i64 14
   br i1 %.sroa.0.0.i183, label %226, label %215
 
-215:                                              ; preds = %.lr.ph1825
+215:                                              ; preds = %.lr.ph1822
   %216 = icmp eq <16 x i8> %195, splat (i8 -123)
   %217 = zext <16 x i1> %216 to <16 x i8>
   %218 = shufflevector <16 x i8> %217, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16>
   %219 = select <16 x i1> %196, <16 x i8> %218, <16 x i8> zeroinitializer
-  %.not1538 = icmp ne i64 %.sroa.9.1.i1131822, 16
+  %.not1538 = icmp ne i64 %.sroa.9.1.i1131819, 16
   %220 = icmp eq i8 %213, -62
   %or.cond = select i1 %.not1538, i1 %220, i1 false
   br i1 %or.cond, label %221, label %226
 
 221:                                              ; preds = %215
-  %222 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141823, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141820, i64 16
   %223 = load i8, ptr %222, align 1, !alias.scope !141, !noalias !144, !noundef !7
   %224 = icmp eq i8 %223, -123
   br i1 %224, label %225, label %226
@@ -1060,8 +1060,8 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
   %.sroa.01041.15.vec.insert = insertelement <16 x i8> %219, i8 1, i64 15
   br label %226
 
-226:                                              ; preds = %225, %221, %215, %.lr.ph1825
-  %227 = phi <16 x i8> [ zeroinitializer, %.lr.ph1825 ], [ %.sroa.01041.15.vec.insert, %225 ], [ %219, %221 ], [ %219, %215 ]
+226:                                              ; preds = %225, %221, %215, %.lr.ph1822
+  %227 = phi <16 x i8> [ zeroinitializer, %.lr.ph1822 ], [ %.sroa.01041.15.vec.insert, %225 ], [ %219, %221 ], [ %219, %215 ]
   %.sroa.01.0.vec.extract.i178 = extractelement <2 x i64> %203, i64 0
   %228 = icmp eq i64 %.sroa.01.0.vec.extract.i178, 0
   %.sroa.01.8.vec.extract.i179 = extractelement <2 x i64> %203, i64 1
@@ -1095,23 +1095,23 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
 
 247:                                              ; preds = %238, %230
   %248 = phi <16 x i8> [ %227, %230 ], [ %246, %238 ]
-  %.not1539 = icmp eq i64 %.sroa.9.1.i1131822, 16
+  %.not1539 = icmp eq i64 %.sroa.9.1.i1131819, 16
   br i1 %.not1539, label %.thread1447, label %252
 
 249:                                              ; preds = %252
-  %250 = icmp ugt i64 %.sroa.9.1.i1131822, 17
+  %250 = icmp ugt i64 %.sroa.9.1.i1131819, 17
   %251 = icmp eq i8 %213, -30
-  %or.cond2077 = select i1 %250, i1 %251, i1 false
-  br i1 %or.cond2077, label %261, label %.thread1447
+  %or.cond2074 = select i1 %250, i1 %251, i1 false
+  br i1 %or.cond2074, label %261, label %.thread1447
 
 252:                                              ; preds = %247
   %253 = icmp eq i8 %214, -30
   %254 = icmp eq i8 %213, -128
-  %or.cond2076 = select i1 %253, i1 %254, i1 false
-  br i1 %or.cond2076, label %255, label %249
+  %or.cond2073 = select i1 %253, i1 %254, i1 false
+  br i1 %or.cond2073, label %255, label %249
 
 255:                                              ; preds = %252
-  %256 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141823, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141820, i64 16
   %257 = load i8, ptr %256, align 1, !alias.scope !141, !noalias !144, !noundef !7
   %.mask.i143 = and i8 %257, -2
   %258 = icmp eq i8 %.mask.i143, -88
@@ -1124,13 +1124,13 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
   br label %.thread1447
 
 261:                                              ; preds = %249
-  %262 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141823, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141820, i64 16
   %263 = load i8, ptr %262, align 1, !alias.scope !141, !noalias !144, !noundef !7
   %264 = icmp eq i8 %263, -128
   br i1 %264, label %265, label %.thread1447
 
 265:                                              ; preds = %261
-  %266 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141823, i64 17
+  %266 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141820, i64 17
   %267 = load i8, ptr %266, align 1, !alias.scope !141, !noalias !144, !noundef !7
   %.mask1.i = and i8 %267, -2
   %268 = icmp eq i8 %.mask1.i, -88
@@ -1158,13 +1158,13 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
   %.neg1541 = shufflevector <16 x i8> %.neg1540, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16>
   %.neg1542 = select <16 x i1> %207, <16 x i8> %.neg1541, <16 x i8> zeroinitializer
   %277 = add <16 x i8> %272, %.neg1542
-  %.not1543 = icmp ne i64 %.sroa.9.1.i1131822, 16
+  %.not1543 = icmp ne i64 %.sroa.9.1.i1131819, 16
   %278 = icmp eq i8 %213, 13
-  %or.cond2078 = select i1 %.not1543, i1 %278, i1 false
-  br i1 %or.cond2078, label %279, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
+  %or.cond2075 = select i1 %.not1543, i1 %278, i1 false
+  br i1 %or.cond2075, label %279, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
 
 279:                                              ; preds = %275
-  %280 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141823, i64 16
+  %280 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141820, i64 16
   %281 = load i8, ptr %280, align 1, !alias.scope !141, !noalias !144, !noundef !7
   %282 = icmp eq i8 %281, 10
   br i1 %282, label %283, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
@@ -1178,7 +1178,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit126: ; preds 
 _ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit: ; preds = %275, %279, %283, %.thread1447
   %.sroa.0562.5.in = phi <16 x i8> [ %272, %.thread1447 ], [ %.sroa.0.15.vec.insert.i161, %283 ], [ %277, %279 ], [ %277, %275 ]
   %285 = add <16 x i8> %.sroa.0562.5.in, %193
-  %286 = add i64 %.sroa.020.0.i1111820, 1
+  %286 = add i64 %.sroa.020.0.i1111817, 1
   %287 = icmp eq i64 %286, 255
   br i1 %287, label %288, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303"
 
@@ -1186,53 +1186,53 @@ _ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit:
   %289 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %285, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i186 = extractelement <2 x i64> %289, i64 0
   %.sroa.0.8.vec.extract.i187 = extractelement <2 x i64> %289, i64 1
-  %290 = add i64 %.sroa.0.8.vec.extract.i187, %.sroa.015.1.i1121821
+  %290 = add i64 %.sroa.0.8.vec.extract.i187, %.sroa.015.1.i1121818
   %291 = add i64 %290, %.sroa.0.0.vec.extract.i186
   br label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303": ; preds = %288, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
   %292 = phi <16 x i8> [ zeroinitializer, %288 ], [ %285, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit ]
   %.sroa.020.1.i115 = phi i64 [ 0, %288 ], [ %286, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit ]
-  %.sroa.015.2.i116 = phi i64 [ %291, %288 ], [ %.sroa.015.1.i1121821, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit ]
-  %293 = add i64 %.sroa.9.1.i1131822, -16
-  %294 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141823, i64 16
+  %.sroa.015.2.i116 = phi i64 [ %291, %288 ], [ %.sroa.015.1.i1121818, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit ]
+  %293 = add i64 %.sroa.9.1.i1131819, -16
+  %294 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1141820, i64 16
   %295 = icmp ugt i64 %293, 15
-  br i1 %295, label %.lr.ph1825, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117
+  br i1 %295, label %.lr.ph1822, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117
 
 _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303", %149
-  %.lcssa1578 = phi <16 x i8> [ zeroinitializer, %149 ], [ %292, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ]
+  %.lcssa1575 = phi <16 x i8> [ zeroinitializer, %149 ], [ %292, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ]
   %.sroa.015.1.i112.lcssa = phi i64 [ %.sroa.015.0.i108, %149 ], [ %.sroa.015.2.i116, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ]
   %.sroa.9.1.i113.lcssa = phi i64 [ %.sroa.9.0.i109, %149 ], [ %293, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ]
   %.sroa.0.1.i114.lcssa = phi ptr [ %.sroa.0.0.i110, %149 ], [ %294, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit303" ]
-  %296 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1578, <16 x i8> zeroinitializer) #17
+  %296 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1575, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i188 = extractelement <2 x i64> %296, i64 0
   %.sroa.0.8.vec.extract.i189 = extractelement <2 x i64> %296, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  %.not1841 = icmp eq i64 %.sroa.9.1.i113.lcssa, 0
-  br i1 %.not1841, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit, label %.lr.ph1833
+  %.not1838 = icmp eq i64 %.sroa.9.1.i113.lcssa, 0
+  br i1 %.not1838, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit, label %.lr.ph1830
 
-.lr.ph1833:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117, %.thread1449
-  %.sroa.08.0.i1181832 = phi i64 [ %328, %.thread1449 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117 ]
-  %.sroa.02.0.i1831 = phi i64 [ %.sroa.02.1.i, %.thread1449 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117 ]
-  %297 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i114.lcssa, i64 0, i64 %.sroa.08.0.i1181832
+.lr.ph1830:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117, %.thread1449
+  %.sroa.08.0.i1181829 = phi i64 [ %328, %.thread1449 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117 ]
+  %.sroa.02.0.i1828 = phi i64 [ %.sroa.02.1.i, %.thread1449 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117 ]
+  %297 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i114.lcssa, i64 0, i64 %.sroa.08.0.i1181829
   %298 = load i8, ptr %297, align 1, !alias.scope !146, !noundef !7
   %299 = add i8 %298, -10
   %spec.select.i304 = icmp ult i8 %299, 4
   br i1 %spec.select.i304, label %301, label %300
 
-300:                                              ; preds = %.lr.ph1833
+300:                                              ; preds = %.lr.ph1830
   switch i8 %298, label %.thread1449 [
     i8 -62, label %304
     i8 -30, label %312
   ]
 
-301:                                              ; preds = %.lr.ph1833
-  %302 = add nuw i64 %.sroa.02.0.i1831, 1
+301:                                              ; preds = %.lr.ph1830
+  %302 = add nuw i64 %.sroa.02.0.i1828, 1
   %303 = icmp eq i8 %298, 13
   br i1 %303, label %331, label %.thread1449
 
 304:                                              ; preds = %300
-  %305 = add nuw i64 %.sroa.08.0.i1181832, 1
+  %305 = add nuw i64 %.sroa.08.0.i1181829, 1
   %306 = icmp ult i64 %305, %.sroa.9.1.i113.lcssa
   br i1 %306, label %307, label %.thread1449
 
@@ -1241,16 +1241,16 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117: ; preds =
   %309 = load i8, ptr %308, align 1, !alias.scope !146, !noundef !7
   %310 = icmp eq i8 %309, -123
   %311 = zext i1 %310 to i64
-  %spec.select1529 = add nuw i64 %.sroa.02.0.i1831, %311
+  %spec.select1529 = add nuw i64 %.sroa.02.0.i1828, %311
   br label %.thread1449
 
 312:                                              ; preds = %300
-  %313 = add i64 %.sroa.08.0.i1181832, 2
+  %313 = add i64 %.sroa.08.0.i1181829, 2
   %314 = icmp ult i64 %313, %.sroa.9.1.i113.lcssa
   br i1 %314, label %315, label %.thread1449
 
 315:                                              ; preds = %312
-  %316 = add nuw i64 %.sroa.08.0.i1181832, 1
+  %316 = add nuw i64 %.sroa.08.0.i1181829, 1
   %317 = icmp ult i64 %316, %.sroa.9.1.i113.lcssa
   br i1 %317, label %318, label %322, !prof !25
 
@@ -1270,19 +1270,19 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117: ; preds =
   %.mask.i = and i8 %325, -2
   %326 = icmp eq i8 %.mask.i, -88
   %327 = zext i1 %326 to i64
-  %spec.select.i = add nuw i64 %.sroa.02.0.i1831, %327
+  %spec.select.i = add nuw i64 %.sroa.02.0.i1828, %327
   br label %.thread1449
 
 .thread1449:                                      ; preds = %307, %300, %304, %334, %331, %323, %318, %312, %301
-  %.sroa.02.1.i = phi i64 [ %302, %331 ], [ %302, %301 ], [ %.sroa.02.0.i1831, %318 ], [ %.sroa.02.0.i1831, %312 ], [ %spec.select.i, %323 ], [ %spec.select25.i, %334 ], [ %.sroa.02.0.i1831, %304 ], [ %.sroa.02.0.i1831, %300 ], [ %spec.select1529, %307 ]
-  %328 = add nuw i64 %.sroa.08.0.i1181832, 1
+  %.sroa.02.1.i = phi i64 [ %302, %331 ], [ %302, %301 ], [ %.sroa.02.0.i1828, %318 ], [ %.sroa.02.0.i1828, %312 ], [ %spec.select.i, %323 ], [ %spec.select25.i, %334 ], [ %.sroa.02.0.i1828, %304 ], [ %.sroa.02.0.i1828, %300 ], [ %spec.select1529, %307 ]
+  %328 = add nuw i64 %.sroa.08.0.i1181829, 1
   %329 = icmp ult i64 %328, %.sroa.9.1.i113.lcssa
   %330 = icmp ult i64 %.sroa.02.1.i, %.sroa.9.1.i113.lcssa
   %or.cond.i = select i1 %329, i1 %330, i1 false
-  br i1 %or.cond.i, label %.lr.ph1833, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit
+  br i1 %or.cond.i, label %.lr.ph1830, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit
 
 331:                                              ; preds = %301
-  %332 = add nuw i64 %.sroa.08.0.i1181832, 1
+  %332 = add nuw i64 %.sroa.08.0.i1181829, 1
   %333 = icmp ult i64 %332, %.sroa.9.1.i113.lcssa
   br i1 %333, label %334, label %.thread1449
 
@@ -1290,7 +1290,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117: ; preds =
   %335 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i114.lcssa, i64 0, i64 %332
   %336 = load i8, ptr %335, align 1, !alias.scope !146, !noundef !7
   %337 = icmp eq i8 %336, 10
-  %spec.select25.i = select i1 %337, i64 %.sroa.02.0.i1831, i64 %302
+  %spec.select25.i = select i1 %337, i64 %.sroa.02.0.i1828, i64 %302
   br label %.thread1449
 
 _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %.thread1449, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit117
@@ -1306,25 +1306,25 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   br label %341
 
 341:                                              ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134
-  %.sink2178 = phi i64 [ 48, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295 ], [ 24, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 48, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224 ], [ 24, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134 ]
-  %.lcssa4.i.i26619701974.sink = phi i64 [ %.lcssa4.i.i26619701974, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295 ], [ %3, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %.sroa.016.01642, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224 ], [ %461, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134 ]
-  %.sink2177 = phi i64 [ 56, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295 ], [ 32, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 56, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224 ], [ 32, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134 ]
-  %.lcssa6.i.i2781976.sink = phi i64 [ %.lcssa6.i.i2781976, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295 ], [ %.sroa.0.1.i158, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %1066, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224 ], [ %.sroa.0.1.i151, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134 ]
+  %.sink2175 = phi i64 [ 48, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295 ], [ 24, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 48, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224 ], [ 24, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134 ]
+  %.lcssa4.i.i26619671971.sink = phi i64 [ %.lcssa4.i.i26619671971, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295 ], [ %3, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %.sroa.016.01639, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224 ], [ %461, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134 ]
+  %.sink2174 = phi i64 [ 56, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295 ], [ 32, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 56, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224 ], [ 32, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134 ]
+  %.lcssa6.i.i2781973.sink = phi i64 [ %.lcssa6.i.i2781973, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295 ], [ %.sroa.0.1.i158, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %1066, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224 ], [ %.sroa.0.1.i151, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134 ]
   %.sink = phi i64 [ 64, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295 ], [ 40, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 64, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224 ], [ 40, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134 ]
   %storemerge.lcssa.i.i294.sink = phi i64 [ %storemerge.lcssa.i.i294, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit295 ], [ %340, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %spec.select1532, %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224 ], [ %848, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134 ]
-  %.sroa.529.sroa.4.0..sroa.529.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink2178
-  store i64 %.lcssa4.i.i26619701974.sink, ptr %.sroa.529.sroa.4.0..sroa.529.0..sroa_idx.sroa_idx, align 8
-  %.sroa.529.sroa.5.0..sroa.529.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink2177
-  store i64 %.lcssa6.i.i2781976.sink, ptr %.sroa.529.sroa.5.0..sroa.529.0..sroa_idx.sroa_idx, align 8
+  %.sroa.529.sroa.4.0..sroa.529.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink2175
+  store i64 %.lcssa4.i.i26619671971.sink, ptr %.sroa.529.sroa.4.0..sroa.529.0..sroa_idx.sroa_idx, align 8
+  %.sroa.529.sroa.5.0..sroa.529.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink2174
+  store i64 %.lcssa6.i.i2781973.sink, ptr %.sroa.529.sroa.5.0..sroa.529.0..sroa_idx.sroa_idx, align 8
   %.sroa.529.sroa.6.0..sroa.529.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   store i64 %storemerge.lcssa.i.i294.sink, ptr %.sroa.529.sroa.6.0..sroa.529.0..sroa_idx.sroa_idx, align 8
   ret void
 
-._crit_edge1647:                                  ; preds = %1077, %69
+._crit_edge1644:                                  ; preds = %1077, %69
   %.sroa.016.0.lcssa = phi i64 [ %3, %69 ], [ %1078, %1077 ]
   %.sroa.07.0.lcssa = phi i64 [ %2, %69 ], [ %1079, %1077 ]
-  %.lcssa1604 = phi ptr [ %25, %69 ], [ %1081, %1077 ]
-  %342 = getelementptr inbounds nuw i8, ptr %.lcssa1604, i64 24
+  %.lcssa1601 = phi ptr [ %25, %69 ], [ %1081, %1077 ]
+  %342 = getelementptr inbounds nuw i8, ptr %.lcssa1601, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !149
   call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(1000) %342)
   %343 = load ptr, ptr %9, align 8, !noalias !149, !nonnull !7, !noundef !7
@@ -1334,7 +1334,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   %346 = icmp ult i64 %345, 17
   br i1 %346, label %357, label %347
 
-347:                                              ; preds = %._crit_edge1647
+347:                                              ; preds = %._crit_edge1644
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !152
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hd09afb8bd0740044E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %19, ptr noalias noundef nonnull readonly align 1 %343, i64 noundef %345)
   %348 = load ptr, ptr %19, align 8, !noalias !152, !nonnull !7, !align !127, !noundef !7
@@ -1347,9 +1347,9 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19), !noalias !152
   %355 = getelementptr inbounds i8, ptr %348, i64 %350
   %356 = icmp eq i64 %350, 0
-  br i1 %356, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88", label %.lr.ph1655
+  br i1 %356, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88", label %.lr.ph1652
 
-357:                                              ; preds = %._crit_edge1647
+357:                                              ; preds = %._crit_edge1644
   %358 = getelementptr inbounds nuw i8, ptr %343, i64 %345
   br label %428
 
@@ -1360,30 +1360,30 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   %.sroa.0.0.sroa.speculated.i307 = tail call noundef i64 @llvm.umin.i64(i64 %354, i64 %360)
   %361 = and i64 %.sroa.0.0.sroa.speculated.i307, 1152921504606846972
   %362 = icmp eq i64 %361, 0
-  br i1 %362, label %._crit_edge1663, label %.lr.ph1662
+  br i1 %362, label %._crit_edge1660, label %.lr.ph1659
 
-.lr.ph1655:                                       ; preds = %347, %424
-  %.sroa.0.0.i861653 = phi i64 [ %426, %424 ], [ 0, %347 ]
-  %.sroa.014.0.i851652 = phi i64 [ %366, %424 ], [ 0, %347 ]
-  %.sroa.0467.01651 = phi ptr [ %425, %424 ], [ %348, %347 ]
-  %363 = load i8, ptr %.sroa.0467.01651, align 1, !noundef !7
+.lr.ph1652:                                       ; preds = %347, %424
+  %.sroa.0.0.i861650 = phi i64 [ %426, %424 ], [ 0, %347 ]
+  %.sroa.014.0.i851649 = phi i64 [ %366, %424 ], [ 0, %347 ]
+  %.sroa.0467.01648 = phi ptr [ %425, %424 ], [ %348, %347 ]
+  %363 = load i8, ptr %.sroa.0467.01648, align 1, !noundef !7
   %364 = icmp sgt i8 %363, -65
   %365 = zext i1 %364 to i64
-  %366 = add i64 %.sroa.014.0.i851652, %365
+  %366 = add i64 %.sroa.014.0.i851649, %365
   %367 = icmp ugt i64 %366, %.sroa.07.0.lcssa
   br i1 %367, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit103, label %424
 
-._crit_edge1663:                                  ; preds = %.lr.ph1662, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88"
-  %.sroa.014.1.i89.lcssa = phi i64 [ %.sroa.014.0.i85.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ], [ %421, %.lr.ph1662 ]
-  %.sroa.0.1.i90.lcssa = phi i64 [ %350, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ], [ %422, %.lr.ph1662 ]
+._crit_edge1660:                                  ; preds = %.lr.ph1659, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88"
+  %.sroa.014.1.i89.lcssa = phi i64 [ %.sroa.014.0.i85.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ], [ %421, %.lr.ph1659 ]
+  %.sroa.0.1.i90.lcssa = phi i64 [ %350, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ], [ %422, %.lr.ph1659 ]
   %368 = icmp ugt i64 %361, %354
   br i1 %368, label %369, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit"
 
-369:                                              ; preds = %._crit_edge1663
+369:                                              ; preds = %._crit_edge1660
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %361, i64 noundef %354, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.14) #16, !noalias !155
   unreachable
 
-"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit": ; preds = %._crit_edge1663
+"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit": ; preds = %._crit_edge1660
   %370 = getelementptr inbounds <2 x i64>, ptr %352, i64 %354
   %371 = icmp eq i64 %361, %354
   br i1 %371, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.preheader"
@@ -1393,14 +1393,14 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.preheader", %385
-  %.sroa.0.2.i961668 = phi i64 [ %387, %385 ], [ %.sroa.0.1.i90.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.preheader" ]
-  %.sroa.014.2.i951667 = phi i64 [ %379, %385 ], [ %.sroa.014.1.i89.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.preheader" ]
-  %.sroa.0489.01666 = phi ptr [ %386, %385 ], [ %372, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.preheader" ]
-  %373 = load <16 x i8>, ptr %.sroa.0489.01666, align 16
+  %.sroa.0.2.i961665 = phi i64 [ %387, %385 ], [ %.sroa.0.1.i90.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.preheader" ]
+  %.sroa.014.2.i951664 = phi i64 [ %379, %385 ], [ %.sroa.014.1.i89.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.preheader" ]
+  %.sroa.0489.01663 = phi ptr [ %386, %385 ], [ %372, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.preheader" ]
+  %373 = load <16 x i8>, ptr %.sroa.0489.01663, align 16
   %374 = icmp slt <16 x i8> %373, splat (i8 -64)
   %375 = zext <16 x i1> %374 to <16 x i8>
   %376 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %375, <16 x i8> zeroinitializer) #17
-  %.neg1545 = add i64 %.sroa.014.2.i951667, 16
+  %.neg1545 = add i64 %.sroa.014.2.i951664, 16
   %shift = shufflevector <2 x i64> %376, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %377 = add <2 x i64> %shift, %376
   %378 = extractelement <2 x i64> %377, i64 0
@@ -1409,8 +1409,8 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   br i1 %.not52.i97, label %385, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310", %385, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit"
-  %.sroa.014.2.i95.lcssa = phi i64 [ %.sroa.014.1.i89.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit" ], [ %379, %385 ], [ %.sroa.014.2.i951667, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310" ]
-  %.sroa.0.2.i96.lcssa = phi i64 [ %.sroa.0.1.i90.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit" ], [ %387, %385 ], [ %.sroa.0.2.i961668, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310" ]
+  %.sroa.014.2.i95.lcssa = phi i64 [ %.sroa.014.1.i89.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit" ], [ %379, %385 ], [ %.sroa.014.2.i951664, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310" ]
+  %.sroa.0.2.i96.lcssa = phi i64 [ %.sroa.0.1.i90.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit" ], [ %387, %385 ], [ %.sroa.0.2.i961665, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310" ]
   %380 = icmp ugt i64 %.sroa.0.2.i96.lcssa, %345
   br i1 %380, label %381, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit311"
 
@@ -1428,47 +1428,47 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313"
 
 385:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310"
-  %386 = getelementptr inbounds nuw i8, ptr %.sroa.0489.01666, i64 16
-  %387 = add i64 %.sroa.0.2.i961668, 16
+  %386 = getelementptr inbounds nuw i8, ptr %.sroa.0489.01663, i64 16
+  %387 = add i64 %.sroa.0.2.i961665, 16
   %388 = icmp eq ptr %386, %370
   br i1 %388, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit310"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313.preheader", %394
-  %.sroa.0.3.i991675 = phi i64 [ %396, %394 ], [ %.sroa.0.2.i96.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313.preheader" ]
-  %.sroa.014.3.i981674 = phi i64 [ %392, %394 ], [ %.sroa.014.2.i95.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313.preheader" ]
-  %.sroa.0493.01673 = phi ptr [ %395, %394 ], [ %384, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313.preheader" ]
-  %389 = load i8, ptr %.sroa.0493.01673, align 1, !noundef !7
+  %.sroa.0.3.i991672 = phi i64 [ %396, %394 ], [ %.sroa.0.2.i96.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313.preheader" ]
+  %.sroa.014.3.i981671 = phi i64 [ %392, %394 ], [ %.sroa.014.2.i95.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313.preheader" ]
+  %.sroa.0493.01670 = phi ptr [ %395, %394 ], [ %384, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313.preheader" ]
+  %389 = load i8, ptr %.sroa.0493.01670, align 1, !noundef !7
   %390 = icmp sgt i8 %389, -65
   %391 = zext i1 %390 to i64
-  %392 = add i64 %.sroa.014.3.i981674, %391
+  %392 = add i64 %.sroa.014.3.i981671, %391
   %393 = icmp ugt i64 %392, %.sroa.07.0.lcssa
   br i1 %393, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit103, label %394
 
 394:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313"
-  %395 = getelementptr inbounds nuw i8, ptr %.sroa.0493.01673, i64 1
-  %396 = add i64 %.sroa.0.3.i991675, 1
+  %395 = getelementptr inbounds nuw i8, ptr %.sroa.0493.01670, i64 1
+  %396 = add i64 %.sroa.0.3.i991672, 1
   %397 = icmp eq ptr %395, %382
   br i1 %397, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit103, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313"
 
-.lr.ph1662:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88", %.lr.ph1662
-  %.sroa.0.1.i901661 = phi i64 [ %422, %.lr.ph1662 ], [ %350, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ]
-  %.sroa.014.1.i891660 = phi i64 [ %421, %.lr.ph1662 ], [ %.sroa.014.0.i85.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ]
-  %.sroa.0474.01659 = phi ptr [ %398, %.lr.ph1662 ], [ %352, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ]
-  %.sroa.5475.01658 = phi i64 [ %399, %.lr.ph1662 ], [ %361, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ]
-  %398 = getelementptr inbounds nuw i8, ptr %.sroa.0474.01659, i64 64
-  %399 = add i64 %.sroa.5475.01658, -4
-  %400 = load <16 x i8>, ptr %.sroa.0474.01659, align 16
+.lr.ph1659:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88", %.lr.ph1659
+  %.sroa.0.1.i901658 = phi i64 [ %422, %.lr.ph1659 ], [ %350, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ]
+  %.sroa.014.1.i891657 = phi i64 [ %421, %.lr.ph1659 ], [ %.sroa.014.0.i85.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ]
+  %.sroa.0474.01656 = phi ptr [ %398, %.lr.ph1659 ], [ %352, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ]
+  %.sroa.5475.01655 = phi i64 [ %399, %.lr.ph1659 ], [ %361, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88" ]
+  %398 = getelementptr inbounds nuw i8, ptr %.sroa.0474.01656, i64 64
+  %399 = add i64 %.sroa.5475.01655, -4
+  %400 = load <16 x i8>, ptr %.sroa.0474.01656, align 16
   %401 = icmp slt <16 x i8> %400, splat (i8 -64)
   %402 = zext <16 x i1> %401 to <16 x i8>
-  %403 = getelementptr inbounds nuw i8, ptr %.sroa.0474.01659, i64 16
+  %403 = getelementptr inbounds nuw i8, ptr %.sroa.0474.01656, i64 16
   %404 = load <16 x i8>, ptr %403, align 16
   %405 = icmp slt <16 x i8> %404, splat (i8 -64)
   %406 = zext <16 x i1> %405 to <16 x i8>
-  %407 = getelementptr inbounds nuw i8, ptr %.sroa.0474.01659, i64 32
+  %407 = getelementptr inbounds nuw i8, ptr %.sroa.0474.01656, i64 32
   %408 = load <16 x i8>, ptr %407, align 16
   %409 = icmp slt <16 x i8> %408, splat (i8 -64)
   %410 = zext <16 x i1> %409 to <16 x i8>
-  %411 = getelementptr inbounds nuw i8, ptr %.sroa.0474.01659, i64 48
+  %411 = getelementptr inbounds nuw i8, ptr %.sroa.0474.01656, i64 48
   %412 = load <16 x i8>, ptr %411, align 16
   %413 = icmp slt <16 x i8> %412, splat (i8 -64)
   %414 = zext <16 x i1> %413 to <16 x i8>
@@ -1476,20 +1476,20 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   %416 = add nuw nsw <16 x i8> %415, %410
   %417 = add nuw nsw <16 x i8> %416, %414
   %418 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %417, <16 x i8> zeroinitializer) #17
-  %.neg1544 = add i64 %.sroa.014.1.i891660, 64
-  %shift2179 = shufflevector <2 x i64> %418, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %419 = add <2 x i64> %shift2179, %418
+  %.neg1544 = add i64 %.sroa.014.1.i891657, 64
+  %shift2176 = shufflevector <2 x i64> %418, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %419 = add <2 x i64> %shift2176, %418
   %420 = extractelement <2 x i64> %419, i64 0
   %421 = sub i64 %.neg1544, %420
-  %422 = add i64 %.sroa.0.1.i901661, 64
+  %422 = add i64 %.sroa.0.1.i901658, 64
   %423 = icmp eq i64 %399, 0
-  br i1 %423, label %._crit_edge1663, label %.lr.ph1662
+  br i1 %423, label %._crit_edge1660, label %.lr.ph1659
 
-424:                                              ; preds = %.lr.ph1655
-  %425 = getelementptr inbounds nuw i8, ptr %.sroa.0467.01651, i64 1
-  %426 = add nuw i64 %.sroa.0.0.i861653, 1
+424:                                              ; preds = %.lr.ph1652
+  %425 = getelementptr inbounds nuw i8, ptr %.sroa.0467.01648, i64 1
+  %426 = add nuw i64 %.sroa.0.0.i861650, 1
   %427 = icmp eq ptr %425, %355
-  br i1 %427, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88", label %.lr.ph1655
+  br i1 %427, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i88", label %.lr.ph1652
 
 428:                                              ; preds = %430, %357
   %.sroa.8466.0 = phi i64 [ 0, %357 ], [ %432, %430 ]
@@ -1508,8 +1508,8 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   %437 = icmp ugt i64 %436, %.sroa.07.0.lcssa
   br i1 %437, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit103, label %428
 
-_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit103: ; preds = %.lr.ph1655, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313", %394, %430, %428, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit311"
-  %.sroa.0.4.i87 = phi i64 [ %345, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit311" ], [ %.sroa.8466.0, %430 ], [ %345, %428 ], [ %.sroa.0.3.i991675, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313" ], [ %345, %394 ], [ %.sroa.0.0.i861653, %.lr.ph1655 ]
+_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit103: ; preds = %.lr.ph1652, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313", %394, %430, %428, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit311"
+  %.sroa.0.4.i87 = phi i64 [ %345, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit311" ], [ %.sroa.8466.0, %430 ], [ %345, %428 ], [ %.sroa.0.3.i991672, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit313" ], [ %345, %394 ], [ %.sroa.0.0.i861650, %.lr.ph1652 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !161
   call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(1000) %342)
   %438 = load ptr, ptr %8, align 8, !noalias !161, !nonnull !7, !noundef !7
@@ -1533,11 +1533,11 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit103: ; preds = 
   %447 = icmp sgt i8 %446, -65
   br i1 %447, label %458, label %457
 
-.lr.ph1646:                                       ; preds = %69, %1077
+.lr.ph1643:                                       ; preds = %69, %1077
   %448 = phi ptr [ %1081, %1077 ], [ %25, %69 ]
-  %.sroa.0.01644 = phi ptr [ %1080, %1077 ], [ %1, %69 ]
-  %.sroa.07.01643 = phi i64 [ %1079, %1077 ], [ %2, %69 ]
-  %.sroa.016.01642 = phi i64 [ %1078, %1077 ], [ %3, %69 ]
+  %.sroa.0.01641 = phi ptr [ %1080, %1077 ], [ %1, %69 ]
+  %.sroa.07.01640 = phi i64 [ %1079, %1077 ], [ %2, %69 ]
+  %.sroa.016.01639 = phi i64 [ %1078, %1077 ], [ %3, %69 ]
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
   %450 = getelementptr inbounds nuw i8, ptr %448, i64 984
@@ -1546,14 +1546,14 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit103: ; preds = 
   %453 = icmp ugt i8 %451, 24
   br i1 %453, label %454, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit
 
-454:                                              ; preds = %.lr.ph1646
+454:                                              ; preds = %.lr.ph1643
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %452, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.73331ee43a0e5e9a3ee1aaeac309e318.37.llvm.1041312438752767756) #16, !noalias !172
   unreachable
 
-_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; preds = %.lr.ph1646
+_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; preds = %.lr.ph1643
   %.idx = shl nuw nsw i64 %452, 5
   %455 = getelementptr inbounds nuw i8, ptr %448, i64 %.idx
-  %.ptr1835 = getelementptr inbounds nuw i8, ptr %455, i64 216
+  %.ptr1832 = getelementptr inbounds nuw i8, ptr %455, i64 216
   %456 = icmp eq i8 %451, 0
   br i1 %456, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge, label %.lr.ph.preheader
 
@@ -1585,7 +1585,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !175
   %471 = getelementptr inbounds i8, ptr %464, i64 %466
   %472 = icmp eq i64 %466, 0
-  br i1 %472, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i", label %.lr.ph1682
+  br i1 %472, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i", label %.lr.ph1679
 
 473:                                              ; preds = %458
   %474 = getelementptr inbounds i8, ptr %438, i64 %440
@@ -1598,30 +1598,30 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %.sroa.0.0.sroa.speculated.i320 = tail call noundef i64 @llvm.umin.i64(i64 %470, i64 %476)
   %477 = and i64 %.sroa.0.0.sroa.speculated.i320, 1152921504606846972
   %478 = icmp eq i64 %477, 0
-  br i1 %478, label %._crit_edge1690, label %.lr.ph1689
+  br i1 %478, label %._crit_edge1687, label %.lr.ph1686
 
-.lr.ph1682:                                       ; preds = %463, %540
-  %.sroa.0.0.i1680 = phi i64 [ %542, %540 ], [ 0, %463 ]
-  %.sroa.014.0.i1679 = phi i64 [ %482, %540 ], [ 0, %463 ]
-  %.sroa.0410.01678 = phi ptr [ %541, %540 ], [ %464, %463 ]
-  %479 = load i8, ptr %.sroa.0410.01678, align 1, !noundef !7
+.lr.ph1679:                                       ; preds = %463, %540
+  %.sroa.0.0.i1677 = phi i64 [ %542, %540 ], [ 0, %463 ]
+  %.sroa.014.0.i1676 = phi i64 [ %482, %540 ], [ 0, %463 ]
+  %.sroa.0410.01675 = phi ptr [ %541, %540 ], [ %464, %463 ]
+  %479 = load i8, ptr %.sroa.0410.01675, align 1, !noundef !7
   %480 = icmp sgt i8 %479, -65
   %481 = zext i1 %480 to i64
-  %482 = add i64 %.sroa.014.0.i1679, %481
+  %482 = add i64 %.sroa.014.0.i1676, %481
   %483 = icmp ugt i64 %482, %461
   br i1 %483, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit, label %540
 
-._crit_edge1690:                                  ; preds = %.lr.ph1689, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i"
-  %.sroa.014.1.i.lcssa = phi i64 [ %.sroa.014.0.i.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ], [ %537, %.lr.ph1689 ]
-  %.sroa.0.1.i.lcssa = phi i64 [ %466, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ], [ %538, %.lr.ph1689 ]
+._crit_edge1687:                                  ; preds = %.lr.ph1686, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i"
+  %.sroa.014.1.i.lcssa = phi i64 [ %.sroa.014.0.i.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ], [ %537, %.lr.ph1686 ]
+  %.sroa.0.1.i.lcssa = phi i64 [ %466, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ], [ %538, %.lr.ph1686 ]
   %484 = icmp ugt i64 %477, %470
   br i1 %484, label %485, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit323"
 
-485:                                              ; preds = %._crit_edge1690
+485:                                              ; preds = %._crit_edge1687
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %477, i64 noundef %470, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.14) #16, !noalias !178
   unreachable
 
-"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit323": ; preds = %._crit_edge1690
+"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit323": ; preds = %._crit_edge1687
   %486 = getelementptr inbounds <2 x i64>, ptr %468, i64 %470
   %487 = icmp eq i64 %477, %470
   br i1 %487, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.preheader"
@@ -1631,24 +1631,24 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.preheader", %501
-  %.sroa.0.2.i1695 = phi i64 [ %503, %501 ], [ %.sroa.0.1.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.preheader" ]
-  %.sroa.014.2.i1694 = phi i64 [ %495, %501 ], [ %.sroa.014.1.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.preheader" ]
-  %.sroa.0431.01693 = phi ptr [ %502, %501 ], [ %488, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.preheader" ]
-  %489 = load <16 x i8>, ptr %.sroa.0431.01693, align 16
+  %.sroa.0.2.i1692 = phi i64 [ %503, %501 ], [ %.sroa.0.1.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.preheader" ]
+  %.sroa.014.2.i1691 = phi i64 [ %495, %501 ], [ %.sroa.014.1.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.preheader" ]
+  %.sroa.0431.01690 = phi ptr [ %502, %501 ], [ %488, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.preheader" ]
+  %489 = load <16 x i8>, ptr %.sroa.0431.01690, align 16
   %490 = icmp slt <16 x i8> %489, splat (i8 -64)
   %491 = zext <16 x i1> %490 to <16 x i8>
   %492 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %491, <16 x i8> zeroinitializer) #17
-  %.neg1547 = add i64 %.sroa.014.2.i1694, 16
-  %shift2180 = shufflevector <2 x i64> %492, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %493 = add <2 x i64> %shift2180, %492
+  %.neg1547 = add i64 %.sroa.014.2.i1691, 16
+  %shift2177 = shufflevector <2 x i64> %492, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %493 = add <2 x i64> %shift2177, %492
   %494 = extractelement <2 x i64> %493, i64 0
   %495 = sub i64 %.neg1547, %494
   %.not52.i = icmp ult i64 %495, %461
   br i1 %.not52.i, label %501, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325", %501, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit323"
-  %.sroa.014.2.i.lcssa = phi i64 [ %.sroa.014.1.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit323" ], [ %495, %501 ], [ %.sroa.014.2.i1694, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325" ]
-  %.sroa.0.2.i.lcssa = phi i64 [ %.sroa.0.1.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit323" ], [ %503, %501 ], [ %.sroa.0.2.i1695, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325" ]
+  %.sroa.014.2.i.lcssa = phi i64 [ %.sroa.014.1.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit323" ], [ %495, %501 ], [ %.sroa.014.2.i1691, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325" ]
+  %.sroa.0.2.i.lcssa = phi i64 [ %.sroa.0.1.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit323" ], [ %503, %501 ], [ %.sroa.0.2.i1692, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325" ]
   %496 = icmp ugt i64 %.sroa.0.2.i.lcssa, %459
   br i1 %496, label %497, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326"
 
@@ -1663,47 +1663,47 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   br i1 %500, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit328"
 
 501:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325"
-  %502 = getelementptr inbounds nuw i8, ptr %.sroa.0431.01693, i64 16
-  %503 = add i64 %.sroa.0.2.i1695, 16
+  %502 = getelementptr inbounds nuw i8, ptr %.sroa.0431.01690, i64 16
+  %503 = add i64 %.sroa.0.2.i1692, 16
   %504 = icmp eq ptr %502, %486
   br i1 %504, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit325"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit328": ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326", %510
-  %.sroa.0.3.i1702 = phi i64 [ %512, %510 ], [ %.sroa.0.2.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326" ]
-  %.sroa.014.3.i1701 = phi i64 [ %508, %510 ], [ %.sroa.014.2.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326" ]
-  %.sroa.0435.01700 = phi ptr [ %511, %510 ], [ %498, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326" ]
-  %505 = load i8, ptr %.sroa.0435.01700, align 1, !noundef !7
+  %.sroa.0.3.i1699 = phi i64 [ %512, %510 ], [ %.sroa.0.2.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326" ]
+  %.sroa.014.3.i1698 = phi i64 [ %508, %510 ], [ %.sroa.014.2.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326" ]
+  %.sroa.0435.01697 = phi ptr [ %511, %510 ], [ %498, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326" ]
+  %505 = load i8, ptr %.sroa.0435.01697, align 1, !noundef !7
   %506 = icmp sgt i8 %505, -65
   %507 = zext i1 %506 to i64
-  %508 = add i64 %.sroa.014.3.i1701, %507
+  %508 = add i64 %.sroa.014.3.i1698, %507
   %509 = icmp ugt i64 %508, %461
   br i1 %509, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit, label %510
 
 510:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit328"
-  %511 = getelementptr inbounds nuw i8, ptr %.sroa.0435.01700, i64 1
-  %512 = add i64 %.sroa.0.3.i1702, 1
+  %511 = getelementptr inbounds nuw i8, ptr %.sroa.0435.01697, i64 1
+  %512 = add i64 %.sroa.0.3.i1699, 1
   %513 = icmp eq ptr %511, %499
   br i1 %513, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit328"
 
-.lr.ph1689:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i", %.lr.ph1689
-  %.sroa.0.1.i1688 = phi i64 [ %538, %.lr.ph1689 ], [ %466, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ]
-  %.sroa.014.1.i1687 = phi i64 [ %537, %.lr.ph1689 ], [ %.sroa.014.0.i.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ]
-  %.sroa.0417.01686 = phi ptr [ %514, %.lr.ph1689 ], [ %468, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ]
-  %.sroa.5418.01685 = phi i64 [ %515, %.lr.ph1689 ], [ %477, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ]
-  %514 = getelementptr inbounds nuw i8, ptr %.sroa.0417.01686, i64 64
-  %515 = add i64 %.sroa.5418.01685, -4
-  %516 = load <16 x i8>, ptr %.sroa.0417.01686, align 16
+.lr.ph1686:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i", %.lr.ph1686
+  %.sroa.0.1.i1685 = phi i64 [ %538, %.lr.ph1686 ], [ %466, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ]
+  %.sroa.014.1.i1684 = phi i64 [ %537, %.lr.ph1686 ], [ %.sroa.014.0.i.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ]
+  %.sroa.0417.01683 = phi ptr [ %514, %.lr.ph1686 ], [ %468, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ]
+  %.sroa.5418.01682 = phi i64 [ %515, %.lr.ph1686 ], [ %477, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ]
+  %514 = getelementptr inbounds nuw i8, ptr %.sroa.0417.01683, i64 64
+  %515 = add i64 %.sroa.5418.01682, -4
+  %516 = load <16 x i8>, ptr %.sroa.0417.01683, align 16
   %517 = icmp slt <16 x i8> %516, splat (i8 -64)
   %518 = zext <16 x i1> %517 to <16 x i8>
-  %519 = getelementptr inbounds nuw i8, ptr %.sroa.0417.01686, i64 16
+  %519 = getelementptr inbounds nuw i8, ptr %.sroa.0417.01683, i64 16
   %520 = load <16 x i8>, ptr %519, align 16
   %521 = icmp slt <16 x i8> %520, splat (i8 -64)
   %522 = zext <16 x i1> %521 to <16 x i8>
-  %523 = getelementptr inbounds nuw i8, ptr %.sroa.0417.01686, i64 32
+  %523 = getelementptr inbounds nuw i8, ptr %.sroa.0417.01683, i64 32
   %524 = load <16 x i8>, ptr %523, align 16
   %525 = icmp slt <16 x i8> %524, splat (i8 -64)
   %526 = zext <16 x i1> %525 to <16 x i8>
-  %527 = getelementptr inbounds nuw i8, ptr %.sroa.0417.01686, i64 48
+  %527 = getelementptr inbounds nuw i8, ptr %.sroa.0417.01683, i64 48
   %528 = load <16 x i8>, ptr %527, align 16
   %529 = icmp slt <16 x i8> %528, splat (i8 -64)
   %530 = zext <16 x i1> %529 to <16 x i8>
@@ -1711,20 +1711,20 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %532 = add nuw nsw <16 x i8> %531, %526
   %533 = add nuw nsw <16 x i8> %532, %530
   %534 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %533, <16 x i8> zeroinitializer) #17
-  %.neg1546 = add i64 %.sroa.014.1.i1687, 64
-  %shift2181 = shufflevector <2 x i64> %534, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %535 = add <2 x i64> %shift2181, %534
+  %.neg1546 = add i64 %.sroa.014.1.i1684, 64
+  %shift2178 = shufflevector <2 x i64> %534, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %535 = add <2 x i64> %shift2178, %534
   %536 = extractelement <2 x i64> %535, i64 0
   %537 = sub i64 %.neg1546, %536
-  %538 = add i64 %.sroa.0.1.i1688, 64
+  %538 = add i64 %.sroa.0.1.i1685, 64
   %539 = icmp eq i64 %515, 0
-  br i1 %539, label %._crit_edge1690, label %.lr.ph1689
+  br i1 %539, label %._crit_edge1687, label %.lr.ph1686
 
-540:                                              ; preds = %.lr.ph1682
-  %541 = getelementptr inbounds nuw i8, ptr %.sroa.0410.01678, i64 1
-  %542 = add nuw i64 %.sroa.0.0.i1680, 1
+540:                                              ; preds = %.lr.ph1679
+  %541 = getelementptr inbounds nuw i8, ptr %.sroa.0410.01675, i64 1
+  %542 = add nuw i64 %.sroa.0.0.i1677, 1
   %543 = icmp eq ptr %541, %471
-  br i1 %543, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i", label %.lr.ph1682
+  br i1 %543, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i", label %.lr.ph1679
 
 544:                                              ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7240af60d106f18E.exit331", %473
   %.sroa.8409.0 = phi i64 [ 0, %473 ], [ %546, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7240af60d106f18E.exit331" ]
@@ -1743,8 +1743,8 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %552 = icmp ugt i64 %551, %461
   br i1 %552, label %_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit, label %544
 
-_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.lr.ph1682, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit328", %510, %544, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7240af60d106f18E.exit331", %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326"
-  %.sroa.0.4.i = phi i64 [ %.sroa.0.2.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326" ], [ %459, %544 ], [ %.sroa.8409.0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7240af60d106f18E.exit331" ], [ %.sroa.0.3.i1702, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit328" ], [ %459, %510 ], [ %.sroa.0.0.i1680, %.lr.ph1682 ]
+_ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.lr.ph1679, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit328", %510, %544, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7240af60d106f18E.exit331", %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326"
+  %.sroa.0.4.i = phi i64 [ %.sroa.0.2.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit326" ], [ %459, %544 ], [ %.sroa.8409.0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf7240af60d106f18E.exit331" ], [ %.sroa.0.3.i1699, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit328" ], [ %459, %510 ], [ %.sroa.0.0.i1677, %.lr.ph1679 ]
   %553 = add i64 %.sroa.0.4.i, %.sroa.0.4.i87
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !184
   call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(1000) %342)
@@ -1862,72 +1862,72 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.exit: ; preds = %.l
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18), !noalias !206
   %605 = getelementptr inbounds i8, ptr %594, i64 %596
   %606 = icmp eq i64 %596, 0
-  br i1 %606, label %.preheader1556, label %.lr.ph1707
+  br i1 %606, label %.preheader1556, label %.lr.ph1704
 
-.preheader1556:                                   ; preds = %.lr.ph1707, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i"
-  %.sroa.0.0.i147.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ], [ %612, %.lr.ph1707 ]
+.preheader1556:                                   ; preds = %.lr.ph1704, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i"
+  %.sroa.0.0.i147.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ], [ %612, %.lr.ph1704 ]
   %607 = icmp eq i64 %600, 0
-  br i1 %607, label %._crit_edge1715, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.preheader"
+  br i1 %607, label %._crit_edge1712, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.preheader"
 
-.lr.ph1707:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i", %.lr.ph1707
-  %.sroa.0.0.i1471706 = phi i64 [ %612, %.lr.ph1707 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ]
-  %.sroa.0688.01705 = phi ptr [ %608, %.lr.ph1707 ], [ %594, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ]
-  %608 = getelementptr inbounds nuw i8, ptr %.sroa.0688.01705, i64 1
-  %609 = load i8, ptr %.sroa.0688.01705, align 1, !noundef !7
+.lr.ph1704:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i", %.lr.ph1704
+  %.sroa.0.0.i1471703 = phi i64 [ %612, %.lr.ph1704 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ]
+  %.sroa.0688.01702 = phi ptr [ %608, %.lr.ph1704 ], [ %594, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ]
+  %608 = getelementptr inbounds nuw i8, ptr %.sroa.0688.01702, i64 1
+  %609 = load i8, ptr %.sroa.0688.01702, align 1, !noundef !7
   %610 = icmp ugt i8 %609, -17
   %611 = zext i1 %610 to i64
-  %612 = add i64 %.sroa.0.0.i1471706, %611
+  %612 = add i64 %.sroa.0.0.i1471703, %611
   %613 = icmp eq ptr %608, %605
-  br i1 %613, label %.preheader1556, label %.lr.ph1707
+  br i1 %613, label %.preheader1556, label %.lr.ph1704
 
-._crit_edge1715:                                  ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread", %.preheader1556
+._crit_edge1712:                                  ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread", %.preheader1556
   %.sroa.0.2.i149.lcssa = phi i64 [ %.sroa.0.0.i147.lcssa, %.preheader1556 ], [ %626, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread" ]
   %614 = getelementptr inbounds i8, ptr %602, i64 %604
   %615 = icmp eq i64 %604, 0
-  br i1 %615, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.lr.ph1720
+  br i1 %615, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.lr.ph1717
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.preheader": ; preds = %.preheader1556, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread"
-  %.sroa.0.2.i1491713 = phi i64 [ %626, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread" ], [ %.sroa.0.0.i147.lcssa, %.preheader1556 ]
-  %.sroa.5691.01712 = phi i64 [ %617, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread" ], [ %600, %.preheader1556 ]
-  %.sroa.0690.01711 = phi ptr [ %616, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread" ], [ %598, %.preheader1556 ]
-  %.sroa.0.0.sroa.speculated.i.i350 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5691.01712, i64 255)
-  %616 = getelementptr inbounds nuw <2 x i64>, ptr %.sroa.0690.01711, i64 %.sroa.0.0.sroa.speculated.i.i350
-  %617 = sub i64 %.sroa.5691.01712, %.sroa.0.0.sroa.speculated.i.i350
+  %.sroa.0.2.i1491710 = phi i64 [ %626, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread" ], [ %.sroa.0.0.i147.lcssa, %.preheader1556 ]
+  %.sroa.5691.01709 = phi i64 [ %617, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread" ], [ %600, %.preheader1556 ]
+  %.sroa.0690.01708 = phi ptr [ %616, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread" ], [ %598, %.preheader1556 ]
+  %.sroa.0.0.sroa.speculated.i.i350 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5691.01709, i64 255)
+  %616 = getelementptr inbounds nuw <2 x i64>, ptr %.sroa.0690.01708, i64 %.sroa.0.0.sroa.speculated.i.i350
+  %617 = sub i64 %.sroa.5691.01709, %.sroa.0.0.sroa.speculated.i.i350
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357"
 
-.lr.ph1720:                                       ; preds = %._crit_edge1715, %.lr.ph1720
-  %.sroa.0.3.i1501718 = phi i64 [ %622, %.lr.ph1720 ], [ %.sroa.0.2.i149.lcssa, %._crit_edge1715 ]
-  %.sroa.0698.01717 = phi ptr [ %618, %.lr.ph1720 ], [ %602, %._crit_edge1715 ]
-  %618 = getelementptr inbounds nuw i8, ptr %.sroa.0698.01717, i64 1
-  %619 = load i8, ptr %.sroa.0698.01717, align 1, !noundef !7
+.lr.ph1717:                                       ; preds = %._crit_edge1712, %.lr.ph1717
+  %.sroa.0.3.i1501715 = phi i64 [ %622, %.lr.ph1717 ], [ %.sroa.0.2.i149.lcssa, %._crit_edge1712 ]
+  %.sroa.0698.01714 = phi ptr [ %618, %.lr.ph1717 ], [ %602, %._crit_edge1712 ]
+  %618 = getelementptr inbounds nuw i8, ptr %.sroa.0698.01714, i64 1
+  %619 = load i8, ptr %.sroa.0698.01714, align 1, !noundef !7
   %620 = icmp ugt i8 %619, -17
   %621 = zext i1 %620 to i64
-  %622 = add i64 %.sroa.0.3.i1501718, %621
+  %622 = add i64 %.sroa.0.3.i1501715, %621
   %623 = icmp eq ptr %618, %614
-  br i1 %623, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.lr.ph1720
+  br i1 %623, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.lr.ph1717
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357"
   %624 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %633, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i184 = extractelement <2 x i64> %624, i64 0
   %.sroa.0.8.vec.extract.i185 = extractelement <2 x i64> %624, i64 1
-  %625 = add i64 %.sroa.0.8.vec.extract.i185, %.sroa.0.2.i1491713
+  %625 = add i64 %.sroa.0.8.vec.extract.i185, %.sroa.0.2.i1491710
   %626 = add i64 %625, %.sroa.0.0.vec.extract.i184
   %627 = icmp eq i64 %617, 0
-  br i1 %627, label %._crit_edge1715, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.preheader"
+  br i1 %627, label %._crit_edge1712, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.preheader"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.preheader", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357"
-  %.sroa.0695.01709 = phi ptr [ %629, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357" ], [ %.sroa.0690.01711, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.preheader" ]
+  %.sroa.0695.01706 = phi ptr [ %629, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357" ], [ %.sroa.0690.01708, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.preheader" ]
   %628 = phi <16 x i8> [ %633, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357" ], [ zeroinitializer, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.preheader" ]
-  %629 = getelementptr inbounds nuw i8, ptr %.sroa.0695.01709, i64 16
-  %630 = load <16 x i8>, ptr %.sroa.0695.01709, align 16, !alias.scope !209, !noalias !212
+  %629 = getelementptr inbounds nuw i8, ptr %.sroa.0695.01706, i64 16
+  %630 = load <16 x i8>, ptr %.sroa.0695.01706, align 16, !alias.scope !209, !noalias !212
   %631 = icmp ugt <16 x i8> %630, splat (i8 -17)
   %632 = zext <16 x i1> %631 to <16 x i8>
   %633 = add <16 x i8> %628, %632
   %634 = icmp eq ptr %629, %616
   br i1 %634, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit357"
 
-_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds = %.lr.ph1720, %._crit_edge1715, %590
-  %.sroa.0.1.i151 = phi i64 [ 0, %590 ], [ %.sroa.0.2.i149.lcssa, %._crit_edge1715 ], [ %622, %.lr.ph1720 ]
+_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds = %.lr.ph1717, %._crit_edge1712, %590
+  %.sroa.0.1.i151 = phi i64 [ 0, %590 ], [ %.sroa.0.2.i149.lcssa, %._crit_edge1712 ], [ %622, %.lr.ph1717 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !215
   call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(1000) %342)
   %635 = load ptr, ptr %5, align 8, !noalias !215, !nonnull !7, !noundef !7
@@ -1982,38 +1982,38 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   br i1 %.not.i104, label %657, label %659
 
 657:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370", %651
-  %.sroa.015.0.i = phi i64 [ %.sroa.02.0.i135.lcssa1985, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370" ], [ 0, %651 ]
+  %.sroa.015.0.i = phi i64 [ %.sroa.02.0.i135.lcssa1982, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370" ], [ 0, %651 ]
   %.sroa.9.0.i = phi i64 [ %699, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370" ], [ %.sroa.0.4.i, %651 ]
   %.sroa.0.0.i105 = phi ptr [ %700, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370" ], [ %652, %651 ]
   %658 = icmp ugt i64 %.sroa.9.0.i, 15
-  br i1 %658, label %.lr.ph1733, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit
+  br i1 %658, label %.lr.ph1730, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit
 
 659:                                              ; preds = %651
-  %.not1837 = icmp eq i64 %.sroa.0.4.i, 0
-  br i1 %.not1837, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370", label %.lr.ph1725
+  %.not1834 = icmp eq i64 %.sroa.0.4.i, 0
+  br i1 %.not1834, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370", label %.lr.ph1722
 
-.lr.ph1725:                                       ; preds = %659, %.thread1495
-  %.sroa.08.0.i1361723 = phi i64 [ %688, %.thread1495 ], [ 0, %659 ]
-  %.sroa.02.0.i1351722 = phi i64 [ %.sroa.02.1.i138, %.thread1495 ], [ 0, %659 ]
-  %660 = getelementptr inbounds nuw [0 x i8], ptr %652, i64 0, i64 %.sroa.08.0.i1361723
+.lr.ph1722:                                       ; preds = %659, %.thread1495
+  %.sroa.08.0.i1361720 = phi i64 [ %688, %.thread1495 ], [ 0, %659 ]
+  %.sroa.02.0.i1351719 = phi i64 [ %.sroa.02.1.i138, %.thread1495 ], [ 0, %659 ]
+  %660 = getelementptr inbounds nuw [0 x i8], ptr %652, i64 0, i64 %.sroa.08.0.i1361720
   %661 = load i8, ptr %660, align 1, !alias.scope !226, !noundef !7
   %662 = add i8 %661, -10
   %spec.select.i369 = icmp ult i8 %662, 4
   br i1 %spec.select.i369, label %664, label %663
 
-663:                                              ; preds = %.lr.ph1725
+663:                                              ; preds = %.lr.ph1722
   switch i8 %661, label %.thread1495 [
     i8 -62, label %667
     i8 -30, label %675
   ]
 
-664:                                              ; preds = %.lr.ph1725
-  %665 = add nuw i64 %.sroa.02.0.i1351722, 1
+664:                                              ; preds = %.lr.ph1722
+  %665 = add nuw i64 %.sroa.02.0.i1351719, 1
   %666 = icmp eq i8 %661, 13
   br i1 %666, label %691, label %.thread1495
 
 667:                                              ; preds = %663
-  %668 = add nuw nsw i64 %.sroa.08.0.i1361723, 1
+  %668 = add nuw nsw i64 %.sroa.08.0.i1361720, 1
   %669 = icmp ult i64 %668, %.sroa.0.4.i
   br i1 %669, label %670, label %.thread1495
 
@@ -2022,16 +2022,16 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   %672 = load i8, ptr %671, align 1, !alias.scope !226, !noundef !7
   %673 = icmp eq i8 %672, -123
   %674 = zext i1 %673 to i64
-  %spec.select1530 = add nuw i64 %.sroa.02.0.i1351722, %674
+  %spec.select1530 = add nuw i64 %.sroa.02.0.i1351719, %674
   br label %.thread1495
 
 675:                                              ; preds = %663
-  %676 = add nuw nsw i64 %.sroa.08.0.i1361723, 2
+  %676 = add nuw nsw i64 %.sroa.08.0.i1361720, 2
   %677 = icmp ult i64 %676, %.sroa.0.4.i
   br i1 %677, label %678, label %.thread1495
 
 678:                                              ; preds = %675
-  %679 = add nuw nsw i64 %.sroa.08.0.i1361723, 1
+  %679 = add nuw nsw i64 %.sroa.08.0.i1361720, 1
   %680 = getelementptr inbounds nuw [0 x i8], ptr %652, i64 0, i64 %679
   %681 = load i8, ptr %680, align 1, !alias.scope !226, !noundef !7
   %682 = icmp eq i8 %681, -128
@@ -2043,19 +2043,19 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   %.mask.i139 = and i8 %685, -2
   %686 = icmp eq i8 %.mask.i139, -88
   %687 = zext i1 %686 to i64
-  %spec.select.i140 = add nuw i64 %.sroa.02.0.i1351722, %687
+  %spec.select.i140 = add nuw i64 %.sroa.02.0.i1351719, %687
   br label %.thread1495
 
 .thread1495:                                      ; preds = %670, %663, %667, %694, %691, %683, %678, %675, %664
-  %.sroa.02.1.i138 = phi i64 [ %665, %691 ], [ %665, %664 ], [ %.sroa.02.0.i1351722, %678 ], [ %.sroa.02.0.i1351722, %675 ], [ %spec.select.i140, %683 ], [ %spec.select25.i141, %694 ], [ %.sroa.02.0.i1351722, %667 ], [ %.sroa.02.0.i1351722, %663 ], [ %spec.select1530, %670 ]
-  %688 = add nuw nsw i64 %.sroa.08.0.i1361723, 1
+  %.sroa.02.1.i138 = phi i64 [ %665, %691 ], [ %665, %664 ], [ %.sroa.02.0.i1351719, %678 ], [ %.sroa.02.0.i1351719, %675 ], [ %spec.select.i140, %683 ], [ %spec.select25.i141, %694 ], [ %.sroa.02.0.i1351719, %667 ], [ %.sroa.02.0.i1351719, %663 ], [ %spec.select1530, %670 ]
+  %688 = add nuw nsw i64 %.sroa.08.0.i1361720, 1
   %689 = icmp samesign ult i64 %688, %.sroa.0.0.sroa.speculated.i368
   %690 = icmp ult i64 %.sroa.02.1.i138, %.sroa.0.4.i
   %or.cond.i137 = select i1 %689, i1 %690, i1 false
-  br i1 %or.cond.i137, label %.lr.ph1725, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142
+  br i1 %or.cond.i137, label %.lr.ph1722, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142
 
 691:                                              ; preds = %664
-  %692 = add nuw nsw i64 %.sroa.08.0.i1361723, 1
+  %692 = add nuw nsw i64 %.sroa.08.0.i1361720, 1
   %693 = icmp ult i64 %692, %.sroa.0.4.i
   br i1 %693, label %694, label %.thread1495
 
@@ -2063,31 +2063,31 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   %695 = getelementptr inbounds nuw [0 x i8], ptr %652, i64 0, i64 %692
   %696 = load i8, ptr %695, align 1, !alias.scope !226, !noundef !7
   %697 = icmp eq i8 %696, 10
-  %spec.select25.i141 = select i1 %697, i64 %.sroa.02.0.i1351722, i64 %665
+  %spec.select25.i141 = select i1 %697, i64 %.sroa.02.0.i1351719, i64 %665
   br label %.thread1495
 
 _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds = %.thread1495
-  %.not2088 = icmp ult i64 %.sroa.08.0.i1361723, %.sroa.0.4.i
-  br i1 %.not2088, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370", label %698
+  %.not2085 = icmp ult i64 %.sroa.08.0.i1361720, %.sroa.0.4.i
+  br i1 %.not2085, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370", label %698
 
 698:                                              ; preds = %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %688, i64 noundef %.sroa.0.4.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.22) #16, !noalias !229
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit370": ; preds = %659, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142
-  %.sroa.08.0.i136.lcssa1986 = phi i64 [ %688, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142 ], [ 0, %659 ]
-  %.sroa.02.0.i135.lcssa1985 = phi i64 [ %.sroa.02.1.i138, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142 ], [ 0, %659 ]
-  %699 = sub nuw i64 %.sroa.0.4.i, %.sroa.08.0.i136.lcssa1986
-  %700 = getelementptr inbounds i8, ptr %652, i64 %.sroa.08.0.i136.lcssa1986
+  %.sroa.08.0.i136.lcssa1983 = phi i64 [ %688, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142 ], [ 0, %659 ]
+  %.sroa.02.0.i135.lcssa1982 = phi i64 [ %.sroa.02.1.i138, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142 ], [ 0, %659 ]
+  %699 = sub nuw i64 %.sroa.0.4.i, %.sroa.08.0.i136.lcssa1983
+  %700 = getelementptr inbounds i8, ptr %652, i64 %.sroa.08.0.i136.lcssa1983
   br label %657
 
-.lr.ph1733:                                       ; preds = %657, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371"
-  %.sroa.0.1.i1061731 = phi ptr [ %802, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ], [ %.sroa.0.0.i105, %657 ]
-  %.sroa.9.1.i1730 = phi i64 [ %801, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ], [ %.sroa.9.0.i, %657 ]
-  %.sroa.015.1.i1729 = phi i64 [ %.sroa.015.2.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ], [ %.sroa.015.0.i, %657 ]
-  %.sroa.020.0.i1728 = phi i64 [ %.sroa.020.1.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ], [ 0, %657 ]
+.lr.ph1730:                                       ; preds = %657, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371"
+  %.sroa.0.1.i1061728 = phi ptr [ %802, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ], [ %.sroa.0.0.i105, %657 ]
+  %.sroa.9.1.i1727 = phi i64 [ %801, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ], [ %.sroa.9.0.i, %657 ]
+  %.sroa.015.1.i1726 = phi i64 [ %.sroa.015.2.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ], [ %.sroa.015.0.i, %657 ]
+  %.sroa.020.0.i1725 = phi i64 [ %.sroa.020.1.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ], [ 0, %657 ]
   %701 = phi <16 x i8> [ %800, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ], [ zeroinitializer, %657 ]
-  %702 = load <2 x i64>, ptr %.sroa.0.1.i1061731, align 16
+  %702 = load <2 x i64>, ptr %.sroa.0.1.i1061728, align 16
   %703 = bitcast <2 x i64> %702 to <16 x i8>
   %704 = icmp eq <16 x i8> %703, splat (i8 -62)
   %705 = sext <16 x i1> %704 to <16 x i8>
@@ -2111,22 +2111,22 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds 
   %.sroa.0.0.i171 = select i1 %719, i1 %720, i1 false
   %bc = bitcast <2 x i64> %702 to <16 x i8>
   %721 = extractelement <16 x i8> %bc, i64 15
-  %bc1957 = bitcast <2 x i64> %702 to <16 x i8>
-  %722 = extractelement <16 x i8> %bc1957, i64 14
+  %bc1954 = bitcast <2 x i64> %702 to <16 x i8>
+  %722 = extractelement <16 x i8> %bc1954, i64 14
   br i1 %.sroa.0.0.i171, label %734, label %723
 
-723:                                              ; preds = %.lr.ph1733
+723:                                              ; preds = %.lr.ph1730
   %724 = icmp eq <16 x i8> %703, splat (i8 -123)
   %725 = zext <16 x i1> %724 to <16 x i8>
   %726 = shufflevector <16 x i8> %725, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16>
   %727 = select <16 x i1> %704, <16 x i8> %726, <16 x i8> zeroinitializer
-  %.not1533 = icmp ne i64 %.sroa.9.1.i1730, 16
+  %.not1533 = icmp ne i64 %.sroa.9.1.i1727, 16
   %728 = icmp eq i8 %721, -62
-  %or.cond2079 = select i1 %.not1533, i1 %728, i1 false
-  br i1 %or.cond2079, label %729, label %734
+  %or.cond2076 = select i1 %.not1533, i1 %728, i1 false
+  br i1 %or.cond2076, label %729, label %734
 
 729:                                              ; preds = %723
-  %730 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061731, i64 16
+  %730 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061728, i64 16
   %731 = load i8, ptr %730, align 1, !alias.scope !232, !noalias !235, !noundef !7
   %732 = icmp eq i8 %731, -123
   br i1 %732, label %733, label %734
@@ -2135,8 +2135,8 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds 
   %.sroa.01032.15.vec.insert = insertelement <16 x i8> %727, i8 1, i64 15
   br label %734
 
-734:                                              ; preds = %733, %729, %723, %.lr.ph1733
-  %735 = phi <16 x i8> [ zeroinitializer, %.lr.ph1733 ], [ %.sroa.01032.15.vec.insert, %733 ], [ %727, %729 ], [ %727, %723 ]
+734:                                              ; preds = %733, %729, %723, %.lr.ph1730
+  %735 = phi <16 x i8> [ zeroinitializer, %.lr.ph1730 ], [ %.sroa.01032.15.vec.insert, %733 ], [ %727, %729 ], [ %727, %723 ]
   %.sroa.01.0.vec.extract.i166 = extractelement <2 x i64> %711, i64 0
   %736 = icmp eq i64 %.sroa.01.0.vec.extract.i166, 0
   %.sroa.01.8.vec.extract.i167 = extractelement <2 x i64> %711, i64 1
@@ -2170,23 +2170,23 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds 
 
 755:                                              ; preds = %746, %738
   %756 = phi <16 x i8> [ %735, %738 ], [ %754, %746 ]
-  %.not1534 = icmp eq i64 %.sroa.9.1.i1730, 16
+  %.not1534 = icmp eq i64 %.sroa.9.1.i1727, 16
   br i1 %.not1534, label %.thread1496, label %760
 
 757:                                              ; preds = %760
-  %758 = icmp ugt i64 %.sroa.9.1.i1730, 17
+  %758 = icmp ugt i64 %.sroa.9.1.i1727, 17
   %759 = icmp eq i8 %721, -30
-  %or.cond2081 = select i1 %758, i1 %759, i1 false
-  br i1 %or.cond2081, label %769, label %.thread1496
+  %or.cond2078 = select i1 %758, i1 %759, i1 false
+  br i1 %or.cond2078, label %769, label %.thread1496
 
 760:                                              ; preds = %755
   %761 = icmp eq i8 %722, -30
   %762 = icmp eq i8 %721, -128
-  %or.cond2080 = select i1 %761, i1 %762, i1 false
-  br i1 %or.cond2080, label %763, label %757
+  %or.cond2077 = select i1 %761, i1 %762, i1 false
+  br i1 %or.cond2077, label %763, label %757
 
 763:                                              ; preds = %760
-  %764 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061731, i64 16
+  %764 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061728, i64 16
   %765 = load i8, ptr %764, align 1, !alias.scope !232, !noalias !235, !noundef !7
   %.mask.i145 = and i8 %765, -2
   %766 = icmp eq i8 %.mask.i145, -88
@@ -2199,13 +2199,13 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds 
   br label %.thread1496
 
 769:                                              ; preds = %757
-  %770 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061731, i64 16
+  %770 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061728, i64 16
   %771 = load i8, ptr %770, align 1, !alias.scope !232, !noalias !235, !noundef !7
   %772 = icmp eq i8 %771, -128
   br i1 %772, label %773, label %.thread1496
 
 773:                                              ; preds = %769
-  %774 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061731, i64 17
+  %774 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061728, i64 17
   %775 = load i8, ptr %774, align 1, !alias.scope !232, !noalias !235, !noundef !7
   %.mask1.i144 = and i8 %775, -2
   %776 = icmp eq i8 %.mask1.i144, -88
@@ -2233,13 +2233,13 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds 
   %.neg1535 = shufflevector <16 x i8> %.neg, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16>
   %.neg1536 = select <16 x i1> %715, <16 x i8> %.neg1535, <16 x i8> zeroinitializer
   %785 = add <16 x i8> %780, %.neg1536
-  %.not1537 = icmp ne i64 %.sroa.9.1.i1730, 16
+  %.not1537 = icmp ne i64 %.sroa.9.1.i1727, 16
   %786 = icmp eq i8 %721, 13
-  %or.cond2082 = select i1 %.not1537, i1 %786, i1 false
-  br i1 %or.cond2082, label %787, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit146
+  %or.cond2079 = select i1 %.not1537, i1 %786, i1 false
+  br i1 %or.cond2079, label %787, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit146
 
 787:                                              ; preds = %783
-  %788 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061731, i64 16
+  %788 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061728, i64 16
   %789 = load i8, ptr %788, align 1, !alias.scope !232, !noalias !235, !noundef !7
   %790 = icmp eq i8 %789, 10
   br i1 %790, label %791, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit146
@@ -2253,7 +2253,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit142: ; preds 
 _ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit146: ; preds = %783, %787, %791, %.thread1496
   %.sroa.0629.5.in = phi <16 x i8> [ %780, %.thread1496 ], [ %.sroa.0.15.vec.insert.i, %791 ], [ %785, %787 ], [ %785, %783 ]
   %793 = add <16 x i8> %.sroa.0629.5.in, %701
-  %794 = add i64 %.sroa.020.0.i1728, 1
+  %794 = add i64 %.sroa.020.0.i1725, 1
   %795 = icmp eq i64 %794, 255
   br i1 %795, label %796, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371"
 
@@ -2261,53 +2261,53 @@ _ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit1
   %797 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %793, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i190 = extractelement <2 x i64> %797, i64 0
   %.sroa.0.8.vec.extract.i191 = extractelement <2 x i64> %797, i64 1
-  %798 = add i64 %.sroa.0.8.vec.extract.i191, %.sroa.015.1.i1729
+  %798 = add i64 %.sroa.0.8.vec.extract.i191, %.sroa.015.1.i1726
   %799 = add i64 %798, %.sroa.0.0.vec.extract.i190
   br label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371": ; preds = %796, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit146
   %800 = phi <16 x i8> [ zeroinitializer, %796 ], [ %793, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit146 ]
   %.sroa.020.1.i = phi i64 [ 0, %796 ], [ %794, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit146 ]
-  %.sroa.015.2.i = phi i64 [ %799, %796 ], [ %.sroa.015.1.i1729, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit146 ]
-  %801 = add i64 %.sroa.9.1.i1730, -16
-  %802 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061731, i64 16
+  %.sroa.015.2.i = phi i64 [ %799, %796 ], [ %.sroa.015.1.i1726, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit146 ]
+  %801 = add i64 %.sroa.9.1.i1727, -16
+  %802 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1061728, i64 16
   %803 = icmp ugt i64 %801, 15
-  br i1 %803, label %.lr.ph1733, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit
+  br i1 %803, label %.lr.ph1730, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit
 
 _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371", %657
-  %.lcssa1589 = phi <16 x i8> [ zeroinitializer, %657 ], [ %800, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ]
+  %.lcssa1586 = phi <16 x i8> [ zeroinitializer, %657 ], [ %800, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ]
   %.sroa.015.1.i.lcssa = phi i64 [ %.sroa.015.0.i, %657 ], [ %.sroa.015.2.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ]
   %.sroa.9.1.i.lcssa = phi i64 [ %.sroa.9.0.i, %657 ], [ %801, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ]
   %.sroa.0.1.i106.lcssa = phi ptr [ %.sroa.0.0.i105, %657 ], [ %802, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit371" ]
-  %804 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1589, <16 x i8> zeroinitializer) #17
+  %804 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1586, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i192 = extractelement <2 x i64> %804, i64 0
   %.sroa.0.8.vec.extract.i193 = extractelement <2 x i64> %804, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  %.not1838 = icmp eq i64 %.sroa.9.1.i.lcssa, 0
-  br i1 %.not1838, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134, label %.lr.ph1741
+  %.not1835 = icmp eq i64 %.sroa.9.1.i.lcssa, 0
+  br i1 %.not1835, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134, label %.lr.ph1738
 
-.lr.ph1741:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit, %.thread1498
-  %.sroa.08.0.i1281740 = phi i64 [ %836, %.thread1498 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
-  %.sroa.02.0.i1271739 = phi i64 [ %.sroa.02.1.i130, %.thread1498 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
-  %805 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i106.lcssa, i64 0, i64 %.sroa.08.0.i1281740
+.lr.ph1738:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit, %.thread1498
+  %.sroa.08.0.i1281737 = phi i64 [ %836, %.thread1498 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
+  %.sroa.02.0.i1271736 = phi i64 [ %.sroa.02.1.i130, %.thread1498 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
+  %805 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i106.lcssa, i64 0, i64 %.sroa.08.0.i1281737
   %806 = load i8, ptr %805, align 1, !alias.scope !237, !noundef !7
   %807 = add i8 %806, -10
   %spec.select.i372 = icmp ult i8 %807, 4
   br i1 %spec.select.i372, label %809, label %808
 
-808:                                              ; preds = %.lr.ph1741
+808:                                              ; preds = %.lr.ph1738
   switch i8 %806, label %.thread1498 [
     i8 -62, label %812
     i8 -30, label %820
   ]
 
-809:                                              ; preds = %.lr.ph1741
-  %810 = add nuw i64 %.sroa.02.0.i1271739, 1
+809:                                              ; preds = %.lr.ph1738
+  %810 = add nuw i64 %.sroa.02.0.i1271736, 1
   %811 = icmp eq i8 %806, 13
   br i1 %811, label %839, label %.thread1498
 
 812:                                              ; preds = %808
-  %813 = add nuw i64 %.sroa.08.0.i1281740, 1
+  %813 = add nuw i64 %.sroa.08.0.i1281737, 1
   %814 = icmp ult i64 %813, %.sroa.9.1.i.lcssa
   br i1 %814, label %815, label %.thread1498
 
@@ -2316,16 +2316,16 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   %817 = load i8, ptr %816, align 1, !alias.scope !237, !noundef !7
   %818 = icmp eq i8 %817, -123
   %819 = zext i1 %818 to i64
-  %spec.select1531 = add nuw i64 %.sroa.02.0.i1271739, %819
+  %spec.select1531 = add nuw i64 %.sroa.02.0.i1271736, %819
   br label %.thread1498
 
 820:                                              ; preds = %808
-  %821 = add i64 %.sroa.08.0.i1281740, 2
+  %821 = add i64 %.sroa.08.0.i1281737, 2
   %822 = icmp ult i64 %821, %.sroa.9.1.i.lcssa
   br i1 %822, label %823, label %.thread1498
 
 823:                                              ; preds = %820
-  %824 = add nuw i64 %.sroa.08.0.i1281740, 1
+  %824 = add nuw i64 %.sroa.08.0.i1281737, 1
   %825 = icmp ult i64 %824, %.sroa.9.1.i.lcssa
   br i1 %825, label %826, label %830, !prof !25
 
@@ -2345,19 +2345,19 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   %.mask.i131 = and i8 %833, -2
   %834 = icmp eq i8 %.mask.i131, -88
   %835 = zext i1 %834 to i64
-  %spec.select.i132 = add nuw i64 %.sroa.02.0.i1271739, %835
+  %spec.select.i132 = add nuw i64 %.sroa.02.0.i1271736, %835
   br label %.thread1498
 
 .thread1498:                                      ; preds = %815, %808, %812, %842, %839, %831, %826, %820, %809
-  %.sroa.02.1.i130 = phi i64 [ %810, %839 ], [ %810, %809 ], [ %.sroa.02.0.i1271739, %826 ], [ %.sroa.02.0.i1271739, %820 ], [ %spec.select.i132, %831 ], [ %spec.select25.i133, %842 ], [ %.sroa.02.0.i1271739, %812 ], [ %.sroa.02.0.i1271739, %808 ], [ %spec.select1531, %815 ]
-  %836 = add nuw i64 %.sroa.08.0.i1281740, 1
+  %.sroa.02.1.i130 = phi i64 [ %810, %839 ], [ %810, %809 ], [ %.sroa.02.0.i1271736, %826 ], [ %.sroa.02.0.i1271736, %820 ], [ %spec.select.i132, %831 ], [ %spec.select25.i133, %842 ], [ %.sroa.02.0.i1271736, %812 ], [ %.sroa.02.0.i1271736, %808 ], [ %spec.select1531, %815 ]
+  %836 = add nuw i64 %.sroa.08.0.i1281737, 1
   %837 = icmp ult i64 %836, %.sroa.9.1.i.lcssa
   %838 = icmp ult i64 %.sroa.02.1.i130, %.sroa.9.1.i.lcssa
   %or.cond.i129 = select i1 %837, i1 %838, i1 false
-  br i1 %or.cond.i129, label %.lr.ph1741, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134
+  br i1 %or.cond.i129, label %.lr.ph1738, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134
 
 839:                                              ; preds = %809
-  %840 = add nuw i64 %.sroa.08.0.i1281740, 1
+  %840 = add nuw i64 %.sroa.08.0.i1281737, 1
   %841 = icmp ult i64 %840, %.sroa.9.1.i.lcssa
   br i1 %841, label %842, label %.thread1498
 
@@ -2365,7 +2365,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   %843 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i106.lcssa, i64 0, i64 %840
   %844 = load i8, ptr %843, align 1, !alias.scope !237, !noundef !7
   %845 = icmp eq i8 %844, 10
-  %spec.select25.i133 = select i1 %845, i64 %.sroa.02.0.i1271739, i64 %810
+  %spec.select25.i133 = select i1 %845, i64 %.sroa.02.0.i1271736, i64 %810
   br label %.thread1498
 
 _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134: ; preds = %.thread1498, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit
@@ -2381,9 +2381,9 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit134: ; preds 
   br label %341
 
 _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge: ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit, %.lr.ph._crit_edge
-  %.lcssa1602 = getelementptr inbounds nuw i8, ptr %448, i64 16
+  %.lcssa1599 = getelementptr inbounds nuw i8, ptr %448, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !240
-  call void @_ZN5ropey4tree4node4Node17get_chunk_at_char17h162e654e07e3527eE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %.lcssa1602, i64 noundef %.sroa.07.01643), !noalias !244
+  call void @_ZN5ropey4tree4node4Node17get_chunk_at_char17h162e654e07e3527eE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %.lcssa1599, i64 noundef %.sroa.07.01640), !noalias !244
   %849 = load ptr, ptr %16, align 8, !noalias !240, !nonnull !7, !align !127, !noundef !7
   %850 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %851 = load i64, ptr %850, align 8, !noalias !240, !noundef !7
@@ -2396,7 +2396,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_
   %858 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %859 = load i64, ptr %858, align 8, !noalias !240, !noundef !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16), !noalias !240
-  %860 = sub i64 %.sroa.07.01643, %855
+  %860 = sub i64 %.sroa.07.01640, %855
   %861 = icmp ult i64 %851, 17
   br i1 %861, label %872, label %862
 
@@ -2413,7 +2413,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15), !noalias !245
   %870 = getelementptr inbounds i8, ptr %863, i64 %865
   %871 = icmp eq i64 %865, 0
-  br i1 %871, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i", label %.lr.ph1747
+  br i1 %871, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i", label %.lr.ph1744
 
 872:                                              ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge
   %873 = getelementptr inbounds nuw i8, ptr %849, i64 %851
@@ -2426,30 +2426,30 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_
   %.sroa.0.0.sroa.speculated.i377 = tail call noundef i64 @llvm.umin.i64(i64 %869, i64 %875)
   %876 = and i64 %.sroa.0.0.sroa.speculated.i377, 1152921504606846972
   %877 = icmp eq i64 %876, 0
-  br i1 %877, label %._crit_edge1755, label %.lr.ph1754
+  br i1 %877, label %._crit_edge1752, label %.lr.ph1751
 
-.lr.ph1747:                                       ; preds = %862, %939
-  %.sroa.0.0.i.i1745 = phi i64 [ %941, %939 ], [ 0, %862 ]
-  %.sroa.014.0.i.i1744 = phi i64 [ %881, %939 ], [ 0, %862 ]
-  %.sroa.01175.01743 = phi ptr [ %940, %939 ], [ %863, %862 ]
-  %878 = load i8, ptr %.sroa.01175.01743, align 1, !noalias !244, !noundef !7
+.lr.ph1744:                                       ; preds = %862, %939
+  %.sroa.0.0.i.i1742 = phi i64 [ %941, %939 ], [ 0, %862 ]
+  %.sroa.014.0.i.i1741 = phi i64 [ %881, %939 ], [ 0, %862 ]
+  %.sroa.01175.01740 = phi ptr [ %940, %939 ], [ %863, %862 ]
+  %878 = load i8, ptr %.sroa.01175.01740, align 1, !noalias !244, !noundef !7
   %879 = icmp sgt i8 %878, -65
   %880 = zext i1 %879 to i64
-  %881 = add i64 %.sroa.014.0.i.i1744, %880
+  %881 = add i64 %.sroa.014.0.i.i1741, %880
   %882 = icmp ugt i64 %881, %860
   br i1 %882, label %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit, label %939
 
-._crit_edge1755:                                  ; preds = %.lr.ph1754, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i"
-  %.sroa.014.1.i.i.lcssa = phi i64 [ %.sroa.014.0.i.i.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ], [ %936, %.lr.ph1754 ]
-  %.sroa.0.1.i.i.lcssa = phi i64 [ %865, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ], [ %937, %.lr.ph1754 ]
+._crit_edge1752:                                  ; preds = %.lr.ph1751, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i"
+  %.sroa.014.1.i.i.lcssa = phi i64 [ %.sroa.014.0.i.i.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ], [ %936, %.lr.ph1751 ]
+  %.sroa.0.1.i.i.lcssa = phi i64 [ %865, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ], [ %937, %.lr.ph1751 ]
   %883 = icmp ugt i64 %876, %869
   br i1 %883, label %884, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit380"
 
-884:                                              ; preds = %._crit_edge1755
+884:                                              ; preds = %._crit_edge1752
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %876, i64 noundef %869, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.14) #16, !noalias !248
   unreachable
 
-"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit380": ; preds = %._crit_edge1755
+"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit380": ; preds = %._crit_edge1752
   %885 = getelementptr inbounds <2 x i64>, ptr %867, i64 %869
   %886 = icmp eq i64 %876, %869
   br i1 %886, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.preheader"
@@ -2459,24 +2459,24 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.preheader", %900
-  %.sroa.0.2.i.i1760 = phi i64 [ %902, %900 ], [ %.sroa.0.1.i.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.preheader" ]
-  %.sroa.014.2.i.i1759 = phi i64 [ %894, %900 ], [ %.sroa.014.1.i.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.preheader" ]
-  %.sroa.01197.01758 = phi ptr [ %901, %900 ], [ %887, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.preheader" ]
-  %888 = load <16 x i8>, ptr %.sroa.01197.01758, align 16, !noalias !244
+  %.sroa.0.2.i.i1757 = phi i64 [ %902, %900 ], [ %.sroa.0.1.i.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.preheader" ]
+  %.sroa.014.2.i.i1756 = phi i64 [ %894, %900 ], [ %.sroa.014.1.i.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.preheader" ]
+  %.sroa.01197.01755 = phi ptr [ %901, %900 ], [ %887, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.preheader" ]
+  %888 = load <16 x i8>, ptr %.sroa.01197.01755, align 16, !noalias !244
   %889 = icmp slt <16 x i8> %888, splat (i8 -64)
   %890 = zext <16 x i1> %889 to <16 x i8>
   %891 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %890, <16 x i8> zeroinitializer) #17
-  %.neg1549 = add i64 %.sroa.014.2.i.i1759, 16
-  %shift2182 = shufflevector <2 x i64> %891, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %892 = add <2 x i64> %shift2182, %891
+  %.neg1549 = add i64 %.sroa.014.2.i.i1756, 16
+  %shift2179 = shufflevector <2 x i64> %891, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %892 = add <2 x i64> %shift2179, %891
   %893 = extractelement <2 x i64> %892, i64 0
   %894 = sub i64 %.neg1549, %893
   %.not52.i.i = icmp ult i64 %894, %860
   br i1 %.not52.i.i, label %900, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382", %900, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit380"
-  %.sroa.014.2.i.i.lcssa = phi i64 [ %.sroa.014.1.i.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit380" ], [ %894, %900 ], [ %.sroa.014.2.i.i1759, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382" ]
-  %.sroa.0.2.i.i.lcssa = phi i64 [ %.sroa.0.1.i.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit380" ], [ %902, %900 ], [ %.sroa.0.2.i.i1760, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382" ]
+  %.sroa.014.2.i.i.lcssa = phi i64 [ %.sroa.014.1.i.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit380" ], [ %894, %900 ], [ %.sroa.014.2.i.i1756, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382" ]
+  %.sroa.0.2.i.i.lcssa = phi i64 [ %.sroa.0.1.i.i.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit380" ], [ %902, %900 ], [ %.sroa.0.2.i.i1757, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382" ]
   %895 = icmp ugt i64 %.sroa.0.2.i.i.lcssa, %851
   br i1 %895, label %896, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit383"
 
@@ -2494,47 +2494,47 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385"
 
 900:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382"
-  %901 = getelementptr inbounds nuw i8, ptr %.sroa.01197.01758, i64 16
-  %902 = add i64 %.sroa.0.2.i.i1760, 16
+  %901 = getelementptr inbounds nuw i8, ptr %.sroa.01197.01755, i64 16
+  %902 = add i64 %.sroa.0.2.i.i1757, 16
   %903 = icmp eq ptr %901, %885
   br i1 %903, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit382"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385.preheader", %909
-  %.sroa.0.3.i.i1767 = phi i64 [ %911, %909 ], [ %.sroa.0.2.i.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385.preheader" ]
-  %.sroa.014.3.i.i1766 = phi i64 [ %907, %909 ], [ %.sroa.014.2.i.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385.preheader" ]
-  %.sroa.01201.01765 = phi ptr [ %910, %909 ], [ %899, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385.preheader" ]
-  %904 = load i8, ptr %.sroa.01201.01765, align 1, !noalias !244, !noundef !7
+  %.sroa.0.3.i.i1764 = phi i64 [ %911, %909 ], [ %.sroa.0.2.i.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385.preheader" ]
+  %.sroa.014.3.i.i1763 = phi i64 [ %907, %909 ], [ %.sroa.014.2.i.i.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385.preheader" ]
+  %.sroa.01201.01762 = phi ptr [ %910, %909 ], [ %899, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385.preheader" ]
+  %904 = load i8, ptr %.sroa.01201.01762, align 1, !noalias !244, !noundef !7
   %905 = icmp sgt i8 %904, -65
   %906 = zext i1 %905 to i64
-  %907 = add i64 %.sroa.014.3.i.i1766, %906
+  %907 = add i64 %.sroa.014.3.i.i1763, %906
   %908 = icmp ugt i64 %907, %860
   br i1 %908, label %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit, label %909
 
 909:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385"
-  %910 = getelementptr inbounds nuw i8, ptr %.sroa.01201.01765, i64 1
-  %911 = add i64 %.sroa.0.3.i.i1767, 1
+  %910 = getelementptr inbounds nuw i8, ptr %.sroa.01201.01762, i64 1
+  %911 = add i64 %.sroa.0.3.i.i1764, 1
   %912 = icmp eq ptr %910, %897
   br i1 %912, label %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385"
 
-.lr.ph1754:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i", %.lr.ph1754
-  %.sroa.0.1.i.i1753 = phi i64 [ %937, %.lr.ph1754 ], [ %865, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ]
-  %.sroa.014.1.i.i1752 = phi i64 [ %936, %.lr.ph1754 ], [ %.sroa.014.0.i.i.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ]
-  %.sroa.51183.01751 = phi i64 [ %914, %.lr.ph1754 ], [ %876, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ]
-  %.sroa.01182.01750 = phi ptr [ %913, %.lr.ph1754 ], [ %867, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ]
-  %913 = getelementptr inbounds nuw i8, ptr %.sroa.01182.01750, i64 64
-  %914 = add i64 %.sroa.51183.01751, -4
-  %915 = load <16 x i8>, ptr %.sroa.01182.01750, align 16
+.lr.ph1751:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i", %.lr.ph1751
+  %.sroa.0.1.i.i1750 = phi i64 [ %937, %.lr.ph1751 ], [ %865, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ]
+  %.sroa.014.1.i.i1749 = phi i64 [ %936, %.lr.ph1751 ], [ %.sroa.014.0.i.i.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ]
+  %.sroa.51183.01748 = phi i64 [ %914, %.lr.ph1751 ], [ %876, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ]
+  %.sroa.01182.01747 = phi ptr [ %913, %.lr.ph1751 ], [ %867, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i" ]
+  %913 = getelementptr inbounds nuw i8, ptr %.sroa.01182.01747, i64 64
+  %914 = add i64 %.sroa.51183.01748, -4
+  %915 = load <16 x i8>, ptr %.sroa.01182.01747, align 16
   %916 = icmp slt <16 x i8> %915, splat (i8 -64)
   %917 = zext <16 x i1> %916 to <16 x i8>
-  %918 = getelementptr inbounds nuw i8, ptr %.sroa.01182.01750, i64 16
+  %918 = getelementptr inbounds nuw i8, ptr %.sroa.01182.01747, i64 16
   %919 = load <16 x i8>, ptr %918, align 16
   %920 = icmp slt <16 x i8> %919, splat (i8 -64)
   %921 = zext <16 x i1> %920 to <16 x i8>
-  %922 = getelementptr inbounds nuw i8, ptr %.sroa.01182.01750, i64 32
+  %922 = getelementptr inbounds nuw i8, ptr %.sroa.01182.01747, i64 32
   %923 = load <16 x i8>, ptr %922, align 16
   %924 = icmp slt <16 x i8> %923, splat (i8 -64)
   %925 = zext <16 x i1> %924 to <16 x i8>
-  %926 = getelementptr inbounds nuw i8, ptr %.sroa.01182.01750, i64 48
+  %926 = getelementptr inbounds nuw i8, ptr %.sroa.01182.01747, i64 48
   %927 = load <16 x i8>, ptr %926, align 16
   %928 = icmp slt <16 x i8> %927, splat (i8 -64)
   %929 = zext <16 x i1> %928 to <16 x i8>
@@ -2542,20 +2542,20 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_
   %931 = add nuw nsw <16 x i8> %930, %925
   %932 = add nuw nsw <16 x i8> %931, %929
   %933 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %932, <16 x i8> zeroinitializer) #17
-  %.neg1548 = add i64 %.sroa.014.1.i.i1752, 64
-  %shift2183 = shufflevector <2 x i64> %933, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %934 = add <2 x i64> %shift2183, %933
+  %.neg1548 = add i64 %.sroa.014.1.i.i1749, 64
+  %shift2180 = shufflevector <2 x i64> %933, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %934 = add <2 x i64> %shift2180, %933
   %935 = extractelement <2 x i64> %934, i64 0
   %936 = sub i64 %.neg1548, %935
-  %937 = add i64 %.sroa.0.1.i.i1753, 64
+  %937 = add i64 %.sroa.0.1.i.i1750, 64
   %938 = icmp eq i64 %914, 0
-  br i1 %938, label %._crit_edge1755, label %.lr.ph1754
+  br i1 %938, label %._crit_edge1752, label %.lr.ph1751
 
-939:                                              ; preds = %.lr.ph1747
-  %940 = getelementptr inbounds nuw i8, ptr %.sroa.01175.01743, i64 1
-  %941 = add nuw i64 %.sroa.0.0.i.i1745, 1
+939:                                              ; preds = %.lr.ph1744
+  %940 = getelementptr inbounds nuw i8, ptr %.sroa.01175.01740, i64 1
+  %941 = add nuw i64 %.sroa.0.0.i.i1742, 1
   %942 = icmp eq ptr %940, %870
-  br i1 %942, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i", label %.lr.ph1747
+  br i1 %942, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i", label %.lr.ph1744
 
 943:                                              ; preds = %945, %872
   %.sroa.01172.0 = phi ptr [ %849, %872 ], [ %946, %945 ]
@@ -2574,17 +2574,17 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_
   %952 = icmp ugt i64 %951, %860
   br i1 %952, label %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit, label %943
 
-_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = %.lr.ph1747, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385", %909, %945, %943, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit383"
-  %.sroa.0.4.i.i = phi i64 [ %851, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit383" ], [ %.sroa.81174.0, %945 ], [ %851, %943 ], [ %.sroa.0.3.i.i1767, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385" ], [ %851, %909 ], [ %.sroa.0.0.i.i1745, %.lr.ph1747 ]
+_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = %.lr.ph1744, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385", %909, %945, %943, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit383"
+  %.sroa.0.4.i.i = phi i64 [ %851, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit383" ], [ %.sroa.81174.0, %945 ], [ %851, %943 ], [ %.sroa.0.3.i.i1764, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit385" ], [ %851, %909 ], [ %.sroa.0.0.i.i1742, %.lr.ph1744 ]
   %953 = add i64 %.sroa.0.4.i.i, %853
   %954 = tail call noundef i64 @_ZN5ropey9str_utils27byte_to_utf16_surrogate_idx17h1e1aeb5c062eea33E(ptr noalias noundef nonnull readonly align 1 %849, i64 noundef %851, i64 noundef %.sroa.0.4.i.i), !noalias !244
   %955 = add i64 %954, %857
   %956 = tail call fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c57f288b09ce49E(ptr noalias noundef nonnull readonly align 1 %849, i64 noundef %851, i64 noundef %.sroa.0.4.i.i), !noalias !244
   %957 = add i64 %956, %859
-  %958 = load ptr, ptr %.sroa.0.01644, align 8, !nonnull !7, !noundef !7
+  %958 = load ptr, ptr %.sroa.0.01641, align 8, !nonnull !7, !noundef !7
   %959 = getelementptr inbounds nuw i8, ptr %958, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !254
-  call void @_ZN5ropey4tree4node4Node17get_chunk_at_char17h162e654e07e3527eE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %959, i64 noundef %.sroa.016.01642), !noalias !258
+  call void @_ZN5ropey4tree4node4Node17get_chunk_at_char17h162e654e07e3527eE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %959, i64 noundef %.sroa.016.01639), !noalias !258
   %960 = load ptr, ptr %14, align 8, !noalias !254, !nonnull !7, !align !127, !noundef !7
   %961 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %962 = load i64, ptr %961, align 8, !noalias !254, !noundef !7
@@ -2597,7 +2597,7 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = 
   %969 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %970 = load i64, ptr %969, align 8, !noalias !254, !noundef !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !254
-  %971 = sub i64 %.sroa.016.01642, %966
+  %971 = sub i64 %.sroa.016.01639, %966
   %972 = icmp ult i64 %962, 17
   br i1 %972, label %983, label %973
 
@@ -2614,7 +2614,7 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !259
   %981 = getelementptr inbounds i8, ptr %974, i64 %976
   %982 = icmp eq i64 %976, 0
-  br i1 %982, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205", label %.lr.ph1774
+  br i1 %982, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205", label %.lr.ph1771
 
 983:                                              ; preds = %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit
   %984 = getelementptr inbounds nuw i8, ptr %960, i64 %962
@@ -2627,30 +2627,30 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = 
   %.sroa.0.0.sroa.speculated.i391 = tail call noundef i64 @llvm.umin.i64(i64 %980, i64 %986)
   %987 = and i64 %.sroa.0.0.sroa.speculated.i391, 1152921504606846972
   %988 = icmp eq i64 %987, 0
-  br i1 %988, label %._crit_edge1782, label %.lr.ph1781
+  br i1 %988, label %._crit_edge1779, label %.lr.ph1778
 
-.lr.ph1774:                                       ; preds = %973, %1050
-  %.sroa.0.0.i.i2031772 = phi i64 [ %1052, %1050 ], [ 0, %973 ]
-  %.sroa.014.0.i.i2021771 = phi i64 [ %992, %1050 ], [ 0, %973 ]
-  %.sroa.01307.01770 = phi ptr [ %1051, %1050 ], [ %974, %973 ]
-  %989 = load i8, ptr %.sroa.01307.01770, align 1, !noalias !258, !noundef !7
+.lr.ph1771:                                       ; preds = %973, %1050
+  %.sroa.0.0.i.i2031769 = phi i64 [ %1052, %1050 ], [ 0, %973 ]
+  %.sroa.014.0.i.i2021768 = phi i64 [ %992, %1050 ], [ 0, %973 ]
+  %.sroa.01307.01767 = phi ptr [ %1051, %1050 ], [ %974, %973 ]
+  %989 = load i8, ptr %.sroa.01307.01767, align 1, !noalias !258, !noundef !7
   %990 = icmp sgt i8 %989, -65
   %991 = zext i1 %990 to i64
-  %992 = add i64 %.sroa.014.0.i.i2021771, %991
+  %992 = add i64 %.sroa.014.0.i.i2021768, %991
   %993 = icmp ugt i64 %992, %971
   br i1 %993, label %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224, label %1050
 
-._crit_edge1782:                                  ; preds = %.lr.ph1781, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205"
-  %.sroa.014.1.i.i206.lcssa = phi i64 [ %.sroa.014.0.i.i202.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ], [ %1047, %.lr.ph1781 ]
-  %.sroa.0.1.i.i207.lcssa = phi i64 [ %976, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ], [ %1048, %.lr.ph1781 ]
+._crit_edge1779:                                  ; preds = %.lr.ph1778, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205"
+  %.sroa.014.1.i.i206.lcssa = phi i64 [ %.sroa.014.0.i.i202.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ], [ %1047, %.lr.ph1778 ]
+  %.sroa.0.1.i.i207.lcssa = phi i64 [ %976, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ], [ %1048, %.lr.ph1778 ]
   %994 = icmp ugt i64 %987, %980
   br i1 %994, label %995, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit394"
 
-995:                                              ; preds = %._crit_edge1782
+995:                                              ; preds = %._crit_edge1779
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %987, i64 noundef %980, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.14) #16, !noalias !262
   unreachable
 
-"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit394": ; preds = %._crit_edge1782
+"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit394": ; preds = %._crit_edge1779
   %996 = getelementptr inbounds <2 x i64>, ptr %978, i64 %980
   %997 = icmp eq i64 %987, %980
   br i1 %997, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.preheader"
@@ -2660,24 +2660,24 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = 
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.preheader", %1011
-  %.sroa.0.2.i.i2151787 = phi i64 [ %1013, %1011 ], [ %.sroa.0.1.i.i207.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.preheader" ]
-  %.sroa.014.2.i.i2141786 = phi i64 [ %1005, %1011 ], [ %.sroa.014.1.i.i206.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.preheader" ]
-  %.sroa.01329.01785 = phi ptr [ %1012, %1011 ], [ %998, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.preheader" ]
-  %999 = load <16 x i8>, ptr %.sroa.01329.01785, align 16, !noalias !258
+  %.sroa.0.2.i.i2151784 = phi i64 [ %1013, %1011 ], [ %.sroa.0.1.i.i207.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.preheader" ]
+  %.sroa.014.2.i.i2141783 = phi i64 [ %1005, %1011 ], [ %.sroa.014.1.i.i206.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.preheader" ]
+  %.sroa.01329.01782 = phi ptr [ %1012, %1011 ], [ %998, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.preheader" ]
+  %999 = load <16 x i8>, ptr %.sroa.01329.01782, align 16, !noalias !258
   %1000 = icmp slt <16 x i8> %999, splat (i8 -64)
   %1001 = zext <16 x i1> %1000 to <16 x i8>
   %1002 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %1001, <16 x i8> zeroinitializer) #17
-  %.neg1551 = add i64 %.sroa.014.2.i.i2141786, 16
-  %shift2184 = shufflevector <2 x i64> %1002, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %1003 = add <2 x i64> %shift2184, %1002
+  %.neg1551 = add i64 %.sroa.014.2.i.i2141783, 16
+  %shift2181 = shufflevector <2 x i64> %1002, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %1003 = add <2 x i64> %shift2181, %1002
   %1004 = extractelement <2 x i64> %1003, i64 0
   %1005 = sub i64 %.neg1551, %1004
   %.not52.i.i218 = icmp ult i64 %1005, %971
   br i1 %.not52.i.i218, label %1011, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396", %1011, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit394"
-  %.sroa.014.2.i.i214.lcssa = phi i64 [ %.sroa.014.1.i.i206.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit394" ], [ %1005, %1011 ], [ %.sroa.014.2.i.i2141786, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396" ]
-  %.sroa.0.2.i.i215.lcssa = phi i64 [ %.sroa.0.1.i.i207.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit394" ], [ %1013, %1011 ], [ %.sroa.0.2.i.i2151787, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396" ]
+  %.sroa.014.2.i.i214.lcssa = phi i64 [ %.sroa.014.1.i.i206.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit394" ], [ %1005, %1011 ], [ %.sroa.014.2.i.i2141783, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396" ]
+  %.sroa.0.2.i.i215.lcssa = phi i64 [ %.sroa.0.1.i.i207.lcssa, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9b6039cf1db2c425E.exit394" ], [ %1013, %1011 ], [ %.sroa.0.2.i.i2151784, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396" ]
   %1006 = icmp ugt i64 %.sroa.0.2.i.i215.lcssa, %962
   br i1 %1006, label %1007, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit397"
 
@@ -2695,47 +2695,47 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = 
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399"
 
 1011:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396"
-  %1012 = getelementptr inbounds nuw i8, ptr %.sroa.01329.01785, i64 16
-  %1013 = add i64 %.sroa.0.2.i.i2151787, 16
+  %1012 = getelementptr inbounds nuw i8, ptr %.sroa.01329.01782, i64 16
+  %1013 = add i64 %.sroa.0.2.i.i2151784, 16
   %1014 = icmp eq ptr %1012, %996
   br i1 %1014, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit396"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399.preheader", %1020
-  %.sroa.0.3.i.i2201794 = phi i64 [ %1022, %1020 ], [ %.sroa.0.2.i.i215.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399.preheader" ]
-  %.sroa.014.3.i.i2191793 = phi i64 [ %1018, %1020 ], [ %.sroa.014.2.i.i214.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399.preheader" ]
-  %.sroa.01333.01792 = phi ptr [ %1021, %1020 ], [ %1010, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399.preheader" ]
-  %1015 = load i8, ptr %.sroa.01333.01792, align 1, !noalias !258, !noundef !7
+  %.sroa.0.3.i.i2201791 = phi i64 [ %1022, %1020 ], [ %.sroa.0.2.i.i215.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399.preheader" ]
+  %.sroa.014.3.i.i2191790 = phi i64 [ %1018, %1020 ], [ %.sroa.014.2.i.i214.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399.preheader" ]
+  %.sroa.01333.01789 = phi ptr [ %1021, %1020 ], [ %1010, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399.preheader" ]
+  %1015 = load i8, ptr %.sroa.01333.01789, align 1, !noalias !258, !noundef !7
   %1016 = icmp sgt i8 %1015, -65
   %1017 = zext i1 %1016 to i64
-  %1018 = add i64 %.sroa.014.3.i.i2191793, %1017
+  %1018 = add i64 %.sroa.014.3.i.i2191790, %1017
   %1019 = icmp ugt i64 %1018, %971
   br i1 %1019, label %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224, label %1020
 
 1020:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399"
-  %1021 = getelementptr inbounds nuw i8, ptr %.sroa.01333.01792, i64 1
-  %1022 = add i64 %.sroa.0.3.i.i2201794, 1
+  %1021 = getelementptr inbounds nuw i8, ptr %.sroa.01333.01789, i64 1
+  %1022 = add i64 %.sroa.0.3.i.i2201791, 1
   %1023 = icmp eq ptr %1021, %1008
   br i1 %1023, label %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399"
 
-.lr.ph1781:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205", %.lr.ph1781
-  %.sroa.0.1.i.i2071780 = phi i64 [ %1048, %.lr.ph1781 ], [ %976, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ]
-  %.sroa.014.1.i.i2061779 = phi i64 [ %1047, %.lr.ph1781 ], [ %.sroa.014.0.i.i202.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ]
-  %.sroa.51315.01778 = phi i64 [ %1025, %.lr.ph1781 ], [ %987, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ]
-  %.sroa.01314.01777 = phi ptr [ %1024, %.lr.ph1781 ], [ %978, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ]
-  %1024 = getelementptr inbounds nuw i8, ptr %.sroa.01314.01777, i64 64
-  %1025 = add i64 %.sroa.51315.01778, -4
-  %1026 = load <16 x i8>, ptr %.sroa.01314.01777, align 16
+.lr.ph1778:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205", %.lr.ph1778
+  %.sroa.0.1.i.i2071777 = phi i64 [ %1048, %.lr.ph1778 ], [ %976, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ]
+  %.sroa.014.1.i.i2061776 = phi i64 [ %1047, %.lr.ph1778 ], [ %.sroa.014.0.i.i202.lcssa, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ]
+  %.sroa.51315.01775 = phi i64 [ %1025, %.lr.ph1778 ], [ %987, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ]
+  %.sroa.01314.01774 = phi ptr [ %1024, %.lr.ph1778 ], [ %978, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205" ]
+  %1024 = getelementptr inbounds nuw i8, ptr %.sroa.01314.01774, i64 64
+  %1025 = add i64 %.sroa.51315.01775, -4
+  %1026 = load <16 x i8>, ptr %.sroa.01314.01774, align 16
   %1027 = icmp slt <16 x i8> %1026, splat (i8 -64)
   %1028 = zext <16 x i1> %1027 to <16 x i8>
-  %1029 = getelementptr inbounds nuw i8, ptr %.sroa.01314.01777, i64 16
+  %1029 = getelementptr inbounds nuw i8, ptr %.sroa.01314.01774, i64 16
   %1030 = load <16 x i8>, ptr %1029, align 16
   %1031 = icmp slt <16 x i8> %1030, splat (i8 -64)
   %1032 = zext <16 x i1> %1031 to <16 x i8>
-  %1033 = getelementptr inbounds nuw i8, ptr %.sroa.01314.01777, i64 32
+  %1033 = getelementptr inbounds nuw i8, ptr %.sroa.01314.01774, i64 32
   %1034 = load <16 x i8>, ptr %1033, align 16
   %1035 = icmp slt <16 x i8> %1034, splat (i8 -64)
   %1036 = zext <16 x i1> %1035 to <16 x i8>
-  %1037 = getelementptr inbounds nuw i8, ptr %.sroa.01314.01777, i64 48
+  %1037 = getelementptr inbounds nuw i8, ptr %.sroa.01314.01774, i64 48
   %1038 = load <16 x i8>, ptr %1037, align 16
   %1039 = icmp slt <16 x i8> %1038, splat (i8 -64)
   %1040 = zext <16 x i1> %1039 to <16 x i8>
@@ -2743,20 +2743,20 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = 
   %1042 = add nuw nsw <16 x i8> %1041, %1036
   %1043 = add nuw nsw <16 x i8> %1042, %1040
   %1044 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %1043, <16 x i8> zeroinitializer) #17
-  %.neg1550 = add i64 %.sroa.014.1.i.i2061779, 64
-  %shift2185 = shufflevector <2 x i64> %1044, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
-  %1045 = add <2 x i64> %shift2185, %1044
+  %.neg1550 = add i64 %.sroa.014.1.i.i2061776, 64
+  %shift2182 = shufflevector <2 x i64> %1044, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
+  %1045 = add <2 x i64> %shift2182, %1044
   %1046 = extractelement <2 x i64> %1045, i64 0
   %1047 = sub i64 %.neg1550, %1046
-  %1048 = add i64 %.sroa.0.1.i.i2071780, 64
+  %1048 = add i64 %.sroa.0.1.i.i2071777, 64
   %1049 = icmp eq i64 %1025, 0
-  br i1 %1049, label %._crit_edge1782, label %.lr.ph1781
+  br i1 %1049, label %._crit_edge1779, label %.lr.ph1778
 
-1050:                                             ; preds = %.lr.ph1774
-  %1051 = getelementptr inbounds nuw i8, ptr %.sroa.01307.01770, i64 1
-  %1052 = add nuw i64 %.sroa.0.0.i.i2031772, 1
+1050:                                             ; preds = %.lr.ph1771
+  %1051 = getelementptr inbounds nuw i8, ptr %.sroa.01307.01767, i64 1
+  %1052 = add nuw i64 %.sroa.0.0.i.i2031769, 1
   %1053 = icmp eq ptr %1051, %981
-  br i1 %1053, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205", label %.lr.ph1774
+  br i1 %1053, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i.i205", label %.lr.ph1771
 
 1054:                                             ; preds = %1056, %983
   %.sroa.01304.0 = phi ptr [ %960, %983 ], [ %1057, %1056 ]
@@ -2775,23 +2775,23 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit: ; preds = 
   %1063 = icmp ugt i64 %1062, %971
   br i1 %1063, label %_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224, label %1054
 
-_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224: ; preds = %.lr.ph1774, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399", %1020, %1056, %1054, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit397"
-  %.sroa.0.4.i.i204 = phi i64 [ %962, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit397" ], [ %.sroa.81306.0, %1056 ], [ %962, %1054 ], [ %.sroa.0.3.i.i2201794, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399" ], [ %962, %1020 ], [ %.sroa.0.0.i.i2031772, %.lr.ph1774 ]
+_ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224: ; preds = %.lr.ph1771, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399", %1020, %1056, %1054, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit397"
+  %.sroa.0.4.i.i204 = phi i64 [ %962, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit397" ], [ %.sroa.81306.0, %1056 ], [ %962, %1054 ], [ %.sroa.0.3.i.i2201791, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44eb475367c7098dE.exit399" ], [ %962, %1020 ], [ %.sroa.0.0.i.i2031769, %.lr.ph1771 ]
   %1064 = add i64 %.sroa.0.4.i.i204, %964
   %1065 = tail call noundef i64 @_ZN5ropey9str_utils27byte_to_utf16_surrogate_idx17h1e1aeb5c062eea33E(ptr noalias noundef nonnull readonly align 1 %960, i64 noundef %962, i64 noundef %.sroa.0.4.i.i204), !noalias !258
   %1066 = add i64 %1065, %968
   %1067 = tail call fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c57f288b09ce49E(ptr noalias noundef nonnull readonly align 1 %960, i64 noundef %962, i64 noundef %.sroa.0.4.i.i204), !noalias !258
   %1068 = add i64 %1067, %970
-  %1069 = load ptr, ptr %.sroa.0.01644, align 8, !nonnull !7, !noundef !7
+  %1069 = load ptr, ptr %.sroa.0.01641, align 8, !nonnull !7, !noundef !7
   %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 16
-  %1071 = tail call noundef zeroext i1 @_ZN5ropey4tree4node4Node13is_crlf_split17h3003c53324eb8c39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %1070, i64 noundef %.sroa.016.01642)
+  %1071 = tail call noundef zeroext i1 @_ZN5ropey4tree4node4Node13is_crlf_split17h3003c53324eb8c39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %1070, i64 noundef %.sroa.016.01639)
   %1072 = zext i1 %1071 to i64
   %spec.select1532 = add i64 %1068, %1072
-  store ptr %.sroa.0.01644, ptr %0, align 8
+  store ptr %.sroa.0.01641, ptr %0, align 8
   %.sroa.464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %953, ptr %.sroa.464.0..sroa_idx, align 8
   %.sroa.464.sroa.4.0..sroa.464.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.07.01643, ptr %.sroa.464.sroa.4.0..sroa.464.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.07.01640, ptr %.sroa.464.sroa.4.0..sroa.464.0..sroa_idx.sroa_idx, align 8
   %.sroa.464.sroa.5.0..sroa.464.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %955, ptr %.sroa.464.sroa.5.0..sroa.464.0..sroa_idx.sroa_idx, align 8
   %.sroa.464.sroa.6.0..sroa.464.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2801,39 +2801,39 @@ _ZN5ropey4tree4node4Node17char_to_text_info17ha7237754ab237ee7E.exit224: ; preds
   br label %341
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph._crit_edge
-  %.sroa.058.01631 = phi i64 [ %.pre1956, %.lr.ph._crit_edge ], [ 0, %.lr.ph.preheader ]
-  %.sroa.0.014361630 = phi ptr [ %1074, %.lr.ph._crit_edge ], [ %.ptr, %.lr.ph.preheader ]
-  %.sroa.8.01629 = phi i64 [ %1073, %.lr.ph._crit_edge ], [ 0, %.lr.ph.preheader ]
-  %.not83 = icmp ult i64 %.sroa.07.01643, %.sroa.058.01631
-  %.phi.trans.insert1953 = getelementptr inbounds nuw i8, ptr %.sroa.0.014361630, i64 8
-  %.pre1954 = load i64, ptr %.phi.trans.insert1953, align 8
-  %.pre1956 = add i64 %.pre1954, %.sroa.058.01631
-  %.not84 = icmp ugt i64 %.sroa.016.01642, %.pre1956
-  %or.cond2083 = select i1 %.not83, i1 true, i1 %.not84
-  br i1 %or.cond2083, label %.lr.ph._crit_edge, label %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
+  %.sroa.058.01628 = phi i64 [ %.pre1953, %.lr.ph._crit_edge ], [ 0, %.lr.ph.preheader ]
+  %.sroa.0.014361627 = phi ptr [ %1074, %.lr.ph._crit_edge ], [ %.ptr, %.lr.ph.preheader ]
+  %.sroa.8.01626 = phi i64 [ %1073, %.lr.ph._crit_edge ], [ 0, %.lr.ph.preheader ]
+  %.not83 = icmp ult i64 %.sroa.07.01640, %.sroa.058.01628
+  %.phi.trans.insert1950 = getelementptr inbounds nuw i8, ptr %.sroa.0.014361627, i64 8
+  %.pre1951 = load i64, ptr %.phi.trans.insert1950, align 8
+  %.pre1953 = add i64 %.pre1951, %.sroa.058.01628
+  %.not84 = icmp ugt i64 %.sroa.016.01639, %.pre1953
+  %or.cond2080 = select i1 %.not83, i1 true, i1 %.not84
+  br i1 %or.cond2080, label %.lr.ph._crit_edge, label %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %1073 = add nuw nsw i64 %.sroa.8.01629, 1
-  %1074 = getelementptr inbounds nuw i8, ptr %.sroa.0.014361630, i64 32
-  %1075 = icmp eq ptr %1074, %.ptr1835
+  %1073 = add nuw nsw i64 %.sroa.8.01626, 1
+  %1074 = getelementptr inbounds nuw i8, ptr %.sroa.0.014361627, i64 32
+  %1075 = icmp eq ptr %1074, %.ptr1832
   br i1 %1075, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge, label %.lr.ph
 
 _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; preds = %.lr.ph
-  %1076 = icmp samesign ult i64 %.sroa.8.01629, %452
+  %1076 = icmp samesign ult i64 %.sroa.8.01626, %452
   br i1 %1076, label %1077, label %1084, !prof !25
 
 1077:                                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
-  %1078 = sub i64 %.sroa.016.01642, %.sroa.058.01631
-  %1079 = sub i64 %.sroa.07.01643, %.sroa.058.01631
-  %1080 = getelementptr inbounds nuw [0 x ptr], ptr %449, i64 0, i64 %.sroa.8.01629
+  %1078 = sub i64 %.sroa.016.01639, %.sroa.058.01628
+  %1079 = sub i64 %.sroa.07.01640, %.sroa.058.01628
+  %1080 = getelementptr inbounds nuw [0 x ptr], ptr %449, i64 0, i64 %.sroa.8.01626
   %1081 = load ptr, ptr %1080, align 8, !nonnull !7, !noundef !7
   %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 16
   %1083 = load i8, ptr %1082, align 8, !range !38, !noundef !7
   %trunc = trunc nuw i8 %1083 to i1
-  br i1 %trunc, label %.lr.ph1646, label %._crit_edge1647
+  br i1 %trunc, label %.lr.ph1643, label %._crit_edge1644
 
 1084:                                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.8.01629, i64 noundef %452, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.76) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.8.01626, i64 noundef %452, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.76) #16
   unreachable
 }
 
@@ -2928,13 +2928,13 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %.lr.ph.i
 
 50:                                               ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit
   %51 = icmp eq i64 %2, 0
-  %.pre1558 = load i8, ptr %29, align 8, !range !38
+  %.pre1555 = load i8, ptr %29, align 8, !range !38
   br i1 %51, label %52, label %72
 
 52:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
-  %trunc.i230 = trunc nuw i8 %.pre1558 to i1
+  %trunc.i230 = trunc nuw i8 %.pre1555 to i1
   br i1 %trunc.i230, label %58, label %53
 
 53:                                               ; preds = %52
@@ -2946,8 +2946,8 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit: ; preds = %.lr.ph.i
   %57 = load i64, ptr %56, align 8, !noalias !292, !noundef !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !292
   call void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE.llvm.15236414416081531888(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %24, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %57)
-  %.pre1556 = load i64, ptr %24, align 8
-  %.pre1557.pre = load i8, ptr %29, align 8, !range !38
+  %.pre1553 = load i64, ptr %24, align 8
+  %.pre1554.pre = load i8, ptr %29, align 8, !range !38
   br label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit242
 
 58:                                               ; preds = %52
@@ -2979,19 +2979,19 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231
   br i1 %exitcond.not.i.i236, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit242, label %.lr.ph.i.i233
 
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit242: ; preds = %.lr.ph.i.i233, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231, %53
-  %.pre1557 = phi i8 [ %.pre1557.pre, %53 ], [ %.pre1558, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231 ], [ %.pre1558, %.lr.ph.i.i233 ]
-  %70 = phi i64 [ %.pre1556, %53 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231 ], [ %69, %.lr.ph.i.i233 ]
+  %.pre1554 = phi i8 [ %.pre1554.pre, %53 ], [ %.pre1555, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231 ], [ %.pre1555, %.lr.ph.i.i233 ]
+  %70 = phi i64 [ %.pre1553, %53 ], [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i231 ], [ %69, %.lr.ph.i.i233 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   %71 = icmp eq i64 %3, %70
   br i1 %71, label %74, label %72
 
 72:                                               ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit242, %50
-  %73 = phi i8 [ %.pre1557, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit242 ], [ %.pre1558, %50 ]
-  %trunc1354 = trunc nuw i8 %73 to i1
-  br i1 %trunc1354, label %.lr.ph1359, label %._crit_edge1360
+  %73 = phi i8 [ %.pre1554, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit242 ], [ %.pre1555, %50 ]
+  %trunc1351 = trunc nuw i8 %73 to i1
+  br i1 %trunc1351, label %.lr.ph1356, label %._crit_edge1357
 
 74:                                               ; preds = %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit242
-  %trunc.i243 = trunc nuw i8 %.pre1557 to i1
+  %trunc.i243 = trunc nuw i8 %.pre1554 to i1
   br i1 %trunc.i243, label %75, label %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit
 
 75:                                               ; preds = %74
@@ -3027,8 +3027,8 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246
   %.sroa.01.08.i.i262 = phi i64 [ %88, %.lr.ph.i.i261 ], [ 0, %.lr.ph.i.i248 ]
   %87 = phi i64 [ %91, %.lr.ph.i.i261 ], [ 0, %.lr.ph.i.i248 ]
   %88 = add nuw nsw i64 %.sroa.01.08.i.i262, 1
-  %.idx1565 = shl nuw nsw i64 %.sroa.01.08.i.i262, 5
-  %.offs = or disjoint i64 %.idx1565, 8
+  %.idx1562 = shl nuw nsw i64 %.sroa.01.08.i.i262, 5
+  %.offs = or disjoint i64 %.idx1562, 8
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 %.offs
   %90 = load i64, ptr %89, align 8, !alias.scope !327, !noalias !332, !noundef !7
   %91 = add i64 %90, %87
@@ -3039,9 +3039,9 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246
   %.sroa.01.08.i.i275 = phi i64 [ %93, %.lr.ph.i.i274 ], [ 0, %.lr.ph.i.i261 ]
   %92 = phi i64 [ %96, %.lr.ph.i.i274 ], [ 0, %.lr.ph.i.i261 ]
   %93 = add nuw nsw i64 %.sroa.01.08.i.i275, 1
-  %.idx1566 = shl nuw nsw i64 %.sroa.01.08.i.i275, 5
-  %.offs1567 = or disjoint i64 %.idx1566, 16
-  %94 = getelementptr inbounds nuw i8, ptr %81, i64 %.offs1567
+  %.idx1563 = shl nuw nsw i64 %.sroa.01.08.i.i275, 5
+  %.offs1564 = or disjoint i64 %.idx1563, 16
+  %94 = getelementptr inbounds nuw i8, ptr %81, i64 %.offs1564
   %95 = load i64, ptr %94, align 8, !alias.scope !335, !noalias !340, !noundef !7
   %96 = add i64 %95, %92
   %exitcond.not.i.i277 = icmp eq i64 %93, %78
@@ -3051,25 +3051,25 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246
   %.sroa.01.08.i.i288 = phi i64 [ %97, %.lr.ph.i.i287 ], [ 0, %.lr.ph.i.i274 ]
   %storemerge7.i.i289 = phi i64 [ %100, %.lr.ph.i.i287 ], [ 0, %.lr.ph.i.i274 ]
   %97 = add nuw nsw i64 %.sroa.01.08.i.i288, 1
-  %.idx1568 = shl nuw nsw i64 %.sroa.01.08.i.i288, 5
-  %.offs1569 = or disjoint i64 %.idx1568, 24
-  %98 = getelementptr inbounds nuw i8, ptr %81, i64 %.offs1569
+  %.idx1565 = shl nuw nsw i64 %.sroa.01.08.i.i288, 5
+  %.offs1566 = or disjoint i64 %.idx1565, 24
+  %98 = getelementptr inbounds nuw i8, ptr %81, i64 %.offs1566
   %99 = load i64, ptr %98, align 8, !alias.scope !343, !noalias !348, !noundef !7
   %100 = add i64 %99, %storemerge7.i.i289
   %exitcond.not.i.i290 = icmp eq i64 %97, %78
   br i1 %exitcond.not.i.i290, label %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296, label %.lr.ph.i.i287
 
 _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296: ; preds = %.lr.ph.i.i287, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246
-  %.lcssa6.i.i2791581 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %96, %.lr.ph.i.i287 ]
-  %.lcssa.i.i255157115741580 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %86, %.lr.ph.i.i287 ]
-  %.lcssa4.i.i26715751579 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %91, %.lr.ph.i.i287 ]
+  %.lcssa6.i.i2791578 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %96, %.lr.ph.i.i287 ]
+  %.lcssa.i.i255156815711577 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %86, %.lr.ph.i.i287 ]
+  %.lcssa4.i.i26715721576 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %91, %.lr.ph.i.i287 ]
   %storemerge.lcssa.i.i295 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit.i.i246 ], [ %100, %.lr.ph.i.i287 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %101, align 8
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.420.0..sroa_idx, i8 0, i64 32, i1 false)
-  store i64 %.lcssa.i.i255157115741580, ptr %.sroa.521.0..sroa_idx, align 8
+  store i64 %.lcssa.i.i255156815711577, ptr %.sroa.521.0..sroa_idx, align 8
   br label %423
 
 _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %74
@@ -3117,7 +3117,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %74
   %.sroa.04.0.i = phi i64 [ 0, %107 ], [ %123, %.preheader1260 ]
   %126 = and i64 %114, -4
   %127 = icmp eq i64 %126, 0
-  br i1 %127, label %._crit_edge1414, label %.lr.ph1413
+  br i1 %127, label %._crit_edge1411, label %.lr.ph1410
 
 128:                                              ; preds = %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit
   %129 = icmp samesign eq i64 %105, 0
@@ -3135,17 +3135,17 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %74
   %135 = icmp eq i64 %134, %105
   br i1 %135, label %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133, label %.preheader1258
 
-._crit_edge1414:                                  ; preds = %.lr.ph1413, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit"
-  %.sroa.011.0.i128.lcssa = phi i64 [ %.sroa.04.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit" ], [ %181, %.lr.ph1413 ]
+._crit_edge1411:                                  ; preds = %.lr.ph1410, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit"
+  %.sroa.011.0.i128.lcssa = phi i64 [ %.sroa.04.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit" ], [ %181, %.lr.ph1410 ]
   %136 = getelementptr inbounds <2 x i64>, ptr %112, i64 %126
   %137 = and i64 %114, 3
   %138 = getelementptr inbounds nuw <2 x i64>, ptr %136, i64 %137
   %139 = icmp eq i64 %137, 0
   br i1 %139, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit", %._crit_edge1414
-  %.lcssa1289 = phi <16 x i8> [ zeroinitializer, %._crit_edge1414 ], [ %157, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ]
-  %140 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1289, <16 x i8> zeroinitializer) #17
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit", %._crit_edge1411
+  %.lcssa1286 = phi <16 x i8> [ zeroinitializer, %._crit_edge1411 ], [ %157, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ]
+  %140 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1286, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i219 = extractelement <2 x i64> %140, i64 0
   %.sroa.0.8.vec.extract.i220 = extractelement <2 x i64> %140, i64 1
   %141 = icmp eq i64 %118, 0
@@ -3171,35 +3171,35 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %74
   %151 = sub i64 %105, %150
   br label %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit": ; preds = %._crit_edge1414, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit"
-  %.sroa.0497.01416 = phi ptr [ %153, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ], [ %136, %._crit_edge1414 ]
-  %152 = phi <16 x i8> [ %157, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ], [ zeroinitializer, %._crit_edge1414 ]
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0497.01416, i64 16
-  %154 = load <16 x i8>, ptr %.sroa.0497.01416, align 16
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit": ; preds = %._crit_edge1411, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit"
+  %.sroa.0497.01413 = phi ptr [ %153, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ], [ %136, %._crit_edge1411 ]
+  %152 = phi <16 x i8> [ %157, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit" ], [ zeroinitializer, %._crit_edge1411 ]
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0497.01413, i64 16
+  %154 = load <16 x i8>, ptr %.sroa.0497.01413, align 16
   %155 = icmp slt <16 x i8> %154, splat (i8 -64)
   %156 = zext <16 x i1> %155 to <16 x i8>
   %157 = add <16 x i8> %152, %156
   %158 = icmp eq ptr %153, %138
   br i1 %158, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit"
 
-.lr.ph1413:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit", %.lr.ph1413
-  %.sroa.011.0.i1281412 = phi i64 [ %181, %.lr.ph1413 ], [ %.sroa.04.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit" ]
-  %.sroa.0475.01411 = phi ptr [ %159, %.lr.ph1413 ], [ %112, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit" ]
-  %.sroa.5476.01410 = phi i64 [ %160, %.lr.ph1413 ], [ %126, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit" ]
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0475.01411, i64 64
-  %160 = add i64 %.sroa.5476.01410, -4
-  %161 = load <16 x i8>, ptr %.sroa.0475.01411, align 16
+.lr.ph1410:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit", %.lr.ph1410
+  %.sroa.011.0.i1281409 = phi i64 [ %181, %.lr.ph1410 ], [ %.sroa.04.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit" ]
+  %.sroa.0475.01408 = phi ptr [ %159, %.lr.ph1410 ], [ %112, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit" ]
+  %.sroa.5476.01407 = phi i64 [ %160, %.lr.ph1410 ], [ %126, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit" ]
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0475.01408, i64 64
+  %160 = add i64 %.sroa.5476.01407, -4
+  %161 = load <16 x i8>, ptr %.sroa.0475.01408, align 16
   %162 = icmp slt <16 x i8> %161, splat (i8 -64)
   %163 = zext <16 x i1> %162 to <16 x i8>
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0475.01411, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0475.01408, i64 16
   %165 = load <16 x i8>, ptr %164, align 16
   %166 = icmp slt <16 x i8> %165, splat (i8 -64)
   %167 = zext <16 x i1> %166 to <16 x i8>
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0475.01411, i64 32
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0475.01408, i64 32
   %169 = load <16 x i8>, ptr %168, align 16
   %170 = icmp slt <16 x i8> %169, splat (i8 -64)
   %171 = zext <16 x i1> %170 to <16 x i8>
-  %172 = getelementptr inbounds nuw i8, ptr %.sroa.0475.01411, i64 48
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.0475.01408, i64 48
   %173 = load <16 x i8>, ptr %172, align 16
   %174 = icmp slt <16 x i8> %173, splat (i8 -64)
   %175 = zext <16 x i1> %174 to <16 x i8>
@@ -3209,10 +3209,10 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %74
   %179 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %178, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i221 = extractelement <2 x i64> %179, i64 0
   %.sroa.0.8.vec.extract.i222 = extractelement <2 x i64> %179, i64 1
-  %180 = add i64 %.sroa.0.8.vec.extract.i222, %.sroa.011.0.i1281412
+  %180 = add i64 %.sroa.0.8.vec.extract.i222, %.sroa.011.0.i1281409
   %181 = add i64 %180, %.sroa.0.0.vec.extract.i221
   %182 = icmp eq i64 %160, 0
-  br i1 %182, label %._crit_edge1414, label %.lr.ph1413
+  br i1 %182, label %._crit_edge1411, label %.lr.ph1410
 
 _ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133: ; preds = %.preheader1258, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1ba2c90ca355acefE.exit"
   %.sroa.0.0.i132 = phi i64 [ %151, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1ba2c90ca355acefE.exit" ], [ %133, %.preheader1258 ]
@@ -3237,73 +3237,73 @@ _ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133: ; preds = %.preh
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !365
   %196 = getelementptr inbounds i8, ptr %185, i64 %187
   %197 = icmp eq i64 %187, 0
-  br i1 %197, label %.preheader, label %.lr.ph1420
+  br i1 %197, label %.preheader, label %.lr.ph1417
 
-.preheader:                                       ; preds = %.lr.ph1420, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i177"
-  %.sroa.0.0.i178.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i177" ], [ %203, %.lr.ph1420 ]
+.preheader:                                       ; preds = %.lr.ph1417, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i177"
+  %.sroa.0.0.i178.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i177" ], [ %203, %.lr.ph1417 ]
   %198 = icmp eq i64 %191, 0
-  br i1 %198, label %._crit_edge1428, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.preheader"
+  br i1 %198, label %._crit_edge1425, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.preheader"
 
-.lr.ph1420:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i177", %.lr.ph1420
-  %.sroa.0.0.i1781419 = phi i64 [ %203, %.lr.ph1420 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i177" ]
-  %.sroa.0716.01418 = phi ptr [ %199, %.lr.ph1420 ], [ %185, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i177" ]
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.0716.01418, i64 1
-  %200 = load i8, ptr %.sroa.0716.01418, align 1, !noundef !7
+.lr.ph1417:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i177", %.lr.ph1417
+  %.sroa.0.0.i1781416 = phi i64 [ %203, %.lr.ph1417 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i177" ]
+  %.sroa.0716.01415 = phi ptr [ %199, %.lr.ph1417 ], [ %185, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i177" ]
+  %199 = getelementptr inbounds nuw i8, ptr %.sroa.0716.01415, i64 1
+  %200 = load i8, ptr %.sroa.0716.01415, align 1, !noundef !7
   %201 = icmp ugt i8 %200, -17
   %202 = zext i1 %201 to i64
-  %203 = add i64 %.sroa.0.0.i1781419, %202
+  %203 = add i64 %.sroa.0.0.i1781416, %202
   %204 = icmp eq ptr %199, %196
-  br i1 %204, label %.preheader, label %.lr.ph1420
+  br i1 %204, label %.preheader, label %.lr.ph1417
 
-._crit_edge1428:                                  ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread", %.preheader
+._crit_edge1425:                                  ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread", %.preheader
   %.sroa.0.2.i181.lcssa = phi i64 [ %.sroa.0.0.i178.lcssa, %.preheader ], [ %217, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread" ]
   %205 = getelementptr inbounds i8, ptr %193, i64 %195
   %206 = icmp eq i64 %195, 0
-  br i1 %206, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184, label %.lr.ph1433
+  br i1 %206, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184, label %.lr.ph1430
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.preheader": ; preds = %.preheader, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread"
-  %.sroa.0.2.i1811426 = phi i64 [ %217, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread" ], [ %.sroa.0.0.i178.lcssa, %.preheader ]
-  %.sroa.5719.01425 = phi i64 [ %208, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread" ], [ %191, %.preheader ]
-  %.sroa.0718.01424 = phi ptr [ %207, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread" ], [ %189, %.preheader ]
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5719.01425, i64 255)
-  %207 = getelementptr inbounds nuw <2 x i64>, ptr %.sroa.0718.01424, i64 %.sroa.0.0.sroa.speculated.i.i
-  %208 = sub i64 %.sroa.5719.01425, %.sroa.0.0.sroa.speculated.i.i
+  %.sroa.0.2.i1811423 = phi i64 [ %217, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread" ], [ %.sroa.0.0.i178.lcssa, %.preheader ]
+  %.sroa.5719.01422 = phi i64 [ %208, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread" ], [ %191, %.preheader ]
+  %.sroa.0718.01421 = phi ptr [ %207, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread" ], [ %189, %.preheader ]
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5719.01422, i64 255)
+  %207 = getelementptr inbounds nuw <2 x i64>, ptr %.sroa.0718.01421, i64 %.sroa.0.0.sroa.speculated.i.i
+  %208 = sub i64 %.sroa.5719.01422, %.sroa.0.0.sroa.speculated.i.i
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313"
 
-.lr.ph1433:                                       ; preds = %._crit_edge1428, %.lr.ph1433
-  %.sroa.0.3.i1821431 = phi i64 [ %213, %.lr.ph1433 ], [ %.sroa.0.2.i181.lcssa, %._crit_edge1428 ]
-  %.sroa.0726.01430 = phi ptr [ %209, %.lr.ph1433 ], [ %193, %._crit_edge1428 ]
-  %209 = getelementptr inbounds nuw i8, ptr %.sroa.0726.01430, i64 1
-  %210 = load i8, ptr %.sroa.0726.01430, align 1, !noundef !7
+.lr.ph1430:                                       ; preds = %._crit_edge1425, %.lr.ph1430
+  %.sroa.0.3.i1821428 = phi i64 [ %213, %.lr.ph1430 ], [ %.sroa.0.2.i181.lcssa, %._crit_edge1425 ]
+  %.sroa.0726.01427 = phi ptr [ %209, %.lr.ph1430 ], [ %193, %._crit_edge1425 ]
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.0726.01427, i64 1
+  %210 = load i8, ptr %.sroa.0726.01427, align 1, !noundef !7
   %211 = icmp ugt i8 %210, -17
   %212 = zext i1 %211 to i64
-  %213 = add i64 %.sroa.0.3.i1821431, %212
+  %213 = add i64 %.sroa.0.3.i1821428, %212
   %214 = icmp eq ptr %209, %205
-  br i1 %214, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184, label %.lr.ph1433
+  br i1 %214, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184, label %.lr.ph1430
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313"
   %215 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %224, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i = extractelement <2 x i64> %215, i64 0
   %.sroa.0.8.vec.extract.i = extractelement <2 x i64> %215, i64 1
-  %216 = add i64 %.sroa.0.8.vec.extract.i, %.sroa.0.2.i1811426
+  %216 = add i64 %.sroa.0.8.vec.extract.i, %.sroa.0.2.i1811423
   %217 = add i64 %216, %.sroa.0.0.vec.extract.i
   %218 = icmp eq i64 %208, 0
-  br i1 %218, label %._crit_edge1428, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.preheader"
+  br i1 %218, label %._crit_edge1425, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.preheader"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.preheader", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313"
-  %.sroa.0723.01422 = phi ptr [ %220, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313" ], [ %.sroa.0718.01424, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.preheader" ]
+  %.sroa.0723.01419 = phi ptr [ %220, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313" ], [ %.sroa.0718.01421, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.preheader" ]
   %219 = phi <16 x i8> [ %224, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313" ], [ zeroinitializer, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.preheader" ]
-  %220 = getelementptr inbounds nuw i8, ptr %.sroa.0723.01422, i64 16
-  %221 = load <16 x i8>, ptr %.sroa.0723.01422, align 16, !alias.scope !368, !noalias !371
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.0723.01419, i64 16
+  %221 = load <16 x i8>, ptr %.sroa.0723.01419, align 16, !alias.scope !368, !noalias !371
   %222 = icmp ugt <16 x i8> %221, splat (i8 -17)
   %223 = zext <16 x i1> %222 to <16 x i8>
   %224 = add <16 x i8> %219, %223
   %225 = icmp eq ptr %220, %207
   br i1 %225, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit313"
 
-_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; preds = %.lr.ph1433, %128, %._crit_edge1428, %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133
-  %.sroa.0.0.i1321583 = phi i64 [ %.sroa.0.0.i132, %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133 ], [ %.sroa.0.0.i132, %._crit_edge1428 ], [ 0, %128 ], [ %.sroa.0.0.i132, %.lr.ph1433 ]
-  %.sroa.0.1.i183 = phi i64 [ 0, %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133 ], [ %.sroa.0.2.i181.lcssa, %._crit_edge1428 ], [ 0, %128 ], [ %213, %.lr.ph1433 ]
+_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; preds = %.lr.ph1430, %128, %._crit_edge1425, %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133
+  %.sroa.0.0.i1321580 = phi i64 [ %.sroa.0.0.i132, %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133 ], [ %.sroa.0.0.i132, %._crit_edge1425 ], [ 0, %128 ], [ %.sroa.0.0.i132, %.lr.ph1430 ]
+  %.sroa.0.1.i183 = phi i64 [ 0, %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit133 ], [ %.sroa.0.2.i181.lcssa, %._crit_edge1425 ], [ 0, %128 ], [ %213, %.lr.ph1430 ]
   %226 = ptrtoint ptr %103 to i64
   %227 = add i64 %226, 15
   %228 = and i64 %227, 15
@@ -3313,38 +3313,38 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; pre
   br i1 %.not.i136, label %230, label %232
 
 230:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184
-  %.sroa.015.0.i137 = phi i64 [ %.sroa.02.0.i147.lcssa1586, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit" ], [ 0, %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184 ]
+  %.sroa.015.0.i137 = phi i64 [ %.sroa.02.0.i147.lcssa1583, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit" ], [ 0, %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184 ]
   %.sroa.9.0.i138 = phi i64 [ %272, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit" ], [ %105, %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184 ]
   %.sroa.0.0.i139 = phi ptr [ %273, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit" ], [ %103, %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184 ]
   %231 = icmp ugt i64 %.sroa.9.0.i138, 15
-  br i1 %231, label %.lr.ph1446, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146
+  br i1 %231, label %.lr.ph1443, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146
 
 232:                                              ; preds = %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184
-  %.not1463 = icmp eq i64 %105, 0
-  br i1 %.not1463, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", label %.lr.ph1438
+  %.not1460 = icmp eq i64 %105, 0
+  br i1 %.not1460, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", label %.lr.ph1435
 
-.lr.ph1438:                                       ; preds = %232, %.thread
-  %.sroa.08.0.i1481436 = phi i64 [ %261, %.thread ], [ 0, %232 ]
-  %.sroa.02.0.i1471435 = phi i64 [ %.sroa.02.1.i150, %.thread ], [ 0, %232 ]
-  %233 = getelementptr inbounds nuw [0 x i8], ptr %103, i64 0, i64 %.sroa.08.0.i1481436
+.lr.ph1435:                                       ; preds = %232, %.thread
+  %.sroa.08.0.i1481433 = phi i64 [ %261, %.thread ], [ 0, %232 ]
+  %.sroa.02.0.i1471432 = phi i64 [ %.sroa.02.1.i150, %.thread ], [ 0, %232 ]
+  %233 = getelementptr inbounds nuw [0 x i8], ptr %103, i64 0, i64 %.sroa.08.0.i1481433
   %234 = load i8, ptr %233, align 1, !alias.scope !374, !noundef !7
   %235 = add i8 %234, -10
   %spec.select.i314 = icmp ult i8 %235, 4
   br i1 %spec.select.i314, label %237, label %236
 
-236:                                              ; preds = %.lr.ph1438
+236:                                              ; preds = %.lr.ph1435
   switch i8 %234, label %.thread [
     i8 -62, label %240
     i8 -30, label %248
   ]
 
-237:                                              ; preds = %.lr.ph1438
-  %238 = add nuw i64 %.sroa.02.0.i1471435, 1
+237:                                              ; preds = %.lr.ph1435
+  %238 = add nuw i64 %.sroa.02.0.i1471432, 1
   %239 = icmp eq i8 %234, 13
   br i1 %239, label %264, label %.thread
 
 240:                                              ; preds = %236
-  %241 = add nuw nsw i64 %.sroa.08.0.i1481436, 1
+  %241 = add nuw nsw i64 %.sroa.08.0.i1481433, 1
   %242 = icmp ult i64 %241, %105
   br i1 %242, label %243, label %.thread
 
@@ -3353,16 +3353,16 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; pre
   %245 = load i8, ptr %244, align 1, !alias.scope !374, !noundef !7
   %246 = icmp eq i8 %245, -123
   %247 = zext i1 %246 to i64
-  %spec.select = add nuw i64 %.sroa.02.0.i1471435, %247
+  %spec.select = add nuw i64 %.sroa.02.0.i1471432, %247
   br label %.thread
 
 248:                                              ; preds = %236
-  %249 = add nuw nsw i64 %.sroa.08.0.i1481436, 2
+  %249 = add nuw nsw i64 %.sroa.08.0.i1481433, 2
   %250 = icmp ult i64 %249, %105
   br i1 %250, label %251, label %.thread
 
 251:                                              ; preds = %248
-  %252 = add nuw nsw i64 %.sroa.08.0.i1481436, 1
+  %252 = add nuw nsw i64 %.sroa.08.0.i1481433, 1
   %253 = getelementptr inbounds nuw [0 x i8], ptr %103, i64 0, i64 %252
   %254 = load i8, ptr %253, align 1, !alias.scope !374, !noundef !7
   %255 = icmp eq i8 %254, -128
@@ -3374,19 +3374,19 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; pre
   %.mask.i151 = and i8 %258, -2
   %259 = icmp eq i8 %.mask.i151, -88
   %260 = zext i1 %259 to i64
-  %spec.select.i152 = add nuw i64 %.sroa.02.0.i1471435, %260
+  %spec.select.i152 = add nuw i64 %.sroa.02.0.i1471432, %260
   br label %.thread
 
 .thread:                                          ; preds = %243, %236, %240, %267, %264, %256, %251, %248, %237
-  %.sroa.02.1.i150 = phi i64 [ %238, %264 ], [ %238, %237 ], [ %.sroa.02.0.i1471435, %251 ], [ %.sroa.02.0.i1471435, %248 ], [ %spec.select.i152, %256 ], [ %spec.select25.i153, %267 ], [ %.sroa.02.0.i1471435, %240 ], [ %.sroa.02.0.i1471435, %236 ], [ %spec.select, %243 ]
-  %261 = add nuw nsw i64 %.sroa.08.0.i1481436, 1
+  %.sroa.02.1.i150 = phi i64 [ %238, %264 ], [ %238, %237 ], [ %.sroa.02.0.i1471432, %251 ], [ %.sroa.02.0.i1471432, %248 ], [ %spec.select.i152, %256 ], [ %spec.select25.i153, %267 ], [ %.sroa.02.0.i1471432, %240 ], [ %.sroa.02.0.i1471432, %236 ], [ %spec.select, %243 ]
+  %261 = add nuw nsw i64 %.sroa.08.0.i1481433, 1
   %262 = icmp samesign ult i64 %261, %.sroa.0.0.sroa.speculated.i
   %263 = icmp ult i64 %.sroa.02.1.i150, %105
   %or.cond.i149 = select i1 %262, i1 %263, i1 false
-  br i1 %or.cond.i149, label %.lr.ph1438, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154
+  br i1 %or.cond.i149, label %.lr.ph1435, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154
 
 264:                                              ; preds = %237
-  %265 = add nuw nsw i64 %.sroa.08.0.i1481436, 1
+  %265 = add nuw nsw i64 %.sroa.08.0.i1481433, 1
   %266 = icmp ult i64 %265, %105
   br i1 %266, label %267, label %.thread
 
@@ -3394,31 +3394,31 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184: ; pre
   %268 = getelementptr inbounds nuw [0 x i8], ptr %103, i64 0, i64 %265
   %269 = load i8, ptr %268, align 1, !alias.scope !374, !noundef !7
   %270 = icmp eq i8 %269, 10
-  %spec.select25.i153 = select i1 %270, i64 %.sroa.02.0.i1471435, i64 %238
+  %spec.select25.i153 = select i1 %270, i64 %.sroa.02.0.i1471432, i64 %238
   br label %.thread
 
 _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds = %.thread
-  %.not1680 = icmp ult i64 %.sroa.08.0.i1481436, %105
-  br i1 %.not1680, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", label %271
+  %.not1677 = icmp ult i64 %.sroa.08.0.i1481433, %105
+  br i1 %.not1677, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit", label %271
 
 271:                                              ; preds = %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %261, i64 noundef %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.22) #16, !noalias !377
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit": ; preds = %232, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154
-  %.sroa.08.0.i148.lcssa1587 = phi i64 [ %261, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154 ], [ 0, %232 ]
-  %.sroa.02.0.i147.lcssa1586 = phi i64 [ %.sroa.02.1.i150, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154 ], [ 0, %232 ]
-  %272 = sub nuw i64 %105, %.sroa.08.0.i148.lcssa1587
-  %273 = getelementptr inbounds i8, ptr %103, i64 %.sroa.08.0.i148.lcssa1587
+  %.sroa.08.0.i148.lcssa1584 = phi i64 [ %261, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154 ], [ 0, %232 ]
+  %.sroa.02.0.i147.lcssa1583 = phi i64 [ %.sroa.02.1.i150, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154 ], [ 0, %232 ]
+  %272 = sub nuw i64 %105, %.sroa.08.0.i148.lcssa1584
+  %273 = getelementptr inbounds i8, ptr %103, i64 %.sroa.08.0.i148.lcssa1584
   br label %230
 
-.lr.ph1446:                                       ; preds = %230, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315"
-  %.sroa.0.1.i1431444 = phi ptr [ %375, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ], [ %.sroa.0.0.i139, %230 ]
-  %.sroa.9.1.i1421443 = phi i64 [ %374, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ], [ %.sroa.9.0.i138, %230 ]
-  %.sroa.015.1.i1411442 = phi i64 [ %.sroa.015.2.i145, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ], [ %.sroa.015.0.i137, %230 ]
-  %.sroa.020.0.i1401441 = phi i64 [ %.sroa.020.1.i144, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ], [ 0, %230 ]
+.lr.ph1443:                                       ; preds = %230, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315"
+  %.sroa.0.1.i1431441 = phi ptr [ %375, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ], [ %.sroa.0.0.i139, %230 ]
+  %.sroa.9.1.i1421440 = phi i64 [ %374, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ], [ %.sroa.9.0.i138, %230 ]
+  %.sroa.015.1.i1411439 = phi i64 [ %.sroa.015.2.i145, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ], [ %.sroa.015.0.i137, %230 ]
+  %.sroa.020.0.i1401438 = phi i64 [ %.sroa.020.1.i144, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ], [ 0, %230 ]
   %274 = phi <16 x i8> [ %373, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ], [ zeroinitializer, %230 ]
-  %275 = load <2 x i64>, ptr %.sroa.0.1.i1431444, align 16
+  %275 = load <2 x i64>, ptr %.sroa.0.1.i1431441, align 16
   %276 = bitcast <2 x i64> %275 to <16 x i8>
   %277 = icmp eq <16 x i8> %276, splat (i8 -62)
   %278 = sext <16 x i1> %277 to <16 x i8>
@@ -3440,24 +3440,24 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds 
   %.sroa.01.8.vec.extract.i207 = extractelement <2 x i64> %280, i64 1
   %293 = icmp eq i64 %.sroa.01.8.vec.extract.i207, 0
   %.sroa.0.0.i208 = select i1 %292, i1 %293, i1 false
-  %bc1563 = bitcast <2 x i64> %275 to <16 x i8>
-  %294 = extractelement <16 x i8> %bc1563, i64 15
-  %bc1564 = bitcast <2 x i64> %275 to <16 x i8>
-  %295 = extractelement <16 x i8> %bc1564, i64 14
+  %bc1560 = bitcast <2 x i64> %275 to <16 x i8>
+  %294 = extractelement <16 x i8> %bc1560, i64 15
+  %bc1561 = bitcast <2 x i64> %275 to <16 x i8>
+  %295 = extractelement <16 x i8> %bc1561, i64 14
   br i1 %.sroa.0.0.i208, label %307, label %296
 
-296:                                              ; preds = %.lr.ph1446
+296:                                              ; preds = %.lr.ph1443
   %297 = icmp eq <16 x i8> %276, splat (i8 -123)
   %298 = zext <16 x i1> %297 to <16 x i8>
   %299 = shufflevector <16 x i8> %298, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16>
   %300 = select <16 x i1> %277, <16 x i8> %299, <16 x i8> zeroinitializer
-  %.not1240 = icmp ne i64 %.sroa.9.1.i1421443, 16
+  %.not1240 = icmp ne i64 %.sroa.9.1.i1421440, 16
   %301 = icmp eq i8 %294, -62
   %or.cond = select i1 %.not1240, i1 %301, i1 false
   br i1 %or.cond, label %302, label %307
 
 302:                                              ; preds = %296
-  %303 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431444, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431441, i64 16
   %304 = load i8, ptr %303, align 1, !alias.scope !380, !noalias !383, !noundef !7
   %305 = icmp eq i8 %304, -123
   br i1 %305, label %306, label %307
@@ -3466,8 +3466,8 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds 
   %.sroa.01050.15.vec.insert = insertelement <16 x i8> %300, i8 1, i64 15
   br label %307
 
-307:                                              ; preds = %306, %302, %296, %.lr.ph1446
-  %308 = phi <16 x i8> [ zeroinitializer, %.lr.ph1446 ], [ %.sroa.01050.15.vec.insert, %306 ], [ %300, %302 ], [ %300, %296 ]
+307:                                              ; preds = %306, %302, %296, %.lr.ph1443
+  %308 = phi <16 x i8> [ zeroinitializer, %.lr.ph1443 ], [ %.sroa.01050.15.vec.insert, %306 ], [ %300, %302 ], [ %300, %296 ]
   %.sroa.01.0.vec.extract.i203 = extractelement <2 x i64> %284, i64 0
   %309 = icmp eq i64 %.sroa.01.0.vec.extract.i203, 0
   %.sroa.01.8.vec.extract.i204 = extractelement <2 x i64> %284, i64 1
@@ -3501,23 +3501,23 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds 
 
 328:                                              ; preds = %319, %311
   %329 = phi <16 x i8> [ %308, %311 ], [ %327, %319 ]
-  %.not1241 = icmp eq i64 %.sroa.9.1.i1421443, 16
+  %.not1241 = icmp eq i64 %.sroa.9.1.i1421440, 16
   br i1 %.not1241, label %.thread1201, label %333
 
 330:                                              ; preds = %333
-  %331 = icmp ugt i64 %.sroa.9.1.i1421443, 17
+  %331 = icmp ugt i64 %.sroa.9.1.i1421440, 17
   %332 = icmp eq i8 %294, -30
-  %or.cond1672 = select i1 %331, i1 %332, i1 false
-  br i1 %or.cond1672, label %342, label %.thread1201
+  %or.cond1669 = select i1 %331, i1 %332, i1 false
+  br i1 %or.cond1669, label %342, label %.thread1201
 
 333:                                              ; preds = %328
   %334 = icmp eq i8 %295, -30
   %335 = icmp eq i8 %294, -128
-  %or.cond1671 = select i1 %334, i1 %335, i1 false
-  br i1 %or.cond1671, label %336, label %330
+  %or.cond1668 = select i1 %334, i1 %335, i1 false
+  br i1 %or.cond1668, label %336, label %330
 
 336:                                              ; preds = %333
-  %337 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431444, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431441, i64 16
   %338 = load i8, ptr %337, align 1, !alias.scope !380, !noalias !383, !noundef !7
   %.mask.i171 = and i8 %338, -2
   %339 = icmp eq i8 %.mask.i171, -88
@@ -3530,13 +3530,13 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds 
   br label %.thread1201
 
 342:                                              ; preds = %330
-  %343 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431444, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431441, i64 16
   %344 = load i8, ptr %343, align 1, !alias.scope !380, !noalias !383, !noundef !7
   %345 = icmp eq i8 %344, -128
   br i1 %345, label %346, label %.thread1201
 
 346:                                              ; preds = %342
-  %347 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431444, i64 17
+  %347 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431441, i64 17
   %348 = load i8, ptr %347, align 1, !alias.scope !380, !noalias !383, !noundef !7
   %.mask1.i = and i8 %348, -2
   %349 = icmp eq i8 %.mask1.i, -88
@@ -3564,13 +3564,13 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds 
   %.neg1243 = shufflevector <16 x i8> %.neg1242, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16>
   %.neg1244 = select <16 x i1> %288, <16 x i8> %.neg1243, <16 x i8> zeroinitializer
   %358 = add <16 x i8> %353, %.neg1244
-  %.not1245 = icmp ne i64 %.sroa.9.1.i1421443, 16
+  %.not1245 = icmp ne i64 %.sroa.9.1.i1421440, 16
   %359 = icmp eq i8 %294, 13
-  %or.cond1673 = select i1 %.not1245, i1 %359, i1 false
-  br i1 %or.cond1673, label %360, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
+  %or.cond1670 = select i1 %.not1245, i1 %359, i1 false
+  br i1 %or.cond1670, label %360, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
 
 360:                                              ; preds = %356
-  %361 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431444, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431441, i64 16
   %362 = load i8, ptr %361, align 1, !alias.scope !380, !noalias !383, !noundef !7
   %363 = icmp eq i8 %362, 10
   br i1 %363, label %364, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
@@ -3584,7 +3584,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit154: ; preds 
 _ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit: ; preds = %356, %360, %364, %.thread1201
   %.sroa.0571.5.in = phi <16 x i8> [ %353, %.thread1201 ], [ %.sroa.0.15.vec.insert.i186, %364 ], [ %358, %360 ], [ %358, %356 ]
   %366 = add <16 x i8> %.sroa.0571.5.in, %274
-  %367 = add i64 %.sroa.020.0.i1401441, 1
+  %367 = add i64 %.sroa.020.0.i1401438, 1
   %368 = icmp eq i64 %367, 255
   br i1 %368, label %369, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315"
 
@@ -3592,53 +3592,53 @@ _ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit:
   %370 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %366, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i211 = extractelement <2 x i64> %370, i64 0
   %.sroa.0.8.vec.extract.i212 = extractelement <2 x i64> %370, i64 1
-  %371 = add i64 %.sroa.0.8.vec.extract.i212, %.sroa.015.1.i1411442
+  %371 = add i64 %.sroa.0.8.vec.extract.i212, %.sroa.015.1.i1411439
   %372 = add i64 %371, %.sroa.0.0.vec.extract.i211
   br label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315": ; preds = %369, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit
   %373 = phi <16 x i8> [ zeroinitializer, %369 ], [ %366, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit ]
   %.sroa.020.1.i144 = phi i64 [ 0, %369 ], [ %367, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit ]
-  %.sroa.015.2.i145 = phi i64 [ %372, %369 ], [ %.sroa.015.1.i1411442, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit ]
-  %374 = add i64 %.sroa.9.1.i1421443, -16
-  %375 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431444, i64 16
+  %.sroa.015.2.i145 = phi i64 [ %372, %369 ], [ %.sroa.015.1.i1411439, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit ]
+  %374 = add i64 %.sroa.9.1.i1421440, -16
+  %375 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1431441, i64 16
   %376 = icmp ugt i64 %374, 15
-  br i1 %376, label %.lr.ph1446, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146
+  br i1 %376, label %.lr.ph1443, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146
 
 _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315", %230
-  %.lcssa1282 = phi <16 x i8> [ zeroinitializer, %230 ], [ %373, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ]
+  %.lcssa1279 = phi <16 x i8> [ zeroinitializer, %230 ], [ %373, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ]
   %.sroa.015.1.i141.lcssa = phi i64 [ %.sroa.015.0.i137, %230 ], [ %.sroa.015.2.i145, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ]
   %.sroa.9.1.i142.lcssa = phi i64 [ %.sroa.9.0.i138, %230 ], [ %374, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ]
   %.sroa.0.1.i143.lcssa = phi ptr [ %.sroa.0.0.i139, %230 ], [ %375, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit315" ]
-  %377 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1282, <16 x i8> zeroinitializer) #17
+  %377 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1279, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i213 = extractelement <2 x i64> %377, i64 0
   %.sroa.0.8.vec.extract.i214 = extractelement <2 x i64> %377, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
-  %.not1464 = icmp eq i64 %.sroa.9.1.i142.lcssa, 0
-  br i1 %.not1464, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit, label %.lr.ph1454
+  %.not1461 = icmp eq i64 %.sroa.9.1.i142.lcssa, 0
+  br i1 %.not1461, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit, label %.lr.ph1451
 
-.lr.ph1454:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146, %.thread1203
-  %.sroa.08.0.i1453 = phi i64 [ %409, %.thread1203 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146 ]
-  %.sroa.02.0.i1452 = phi i64 [ %.sroa.02.1.i, %.thread1203 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146 ]
-  %378 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i143.lcssa, i64 0, i64 %.sroa.08.0.i1453
+.lr.ph1451:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146, %.thread1203
+  %.sroa.08.0.i1450 = phi i64 [ %409, %.thread1203 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146 ]
+  %.sroa.02.0.i1449 = phi i64 [ %.sroa.02.1.i, %.thread1203 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146 ]
+  %378 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i143.lcssa, i64 0, i64 %.sroa.08.0.i1450
   %379 = load i8, ptr %378, align 1, !alias.scope !385, !noundef !7
   %380 = add i8 %379, -10
   %spec.select.i316 = icmp ult i8 %380, 4
   br i1 %spec.select.i316, label %382, label %381
 
-381:                                              ; preds = %.lr.ph1454
+381:                                              ; preds = %.lr.ph1451
   switch i8 %379, label %.thread1203 [
     i8 -62, label %385
     i8 -30, label %393
   ]
 
-382:                                              ; preds = %.lr.ph1454
-  %383 = add nuw i64 %.sroa.02.0.i1452, 1
+382:                                              ; preds = %.lr.ph1451
+  %383 = add nuw i64 %.sroa.02.0.i1449, 1
   %384 = icmp eq i8 %379, 13
   br i1 %384, label %412, label %.thread1203
 
 385:                                              ; preds = %381
-  %386 = add nuw i64 %.sroa.08.0.i1453, 1
+  %386 = add nuw i64 %.sroa.08.0.i1450, 1
   %387 = icmp ult i64 %386, %.sroa.9.1.i142.lcssa
   br i1 %387, label %388, label %.thread1203
 
@@ -3647,16 +3647,16 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146: ; preds =
   %390 = load i8, ptr %389, align 1, !alias.scope !385, !noundef !7
   %391 = icmp eq i8 %390, -123
   %392 = zext i1 %391 to i64
-  %spec.select1232 = add nuw i64 %.sroa.02.0.i1452, %392
+  %spec.select1232 = add nuw i64 %.sroa.02.0.i1449, %392
   br label %.thread1203
 
 393:                                              ; preds = %381
-  %394 = add i64 %.sroa.08.0.i1453, 2
+  %394 = add i64 %.sroa.08.0.i1450, 2
   %395 = icmp ult i64 %394, %.sroa.9.1.i142.lcssa
   br i1 %395, label %396, label %.thread1203
 
 396:                                              ; preds = %393
-  %397 = add nuw i64 %.sroa.08.0.i1453, 1
+  %397 = add nuw i64 %.sroa.08.0.i1450, 1
   %398 = icmp ult i64 %397, %.sroa.9.1.i142.lcssa
   br i1 %398, label %399, label %403, !prof !25
 
@@ -3676,19 +3676,19 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146: ; preds =
   %.mask.i = and i8 %406, -2
   %407 = icmp eq i8 %.mask.i, -88
   %408 = zext i1 %407 to i64
-  %spec.select.i = add nuw i64 %.sroa.02.0.i1452, %408
+  %spec.select.i = add nuw i64 %.sroa.02.0.i1449, %408
   br label %.thread1203
 
 .thread1203:                                      ; preds = %388, %381, %385, %415, %412, %404, %399, %393, %382
-  %.sroa.02.1.i = phi i64 [ %383, %412 ], [ %383, %382 ], [ %.sroa.02.0.i1452, %399 ], [ %.sroa.02.0.i1452, %393 ], [ %spec.select.i, %404 ], [ %spec.select25.i, %415 ], [ %.sroa.02.0.i1452, %385 ], [ %.sroa.02.0.i1452, %381 ], [ %spec.select1232, %388 ]
-  %409 = add nuw i64 %.sroa.08.0.i1453, 1
+  %.sroa.02.1.i = phi i64 [ %383, %412 ], [ %383, %382 ], [ %.sroa.02.0.i1449, %399 ], [ %.sroa.02.0.i1449, %393 ], [ %spec.select.i, %404 ], [ %spec.select25.i, %415 ], [ %.sroa.02.0.i1449, %385 ], [ %.sroa.02.0.i1449, %381 ], [ %spec.select1232, %388 ]
+  %409 = add nuw i64 %.sroa.08.0.i1450, 1
   %410 = icmp ult i64 %409, %.sroa.9.1.i142.lcssa
   %411 = icmp ult i64 %.sroa.02.1.i, %.sroa.9.1.i142.lcssa
   %or.cond.i = select i1 %410, i1 %411, i1 false
-  br i1 %or.cond.i, label %.lr.ph1454, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit
+  br i1 %or.cond.i, label %.lr.ph1451, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit
 
 412:                                              ; preds = %382
-  %413 = add nuw i64 %.sroa.08.0.i1453, 1
+  %413 = add nuw i64 %.sroa.08.0.i1450, 1
   %414 = icmp ult i64 %413, %.sroa.9.1.i142.lcssa
   br i1 %414, label %415, label %.thread1203
 
@@ -3696,7 +3696,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146: ; preds =
   %416 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i143.lcssa, i64 0, i64 %413
   %417 = load i8, ptr %416, align 1, !alias.scope !385, !noundef !7
   %418 = icmp eq i8 %417, 10
-  %spec.select25.i = select i1 %418, i64 %.sroa.02.0.i1452, i64 %383
+  %spec.select25.i = select i1 %418, i64 %.sroa.02.0.i1449, i64 %383
   br label %.thread1203
 
 _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %.thread1203, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit146
@@ -3713,27 +3713,27 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   br label %423
 
 423:                                              ; preds = %444, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405, %837
-  %.sink1761 = phi i64 [ 24, %444 ], [ 32, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ 56, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ 32, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 56, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ 24, %837 ]
-  %.sink1760 = phi i64 [ %2, %444 ], [ %.sroa.0.0.i, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ %.lcssa4.i.i26715751579, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ %.sroa.0.0.i1321583, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %1034, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ %2, %837 ]
-  %.sink1759 = phi i64 [ 32, %444 ], [ 40, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ 64, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ 40, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 64, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ 32, %837 ]
-  %.sink1758 = phi i64 [ 1, %444 ], [ %.sroa.0.1.i176, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ %.lcssa6.i.i2791581, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ %.sroa.0.1.i183, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %1036, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ 1, %837 ]
-  %.sink1757 = phi i64 [ 40, %444 ], [ 48, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ 72, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ 48, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 72, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ 40, %837 ]
-  %.sink1756 = phi i64 [ %3, %444 ], [ %807, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ %storemerge.lcssa.i.i295, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ %421, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %1038, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ %3, %837 ]
+  %.sink1758 = phi i64 [ 24, %444 ], [ 32, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ 56, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ 32, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 56, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ 24, %837 ]
+  %.sink1757 = phi i64 [ %2, %444 ], [ %.sroa.0.0.i, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ %.lcssa4.i.i26715721576, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ %.sroa.0.0.i1321580, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %1034, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ %2, %837 ]
+  %.sink1756 = phi i64 [ 32, %444 ], [ 40, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ 64, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ 40, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 64, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ 32, %837 ]
+  %.sink1755 = phi i64 [ 1, %444 ], [ %.sroa.0.1.i176, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ %.lcssa6.i.i2791578, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ %.sroa.0.1.i183, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %1036, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ 1, %837 ]
+  %.sink1754 = phi i64 [ 40, %444 ], [ 48, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ 72, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ 48, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 72, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ 40, %837 ]
+  %.sink1753 = phi i64 [ %3, %444 ], [ %807, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ %storemerge.lcssa.i.i295, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ %421, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ %1038, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ %3, %837 ]
   %.sink = phi i64 [ 1, %444 ], [ 0, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162 ], [ 0, %_ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit296 ], [ 0, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit ], [ 0, %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405 ], [ 1, %837 ]
-  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1761
-  store i64 %.sink1760, ptr %.sroa.532.0..sroa_idx, align 8
-  %.sroa.633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1759
-  store i64 %.sink1758, ptr %.sroa.633.0..sroa_idx, align 8
-  %.sroa.734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1757
-  store i64 %.sink1756, ptr %.sroa.734.0..sroa_idx, align 8
+  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1758
+  store i64 %.sink1757, ptr %.sroa.532.0..sroa_idx, align 8
+  %.sroa.633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1756
+  store i64 %.sink1755, ptr %.sroa.633.0..sroa_idx, align 8
+  %.sroa.734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1754
+  store i64 %.sink1753, ptr %.sroa.734.0..sroa_idx, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 
-._crit_edge1360:                                  ; preds = %1044, %72
+._crit_edge1357:                                  ; preds = %1044, %72
   %.sroa.089.0.lcssa = phi i64 [ %2, %72 ], [ %1046, %1044 ]
   %.sroa.099.0.lcssa = phi i64 [ %3, %72 ], [ %1045, %1044 ]
-  %.lcssa1318 = phi ptr [ %28, %72 ], [ %1048, %1044 ]
-  %424 = getelementptr inbounds nuw i8, ptr %.lcssa1318, i64 24
+  %.lcssa1315 = phi ptr [ %28, %72 ], [ %1048, %1044 ]
+  %424 = getelementptr inbounds nuw i8, ptr %.lcssa1315, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !388
   call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(1000) %424)
   %425 = load ptr, ptr %14, align 8, !noalias !388, !nonnull !7, !noundef !7
@@ -3743,7 +3743,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   %428 = icmp eq i64 %.sroa.089.0.lcssa, 0
   br i1 %428, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread", label %429
 
-429:                                              ; preds = %._crit_edge1360
+429:                                              ; preds = %._crit_edge1357
   %.not.i317 = icmp ult i64 %.sroa.089.0.lcssa, %427
   br i1 %.not.i317, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit", label %430
 
@@ -3757,11 +3757,11 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   %434 = icmp sgt i8 %433, -65
   br i1 %434, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread", label %444
 
-.lr.ph1359:                                       ; preds = %72, %1044
+.lr.ph1356:                                       ; preds = %72, %1044
   %435 = phi ptr [ %1048, %1044 ], [ %28, %72 ]
-  %.sroa.0.01357 = phi ptr [ %1047, %1044 ], [ %1, %72 ]
-  %.sroa.099.01356 = phi i64 [ %1045, %1044 ], [ %3, %72 ]
-  %.sroa.089.01355 = phi i64 [ %1046, %1044 ], [ %2, %72 ]
+  %.sroa.0.01354 = phi ptr [ %1047, %1044 ], [ %1, %72 ]
+  %.sroa.099.01353 = phi i64 [ %1045, %1044 ], [ %3, %72 ]
+  %.sroa.089.01352 = phi i64 [ %1046, %1044 ], [ %2, %72 ]
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
   %437 = getelementptr inbounds nuw i8, ptr %435, i64 984
@@ -3770,14 +3770,14 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
   %440 = icmp ugt i8 %438, 24
   br i1 %440, label %441, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit
 
-441:                                              ; preds = %.lr.ph1359
+441:                                              ; preds = %.lr.ph1356
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %439, i64 noundef 24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.73331ee43a0e5e9a3ee1aaeac309e318.37.llvm.1041312438752767756) #16, !noalias !397
   unreachable
 
-_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; preds = %.lr.ph1359
+_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; preds = %.lr.ph1356
   %.idx = shl nuw nsw i64 %439, 5
   %442 = getelementptr inbounds nuw i8, ptr %435, i64 %.idx
-  %.ptr1456 = getelementptr inbounds nuw i8, ptr %442, i64 216
+  %.ptr1453 = getelementptr inbounds nuw i8, ptr %442, i64 216
   %443 = icmp eq i8 %438, 0
   br i1 %443, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge, label %.lr.ph.preheader
 
@@ -3792,7 +3792,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   store i64 1, ptr %.sroa.431.0..sroa_idx, align 8
   br label %423
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread": ; preds = %._crit_edge1360, %430, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit"
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread": ; preds = %._crit_edge1357, %430, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !400
   call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(1000) %424)
   %446 = load ptr, ptr %13, align 8, !noalias !400, !nonnull !7, !noundef !7
@@ -3888,7 +3888,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %.sroa.04.0.i325 = phi i64 [ 0, %475 ], [ %491, %.preheader1264 ]
   %494 = and i64 %482, -4
   %495 = icmp eq i64 %494, 0
-  br i1 %495, label %._crit_edge1368, label %.lr.ph1367
+  br i1 %495, label %._crit_edge1365, label %.lr.ph1364
 
 496:                                              ; preds = %472
   %497 = icmp samesign eq i64 %473, 0
@@ -3906,17 +3906,17 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %503 = icmp eq i64 %502, %473
   br i1 %503, label %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit, label %.preheader1262
 
-._crit_edge1368:                                  ; preds = %.lr.ph1367, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326"
-  %.sroa.011.0.i.lcssa = phi i64 [ %.sroa.04.0.i325, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326" ], [ %549, %.lr.ph1367 ]
+._crit_edge1365:                                  ; preds = %.lr.ph1364, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326"
+  %.sroa.011.0.i.lcssa = phi i64 [ %.sroa.04.0.i325, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326" ], [ %549, %.lr.ph1364 ]
   %504 = getelementptr inbounds <2 x i64>, ptr %480, i64 %494
   %505 = and i64 %482, 3
   %506 = getelementptr inbounds nuw <2 x i64>, ptr %504, i64 %505
   %507 = icmp eq i64 %505, 0
   br i1 %507, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335", %._crit_edge1368
-  %.lcssa1310 = phi <16 x i8> [ zeroinitializer, %._crit_edge1368 ], [ %525, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335" ]
-  %508 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1310, <16 x i8> zeroinitializer) #17
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335", %._crit_edge1365
+  %.lcssa1307 = phi <16 x i8> [ zeroinitializer, %._crit_edge1365 ], [ %525, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335" ]
+  %508 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1307, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i223 = extractelement <2 x i64> %508, i64 0
   %.sroa.0.8.vec.extract.i224 = extractelement <2 x i64> %508, i64 1
   %509 = icmp eq i64 %486, 0
@@ -3942,35 +3942,35 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %519 = sub i64 %473, %518
   br label %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335": ; preds = %._crit_edge1368, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335"
-  %520 = phi <16 x i8> [ %525, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335" ], [ zeroinitializer, %._crit_edge1368 ]
-  %.sroa.0436.01370 = phi ptr [ %521, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335" ], [ %504, %._crit_edge1368 ]
-  %521 = getelementptr inbounds nuw i8, ptr %.sroa.0436.01370, i64 16
-  %522 = load <16 x i8>, ptr %.sroa.0436.01370, align 16
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335": ; preds = %._crit_edge1365, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335"
+  %520 = phi <16 x i8> [ %525, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335" ], [ zeroinitializer, %._crit_edge1365 ]
+  %.sroa.0436.01367 = phi ptr [ %521, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335" ], [ %504, %._crit_edge1365 ]
+  %521 = getelementptr inbounds nuw i8, ptr %.sroa.0436.01367, i64 16
+  %522 = load <16 x i8>, ptr %.sroa.0436.01367, align 16
   %523 = icmp slt <16 x i8> %522, splat (i8 -64)
   %524 = zext <16 x i1> %523 to <16 x i8>
   %525 = add <16 x i8> %520, %524
   %526 = icmp eq ptr %521, %506
   br i1 %526, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit335"
 
-.lr.ph1367:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326", %.lr.ph1367
-  %.sroa.011.0.i1366 = phi i64 [ %549, %.lr.ph1367 ], [ %.sroa.04.0.i325, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326" ]
-  %.sroa.0416.01365 = phi ptr [ %527, %.lr.ph1367 ], [ %480, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326" ]
-  %.sroa.5417.01364 = phi i64 [ %528, %.lr.ph1367 ], [ %494, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326" ]
-  %527 = getelementptr inbounds nuw i8, ptr %.sroa.0416.01365, i64 64
-  %528 = add i64 %.sroa.5417.01364, -4
-  %529 = load <16 x i8>, ptr %.sroa.0416.01365, align 16
+.lr.ph1364:                                       ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326", %.lr.ph1364
+  %.sroa.011.0.i1363 = phi i64 [ %549, %.lr.ph1364 ], [ %.sroa.04.0.i325, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326" ]
+  %.sroa.0416.01362 = phi ptr [ %527, %.lr.ph1364 ], [ %480, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326" ]
+  %.sroa.5417.01361 = phi i64 [ %528, %.lr.ph1364 ], [ %494, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h24209575856ef6e2E.exit326" ]
+  %527 = getelementptr inbounds nuw i8, ptr %.sroa.0416.01362, i64 64
+  %528 = add i64 %.sroa.5417.01361, -4
+  %529 = load <16 x i8>, ptr %.sroa.0416.01362, align 16
   %530 = icmp slt <16 x i8> %529, splat (i8 -64)
   %531 = zext <16 x i1> %530 to <16 x i8>
-  %532 = getelementptr inbounds nuw i8, ptr %.sroa.0416.01365, i64 16
+  %532 = getelementptr inbounds nuw i8, ptr %.sroa.0416.01362, i64 16
   %533 = load <16 x i8>, ptr %532, align 16
   %534 = icmp slt <16 x i8> %533, splat (i8 -64)
   %535 = zext <16 x i1> %534 to <16 x i8>
-  %536 = getelementptr inbounds nuw i8, ptr %.sroa.0416.01365, i64 32
+  %536 = getelementptr inbounds nuw i8, ptr %.sroa.0416.01362, i64 32
   %537 = load <16 x i8>, ptr %536, align 16
   %538 = icmp slt <16 x i8> %537, splat (i8 -64)
   %539 = zext <16 x i1> %538 to <16 x i8>
-  %540 = getelementptr inbounds nuw i8, ptr %.sroa.0416.01365, i64 48
+  %540 = getelementptr inbounds nuw i8, ptr %.sroa.0416.01362, i64 48
   %541 = load <16 x i8>, ptr %540, align 16
   %542 = icmp slt <16 x i8> %541, splat (i8 -64)
   %543 = zext <16 x i1> %542 to <16 x i8>
@@ -3980,10 +3980,10 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %547 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %546, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i225 = extractelement <2 x i64> %547, i64 0
   %.sroa.0.8.vec.extract.i226 = extractelement <2 x i64> %547, i64 1
-  %548 = add i64 %.sroa.0.8.vec.extract.i226, %.sroa.011.0.i1366
+  %548 = add i64 %.sroa.0.8.vec.extract.i226, %.sroa.011.0.i1363
   %549 = add i64 %548, %.sroa.0.0.vec.extract.i225
   %550 = icmp eq i64 %528, 0
-  br i1 %550, label %._crit_edge1368, label %.lr.ph1367
+  br i1 %550, label %._crit_edge1365, label %.lr.ph1364
 
 _ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit: ; preds = %.preheader1262, %496, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1ba2c90ca355acefE.exit340"
   %.sroa.0.0.i = phi i64 [ %519, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1ba2c90ca355acefE.exit340" ], [ 0, %496 ], [ %501, %.preheader1262 ]
@@ -4025,72 +4025,72 @@ _ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit: ; preds = %.prehead
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21), !noalias !424
   %573 = getelementptr inbounds i8, ptr %562, i64 %564
   %574 = icmp eq i64 %564, 0
-  br i1 %574, label %.preheader1261, label %.lr.ph1374
+  br i1 %574, label %.preheader1261, label %.lr.ph1371
 
-.preheader1261:                                   ; preds = %.lr.ph1374, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i"
-  %.sroa.0.0.i175.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ], [ %580, %.lr.ph1374 ]
+.preheader1261:                                   ; preds = %.lr.ph1371, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i"
+  %.sroa.0.0.i175.lcssa = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ], [ %580, %.lr.ph1371 ]
   %575 = icmp eq i64 %568, 0
-  br i1 %575, label %._crit_edge1382, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.preheader"
+  br i1 %575, label %._crit_edge1379, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.preheader"
 
-.lr.ph1374:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i", %.lr.ph1374
-  %.sroa.0.0.i1751373 = phi i64 [ %580, %.lr.ph1374 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ]
-  %.sroa.0697.01372 = phi ptr [ %576, %.lr.ph1374 ], [ %562, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ]
-  %576 = getelementptr inbounds nuw i8, ptr %.sroa.0697.01372, i64 1
-  %577 = load i8, ptr %.sroa.0697.01372, align 1, !noundef !7
+.lr.ph1371:                                       ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i", %.lr.ph1371
+  %.sroa.0.0.i1751370 = phi i64 [ %580, %.lr.ph1371 ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ]
+  %.sroa.0697.01369 = phi ptr [ %576, %.lr.ph1371 ], [ %562, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i" ]
+  %576 = getelementptr inbounds nuw i8, ptr %.sroa.0697.01369, i64 1
+  %577 = load i8, ptr %.sroa.0697.01369, align 1, !noundef !7
   %578 = icmp ugt i8 %577, -17
   %579 = zext i1 %578 to i64
-  %580 = add i64 %.sroa.0.0.i1751373, %579
+  %580 = add i64 %.sroa.0.0.i1751370, %579
   %581 = icmp eq ptr %576, %573
-  br i1 %581, label %.preheader1261, label %.lr.ph1374
+  br i1 %581, label %.preheader1261, label %.lr.ph1371
 
-._crit_edge1382:                                  ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread", %.preheader1261
+._crit_edge1379:                                  ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread", %.preheader1261
   %.sroa.0.2.i.lcssa = phi i64 [ %.sroa.0.0.i175.lcssa, %.preheader1261 ], [ %594, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread" ]
   %582 = getelementptr inbounds i8, ptr %570, i64 %572
   %583 = icmp eq i64 %572, 0
-  br i1 %583, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.lr.ph1387
+  br i1 %583, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.lr.ph1384
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.preheader": ; preds = %.preheader1261, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread"
-  %.sroa.0.2.i1380 = phi i64 [ %594, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread" ], [ %.sroa.0.0.i175.lcssa, %.preheader1261 ]
-  %.sroa.5700.01379 = phi i64 [ %585, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread" ], [ %568, %.preheader1261 ]
-  %.sroa.0699.01378 = phi ptr [ %584, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread" ], [ %566, %.preheader1261 ]
-  %.sroa.0.0.sroa.speculated.i.i343 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5700.01379, i64 255)
-  %584 = getelementptr inbounds nuw <2 x i64>, ptr %.sroa.0699.01378, i64 %.sroa.0.0.sroa.speculated.i.i343
-  %585 = sub i64 %.sroa.5700.01379, %.sroa.0.0.sroa.speculated.i.i343
+  %.sroa.0.2.i1377 = phi i64 [ %594, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread" ], [ %.sroa.0.0.i175.lcssa, %.preheader1261 ]
+  %.sroa.5700.01376 = phi i64 [ %585, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread" ], [ %568, %.preheader1261 ]
+  %.sroa.0699.01375 = phi ptr [ %584, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread" ], [ %566, %.preheader1261 ]
+  %.sroa.0.0.sroa.speculated.i.i343 = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.5700.01376, i64 255)
+  %584 = getelementptr inbounds nuw <2 x i64>, ptr %.sroa.0699.01375, i64 %.sroa.0.0.sroa.speculated.i.i343
+  %585 = sub i64 %.sroa.5700.01376, %.sroa.0.0.sroa.speculated.i.i343
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350"
 
-.lr.ph1387:                                       ; preds = %._crit_edge1382, %.lr.ph1387
-  %.sroa.0.3.i1385 = phi i64 [ %590, %.lr.ph1387 ], [ %.sroa.0.2.i.lcssa, %._crit_edge1382 ]
-  %.sroa.0707.01384 = phi ptr [ %586, %.lr.ph1387 ], [ %570, %._crit_edge1382 ]
-  %586 = getelementptr inbounds nuw i8, ptr %.sroa.0707.01384, i64 1
-  %587 = load i8, ptr %.sroa.0707.01384, align 1, !noundef !7
+.lr.ph1384:                                       ; preds = %._crit_edge1379, %.lr.ph1384
+  %.sroa.0.3.i1382 = phi i64 [ %590, %.lr.ph1384 ], [ %.sroa.0.2.i.lcssa, %._crit_edge1379 ]
+  %.sroa.0707.01381 = phi ptr [ %586, %.lr.ph1384 ], [ %570, %._crit_edge1379 ]
+  %586 = getelementptr inbounds nuw i8, ptr %.sroa.0707.01381, i64 1
+  %587 = load i8, ptr %.sroa.0707.01381, align 1, !noundef !7
   %588 = icmp ugt i8 %587, -17
   %589 = zext i1 %588 to i64
-  %590 = add i64 %.sroa.0.3.i1385, %589
+  %590 = add i64 %.sroa.0.3.i1382, %589
   %591 = icmp eq ptr %586, %582
-  br i1 %591, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.lr.ph1387
+  br i1 %591, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.lr.ph1384
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350"
   %592 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %601, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i209 = extractelement <2 x i64> %592, i64 0
   %.sroa.0.8.vec.extract.i210 = extractelement <2 x i64> %592, i64 1
-  %593 = add i64 %.sroa.0.8.vec.extract.i210, %.sroa.0.2.i1380
+  %593 = add i64 %.sroa.0.8.vec.extract.i210, %.sroa.0.2.i1377
   %594 = add i64 %593, %.sroa.0.0.vec.extract.i209
   %595 = icmp eq i64 %585, 0
-  br i1 %595, label %._crit_edge1382, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.preheader"
+  br i1 %595, label %._crit_edge1379, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.preheader"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.preheader", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350"
-  %.sroa.0704.01376 = phi ptr [ %597, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350" ], [ %.sroa.0699.01378, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.preheader" ]
+  %.sroa.0704.01373 = phi ptr [ %597, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350" ], [ %.sroa.0699.01375, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.preheader" ]
   %596 = phi <16 x i8> [ %601, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350" ], [ zeroinitializer, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.preheader" ]
-  %597 = getelementptr inbounds nuw i8, ptr %.sroa.0704.01376, i64 16
-  %598 = load <16 x i8>, ptr %.sroa.0704.01376, align 16, !alias.scope !427, !noalias !430
+  %597 = getelementptr inbounds nuw i8, ptr %.sroa.0704.01373, i64 16
+  %598 = load <16 x i8>, ptr %.sroa.0704.01373, align 16, !alias.scope !427, !noalias !430
   %599 = icmp ugt <16 x i8> %598, splat (i8 -17)
   %600 = zext <16 x i1> %599 to <16 x i8>
   %601 = add <16 x i8> %596, %600
   %602 = icmp eq ptr %597, %584
   br i1 %602, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.exit350"
 
-_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds = %.lr.ph1387, %._crit_edge1382, %558
-  %.sroa.0.1.i176 = phi i64 [ 0, %558 ], [ %.sroa.0.2.i.lcssa, %._crit_edge1382 ], [ %590, %.lr.ph1387 ]
+_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds = %.lr.ph1384, %._crit_edge1379, %558
+  %.sroa.0.1.i176 = phi i64 [ 0, %558 ], [ %.sroa.0.2.i.lcssa, %._crit_edge1379 ], [ %590, %.lr.ph1384 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !433
   call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(1000) %424)
   %603 = load ptr, ptr %9, align 8, !noalias !433, !nonnull !7, !noundef !7
@@ -4117,38 +4117,38 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   br i1 %.not.i134, label %616, label %618
 
 616:                                              ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit353", %610
-  %.sroa.015.0.i = phi i64 [ %.sroa.02.0.i163.lcssa1592, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit353" ], [ 0, %610 ]
+  %.sroa.015.0.i = phi i64 [ %.sroa.02.0.i163.lcssa1589, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit353" ], [ 0, %610 ]
   %.sroa.9.0.i = phi i64 [ %658, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit353" ], [ %611, %610 ]
   %.sroa.0.0.i135 = phi ptr [ %659, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit353" ], [ %607, %610 ]
   %617 = icmp ugt i64 %.sroa.9.0.i, 15
-  br i1 %617, label %.lr.ph1400, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit
+  br i1 %617, label %.lr.ph1397, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit
 
 618:                                              ; preds = %610
-  %.not1459 = icmp eq i64 %611, 0
-  br i1 %.not1459, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit353", label %.lr.ph1392
+  %.not1456 = icmp eq i64 %611, 0
+  br i1 %.not1456, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit353", label %.lr.ph1389
 
-.lr.ph1392:                                       ; preds = %618, %.thread1222
-  %.sroa.08.0.i1641390 = phi i64 [ %647, %.thread1222 ], [ 0, %618 ]
-  %.sroa.02.0.i1631389 = phi i64 [ %.sroa.02.1.i166, %.thread1222 ], [ 0, %618 ]
-  %619 = getelementptr inbounds nuw [0 x i8], ptr %607, i64 0, i64 %.sroa.08.0.i1641390
+.lr.ph1389:                                       ; preds = %618, %.thread1222
+  %.sroa.08.0.i1641387 = phi i64 [ %647, %.thread1222 ], [ 0, %618 ]
+  %.sroa.02.0.i1631386 = phi i64 [ %.sroa.02.1.i166, %.thread1222 ], [ 0, %618 ]
+  %619 = getelementptr inbounds nuw [0 x i8], ptr %607, i64 0, i64 %.sroa.08.0.i1641387
   %620 = load i8, ptr %619, align 1, !alias.scope !436, !noundef !7
   %621 = add i8 %620, -10
   %spec.select.i352 = icmp ult i8 %621, 4
   br i1 %spec.select.i352, label %623, label %622
 
-622:                                              ; preds = %.lr.ph1392
+622:                                              ; preds = %.lr.ph1389
   switch i8 %620, label %.thread1222 [
     i8 -62, label %626
     i8 -30, label %634
   ]
 
-623:                                              ; preds = %.lr.ph1392
-  %624 = add nuw i64 %.sroa.02.0.i1631389, 1
+623:                                              ; preds = %.lr.ph1389
+  %624 = add nuw i64 %.sroa.02.0.i1631386, 1
   %625 = icmp eq i8 %620, 13
   br i1 %625, label %650, label %.thread1222
 
 626:                                              ; preds = %622
-  %627 = add nuw nsw i64 %.sroa.08.0.i1641390, 1
+  %627 = add nuw nsw i64 %.sroa.08.0.i1641387, 1
   %628 = icmp ult i64 %627, %611
   br i1 %628, label %629, label %.thread1222
 
@@ -4157,16 +4157,16 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   %631 = load i8, ptr %630, align 1, !alias.scope !436, !noundef !7
   %632 = icmp eq i8 %631, -123
   %633 = zext i1 %632 to i64
-  %spec.select1233 = add nuw i64 %.sroa.02.0.i1631389, %633
+  %spec.select1233 = add nuw i64 %.sroa.02.0.i1631386, %633
   br label %.thread1222
 
 634:                                              ; preds = %622
-  %635 = add nuw nsw i64 %.sroa.08.0.i1641390, 2
+  %635 = add nuw nsw i64 %.sroa.08.0.i1641387, 2
   %636 = icmp ult i64 %635, %611
   br i1 %636, label %637, label %.thread1222
 
 637:                                              ; preds = %634
-  %638 = add nuw nsw i64 %.sroa.08.0.i1641390, 1
+  %638 = add nuw nsw i64 %.sroa.08.0.i1641387, 1
   %639 = getelementptr inbounds nuw [0 x i8], ptr %607, i64 0, i64 %638
   %640 = load i8, ptr %639, align 1, !alias.scope !436, !noundef !7
   %641 = icmp eq i8 %640, -128
@@ -4178,19 +4178,19 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   %.mask.i167 = and i8 %644, -2
   %645 = icmp eq i8 %.mask.i167, -88
   %646 = zext i1 %645 to i64
-  %spec.select.i168 = add nuw i64 %.sroa.02.0.i1631389, %646
+  %spec.select.i168 = add nuw i64 %.sroa.02.0.i1631386, %646
   br label %.thread1222
 
 .thread1222:                                      ; preds = %629, %622, %626, %653, %650, %642, %637, %634, %623
-  %.sroa.02.1.i166 = phi i64 [ %624, %650 ], [ %624, %623 ], [ %.sroa.02.0.i1631389, %637 ], [ %.sroa.02.0.i1631389, %634 ], [ %spec.select.i168, %642 ], [ %spec.select25.i169, %653 ], [ %.sroa.02.0.i1631389, %626 ], [ %.sroa.02.0.i1631389, %622 ], [ %spec.select1233, %629 ]
-  %647 = add nuw nsw i64 %.sroa.08.0.i1641390, 1
+  %.sroa.02.1.i166 = phi i64 [ %624, %650 ], [ %624, %623 ], [ %.sroa.02.0.i1631386, %637 ], [ %.sroa.02.0.i1631386, %634 ], [ %spec.select.i168, %642 ], [ %spec.select25.i169, %653 ], [ %.sroa.02.0.i1631386, %626 ], [ %.sroa.02.0.i1631386, %622 ], [ %spec.select1233, %629 ]
+  %647 = add nuw nsw i64 %.sroa.08.0.i1641387, 1
   %648 = icmp samesign ult i64 %647, %.sroa.0.0.sroa.speculated.i351
   %649 = icmp ult i64 %.sroa.02.1.i166, %611
   %or.cond.i165 = select i1 %648, i1 %649, i1 false
-  br i1 %or.cond.i165, label %.lr.ph1392, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170
+  br i1 %or.cond.i165, label %.lr.ph1389, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170
 
 650:                                              ; preds = %623
-  %651 = add nuw nsw i64 %.sroa.08.0.i1641390, 1
+  %651 = add nuw nsw i64 %.sroa.08.0.i1641387, 1
   %652 = icmp ult i64 %651, %611
   br i1 %652, label %653, label %.thread1222
 
@@ -4198,31 +4198,31 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit: ; preds 
   %654 = getelementptr inbounds nuw [0 x i8], ptr %607, i64 0, i64 %651
   %655 = load i8, ptr %654, align 1, !alias.scope !436, !noundef !7
   %656 = icmp eq i8 %655, 10
-  %spec.select25.i169 = select i1 %656, i64 %.sroa.02.0.i1631389, i64 %624
+  %spec.select25.i169 = select i1 %656, i64 %.sroa.02.0.i1631386, i64 %624
   br label %.thread1222
 
 _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds = %.thread1222
-  %.not1679 = icmp ult i64 %.sroa.08.0.i1641390, %611
-  br i1 %.not1679, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit353", label %657
+  %.not1676 = icmp ult i64 %.sroa.08.0.i1641387, %611
+  br i1 %.not1676, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit353", label %657
 
 657:                                              ; preds = %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h9fca8563b179f90fE(i64 noundef %647, i64 noundef %611, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.22) #16, !noalias !439
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit353": ; preds = %618, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170
-  %.sroa.08.0.i164.lcssa1593 = phi i64 [ %647, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170 ], [ 0, %618 ]
-  %.sroa.02.0.i163.lcssa1592 = phi i64 [ %.sroa.02.1.i166, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170 ], [ 0, %618 ]
-  %658 = sub nuw i64 %611, %.sroa.08.0.i164.lcssa1593
-  %659 = getelementptr inbounds i8, ptr %607, i64 %.sroa.08.0.i164.lcssa1593
+  %.sroa.08.0.i164.lcssa1590 = phi i64 [ %647, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170 ], [ 0, %618 ]
+  %.sroa.02.0.i163.lcssa1589 = phi i64 [ %.sroa.02.1.i166, %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170 ], [ 0, %618 ]
+  %658 = sub nuw i64 %611, %.sroa.08.0.i164.lcssa1590
+  %659 = getelementptr inbounds i8, ptr %607, i64 %.sroa.08.0.i164.lcssa1590
   br label %616
 
-.lr.ph1400:                                       ; preds = %616, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354"
-  %.sroa.0.1.i1398 = phi ptr [ %761, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ], [ %.sroa.0.0.i135, %616 ]
-  %.sroa.9.1.i1397 = phi i64 [ %760, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ], [ %.sroa.9.0.i, %616 ]
-  %.sroa.015.1.i1396 = phi i64 [ %.sroa.015.2.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ], [ %.sroa.015.0.i, %616 ]
-  %.sroa.020.0.i1395 = phi i64 [ %.sroa.020.1.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ], [ 0, %616 ]
+.lr.ph1397:                                       ; preds = %616, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354"
+  %.sroa.0.1.i1395 = phi ptr [ %761, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ], [ %.sroa.0.0.i135, %616 ]
+  %.sroa.9.1.i1394 = phi i64 [ %760, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ], [ %.sroa.9.0.i, %616 ]
+  %.sroa.015.1.i1393 = phi i64 [ %.sroa.015.2.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ], [ %.sroa.015.0.i, %616 ]
+  %.sroa.020.0.i1392 = phi i64 [ %.sroa.020.1.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ], [ 0, %616 ]
   %660 = phi <16 x i8> [ %759, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ], [ zeroinitializer, %616 ]
-  %661 = load <2 x i64>, ptr %.sroa.0.1.i1398, align 16
+  %661 = load <2 x i64>, ptr %.sroa.0.1.i1395, align 16
   %662 = bitcast <2 x i64> %661 to <16 x i8>
   %663 = icmp eq <16 x i8> %662, splat (i8 -62)
   %664 = sext <16 x i1> %663 to <16 x i8>
@@ -4246,22 +4246,22 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds 
   %.sroa.0.0.i196 = select i1 %678, i1 %679, i1 false
   %bc = bitcast <2 x i64> %661 to <16 x i8>
   %680 = extractelement <16 x i8> %bc, i64 15
-  %bc1562 = bitcast <2 x i64> %661 to <16 x i8>
-  %681 = extractelement <16 x i8> %bc1562, i64 14
+  %bc1559 = bitcast <2 x i64> %661 to <16 x i8>
+  %681 = extractelement <16 x i8> %bc1559, i64 14
   br i1 %.sroa.0.0.i196, label %693, label %682
 
-682:                                              ; preds = %.lr.ph1400
+682:                                              ; preds = %.lr.ph1397
   %683 = icmp eq <16 x i8> %662, splat (i8 -123)
   %684 = zext <16 x i1> %683 to <16 x i8>
   %685 = shufflevector <16 x i8> %684, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16>
   %686 = select <16 x i1> %663, <16 x i8> %685, <16 x i8> zeroinitializer
-  %.not1235 = icmp ne i64 %.sroa.9.1.i1397, 16
+  %.not1235 = icmp ne i64 %.sroa.9.1.i1394, 16
   %687 = icmp eq i8 %680, -62
-  %or.cond1674 = select i1 %.not1235, i1 %687, i1 false
-  br i1 %or.cond1674, label %688, label %693
+  %or.cond1671 = select i1 %.not1235, i1 %687, i1 false
+  br i1 %or.cond1671, label %688, label %693
 
 688:                                              ; preds = %682
-  %689 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1398, i64 16
+  %689 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1395, i64 16
   %690 = load i8, ptr %689, align 1, !alias.scope !442, !noalias !445, !noundef !7
   %691 = icmp eq i8 %690, -123
   br i1 %691, label %692, label %693
@@ -4270,8 +4270,8 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds 
   %.sroa.01041.15.vec.insert = insertelement <16 x i8> %686, i8 1, i64 15
   br label %693
 
-693:                                              ; preds = %692, %688, %682, %.lr.ph1400
-  %694 = phi <16 x i8> [ zeroinitializer, %.lr.ph1400 ], [ %.sroa.01041.15.vec.insert, %692 ], [ %686, %688 ], [ %686, %682 ]
+693:                                              ; preds = %692, %688, %682, %.lr.ph1397
+  %694 = phi <16 x i8> [ zeroinitializer, %.lr.ph1397 ], [ %.sroa.01041.15.vec.insert, %692 ], [ %686, %688 ], [ %686, %682 ]
   %.sroa.01.0.vec.extract.i191 = extractelement <2 x i64> %670, i64 0
   %695 = icmp eq i64 %.sroa.01.0.vec.extract.i191, 0
   %.sroa.01.8.vec.extract.i192 = extractelement <2 x i64> %670, i64 1
@@ -4305,23 +4305,23 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds 
 
 714:                                              ; preds = %705, %697
   %715 = phi <16 x i8> [ %694, %697 ], [ %713, %705 ]
-  %.not1236 = icmp eq i64 %.sroa.9.1.i1397, 16
+  %.not1236 = icmp eq i64 %.sroa.9.1.i1394, 16
   br i1 %.not1236, label %.thread1223, label %719
 
 716:                                              ; preds = %719
-  %717 = icmp ugt i64 %.sroa.9.1.i1397, 17
+  %717 = icmp ugt i64 %.sroa.9.1.i1394, 17
   %718 = icmp eq i8 %680, -30
-  %or.cond1676 = select i1 %717, i1 %718, i1 false
-  br i1 %or.cond1676, label %728, label %.thread1223
+  %or.cond1673 = select i1 %717, i1 %718, i1 false
+  br i1 %or.cond1673, label %728, label %.thread1223
 
 719:                                              ; preds = %714
   %720 = icmp eq i8 %681, -30
   %721 = icmp eq i8 %680, -128
-  %or.cond1675 = select i1 %720, i1 %721, i1 false
-  br i1 %or.cond1675, label %722, label %716
+  %or.cond1672 = select i1 %720, i1 %721, i1 false
+  br i1 %or.cond1672, label %722, label %716
 
 722:                                              ; preds = %719
-  %723 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1398, i64 16
+  %723 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1395, i64 16
   %724 = load i8, ptr %723, align 1, !alias.scope !442, !noalias !445, !noundef !7
   %.mask.i173 = and i8 %724, -2
   %725 = icmp eq i8 %.mask.i173, -88
@@ -4334,13 +4334,13 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds 
   br label %.thread1223
 
 728:                                              ; preds = %716
-  %729 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1398, i64 16
+  %729 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1395, i64 16
   %730 = load i8, ptr %729, align 1, !alias.scope !442, !noalias !445, !noundef !7
   %731 = icmp eq i8 %730, -128
   br i1 %731, label %732, label %.thread1223
 
 732:                                              ; preds = %728
-  %733 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1398, i64 17
+  %733 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1395, i64 17
   %734 = load i8, ptr %733, align 1, !alias.scope !442, !noalias !445, !noundef !7
   %.mask1.i172 = and i8 %734, -2
   %735 = icmp eq i8 %.mask1.i172, -88
@@ -4368,13 +4368,13 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds 
   %.neg1237 = shufflevector <16 x i8> %.neg, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16>
   %.neg1238 = select <16 x i1> %674, <16 x i8> %.neg1237, <16 x i8> zeroinitializer
   %744 = add <16 x i8> %739, %.neg1238
-  %.not1239 = icmp ne i64 %.sroa.9.1.i1397, 16
+  %.not1239 = icmp ne i64 %.sroa.9.1.i1394, 16
   %745 = icmp eq i8 %680, 13
-  %or.cond1677 = select i1 %.not1239, i1 %745, i1 false
-  br i1 %or.cond1677, label %746, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit174
+  %or.cond1674 = select i1 %.not1239, i1 %745, i1 false
+  br i1 %or.cond1674, label %746, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit174
 
 746:                                              ; preds = %742
-  %747 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1398, i64 16
+  %747 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1395, i64 16
   %748 = load i8, ptr %747, align 1, !alias.scope !442, !noalias !445, !noundef !7
   %749 = icmp eq i8 %748, 10
   br i1 %749, label %750, label %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit174
@@ -4388,7 +4388,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit170: ; preds 
 _ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit174: ; preds = %742, %746, %750, %.thread1223
   %.sroa.0638.5.in = phi <16 x i8> [ %739, %.thread1223 ], [ %.sroa.0.15.vec.insert.i, %750 ], [ %744, %746 ], [ %744, %742 ]
   %752 = add <16 x i8> %.sroa.0638.5.in, %660
-  %753 = add i64 %.sroa.020.0.i1395, 1
+  %753 = add i64 %.sroa.020.0.i1392, 1
   %754 = icmp eq i64 %753, 255
   br i1 %754, label %755, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354"
 
@@ -4396,53 +4396,53 @@ _ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit1
   %756 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %752, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i215 = extractelement <2 x i64> %756, i64 0
   %.sroa.0.8.vec.extract.i216 = extractelement <2 x i64> %756, i64 1
-  %757 = add i64 %.sroa.0.8.vec.extract.i216, %.sroa.015.1.i1396
+  %757 = add i64 %.sroa.0.8.vec.extract.i216, %.sroa.015.1.i1393
   %758 = add i64 %757, %.sroa.0.0.vec.extract.i215
   br label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354": ; preds = %755, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit174
   %759 = phi <16 x i8> [ zeroinitializer, %755 ], [ %752, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit174 ]
   %.sroa.020.1.i = phi i64 [ 0, %755 ], [ %753, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit174 ]
-  %.sroa.015.2.i = phi i64 [ %758, %755 ], [ %.sroa.015.1.i1396, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit174 ]
-  %760 = add i64 %.sroa.9.1.i1397, -16
-  %761 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1398, i64 16
+  %.sroa.015.2.i = phi i64 [ %758, %755 ], [ %.sroa.015.1.i1393, %_ZN11str_indices5lines30count_breaks_in_chunk_from_ptr17ha020297fae88c3e3E.exit174 ]
+  %760 = add i64 %.sroa.9.1.i1394, -16
+  %761 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i1395, i64 16
   %762 = icmp ugt i64 %760, 15
-  br i1 %762, label %.lr.ph1400, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit
+  br i1 %762, label %.lr.ph1397, label %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit
 
 _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354", %616
-  %.lcssa1303 = phi <16 x i8> [ zeroinitializer, %616 ], [ %759, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ]
+  %.lcssa1300 = phi <16 x i8> [ zeroinitializer, %616 ], [ %759, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ]
   %.sroa.015.1.i.lcssa = phi i64 [ %.sroa.015.0.i, %616 ], [ %.sroa.015.2.i, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ]
   %.sroa.9.1.i.lcssa = phi i64 [ %.sroa.9.0.i, %616 ], [ %760, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ]
   %.sroa.0.1.i.lcssa = phi ptr [ %.sroa.0.0.i135, %616 ], [ %761, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h06e5dcfa222d39b0E.exit354" ]
-  %763 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1303, <16 x i8> zeroinitializer) #17
+  %763 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %.lcssa1300, <16 x i8> zeroinitializer) #17
   %.sroa.0.0.vec.extract.i217 = extractelement <2 x i64> %763, i64 0
   %.sroa.0.8.vec.extract.i218 = extractelement <2 x i64> %763, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !447)
-  %.not1460 = icmp eq i64 %.sroa.9.1.i.lcssa, 0
-  br i1 %.not1460, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162, label %.lr.ph1408
+  %.not1457 = icmp eq i64 %.sroa.9.1.i.lcssa, 0
+  br i1 %.not1457, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162, label %.lr.ph1405
 
-.lr.ph1408:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit, %.thread1225
-  %.sroa.08.0.i1561407 = phi i64 [ %795, %.thread1225 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
-  %.sroa.02.0.i1551406 = phi i64 [ %.sroa.02.1.i158, %.thread1225 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
-  %764 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %.sroa.08.0.i1561407
+.lr.ph1405:                                       ; preds = %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit, %.thread1225
+  %.sroa.08.0.i1561404 = phi i64 [ %795, %.thread1225 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
+  %.sroa.02.0.i1551403 = phi i64 [ %.sroa.02.1.i158, %.thread1225 ], [ 0, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit ]
+  %764 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %.sroa.08.0.i1561404
   %765 = load i8, ptr %764, align 1, !alias.scope !447, !noundef !7
   %766 = add i8 %765, -10
   %spec.select.i355 = icmp ult i8 %766, 4
   br i1 %spec.select.i355, label %768, label %767
 
-767:                                              ; preds = %.lr.ph1408
+767:                                              ; preds = %.lr.ph1405
   switch i8 %765, label %.thread1225 [
     i8 -62, label %771
     i8 -30, label %779
   ]
 
-768:                                              ; preds = %.lr.ph1408
-  %769 = add nuw i64 %.sroa.02.0.i1551406, 1
+768:                                              ; preds = %.lr.ph1405
+  %769 = add nuw i64 %.sroa.02.0.i1551403, 1
   %770 = icmp eq i8 %765, 13
   br i1 %770, label %798, label %.thread1225
 
 771:                                              ; preds = %767
-  %772 = add nuw i64 %.sroa.08.0.i1561407, 1
+  %772 = add nuw i64 %.sroa.08.0.i1561404, 1
   %773 = icmp ult i64 %772, %.sroa.9.1.i.lcssa
   br i1 %773, label %774, label %.thread1225
 
@@ -4451,16 +4451,16 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   %776 = load i8, ptr %775, align 1, !alias.scope !447, !noundef !7
   %777 = icmp eq i8 %776, -123
   %778 = zext i1 %777 to i64
-  %spec.select1234 = add nuw i64 %.sroa.02.0.i1551406, %778
+  %spec.select1234 = add nuw i64 %.sroa.02.0.i1551403, %778
   br label %.thread1225
 
 779:                                              ; preds = %767
-  %780 = add i64 %.sroa.08.0.i1561407, 2
+  %780 = add i64 %.sroa.08.0.i1561404, 2
   %781 = icmp ult i64 %780, %.sroa.9.1.i.lcssa
   br i1 %781, label %782, label %.thread1225
 
 782:                                              ; preds = %779
-  %783 = add nuw i64 %.sroa.08.0.i1561407, 1
+  %783 = add nuw i64 %.sroa.08.0.i1561404, 1
   %784 = icmp ult i64 %783, %.sroa.9.1.i.lcssa
   br i1 %784, label %785, label %789, !prof !25
 
@@ -4480,19 +4480,19 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   %.mask.i159 = and i8 %792, -2
   %793 = icmp eq i8 %.mask.i159, -88
   %794 = zext i1 %793 to i64
-  %spec.select.i160 = add nuw i64 %.sroa.02.0.i1551406, %794
+  %spec.select.i160 = add nuw i64 %.sroa.02.0.i1551403, %794
   br label %.thread1225
 
 .thread1225:                                      ; preds = %774, %767, %771, %801, %798, %790, %785, %779, %768
-  %.sroa.02.1.i158 = phi i64 [ %769, %798 ], [ %769, %768 ], [ %.sroa.02.0.i1551406, %785 ], [ %.sroa.02.0.i1551406, %779 ], [ %spec.select.i160, %790 ], [ %spec.select25.i161, %801 ], [ %.sroa.02.0.i1551406, %771 ], [ %.sroa.02.0.i1551406, %767 ], [ %spec.select1234, %774 ]
-  %795 = add nuw i64 %.sroa.08.0.i1561407, 1
+  %.sroa.02.1.i158 = phi i64 [ %769, %798 ], [ %769, %768 ], [ %.sroa.02.0.i1551403, %785 ], [ %.sroa.02.0.i1551403, %779 ], [ %spec.select.i160, %790 ], [ %spec.select25.i161, %801 ], [ %.sroa.02.0.i1551403, %771 ], [ %.sroa.02.0.i1551403, %767 ], [ %spec.select1234, %774 ]
+  %795 = add nuw i64 %.sroa.08.0.i1561404, 1
   %796 = icmp ult i64 %795, %.sroa.9.1.i.lcssa
   %797 = icmp ult i64 %.sroa.02.1.i158, %.sroa.9.1.i.lcssa
   %or.cond.i157 = select i1 %796, i1 %797, i1 false
-  br i1 %or.cond.i157, label %.lr.ph1408, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162
+  br i1 %or.cond.i157, label %.lr.ph1405, label %_ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162
 
 798:                                              ; preds = %768
-  %799 = add nuw i64 %.sroa.08.0.i1561407, 1
+  %799 = add nuw i64 %.sroa.08.0.i1561404, 1
   %800 = icmp ult i64 %799, %.sroa.9.1.i.lcssa
   br i1 %800, label %801, label %.thread1225
 
@@ -4500,7 +4500,7 @@ _ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit: ; preds = %"
   %802 = getelementptr inbounds [0 x i8], ptr %.sroa.0.1.i.lcssa, i64 0, i64 %799
   %803 = load i8, ptr %802, align 1, !alias.scope !447, !noundef !7
   %804 = icmp eq i8 %803, 10
-  %spec.select25.i161 = select i1 %804, i64 %.sroa.02.0.i1551406, i64 %769
+  %spec.select25.i161 = select i1 %804, i64 %.sroa.02.0.i1551403, i64 %769
   br label %.thread1225
 
 _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162: ; preds = %.thread1225, %_ZN11str_indices5lines17count_breaks_impl17h9f588e80457b3245E.exit
@@ -4517,17 +4517,17 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit162: ; preds 
   br label %423
 
 _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge: ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit, %.lr.ph._crit_edge
-  %.lcssa1316 = getelementptr inbounds nuw i8, ptr %435, i64 16
+  %.lcssa1313 = getelementptr inbounds nuw i8, ptr %435, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !450
-  call void @_ZN5ropey4tree4node4Node17get_chunk_at_byte17hc722a15ed603f0bcE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %.lcssa1316, i64 noundef %.sroa.089.01355)
+  call void @_ZN5ropey4tree4node4Node17get_chunk_at_byte17hc722a15ed603f0bcE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %.lcssa1313, i64 noundef %.sroa.089.01352)
   %809 = load ptr, ptr %8, align 8, !noalias !450, !nonnull !7, !align !127, !noundef !7
   %810 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %811 = load i64, ptr %810, align 8, !noalias !450, !noundef !7
   %812 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %813 = load i64, ptr %812, align 8, !noalias !450, !noundef !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !450
-  %814 = sub i64 %.sroa.089.01355, %813
-  %815 = icmp eq i64 %.sroa.089.01355, %813
+  %814 = sub i64 %.sroa.089.01352, %813
+  %815 = icmp eq i64 %.sroa.089.01352, %813
   br i1 %815, label %_ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit.thread, label %816
 
 816:                                              ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge
@@ -4545,29 +4545,29 @@ _ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit: ; preds = %
   br i1 %821, label %_ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit.thread, label %837
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph._crit_edge
-  %.sroa.068.01344 = phi i64 [ %.pre1561, %.lr.ph._crit_edge ], [ 0, %.lr.ph.preheader ]
-  %.sroa.0.011851343 = phi ptr [ %1041, %.lr.ph._crit_edge ], [ %.ptr, %.lr.ph.preheader ]
-  %.sroa.8.01342 = phi i64 [ %1040, %.lr.ph._crit_edge ], [ 0, %.lr.ph.preheader ]
-  %.not126 = icmp ult i64 %.sroa.089.01355, %.sroa.068.01344
-  %.pre1559 = load i64, ptr %.sroa.0.011851343, align 8
-  %.pre1561 = add i64 %.pre1559, %.sroa.068.01344
-  %.not127 = icmp ugt i64 %.sroa.099.01356, %.pre1561
-  %or.cond1678 = select i1 %.not126, i1 true, i1 %.not127
-  br i1 %or.cond1678, label %.lr.ph._crit_edge, label %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
+  %.sroa.068.01341 = phi i64 [ %.pre1558, %.lr.ph._crit_edge ], [ 0, %.lr.ph.preheader ]
+  %.sroa.0.011851340 = phi ptr [ %1041, %.lr.ph._crit_edge ], [ %.ptr, %.lr.ph.preheader ]
+  %.sroa.8.01339 = phi i64 [ %1040, %.lr.ph._crit_edge ], [ 0, %.lr.ph.preheader ]
+  %.not126 = icmp ult i64 %.sroa.089.01352, %.sroa.068.01341
+  %.pre1556 = load i64, ptr %.sroa.0.011851340, align 8
+  %.pre1558 = add i64 %.pre1556, %.sroa.068.01341
+  %.not127 = icmp ugt i64 %.sroa.099.01353, %.pre1558
+  %or.cond1675 = select i1 %.not126, i1 true, i1 %.not127
+  br i1 %or.cond1675, label %.lr.ph._crit_edge, label %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
 
 _ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit.thread: ; preds = %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge, %817, %_ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit
-  %822 = load ptr, ptr %.sroa.0.01357, align 8, !nonnull !7, !noundef !7
+  %822 = load ptr, ptr %.sroa.0.01354, align 8, !nonnull !7, !noundef !7
   %823 = getelementptr inbounds nuw i8, ptr %822, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !456
-  call void @_ZN5ropey4tree4node4Node17get_chunk_at_byte17hc722a15ed603f0bcE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %823, i64 noundef %.sroa.099.01356)
+  call void @_ZN5ropey4tree4node4Node17get_chunk_at_byte17hc722a15ed603f0bcE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %823, i64 noundef %.sroa.099.01353)
   %824 = load ptr, ptr %7, align 8, !noalias !456, !nonnull !7, !align !127, !noundef !7
   %825 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %826 = load i64, ptr %825, align 8, !noalias !456, !noundef !7
   %827 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %828 = load i64, ptr %827, align 8, !noalias !456, !noundef !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !456
-  %829 = sub i64 %.sroa.099.01356, %828
-  %830 = icmp eq i64 %.sroa.099.01356, %828
+  %829 = sub i64 %.sroa.099.01353, %828
+  %830 = icmp eq i64 %.sroa.099.01353, %828
   br i1 %830, label %_ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit360.thread, label %831
 
 831:                                              ; preds = %_ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit.thread
@@ -4592,10 +4592,10 @@ _ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit360: ; preds 
   br label %423
 
 _ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit360.thread: ; preds = %_ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit.thread, %832, %_ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit360
-  %839 = load ptr, ptr %.sroa.0.01357, align 8, !nonnull !7, !noundef !7
+  %839 = load ptr, ptr %.sroa.0.01354, align 8, !nonnull !7, !noundef !7
   %840 = getelementptr inbounds nuw i8, ptr %839, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !462
-  call void @_ZN5ropey4tree4node4Node17get_chunk_at_byte17hc722a15ed603f0bcE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %840, i64 noundef %.sroa.089.01355), !noalias !466
+  call void @_ZN5ropey4tree4node4Node17get_chunk_at_byte17hc722a15ed603f0bcE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %840, i64 noundef %.sroa.089.01352), !noalias !466
   %841 = load ptr, ptr %19, align 8, !noalias !462, !nonnull !7, !align !127, !noundef !7
   %842 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %843 = load i64, ptr %842, align 8, !noalias !462, !noundef !7
@@ -4608,7 +4608,7 @@ _ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit360.thread: ;
   %850 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %851 = load i64, ptr %850, align 8, !noalias !462, !noundef !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19), !noalias !462
-  %852 = sub i64 %.sroa.089.01355, %845
+  %852 = sub i64 %.sroa.089.01352, %845
   tail call void @llvm.experimental.noalias.scope.decl(metadata !467)
   %.not163.i = icmp ult i64 %852, %843
   br i1 %.not163.i, label %.lr.ph.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i361"
@@ -4769,10 +4769,10 @@ _ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit: ; preds = %.preh
   %936 = add i64 %935, %849
   %937 = tail call fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c57f288b09ce49E(ptr noalias noundef nonnull readonly align 1 %841, i64 noundef %843, i64 noundef %852), !noalias !466
   %938 = add i64 %937, %851
-  %939 = load ptr, ptr %.sroa.0.01357, align 8, !nonnull !7, !noundef !7
+  %939 = load ptr, ptr %.sroa.0.01354, align 8, !nonnull !7, !noundef !7
   %940 = getelementptr inbounds nuw i8, ptr %939, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18), !noalias !482
-  call void @_ZN5ropey4tree4node4Node17get_chunk_at_byte17hc722a15ed603f0bcE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %940, i64 noundef %.sroa.099.01356), !noalias !486
+  call void @_ZN5ropey4tree4node4Node17get_chunk_at_byte17hc722a15ed603f0bcE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %940, i64 noundef %.sroa.099.01353), !noalias !486
   %941 = load ptr, ptr %18, align 8, !noalias !482, !nonnull !7, !align !127, !noundef !7
   %942 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %943 = load i64, ptr %942, align 8, !noalias !482, !noundef !7
@@ -4785,7 +4785,7 @@ _ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit: ; preds = %.preh
   %950 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %951 = load i64, ptr %950, align 8, !noalias !482, !noundef !7
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18), !noalias !482
-  %952 = sub i64 %.sroa.099.01356, %945
+  %952 = sub i64 %.sroa.099.01353, %945
   tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
   %.not163.i366 = icmp ult i64 %952, %943
   br i1 %.not163.i366, label %.lr.ph.i401, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i367"
@@ -4947,9 +4947,9 @@ _ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405: ; preds = %.p
   %1037 = tail call fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c57f288b09ce49E(ptr noalias noundef nonnull readonly align 1 %941, i64 noundef %943, i64 noundef %952), !noalias !486
   %1038 = add i64 %1037, %951
   %1039 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.01357, ptr %1039, align 8
+  store ptr %.sroa.0.01354, ptr %1039, align 8
   %.sroa.487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.089.01355, ptr %.sroa.487.0..sroa_idx, align 8
+  store i64 %.sroa.089.01352, ptr %.sroa.487.0..sroa_idx, align 8
   %.sroa.487.sroa.4.0..sroa.487.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %934, ptr %.sroa.487.sroa.4.0..sroa.487.0..sroa_idx.sroa_idx, align 8
   %.sroa.487.sroa.5.0..sroa.487.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4957,31 +4957,31 @@ _ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405: ; preds = %.p
   %.sroa.487.sroa.6.0..sroa.487.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %938, ptr %.sroa.487.sroa.6.0..sroa.487.0..sroa_idx.sroa_idx, align 8
   %.sroa.588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.sroa.099.01356, ptr %.sroa.588.0..sroa_idx, align 8
+  store i64 %.sroa.099.01353, ptr %.sroa.588.0..sroa_idx, align 8
   br label %423
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %1040 = add nuw nsw i64 %.sroa.8.01342, 1
-  %1041 = getelementptr inbounds nuw i8, ptr %.sroa.0.011851343, i64 32
-  %1042 = icmp eq ptr %1041, %.ptr1456
+  %1040 = add nuw nsw i64 %.sroa.8.01339, 1
+  %1041 = getelementptr inbounds nuw i8, ptr %.sroa.0.011851340, i64 32
+  %1042 = icmp eq ptr %1041, %.ptr1453
   br i1 %1042, label %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit._crit_edge, label %.lr.ph
 
 _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; preds = %.lr.ph
-  %1043 = icmp samesign ult i64 %.sroa.8.01342, %439
+  %1043 = icmp samesign ult i64 %.sroa.8.01339, %439
   br i1 %1043, label %1044, label %1051, !prof !25
 
 1044:                                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
-  %1045 = sub i64 %.sroa.099.01356, %.sroa.068.01344
-  %1046 = sub i64 %.sroa.089.01355, %.sroa.068.01344
-  %1047 = getelementptr inbounds nuw [0 x ptr], ptr %436, i64 0, i64 %.sroa.8.01342
+  %1045 = sub i64 %.sroa.099.01353, %.sroa.068.01341
+  %1046 = sub i64 %.sroa.089.01352, %.sroa.068.01341
+  %1047 = getelementptr inbounds nuw [0 x ptr], ptr %436, i64 0, i64 %.sroa.8.01339
   %1048 = load ptr, ptr %1047, align 8, !nonnull !7, !noundef !7
   %1049 = getelementptr inbounds nuw i8, ptr %1048, i64 16
   %1050 = load i8, ptr %1049, align 8, !range !38, !noundef !7
   %trunc = trunc nuw i8 %1050 to i1
-  br i1 %trunc, label %.lr.ph1359, label %._crit_edge1360
+  br i1 %trunc, label %.lr.ph1356, label %._crit_edge1357
 
 1051:                                             ; preds = %_ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.8.01342, i64 noundef %439, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.84) #16
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.8.01339, i64 noundef %439, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.524e13faaf100fdd7a55ca9d7171e439.84) #16
   unreachable
 }
 

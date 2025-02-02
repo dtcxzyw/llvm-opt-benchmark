@@ -423,7 +423,7 @@ invoke.cont38:                                    ; preds = %if.end37
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont38, %land.lhs.true, %invoke.cont20, %for.body
-  %outs2_broken.1 = phi i8 [ %outs2_broken.0326, %for.body ], [ %outs2_broken.0326, %invoke.cont20 ], [ %outs2_broken.0326, %invoke.cont38 ], [ 1, %land.lhs.true ]
+  %outs2_broken.1 = phi i8 [ %outs2_broken.0326, %for.body ], [ 1, %invoke.cont20 ], [ 0, %invoke.cont38 ], [ 1, %land.lhs.true ]
   %inc = add i32 %i.0325, 1
   %conv8 = zext i32 %inc to i64
   %cmp = icmp ugt i64 %sub.ptr.div.i, %conv8

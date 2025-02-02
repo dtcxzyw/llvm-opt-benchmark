@@ -1538,30 +1538,30 @@ define internal fastcc void @check_publications(ptr noundef nonnull %0, ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph30.i, label %get_publications_str.exit
+  br i1 %8, label %.lr.ph29.i, label %get_publications_str.exit
 
-.lr.ph30.i:                                       ; preds = %.lr.ph.i, %15
-  %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %15 ], [ 0, %.lr.ph.i ]
-  %.01420.us28.i = phi i1 [ false, %15 ], [ true, %.lr.ph.i ]
+.lr.ph29.i:                                       ; preds = %.lr.ph.i, %15
+  %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %15 ], [ 0, %.lr.ph.i ]
+  %.01420.us27.i = phi i1 [ false, %15 ], [ true, %.lr.ph.i ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv32.i
+  %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv31.i
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  br i1 %.01420.us28.i, label %15, label %14
+  br i1 %.01420.us27.i, label %15, label %14
 
-14:                                               ; preds = %.lr.ph30.i
+14:                                               ; preds = %.lr.ph29.i
   tail call void @appendStringInfoString(ptr noundef %4, ptr noundef nonnull @.str.83) #10
   br label %15
 
-15:                                               ; preds = %14, %.lr.ph30.i
+15:                                               ; preds = %14, %.lr.ph29.i
   %16 = tail call ptr @quote_literal_cstr(ptr noundef %13) #10
   tail call void @appendStringInfoString(ptr noundef %4, ptr noundef %16) #10
-  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
+  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %17 = load i32, ptr %5, align 4
   %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next33.i, %18
-  br i1 %19, label %.lr.ph30.i, label %get_publications_str.exit
+  %19 = icmp slt i64 %indvars.iv.next32.i, %18
+  br i1 %19, label %.lr.ph29.i, label %get_publications_str.exit
 
 get_publications_str.exit:                        ; preds = %15, %2, %.lr.ph.i
   tail call void @appendStringInfoChar(ptr noundef %4, i8 noundef signext 41) #10
@@ -1673,23 +1673,23 @@ list_length.exit:                                 ; preds = %walrcv_clear_result
   %69 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
   %70 = load i32, ptr %66, align 4
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.lr.ph27.i, label %get_publications_str.exit30
+  br i1 %71, label %.lr.ph26.i, label %get_publications_str.exit30
 
-.lr.ph27.i:                                       ; preds = %.lr.ph.i29, %78
+.lr.ph26.i:                                       ; preds = %.lr.ph.i29, %78
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ 0, %.lr.ph.i29 ]
-  %.0142025.i = phi i1 [ false, %78 ], [ true, %.lr.ph.i29 ]
+  %.0142024.i = phi i1 [ false, %78 ], [ true, %.lr.ph.i29 ]
   %72 = load ptr, ptr %69, align 8
   %73 = getelementptr %union.ListCell, ptr %72, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
-  br i1 %.0142025.i, label %78, label %77
+  br i1 %.0142024.i, label %78, label %77
 
-77:                                               ; preds = %.lr.ph27.i
+77:                                               ; preds = %.lr.ph26.i
   call void @appendStringInfoString(ptr noundef %68, ptr noundef nonnull @.str.83) #10
   br label %78
 
-78:                                               ; preds = %77, %.lr.ph27.i
+78:                                               ; preds = %77, %.lr.ph26.i
   call void @appendStringInfoChar(ptr noundef %68, i8 noundef signext 34) #10
   call void @appendStringInfoString(ptr noundef %68, ptr noundef %76) #10
   call void @appendStringInfoChar(ptr noundef %68, i8 noundef signext 34) #10
@@ -1697,7 +1697,7 @@ list_length.exit:                                 ; preds = %walrcv_clear_result
   %79 = load i32, ptr %66, align 4
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next.i, %80
-  br i1 %81, label %.lr.ph27.i, label %get_publications_str.exit30
+  br i1 %81, label %.lr.ph26.i, label %get_publications_str.exit30
 
 get_publications_str.exit30:                      ; preds = %78, %.lr.ph.i29
   %82 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
@@ -1741,30 +1741,30 @@ define internal fastcc void @check_publications_origin(ptr noundef nonnull %0, p
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %14, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph30.i, label %get_publications_str.exit
+  br i1 %17, label %.lr.ph29.i, label %get_publications_str.exit
 
-.lr.ph30.i:                                       ; preds = %.lr.ph.i, %24
-  %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %24 ], [ 0, %.lr.ph.i ]
-  %.01420.us28.i = phi i1 [ false, %24 ], [ true, %.lr.ph.i ]
+.lr.ph29.i:                                       ; preds = %.lr.ph.i, %24
+  %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %24 ], [ 0, %.lr.ph.i ]
+  %.01420.us27.i = phi i1 [ false, %24 ], [ true, %.lr.ph.i ]
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv32.i
+  %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv31.i
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  br i1 %.01420.us28.i, label %24, label %23
+  br i1 %.01420.us27.i, label %24, label %23
 
-23:                                               ; preds = %.lr.ph30.i
+23:                                               ; preds = %.lr.ph29.i
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.83) #10
   br label %24
 
-24:                                               ; preds = %23, %.lr.ph30.i
+24:                                               ; preds = %23, %.lr.ph29.i
   %25 = call ptr @quote_literal_cstr(ptr noundef %22) #10
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef %25) #10
-  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
+  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %26 = load i32, ptr %14, align 4
   %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %indvars.iv.next33.i, %27
-  br i1 %28, label %.lr.ph30.i, label %get_publications_str.exit
+  %28 = icmp slt i64 %indvars.iv.next32.i, %27
+  br i1 %28, label %.lr.ph29.i, label %get_publications_str.exit
 
 get_publications_str.exit:                        ; preds = %24, %13, %.lr.ph.i
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull @.str.87) #10
@@ -1859,23 +1859,23 @@ slot_getattr.exit:                                ; preds = %58, %slot_getsomeat
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %75 = load i32, ptr %73, align 4
   %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %.lr.ph27.i, label %get_publications_str.exit37
+  br i1 %76, label %.lr.ph26.i, label %get_publications_str.exit37
 
-.lr.ph27.i:                                       ; preds = %.lr.ph.i36, %83
+.lr.ph26.i:                                       ; preds = %.lr.ph.i36, %83
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %83 ], [ 0, %.lr.ph.i36 ]
-  %.0142025.i = phi i1 [ false, %83 ], [ true, %.lr.ph.i36 ]
+  %.0142024.i = phi i1 [ false, %83 ], [ true, %.lr.ph.i36 ]
   %77 = load ptr, ptr %74, align 8
   %78 = getelementptr %union.ListCell, ptr %77, i64 %indvars.iv.i
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
-  br i1 %.0142025.i, label %83, label %82
+  br i1 %.0142024.i, label %83, label %82
 
-82:                                               ; preds = %.lr.ph27.i
+82:                                               ; preds = %.lr.ph26.i
   call void @appendStringInfoString(ptr noundef %72, ptr noundef nonnull @.str.83) #10
   br label %83
 
-83:                                               ; preds = %82, %.lr.ph27.i
+83:                                               ; preds = %82, %.lr.ph26.i
   call void @appendStringInfoChar(ptr noundef %72, i8 noundef signext 34) #10
   call void @appendStringInfoString(ptr noundef %72, ptr noundef %81) #10
   call void @appendStringInfoChar(ptr noundef %72, i8 noundef signext 34) #10
@@ -1883,7 +1883,7 @@ slot_getattr.exit:                                ; preds = %58, %slot_getsomeat
   %84 = load i32, ptr %73, align 4
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next.i, %85
-  br i1 %86, label %.lr.ph27.i, label %get_publications_str.exit37
+  br i1 %86, label %.lr.ph26.i, label %get_publications_str.exit37
 
 get_publications_str.exit37:                      ; preds = %83, %.lr.ph.i36
   %87 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
@@ -1965,30 +1965,30 @@ define internal fastcc ptr @fetch_table_list(ptr noundef nonnull %0, ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %14, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph30.i, label %get_publications_str.exit
+  br i1 %17, label %.lr.ph29.i, label %get_publications_str.exit
 
-.lr.ph30.i:                                       ; preds = %.lr.ph.i, %24
-  %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %24 ], [ 0, %.lr.ph.i ]
-  %.01420.us28.i = phi i1 [ false, %24 ], [ true, %.lr.ph.i ]
+.lr.ph29.i:                                       ; preds = %.lr.ph.i, %24
+  %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %24 ], [ 0, %.lr.ph.i ]
+  %.01420.us27.i = phi i1 [ false, %24 ], [ true, %.lr.ph.i ]
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv32.i
+  %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv31.i
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  br i1 %.01420.us28.i, label %24, label %23
+  br i1 %.01420.us27.i, label %24, label %23
 
-23:                                               ; preds = %.lr.ph30.i
+23:                                               ; preds = %.lr.ph29.i
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.83) #10
   br label %24
 
-24:                                               ; preds = %23, %.lr.ph30.i
+24:                                               ; preds = %23, %.lr.ph29.i
   %25 = call ptr @quote_literal_cstr(ptr noundef %22) #10
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef %25) #10
-  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
+  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %26 = load i32, ptr %14, align 4
   %27 = sext i32 %26 to i64
-  %28 = icmp slt i64 %indvars.iv.next33.i, %27
-  br i1 %28, label %.lr.ph30.i, label %get_publications_str.exit
+  %28 = icmp slt i64 %indvars.iv.next32.i, %27
+  br i1 %28, label %.lr.ph29.i, label %get_publications_str.exit
 
 get_publications_str.exit:                        ; preds = %24, %13, %.lr.ph.i
   %29 = load ptr, ptr %5, align 8
@@ -2016,30 +2016,30 @@ get_publications_str.exit:                        ; preds = %24, %13, %.lr.ph.i
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load i32, ptr %34, align 4
   %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.lr.ph30.i29, label %get_publications_str.exit33
+  br i1 %37, label %.lr.ph29.i29, label %get_publications_str.exit33
 
-.lr.ph30.i29:                                     ; preds = %.lr.ph.i28, %44
-  %indvars.iv32.i30 = phi i64 [ %indvars.iv.next33.i32, %44 ], [ 0, %.lr.ph.i28 ]
-  %.01420.us28.i31 = phi i1 [ false, %44 ], [ true, %.lr.ph.i28 ]
+.lr.ph29.i29:                                     ; preds = %.lr.ph.i28, %44
+  %indvars.iv31.i30 = phi i64 [ %indvars.iv.next32.i32, %44 ], [ 0, %.lr.ph.i28 ]
+  %.01420.us27.i31 = phi i1 [ false, %44 ], [ true, %.lr.ph.i28 ]
   %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr %union.ListCell, ptr %38, i64 %indvars.iv32.i30
+  %39 = getelementptr %union.ListCell, ptr %38, i64 %indvars.iv31.i30
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  br i1 %.01420.us28.i31, label %44, label %43
+  br i1 %.01420.us27.i31, label %44, label %43
 
-43:                                               ; preds = %.lr.ph30.i29
+43:                                               ; preds = %.lr.ph29.i29
   call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef nonnull @.str.83) #10
   br label %44
 
-44:                                               ; preds = %43, %.lr.ph30.i29
+44:                                               ; preds = %43, %.lr.ph29.i29
   %45 = call ptr @quote_literal_cstr(ptr noundef %42) #10
   call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef %45) #10
-  %indvars.iv.next33.i32 = add nuw nsw i64 %indvars.iv32.i30, 1
+  %indvars.iv.next32.i32 = add nuw nsw i64 %indvars.iv31.i30, 1
   %46 = load i32, ptr %34, align 4
   %47 = sext i32 %46 to i64
-  %48 = icmp slt i64 %indvars.iv.next33.i32, %47
-  br i1 %48, label %.lr.ph30.i29, label %get_publications_str.exit33
+  %48 = icmp slt i64 %indvars.iv.next32.i32, %47
+  br i1 %48, label %.lr.ph29.i29, label %get_publications_str.exit33
 
 get_publications_str.exit33:                      ; preds = %44, %33, %.lr.ph.i28
   call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 41) #10

@@ -56,22 +56,22 @@ define internal fastcc range(i32 -1, 1) i32 @parsedate(ptr noundef %date, ptr no
 entry:
   %end = alloca ptr, align 8
   %0 = load i8, ptr %date, align 1
-  %tobool210.not = icmp eq i8 %0, 0
-  br i1 %tobool210.not, label %while.end203, label %while.body
+  %tobool216.not = icmp eq i8 %0, 0
+  br i1 %tobool216.not, label %while.end203, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end201
   %1 = phi i8 [ %39, %if.end201 ], [ %0, %entry ]
-  %wdaynum.0221 = phi i32 [ %wdaynum.3, %if.end201 ], [ -1, %entry ]
-  %monnum.0220 = phi i32 [ %monnum.3, %if.end201 ], [ -1, %entry ]
-  %part.0219 = phi i32 [ %inc202, %if.end201 ], [ 0, %entry ]
-  %mdaynum.0218 = phi i32 [ %mdaynum.1, %if.end201 ], [ -1, %entry ]
-  %dignext.0217 = phi i32 [ %dignext.1, %if.end201 ], [ 0, %entry ]
-  %tzoff.0216 = phi i32 [ %tzoff.2, %if.end201 ], [ -1, %entry ]
-  %yearnum.0215 = phi i32 [ %yearnum.1, %if.end201 ], [ -1, %entry ]
-  %secnum.0214 = phi i32 [ %secnum.1, %if.end201 ], [ -1, %entry ]
-  %minnum.0213 = phi i32 [ %minnum.1, %if.end201 ], [ -1, %entry ]
-  %hournum.0212 = phi i32 [ %hournum.1, %if.end201 ], [ -1, %entry ]
-  %date.addr.0211 = phi ptr [ %date.addr.1, %if.end201 ], [ %date, %entry ]
+  %wdaynum.0227 = phi i32 [ %wdaynum.3, %if.end201 ], [ -1, %entry ]
+  %monnum.0226 = phi i32 [ %monnum.3, %if.end201 ], [ -1, %entry ]
+  %part.0225 = phi i32 [ %inc202, %if.end201 ], [ 0, %entry ]
+  %mdaynum.0224 = phi i32 [ %mdaynum.1, %if.end201 ], [ -1, %entry ]
+  %dignext.0223 = phi i32 [ %dignext.1, %if.end201 ], [ 0, %entry ]
+  %tzoff.0222 = phi i32 [ %tzoff.2, %if.end201 ], [ -1, %entry ]
+  %yearnum.0221 = phi i32 [ %yearnum.1, %if.end201 ], [ -1, %entry ]
+  %secnum.0220 = phi i32 [ %secnum.1, %if.end201 ], [ -1, %entry ]
+  %minnum.0219 = phi i32 [ %minnum.1, %if.end201 ], [ -1, %entry ]
+  %hournum.0218 = phi i32 [ %hournum.1, %if.end201 ], [ -1, %entry ]
+  %date.addr.0217 = phi ptr [ %date.addr.1, %if.end201 ], [ %date, %entry ]
   %2 = add i8 %1, -58
   %or.cond13.i = icmp ult i8 %2, -10
   %3 = and i8 %1, -33
@@ -81,7 +81,7 @@ while.body:                                       ; preds = %entry, %if.end201
   br i1 %or.cond1119.i, label %while.body.i, label %skip.exit
 
 while.body.i:                                     ; preds = %while.body, %while.body.i
-  %6 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %date.addr.0211, %while.body ]
+  %6 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %date.addr.0217, %while.body ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 1
   %7 = load i8, ptr %incdec.ptr.i, align 1
   %tobool.not.i = icmp ne i8 %7, 0
@@ -97,13 +97,13 @@ while.body.i:                                     ; preds = %while.body, %while.
 skip.exit:                                        ; preds = %while.body.i, %while.body
   %.pre-phi = phi i8 [ %3, %while.body ], [ %9, %while.body.i ]
   %12 = phi i8 [ %1, %while.body ], [ %7, %while.body.i ]
-  %date.addr.2 = phi ptr [ %date.addr.0211, %while.body ], [ %incdec.ptr.i, %while.body.i ]
+  %date.addr.2 = phi ptr [ %date.addr.0217, %while.body ], [ %incdec.ptr.i, %while.body.i ]
   %13 = add i8 %.pre-phi, -65
-  %or.cond189 = icmp ult i8 %13, 26
-  br i1 %or.cond189, label %while.cond15, label %if.else
+  %or.cond195 = icmp ult i8 %13, 26
+  br i1 %or.cond195, label %while.cond15, label %if.else
 
 while.cond15:                                     ; preds = %skip.exit, %while.body35
-  %14 = phi i8 [ %.pre233, %while.body35 ], [ %12, %skip.exit ]
+  %14 = phi i8 [ %.pre239, %while.body35 ], [ %12, %skip.exit ]
   %len.0 = phi i64 [ %inc, %while.body35 ], [ 0, %skip.exit ]
   %p.0 = phi ptr [ %incdec.ptr, %while.body35 ], [ %date.addr.2, %skip.exit ]
   %15 = add i8 %14, -97
@@ -127,7 +127,7 @@ land.rhs31:                                       ; preds = %while.cond15
 while.body35:                                     ; preds = %land.lhs.true27, %land.rhs31
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 1
   %inc = add nuw nsw i64 %len.0, 1
-  %.pre233 = load i8, ptr %incdec.ptr, align 1
+  %.pre239 = load i8, ptr %incdec.ptr, align 1
   br label %while.cond15, !llvm.loop !6
 
 while.end:                                        ; preds = %land.lhs.true27, %lor.lhs.false23, %land.rhs31
@@ -135,7 +135,7 @@ while.end:                                        ; preds = %land.lhs.true27, %l
   br i1 %cmp36.not, label %return, label %if.then38
 
 if.then38:                                        ; preds = %while.end
-  %cmp39 = icmp eq i32 %wdaynum.0221, -1
+  %cmp39 = icmp eq i32 %wdaynum.0227, -1
   br i1 %cmp39, label %if.then41, label %if.end45
 
 if.then41:                                        ; preds = %if.then38
@@ -170,8 +170,8 @@ if.end10.i:                                       ; preds = %land.lhs.true.i, %f
   br i1 %exitcond.not.i, label %if.end45, label %for.body.i, !llvm.loop !7
 
 if.end45:                                         ; preds = %if.end10.i, %if.else.i, %if.then38
-  %wdaynum.2 = phi i32 [ %wdaynum.0221, %if.then38 ], [ -1, %if.else.i ], [ -1, %if.end10.i ]
-  %cmp48.not = icmp eq i32 %monnum.0220, -1
+  %wdaynum.2 = phi i32 [ %wdaynum.0227, %if.then38 ], [ -1, %if.else.i ], [ -1, %if.end10.i ]
+  %cmp48.not = icmp eq i32 %monnum.0226, -1
   br i1 %cmp48.not, label %if.then50, label %if.end56
 
 if.then50:                                        ; preds = %if.end45
@@ -193,11 +193,11 @@ if.end3.i:                                        ; preds = %for.body.i99
   br i1 %exitcond.not.i104, label %if.end56, label %for.body.i99, !llvm.loop !8
 
 if.end56:                                         ; preds = %if.end3.i, %if.then50, %if.end45
-  %monnum.2 = phi i32 [ %monnum.0220, %if.end45 ], [ -1, %if.then50 ], [ -1, %if.end3.i ]
-  %cmp59.not = icmp ne i32 %tzoff.0216, -1
+  %monnum.2 = phi i32 [ %monnum.0226, %if.end45 ], [ -1, %if.then50 ], [ -1, %if.end3.i ]
+  %cmp59.not = icmp ne i32 %tzoff.0222, -1
   %cmp.i105 = icmp samesign ugt i64 %len.0, 4
-  %or.cond190 = select i1 %cmp59.not, i1 true, i1 %cmp.i105
-  br i1 %or.cond190, label %return, label %for.body.i106
+  %or.cond196 = select i1 %cmp59.not, i1 true, i1 %cmp.i105
+  br i1 %or.cond196, label %return, label %for.body.i106
 
 for.body.i106:                                    ; preds = %if.end56, %if.end9.i
   %what.09.i = phi ptr [ %incdec.ptr.i109, %if.end9.i ], [ @tz, %if.end56 ]
@@ -225,8 +225,8 @@ checktz.exit:                                     ; preds = %land.lhs.true.i113
 
 if.end71:                                         ; preds = %land.lhs.true.i, %for.body.i99, %checktz.exit
   %wdaynum.1171 = phi i32 [ %wdaynum.2, %checktz.exit ], [ %wdaynum.2, %for.body.i99 ], [ %i.08.i, %land.lhs.true.i ]
-  %monnum.1170 = phi i32 [ %monnum.2, %checktz.exit ], [ %i.04.i, %for.body.i99 ], [ %monnum.0220, %land.lhs.true.i ]
-  %tzoff.1169 = phi i32 [ %mul.i, %checktz.exit ], [ %tzoff.0216, %for.body.i99 ], [ %tzoff.0216, %land.lhs.true.i ]
+  %monnum.1170 = phi i32 [ %monnum.2, %checktz.exit ], [ %i.04.i, %for.body.i99 ], [ %monnum.0226, %land.lhs.true.i ]
+  %tzoff.1169 = phi i32 [ %mul.i, %checktz.exit ], [ %tzoff.0222, %for.body.i99 ], [ %tzoff.0222, %land.lhs.true.i ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %date.addr.2, i64 %len.0
   br label %if.end201
 
@@ -236,7 +236,7 @@ if.else:                                          ; preds = %skip.exit
   br i1 %or.cond89, label %if.then79, label %if.end201
 
 if.then79:                                        ; preds = %if.else
-  %cmp80 = icmp eq i32 %secnum.0214, -1
+  %cmp80 = icmp eq i32 %secnum.0220, -1
   br i1 %cmp80, label %land.lhs.true82, label %if.else86
 
 land.lhs.true82:                                  ; preds = %if.then79
@@ -350,7 +350,7 @@ if.end96:                                         ; preds = %if.then94, %if.else
 
 if.end106:                                        ; preds = %if.end96
   %call107 = tail call i32 @curlx_sltosi(i64 noundef %call89) #7
-  %cmp108 = icmp eq i32 %tzoff.0216, -1
+  %cmp108 = icmp eq i32 %tzoff.0222, -1
   %.pre = load ptr, ptr %end, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %.pre to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %date.addr.2 to i64
@@ -386,14 +386,14 @@ if.then128:                                       ; preds = %land.lhs.true119, %
 
 if.end134:                                        ; preds = %if.end106, %land.lhs.true119, %if.then128, %land.lhs.true110
   %sub.ptr.sub137.pre-phi = phi i64 [ 4, %land.lhs.true119 ], [ 4, %if.then128 ], [ %sub.ptr.sub, %land.lhs.true110 ], [ %sub.ptr.sub, %if.end106 ]
-  %tzoff.3 = phi i32 [ -1, %land.lhs.true119 ], [ %cond, %if.then128 ], [ -1, %land.lhs.true110 ], [ %tzoff.0216, %if.end106 ]
+  %tzoff.3 = phi i32 [ -1, %land.lhs.true119 ], [ %cond, %if.then128 ], [ -1, %land.lhs.true110 ], [ %tzoff.0222, %if.end106 ]
   %found.3 = phi i8 [ 0, %land.lhs.true119 ], [ 1, %if.then128 ], [ 0, %land.lhs.true110 ], [ 0, %if.end106 ]
   %cmp138 = icmp eq i64 %sub.ptr.sub137.pre-phi, 8
-  %cmp141 = icmp eq i32 %yearnum.0215, -1
+  %cmp141 = icmp eq i32 %yearnum.0221, -1
   %or.cond4 = select i1 %cmp138, i1 %cmp141, i1 false
-  %cmp144 = icmp eq i32 %monnum.0220, -1
+  %cmp144 = icmp eq i32 %monnum.0226, -1
   %or.cond5 = select i1 %or.cond4, i1 %cmp144, i1 false
-  %cmp147 = icmp eq i32 %mdaynum.0218, -1
+  %cmp147 = icmp eq i32 %mdaynum.0224, -1
   %or.cond6 = select i1 %or.cond5, i1 %cmp147, i1 false
   br i1 %or.cond6, label %if.then149, label %if.end155
 
@@ -401,27 +401,27 @@ if.then149:                                       ; preds = %if.end134
   %div150 = sdiv i32 %call107, 10000
   %rem151 = srem i32 %call107, 10000
   %div152.lhs.trunc = trunc nsw i32 %rem151 to i16
-  %div152188 = sdiv i16 %div152.lhs.trunc, 100
-  %narrow = add nsw i16 %div152188, -1
+  %div152194 = sdiv i16 %div152.lhs.trunc, 100
+  %narrow = add nsw i16 %div152194, -1
   %sub153 = sext i16 %narrow to i32
   %rem154 = srem i32 %call107, 100
   br label %if.end155
 
 if.end155:                                        ; preds = %if.then149, %if.end134
-  %yearnum.2 = phi i32 [ %div150, %if.then149 ], [ %yearnum.0215, %if.end134 ]
-  %mdaynum.2 = phi i32 [ %rem154, %if.then149 ], [ %mdaynum.0218, %if.end134 ]
+  %yearnum.2 = phi i32 [ %div150, %if.then149 ], [ %yearnum.0221, %if.end134 ]
+  %mdaynum.2 = phi i32 [ %rem154, %if.then149 ], [ %mdaynum.0224, %if.end134 ]
   %found.4 = phi i8 [ 1, %if.then149 ], [ %found.3, %if.end134 ]
-  %monnum.4 = phi i32 [ %sub153, %if.then149 ], [ %monnum.0220, %if.end134 ]
+  %monnum.4 = phi i32 [ %sub153, %if.then149 ], [ %monnum.0226, %if.end134 ]
   %tobool156 = trunc nuw i8 %found.4 to i1
   %tobool156.not = xor i1 %tobool156, true
-  %cmp158 = icmp eq i32 %dignext.0217, 0
+  %cmp158 = icmp eq i32 %dignext.0223, 0
   %or.cond7 = select i1 %tobool156.not, i1 %cmp158, i1 false
   %cmp161 = icmp eq i32 %mdaynum.2, -1
   %or.cond8 = select i1 %or.cond7, i1 %cmp161, i1 false
   %36 = add i32 %call107, -1
   %or.cond9 = icmp ult i32 %36, 31
   %spec.select91 = select i1 %or.cond9, i32 %call107, i32 -1
-  %dignext.2 = select i1 %or.cond8, i32 1, i32 %dignext.0217
+  %dignext.2 = select i1 %or.cond8, i32 1, i32 %dignext.0223
   %mdaynum.3 = select i1 %or.cond8, i32 %spec.select91, i32 %mdaynum.2
   %37 = select i1 %or.cond8, i1 %or.cond9, i1 false
   %38 = trunc nuw i8 %found.4 to i1
@@ -460,19 +460,19 @@ if.end195:                                        ; preds = %if.end155
 
 if.end201:                                        ; preds = %if.end195, %if.end195.thread, %if.else, %if.then85, %if.end71
   %date.addr.1 = phi ptr [ %add.ptr, %if.end71 ], [ %p.0.i, %if.then85 ], [ %date.addr.2, %if.else ], [ %.pre, %if.end195.thread ], [ %.pre, %if.end195 ]
-  %hournum.1 = phi i32 [ %hournum.0212, %if.end71 ], [ %retval.0.i.i, %if.then85 ], [ %hournum.0212, %if.else ], [ %hournum.0212, %if.end195.thread ], [ %hournum.0212, %if.end195 ]
-  %minnum.1 = phi i32 [ %minnum.0213, %if.end71 ], [ %retval.0.i1037.i, %if.then85 ], [ %minnum.0213, %if.else ], [ %minnum.0213, %if.end195.thread ], [ %minnum.0213, %if.end195 ]
-  %secnum.1 = phi i32 [ %secnum.0214, %if.end71 ], [ %ss.0.i, %if.then85 ], [ %secnum.0214, %if.else ], [ %secnum.0214, %if.end195.thread ], [ %secnum.0214, %if.end195 ]
-  %yearnum.1 = phi i32 [ %yearnum.0215, %if.end71 ], [ %yearnum.0215, %if.then85 ], [ %yearnum.0215, %if.else ], [ %yearnum.4, %if.end195.thread ], [ %yearnum.2, %if.end195 ]
-  %tzoff.2 = phi i32 [ %tzoff.1169, %if.end71 ], [ %tzoff.0216, %if.then85 ], [ %tzoff.0216, %if.else ], [ %tzoff.3, %if.end195.thread ], [ %tzoff.3, %if.end195 ]
-  %dignext.1 = phi i32 [ %dignext.0217, %if.end71 ], [ %dignext.0217, %if.then85 ], [ %dignext.0217, %if.else ], [ %spec.select93, %if.end195.thread ], [ %dignext.2, %if.end195 ]
-  %mdaynum.1 = phi i32 [ %mdaynum.0218, %if.end71 ], [ %mdaynum.0218, %if.then85 ], [ %mdaynum.0218, %if.else ], [ %mdaynum.3, %if.end195.thread ], [ %mdaynum.3, %if.end195 ]
-  %monnum.3 = phi i32 [ %monnum.1170, %if.end71 ], [ %monnum.0220, %if.then85 ], [ %monnum.0220, %if.else ], [ %monnum.4, %if.end195.thread ], [ %monnum.4, %if.end195 ]
-  %wdaynum.3 = phi i32 [ %wdaynum.1171, %if.end71 ], [ %wdaynum.0221, %if.then85 ], [ %wdaynum.0221, %if.else ], [ %wdaynum.0221, %if.end195.thread ], [ %wdaynum.0221, %if.end195 ]
-  %inc202 = add nuw nsw i32 %part.0219, 1
+  %hournum.1 = phi i32 [ %hournum.0218, %if.end71 ], [ %retval.0.i.i, %if.then85 ], [ %hournum.0218, %if.else ], [ %hournum.0218, %if.end195.thread ], [ %hournum.0218, %if.end195 ]
+  %minnum.1 = phi i32 [ %minnum.0219, %if.end71 ], [ %retval.0.i1037.i, %if.then85 ], [ %minnum.0219, %if.else ], [ %minnum.0219, %if.end195.thread ], [ %minnum.0219, %if.end195 ]
+  %secnum.1 = phi i32 [ %secnum.0220, %if.end71 ], [ %ss.0.i, %if.then85 ], [ %secnum.0220, %if.else ], [ %secnum.0220, %if.end195.thread ], [ %secnum.0220, %if.end195 ]
+  %yearnum.1 = phi i32 [ %yearnum.0221, %if.end71 ], [ %yearnum.0221, %if.then85 ], [ %yearnum.0221, %if.else ], [ %yearnum.4, %if.end195.thread ], [ %yearnum.2, %if.end195 ]
+  %tzoff.2 = phi i32 [ %tzoff.1169, %if.end71 ], [ %tzoff.0222, %if.then85 ], [ %tzoff.0222, %if.else ], [ %tzoff.3, %if.end195.thread ], [ %tzoff.3, %if.end195 ]
+  %dignext.1 = phi i32 [ %dignext.0223, %if.end71 ], [ %dignext.0223, %if.then85 ], [ %dignext.0223, %if.else ], [ %spec.select93, %if.end195.thread ], [ %dignext.2, %if.end195 ]
+  %mdaynum.1 = phi i32 [ %mdaynum.0224, %if.end71 ], [ %mdaynum.0224, %if.then85 ], [ %mdaynum.0224, %if.else ], [ %mdaynum.3, %if.end195.thread ], [ %mdaynum.3, %if.end195 ]
+  %monnum.3 = phi i32 [ %monnum.1170, %if.end71 ], [ %monnum.0226, %if.then85 ], [ %monnum.0226, %if.else ], [ %monnum.4, %if.end195.thread ], [ %monnum.4, %if.end195 ]
+  %wdaynum.3 = phi i32 [ %wdaynum.1171, %if.end71 ], [ %wdaynum.0227, %if.then85 ], [ %wdaynum.0227, %if.else ], [ %wdaynum.0227, %if.end195.thread ], [ %wdaynum.0227, %if.end195 ]
+  %inc202 = add nuw nsw i32 %part.0225, 1
   %39 = load i8, ptr %date.addr.1, align 1
   %tobool = icmp ne i8 %39, 0
-  %cmp = icmp samesign ult i32 %part.0219, 5
+  %cmp = icmp samesign ult i32 %part.0225, 5
   %40 = select i1 %tobool, i1 %cmp, i1 false
   br i1 %40, label %while.body, label %while.end203, !llvm.loop !10
 

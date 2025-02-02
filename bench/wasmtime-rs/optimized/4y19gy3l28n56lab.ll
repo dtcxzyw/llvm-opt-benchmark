@@ -5385,9 +5385,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc44545b10a
   br i1 %46, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5e543def19a028E.llvm.17191764028380965858.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5e543def19a028E.llvm.17191764028380965858.exit"
 
 47:                                               ; preds = %39, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7c21368c483f4E.exit.i.i.i"
-  %.sroa.017.0.ph = phi i64 [ %storemerge.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3cd7c21368c483f4E.exit.i.i.i" ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1254
-  store i64 %.sroa.017.0.ph, ptr %0, align 8, !alias.scope !1275
+  store i64 %storemerge.i.i.i.i, ptr %0, align 8, !alias.scope !1275
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !1275
   %.sroa.323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5980,9 +5979,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf209c70eb3
   br i1 %46, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5e543def19a028E.llvm.17191764028380965858.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5e543def19a028E.llvm.17191764028380965858.exit"
 
 47:                                               ; preds = %39, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d249046b0022e60E.exit.i.i.i"
-  %.sroa.017.0.ph = phi i64 [ %storemerge.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d249046b0022e60E.exit.i.i.i" ], [ 1, %39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1410
-  store i64 %.sroa.017.0.ph, ptr %0, align 8, !alias.scope !1431
+  store i64 %storemerge.i.i.i.i, ptr %0, align 8, !alias.scope !1431
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !1431
   %.sroa.323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

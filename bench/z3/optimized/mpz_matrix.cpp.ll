@@ -870,7 +870,6 @@ if.else:                                          ; preds = %if.end
           to label %if.end27 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end27:                                         ; preds = %invoke.cont12, %if.else
-  %first.2 = phi i8 [ %first.058, %if.else ], [ 0, %invoke.cont12 ]
   %bf.load.i.i31 = load i8, ptr %m_kind.i.i, align 4
   %bf.clear.i.i32 = and i8 %bf.load.i.i31, 1
   %cmp.i.i33 = icmp eq i8 %bf.clear.i.i32, 0
@@ -882,7 +881,7 @@ if.end27:                                         ; preds = %invoke.cont12, %if.
 for.inc:                                          ; preds = %if.end27, %invoke.cont3
   %8 = phi i32 [ %1, %invoke.cont3 ], [ %6, %if.end27 ]
   %bf.load.i74 = phi i8 [ %bf.load.i, %invoke.cont3 ], [ %bf.load.i.i31, %if.end27 ]
-  %first.1 = phi i8 [ %first.058, %invoke.cont3 ], [ %first.2, %if.end27 ]
+  %first.1 = phi i8 [ %first.058, %invoke.cont3 ], [ 0, %if.end27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %invoke.cont3, !llvm.loop !13

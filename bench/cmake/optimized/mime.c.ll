@@ -1975,18 +1975,15 @@ readback_bytes.exit83.thread:                     ; preds = %55
   %.049.i.ph = phi i64 [ %79, %76 ], [ %.059115, %64 ]
   %.048.i.ph = phi ptr [ %78, %76 ], [ %.058117, %64 ]
   %.047.i.ph = phi i64 [ %77, %76 ], [ 0, %64 ]
-  %.046.i.ph = phi i8 [ %.046.i.ph168, %76 ], [ 0, %64 ]
-  br label %.outer167
-
-.outer167:                                        ; preds = %90, %.outer
-  %.046.i.ph168 = phi i8 [ %.046.i.ph, %.outer ], [ 1, %90 ]
-  %.pre138 = trunc nuw i8 %.046.i.ph168 to i1
+  %.046.i.ph = phi i8 [ %.046.i, %76 ], [ 0, %64 ]
   br label %66
 
-66:                                               ; preds = %.outer167, %95
+66:                                               ; preds = %.backedge, %.outer
+  %.046.i = phi i8 [ %.046.i.ph, %.outer ], [ %.046.i.be, %.backedge ]
   %67 = load i64, ptr %8, align 8
   %68 = load i64, ptr %9, align 8
   %69 = icmp ult i64 %67, %68
+  %.pre138 = trunc nuw i8 %.046.i to i1
   %brmerge = select i1 %69, i1 true, i1 %.pre138
   %not. = xor i1 %69, true
   %.pre138.mux = select i1 %not., i1 true, i1 %.pre138
@@ -2056,7 +2053,7 @@ thread-pre-split:                                 ; preds = %80, %86
   %92 = sub nuw nsw i64 256, %87
   %93 = tail call fastcc i64 @read_part_content(ptr noundef nonnull %0, ptr noundef nonnull %91, i64 noundef %92, ptr noundef nonnull %3)
   switch i64 %93, label %95 [
-    i64 0, label %.outer167
+    i64 0, label %.backedge
     i64 268435456, label %94
     i64 268435457, label %94
     i64 -1, label %94
@@ -2072,6 +2069,10 @@ thread-pre-split:                                 ; preds = %80, %86
   %96 = load i64, ptr %9, align 8
   %97 = add i64 %96, %93
   store i64 %97, ptr %9, align 8
+  br label %.backedge
+
+.backedge:                                        ; preds = %95, %90
+  %.046.i.be = phi i8 [ 0, %95 ], [ 1, %90 ]
   br label %66
 
 98:                                               ; preds = %64

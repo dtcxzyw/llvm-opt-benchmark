@@ -67,18 +67,18 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$8get_
   store i8 0, ptr %32, align 8
   br label %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit44"
 
-"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit44": ; preds = %106, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43, %.thread, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h02fab0b33ab0841dE.exit", %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$regex_automata..meta..regex..Cache$GT$$GT$17h6ff5c92f5b397e4bE.exit"
+"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit44": ; preds = %103, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43, %.thread, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h02fab0b33ab0841dE.exit", %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$regex_automata..meta..regex..Cache$GT$$GT$17h6ff5c92f5b397e4bE.exit"
   ret void
 
-common.resume:                                    ; preds = %35, %29, %107, %79
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %lpad.thr_comm.split-lp, %107 ], [ %80, %79 ], [ %36, %35 ]
+common.resume:                                    ; preds = %35, %29, %76
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %77, %76 ], [ %36, %35 ]
   resume { ptr, i32 } %common.resume.op
 
 33:                                               ; preds = %14
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.793144062a168cb61957f2d13b4897f8.1) #10
   unreachable
 
-34:                                               ; preds = %110
+34:                                               ; preds = %104
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 1400) #10
           to label %.noexc33 unwind label %35
 
@@ -97,14 +97,14 @@ common.resume:                                    ; preds = %35, %29, %107, %79
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17h02fab0b33ab0841dE.exit": ; preds = %110
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %118, ptr noundef nonnull align 8 dereferenceable(1400) %5, i64 1400, i1 false)
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17h02fab0b33ab0841dE.exit": ; preds = %104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %112, ptr noundef nonnull align 8 dereferenceable(1400) %5, i64 1400, i1 false)
   call void @llvm.lifetime.end.p0(i64 1400, ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %39, align 8
   store i64 0, ptr %0, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %118, ptr %.sroa.416.0..sroa_idx, align 8
+  store ptr %112, ptr %.sroa.416.0..sroa_idx, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %40, align 8
   br label %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit44"
@@ -118,210 +118,155 @@ common.resume:                                    ; preds = %35, %29, %107, %79
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hb691800f6da1eb92E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %45)
   %46 = load i64, ptr %7, align 8, !range !18, !noundef !4
   %trunc = trunc nuw i64 %46 to i1
-  br i1 %trunc, label %110, label %47
+  br i1 %trunc, label %104, label %47
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %49 = load ptr, ptr %48, align 8, !nonnull !4, !align !12, !noundef !4
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %51 = load i8, ptr %50, align 8, !range !19, !noundef !4
-  %52 = icmp eq i64 %46, 0
-  br i1 %52, label %53, label %57
-
-53:                                               ; preds = %57, %47
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %55 = load i64, ptr %54, align 8, !alias.scope !20, !noundef !4
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17hff5944a10f28c763E.exit", label %85
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %53 = load i64, ptr %52, align 8, !alias.scope !20, !noundef !4
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17hff5944a10f28c763E.exit", label %82
 
-57:                                               ; preds = %47
-  invoke fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17hae22b827c6149766E"(ptr noalias noundef align 8 dereferenceable(24) %7)
-          to label %53 unwind label %107
+"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17hff5944a10f28c763E.exit": ; preds = %47
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %56 = trunc nuw i8 %51 to i1
+  br i1 %56, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i, label %57
 
-"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17hff5944a10f28c763E.exit": ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %59 = trunc nuw i8 %51 to i1
-  br i1 %59, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i, label %60
+57:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17hff5944a10f28c763E.exit"
+  %58 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E monotonic, align 8
+  %59 = and i64 %58, 9223372036854775807
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i, label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i
 
-60:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17hff5944a10f28c763E.exit"
-  %61 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E monotonic, align 8
-  %62 = and i64 %61, 9223372036854775807
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i, label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i
+_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i: ; preds = %57
+  %61 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
+  br i1 %61, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i, label %62
 
-_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i: ; preds = %60
-  %64 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
-  br i1 %64, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i, label %65
-
-65:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i
-  store atomic i8 1, ptr %58 monotonic, align 4
+62:                                               ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i
+  store atomic i8 1, ptr %55 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i
 
-_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i: ; preds = %65, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i, %60, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17hff5944a10f28c763E.exit"
-  %66 = atomicrmw xchg ptr %49, i32 0 release, align 4
-  %67 = icmp eq i32 %66, 2
-  br i1 %67, label %68, label %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit"
+_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i: ; preds = %62, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i, %57, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$17hff5944a10f28c763E.exit"
+  %63 = atomicrmw xchg ptr %49, i32 0 release, align 4
+  %64 = icmp eq i32 %63, 2
+  br i1 %64, label %65, label %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit"
 
-68:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i
+65:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i
   tail call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %49)
   br label %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit"
 
-"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit": ; preds = %68, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i
+"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit": ; preds = %65, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i
   call void @llvm.lifetime.start.p0(i64 1400, ptr nonnull %6)
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %70 = load ptr, ptr %69, align 8, !alias.scope !23, !noalias !26, !nonnull !4, !align !11, !noundef !4
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %72 = load ptr, ptr %71, align 8, !alias.scope !23, !noalias !26, !nonnull !4, !align !12, !noundef !4
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  %74 = load ptr, ptr %73, align 8, !invariant.load !4, !noalias !28, !nonnull !4
-  call void %74(ptr noalias noundef nonnull sret({ { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { { i64, [26 x i64] } }, { { i64, [6 x i64] } }, { { i64, [3 x i64] } } }) align 8 captures(none) dereferenceable(1400) %6, ptr noundef nonnull align 1 %70)
-  %75 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !29
-  %76 = tail call noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef 1400, i64 noundef 8) #13, !noalias !29
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %78, label %.thread
+  %67 = load ptr, ptr %66, align 8, !alias.scope !23, !noalias !26, !nonnull !4, !align !11, !noundef !4
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %69 = load ptr, ptr %68, align 8, !alias.scope !23, !noalias !26, !nonnull !4, !align !12, !noundef !4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  %71 = load ptr, ptr %70, align 8, !invariant.load !4, !noalias !28, !nonnull !4
+  call void %71(ptr noalias noundef nonnull sret({ { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { { i64, [26 x i64] } }, { { i64, [6 x i64] } }, { { i64, [3 x i64] } } }) align 8 captures(none) dereferenceable(1400) %6, ptr noundef nonnull align 1 %67)
+  %72 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !29
+  %73 = tail call noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef 1400, i64 noundef 8) #13, !noalias !29
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %75, label %.thread
 
-78:                                               ; preds = %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit"
+75:                                               ; preds = %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 1400) #10
-          to label %.noexc40 unwind label %79
+          to label %.noexc40 unwind label %76
 
-.noexc40:                                         ; preds = %78
+.noexc40:                                         ; preds = %75
   unreachable
 
-79:                                               ; preds = %78
-  %80 = landingpad { ptr, i32 }
+76:                                               ; preds = %75
+  %77 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Cache$GT$17he395da92922c4b55E"(ptr noalias noundef nonnull align 8 dereferenceable(1400) %6) #11
-          to label %common.resume unwind label %81
+          to label %common.resume unwind label %78
 
-81:                                               ; preds = %79
-  %82 = landingpad { ptr, i32 }
+78:                                               ; preds = %76
+  %79 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
 .thread:                                          ; preds = %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %76, ptr noundef nonnull align 8 dereferenceable(1400) %6, i64 1400, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1400) %73, ptr noundef nonnull align 8 dereferenceable(1400) %6, i64 1400, i1 false)
   call void @llvm.lifetime.end.p0(i64 1400, ptr nonnull %6)
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %83, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %80, align 8
   store i64 0, ptr %0, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %76, ptr %.sroa.414.0..sroa_idx, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %84, align 8
+  store ptr %73, ptr %.sroa.414.0..sroa_idx, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %81, align 8
   br label %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit44"
 
-85:                                               ; preds = %53
-  %86 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %87 = add i64 %55, -1
-  store i64 %87, ptr %54, align 8, !alias.scope !20
-  %88 = load i64, ptr %86, align 8, !alias.scope !20, !noundef !4
-  %89 = icmp ult i64 %87, %88
-  tail call void @llvm.assume(i1 %89)
-  %90 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %91 = load ptr, ptr %90, align 8, !alias.scope !20, !nonnull !4, !noundef !4
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %87
-  %93 = load ptr, ptr %92, align 8, !noalias !20, !nonnull !4, !align !12, !noundef !4
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %94, align 8
+82:                                               ; preds = %47
+  %83 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %84 = add i64 %53, -1
+  store i64 %84, ptr %52, align 8, !alias.scope !20
+  %85 = load i64, ptr %83, align 8, !alias.scope !20, !noundef !4
+  %86 = icmp ult i64 %84, %85
+  tail call void @llvm.assume(i1 %86)
+  %87 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %88 = load ptr, ptr %87, align 8, !alias.scope !20, !nonnull !4, !noundef !4
+  %89 = getelementptr inbounds ptr, ptr %88, i64 %84
+  %90 = load ptr, ptr %89, align 8, !noalias !20, !nonnull !4, !align !12, !noundef !4
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %91, align 8
   store i64 0, ptr %0, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %93, ptr %.sroa.412.0..sroa_idx, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %97 = trunc nuw i8 %51 to i1
-  br i1 %97, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43, label %98
+  store ptr %90, ptr %.sroa.412.0..sroa_idx, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %94 = trunc nuw i8 %51 to i1
+  br i1 %94, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43, label %95
 
-98:                                               ; preds = %85
-  %99 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E monotonic, align 8
-  %100 = and i64 %99, 9223372036854775807
-  %101 = icmp eq i64 %100, 0
-  br i1 %101, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43, label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i42
+95:                                               ; preds = %82
+  %96 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E monotonic, align 8
+  %97 = and i64 %96, 9223372036854775807
+  %98 = icmp eq i64 %97, 0
+  br i1 %98, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43, label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i42
 
-_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i42: ; preds = %98
-  %102 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
-  br i1 %102, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43, label %103
+_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i42: ; preds = %95
+  %99 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
+  br i1 %99, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43, label %100
 
-103:                                              ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i42
-  store atomic i8 1, ptr %96 monotonic, align 4
+100:                                              ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i42
+  store atomic i8 1, ptr %93 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43
 
-_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43: ; preds = %103, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i42, %98, %85
-  %104 = atomicrmw xchg ptr %49, i32 0 release, align 4
-  %105 = icmp eq i32 %104, 2
-  br i1 %105, label %106, label %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit44"
+_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43: ; preds = %100, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i42, %95, %82
+  %101 = atomicrmw xchg ptr %49, i32 0 release, align 4
+  %102 = icmp eq i32 %101, 2
+  br i1 %102, label %103, label %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit44"
 
-106:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43
+103:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i43
   tail call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %49)
   br label %"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E.exit44"
 
-107:                                              ; preds = %57
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
-          cleanup
-  invoke fastcc void @"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E"(ptr nonnull %49, i8 %51) #11
-          to label %common.resume unwind label %108
-
-108:                                              ; preds = %107
-  %109 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
-  unreachable
-
-110:                                              ; preds = %41
+104:                                              ; preds = %41
   call fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17hae22b827c6149766E"(ptr noalias noundef align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1400, ptr nonnull %5)
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %112 = load ptr, ptr %111, align 8, !alias.scope !32, !noalias !35, !nonnull !4, !align !11, !noundef !4
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %114 = load ptr, ptr %113, align 8, !alias.scope !32, !noalias !35, !nonnull !4, !align !12, !noundef !4
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
-  %116 = load ptr, ptr %115, align 8, !invariant.load !4, !noalias !37, !nonnull !4
-  call void %116(ptr noalias noundef nonnull sret({ { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { { i64, [26 x i64] } }, { { i64, [6 x i64] } }, { { i64, [3 x i64] } } }) align 8 captures(none) dereferenceable(1400) %5, ptr noundef nonnull align 1 %112), !noalias !32
-  %117 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !38
-  %118 = tail call noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef 1400, i64 noundef 8) #13, !noalias !38
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %34, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h02fab0b33ab0841dE.exit"
-}
-
-; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr139drop_in_place$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$17h7a160f9b01393bb3E"(ptr %.0.val, i8 %.8.val) unnamed_addr #1 {
-  %1 = icmp ne ptr %.0.val, null
-  tail call void @llvm.assume(i1 %1)
-  %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
-  %3 = trunc nuw i8 %.8.val to i1
-  br i1 %3, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i, label %4
-
-4:                                                ; preds = %0
-  %5 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E monotonic, align 8
-  %6 = and i64 %5, 9223372036854775807
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i, label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i
-
-_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i: ; preds = %4
-  %8 = tail call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
-  br i1 %8, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i, label %9
-
-9:                                                ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i
-  store atomic i8 1, ptr %2 monotonic, align 1
-  br label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i
-
-_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i: ; preds = %9, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i, %4, %0
-  %10 = atomicrmw xchg ptr %.0.val, i32 0 release, align 4
-  %11 = icmp eq i32 %10, 2
-  br i1 %11, label %12, label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfec12380cfd5e134E.exit"
-
-12:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i
-  tail call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %.0.val)
-  br label %"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfec12380cfd5e134E.exit"
-
-"_ZN79_$LT$std..sync..mutex..MutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfec12380cfd5e134E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i, %12
-  ret void
+  %106 = load ptr, ptr %105, align 8, !alias.scope !32, !noalias !35, !nonnull !4, !align !11, !noundef !4
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %108 = load ptr, ptr %107, align 8, !alias.scope !32, !noalias !35, !nonnull !4, !align !12, !noundef !4
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
+  %110 = load ptr, ptr %109, align 8, !invariant.load !4, !noalias !37, !nonnull !4
+  call void %110(ptr noalias noundef nonnull sret({ { { i64, [87 x i64] } }, { { i64, [43 x i64] } }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { { i64, [26 x i64] } }, { { i64, [6 x i64] } }, { { i64, [3 x i64] } } }) align 8 captures(none) dereferenceable(1400) %5, ptr noundef nonnull align 1 %106), !noalias !32
+  %111 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !38
+  %112 = tail call noundef align 8 dereferenceable_or_null(1400) ptr @__rust_alloc(i64 noundef 1400, i64 noundef 8) #13, !noalias !38
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %34, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h02fab0b33ab0841dE.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

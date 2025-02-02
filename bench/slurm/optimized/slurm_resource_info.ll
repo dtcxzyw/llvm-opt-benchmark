@@ -474,7 +474,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br label %11, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %11
-  %.not.i.not = icmp eq i32 %9, 0
+  %.not.i.not = icmp ne i32 %9, 0
   %31 = load ptr, ptr %4, align 8
   store ptr %31, ptr %5, align 8
   br label %32
@@ -500,8 +500,10 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br label %.critedge.thread
 
 40:                                               ; preds = %34
-  %brmerge.not = select i1 %.not.i.not, i1 %.05173, i1 false
-  br i1 %brmerge.not, label %41, label %45
+  %.051.not = xor i1 %.05173, true
+  %brmerge = select i1 %.not.i.not, i1 true, i1 %.051.not
+  %.051.mux = select i1 %.not.i.not, i1 %.05173, i1 false
+  br i1 %brmerge, label %45, label %41
 
 41:                                               ; preds = %40
   %42 = call i32 @get_log_level() #13
@@ -513,7 +515,7 @@ _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_is
   br label %45
 
 45:                                               ; preds = %40, %41, %44
-  %.1 = phi i1 [ %.05173, %40 ], [ false, %44 ], [ false, %41 ]
+  %.1 = phi i1 [ %.051.mux, %40 ], [ false, %44 ], [ false, %41 ]
   %46 = load ptr, ptr %6, align 8
   %47 = call i32 @xstrcasecmp(ptr noundef %46, ptr noundef nonnull @.str.28) #13
   %48 = icmp eq i32 %47, 0

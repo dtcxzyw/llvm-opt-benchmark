@@ -450,8 +450,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not44, label %invoke.cont32.thread, label %for.body.lr.ph
 
 invoke.cont32.thread:                             ; preds = %if.end
-  %m_active_var_set.i56 = getelementptr inbounds nuw i8, ptr %4, i64 4624
-  store i32 0, ptr %m_active_var_set.i56, align 8
+  %m_active_var_set.i55 = getelementptr inbounds nuw i8, ptr %4, i64 4624
+  store i32 0, ptr %m_active_var_set.i55, align 8
   store ptr null, ptr %rows, align 8
   br label %for.end55
 
@@ -558,11 +558,11 @@ for.inc27:                                        ; preds = %invoke.cont25, %for
 
 invoke.cont32:                                    ; preds = %for.inc27
   %.pre = load ptr, ptr %this, align 8
-  %.pre51 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
+  %.pre50 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %m_active_var_set.i = getelementptr inbounds nuw i8, ptr %.pre, i64 4624
   store i32 0, ptr %m_active_var_set.i, align 8
   store ptr null, ptr %rows, align 8
-  %cmp.i.not46 = icmp eq ptr %.pre51, %6
+  %cmp.i.not46 = icmp eq ptr %.pre50, %6
   br i1 %cmp.i.not46, label %for.end55, label %for.body42.lr.ph
 
 for.body42.lr.ph:                                 ; preds = %invoke.cont32
@@ -570,7 +570,7 @@ for.body42.lr.ph:                                 ; preds = %invoke.cont32
   br label %for.body42
 
 for.body42:                                       ; preds = %for.body42.lr.ph, %for.inc53
-  %__begin135.sroa.0.047 = phi ptr [ %.pre51, %for.body42.lr.ph ], [ %call.i25, %for.inc53 ]
+  %__begin135.sroa.0.047 = phi ptr [ %.pre50, %for.body42.lr.ph ], [ %call.i25, %for.inc53 ]
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin135.sroa.0.047, i64 32
   %22 = load i32, ptr %_M_storage.i.i, align 4
   %23 = load ptr, ptr %m_rows, align 8
@@ -619,7 +619,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %.
   br label %for.inc53
 
 lpad44.loopexit.loopexit:                         ; preds = %for.body65
-  %lpad.loopexit70 = landingpad { ptr, i32 }
+  %lpad.loopexit69 = landingpad { ptr, i32 }
           cleanup
   br label %lpad44
 
@@ -639,7 +639,7 @@ lpad44.loopexit.split-lp.loopexit.split-lp:       ; preds = %for.end55
   br label %lpad44
 
 lpad44:                                           ; preds = %lpad44.loopexit.loopexit, %lpad44.loopexit.loopexit.split-lp, %lpad44.loopexit.split-lp.loopexit, %lpad44.loopexit.split-lp.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit38, %lpad44.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp39, %lpad44.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit70, %lpad44.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %lpad44.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit38, %lpad44.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp39, %lpad44.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit69, %lpad44.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %lpad44.loopexit.loopexit.split-lp ]
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rows) #22
   br label %ehcleanup
 
@@ -670,8 +670,8 @@ for.body65.lr.ph:                                 ; preds = %_ZNK6vectorIjLb0EjE
   br label %for.body65
 
 for.body65:                                       ; preds = %for.body65.lr.ph, %for.inc83
-  %i62.050 = phi i32 [ 0, %for.body65.lr.ph ], [ %inc84, %for.inc83 ]
-  %add = add i32 %i62.050, %call59
+  %i62.049 = phi i32 [ 0, %for.body65.lr.ph ], [ %inc84, %for.inc83 ]
+  %add = add i32 %i62.049, %call59
   %rem = urem i32 %add, %33
   %34 = load ptr, ptr %rows, align 8
   %idxprom.i28 = zext i32 %rem to i64
@@ -700,18 +700,18 @@ for.inc83.thread:                                 ; preds = %if.then74
   br label %for.end85
 
 for.inc83:                                        ; preds = %invoke.cont72
-  %inc84 = add nuw i32 %i62.050, 1
+  %inc84 = add nuw i32 %i62.049, 1
   %cmp64.not = icmp ult i32 %inc84, %33
   br i1 %cmp64.not, label %for.body65, label %for.end85, !llvm.loop !6
 
 for.end85:                                        ; preds = %for.inc83, %for.inc83.thread
-  %.pre52 = load ptr, ptr %rows, align 8
-  %tobool.not.i.i.i = icmp eq ptr %.pre52, null
+  %.pre51 = load ptr, ptr %rows, align 8
+  %tobool.not.i.i.i = icmp eq ptr %.pre51, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i33
 
 if.then.i.i.i33:                                  ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %for.end85
-  %conflict.0.lcssa69 = phi i1 [ %call73, %for.end85 ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
-  %39 = phi ptr [ %.pre52, %for.end85 ], [ %32, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
+  %conflict.0.lcssa68 = phi i1 [ %call73, %for.end85 ], [ false, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
+  %39 = phi ptr [ %.pre51, %for.end85 ], [ %32, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
   %add.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %39, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i34)
           to label %_ZN7svectorIjjED2Ev.exit unwind label %terminate.lpad.i.i
@@ -724,7 +724,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i33
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %invoke.cont58, %for.end85, %if.then.i.i.i33
-  %conflict.0.lcssa65 = phi i1 [ %call73, %for.end85 ], [ %conflict.0.lcssa69, %if.then.i.i.i33 ], [ false, %invoke.cont58 ]
+  %conflict.0.lcssa64 = phi i1 [ %call73, %for.end85 ], [ %conflict.0.lcssa68, %if.then.i.i.i33 ], [ false, %invoke.cont58 ]
   %42 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %rows_to_check, ptr noundef %42)
           to label %return unwind label %terminate.lpad.i.i35
@@ -742,7 +742,7 @@ ehcleanup:                                        ; preds = %lpad44, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZN7svectorIjjED2Ev.exit, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %conflict.0.lcssa65, %_ZN7svectorIjjED2Ev.exit ]
+  %retval.0 = phi i1 [ false, %entry ], [ %conflict.0.lcssa64, %_ZN7svectorIjjED2Ev.exit ]
   ret i1 %retval.0
 }
 

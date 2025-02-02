@@ -12166,7 +12166,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
   %27 = phi i32 [ %51, %.thread ], [ %11, %.lr.ph ]
   %28 = phi ptr [ %49, %.thread ], [ %10, %.lr.ph ]
-  %29 = phi i8 [ %50, %.thread ], [ %.pre29, %.lr.ph ]
+  %29 = phi i8 [ %50, %.thread ], [ 0, %.lr.ph ]
   %30 = phi ptr [ %54, %.thread ], [ %14, %.lr.ph ]
   %31 = trunc nuw i8 %29 to i1
   %32 = load i32, ptr @complete_from_list.string_length, align 4
@@ -12213,7 +12213,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
 .thread:                                          ; preds = %..thread_crit_edge, %34
   %48 = phi i32 [ %27, %34 ], [ %.pre31, %..thread_crit_edge ]
   %49 = phi ptr [ %28, %34 ], [ %.pre30, %..thread_crit_edge ]
-  %50 = phi i8 [ %29, %34 ], [ %.pre28, %..thread_crit_edge ]
+  %50 = phi i8 [ 1, %34 ], [ %.pre28, %..thread_crit_edge ]
   %51 = add i32 %48, 1
   store i32 %51, ptr @complete_from_list.list_index, align 4
   %52 = sext i32 %48 to i64
@@ -14168,44 +14168,44 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr noundef writeo
   store i8 0, ptr %4, align 1
   store i8 0, ptr %3, align 1
   %11 = load i8, ptr %0, align 1
-  %.not75 = icmp eq i8 %11, 0
-  br i1 %.not75, label %._crit_edge, label %.lr.ph81
+  %.not77 = icmp eq i8 %11, 0
+  br i1 %.not77, label %._crit_edge, label %.lr.ph83
 
-.lr.ph81:                                         ; preds = %5
-  %.fr92 = freeze i32 %9
-  %.not93 = icmp eq i32 %.fr92, 1
-  br i1 %.not93, label %.lr.ph81.split.us.split, label %.lr.ph81.split
+.lr.ph83:                                         ; preds = %5
+  %.fr94 = freeze i32 %9
+  %.not95 = icmp eq i32 %.fr94, 1
+  br i1 %.not95, label %.lr.ph83.split.us.split, label %.lr.ph83.split
 
-.lr.ph81.split.us.split:                          ; preds = %.lr.ph81, %47
-  %12 = phi i8 [ %48, %47 ], [ %11, %.lr.ph81 ]
-  %.04980.us = phi i8 [ %.1.us, %47 ], [ 0, %.lr.ph81 ]
-  %.05079.us = phi ptr [ %.151.us, %47 ], [ %10, %.lr.ph81 ]
-  %.05278.us = phi ptr [ %.153.us, %47 ], [ %10, %.lr.ph81 ]
-  %.05477.us = phi ptr [ %.155.us, %47 ], [ null, %.lr.ph81 ]
-  %.05676.us = phi ptr [ %.157.us, %47 ], [ %0, %.lr.ph81 ]
-  %13 = getelementptr i8, ptr %.05676.us, i64 1
+.lr.ph83.split.us.split:                          ; preds = %.lr.ph83, %49
+  %12 = phi i8 [ %50, %49 ], [ %11, %.lr.ph83 ]
+  %.04982.us = phi i8 [ %.1.us, %49 ], [ 0, %.lr.ph83 ]
+  %.05081.us = phi ptr [ %.151.us, %49 ], [ %10, %.lr.ph83 ]
+  %.05280.us = phi ptr [ %.153.us, %49 ], [ %10, %.lr.ph83 ]
+  %.05479.us = phi ptr [ %.155.us, %49 ], [ null, %.lr.ph83 ]
+  %.05678.us = phi ptr [ %.157.us, %49 ], [ %0, %.lr.ph83 ]
+  %13 = getelementptr i8, ptr %.05678.us, i64 1
   %14 = zext i8 %12 to i32
-  switch i8 %12, label %.thread.us [
+  switch i8 %12, label %31 [
     i8 34, label %21
     i8 46, label %15
   ]
 
-15:                                               ; preds = %.lr.ph81.split.us.split
-  %16 = trunc i8 %.04980.us to i1
-  br i1 %16, label %.thread.us.thread, label %17
+15:                                               ; preds = %.lr.ph83.split.us.split
+  %16 = trunc nuw i8 %.04982.us to i1
+  br i1 %16, label %.thread71.us, label %17
 
 17:                                               ; preds = %15
-  store i8 0, ptr %.05079.us, align 1
-  tail call void @free(ptr noundef %.05477.us) #12
+  store i8 0, ptr %.05081.us, align 1
+  tail call void @free(ptr noundef %.05479.us) #12
   %18 = tail call ptr @pg_malloc(i64 noundef %7) #12
   %19 = load i8, ptr %4, align 1
   %20 = and i8 %19, 1
   store i8 %20, ptr %3, align 1
   store i8 0, ptr %4, align 1
-  br label %47
+  br label %49
 
-21:                                               ; preds = %.lr.ph81.split.us.split
-  %22 = trunc i8 %.04980.us to i1
+21:                                               ; preds = %.lr.ph83.split.us.split
+  %22 = trunc nuw i8 %.04982.us to i1
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
@@ -14214,165 +14214,165 @@ define internal fastcc void @parse_identifier(ptr noundef %0, ptr noundef writeo
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %23, %21
-  %27 = xor i8 %.04980.us, 1
+  %27 = xor i8 %.04982.us, 1
   store i8 1, ptr %4, align 1
-  br label %47
+  br label %49
 
 28:                                               ; preds = %23
-  %29 = getelementptr i8, ptr %.05079.us, i64 1
-  store i8 34, ptr %.05079.us, align 1
-  %30 = getelementptr i8, ptr %.05676.us, i64 2
-  br label %47
+  %29 = getelementptr i8, ptr %.05081.us, i64 1
+  store i8 34, ptr %.05081.us, align 1
+  %30 = getelementptr i8, ptr %.05678.us, i64 2
+  br label %49
 
-.thread.us:                                       ; preds = %.lr.ph81.split.us.split
+31:                                               ; preds = %.lr.ph83.split.us.split
   %.not62.us = icmp sgt i8 %12, -1
-  %.pre = trunc i8 %.04980.us to i1
-  br i1 %.pre, label %.thread.us.thread, label %31
-
-31:                                               ; preds = %.thread.us
-  %32 = add i8 %12, -65
-  %or.cond.us = icmp ult i8 %32, 26
-  br i1 %or.cond.us, label %44, label %33
+  %32 = trunc nuw i8 %.04982.us to i1
+  br i1 %32, label %.thread71.us, label %33
 
 33:                                               ; preds = %31
-  br i1 %.not62.us, label %.thread.us.thread, label %34
+  %34 = add i8 %12, -65
+  %or.cond.us = icmp ult i8 %34, 26
+  br i1 %or.cond.us, label %46, label %35
 
-34:                                               ; preds = %33
-  %35 = tail call ptr @__ctype_b_loc() #13
-  %36 = load ptr, ptr %35, align 8
-  %37 = zext i8 %12 to i64
-  %38 = getelementptr i16, ptr %36, i64 %37
-  %39 = load i16, ptr %38, align 2
-  %40 = and i16 %39, 256
-  %.not64.us = icmp eq i16 %40, 0
-  br i1 %.not64.us, label %.thread.us.thread, label %41
+35:                                               ; preds = %33
+  br i1 %.not62.us, label %.thread71.us, label %36
 
-41:                                               ; preds = %34
-  %42 = tail call i32 @tolower(i32 noundef %14) #14
-  %43 = trunc i32 %42 to i8
-  br label %.thread.us.thread
+36:                                               ; preds = %35
+  %37 = tail call ptr @__ctype_b_loc() #13
+  %38 = load ptr, ptr %37, align 8
+  %39 = zext i8 %12 to i64
+  %40 = getelementptr i16, ptr %38, i64 %39
+  %41 = load i16, ptr %40, align 2
+  %42 = and i16 %41, 256
+  %.not64.us = icmp eq i16 %42, 0
+  br i1 %.not64.us, label %.thread71.us, label %43
 
-44:                                               ; preds = %31
-  %45 = or disjoint i8 %12, 32
-  br label %.thread.us.thread
+43:                                               ; preds = %36
+  %44 = tail call i32 @tolower(i32 noundef %14) #14
+  %45 = trunc i32 %44 to i8
+  br label %.thread71.us
 
-.thread.us.thread:                                ; preds = %15, %44, %41, %34, %33, %.thread.us
-  %.048.us = phi i8 [ %12, %.thread.us ], [ %45, %44 ], [ %43, %41 ], [ %12, %34 ], [ %12, %33 ], [ 46, %15 ]
-  %46 = getelementptr i8, ptr %.05079.us, i64 1
-  store i8 %.048.us, ptr %.05079.us, align 1
-  br label %47
+46:                                               ; preds = %33
+  %47 = or disjoint i8 %12, 32
+  br label %.thread71.us
 
-47:                                               ; preds = %.thread.us.thread, %28, %26, %17
-  %.157.us = phi ptr [ %30, %28 ], [ %13, %26 ], [ %13, %.thread.us.thread ], [ %13, %17 ]
-  %.155.us = phi ptr [ %.05477.us, %28 ], [ %.05477.us, %26 ], [ %.05477.us, %.thread.us.thread ], [ %.05278.us, %17 ]
-  %.153.us = phi ptr [ %.05278.us, %28 ], [ %.05278.us, %26 ], [ %.05278.us, %.thread.us.thread ], [ %18, %17 ]
-  %.151.us = phi ptr [ %29, %28 ], [ %.05079.us, %26 ], [ %46, %.thread.us.thread ], [ %18, %17 ]
-  %.1.us = phi i8 [ %.04980.us, %28 ], [ %27, %26 ], [ %.04980.us, %.thread.us.thread ], [ %.04980.us, %17 ]
-  %48 = load i8, ptr %.157.us, align 1
-  %.not.us = icmp eq i8 %48, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph81.split.us.split, !llvm.loop !35
+.thread71.us:                                     ; preds = %46, %43, %36, %35, %31, %15
+  %.048.us = phi i8 [ %12, %31 ], [ %47, %46 ], [ %45, %43 ], [ %12, %36 ], [ %12, %35 ], [ 46, %15 ]
+  %48 = getelementptr i8, ptr %.05081.us, i64 1
+  store i8 %.048.us, ptr %.05081.us, align 1
+  br label %49
 
-.lr.ph81.split:                                   ; preds = %.lr.ph81, %.loopexit
-  %49 = phi i8 [ %81, %.loopexit ], [ %11, %.lr.ph81 ]
-  %.04980 = phi i8 [ %.1, %.loopexit ], [ 0, %.lr.ph81 ]
-  %.05079 = phi ptr [ %.151, %.loopexit ], [ %10, %.lr.ph81 ]
-  %.05278 = phi ptr [ %.153, %.loopexit ], [ %10, %.lr.ph81 ]
-  %.05477 = phi ptr [ %.155, %.loopexit ], [ null, %.lr.ph81 ]
-  %.05676 = phi ptr [ %.157, %.loopexit ], [ %0, %.lr.ph81 ]
-  %50 = getelementptr i8, ptr %.05676, i64 1
-  switch i8 %49, label %67 [
-    i8 34, label %51
-    i8 46, label %61
+49:                                               ; preds = %.thread71.us, %28, %26, %17
+  %.157.us = phi ptr [ %30, %28 ], [ %13, %26 ], [ %13, %.thread71.us ], [ %13, %17 ]
+  %.155.us = phi ptr [ %.05479.us, %28 ], [ %.05479.us, %26 ], [ %.05479.us, %.thread71.us ], [ %.05280.us, %17 ]
+  %.153.us = phi ptr [ %.05280.us, %28 ], [ %.05280.us, %26 ], [ %.05280.us, %.thread71.us ], [ %18, %17 ]
+  %.151.us = phi ptr [ %29, %28 ], [ %.05081.us, %26 ], [ %48, %.thread71.us ], [ %18, %17 ]
+  %.1.us = phi i8 [ 1, %28 ], [ %27, %26 ], [ %.04982.us, %.thread71.us ], [ 0, %17 ]
+  %50 = load i8, ptr %.157.us, align 1
+  %.not.us = icmp eq i8 %50, 0
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph83.split.us.split, !llvm.loop !35
+
+.lr.ph83.split:                                   ; preds = %.lr.ph83, %.loopexit
+  %51 = phi i8 [ %85, %.loopexit ], [ %11, %.lr.ph83 ]
+  %.04982 = phi i8 [ %.1, %.loopexit ], [ 0, %.lr.ph83 ]
+  %.05081 = phi ptr [ %.151, %.loopexit ], [ %10, %.lr.ph83 ]
+  %.05280 = phi ptr [ %.153, %.loopexit ], [ %10, %.lr.ph83 ]
+  %.05479 = phi ptr [ %.155, %.loopexit ], [ null, %.lr.ph83 ]
+  %.05678 = phi ptr [ %.157, %.loopexit ], [ %0, %.lr.ph83 ]
+  %52 = getelementptr i8, ptr %.05678, i64 1
+  switch i8 %51, label %69 [
+    i8 34, label %53
+    i8 46, label %63
   ]
 
-51:                                               ; preds = %.lr.ph81.split
-  %52 = trunc i8 %.04980 to i1
-  br i1 %52, label %53, label %59
+53:                                               ; preds = %.lr.ph83.split
+  %54 = trunc nuw i8 %.04982 to i1
+  br i1 %54, label %55, label %61
 
-53:                                               ; preds = %51
-  %54 = load i8, ptr %50, align 1
-  %55 = icmp eq i8 %54, 34
-  br i1 %55, label %56, label %59
+55:                                               ; preds = %53
+  %56 = load i8, ptr %52, align 1
+  %57 = icmp eq i8 %56, 34
+  br i1 %57, label %58, label %61
 
-56:                                               ; preds = %53
-  %57 = getelementptr i8, ptr %.05079, i64 1
-  store i8 34, ptr %.05079, align 1
-  %58 = getelementptr i8, ptr %.05676, i64 2
+58:                                               ; preds = %55
+  %59 = getelementptr i8, ptr %.05081, i64 1
+  store i8 34, ptr %.05081, align 1
+  %60 = getelementptr i8, ptr %.05678, i64 2
   br label %.loopexit
 
-59:                                               ; preds = %53, %51
-  %60 = xor i8 %.04980, 1
+61:                                               ; preds = %55, %53
+  %62 = xor i8 %.04982, 1
   store i8 1, ptr %4, align 1
   br label %.loopexit
 
-61:                                               ; preds = %.lr.ph81.split
-  %62 = trunc i8 %.04980 to i1
-  br i1 %62, label %.thread.thread, label %63
+63:                                               ; preds = %.lr.ph83.split
+  %64 = trunc nuw i8 %.04982 to i1
+  br i1 %64, label %.thread71, label %65
 
-63:                                               ; preds = %61
-  store i8 0, ptr %.05079, align 1
-  tail call void @free(ptr noundef %.05477) #12
-  %64 = tail call ptr @pg_malloc(i64 noundef %7) #12
-  %65 = load i8, ptr %4, align 1
-  %66 = and i8 %65, 1
-  store i8 %66, ptr %3, align 1
+65:                                               ; preds = %63
+  store i8 0, ptr %.05081, align 1
+  tail call void @free(ptr noundef %.05479) #12
+  %66 = tail call ptr @pg_malloc(i64 noundef %7) #12
+  %67 = load i8, ptr %4, align 1
+  %68 = and i8 %67, 1
+  store i8 %68, ptr %3, align 1
   store i8 0, ptr %4, align 1
   br label %.loopexit
 
-67:                                               ; preds = %.lr.ph81.split
-  %.not62 = icmp sgt i8 %49, -1
-  br i1 %.not62, label %.thread, label %68
+69:                                               ; preds = %.lr.ph83.split
+  %.not62 = icmp sgt i8 %51, -1
+  br i1 %.not62, label %80, label %70
 
-68:                                               ; preds = %67
-  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
-  %70 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.05676, i32 noundef %69) #12
-  store i8 %49, ptr %.05079, align 1
-  %.271 = getelementptr i8, ptr %.05079, i64 1
-  %71 = add i32 %70, -1
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph, label %.loopexit
+70:                                               ; preds = %69
+  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
+  %72 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.05678, i32 noundef %71) #12
+  store i8 %51, ptr %.05081, align 1
+  %.273 = getelementptr i8, ptr %.05081, i64 1
+  %73 = add i32 %72, -1
+  %74 = icmp sgt i32 %73, 0
+  br i1 %74, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %68, %.lr.ph
-  %73 = phi i32 [ %76, %.lr.ph ], [ %71, %68 ]
-  %.273 = phi ptr [ %.2, %.lr.ph ], [ %.271, %68 ]
-  %.25872 = phi ptr [ %74, %.lr.ph ], [ %50, %68 ]
-  %74 = getelementptr i8, ptr %.25872, i64 1
-  %75 = load i8, ptr %.25872, align 1
-  store i8 %75, ptr %.273, align 1
-  %.2 = getelementptr i8, ptr %.273, i64 1
-  %76 = add nsw i32 %73, -1
-  %77 = icmp samesign ugt i32 %73, 1
-  br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !36
+.lr.ph:                                           ; preds = %70, %.lr.ph
+  %75 = phi i32 [ %78, %.lr.ph ], [ %73, %70 ]
+  %.275 = phi ptr [ %.2, %.lr.ph ], [ %.273, %70 ]
+  %.25874 = phi ptr [ %76, %.lr.ph ], [ %52, %70 ]
+  %76 = getelementptr i8, ptr %.25874, i64 1
+  %77 = load i8, ptr %.25874, align 1
+  store i8 %77, ptr %.275, align 1
+  %.2 = getelementptr i8, ptr %.275, i64 1
+  %78 = add nsw i32 %75, -1
+  %79 = icmp samesign ugt i32 %75, 1
+  br i1 %79, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
-.thread:                                          ; preds = %67
-  %.pre97 = trunc i8 %.04980 to i1
-  %78 = add nsw i8 %49, -91
-  %or.cond = icmp ult i8 %78, -26
-  %or.cond103.not = select i1 %.pre97, i1 true, i1 %or.cond
-  %79 = or disjoint i8 %49, 32
-  %spec.select = select i1 %or.cond103.not, i8 %49, i8 %79
-  br label %.thread.thread
+80:                                               ; preds = %69
+  %81 = trunc nuw i8 %.04982 to i1
+  %82 = add nsw i8 %51, -91
+  %or.cond = icmp ult i8 %82, -26
+  %or.cond100.not = select i1 %81, i1 true, i1 %or.cond
+  %83 = or disjoint i8 %51, 32
+  %spec.select = select i1 %or.cond100.not, i8 %51, i8 %83
+  br label %.thread71
 
-.thread.thread:                                   ; preds = %.thread, %61
-  %.048 = phi i8 [ 46, %61 ], [ %spec.select, %.thread ]
-  %80 = getelementptr i8, ptr %.05079, i64 1
-  store i8 %.048, ptr %.05079, align 1
+.thread71:                                        ; preds = %80, %63
+  %.048 = phi i8 [ 46, %63 ], [ %spec.select, %80 ]
+  %84 = getelementptr i8, ptr %.05081, i64 1
+  store i8 %.048, ptr %.05081, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %68, %63, %.thread.thread, %56, %59
-  %.157 = phi ptr [ %58, %56 ], [ %50, %59 ], [ %50, %.thread.thread ], [ %50, %63 ], [ %50, %68 ], [ %74, %.lr.ph ]
-  %.155 = phi ptr [ %.05477, %56 ], [ %.05477, %59 ], [ %.05477, %.thread.thread ], [ %.05278, %63 ], [ %.05477, %68 ], [ %.05477, %.lr.ph ]
-  %.153 = phi ptr [ %.05278, %56 ], [ %.05278, %59 ], [ %.05278, %.thread.thread ], [ %64, %63 ], [ %.05278, %68 ], [ %.05278, %.lr.ph ]
-  %.151 = phi ptr [ %57, %56 ], [ %.05079, %59 ], [ %80, %.thread.thread ], [ %64, %63 ], [ %.271, %68 ], [ %.2, %.lr.ph ]
-  %.1 = phi i8 [ %.04980, %56 ], [ %60, %59 ], [ %.04980, %.thread.thread ], [ %.04980, %63 ], [ %.04980, %68 ], [ %.04980, %.lr.ph ]
-  %81 = load i8, ptr %.157, align 1
-  %.not = icmp eq i8 %81, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph81.split, !llvm.loop !35
+.loopexit:                                        ; preds = %.lr.ph, %70, %65, %.thread71, %58, %61
+  %.157 = phi ptr [ %60, %58 ], [ %52, %61 ], [ %52, %.thread71 ], [ %52, %65 ], [ %52, %70 ], [ %76, %.lr.ph ]
+  %.155 = phi ptr [ %.05479, %58 ], [ %.05479, %61 ], [ %.05479, %.thread71 ], [ %.05280, %65 ], [ %.05479, %70 ], [ %.05479, %.lr.ph ]
+  %.153 = phi ptr [ %.05280, %58 ], [ %.05280, %61 ], [ %.05280, %.thread71 ], [ %66, %65 ], [ %.05280, %70 ], [ %.05280, %.lr.ph ]
+  %.151 = phi ptr [ %59, %58 ], [ %.05081, %61 ], [ %84, %.thread71 ], [ %66, %65 ], [ %.273, %70 ], [ %.2, %.lr.ph ]
+  %.1 = phi i8 [ 1, %58 ], [ %62, %61 ], [ %.04982, %.thread71 ], [ 0, %65 ], [ %.04982, %70 ], [ %.04982, %.lr.ph ]
+  %85 = load i8, ptr %.157, align 1
+  %.not = icmp eq i8 %85, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph83.split, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %.loopexit, %47, %5
-  %.054.lcssa = phi ptr [ null, %5 ], [ %.155.us, %47 ], [ %.155, %.loopexit ]
-  %.052.lcssa = phi ptr [ %10, %5 ], [ %.153.us, %47 ], [ %.153, %.loopexit ]
-  %.050.lcssa = phi ptr [ %10, %5 ], [ %.151.us, %47 ], [ %.151, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %49, %5
+  %.054.lcssa = phi ptr [ null, %5 ], [ %.155.us, %49 ], [ %.155, %.loopexit ]
+  %.052.lcssa = phi ptr [ %10, %5 ], [ %.153.us, %49 ], [ %.153, %.loopexit ]
+  %.050.lcssa = phi ptr [ %10, %5 ], [ %.151.us, %49 ], [ %.151, %.loopexit ]
   store i8 0, ptr %.050.lcssa, align 1
   store ptr %.054.lcssa, ptr %1, align 8
   store ptr %.052.lcssa, ptr %2, align 8

@@ -21833,7 +21833,7 @@ lpad9:                                            ; preds = %if.else.i, %if.then
   br label %ehcleanup
 
 if.end15:                                         ; preds = %land.lhs.true, %if.then.i20, %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEaSEOS3_.exit, %invoke.cont10, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit
-  %foundChildVectorToWrap.1 = phi i8 [ %foundChildVectorToWrap.0266, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ %foundChildVectorToWrap.0266, %invoke.cont10 ], [ 1, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEaSEOS3_.exit ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ 1, %if.end8.sink.split.i.i.i.i ], [ %foundChildVectorToWrap.0266, %if.then.i20 ], [ %foundChildVectorToWrap.0266, %land.lhs.true ]
+  %foundChildVectorToWrap.1 = phi i8 [ 1, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit ], [ 0, %invoke.cont10 ], [ 1, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEaSEOS3_.exit ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ 1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ 1, %if.end8.sink.split.i.i.i.i ], [ 0, %if.then.i20 ], [ 0, %land.lhs.true ]
   %39 = load ptr, ptr %_M_finish.i, align 8
   %40 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i31 = icmp eq ptr %39, %40

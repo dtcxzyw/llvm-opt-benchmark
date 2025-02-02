@@ -405,7 +405,6 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %or.cond5, label %.thread149, label %78
 
 .thread149:                                       ; preds = %42, %54
-  %.0122152 = phi i8 [ %.0122, %54 ], [ 0, %42 ]
   %58 = icmp ult i32 %.0, %.0118
   br i1 %58, label %59, label %65
 
@@ -452,7 +451,7 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
 78:                                               ; preds = %53, %54, %73, %70
   %.not144 = phi i1 [ false, %73 ], [ false, %70 ], [ true, %54 ], [ true, %53 ]
   %.1127 = phi ptr [ %71, %73 ], [ %71, %70 ], [ %46, %54 ], [ %46, %53 ]
-  %.1123 = phi i8 [ %77, %73 ], [ %.0122152, %70 ], [ %.0122, %54 ], [ %.0122, %53 ]
+  %.1123 = phi i8 [ %77, %73 ], [ 0, %70 ], [ %.0122, %54 ], [ %.0122, %53 ]
   %.1 = phi i32 [ %.3, %73 ], [ %.3, %70 ], [ %.0, %54 ], [ %.0, %53 ]
   %79 = trunc nuw i8 %.1123 to i1
   %80 = icmp eq i32 %.1, 0

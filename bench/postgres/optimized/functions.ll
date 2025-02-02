@@ -1280,7 +1280,7 @@ postquel_sub_params.exit:                         ; preds = %.critedge171, %340,
   br label %373
 
 373:                                              ; preds = %370, %372, %367
-  %.2130 = phi i8 [ %.0128249, %367 ], [ %.0128249, %372 ], [ 1, %370 ]
+  %.2130 = phi i8 [ %.0128249, %367 ], [ 1, %372 ], [ 1, %370 ]
   %374 = getelementptr inbounds nuw i8, ptr %.3139246, i64 12
   %375 = load i8, ptr %374, align 4
   %376 = trunc i8 %375 to i1
@@ -1356,7 +1356,7 @@ postquel_start.exit:                              ; preds = %398, %402
   br label %414
 
 414:                                              ; preds = %406, %407, %409, %postquel_start.exit
-  %.3 = phi i8 [ %.2130, %postquel_start.exit ], [ %.0128249, %406 ], [ %.0128249, %407 ], [ 1, %409 ]
+  %.3 = phi i8 [ %.2130, %postquel_start.exit ], [ %.0128249, %406 ], [ 1, %407 ], [ 1, %409 ]
   %415 = getelementptr inbounds nuw i8, ptr %.3139246, i64 24
   %416 = load ptr, ptr %415, align 8
   %417 = load i32, ptr %416, align 8
@@ -1441,7 +1441,7 @@ postquel_end.exit:                                ; preds = %postquel_getnext.ex
   br i1 %.not162234, label %.lr.ph238, label %._crit_edge
 
 .lr.ph238:                                        ; preds = %456, %466
-  %.4237 = phi i8 [ %.5, %466 ], [ %.3, %456 ]
+  %.4237 = phi i8 [ 0, %466 ], [ %.3, %456 ]
   %.2133236 = phi ptr [ %458, %466 ], [ %.1132248, %456 ]
   %.val = load i32, ptr %359, align 4
   %.val172 = load ptr, ptr %360, align 8
@@ -1463,13 +1463,12 @@ postquel_end.exit:                                ; preds = %postquel_getnext.ex
   br label %466
 
 466:                                              ; preds = %465, %462
-  %.5 = phi i8 [ 0, %465 ], [ %.4237, %462 ]
   %.not162 = icmp eq ptr %463, null
   br i1 %.not162, label %.lr.ph238, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %466, %456
   %.4140.lcssa = phi ptr [ %457, %456 ], [ %463, %466 ]
-  %.4.lcssa = phi i8 [ %.3, %456 ], [ %.5, %466 ]
+  %.4.lcssa = phi i8 [ %.3, %456 ], [ 0, %466 ]
   %.3134 = phi ptr [ %.1132248, %456 ], [ %458, %466 ]
   br label %361, !llvm.loop !11
 

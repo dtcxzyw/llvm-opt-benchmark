@@ -32251,7 +32251,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !6265
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -32261,34 +32261,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h87f5c98ca67908d8E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -32703,7 +32697,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !6349
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -32713,34 +32707,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h597f785ce471a6b6E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -33155,7 +33143,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !6433
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -33165,34 +33153,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hba65bd64eccee146E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -33607,7 +33589,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !6517
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -33617,34 +33599,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a90d055b0bb2c90E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -34059,7 +34035,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !6601
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -34069,34 +34045,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4f2acbbd9ef87f76E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -34511,7 +34481,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !6685
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -34521,34 +34491,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h64569dd44dca1d22E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -34963,7 +34927,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !6769
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -34973,34 +34937,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbfd62ba714b1577bE"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -35415,7 +35373,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !6853
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -35425,34 +35383,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h767e7649d06ab64dE"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -35867,7 +35819,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !6937
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -35877,34 +35829,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h29de66a176b06daaE"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36319,7 +36265,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !7021
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -36329,34 +36275,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha1ea1edabdb5b502E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36771,7 +36711,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !7105
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -36781,34 +36721,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h84972f9fbd770909E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37223,7 +37157,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !7189
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -37233,34 +37167,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc19daefea0ffff37E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37675,7 +37603,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !7273
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -37685,34 +37613,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha6d5af494b8a29e3E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -38127,7 +38049,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !7357
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -38137,34 +38059,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcb63b8634c84e100E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -38579,7 +38495,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !7441
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -38589,34 +38505,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0a0e4fc5d343c1b0E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -39031,7 +38941,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !7525
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -39041,34 +38951,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8449205c40a08beaE"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -39483,7 +39387,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !7609
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -39493,34 +39397,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc7840974bd9bf887E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -39935,7 +39833,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !7693
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -39945,34 +39843,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h525afc578928bb7fE"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -40387,7 +40279,7 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   call void @__rust_dealloc(ptr noundef nonnull %161, i64 noundef %170, i64 noundef 8) #51, !noalias !7777
   br label %"_ZN4core3ptr150drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$language..language_registry..LanguageRegistryState$GT$$GT$17h4313faae0e348ac8E.llvm.6110214326448453520.exit25"
 
-173:                                              ; preds = %35, %175, %182, %.thread
+173:                                              ; preds = %35, %175, %179, %.thread
   %174 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #50
@@ -40397,34 +40289,28 @@ _ZN4core5alloc6layout6Layout5array5inner17h723f9d59cfd8d3d8E.llvm.61102143264484
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$languages..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17heec2d605d44d62d7E"(ptr nonnull %17) #52
           to label %24 unwind label %173
 
-176:                                              ; preds = %.thread, %24
-  %.sroa.04.048 = phi i8 [ %.sroa.04.049, %.thread ], [ %.sroa.04.2, %24 ]
-  %.sroa.05.046 = phi i8 [ %.sroa.05.047, %.thread ], [ %.sroa.05.2, %24 ]
-  %.pn11.pn44 = phi { ptr, i32 } [ %.pn11.pn45, %.thread ], [ %.pn11, %24 ]
-  %177 = trunc nuw i8 %.sroa.04.048 to i1
-  br i1 %177, label %180, label %178
-
 .thread:                                          ; preds = %20, %24
-  %.sroa.04.049 = phi i8 [ %.sroa.04.2, %24 ], [ 1, %20 ]
   %.sroa.05.047 = phi i8 [ %.sroa.05.2, %24 ], [ 1, %20 ]
   %.pn11.pn45 = phi { ptr, i32 } [ %.pn11, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$language..LanguageMatcher$GT$17hfd36388b69b326f7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %5) #52
-          to label %176 unwind label %173
+          to label %.thread55 unwind label %173
 
-178:                                              ; preds = %180, %176
-  %179 = trunc nuw i8 %.sroa.05.046 to i1
-  br i1 %179, label %182, label %181
+176:                                              ; preds = %24, %.thread55
+  %.pn11.pn4461 = phi { ptr, i32 } [ %.pn11.pn45, %.thread55 ], [ %.pn11, %24 ]
+  %.sroa.05.04659 = phi i8 [ %.sroa.05.047, %.thread55 ], [ %.sroa.05.2, %24 ]
+  %177 = trunc nuw i8 %.sroa.05.04659 to i1
+  br i1 %177, label %179, label %178
 
-180:                                              ; preds = %176
+.thread55:                                        ; preds = %.thread
   call fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$str$GT$$GT$$GT$17h6510dc41a1d9f399E"(ptr %3, i64 %4) #52
-  br label %178
+  br label %176
 
-181:                                              ; preds = %182, %178
-  resume { ptr, i32 } %.pn11.pn44
+178:                                              ; preds = %179, %176
+  resume { ptr, i32 } %.pn11.pn4461
 
-182:                                              ; preds = %178
+179:                                              ; preds = %176
   invoke void @"_ZN4core3ptr62drop_in_place$LT$language..language_registry..LanguageName$GT$17h1db842f2638ff9e9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #52
-          to label %181 unwind label %173
+          to label %178 unwind label %173
 }
 
 ; Function Attrs: nonlazybind uwtable

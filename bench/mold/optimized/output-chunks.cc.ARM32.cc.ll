@@ -45964,9 +45964,11 @@ for.body78:                                       ; preds = %for.body78.lr.ph, %
   tail call void @_ZN4mold3elf14EhFrameSectionINS0_5ARM32EE14apply_eh_relocERNS0_7ContextIS2_EERKNS0_6ElfRelIS2_EEmm(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(4568) %70, ptr noundef nonnull align 1 dereferenceable(8) %__begin169.sroa.0.0125, i64 noundef %sub94, i64 noundef %add99) #13
   %71 = load ptr, ptr %8, align 8
   %72 = load ptr, ptr %71, align 8
-  %tobool100.not = icmp ne ptr %72, null
-  %brmerge.not = select i1 %tobool100.not, i1 %is_first.0126, i1 false
-  br i1 %brmerge.not, label %if.then102, label %for.inc119
+  %tobool100.not = icmp eq ptr %72, null
+  %is_first.0.not = xor i1 %is_first.0126, true
+  %brmerge = select i1 %tobool100.not, i1 true, i1 %is_first.0.not
+  %is_first.0.mux = select i1 %tobool100.not, i1 %is_first.0126, i1 false
+  br i1 %brmerge, label %for.inc119, label %if.then102
 
 if.then102:                                       ; preds = %for.body78
   %73 = load i64, ptr %fde_idx, align 8
@@ -45988,7 +45990,7 @@ if.then102:                                       ; preds = %for.body78
   br label %for.inc119
 
 for.inc119:                                       ; preds = %for.body78, %if.then102
-  %is_first.1 = phi i1 [ false, %if.then102 ], [ %is_first.0126, %for.body78 ]
+  %is_first.1 = phi i1 [ false, %if.then102 ], [ %is_first.0.mux, %for.body78 ]
   %incdec.ptr.i109 = getelementptr inbounds nuw i8, ptr %__begin169.sroa.0.0125, i64 8
   %cmp.i97 = icmp eq ptr %incdec.ptr.i109, %add.ptr.i96
   br i1 %cmp.i97, label %for.inc122, label %for.body78

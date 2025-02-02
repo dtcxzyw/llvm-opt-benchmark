@@ -13664,7 +13664,7 @@ _ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %switch.lookup
   br i1 %.not258, label %._crit_edge.loopexit, label %182
 
 182:                                              ; preds = %.loopexit
-  %183 = trunc i8 %.0240.ph385 to i1
+  %183 = trunc nuw i8 %.0240.ph385 to i1
   %184 = select i1 %.0219371, i1 true, i1 %183
   br i1 %184, label %185, label %218
 
@@ -13720,7 +13720,6 @@ _ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %switch.lookup
   br i1 %62, label %.thread330, label %.thread340
 
 .thread340:                                       ; preds = %214, %201, %185, %218
-  %.1221345 = phi i8 [ %.0220450, %218 ], [ 0, %185 ], [ 0, %201 ], [ 0, %214 ]
   %219 = load ptr, ptr %7, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 40
   %221 = load ptr, ptr %220, align 8
@@ -13732,7 +13731,6 @@ _ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %switch.lookup
   br i1 %4, label %.backedge, label %.sink.split
 
 .thread330:                                       ; preds = %214, %192, %207, %218
-  %.1221338 = phi i8 [ %.0220450, %218 ], [ 1, %207 ], [ 1, %192 ], [ 1, %214 ]
   %.2224337 = phi i32 [ %.1223374, %218 ], [ %194, %207 ], [ %194, %192 ], [ %194, %214 ]
   %.4336 = phi i32 [ %.2227, %218 ], [ %187, %207 ], [ %187, %192 ], [ %187, %214 ]
   %.2231335 = phi i32 [ %.1230379, %218 ], [ %198, %207 ], [ %198, %192 ], [ %198, %214 ]
@@ -13746,7 +13744,7 @@ _ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %switch.lookup
   %.3232.ph = phi i32 [ %226, %.thread340 ], [ %.2231335, %.thread330 ]
   %.5.ph = phi i32 [ %222, %.thread340 ], [ %.4336, %.thread330 ]
   %.3.ph = phi i32 [ 0, %.thread340 ], [ %.2224337, %.thread330 ]
-  %.2.ph = phi i8 [ %.1221345, %.thread340 ], [ %.1221338, %.thread330 ]
+  %.2.ph = phi i8 [ 0, %.thread340 ], [ 1, %.thread330 ]
   %228 = load ptr, ptr %59, align 8
   %229 = load ptr, ptr %7, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 %.sink538
@@ -13755,7 +13753,7 @@ _ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %switch.lookup
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %.thread330, %.thread340
-  %.0220450.be = phi i8 [ %.2.ph, %.sink.split ], [ %.1221338, %.thread330 ], [ %.1221345, %.thread340 ]
+  %.0220450.be = phi i8 [ %.2.ph, %.sink.split ], [ 1, %.thread330 ], [ 0, %.thread340 ]
   %.0222449.be = phi i32 [ %.3.ph, %.sink.split ], [ %.2224337, %.thread330 ], [ 0, %.thread340 ]
   %.0225448.be = phi i32 [ %.5.ph, %.sink.split ], [ %.4336, %.thread330 ], [ %222, %.thread340 ]
   %.0229447.be = phi i32 [ %.3232.ph, %.sink.split ], [ %.2231335, %.thread330 ], [ %226, %.thread340 ]

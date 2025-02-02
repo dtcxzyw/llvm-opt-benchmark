@@ -25269,9 +25269,9 @@ for.cond56.us:                                    ; preds = %for.cond59.for.end8
   br label %for.body62.us
 
 for.body62.us:                                    ; preds = %for.cond56.us, %for.inc83.us
-  %indvars.iv105 = phi i64 [ 0, %for.cond56.us ], [ %indvars.iv.next106, %for.inc83.us ]
+  %indvars.iv104 = phi i64 [ 0, %for.cond56.us ], [ %indvars.iv.next105, %for.inc83.us ]
   %c57.099.us = phi i32 [ 0, %for.cond56.us ], [ %c57.1.us, %for.inc83.us ]
-  %cmp63.us = icmp eq i64 %indvars.iv105, 0
+  %cmp63.us = icmp eq i64 %indvars.iv104, 0
   br i1 %cmp63.us, label %if.then64.us, label %if.else70.us
 
 if.else70.us:                                     ; preds = %for.body62.us
@@ -25279,7 +25279,7 @@ if.else70.us:                                     ; preds = %for.body62.us
   br i1 %cmp71.us, label %for.end90, label %lor.lhs.false72.us
 
 lor.lhs.false72.us:                               ; preds = %if.else70.us
-  %arrayidx.i71.us = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv105
+  %arrayidx.i71.us = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv104
   %30 = load ptr, ptr %arrayidx.i71.us, align 8
   %arrayidx76.us = getelementptr inbounds i8, ptr %30, i64 %indvars.iv109
   %31 = load i8, ptr %arrayidx76.us, align 1
@@ -25298,8 +25298,8 @@ if.then64.us:                                     ; preds = %for.body62.us
 
 for.inc83.us:                                     ; preds = %if.then64.us, %lor.lhs.false72.us
   %c57.1.us = phi i32 [ %call69.us, %if.then64.us ], [ %c57.099.us, %lor.lhs.false72.us ]
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %cmp61.us = icmp samesign ult i64 %indvars.iv.next106, %28
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %cmp61.us = icmp samesign ult i64 %indvars.iv.next105, %28
   br i1 %cmp61.us, label %for.body62.us, label %for.cond59.for.end85_crit_edge.us, !llvm.loop !188
 
 for.cond59.for.end85_crit_edge.us:                ; preds = %for.inc83.us

@@ -3270,7 +3270,7 @@ if.else115:                                       ; preds = %_ZNSt6vectorIjSaIjE
   br label %if.end123
 
 if.end123:                                        ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit143, %if.else115, %land.lhs.true104, %land.lhs.true101, %if.end94
-  %normalsok.2 = phi i8 [ %normalsok.1223, %land.lhs.true101 ], [ %normalsok.1223, %if.else115 ], [ %normalsok.1223, %land.lhs.true104 ], [ %normalsok.1223, %if.end94 ], [ 0, %_ZNSt6vectorIjSaIjEE2atEm.exit143 ]
+  %normalsok.2 = phi i8 [ 1, %land.lhs.true101 ], [ 1, %if.else115 ], [ 1, %land.lhs.true104 ], [ 0, %if.end94 ], [ 0, %_ZNSt6vectorIjSaIjEE2atEm.exit143 ]
   %41 = load ptr, ptr %_M_finish.i.i115, align 8
   %42 = load ptr, ptr %mVertexColors, align 8
   %sub.ptr.lhs.cast.i151 = ptrtoint ptr %41 to i64
@@ -3346,7 +3346,7 @@ if.else152:                                       ; preds = %_ZNSt6vectorIjSaIjE
   br label %if.end165
 
 if.end165:                                        ; preds = %_ZNSt6vectorIjSaIjEE2atEm.exit171, %if.else152, %land.lhs.true141, %land.lhs.true138, %if.end136
-  %uvok.2 = phi i8 [ %uvok.1222, %land.lhs.true138 ], [ %uvok.1222, %if.else152 ], [ %uvok.1222, %land.lhs.true141 ], [ %uvok.1222, %if.end136 ], [ 0, %_ZNSt6vectorIjSaIjEE2atEm.exit171 ]
+  %uvok.2 = phi i8 [ 1, %land.lhs.true138 ], [ 1, %if.else152 ], [ 1, %land.lhs.true141 ], [ 0, %if.end136 ], [ 0, %_ZNSt6vectorIjSaIjEE2atEm.exit171 ]
   %56 = load ptr, ptr %mFaces, align 8
   %idxprom166 = zext i32 %outIndex.1220 to i64
   %arrayidx167 = getelementptr inbounds nuw %struct.aiFace, ptr %56, i64 %idxprom166

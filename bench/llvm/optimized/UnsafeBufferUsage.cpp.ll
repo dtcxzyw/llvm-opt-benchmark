@@ -10488,11 +10488,11 @@ _ZL13isParameterOfPKN5clang7VarDeclEPKNS_4DeclE.exit: ; preds = %_ZNK5clang4Decl
   %.0.i.i1.i = phi ptr [ %1914, %1913 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit.i475 ]
   %.0.i.i.i476.fr = freeze ptr %.0.i.i.i476
   %1915 = icmp eq ptr %.0.i.i.i476.fr, %.0.i.i1.i
-  %spec.select = select i1 %1915, i8 1, i8 %.01081022
+  %spec.select = zext i1 %1915 to i8
   br label %_ZL13isParameterOfPKN5clang7VarDeclEPKNS_4DeclE.exit.thread
 
 _ZL13isParameterOfPKN5clang7VarDeclEPKNS_4DeclE.exit.thread: ; preds = %_ZL13isParameterOfPKN5clang7VarDeclEPKNS_4DeclE.exit, %1899, %_ZNSt3mapIPKN5clang7VarDeclEjSt4lessIS3_ESaISt4pairIKS3_jEEEixERS7_.exit
-  %.1 = phi i8 [ %.01081022, %_ZNSt3mapIPKN5clang7VarDeclEjSt4lessIS3_ESaISt4pairIKS3_jEEEixERS7_.exit ], [ %.01081022, %1899 ], [ %spec.select, %_ZL13isParameterOfPKN5clang7VarDeclEPKNS_4DeclE.exit ]
+  %.1 = phi i8 [ 1, %_ZNSt3mapIPKN5clang7VarDeclEjSt4lessIS3_ESaISt4pairIKS3_jEEEixERS7_.exit ], [ 0, %1899 ], [ %spec.select, %_ZL13isParameterOfPKN5clang7VarDeclEPKNS_4DeclE.exit ]
   %1916 = getelementptr inbounds nuw i8, ptr %.sroa.0726.01021, i64 8
   %.not837 = icmp eq ptr %1916, %1806
   br i1 %.not837, label %._crit_edge1025, label %.lr.ph1024

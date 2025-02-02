@@ -17418,147 +17418,139 @@ define hidden { i64, ptr } @"_ZN80_$LT$zstd..stream..zio..reader..Reader$LT$R$C$
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %.outer
+  br label %.backedge
 
-.outer:                                           ; preds = %51, %3
-  %.sroa.07.0.ph.not = phi i1 [ true, %51 ], [ false, %3 ]
-  %.pre = load i8, ptr %7, align 8, !range !136
-  br i1 %.sroa.07.0.ph.not, label %.outer.split, label %.outer.split.us
-
-.outer.split.us:                                  ; preds = %.outer
-  switch i8 %.pre, label %.outer.split.us.unreachabledefault [
-    i8 0, label %.thread
-    i8 1, label %.split.us
-    i8 2, label %.loopexit.loopexit68
-  ]
-
-.outer.split.us.unreachabledefault:               ; preds = %.outer.split.us
-  unreachable
-
-default.unreachable:                              ; preds = %.outer.split
-  unreachable
-
-.outer.split:                                     ; preds = %.outer, %36
-  %19 = phi i8 [ 1, %36 ], [ %.pre, %.outer ]
-  switch i8 %19, label %default.unreachable [
+.backedge:                                        ; preds = %.backedge.backedge, %3
+  %.sroa.07.0.not = phi i1 [ false, %3 ], [ true, %.backedge.backedge ]
+  %19 = load i8, ptr %7, align 8, !range !136, !noundef !4
+  switch i8 %19, label %default.unreachable63 [
     i8 0, label %20
-    i8 1, label %.split.us
-    i8 2, label %.loopexit
+    i8 1, label %21
+    i8 2, label %.loopexit.loopexit
   ]
 
-20:                                               ; preds = %.outer.split
+default.unreachable63:                            ; preds = %.backedge
+  unreachable
+
+20:                                               ; preds = %.backedge
+  br i1 %.sroa.07.0.not, label %25, label %.thread
+
+21:                                               ; preds = %.backedge
+  %22 = load i8, ptr %14, align 2, !range !167, !noundef !4
+  %23 = trunc nuw i8 %22 to i1
+  br i1 %23, label %60, label %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6finish17h2a424d2d8f78beabE.exit"
+
+"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6finish17h2a424d2d8f78beabE.exit": ; preds = %21
+  %24 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17h643c691bca7a2efeE(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.d80e60adfe729c318e59c386bf5e42ea.319.llvm.1965446746118303901, i64 noundef 16)
+  br label %.loopexit
+
+25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3425
   call void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h0a96596f936b1132E.llvm.17925810963617146123(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !3429
-  %21 = load ptr, ptr %4, align 8, !noalias !3425, !noundef !4
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %26, label %28
+  %26 = load ptr, ptr %4, align 8, !noalias !3425, !noundef !4
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-.split.us:                                        ; preds = %.outer.split.us, %.outer.split
-  %23 = load i8, ptr %14, align 2, !range !167, !noundef !4
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %58, label %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6finish17h2a424d2d8f78beabE.exit"
-
-"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6finish17h2a424d2d8f78beabE.exit": ; preds = %.split.us
-  %25 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17h643c691bca7a2efeE(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.d80e60adfe729c318e59c386bf5e42ea.319.llvm.1965446746118303901, i64 noundef 16)
-  br label %.loopexit
-
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %9, align 8, !noalias !3425, !nonnull !4, !noundef !4
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %9, align 8, !noalias !3425, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3425
   br label %.loopexit
 
-28:                                               ; preds = %20
-  %29 = load i64, ptr %9, align 8, !noalias !3425, !noundef !4
+30:                                               ; preds = %25
+  %31 = load i64, ptr %9, align 8, !noalias !3425, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3425
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %36, label %.thread
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %38, label %.thread
 
-.loopexit.loopexit68:                             ; preds = %51, %.outer.split.us
-  %.sroa.8.0.ph = phi i64 [ %53, %51 ], [ 0, %.outer.split.us ]
-  %31 = inttoptr i64 %.sroa.8.0.ph to ptr
+.loopexit.loopexit:                               ; preds = %.backedge, %53
+  %.sroa.8.0.ph = phi i64 [ 0, %.backedge ], [ %55, %53 ]
+  %33 = inttoptr i64 %.sroa.8.0.ph to ptr
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.outer.split, %.loopexit.loopexit68, %58, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6finish17h2a424d2d8f78beabE.exit", %.loopexit53, %26
-  %.sroa.8.0 = phi ptr [ %.sroa.8.1.in, %.loopexit53 ], [ %27, %26 ], [ null, %58 ], [ %25, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6finish17h2a424d2d8f78beabE.exit" ], [ %31, %.loopexit.loopexit68 ], [ null, %.outer.split ]
-  %.sroa.0.0 = phi i64 [ 1, %.loopexit53 ], [ 1, %26 ], [ 0, %58 ], [ 1, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6finish17h2a424d2d8f78beabE.exit" ], [ 0, %.loopexit.loopexit68 ], [ 0, %.outer.split ]
-  %32 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %33 = insertvalue { i64, ptr } %32, ptr %.sroa.8.0, 1
-  ret { i64, ptr } %33
+.loopexit:                                        ; preds = %.loopexit.loopexit, %60, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6finish17h2a424d2d8f78beabE.exit", %.loopexit53, %28
+  %.sroa.8.0 = phi ptr [ %.sroa.8.1.in, %.loopexit53 ], [ %29, %28 ], [ null, %60 ], [ %24, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6finish17h2a424d2d8f78beabE.exit" ], [ %33, %.loopexit.loopexit ]
+  %.sroa.0.0 = phi i64 [ 1, %.loopexit53 ], [ 1, %28 ], [ 0, %60 ], [ 1, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6finish17h2a424d2d8f78beabE.exit" ], [ 0, %.loopexit.loopexit ]
+  %34 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %35 = insertvalue { i64, ptr } %34, ptr %.sroa.8.0, 1
+  ret { i64, ptr } %35
 
-.thread:                                          ; preds = %28, %.outer.split.us
-  %.us-phi65 = phi ptr [ inttoptr (i64 1 to ptr), %.outer.split.us ], [ %21, %28 ]
-  %.us-phi66 = phi i64 [ 0, %.outer.split.us ], [ %29, %28 ]
+.thread:                                          ; preds = %20, %30
+  %.sroa.011.049 = phi ptr [ %26, %30 ], [ inttoptr (i64 1 to ptr), %20 ]
+  %.sroa.3.048 = phi i64 [ %31, %30 ], [ 0, %20 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  store ptr %.us-phi65, ptr %6, align 8
-  store i64 %.us-phi66, ptr %10, align 8
+  store ptr %.sroa.011.049, ptr %6, align 8
+  store i64 %.sroa.3.048, ptr %10, align 8
   store i64 0, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %12, align 8
   store i64 0, ptr %13, align 8
-  %34 = load i8, ptr %14, align 2, !range !167, !noundef !4
-  %35 = trunc nuw i8 %34 to i1
-  %or.cond6.not = and i1 %.sroa.07.0.ph.not, %35
-  br i1 %or.cond6.not, label %42, label %37
+  %36 = load i8, ptr %14, align 2, !range !167, !noundef !4
+  %37 = trunc nuw i8 %36 to i1
+  %or.cond6.not = and i1 %.sroa.07.0.not, %37
+  br i1 %or.cond6.not, label %44, label %39
 
-36:                                               ; preds = %28
+38:                                               ; preds = %30
   store i8 1, ptr %7, align 8
-  br label %.outer.split
+  br label %.backedge.backedge
 
-37:                                               ; preds = %45, %.thread
-  %38 = call { i64, i64 } @_ZN9zstd_safe4DCtx17decompress_stream17hed6dc26351e68596E.llvm.1965446746118303901(ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-  %39 = extractvalue { i64, i64 } %38, 0
-  %40 = extractvalue { i64, i64 } %38, 1
-  %switch.i = icmp eq i64 %39, 0
-  br i1 %switch.i, label %46, label %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h051c62f6edbc3cc6E.exit"
+.backedge.backedge:                               ; preds = %38, %53
+  br label %.backedge
 
-"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h051c62f6edbc3cc6E.exit": ; preds = %37
-  %41 = call noundef nonnull ptr @_ZN4zstd14map_error_code17h27138098ee9c795eE(i64 noundef %40)
+39:                                               ; preds = %47, %.thread
+  %40 = call { i64, i64 } @_ZN9zstd_safe4DCtx17decompress_stream17hed6dc26351e68596E.llvm.1965446746118303901(ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
+  %41 = extractvalue { i64, i64 } %40, 0
+  %42 = extractvalue { i64, i64 } %40, 1
+  %switch.i = icmp eq i64 %41, 0
+  br i1 %switch.i, label %48, label %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h051c62f6edbc3cc6E.exit"
+
+"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h051c62f6edbc3cc6E.exit": ; preds = %39
+  %43 = call noundef nonnull ptr @_ZN4zstd14map_error_code17h27138098ee9c795eE(i64 noundef %42)
   br label %.loopexit53
 
-42:                                               ; preds = %.thread
-  %43 = call noundef ptr @"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6reinit17h4a8b873176237ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %.loopexit53
+44:                                               ; preds = %.thread
+  %45 = call noundef ptr @"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$6reinit17h4a8b873176237ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %.loopexit53
 
-45:                                               ; preds = %42
+47:                                               ; preds = %44
   store i8 0, ptr %14, align 2
-  br label %37
+  br label %39
 
-46:                                               ; preds = %37
-  %47 = icmp eq i64 %40, 0
-  br i1 %47, label %48, label %51
+48:                                               ; preds = %39
+  %49 = icmp eq i64 %42, 0
+  br i1 %49, label %50, label %53
 
-48:                                               ; preds = %46
+50:                                               ; preds = %48
   store i8 1, ptr %14, align 2
-  %49 = load i8, ptr %16, align 1, !range !167, !noundef !4
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %57, label %51
+  %51 = load i8, ptr %16, align 1, !range !167, !noundef !4
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %59, label %53
 
-51:                                               ; preds = %48, %57, %46
-  %52 = load i64, ptr %11, align 8, !noundef !4
-  %53 = load i64, ptr %13, align 8, !noundef !4
+53:                                               ; preds = %50, %59, %48
+  %54 = load i64, ptr %11, align 8, !noundef !4
+  %55 = load i64, ptr %13, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %54 = load i64, ptr %17, align 8, !alias.scope !3430, !noundef !4
-  %55 = add i64 %54, %52
-  %56 = load i64, ptr %18, align 8, !alias.scope !3430, !noundef !4
-  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %55, i64 %56)
+  %56 = load i64, ptr %17, align 8, !alias.scope !3430, !noundef !4
+  %57 = add i64 %56, %54
+  %58 = load i64, ptr %18, align 8, !alias.scope !3430, !noundef !4
+  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %57, i64 %58)
   store i64 %.sroa.0.0.sroa.speculated.i.i, ptr %17, align 8, !alias.scope !3430
-  %.not31 = icmp eq i64 %53, 0
-  br i1 %.not31, label %.outer, label %.loopexit.loopexit68
+  %.not31 = icmp eq i64 %55, 0
+  br i1 %.not31, label %.backedge.backedge, label %.loopexit.loopexit
 
-57:                                               ; preds = %48
+59:                                               ; preds = %50
   store i8 2, ptr %7, align 8
-  br label %51
+  br label %53
 
-.loopexit53:                                      ; preds = %42, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h051c62f6edbc3cc6E.exit"
-  %.sroa.8.1.in = phi ptr [ %41, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h051c62f6edbc3cc6E.exit" ], [ %43, %42 ]
+.loopexit53:                                      ; preds = %44, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h051c62f6edbc3cc6E.exit"
+  %.sroa.8.1.in = phi ptr [ %43, %"_ZN75_$LT$zstd..stream..raw..Decoder$u20$as$u20$zstd..stream..raw..Operation$GT$3run17h051c62f6edbc3cc6E.exit" ], [ %45, %44 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %.loopexit
 
-58:                                               ; preds = %.split.us
+60:                                               ; preds = %21
   store i8 2, ptr %7, align 8
   br label %.loopexit
 }

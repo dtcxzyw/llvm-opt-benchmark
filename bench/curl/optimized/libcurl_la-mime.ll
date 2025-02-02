@@ -2002,18 +2002,15 @@ for.cond.i84.outer:                               ; preds = %sw.bb37, %sw.defaul
   %bufsize.addr.0.i.ph = phi i64 [ %sub.i91, %sw.default.i ], [ %bufsize.addr.0120, %sw.bb37 ]
   %buffer.addr.0.i.ph = phi ptr [ %add.ptr.i90, %sw.default.i ], [ %buffer.addr.0122, %sw.bb37 ]
   %cursize.0.i.ph = phi i64 [ %add.i89, %sw.default.i ], [ 0, %sw.bb37 ]
-  %ateof.0.i.ph = phi i8 [ %ateof.0.i.ph168, %sw.default.i ], [ 0, %sw.bb37 ]
-  br label %for.cond.i84.outer167
-
-for.cond.i84.outer167:                            ; preds = %if.end31.i, %for.cond.i84.outer
-  %ateof.0.i.ph168 = phi i8 [ %ateof.0.i.ph, %for.cond.i84.outer ], [ 1, %if.end31.i ]
-  %.pre140 = trunc nuw i8 %ateof.0.i.ph168 to i1
+  %ateof.0.i.ph = phi i8 [ %ateof.0.i, %sw.default.i ], [ 0, %sw.bb37 ]
   br label %for.cond.i84
 
-for.cond.i84:                                     ; preds = %for.cond.i84.outer167, %sw.default46.i
+for.cond.i84:                                     ; preds = %for.cond.i84.backedge, %for.cond.i84.outer
+  %ateof.0.i = phi i8 [ %ateof.0.i.ph, %for.cond.i84.outer ], [ %ateof.0.i.be, %for.cond.i84.backedge ]
   %15 = load i64, ptr %bufbeg.i, align 8
   %16 = load i64, ptr %bufend.i, align 8
   %cmp.i85 = icmp ult i64 %15, %16
+  %.pre140 = trunc nuw i8 %ateof.0.i to i1
   %brmerge = select i1 %cmp.i85, i1 true, i1 %.pre140
   %not.cmp.i85 = xor i1 %cmp.i85, true
   %.pre140.mux = select i1 %not.cmp.i85, i1 true, i1 %.pre140
@@ -2083,7 +2080,7 @@ if.end31.i:                                       ; preds = %if.end22.i
   %sub37.i = sub nuw nsw i64 256, %20
   %call38.i = tail call fastcc i64 @read_part_content(ptr noundef nonnull %part, ptr noundef nonnull %add.ptr35.i, i64 noundef %sub37.i, ptr noundef nonnull %hasread)
   switch i64 %call38.i, label %sw.default46.i [
-    i64 0, label %for.cond.i84.outer167
+    i64 0, label %for.cond.i84.backedge
     i64 268435456, label %sw.bb40.i
     i64 268435457, label %sw.bb40.i
     i64 -1, label %sw.bb40.i
@@ -2099,6 +2096,10 @@ sw.default46.i:                                   ; preds = %if.end31.i
   %21 = load i64, ptr %bufend.i, align 8
   %add48.i = add i64 %21, %call38.i
   store i64 %add48.i, ptr %bufend.i, align 8
+  br label %for.cond.i84.backedge
+
+for.cond.i84.backedge:                            ; preds = %sw.default46.i, %if.end31.i
+  %ateof.0.i.be = phi i8 [ 0, %sw.default46.i ], [ 1, %if.end31.i ]
   br label %for.cond.i84
 
 if.else41:                                        ; preds = %sw.bb37

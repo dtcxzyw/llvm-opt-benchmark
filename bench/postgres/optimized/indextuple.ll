@@ -610,7 +610,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 
 174:                                              ; preds = %155, %152, %149, %.thread176, %146, %123, %.thread177, %172, %170
   %.4 = phi i32 [ %.2145, %.thread177 ], [ %171, %172 ], [ %171, %170 ], [ %125, %123 ], [ %151, %149 ], [ %154, %152 ], [ %157, %155 ], [ %.2145, %.thread176 ], [ %.2145, %146 ]
-  %.2 = phi i8 [ %.0135, %.thread177 ], [ %.0135, %172 ], [ %.0135, %170 ], [ %.0135, %123 ], [ 0, %149 ], [ 0, %152 ], [ 0, %155 ], [ 0, %.thread176 ], [ 0, %146 ]
+  %.2 = phi i8 [ 1, %.thread177 ], [ 1, %172 ], [ 0, %170 ], [ 1, %123 ], [ 0, %149 ], [ 0, %152 ], [ 0, %155 ], [ 0, %.thread176 ], [ 0, %146 ]
   %175 = icmp eq i32 %.0134, %6
   br i1 %175, label %.loopexit.loopexit, label %176
 
@@ -693,7 +693,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 
 224:                                              ; preds = %222, %112, %218
   %.3 = phi i32 [ %220, %218 ], [ %.2145, %112 ], [ %220, %222 ]
-  %.1 = phi i8 [ %.2, %218 ], [ 0, %112 ], [ %spec.select, %222 ]
+  %.1 = phi i8 [ 0, %218 ], [ 0, %112 ], [ %spec.select, %222 ]
   %225 = add i32 %.0134, 1
   %.pre = load i16, ptr %4, align 2
   br label %108
@@ -937,8 +937,8 @@ define dso_local void @index_deform_tuple_internal(ptr noundef captures(none) %0
   br label %79
 
 79:                                               ; preds = %60, %57, %54, %48, %51, %27, %.thread94, %77, %75
-  %.281 = phi i32 [ %.07995, %.thread94 ], [ %76, %75 ], [ %76, %77 ], [ %29, %27 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ], [ %.07995, %48 ], [ %.07995, %51 ]
-  %.2 = phi i1 [ false, %.thread94 ], [ true, %75 ], [ false, %77 ], [ false, %27 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %48 ], [ true, %51 ]
+  %.281 = phi i32 [ %.07995, %.thread94 ], [ %76, %75 ], [ %76, %77 ], [ %29, %27 ], [ %.07995, %51 ], [ %.07995, %48 ], [ %56, %54 ], [ %59, %57 ], [ %62, %60 ]
+  %.2 = phi i1 [ false, %.thread94 ], [ true, %75 ], [ false, %77 ], [ false, %27 ], [ true, %51 ], [ true, %48 ], [ true, %54 ], [ true, %57 ], [ true, %60 ]
   %80 = sext i32 %.281 to i64
   %81 = getelementptr i8, ptr %3, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 86
@@ -1057,7 +1057,7 @@ fetch_att.exit:                                   ; preds = %88, %91, %94, %97, 
   %145 = phi i64 [ %111, %108 ], [ %139, %137 ], [ %143, %140 ]
   %146 = trunc i64 %145 to i32
   %147 = icmp slt i16 %106, 1
-  %spec.select = or i1 %147, %.2
+  %spec.select = or i1 %.2, %147
   br label %148
 
 148:                                              ; preds = %144, %22

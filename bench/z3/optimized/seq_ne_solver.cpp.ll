@@ -1168,14 +1168,12 @@ _ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE9push_backERKS5_.ex
   br label %for.inc103
 
 if.end34:                                         ; preds = %if.end26
-  br i1 %tobool35, label %if.end44, label %for.cond37.preheader
+  %cmp38382 = icmp eq i64 %indvars.iv428, 0
+  %or.cond.not = select i1 %tobool35, i1 true, i1 %cmp38382
+  br i1 %or.cond.not, label %if.end44, label %invoke.cont40
 
-for.cond37.preheader:                             ; preds = %if.end34
-  %cmp38382.not = icmp eq i64 %indvars.iv428, 0
-  br i1 %cmp38382.not, label %if.end44, label %invoke.cont40
-
-invoke.cont40:                                    ; preds = %for.cond37.preheader, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond37.preheader ]
+invoke.cont40:                                    ; preds = %if.end34, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end34 ]
   %49 = load ptr, ptr %m_eqs.i, align 8
   %arrayidx.i.i102 = getelementptr inbounds nuw %"struct.std::pair", ptr %49, i64 %indvars.iv
   %50 = load ptr, ptr %new_eqs, align 8
@@ -1218,8 +1216,7 @@ for.inc:                                          ; preds = %if.end.i108
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv428
   br i1 %exitcond.not, label %if.end44, label %invoke.cont40, !llvm.loop !9
 
-if.end44:                                         ; preds = %for.inc, %for.cond37.preheader, %if.end34
-  %updated.2 = phi i8 [ %updated.0, %if.end34 ], [ 1, %for.cond37.preheader ], [ 1, %for.inc ]
+if.end44:                                         ; preds = %for.inc, %if.end34
   %57 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i121 = icmp eq ptr %57, null
   br i1 %cmp.i.i121, label %lor.lhs.false, label %invoke.cont45
@@ -2040,7 +2037,7 @@ for.inc101:                                       ; preds = %if.then.i.i.i.i.i20
   br i1 %cmp60.not, label %for.inc103, label %for.body61
 
 for.inc103:                                       ; preds = %for.inc101, %invoke.cont55, %_ZNK20ref_pair_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE9push_backERKS5_.exit, %if.then28
-  %updated.1 = phi i8 [ %updated.0, %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE9push_backERKS5_.exit ], [ %updated.0, %if.then28 ], [ %updated.2, %_ZNK20ref_pair_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %updated.2, %invoke.cont55 ], [ %updated.2, %for.inc101 ]
+  %updated.1 = phi i8 [ 1, %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE9push_backERKS5_.exit ], [ 0, %if.then28 ], [ 1, %_ZNK20ref_pair_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ 1, %invoke.cont55 ], [ 1, %for.inc101 ]
   %indvars.iv.next429 = add nuw nsw i64 %indvars.iv428, 1
   br label %for.cond, !llvm.loop !11
 

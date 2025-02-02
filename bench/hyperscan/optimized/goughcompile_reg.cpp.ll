@@ -5741,14 +5741,12 @@ if.end:                                           ; preds = %_ZNKSt8_Rb_treeIPKN
   %cmp = icmp eq ptr %3, %start
   %marking.0.not = xor i1 %marking.0103, true
   %brmerge = select i1 %cmp, i1 true, i1 %marking.0.not
-  %.mux = select i1 %cmp, i1 true, i1 %marking.0103
   br i1 %brmerge, label %for.inc, label %while.body.i.i.i
 
 if.end.thread:                                    ; preds = %for.body
   %cmp108 = icmp eq ptr %3, %start
   %marking.0.not109 = xor i1 %marking.0103, true
   %brmerge110 = select i1 %cmp108, i1 true, i1 %marking.0.not109
-  %.mux111 = select i1 %cmp108, i1 true, i1 %marking.0103
   br i1 %brmerge110, label %for.inc, label %if.then.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end, %while.body.i.i.i
@@ -5808,7 +5806,7 @@ _ZNSt8_Rb_treeIPKN3ue211GoughSSAVarES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M
 
 for.inc:                                          ; preds = %if.end.thread, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, %if.end12.i.i.i, %if.end
   %13 = phi ptr [ %2, %if.end ], [ %2, %if.end12.i.i.i ], [ %.pre, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i ], [ %2, %if.end.thread ]
-  %marking.1 = phi i1 [ %.mux, %if.end ], [ %marking.0103, %if.end12.i.i.i ], [ %marking.0103, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i ], [ %.mux111, %if.end.thread ]
+  %marking.1 = phi i1 [ %cmp, %if.end ], [ %marking.0103, %if.end12.i.i.i ], [ %marking.0103, %_ZNSt8_Rb_treeIPKN3ue211GoughSSAVarES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i ], [ %cmp108, %if.end.thread ]
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %13
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body, !llvm.loop !273
 

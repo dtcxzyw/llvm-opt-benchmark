@@ -2450,8 +2450,8 @@ sub_1.i:                                          ; preds = %sub_0.i
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
   %128 = sub nsw i32 102, %127
-  %.not178.i = icmp eq i8 %126, 102
-  br i1 %.not178.i, label %sub_2.i, label %.tail.i
+  %.not179.i = icmp eq i8 %126, 102
+  br i1 %.not179.i, label %sub_2.i, label %.tail.i
 
 sub_2.i:                                          ; preds = %sub_1.i
   %129 = getelementptr inbounds nuw i8, ptr %115, i64 2
@@ -2473,7 +2473,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   %137 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.20, ptr noundef nonnull dereferenceable(1) %115, i64 noundef 5) #15
   %138 = icmp eq i32 %137, 0
   %139 = getelementptr inbounds nuw i8, ptr %115, i64 5
-  br i1 %138, label %.thread157.i, label %140
+  br i1 %138, label %.thread158.i, label %140
 
 140:                                              ; preds = %136, %.thread.i
   %.0118149.i = phi ptr [ %135, %.thread.i ], [ %115, %136 ]
@@ -2506,7 +2506,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   ]
 
 155:                                              ; preds = %151
-  br i1 %134, label %156, label %.thread157.i
+  br i1 %134, label %156, label %.thread158.i
 
 156:                                              ; preds = %155
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, ptr noundef nonnull %.0118149.i) #13
@@ -2524,10 +2524,10 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread152.i
 
 162:                                              ; preds = %151
-  br i1 %134, label %209, label %.thread157.i
+  br i1 %134, label %209, label %.thread158.i
 
-.thread157.i:                                     ; preds = %162, %155, %136
-  %.0118150161.i = phi ptr [ %.0118149.i, %162 ], [ %139, %136 ], [ %.0118149.i, %155 ]
+.thread158.i:                                     ; preds = %162, %155, %136
+  %.0118150162.i = phi ptr [ %.0118149.i, %162 ], [ %.0118149.i, %155 ], [ %139, %136 ]
   %163 = getelementptr inbounds nuw i8, ptr %105, i64 1151
   %164 = load i8, ptr %163, align 1
   switch i32 %102, label %166 [
@@ -2535,16 +2535,16 @@ sub_2.i:                                          ; preds = %sub_1.i
     i32 10, label %165
   ]
 
-165:                                              ; preds = %.thread157.i
+165:                                              ; preds = %.thread158.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %165, %.thread157.i
-  %.sink.i = phi i8 [ 2, %165 ], [ 1, %.thread157.i ]
+.sink.split.i:                                    ; preds = %165, %.thread158.i
+  %.sink.i = phi i8 [ 2, %165 ], [ 1, %.thread158.i ]
   store i8 %.sink.i, ptr %163, align 1
   br label %166
 
-166:                                              ; preds = %.sink.split.i, %.thread157.i
-  %167 = call i32 @Curl_resolv(ptr noundef nonnull %1, ptr noundef nonnull %.0118150161.i, i32 noundef 80, i1 noundef zeroext false, ptr noundef nonnull %4) #13
+166:                                              ; preds = %.sink.split.i, %.thread158.i
+  %167 = call i32 @Curl_resolv(ptr noundef nonnull %1, ptr noundef nonnull %.0118150162.i, i32 noundef 80, i1 noundef zeroext false, ptr noundef nonnull %4) #13
   store i8 %164, ptr %163, align 1
   %168 = load ptr, ptr %4, align 8
   %.not135.i = icmp eq ptr %168, null
@@ -2564,7 +2564,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %178 = load i32, ptr %177, align 4
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0118150161.i, i32 noundef %102, ptr noundef nonnull %6, i32 noundef %178) #13
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0118150162.i, i32 noundef %102, ptr noundef nonnull %6, i32 noundef %178) #13
   br label %179
 
 179:                                              ; preds = %174, %169
@@ -2578,7 +2578,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %.not138.i, label %.thread152.i, label %261
 
 .thread152.i:                                     ; preds = %179, %161, %157
-  switch i32 %102, label %.thread171.i [
+  switch i32 %102, label %.thread172.i [
     i32 10, label %185
     i32 2, label %202
   ]
@@ -2598,7 +2598,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   %190 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %191 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %6, ptr noundef nonnull %190) #13
   %192 = icmp sgt i32 %191, 0
-  br i1 %192, label %193, label %.thread171.i
+  br i1 %192, label %193, label %.thread172.i
 
 193:                                              ; preds = %189
   store i16 10, ptr %3, align 8
@@ -2606,7 +2606,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   %195 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %194, ptr %195, align 2
   %.not140.i = icmp eq ptr %.0110.i, null
-  br i1 %.not140.i, label %.thread171.i, label %196
+  br i1 %.not140.i, label %.thread172.i, label %196
 
 196:                                              ; preds = %193
   %197 = call i64 @strtoul(ptr noundef nonnull captures(none) %.0110.i, ptr noundef null, i32 noundef 10) #13
@@ -2617,32 +2617,32 @@ sub_2.i:                                          ; preds = %sub_1.i
   %200 = trunc nuw i64 %197 to i32
   %201 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %200, ptr %201, align 8
-  br label %.thread171.i
+  br label %.thread172.i
 
 202:                                              ; preds = %.thread152.i
   %203 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %204 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %203) #13
   %205 = icmp sgt i32 %204, 0
-  br i1 %205, label %206, label %.thread171.i
+  br i1 %205, label %206, label %.thread172.i
 
 206:                                              ; preds = %202
   store i16 2, ptr %3, align 8
   %207 = call zeroext i16 @htons(i16 noundef zeroext %110) #14
   %208 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %207, ptr %208, align 2
-  br label %.thread171.i
+  br label %.thread172.i
 
 209:                                              ; preds = %166, %162
-  %.0118150156166.i = phi ptr [ %.0118149.i, %162 ], [ %.0118150161.i, %166 ]
+  %.0118150156167.i = phi ptr [ %.0118149.i, %162 ], [ %.0118150162.i, %166 ]
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 4940
   %211 = load i32, ptr %210, align 4
   %212 = and i32 %211, -9
   store i32 %212, ptr %210, align 4
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0118150156166.i) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0118150156167.i) #13
   br label %.thread119
 
 213:                                              ; preds = %119, %118
-  switch i32 %102, label %.thread171.i [
+  switch i32 %102, label %.thread172.i [
     i32 10, label %214
     i32 2, label %217
   ]
@@ -2652,30 +2652,30 @@ sub_2.i:                                          ; preds = %sub_1.i
   %215 = call zeroext i16 @htons(i16 noundef zeroext %110) #14
   %216 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %215, ptr %216, align 2
-  br label %.thread171.i
+  br label %.thread172.i
 
 217:                                              ; preds = %213
   store i16 2, ptr %3, align 8
   %218 = call zeroext i16 @htons(i16 noundef zeroext %110) #14
   %219 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %218, ptr %219, align 2
-  br label %.thread171.i
+  br label %.thread172.i
 
-.thread171.i:                                     ; preds = %217, %214, %213, %206, %202, %199, %193, %189, %.thread152.i
+.thread172.i:                                     ; preds = %217, %214, %213, %206, %202, %199, %193, %189, %.thread152.i
   %.1.i = phi i32 [ 28, %214 ], [ 16, %217 ], [ 0, %213 ], [ 0, %.thread152.i ], [ 28, %189 ], [ 28, %199 ], [ 28, %193 ], [ 0, %202 ], [ 16, %206 ]
   %220 = call i32 @setsockopt(i32 noundef %106, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %5, i32 noundef 4) #13
   %221 = call i32 @bind(i32 noundef %106, ptr noundef nonnull %3, i32 noundef %.1.i) #13
   %222 = icmp sgt i32 %221, -1
   br i1 %222, label %._crit_edge.i, label %.lr.ph.split.preheader.i
 
-.lr.ph.split.preheader.i:                         ; preds = %.thread171.i
+.lr.ph.split.preheader.i:                         ; preds = %.thread172.i
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %224 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %225 = zext i16 %110 to i32
   br label %.lr.ph.split.i
 
-._crit_edge.i:                                    ; preds = %253, %.thread171.i
-  %.0112.lcssa.i = phi i16 [ %110, %.thread171.i ], [ %indvars.i, %253 ]
+._crit_edge.i:                                    ; preds = %253, %.thread172.i
+  %.0112.lcssa.i = phi i16 [ %110, %.thread172.i ], [ %indvars.i, %253 ]
   store i32 128, ptr %8, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   %226 = call i32 @getsockname(i32 noundef %106, ptr noundef nonnull %7, ptr noundef nonnull %8) #13
@@ -2712,9 +2712,9 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 .lr.ph.split.i:                                   ; preds = %253, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i32 [ %225, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %253 ]
-  %.0119176.i = phi i32 [ %113, %.lr.ph.split.preheader.i ], [ %243, %253 ]
-  %243 = add nsw i32 %.0119176.i, -1
-  %244 = icmp sgt i32 %.0119176.i, 1
+  %.0119177.i = phi i32 [ %113, %.lr.ph.split.preheader.i ], [ %243, %253 ]
+  %243 = add nsw i32 %.0119177.i, -1
+  %244 = icmp sgt i32 %.0119177.i, 1
   br i1 %244, label %245, label %.split.us.i
 
 245:                                              ; preds = %.lr.ph.split.i

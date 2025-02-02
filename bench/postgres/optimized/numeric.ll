@@ -377,6 +377,7 @@ thread-pre-split109.i.cont:                       ; preds = %thread-pre-split109
   br label %.cont38
 
 .cont20:                                          ; preds = %119, %116
+  %.2.i = phi i8 [ 1, %119 ], [ 0, %116 ]
   br i1 %.not, label %.cont38, label %.cont20..else40_crit_edge
 
 .cont20..else40_crit_edge:                        ; preds = %.cont20
@@ -385,7 +386,7 @@ thread-pre-split109.i.cont:                       ; preds = %thread-pre-split109
 
 .cont38:                                          ; preds = %.cont20.thread69, %.cont20..else40_crit_edge, %126, %.cont20
   %.1.i68 = phi i32 [ %112, %.cont20 ], [ %.06491.i, %126 ], [ %.06491.i, %.cont20.thread69 ], [ %112, %.cont20..else40_crit_edge ]
-  %.2.i67 = phi i8 [ %.16690.i, %.cont20 ], [ 1, %126 ], [ 1, %.cont20.thread69 ], [ %.16690.i, %.cont20..else40_crit_edge ]
+  %.2.i67 = phi i8 [ %.2.i, %.cont20 ], [ 1, %126 ], [ 1, %.cont20.thread69 ], [ %.2.i, %.cont20..else40_crit_edge ]
   %.566 = phi ptr [ %.12, %.cont20 ], [ %127, %126 ], [ %.4, %.cont20.thread69 ], [ %.12, %.cont20..else40_crit_edge ]
   %128 = phi ptr [ %.12, %.cont20 ], [ %127, %126 ], [ %127, %.cont20.thread69 ], [ %.else.val41.pre, %.cont20..else40_crit_edge ]
   %129 = load i8, ptr %128, align 1

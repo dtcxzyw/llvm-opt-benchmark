@@ -743,7 +743,7 @@ sw.bb30:                                          ; preds = %if.end26
   ]
 
 while.cond.backedge:                              ; preds = %sw.bb30, %cleanup.thread, %if.then.i53, %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit, %_ZN6Assimp13ObjFileParser10getCommentEv.exit, %sw.bb222, %sw.bb218, %cond.end, %land.lhs.true, %if.end86, %if.then138, %invoke.cont122, %invoke.cont249, %if.end184
-  %insideCstype.0.be = phi i1 [ %insideCstype.1, %invoke.cont249 ], [ false, %sw.bb222 ], [ false, %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit ], [ false, %sw.bb218 ], [ false, %if.end184 ], [ false, %_ZN6Assimp13ObjFileParser10getCommentEv.exit ], [ false, %cond.end ], [ false, %if.end86 ], [ false, %land.lhs.true ], [ false, %invoke.cont122 ], [ false, %if.then138 ], [ false, %if.then.i53 ], [ false, %cleanup.thread ], [ false, %sw.bb30 ]
+  %insideCstype.0.be = phi i1 [ %insideCstype.1.shrunk, %invoke.cont249 ], [ false, %sw.bb222 ], [ false, %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit ], [ false, %sw.bb218 ], [ false, %if.end184 ], [ false, %_ZN6Assimp13ObjFileParser10getCommentEv.exit ], [ false, %cond.end ], [ false, %if.end86 ], [ false, %land.lhs.true ], [ false, %invoke.cont122 ], [ false, %if.then138 ], [ false, %if.then.i53 ], [ false, %cleanup.thread ], [ false, %sw.bb30 ]
   br label %while.cond, !llvm.loop !9
 
 if.then41:                                        ; preds = %sw.bb30, %sw.bb30
@@ -1195,12 +1195,12 @@ lpad232:                                          ; preds = %sw.bb224
 
 pf_skip_line.sink.split:                          ; preds = %if.else210, %invoke.cont233, %invoke.cont24
   %name186.sink = phi ptr [ %name, %invoke.cont24 ], [ %name225, %invoke.cont233 ], [ %name186, %if.else210 ]
-  %insideCstype.1.ph = phi i1 [ %cmp.i.i, %invoke.cont24 ], [ %cmp.i134, %invoke.cont233 ], [ false, %if.else210 ]
+  %insideCstype.1.shrunk.ph = phi i1 [ %cmp.i.i, %invoke.cont24 ], [ %cmp.i134, %invoke.cont233 ], [ false, %if.else210 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name186.sink) #24
   br label %pf_skip_line
 
 pf_skip_line:                                     ; preds = %pf_skip_line.sink.split, %if.end26, %if.then11
-  %insideCstype.1 = phi i1 [ true, %if.then11 ], [ false, %if.end26 ], [ %insideCstype.1.ph, %pf_skip_line.sink.split ]
+  %insideCstype.1.shrunk = phi i1 [ true, %if.then11 ], [ false, %if.end26 ], [ %insideCstype.1.shrunk.ph, %pf_skip_line.sink.split ]
   %agg.tmp243.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %agg.tmp245.sroa.0.0.copyload = load ptr, ptr %m_DataItEnd, align 8
   %end.coerce29.i = ptrtoint ptr %agg.tmp245.sroa.0.0.copyload to i64

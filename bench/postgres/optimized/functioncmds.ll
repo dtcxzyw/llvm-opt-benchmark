@@ -678,7 +678,7 @@ list_length.exit:                                 ; preds = %13, %14
   unreachable
 
 241:                                              ; preds = %234, %235, %224
-  %.1169 = phi i8 [ 1, %224 ], [ %.0168282509, %235 ], [ %.0168282509, %234 ]
+  %.1169 = phi i8 [ 1, %224 ], [ 0, %235 ], [ %.0168282509, %234 ]
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335502, 1
   %242 = load i32, ptr %25, align 4
   %243 = sext i32 %242 to i64

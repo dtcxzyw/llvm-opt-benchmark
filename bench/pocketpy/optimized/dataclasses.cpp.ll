@@ -743,8 +743,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit60.i: ; preds 
   %181 = load ptr, ptr %.in17.i, align 8
   %.not18.i = icmp ne ptr %181, null
   %.023.not.i = xor i1 %.02333.i, true
-  %brmerge.i = select i1 %.not18.i, i1 true, i1 %.023.not.i
-  %.mux.i = select i1 %.not18.i, i1 true, i1 %.02333.i
+  %brmerge.i = or i1 %.not18.i, %.023.not.i
   br i1 %brmerge.i, label %190, label %182
 
 _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit60.thread.i: ; preds = %.lr.ph.i.i51.i, %160, %166
@@ -785,7 +784,7 @@ _ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i:          ; preds = %.noexc.i
   br label %common.resume.i
 
 190:                                              ; preds = %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit60.thread.i, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit60.i
-  %.1.i = phi i1 [ %.02333.i, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i ], [ false, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit60.thread.i ], [ %.mux.i, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit60.i ]
+  %.1.i = phi i1 [ true, %_ZN4pkpy2VM9TypeErrorERKNS_3StrE.exit.i ], [ false, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit60.thread.i ], [ %.not18.i, %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit60.i ]
   %191 = getelementptr inbounds nuw i8, ptr %.sroa.01.032.i, i64 2
   %.not16.i = icmp eq ptr %191, %151
   br i1 %.not16.i, label %"_ZZN4pkpy22add_module_dataclassesEPNS_2VMEENK3$_0clES1_NS_8ArgsViewE.exit", label %156

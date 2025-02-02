@@ -4569,7 +4569,7 @@ _ZN8V3NumberC2EP7AstNodei.exit:                   ; preds = %73
   br label %common.resume
 
 89:                                               ; preds = %85, %84, %80
-  %.253 = phi i8 [ %.152111, %80 ], [ 1, %85 ], [ %.152111, %84 ]
+  %.253 = phi i8 [ 1, %80 ], [ 1, %85 ], [ 0, %84 ]
   %.2 = phi ptr [ %.1112, %80 ], [ %86, %85 ], [ %.1112, %84 ]
   %90 = load i8, ptr %64, align 4
   %91 = icmp eq i8 %90, 3
@@ -4662,7 +4662,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %100, %98, %93, %92,
   br label %129
 
 129:                                              ; preds = %.lr.ph129, %126, %124
-  %.657 = phi i8 [ %.556125, %124 ], [ 1, %126 ], [ %.556125, %.lr.ph129 ]
+  %.657 = phi i8 [ 1, %124 ], [ 1, %126 ], [ %.556125, %.lr.ph129 ]
   %.6 = phi ptr [ %.5126, %124 ], [ %128, %126 ], [ %.5126, %.lr.ph129 ]
   %130 = getelementptr inbounds nuw i8, ptr %.0127, i64 8
   %131 = load ptr, ptr %130, align 8

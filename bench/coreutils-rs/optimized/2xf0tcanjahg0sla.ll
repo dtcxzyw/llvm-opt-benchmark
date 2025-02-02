@@ -1573,7 +1573,7 @@ _ZN6uucore8features5fsext12mount_dev_id17h1937b1607cf93021E.exit: ; preds = %"_Z
   br i1 %189, label %._crit_edge.i.i, label %192
 
 ._crit_edge.i.i:                                  ; preds = %193, %.lr.ph.i.i, %184
-  %.064.lcssa.i.i = phi i8 [ 0, %184 ], [ %.3.i.i, %193 ], [ %.06448.i.i, %.lr.ph.i.i ]
+  %.064.lcssa.i.i = phi i8 [ 0, %184 ], [ %.3.i.i, %193 ], [ 1, %.lr.ph.i.i ]
   %.062.lcssa.i.i = phi i64 [ 0, %184 ], [ %194, %193 ], [ %.06249.i.i, %.lr.ph.i.i ]
   %190 = add i64 %.062.lcssa.i.i, 19
   %191 = icmp ult i64 %190, %.sink
@@ -1638,7 +1638,7 @@ _ZN6uucore8features5fsext12mount_dev_id17h1937b1607cf93021E.exit: ; preds = %"_Z
   br i1 %217, label %._crit_edge58.i.i, label %226
 
 ._crit_edge58.i.i:                                ; preds = %234, %.lr.ph57.i.i, %._crit_edge.i.i
-  %.165.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %234 ], [ %.16554.i.i, %.lr.ph57.i.i ]
+  %.165.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %234 ], [ 1, %.lr.ph57.i.i ]
   %218 = add i64 %.sink, -19
   %219 = getelementptr inbounds i8, ptr %.sink259, i64 %218
   %.0.copyload.i81.i.i = load <16 x i8>, ptr %219, align 1, !alias.scope !308, !noalias !312
@@ -1664,7 +1664,7 @@ _ZN6uucore8features5fsext12mount_dev_id17h1937b1607cf93021E.exit: ; preds = %"_Z
   br i1 %233, label %234, label %237
 
 234:                                              ; preds = %237, %226
-  %.5.i.i = phi i8 [ %.16554.i.i, %226 ], [ %239, %237 ]
+  %.5.i.i = phi i8 [ 0, %226 ], [ %239, %237 ]
   %235 = add i64 %.16355.i.i, 16
   %.reass.i.i = add i64 %.16355.i.i, 35
   %236 = icmp ult i64 %.reass.i.i, %.sink

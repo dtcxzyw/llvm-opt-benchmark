@@ -473,7 +473,7 @@ if.then31.i:                                      ; preds = %land.lhs.true27.i
   br label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.then31.i, %land.lhs.true27.i, %malloc_mutex_lock.exit
-  %merged_stats.i.1 = phi i8 [ %merged_stats.i.0215, %land.lhs.true27.i ], [ 1, %if.then31.i ], [ %merged_stats.i.0215, %malloc_mutex_lock.exit ]
+  %merged_stats.i.1 = phi i8 [ 1, %land.lhs.true27.i ], [ 1, %if.then31.i ], [ %merged_stats.i.0215, %malloc_mutex_lock.exit ]
   %17 = load i32, ptr %arrayidx.i, align 4
   %conv.i167 = zext i32 %17 to i64
   %slabcur.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 192
@@ -835,7 +835,7 @@ if.else37.i:                                      ; preds = %land.lhs.true27.i
   br label %if.then46.i
 
 if.then46.i:                                      ; preds = %if.end24.i, %land.lhs.true27.i, %if.else37.i
-  %merged_stats.i.1 = phi i8 [ %merged_stats.i.0187, %land.lhs.true27.i ], [ 1, %if.else37.i ], [ %merged_stats.i.0187, %if.end24.i ]
+  %merged_stats.i.1 = phi i8 [ 1, %land.lhs.true27.i ], [ 1, %if.else37.i ], [ %merged_stats.i.0187, %if.end24.i ]
   %wide.trip.count = zext i32 %nflush.addr.i.0188 to i64
   br label %for.body.i
 
@@ -1197,10 +1197,11 @@ if.end44.i.thread298:                             ; preds = %if.then29.i
   br label %for.body.i.preheader
 
 if.end44.i:                                       ; preds = %land.lhs.true27.i, %if.end24.i
+  %merged_stats.i.1 = phi i8 [ 1, %land.lhs.true27.i ], [ %merged_stats.i.0273, %if.end24.i ]
   br i1 %is_small, label %if.end70.i.thread, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.end44.i.thread298, %if.end44.i
-  %merged_stats.i.1300 = phi i8 [ 1, %if.end44.i.thread298 ], [ %merged_stats.i.0273, %if.end44.i ]
+  %merged_stats.i.1300 = phi i8 [ 1, %if.end44.i.thread298 ], [ %merged_stats.i.1, %if.end44.i ]
   %wide.trip.count = zext i32 %nflush.addr.i.0275 to i64
   br label %for.body.i
 
@@ -1238,7 +1239,7 @@ if.then65.i:                                      ; preds = %land.lhs.true63.i
   br label %if.end70.i
 
 if.end70.i.thread:                                ; preds = %if.end44.i.thread, %if.end44.i
-  %merged_stats.i.1259 = phi i8 [ 1, %if.end44.i.thread ], [ %merged_stats.i.0273, %if.end44.i ]
+  %merged_stats.i.1259 = phi i8 [ 1, %if.end44.i.thread ], [ %merged_stats.i.1, %if.end44.i ]
   %33 = load i32, ptr %arrayidx.i51, align 4
   %34 = zext i32 %33 to i64
   br label %for.body75.i.us.preheader

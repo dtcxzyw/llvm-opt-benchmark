@@ -3353,7 +3353,6 @@ lpad100.i:                                        ; preds = %invoke.cont101.i
   br label %ehcleanup116.i
 
 if.end108.i:                                      ; preds = %_ZN8QuantLib10DayCounterD2Ev.exit97.i, %cleanup.done47.i
-  %firstCouponFound.2.i = phi i8 [ %firstCouponFound.061.i, %cleanup.done47.i ], [ 1, %_ZN8QuantLib10DayCounterD2Ev.exit97.i ]
   %nominal.2.i = phi double [ %nominal.062.i, %cleanup.done47.i ], [ %call94.i, %_ZN8QuantLib10DayCounterD2Ev.exit97.i ]
   %accrualPeriod.2.i = phi double [ %accrualPeriod.063.i, %cleanup.done47.i ], [ %call98.i, %_ZN8QuantLib10DayCounterD2Ev.exit97.i ]
   %66 = load ptr, ptr %cp.i, align 8, !tbaa !62
@@ -3414,7 +3413,7 @@ _ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit.i: ; preds = %if.then.i.i.i.i
   %result.187.i = phi double [ %add.i, %if.end115.i ], [ %add.i, %if.then.i.i103.i ], [ %add.i, %.noexc.i.i.i ], [ %add.i, %if.then.i.i.i.i107.i ], [ %result.064.i, %dynamic_cast.end3.i.i ], [ %result.064.i, %for.body.i ]
   %accrualPeriod.186.i = phi double [ %accrualPeriod.2.i, %if.end115.i ], [ %accrualPeriod.2.i, %if.then.i.i103.i ], [ %accrualPeriod.2.i, %.noexc.i.i.i ], [ %accrualPeriod.2.i, %if.then.i.i.i.i107.i ], [ %accrualPeriod.063.i, %dynamic_cast.end3.i.i ], [ %accrualPeriod.063.i, %for.body.i ]
   %nominal.185.i = phi double [ %nominal.2.i, %if.end115.i ], [ %nominal.2.i, %if.then.i.i103.i ], [ %nominal.2.i, %.noexc.i.i.i ], [ %nominal.2.i, %if.then.i.i.i.i107.i ], [ %nominal.062.i, %dynamic_cast.end3.i.i ], [ %nominal.062.i, %for.body.i ]
-  %firstCouponFound.184.i = phi i8 [ %firstCouponFound.2.i, %if.end115.i ], [ %firstCouponFound.2.i, %if.then.i.i103.i ], [ %firstCouponFound.2.i, %.noexc.i.i.i ], [ %firstCouponFound.2.i, %if.then.i.i.i.i107.i ], [ %firstCouponFound.061.i, %dynamic_cast.end3.i.i ], [ %firstCouponFound.061.i, %for.body.i ]
+  %firstCouponFound.184.i = phi i8 [ 1, %if.end115.i ], [ 1, %if.then.i.i103.i ], [ 1, %.noexc.i.i.i ], [ 1, %if.then.i.i.i.i107.i ], [ %firstCouponFound.061.i, %dynamic_cast.end3.i.i ], [ %firstCouponFound.061.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cp.i) #31
   %cmp.i.i20.i = icmp ult ptr %2, %incdec.ptr.i.i21.i
   br i1 %cmp.i.i20.i, label %land.rhs.i, label %do.body119.i, !llvm.loop !105
@@ -4156,7 +4155,6 @@ lpad102.i:                                        ; preds = %invoke.cont103.i
   br label %ehcleanup118.i
 
 if.end110.i:                                      ; preds = %_ZN8QuantLib10DayCounterD2Ev.exit94.i, %cleanup.done49.i
-  %firstCouponFound.2.i = phi i8 [ %firstCouponFound.066.i, %cleanup.done49.i ], [ 1, %_ZN8QuantLib10DayCounterD2Ev.exit94.i ]
   %nominal.2.i = phi double [ %nominal.067.i, %cleanup.done49.i ], [ %call96.i, %_ZN8QuantLib10DayCounterD2Ev.exit94.i ]
   %accrualPeriod.2.i = phi double [ %accrualPeriod.068.i, %cleanup.done49.i ], [ %call100.i, %_ZN8QuantLib10DayCounterD2Ev.exit94.i ]
   %64 = load ptr, ptr %cp.i, align 8, !tbaa !62
@@ -4217,7 +4215,7 @@ _ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit.i: ; preds = %if.then.i.i.i.i
   %result.192.i = phi double [ %add.i, %if.end117.i ], [ %add.i, %if.then.i.i100.i ], [ %add.i, %.noexc.i.i.i ], [ %add.i, %if.then.i.i.i.i104.i ], [ %result.069.i, %dynamic_cast.end3.i.i ], [ %result.069.i, %for.body.i ]
   %accrualPeriod.191.i = phi double [ %accrualPeriod.2.i, %if.end117.i ], [ %accrualPeriod.2.i, %if.then.i.i100.i ], [ %accrualPeriod.2.i, %.noexc.i.i.i ], [ %accrualPeriod.2.i, %if.then.i.i.i.i104.i ], [ %accrualPeriod.068.i, %dynamic_cast.end3.i.i ], [ %accrualPeriod.068.i, %for.body.i ]
   %nominal.190.i = phi double [ %nominal.2.i, %if.end117.i ], [ %nominal.2.i, %if.then.i.i100.i ], [ %nominal.2.i, %.noexc.i.i.i ], [ %nominal.2.i, %if.then.i.i.i.i104.i ], [ %nominal.067.i, %dynamic_cast.end3.i.i ], [ %nominal.067.i, %for.body.i ]
-  %firstCouponFound.189.i = phi i8 [ %firstCouponFound.2.i, %if.end117.i ], [ %firstCouponFound.2.i, %if.then.i.i100.i ], [ %firstCouponFound.2.i, %.noexc.i.i.i ], [ %firstCouponFound.2.i, %if.then.i.i.i.i104.i ], [ %firstCouponFound.066.i, %dynamic_cast.end3.i.i ], [ %firstCouponFound.066.i, %for.body.i ]
+  %firstCouponFound.189.i = phi i8 [ 1, %if.end117.i ], [ 1, %if.then.i.i100.i ], [ 1, %.noexc.i.i.i ], [ 1, %if.then.i.i.i.i104.i ], [ %firstCouponFound.066.i, %dynamic_cast.end3.i.i ], [ %firstCouponFound.066.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cp.i) #31
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %first.sroa.0.065.i, i64 16
   %cmp.i18.i = icmp ult ptr %incdec.ptr.i.i, %0

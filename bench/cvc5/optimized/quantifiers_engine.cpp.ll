@@ -2169,7 +2169,7 @@ for.end938:                                       ; preds = %invoke.cont898, %if
 invoke.cont942:                                   ; preds = %for.end938
   %spec.select = select i1 %call943, i8 1, i8 %setModelUnsound.3.lcssa
   %tobool946 = trunc nuw i8 %spec.select to i1
-  br i1 %tobool946, label %if.end1121, label %if.then947
+  br i1 %tobool946, label %for.inc1129, label %if.then947
 
 if.then947:                                       ; preds = %invoke.cont942
   %58 = load ptr, ptr %d_modules659, align 8
@@ -2500,19 +2500,19 @@ ehcleanup1116:                                    ; preds = %lpad1013.loopexit, 
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %q) #24
   br label %ehcleanup1308
 
-if.end1121:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698, %invoke.cont1007, %invoke.cont942
-  %setModelUnsound.6 = phi i8 [ %spec.select, %invoke.cont942 ], [ %setModelUnsound.8, %invoke.cont1007 ], [ %setModelUnsound.9, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698 ]
+if.end1121:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698, %invoke.cont1007
+  %setModelUnsound.6 = phi i8 [ %setModelUnsound.9, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698 ], [ %setModelUnsound.8, %invoke.cont1007 ]
   %tobool1122 = trunc nuw i8 %setModelUnsound.6 to i1
   br i1 %tobool1122, label %for.inc1129, label %cond.end1146
 
-for.inc1129:                                      ; preds = %invoke.cont960, %if.else881, %if.end1121, %if.then878
-  %setModelUnsound.10 = phi i8 [ %setModelUnsound.11979, %if.then878 ], [ %setModelUnsound.6, %if.end1121 ], [ %setModelUnsound.11979, %if.else881 ], [ 1, %invoke.cont960 ]
+for.inc1129:                                      ; preds = %invoke.cont960, %invoke.cont942, %if.else881, %if.end1121, %if.then878
+  %setModelUnsound.10 = phi i8 [ %setModelUnsound.11979, %if.then878 ], [ 1, %if.end1121 ], [ %setModelUnsound.11979, %if.else881 ], [ 1, %invoke.cont942 ], [ 1, %invoke.cont960 ]
   %inc1130 = add nuw nsw i32 %qef.01977, 1
   %exitcond.not = icmp eq i32 %inc1130, 4
   br i1 %exitcond.not, label %cond.end1146, label %for.body759, !llvm.loop !8
 
 cond.end1146:                                     ; preds = %if.end1121, %invoke.cont868, %invoke.cont873, %for.inc1129, %if.then780
-  %setModelUnsound.2 = phi i8 [ %setModelUnsound.11979, %if.then780 ], [ %setModelUnsound.10, %for.inc1129 ], [ %setModelUnsound.6, %if.end1121 ], [ %setModelUnsound.11979, %invoke.cont873 ], [ %setModelUnsound.11979, %invoke.cont868 ]
+  %setModelUnsound.2 = phi i8 [ %setModelUnsound.11979, %if.then780 ], [ %setModelUnsound.10, %for.inc1129 ], [ 0, %if.end1121 ], [ %setModelUnsound.11979, %invoke.cont873 ], [ %setModelUnsound.11979, %invoke.cont868 ]
   %98 = load ptr, ptr %d_qim, align 8
   %call1149 = invoke noundef zeroext i1 @_ZNK4cvc58internal6theory22TheoryInferenceManager12hasSentLemmaEv(ptr noundef nonnull align 8 dereferenceable(256) %98)
           to label %invoke.cont1148 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

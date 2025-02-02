@@ -232,7 +232,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   br i1 %42, label %._crit_edge.i.i, label %45
 
 ._crit_edge.i.i:                                  ; preds = %46, %.lr.ph.i.i, %40
-  %.064.lcssa.i.i = phi i8 [ 0, %40 ], [ %.3.i.i, %46 ], [ %.06443.i.i, %.lr.ph.i.i ]
+  %.064.lcssa.i.i = phi i8 [ 0, %40 ], [ %.3.i.i, %46 ], [ 1, %.lr.ph.i.i ]
   %.062.lcssa.i.i = phi i64 [ 0, %40 ], [ %47, %46 ], [ %.06244.i.i, %.lr.ph.i.i ]
   %43 = add i64 %.062.lcssa.i.i, 17
   %44 = icmp ult i64 %43, %.sroa.10.154
@@ -297,7 +297,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   br i1 %70, label %._crit_edge53.i.i, label %79
 
 ._crit_edge53.i.i:                                ; preds = %87, %.lr.ph52.i.i, %._crit_edge.i.i
-  %.165.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %87 ], [ %.16549.i.i, %.lr.ph52.i.i ]
+  %.165.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %87 ], [ 1, %.lr.ph52.i.i ]
   %71 = add i64 %.sroa.10.154, -17
   %72 = getelementptr inbounds i8, ptr %.sroa.8.151, i64 %71
   %.0.copyload.i81.i.i = load <16 x i8>, ptr %72, align 1, !alias.scope !37, !noalias !41
@@ -323,7 +323,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %90, %79
-  %.5.i.i = phi i8 [ %.16549.i.i, %79 ], [ %92, %90 ]
+  %.5.i.i = phi i8 [ 0, %79 ], [ %92, %90 ]
   %88 = add i64 %.16350.i.i, 16
   %.reass.i.i = add i64 %.16350.i.i, 33
   %89 = icmp ult i64 %.reass.i.i, %.sroa.10.154

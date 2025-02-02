@@ -28560,7 +28560,6 @@ switch.early.test.i.i:                            ; preds = %.preheader.i.i, %19
   br label %37
 
 37:                                               ; preds = %35, %31
-  %.138.i.i = phi i8 [ %.03718.i.i, %35 ], [ 0, %31 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #28
   %38 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc.i.i unwind label %43
@@ -28607,7 +28606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit.i.
   resume { ptr, i32 } %.pn.i.i
 
 47:                                               ; preds = %42, %.critedge48.i.i
-  %.239.i.i = phi i8 [ %.138.i.i, %42 ], [ %.03718.i.i, %.critedge48.i.i ]
+  %.239.i.i = phi i8 [ 0, %42 ], [ %.03718.i.i, %.critedge48.i.i ]
   %.1.i.i = phi i32 [ %33, %42 ], [ %.03321.i.i, %.critedge48.i.i ]
   %indvars.iv.next28.i.i = add nuw nsw i64 %indvars.iv27.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next28.i.i, 8

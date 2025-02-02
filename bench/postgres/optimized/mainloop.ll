@@ -666,7 +666,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   br label %281
 
 281:                                              ; preds = %280, %278, %275
-  %.2182 = phi i8 [ %.0180, %278 ], [ 1, %280 ], [ %.0180, %275 ]
+  %.2182 = phi i8 [ 1, %278 ], [ 1, %280 ], [ %.0180, %275 ]
   %282 = call zeroext i1 @conditional_active(ptr noundef %21) #10
   br i1 %282, label %283, label %288
 
@@ -736,7 +736,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   br label %310
 
 310:                                              ; preds = %309, %307, %304
-  %.4 = phi i8 [ %.0180, %307 ], [ 1, %309 ], [ %.0180, %304 ]
+  %.4 = phi i8 [ 1, %307 ], [ 1, %309 ], [ %.0180, %304 ]
   %.0..0..0..0.131 = load volatile ptr, ptr %2, align 8
   %.0..0..0..0.104 = load volatile ptr, ptr %3, align 8
   %311 = call i32 @HandleSlashCmds(ptr noundef %20, ptr noundef %21, ptr noundef %.0..0..0..0.131, ptr noundef %.0..0..0..0.104) #10
@@ -826,7 +826,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 .thread254:                                       ; preds = %271, %341, %339, %245
   %.1181 = phi i8 [ %.3183, %341 ], [ %.4, %339 ], [ %.0180, %245 ], [ %.0180, %271 ]
-  %.1177 = phi i8 [ %.2178, %341 ], [ %313, %339 ], [ %.0176, %245 ], [ %.0176, %271 ]
+  %.1177 = phi i8 [ %.2178, %341 ], [ %313, %339 ], [ 0, %245 ], [ %.0176, %271 ]
   %.2 = phi ptr [ %.3, %341 ], [ %.1, %339 ], [ %.1, %245 ], [ %.1, %271 ]
   %343 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8
   %344 = trunc i8 %343 to i1

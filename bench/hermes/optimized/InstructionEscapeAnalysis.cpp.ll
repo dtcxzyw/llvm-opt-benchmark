@@ -480,7 +480,7 @@ if.end.i75:                                       ; preds = %land.rhs
 
 if.then49:                                        ; preds = %if.end.i75, %if.then.i74, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit
   %escapeOffset.sroa.0.1 = phi i32 [ %escapeOffset.sroa.0.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %offset.sroa.0.0.extract.trunc.i, %if.then.i74 ], [ %escapeOffset.sroa.0.0, %if.end.i75 ]
-  %escapeOffset.sroa.6.1 = phi i8 [ %escapeOffset.sroa.6.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %offset.sroa.3.0.extract.trunc.i, %if.then.i74 ], [ %escapeOffset.sroa.6.0, %if.end.i75 ]
+  %escapeOffset.sroa.6.1 = phi i8 [ %escapeOffset.sroa.6.0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjN6hermes8OptValueIjEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4findERKj.exit ], [ %offset.sroa.3.0.extract.trunc.i, %if.then.i74 ], [ 1, %if.end.i75 ]
   %36 = load ptr, ptr %auxPrefixes_, align 8, !noalias !13
   %37 = load i32, ptr %NumBuckets.i.i.i.i.i77, align 8, !noalias !13
   %cmp.i.i.i78 = icmp eq i32 %37, 0

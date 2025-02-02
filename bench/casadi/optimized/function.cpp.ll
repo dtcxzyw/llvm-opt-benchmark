@@ -8531,7 +8531,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixId
 50:                                               ; preds = %41, %.lr.ph, %38, %47
   %.sroa.6.1 = phi i64 [ %.sroa.6.0198, %.lr.ph ], [ %.sroa.6.0198, %38 ], [ %.sroa.6.0198, %47 ], [ %46, %41 ]
   %.sroa.0168.1 = phi i64 [ %.sroa.0168.0199, %.lr.ph ], [ %.sroa.0168.0199, %38 ], [ %.sroa.0168.0199, %47 ], [ %45, %41 ]
-  %.266 = phi i8 [ %.064200, %.lr.ph ], [ %.064200, %38 ], [ %.064200, %47 ], [ 1, %41 ]
+  %.266 = phi i8 [ %.064200, %.lr.ph ], [ %.064200, %38 ], [ 1, %47 ], [ 1, %41 ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0197, i64 40
   %.not = icmp eq ptr %51, %35
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -9712,7 +9712,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixIN
 48:                                               ; preds = %39, %.lr.ph, %36, %45
   %.sroa.6.1 = phi i64 [ %.sroa.6.0244, %.lr.ph ], [ %.sroa.6.0244, %36 ], [ %.sroa.6.0244, %45 ], [ %44, %39 ]
   %.sroa.0214.1 = phi i64 [ %.sroa.0214.0245, %.lr.ph ], [ %.sroa.0214.0245, %36 ], [ %.sroa.0214.0245, %45 ], [ %43, %39 ]
-  %.266 = phi i8 [ %.064246, %.lr.ph ], [ %.064246, %36 ], [ %.064246, %45 ], [ 1, %39 ]
+  %.266 = phi i8 [ %.064246, %.lr.ph ], [ %.064246, %36 ], [ 1, %45 ], [ 1, %39 ]
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0211.0243, i64 40
   %.not = icmp eq ptr %49, %33
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -11052,7 +11052,7 @@ define linkonce_odr void @_ZNK6casadi16FunctionInternal4callINS_2MXEEEvRKSt6vect
 45:                                               ; preds = %36, %.lr.ph, %33, %42
   %.sroa.6.1 = phi i64 [ %.sroa.6.0176, %.lr.ph ], [ %.sroa.6.0176, %33 ], [ %.sroa.6.0176, %42 ], [ %41, %36 ]
   %.sroa.0146.1 = phi i64 [ %.sroa.0146.0177, %.lr.ph ], [ %.sroa.0146.0177, %33 ], [ %.sroa.0146.0177, %42 ], [ %40, %36 ]
-  %.266 = phi i8 [ %.064178, %.lr.ph ], [ %.064178, %33 ], [ %.064178, %42 ], [ 1, %36 ]
+  %.266 = phi i8 [ %.064178, %.lr.ph ], [ %.064178, %33 ], [ 1, %42 ], [ 1, %36 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0143.0175, i64 8
   %.not = icmp eq ptr %46, %30
   br i1 %.not, label %._crit_edge, label %.lr.ph

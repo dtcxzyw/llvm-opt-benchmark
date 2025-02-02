@@ -648,8 +648,8 @@ CopyMultiInsertInfoInit.exit.thread:              ; preds = %CopyMultiInsertInfo
 
 .backedge:                                        ; preds = %.backedge.backedge, %.outer375
   %.0269 = phi i8 [ %.0269.ph377, %.outer375 ], [ %.1270, %.backedge.backedge ]
-  %.0266 = phi i8 [ %.0266.ph378, %.outer375 ], [ %.1267, %.backedge.backedge ]
-  %.0263 = phi i8 [ %.0263.ph379, %.outer375 ], [ %.1264, %.backedge.backedge ]
+  %.0266 = phi i8 [ %.0266.ph378, %.outer375 ], [ %.0266.be, %.backedge.backedge ]
+  %.0263 = phi i8 [ %.0263.ph379, %.outer375 ], [ %.0263.be, %.backedge.backedge ]
   %.0256 = phi ptr [ %.0256.ph380, %.outer375 ], [ %.1257, %.backedge.backedge ]
   %.0255 = phi ptr [ %.0255.ph381, %.outer375 ], [ %.1, %.backedge.backedge ]
   %218 = load volatile i32, ptr @InterruptPending, align 4
@@ -975,6 +975,8 @@ CopyMultiInsertInfoNextFreeSlot.exit356:          ; preds = %346, %355
   br i1 %378, label %.critedge, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %377, %463, %416, %437, %440
+  %.0266.be = phi i8 [ %.1267, %377 ], [ %.1267, %463 ], [ 0, %416 ], [ 0, %437 ], [ 0, %440 ]
+  %.0263.be = phi i8 [ %.1264, %377 ], [ %.1264, %463 ], [ %.1264, %416 ], [ %.1264, %437 ], [ 0, %440 ]
   br label %.backedge
 
 .critedge:                                        ; preds = %375, %377
@@ -2237,7 +2239,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %267
 
 267:                                              ; preds = %241, %245, %262, %264, %248, %222
-  %.1256 = phi i8 [ %.0255331, %222 ], [ %.0255331, %245 ], [ %.0255331, %262 ], [ %266, %264 ], [ %.0255331, %248 ], [ %.0255331, %241 ]
+  %.1256 = phi i8 [ %.0255331, %222 ], [ %.0255331, %245 ], [ 1, %262 ], [ %266, %264 ], [ %.0255331, %248 ], [ %.0255331, %241 ]
   %.1 = phi i16 [ %.0332, %222 ], [ %.0332, %245 ], [ %.2, %262 ], [ %.2, %264 ], [ %.0332, %248 ], [ %.0332, %241 ]
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count

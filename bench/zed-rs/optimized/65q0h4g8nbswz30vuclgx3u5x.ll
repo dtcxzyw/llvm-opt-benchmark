@@ -456,7 +456,7 @@ define hidden void @_ZN14regex_automata4util8captures8Captures7extract17hee28d36
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h68d1af26e4ecacc1E.llvm.4510883985931046377.exit.i"
 
-.loopexit:                                        ; preds = %13, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h68d1af26e4ecacc1E.llvm.4510883985931046377.exit.i", %4
+.loopexit:                                        ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h68d1af26e4ecacc1E.llvm.4510883985931046377.exit.i", %13, %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !55
   call void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.4770056db6e9925d2aa7a7f714ffbaf9.3.llvm.4510883985931046377, i64 noundef 7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4770056db6e9925d2aa7a7f714ffbaf9.5.llvm.4510883985931046377) #17
   unreachable

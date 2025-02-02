@@ -2346,18 +2346,19 @@ define internal fastcc void @"_ZN4core3ptr283drop_in_place$LT$hashbrown..scopegu
   br label %5
 
 5:                                                ; preds = %22, %0
-  %.sroa.0.08.i.i = phi i64 [ 0, %0 ], [ %spec.select6.i.i, %22 ]
-  %6 = icmp ult i64 %.sroa.0.08.i.i, %.0.val
-  %7 = zext i1 %6 to i64
-  %spec.select6.i.i = add nuw i64 %.sroa.0.08.i.i, %7
+  %.sroa.0.07.i.i = phi i64 [ 0, %0 ], [ %spec.select6.i.i, %22 ]
+  %6 = icmp uge i64 %.sroa.0.07.i.i, %.0.val
+  %not..i.i = xor i1 %6, true
+  %7 = zext i1 %not..i.i to i64
+  %spec.select6.i.i = add nuw i64 %.sroa.0.07.i.i, %7
   %8 = load ptr, ptr %.8.val, align 8, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %8, i64 %.sroa.0.08.i.i
+  %9 = getelementptr inbounds i8, ptr %8, i64 %.sroa.0.07.i.i
   %10 = load i8, ptr %9, align 1, !noundef !4
   %11 = icmp sgt i8 %10, -1
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %5
-  %13 = sub nsw i64 0, %.sroa.0.08.i.i
+  %13 = sub nsw i64 0, %.sroa.0.07.i.i
   %14 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, {} }, ptr %8, i64 %13
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !626
@@ -2381,9 +2382,9 @@ define internal fastcc void @"_ZN4core3ptr283drop_in_place$LT$hashbrown..scopegu
   br label %22
 
 22:                                               ; preds = %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h36598d65a17a086dE.llvm.6452179527160401088.exit.i.i", %5
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %6, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %5, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0a21b39e6fd7238dE.exit"
+  %.not.i.i.i = icmp ugt i64 %spec.select6.i.i, %.0.val
+  %or.cond.i.i = select i1 %6, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0a21b39e6fd7238dE.exit", label %5
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0a21b39e6fd7238dE.exit": ; preds = %22
   ret void
@@ -2509,27 +2510,28 @@ define internal fastcc void @"_ZN4core3ptr309drop_in_place$LT$hashbrown..scopegu
   br label %2
 
 2:                                                ; preds = %13, %0
-  %.sroa.0.08.i.i = phi i64 [ 0, %0 ], [ %spec.select6.i.i, %13 ]
-  %3 = icmp ult i64 %.sroa.0.08.i.i, %.0.val
-  %4 = zext i1 %3 to i64
-  %spec.select6.i.i = add nuw i64 %.sroa.0.08.i.i, %4
+  %.sroa.0.07.i.i = phi i64 [ 0, %0 ], [ %spec.select6.i.i, %13 ]
+  %3 = icmp uge i64 %.sroa.0.07.i.i, %.0.val
+  %not..i.i = xor i1 %3, true
+  %4 = zext i1 %not..i.i to i64
+  %spec.select6.i.i = add nuw i64 %.sroa.0.07.i.i, %4
   %5 = load ptr, ptr %.8.val, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.08.i.i
+  %6 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.07.i.i
   %7 = load i8, ptr %6, align 1, !noundef !4
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
-  %10 = sub nsw i64 0, %.sroa.0.08.i.i
+  %10 = sub nsw i64 0, %.sroa.0.07.i.i
   %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -48
   tail call void @"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h270892e4bae8d4e6E.llvm.6452179527160401088"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12), !noalias !646
   br label %13
 
 13:                                               ; preds = %9, %2
-  %.not.i.i.i = icmp ule i64 %spec.select6.i.i, %.0.val
-  %or.cond.not.i.i = select i1 %3, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9bc53a3df90af85eE.exit"
+  %.not.i.i.i = icmp ugt i64 %spec.select6.i.i, %.0.val
+  %or.cond.i.i = select i1 %3, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9bc53a3df90af85eE.exit", label %2
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9bc53a3df90af85eE.exit": ; preds = %13
   ret void
@@ -3390,8 +3392,8 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !874
   call void @llvm.assume(i1 %10)
   %23 = load i64, ptr %11, align 8, !noalias !874, !noundef !4
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %21, %23
-  %or.cond.i.i.i = select i1 %22, i1 %.not.i.i.i.i.i.i.i, i1 false
+  %.not.i.i.i.i.i.i = icmp eq i64 %21, %23
+  %or.cond.i.i.i = select i1 %22, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17haff34359beaf7345E.exit.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9ab1ae2df93d38d0E.exit"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17haff34359beaf7345E.exit.i.i": ; preds = %12
@@ -3464,8 +3466,8 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17he5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !901
   call void @llvm.assume(i1 %10)
   %24 = load i64, ptr %11, align 8, !noalias !901, !noundef !4
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %22, %24
-  %or.cond.i.i.i = select i1 %23, i1 %.not.i.i.i.i.i.i.i, i1 false
+  %.not.i.i.i.i.i.i = icmp eq i64 %22, %24
+  %or.cond.i.i.i = select i1 %23, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h230bfff67dfb277cE.exit.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8ddfd2e5b39d4d60E.exit"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h230bfff67dfb277cE.exit.i.i": ; preds = %12
@@ -6653,8 +6655,8 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
   %16 = extractvalue { ptr, i64 } %14, 1
   %17 = icmp ne ptr %15, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1414
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %16, %2
-  %or.cond.i.i.i.i = select i1 %17, i1 %.not.i.i.i.i.i.i.i.i, i1 false
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %16, %2
+  %or.cond.i.i.i.i = select i1 %17, i1 %.not.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17haff34359beaf7345E.exit.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h9ab1ae2df93d38d0E.exit.i"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17haff34359beaf7345E.exit.i.i.i": ; preds = %.lr.ph.i
@@ -6708,8 +6710,8 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
   %18 = extractvalue { ptr, i64 } %16, 1
   %19 = icmp ne ptr %17, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1439
-  %.not.i.i.i.i.i.i.i.i.us = icmp eq i64 %18, %3
-  %or.cond.i.i.i.i.us = select i1 %19, i1 %.not.i.i.i.i.i.i.i.i.us, i1 false
+  %.not.i.i.i.i.i.i.i.us = icmp eq i64 %18, %3
+  %or.cond.i.i.i.i.us = select i1 %19, i1 %.not.i.i.i.i.i.i.i.us, i1 false
   br i1 %or.cond.i.i.i.i.us, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hc4fbc0daae1a0fadE.exit.i.i.i.us", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0118d60f0001cc0dE.exit.i.us"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hc4fbc0daae1a0fadE.exit.i.i.i.us": ; preds = %.lr.ph.i.us
@@ -6738,8 +6740,8 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
   %28 = extractvalue { ptr, i64 } %26, 1
   %29 = icmp ne ptr %27, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1439
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %28, %3
-  %or.cond.i.i.i.i = select i1 %29, i1 %.not.i.i.i.i.i.i.i.i, i1 false
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %28, %3
+  %or.cond.i.i.i.i = select i1 %29, i1 %.not.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hc4fbc0daae1a0fadE.exit.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0118d60f0001cc0dE.exit.i"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17hc4fbc0daae1a0fadE.exit.i.i.i": ; preds = %.lr.ph.i
@@ -6793,8 +6795,8 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
   %17 = extractvalue { ptr, i64 } %15, 1
   %18 = icmp ne ptr %16, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1467
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %17, %2
-  %or.cond.i.i.i.i = select i1 %18, i1 %.not.i.i.i.i.i.i.i.i, i1 false
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %17, %2
+  %or.cond.i.i.i.i = select i1 %18, i1 %.not.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h230bfff67dfb277cE.exit.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h8ddfd2e5b39d4d60E.exit.i"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h230bfff67dfb277cE.exit.i.i.i": ; preds = %.lr.ph.i
@@ -6848,8 +6850,8 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
   %18 = extractvalue { ptr, i64 } %16, 1
   %19 = icmp ne ptr %17, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1492
-  %.not.i.i.i.i.i.i.i.i.us = icmp eq i64 %18, %3
-  %or.cond.i.i.i.i.us = select i1 %19, i1 %.not.i.i.i.i.i.i.i.i.us, i1 false
+  %.not.i.i.i.i.i.i.i.us = icmp eq i64 %18, %3
+  %or.cond.i.i.i.i.us = select i1 %19, i1 %.not.i.i.i.i.i.i.i.us, i1 false
   br i1 %or.cond.i.i.i.i.us, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h613df7380becc9ceE.exit.i.i.i.us", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2071dde69ac680e0E.exit.i.us"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h613df7380becc9ceE.exit.i.i.i.us": ; preds = %.lr.ph.i.us
@@ -6878,8 +6880,8 @@ define hidden { i64, ptr } @"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$
   %28 = extractvalue { ptr, i64 } %26, 1
   %29 = icmp ne ptr %27, null
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1492
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %28, %3
-  %or.cond.i.i.i.i = select i1 %29, i1 %.not.i.i.i.i.i.i.i.i, i1 false
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %28, %3
+  %or.cond.i.i.i.i = select i1 %29, i1 %.not.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %"_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h613df7380becc9ceE.exit.i.i.i", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h2071dde69ac680e0E.exit.i"
 
 "_ZN6object4read3elf7section27SectionTable$LT$Elf$C$R$GT$15section_by_name28_$u7b$$u7b$closure$u7d$$u7d$17h613df7380becc9ceE.exit.i.i.i": ; preds = %.lr.ph.i

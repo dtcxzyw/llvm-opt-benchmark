@@ -2699,7 +2699,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   br i1 %233, label %195, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %229, %212, %211, %191
-  %.0235.lcssa = phi i8 [ %165, %191 ], [ %.023529, %211 ], [ %.023529, %212 ], [ %.1, %229 ]
+  %.0235.lcssa = phi i8 [ %165, %191 ], [ 1, %211 ], [ 0, %212 ], [ %.1, %229 ]
   %234 = getelementptr i8, ptr %25, i64 %166
   %235 = load i8, ptr %234, align 1
   %236 = trunc i8 %235 to i1

@@ -1701,10 +1701,12 @@ if.then464:                                       ; preds = %land.lhs.true462
   unreachable
 
 if.end467:                                        ; preds = %land.lhs.true462, %if.end460
+  %use_from_as_prefix.0.lcssa19192110 = phi i8 [ 1, %land.lhs.true462 ], [ 0, %if.end460 ]
+  %has_from.0.lcssa19442098 = phi i8 [ 0, %land.lhs.true462 ], [ %has_from.0.lcssa1944, %if.end460 ]
   br i1 %input_key_hex.0.lcssa1946, label %if.then469, label %if.end484
 
 if.then469:                                       ; preds = %if.end467
-  %brmerge688 = or i8 %has_from.0.lcssa1944, %use_from_as_prefix.0.lcssa1919
+  %brmerge688 = or i8 %has_from.0.lcssa19442098, %use_from_as_prefix.0.lcssa19192110
   %brmerge = trunc nuw i8 %brmerge688 to i1
   br i1 %brmerge, label %if.then473, label %if.end477
 
@@ -1734,7 +1736,7 @@ if.end484:                                        ; preds = %entry, %if.end477, 
   %verify_checksum.0.lcssa195220942147 = phi i1 [ %verify_checksum.0.lcssa1952, %if.end477 ], [ %verify_checksum.0.lcssa1952, %invoke.cont481 ], [ %verify_checksum.0.lcssa1952, %if.end467 ], [ false, %entry ]
   %output_hex.0.lcssa195020952146 = phi i1 [ %output_hex.0.lcssa1950, %if.end477 ], [ %output_hex.0.lcssa1950, %invoke.cont481 ], [ %output_hex.0.lcssa1950, %if.end467 ], [ false, %entry ]
   %decode_blob_index.0.lcssa194820962145 = phi i1 [ %decode_blob_index.0.lcssa1948, %if.end477 ], [ %decode_blob_index.0.lcssa1948, %invoke.cont481 ], [ %decode_blob_index.0.lcssa1948, %if.end467 ], [ false, %entry ]
-  %has_from.0.lcssa194420982144 = phi i8 [ %has_from.0.lcssa1944, %if.end477 ], [ %has_from.0.lcssa1944, %invoke.cont481 ], [ %has_from.0.lcssa1944, %if.end467 ], [ 0, %entry ]
+  %has_from.0.lcssa194420982144 = phi i8 [ %has_from.0.lcssa19442098, %if.end477 ], [ %has_from.0.lcssa19442098, %invoke.cont481 ], [ %has_from.0.lcssa19442098, %if.end467 ], [ 0, %entry ]
   %has_to.0.lcssa194220992143 = phi i1 [ false, %if.end477 ], [ true, %invoke.cont481 ], [ %has_to.0.lcssa1942, %if.end467 ], [ false, %entry ]
   %compression_use_zstd_finalize_dict.0.lcssa194021002142 = phi i1 [ %compression_use_zstd_finalize_dict.0.lcssa1940, %if.end477 ], [ %compression_use_zstd_finalize_dict.0.lcssa1940, %invoke.cont481 ], [ %compression_use_zstd_finalize_dict.0.lcssa1940, %if.end467 ], [ true, %entry ]
   %compression_max_dict_buffer_bytes.0.lcssa193821012141 = phi i64 [ %compression_max_dict_buffer_bytes.0.lcssa1938, %if.end477 ], [ %compression_max_dict_buffer_bytes.0.lcssa1938, %invoke.cont481 ], [ %compression_max_dict_buffer_bytes.0.lcssa1938, %if.end467 ], [ 0, %entry ]
@@ -1746,7 +1748,7 @@ if.end484:                                        ; preds = %entry, %if.end477, 
   %set_block_size.0.lcssa192521072135 = phi i64 [ %set_block_size.0.lcssa1925, %if.end477 ], [ %set_block_size.0.lcssa1925, %invoke.cont481 ], [ %set_block_size.0.lcssa1925, %if.end467 ], [ 16384, %entry ]
   %show_summary.0.lcssa192321082134 = phi i1 [ %show_summary.0.lcssa1923, %if.end477 ], [ %show_summary.0.lcssa1923, %invoke.cont481 ], [ %show_summary.0.lcssa1923, %if.end467 ], [ false, %entry ]
   %show_properties.0.lcssa192121092133 = phi i1 [ %show_properties.0.lcssa1921, %if.end477 ], [ %show_properties.0.lcssa1921, %invoke.cont481 ], [ %show_properties.0.lcssa1921, %if.end467 ], [ false, %entry ]
-  %use_from_as_prefix.0.lcssa191921102132 = phi i8 [ %use_from_as_prefix.0.lcssa1919, %if.end477 ], [ %use_from_as_prefix.0.lcssa1919, %invoke.cont481 ], [ %use_from_as_prefix.0.lcssa1919, %if.end467 ], [ 0, %entry ]
+  %use_from_as_prefix.0.lcssa191921102132 = phi i8 [ %use_from_as_prefix.0.lcssa19192110, %if.end477 ], [ %use_from_as_prefix.0.lcssa19192110, %invoke.cont481 ], [ %use_from_as_prefix.0.lcssa19192110, %if.end467 ], [ 0, %entry ]
   %tobool46121112131 = phi i1 [ %tobool461, %if.end477 ], [ %tobool461, %invoke.cont481 ], [ %tobool461, %if.end467 ], [ false, %entry ]
   %97 = load ptr, ptr %dir_or_file, align 8
   %cmp485 = icmp eq ptr %97, null

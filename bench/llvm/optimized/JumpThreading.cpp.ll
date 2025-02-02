@@ -1006,12 +1006,11 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10BasicBlockEE5countEPKS1_.exit: ; preds = %.lr.p
   br i1 %131, label %._crit_edge112.thread, label %133
 
 ._crit_edge112.thread:                            ; preds = %.lr.ph111, %._crit_edge112
-  %.2.lcssa131 = phi i8 [ %.039115, %._crit_edge112 ], [ 1, %.lr.ph111 ]
   %132 = call noundef zeroext i1 @_ZN4llvm24RemoveRedundantDbgInstrsEPNS_10BasicBlockE(ptr noundef nonnull %103) #19
   br label %133
 
 133:                                              ; preds = %._crit_edge112.thread, %._crit_edge112
-  %.2.lcssa130 = phi i8 [ %.2.lcssa131, %._crit_edge112.thread ], [ %.039115, %._crit_edge112 ]
+  %.2.lcssa130 = phi i8 [ 1, %._crit_edge112.thread ], [ 0, %._crit_edge112 ]
   %134 = load ptr, ptr %0, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 80
   %136 = load ptr, ptr %135, align 8

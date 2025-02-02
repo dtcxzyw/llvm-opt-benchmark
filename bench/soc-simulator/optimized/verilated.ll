@@ -14290,7 +14290,7 @@ define dso_local void @_Z18_vl_vint_to_stringiPcPKj(i32 noundef %0, ptr noundef 
   br label %19
 
 19:                                               ; preds = %15, %.lr.ph
-  %.121 = phi i8 [ 0, %15 ], [ %.02023, %.lr.ph ]
+  %.121 = phi i8 [ 0, %15 ], [ 1, %.lr.ph ]
   %.1 = phi ptr [ %18, %15 ], [ %.01924, %.lr.ph ]
   %20 = icmp sgt i32 %.0.in25, 8
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !108
@@ -17773,7 +17773,7 @@ define dso_local noundef range(i32 -8388608, 8388608) i32 @_Z12VL_SYSTEM_IWiPKj(
   br label %22
 
 22:                                               ; preds = %18, %.lr.ph.i
-  %.121.i = phi i8 [ 0, %18 ], [ %.02023.i, %.lr.ph.i ]
+  %.121.i = phi i8 [ 0, %18 ], [ 1, %.lr.ph.i ]
   %.1.i = phi ptr [ %21, %18 ], [ %.01924.i, %.lr.ph.i ]
   %23 = icmp sgt i32 %.0.in25.i, 8
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !108
@@ -18071,19 +18071,19 @@ define dso_local noundef range(i32 0, 2) i32 @_Z20VL_VALUEPLUSARGS_INWiRKNSt7__c
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %14 = load ptr, ptr %1, align 8
   %15 = load i8, ptr %14, align 1
-  %.not99 = icmp eq i8 %15, 0
-  br i1 %.not99, label %.critedge, label %.lr.ph
+  %.not98 = icmp eq i8 %15, 0
+  br i1 %.not98, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %52
   %16 = phi i8 [ %54, %52 ], [ %15, %3 ]
-  %.06383101 = phi ptr [ %53, %52 ], [ %14, %3 ]
-  %.05885100 = phi i1 [ %.1, %52 ], [ false, %3 ]
+  %.06383100 = phi ptr [ %53, %52 ], [ %14, %3 ]
+  %.0588499 = phi i1 [ %.1, %52 ], [ false, %3 ]
   %17 = icmp ne i8 %16, 37
-  %or.cond.not = or i1 %.05885100, %17
+  %or.cond.not = or i1 %.0588499, %17
   br i1 %or.cond.not, label %18, label %52
 
 18:                                               ; preds = %.lr.ph
-  br i1 %.05885100, label %32, label %19
+  br i1 %.0588499, label %32, label %19
 
 19:                                               ; preds = %18
   %20 = load i64, ptr %12, align 8
@@ -18179,7 +18179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit74: ; preds = %_ZN
 
 52:                                               ; preds = %.sink.split, %.lr.ph, %32
   %.1 = phi i1 [ true, %32 ], [ true, %.lr.ph ], [ false, %.sink.split ]
-  %53 = getelementptr inbounds nuw i8, ptr %.06383101, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.06383100, i64 1
   %54 = load i8, ptr %53, align 1
   %.not = icmp eq i8 %54, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !131
@@ -18310,25 +18310,25 @@ _ZN9Verilated14threadContextpEv.exit:             ; preds = %_ZN9Verilated12last
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZL15_vl_vsss_setbitPjiiij.exit
-  %indvars.iv91 = phi i64 [ %107, %.lr.ph.split.preheader ], [ %indvars.iv.next92, %_ZL15_vl_vsss_setbitPjiiij.exit ]
-  %indvars.iv89 = phi i32 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next90, %_ZL15_vl_vsss_setbitPjiiij.exit ]
+  %indvars.iv90 = phi i64 [ %107, %.lr.ph.split.preheader ], [ %indvars.iv.next91, %_ZL15_vl_vsss_setbitPjiiij.exit ]
+  %indvars.iv88 = phi i32 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next89, %_ZL15_vl_vsss_setbitPjiiij.exit ]
   %indvars.iv = phi i32 [ %106, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZL15_vl_vsss_setbitPjiiij.exit ]
-  %.05687 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %126, %_ZL15_vl_vsss_setbitPjiiij.exit ]
+  %.05686 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %126, %_ZL15_vl_vsss_setbitPjiiij.exit ]
   %umin = call i32 @llvm.umin.i32(i32 %indvars.iv, i32 7)
-  %108 = add i32 %umin, %indvars.iv89
-  %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
-  %109 = icmp slt i32 %.05687, %0
+  %108 = add i32 %umin, %indvars.iv88
+  %indvars.iv.next91 = add nsw i64 %indvars.iv90, -1
+  %109 = icmp slt i32 %.05686, %0
   br i1 %109, label %.lr.ph.i.preheader, label %_ZL15_vl_vsss_setbitPjiiij.exit
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.split
-  %110 = getelementptr inbounds nuw i8, ptr %77, i64 %indvars.iv.next92
+  %110 = getelementptr inbounds nuw i8, ptr %77, i64 %indvars.iv.next91
   %111 = load i8, ptr %110, align 1
   %112 = sext i8 %111 to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.012.i = phi i32 [ %125, %.lr.ph.i ], [ %112, %.lr.ph.i.preheader ]
-  %.0910.i = phi i32 [ %124, %.lr.ph.i ], [ %.05687, %.lr.ph.i.preheader ]
+  %.0910.i = phi i32 [ %124, %.lr.ph.i ], [ %.05686, %.lr.ph.i.preheader ]
   %113 = and i32 %.012.i, 1
   %114 = lshr i32 %.0910.i, 5
   %115 = zext nneg i32 %114 to i64
@@ -18347,10 +18347,10 @@ _ZN9Verilated14threadContextpEv.exit:             ; preds = %_ZN9Verilated12last
   br i1 %exitcond.not, label %_ZL15_vl_vsss_setbitPjiiij.exit, label %.lr.ph.i, !llvm.loop !89
 
 _ZL15_vl_vsss_setbitPjiiij.exit:                  ; preds = %.lr.ph.i, %.lr.ph.split
-  %126 = add nuw nsw i32 %.05687, 8
-  %127 = icmp sgt i64 %indvars.iv91, 1
+  %126 = add nuw nsw i32 %.05686, 8
+  %127 = icmp sgt i64 %indvars.iv90, 1
   %indvars.iv.next = add i32 %indvars.iv, -8
-  %indvars.iv.next90 = add nuw i32 %indvars.iv89, 8
+  %indvars.iv.next89 = add nuw i32 %indvars.iv88, 8
   br i1 %127, label %.lr.ph.split, label %.loopexit, !llvm.loop !132
 
 128:                                              ; preds = %81
@@ -18476,20 +18476,20 @@ define dso_local noundef range(i32 0, 2) i32 @_Z20VL_VALUEPLUSARGS_INNiRKNSt7__c
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %12 = load ptr, ptr %1, align 8
   %13 = load i8, ptr %12, align 1
-  %.not45 = icmp eq i8 %13, 0
-  br i1 %.not45, label %.critedge, label %.lr.ph
+  %.not44 = icmp eq i8 %13, 0
+  br i1 %.not44, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %48
   %14 = phi i8 [ %50, %48 ], [ %13, %3 ]
-  %.01639.not47 = phi i1 [ %or.cond.not.not.not, %48 ], [ true, %3 ]
-  %.0193846 = phi ptr [ %49, %48 ], [ %12, %3 ]
-  %.01639.not47.not = xor i1 %.01639.not47, true
+  %.01638.not46 = phi i1 [ %or.cond.not.not.not, %48 ], [ true, %3 ]
+  %.0193745 = phi ptr [ %49, %48 ], [ %12, %3 ]
+  %.01638.not46.not = xor i1 %.01638.not46, true
   %15 = icmp ne i8 %14, 37
-  %or.cond.not.not.not = or i1 %15, %.01639.not47.not
+  %or.cond.not.not.not = or i1 %15, %.01638.not46.not
   br i1 %or.cond.not.not.not, label %16, label %48
 
 16:                                               ; preds = %.lr.ph
-  br i1 %.01639.not47, label %17, label %30
+  br i1 %.01638.not46, label %17, label %30
 
 17:                                               ; preds = %16
   %18 = load i64, ptr %10, align 8
@@ -18580,7 +18580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit28: ; preds = %_ZN
   br label %48
 
 48:                                               ; preds = %.sink.split, %.lr.ph
-  %49 = getelementptr inbounds nuw i8, ptr %.0193846, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.0193745, i64 1
   %50 = load i8, ptr %49, align 1
   %.not = icmp eq i8 %50, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !133

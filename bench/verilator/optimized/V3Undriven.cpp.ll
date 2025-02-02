@@ -7937,7 +7937,7 @@ _ZNK13AstBasicDType2loEv.exit158:                 ; preds = %325, %_ZNK8AstRange
 
 361:                                              ; preds = %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread, %161, %350, %264, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread
   %.132 = phi i32 [ %.031182, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread ], [ %spec.select, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread ], [ %.031182, %264 ], [ %.031182, %350 ], [ %.031182, %161 ]
-  %.1 = phi i8 [ %.0183, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread ], [ 1, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread ], [ 0, %264 ], [ 0, %350 ], [ 0, %161 ]
+  %.1 = phi i8 [ 0, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread ], [ 1, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread ], [ 0, %264 ], [ 0, %350 ], [ 0, %161 ]
   %362 = icmp ult i32 %.042184, -2147483647
   br i1 %362, label %36, label %._crit_edge, !llvm.loop !128
 

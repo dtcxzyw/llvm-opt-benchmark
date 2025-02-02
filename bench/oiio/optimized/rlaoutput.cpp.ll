@@ -3292,13 +3292,14 @@ for.end82:                                        ; preds = %_ZNSt6vectorIhSaIhE
   br label %lor.lhs.false
 
 if.end88:                                         ; preds = %if.else63, %if.then46
+  %repeat.1 = phi i8 [ 1, %if.then46 ], [ 0, %if.else63 ]
   %count.1 = add nsw i32 %count.0291, 1
   %cmp89 = icmp eq i32 %count.1, 127
   br i1 %cmp89, label %if.then94, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i86, %if.then.i.i63, %for.body38, %for.end82, %if.then52, %if.end88
   %runbegin.1269 = phi i32 [ %runbegin.0293, %if.end88 ], [ %26, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i86 ], [ %26, %if.then.i.i63 ], [ %26, %for.body38 ], [ %sub83, %for.end82 ], [ %runbegin.0293, %if.then52 ]
-  %repeat.1265 = phi i8 [ %repeat.0292, %if.end88 ], [ %repeat.0292, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i86 ], [ %repeat.0292, %if.then.i.i63 ], [ 1, %for.body38 ], [ 1, %for.end82 ], [ 0, %if.then52 ]
+  %repeat.1265 = phi i8 [ %repeat.1, %if.end88 ], [ 1, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i86 ], [ 1, %if.then.i.i63 ], [ 1, %for.body38 ], [ 1, %for.end82 ], [ 0, %if.then52 ]
   %count.1263 = phi i32 [ %count.1, %if.end88 ], [ 1, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i86 ], [ 1, %if.then.i.i63 ], [ 1, %for.body38 ], [ 2, %for.end82 ], [ %inc53, %if.then52 ]
   %55 = load i32, ptr %width36, align 4
   %sub92 = add nsw i32 %55, -1
@@ -3308,7 +3309,7 @@ lor.lhs.false:                                    ; preds = %_ZNSt6vectorIhSaIhE
 
 if.then94:                                        ; preds = %lor.lhs.false, %if.end88
   %runbegin.1270 = phi i32 [ %runbegin.1269, %lor.lhs.false ], [ %runbegin.0293, %if.end88 ]
-  %repeat.1266 = phi i8 [ %repeat.1265, %lor.lhs.false ], [ %repeat.0292, %if.end88 ]
+  %repeat.1266 = phi i8 [ %repeat.1265, %lor.lhs.false ], [ %repeat.1, %if.end88 ]
   %count.1264 = phi i32 [ %count.1263, %lor.lhs.false ], [ 127, %if.end88 ]
   %tobool95 = trunc nuw i8 %repeat.1266 to i1
   %57 = trunc i32 %count.1264 to i8
@@ -3599,7 +3600,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit246:       ; preds = %if.then.i219, %_ZNS
 
 if.end124:                                        ; preds = %_ZNSt6vectorIhSaIhEE9push_backERKh.exit246, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit215, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i180, %if.then.i.i157, %lor.lhs.false
   %runbegin.1268 = phi i32 [ %runbegin.1269, %lor.lhs.false ], [ %runbegin.1270, %if.then.i.i157 ], [ %runbegin.1270, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i180 ], [ %runbegin.1270, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit215 ], [ %runbegin.1270, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit246 ]
-  %repeat.1267 = phi i8 [ %repeat.1265, %lor.lhs.false ], [ %repeat.1266, %if.then.i.i157 ], [ %repeat.1266, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i180 ], [ %repeat.1266, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit215 ], [ %repeat.1266, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit246 ]
+  %repeat.1267 = phi i8 [ %repeat.1265, %lor.lhs.false ], [ 1, %if.then.i.i157 ], [ 1, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i180 ], [ 0, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit215 ], [ %repeat.1266, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit246 ]
   %count.2 = phi i32 [ %count.1263, %lor.lhs.false ], [ 0, %if.then.i.i157 ], [ 0, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i180 ], [ 0, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit215 ], [ 0, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit246 ]
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
   %inc126 = add nuw nsw i32 %x33.0294, 1

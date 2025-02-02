@@ -6211,6 +6211,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3MVT15SimpleValueTypeELb1EE9push_backES2_.e
   %835 = call noundef zeroext i1 @_ZNK4llvm20CodeGenRegisterClass8containsEPKNS_15CodeGenRegisterE(ptr noundef nonnull align 8 dereferenceable(684) %834, ptr noundef %831) #16
   %.not17.i = xor i1 %835, true
   %brmerge.i54 = select i1 %.not17.i, i1 true, i1 %.021.i
+  %.0.mux.i = select i1 %835, i1 true, i1 %.021.i
   br i1 %brmerge.i54, label %845, label %836
 
 836:                                              ; preds = %.lr.ph.i53
@@ -6227,7 +6228,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3MVT15SimpleValueTypeELb1EE9push_backES2_.e
 
 845:                                              ; preds = %836, %.lr.ph.i53
   %.112.i = phi i16 [ %844, %836 ], [ %.01120.i, %.lr.ph.i53 ]
-  %.1.i55 = phi i1 [ true, %836 ], [ %.021.i, %.lr.ph.i53 ]
+  %.1.i55 = phi i1 [ true, %836 ], [ %.0.mux.i, %.lr.ph.i53 ]
   %.sroa.013.0.i = load ptr, ptr %.sroa.013.022.i, align 8
   %.not.i56 = icmp eq ptr %.sroa.013.0.i, %833
   br i1 %.not.i56, label %_ZL20getRegisterValueTypePN4llvm6RecordERKNS_13CodeGenTargetE.exit, label %.lr.ph.i53

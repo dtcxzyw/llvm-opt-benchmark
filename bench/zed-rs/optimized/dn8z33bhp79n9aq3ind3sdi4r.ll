@@ -128,7 +128,7 @@ define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHand
   %9 = tail call noundef zeroext i1 @_ZN16html_to_markdown12html_element11HtmlElement9is_inline17he27e04e46236419aE(ptr noundef nonnull align 8 %1)
   br i1 %9, label %15, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread"
 
-"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hbcf6ce06aea93da9E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hbcf6ce06aea93da9E.exit", %48, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6", %3
+"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hbcf6ce06aea93da9E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hbcf6ce06aea93da9E.exit", %48, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6", %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit, %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !20
   %.not.i = icmp eq i64 %11, 1
@@ -178,25 +178,22 @@ define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHand
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !40
   store ptr %8, ptr %5, align 8, !noalias !51
   %35 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-  br i1 %35, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
+  br i1 %35, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i": ; preds = %15
+_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread: ; preds = %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !40
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !40
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %37
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i": ; preds = %15
+_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit: ; preds = %15
   %36 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(16) %33, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !40
-  br i1 %36, label %37, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
-
-_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit: ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread"
+  br i1 %36, label %37, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread"
 
-37:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i", %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+37:                                               ; preds = %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !58
   %38 = load i64, ptr %17, align 8, !alias.scope !55, !noalias !60, !noundef !20
@@ -1437,23 +1434,22 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !473
   store ptr %7, ptr %4, align 8, !noalias !484
   %34 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %34, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
+  br i1 %34, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i": ; preds = %14
+_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread: ; preds = %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !473
-  br label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread
-
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i": ; preds = %14
-  %35 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !473
-  br i1 %35, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, label %50
-
-_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread: ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i", %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !473
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread": ; preds = %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit6, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
+_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit: ; preds = %14
+  %35 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !473
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !473
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  br i1 %35, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread", label %50
+
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread": ; preds = %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit6, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
   ret i1 false
 
 36:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
@@ -1481,9 +1477,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   store i64 %49, ptr %38, align 8, !alias.scope !488, !noalias !493
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread"
 
-50:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !473
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+50:                                               ; preds = %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %53 = load i64, ptr %52, align 8, !alias.scope !495, !noalias !500, !noundef !20
@@ -1570,23 +1564,22 @@ define void @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !513
   store ptr %7, ptr %4, align 8, !noalias !524
   %34 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %34, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
+  br i1 %34, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i": ; preds = %14
+_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread: ; preds = %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !513
-  br label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread
-
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i": ; preds = %14
-  %35 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !513
-  br i1 %35, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, label %50
-
-_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread: ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i", %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !513
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread": ; preds = %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit6, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
+_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit: ; preds = %14
+  %35 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !513
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !513
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  br i1 %35, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread", label %50
+
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread": ; preds = %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit6, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
   ret void
 
 36:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
@@ -1614,9 +1607,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   store i64 %49, ptr %38, align 8, !alias.scope !528, !noalias !533
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread"
 
-50:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !513
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+50:                                               ; preds = %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %53 = load i64, ptr %52, align 8, !alias.scope !535, !noalias !540, !noundef !20
@@ -1683,25 +1674,22 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !545
   store ptr %8, ptr %5, align 8, !noalias !556
   %28 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-  br i1 %28, label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i", label %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
+  br i1 %28, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i": ; preds = %4
+_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread: ; preds = %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !545
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !545
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %30
 
-"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i": ; preds = %4
+_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit: ; preds = %4
   %29 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(16) %26, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !545
-  br i1 %29, label %30, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
-
-_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit: ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !545
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %44
+  br i1 %29, label %30, label %44
 
-30:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i", %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !545
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+30:                                               ; preds = %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %33 = load i64, ptr %32, align 8, !alias.scope !560, !noalias !565, !noundef !20

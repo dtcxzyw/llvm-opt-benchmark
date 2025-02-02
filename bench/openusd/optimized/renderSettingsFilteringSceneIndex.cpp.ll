@@ -11382,7 +11382,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i55: ; preds = %713, %700
   %.sroa.59.1.i = phi double [ %.sroa.speculated.i, %721 ], [ %.sroa.59.034.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i55 ], [ %.sroa.5.3.i, %717 ]
   %.sroa.02.4.i = phi double [ %.sroa.02.3.i, %721 ], [ %.sroa.02.2.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i55 ], [ %.sroa.02.3.i, %717 ]
   %.sroa.5.4.i = phi double [ %.sroa.5.3.i, %721 ], [ %.sroa.5.2.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i55 ], [ %.sroa.5.3.i, %717 ]
-  %.1.i = phi i8 [ %.037.i, %721 ], [ %.037.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i55 ], [ 1, %717 ]
+  %.1.i = phi i8 [ 1, %721 ], [ %.037.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i55 ], [ 1, %717 ]
   %725 = getelementptr inbounds nuw i8, ptr %.sroa.07.033.i, i64 12
   %.not.i56 = icmp eq ptr %725, %.val14
   br i1 %.not.i56, label %._crit_edge.i, label %496

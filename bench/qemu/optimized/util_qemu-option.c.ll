@@ -2141,7 +2141,7 @@ if.end19.i60:                                     ; preds = %lor.lhs.false.i57
 
 if.end42:                                         ; preds = %lor.lhs.false.i, %lor.lhs.false.i57, %entry.tail.i, %if.end, %if.then23, %if.else28
   %p.0.ph = phi ptr [ %arrayidx, %if.else28 ], [ %arrayidx, %if.then23 ], [ %arrayidx, %if.end ], [ %arrayidx, %entry.tail.i ], [ %call.i.i38, %lor.lhs.false.i57 ], [ %call.i.i, %lor.lhs.false.i ]
-  %is_help.1.ph = phi i8 [ %is_help.0, %if.else28 ], [ %is_help.0, %if.then23 ], [ %is_help.0, %if.end ], [ 1, %entry.tail.i ], [ 0, %lor.lhs.false.i57 ], [ 0, %lor.lhs.false.i ]
+  %is_help.1.ph = phi i8 [ 0, %if.else28 ], [ 0, %if.then23 ], [ %is_help.0, %if.end ], [ 1, %entry.tail.i ], [ 0, %lor.lhs.false.i57 ], [ 0, %lor.lhs.false.i ]
   %.pr = load i8, ptr %p.0.ph, align 1
   switch i8 %.pr, label %if.else48 [
     i8 0, label %if.end49

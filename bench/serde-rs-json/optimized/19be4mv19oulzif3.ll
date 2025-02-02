@@ -1011,22 +1011,23 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %264
 
 264:                                              ; preds = %264, %262
-  %.sroa.0.012.i.i.i.i = phi i64 [ 0, %262 ], [ %spec.select8.i.i.i.i, %264 ]
-  %265 = icmp samesign ult i64 %.sroa.0.012.i.i.i.i, %254
-  %266 = zext i1 %265 to i64
-  %spec.select8.i.i.i.i = add nuw nsw i64 %.sroa.0.012.i.i.i.i, %266
-  %267 = icmp samesign ult i64 %.sroa.0.012.i.i.i.i, 12
+  %.sroa.0.011.i.i.i.i = phi i64 [ 0, %262 ], [ %spec.select8.i.i.i.i, %264 ]
+  %265 = icmp samesign uge i64 %.sroa.0.011.i.i.i.i, %254
+  %not..i.i.i.i = xor i1 %265, true
+  %266 = zext i1 %not..i.i.i.i to i64
+  %spec.select8.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %266
+  %267 = icmp samesign ult i64 %.sroa.0.011.i.i.i.i, 12
   tail call void @llvm.assume(i1 %267)
-  %268 = getelementptr inbounds nuw ptr, ptr %255, i64 %.sroa.0.012.i.i.i.i
+  %268 = getelementptr inbounds nuw ptr, ptr %255, i64 %.sroa.0.011.i.i.i.i
   %269 = load ptr, ptr %268, align 8, !alias.scope !169, !noalias !172, !nonnull !5, !noundef !5
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 352
   store ptr %216, ptr %270, align 8, !noalias !175
-  %271 = trunc nuw nsw i64 %.sroa.0.012.i.i.i.i to i16
+  %271 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %272 = getelementptr inbounds nuw i8, ptr %269, i64 624
   store i16 %271, ptr %272, align 8, !noalias !172
-  %.not.i.i.i.i.i.i = icmp samesign ule i64 %spec.select8.i.i.i.i, %254
-  %or.cond.i.not.i.i.i = select i1 %265, i1 %.not.i.i.i.i.i.i, i1 false
-  br i1 %or.cond.i.not.i.i.i, label %264, label %276
+  %.not.i.i.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i.i.i, %254
+  %or.cond.i.i.i.i = select i1 %265, i1 true, i1 %.not.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %276, label %264
 
 273:                                              ; preds = %241
   %274 = landingpad { ptr, i32 }

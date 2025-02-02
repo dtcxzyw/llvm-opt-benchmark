@@ -5380,62 +5380,56 @@ define hidden void @_ZNK2os9PageSizes8print_onEP12outputStream(ptr noundef nonnu
   %neg.i.i = sub i64 0, %4
   %5 = and i64 %3, %neg.i.i
   %.not15 = icmp eq i64 %5, 0
-  br i1 %.not15, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not15, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZNK2os9PageSizes11next_largerEm.exit
-  %.017 = phi i64 [ %19, %_ZNK2os9PageSizes11next_largerEm.exit ], [ %5, %2 ]
-  %.01416 = phi i8 [ %.1, %_ZNK2os9PageSizes11next_largerEm.exit ], [ 1, %2 ]
-  %6 = trunc nuw i8 %.01416 to i1
-  br i1 %6, label %8, label %7
+  %.017 = phi i64 [ %18, %_ZNK2os9PageSizes11next_largerEm.exit ], [ %5, %2 ]
+  %.01416 = phi i1 [ false, %_ZNK2os9PageSizes11next_largerEm.exit ], [ true, %2 ]
+  br i1 %.01416, label %7, label %6
 
-7:                                                ; preds = %.lr.ph
+6:                                                ; preds = %.lr.ph
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.79, i64 noundef 2) #28
-  br label %8
+  br label %7
 
-8:                                                ; preds = %.lr.ph, %7
-  %.1 = phi i8 [ %.01416, %7 ], [ 0, %.lr.ph ]
-  %9 = icmp ult i64 %.017, 1048576
-  br i1 %9, label %.thread.sink.split, label %10
+7:                                                ; preds = %.lr.ph, %6
+  %8 = icmp ult i64 %.017, 1048576
+  br i1 %8, label %.thread.sink.split, label %9
 
-10:                                               ; preds = %8
-  %11 = icmp ult i64 %.017, 1073741824
-  br i1 %11, label %.thread.sink.split, label %12
+9:                                                ; preds = %7
+  %10 = icmp ult i64 %.017, 1073741824
+  br i1 %10, label %.thread.sink.split, label %11
 
-12:                                               ; preds = %10
-  %13 = lshr i64 %.017, 30
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.82, i64 noundef %13) #28
-  %14 = icmp eq i64 %.017, -9223372036854775808
-  br i1 %14, label %._crit_edge, label %.thread
+11:                                               ; preds = %9
+  %12 = lshr i64 %.017, 30
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.82, i64 noundef %12) #28
+  %13 = icmp eq i64 %.017, -9223372036854775808
+  br i1 %13, label %._crit_edge, label %.thread
 
-.thread.sink.split:                               ; preds = %10, %8
-  %.sink21 = phi i64 [ 10, %8 ], [ 20, %10 ]
-  %.str.81.sink = phi ptr [ @.str.80, %8 ], [ @.str.81, %10 ]
-  %15 = lshr i64 %.017, %.sink21
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.81.sink, i64 noundef %15) #28
+.thread.sink.split:                               ; preds = %9, %7
+  %.sink20 = phi i64 [ 10, %7 ], [ 20, %9 ]
+  %.str.81.sink = phi ptr [ @.str.80, %7 ], [ @.str.81, %9 ]
+  %14 = lshr i64 %.017, %.sink20
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.str.81.sink, i64 noundef %14) #28
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %12
-  %16 = load i64, ptr %0, align 8
+.thread:                                          ; preds = %.thread.sink.split, %11
+  %15 = load i64, ptr %0, align 8
   %reass.add.neg.i = mul i64 %.017, -2
-  %17 = and i64 %16, %reass.add.neg.i
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %._crit_edge, label %_ZNK2os9PageSizes11next_largerEm.exit
+  %16 = and i64 %15, %reass.add.neg.i
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %._crit_edge, label %_ZNK2os9PageSizes11next_largerEm.exit
 
 _ZNK2os9PageSizes11next_largerEm.exit:            ; preds = %.thread
-  %neg.i = sub i64 0, %17
-  %19 = and i64 %17, %neg.i
-  %.not = icmp eq i64 %19, 0
+  %neg.i = sub i64 0, %16
+  %18 = and i64 %16, %neg.i
+  %.not = icmp eq i64 %18, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %.thread, %12, %_ZNK2os9PageSizes11next_largerEm.exit
-  %20 = trunc nuw i8 %.1 to i1
-  br i1 %20, label %._crit_edge.thread, label %21
-
-._crit_edge.thread:                               ; preds = %2, %._crit_edge
+.critedge:                                        ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.83) #28
-  br label %21
+  br label %._crit_edge
 
-21:                                               ; preds = %._crit_edge.thread, %._crit_edge
+._crit_edge:                                      ; preds = %.thread, %11, %_ZNK2os9PageSizes11next_largerEm.exit, %.critedge
   ret void
 }
 

@@ -199,13 +199,13 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
 
 .preheader53.lr.ph:                               ; preds = %6
   %9 = icmp sgt i32 %4, 0
-  %10 = icmp sgt i32 %3, 0
+  %10 = icmp slt i32 %3, 1
   %11 = zext i32 %3 to i64
   br label %.preheader53
 
 .preheader53:                                     ; preds = %.preheader53.lr.ph, %.loopexit
   %.04669 = phi i32 [ 0, %.preheader53.lr.ph ], [ %3, %.loopexit ]
-  %.04768 = phi i1 [ true, %.preheader53.lr.ph ], [ false, %.loopexit ]
+  %.04768.not = phi i1 [ false, %.preheader53.lr.ph ], [ true, %.loopexit ]
   %.04967 = phi i64 [ 0, %.preheader53.lr.ph ], [ %.3, %.loopexit ]
   br i1 %9, label %.lr.ph.preheader, label %.critedge
 
@@ -303,8 +303,8 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   call void (ptr, i32, i32, ptr, ...) %60(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %7)
-  %brmerge.not = and i1 %10, %.04768
-  br i1 %brmerge.not, label %.lr.ph66.preheader, label %.loopexit
+  %brmerge = or i1 %.04768.not, %10
+  br i1 %brmerge, label %.loopexit, label %.lr.ph66.preheader
 
 .lr.ph66.preheader:                               ; preds = %57
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %11, i1 false)

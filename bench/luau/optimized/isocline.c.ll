@@ -11024,47 +11024,47 @@ sub_0:                                            ; preds = %sub_0.preheader, %s
   %.075 = phi ptr [ %264, %sbuf_delete_from.exit73.thread ], [ %21, %sub_0.preheader ]
   %34 = getelementptr inbounds nuw i8, ptr %.075, i64 19
   %35 = load i8, ptr %34, align 1
-  %.not89 = icmp eq i8 %35, 46
-  br i1 %.not89, label %.tail, label %.tail84.thread
+  %.not91 = icmp eq i8 %35, 46
+  br i1 %.not91, label %.tail, label %.tail86.thread
 
 .tail:                                            ; preds = %sub_0
   %36 = getelementptr inbounds nuw i8, ptr %.075, i64 20
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %sbuf_delete_from.exit73.thread, label %sub_186
+  br i1 %38, label %sbuf_delete_from.exit73.thread, label %sub_188
 
-sub_186:                                          ; preds = %.tail
+sub_188:                                          ; preds = %.tail
   %39 = getelementptr inbounds nuw i8, ptr %.075, i64 20
   %40 = load i8, ptr %39, align 1
-  %.not91 = icmp eq i8 %40, 46
-  br i1 %.not91, label %.tail84, label %.tail84.thread.thread
+  %.not93 = icmp eq i8 %40, 46
+  br i1 %.not93, label %.tail86, label %.tail86.thread.thread
 
-.tail84:                                          ; preds = %sub_186
+.tail86:                                          ; preds = %sub_188
   %41 = getelementptr inbounds nuw i8, ptr %.075, i64 21
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %sbuf_delete_from.exit73.thread, label %.thread
 
-.tail84.thread:                                   ; preds = %sub_0
+.tail86.thread:                                   ; preds = %sub_0
   %44 = icmp eq ptr %34, %4
   %or.cond.i = or i1 %22, %44
   br i1 %or.cond.i, label %ic_istarts_with.exit.thread, label %47
 
-.tail84.thread.thread:                            ; preds = %sub_186
+.tail86.thread.thread:                            ; preds = %sub_188
   %45 = icmp eq ptr %34, %4
-  %or.cond.i101 = or i1 %22, %45
-  br i1 %or.cond.i101, label %ic_istarts_with.exit.thread, label %.lr.ph.i.preheader
+  %or.cond.i100 = or i1 %22, %45
+  br i1 %or.cond.i100, label %ic_istarts_with.exit.thread, label %.lr.ph.i.preheader
 
-.thread:                                          ; preds = %.tail84
+.thread:                                          ; preds = %.tail86
   %46 = icmp eq ptr %34, %4
-  %or.cond.i95 = or i1 %22, %46
-  br i1 %or.cond.i95, label %ic_istarts_with.exit.thread, label %.lr.ph.i.preheader
+  %or.cond.i97 = or i1 %22, %46
+  br i1 %or.cond.i97, label %ic_istarts_with.exit.thread, label %.lr.ph.i.preheader
 
-47:                                               ; preds = %.tail84.thread
+47:                                               ; preds = %.tail86.thread
   %.not22.i = icmp eq i8 %35, 0
   br i1 %.not22.i, label %ic_istarts_with.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.tail84.thread.thread, %.thread, %47
+.lr.ph.i.preheader:                               ; preds = %.tail86.thread.thread, %.thread, %47
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %58
@@ -11101,7 +11101,7 @@ ic_istarts_with.exit:                             ; preds = %.lr.ph.i, %58, %47
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %ic_istarts_with.exit.thread, label %sbuf_delete_from.exit73.thread
 
-ic_istarts_with.exit.thread:                      ; preds = %.tail84.thread.thread, %.thread, %.tail84.thread, %ic_istarts_with.exit
+ic_istarts_with.exit.thread:                      ; preds = %.tail86.thread.thread, %.thread, %.tail86.thread, %ic_istarts_with.exit
   %65 = load i64, ptr %23, align 8
   %66 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #33
   %67 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %66, i64 0)
@@ -11579,17 +11579,17 @@ ic_memmove.exit.i.i72:                            ; preds = %match_extension.exi
   %262 = load ptr, ptr %2, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 %65
   store i8 0, ptr %263, align 1
+  br label %sbuf_delete_from.exit73
+
+sbuf_delete_from.exit73:                          ; preds = %ic_memmove.exit.i.i72, %match_extension.exit
   br i1 %.2, label %sbuf_delete_from.exit73.thread, label %.critedge
 
-sbuf_delete_from.exit73:                          ; preds = %match_extension.exit
-  br i1 %.2, label %sbuf_delete_from.exit73.thread, label %.critedge
-
-sbuf_delete_from.exit73.thread:                   ; preds = %51, %.tail, %.tail84, %ic_istarts_with.exit, %ic_memmove.exit.i.i72, %sbuf_delete_from.exit73
+sbuf_delete_from.exit73.thread:                   ; preds = %51, %ic_istarts_with.exit, %.tail, %.tail86, %sbuf_delete_from.exit73
   %264 = call ptr @readdir(ptr noundef nonnull %19) #32
-  %.not83 = icmp eq ptr %264, null
-  br i1 %.not83, label %.critedge, label %sub_0, !llvm.loop !74
+  %.not85 = icmp eq ptr %264, null
+  br i1 %.not85, label %.critedge, label %sub_0, !llvm.loop !74
 
-.critedge:                                        ; preds = %ic_memmove.exit.i.i72, %sbuf_delete_from.exit73, %sbuf_delete_from.exit73.thread
+.critedge:                                        ; preds = %sbuf_delete_from.exit73, %sbuf_delete_from.exit73.thread
   %265 = call i32 @closedir(ptr noundef nonnull %19)
   br label %os_findfirst.exit.thread
 

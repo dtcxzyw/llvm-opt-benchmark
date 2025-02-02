@@ -1133,7 +1133,7 @@ _ZN12_GLOBAL__N_113CGPassManager16doInitializationERN4llvm9CallGraphE.exit: ; pr
 66:                                               ; preds = %.lr.ph, %.loopexit
   %67 = phi ptr [ %58, %.lr.ph ], [ %196, %.loopexit ]
   %68 = phi ptr [ %57, %.lr.ph ], [ %195, %.loopexit ]
-  %.011.in48 = phi i1 [ %.0.lcssa.i, %.lr.ph ], [ %194, %.loopexit ]
+  %.011.in47 = phi i1 [ %.0.lcssa.i, %.lr.ph ], [ %194, %.loopexit ]
   %69 = ptrtoint ptr %68 to i64
   %70 = ptrtoint ptr %67 to i64
   %71 = sub i64 %70, %69
@@ -1163,8 +1163,8 @@ _ZNSt12_Vector_baseIPN4llvm13CallGraphNodeESaIS2_EE11_M_allocateEm.exit.i.i: ; p
   br label %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit.i
 
 _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit.i: ; preds = %82, %_ZNSt12_Vector_baseIPN4llvm13CallGraphNodeESaIS2_EE11_M_allocateEm.exit.i.i
-  %.not.i.i35 = icmp eq ptr %73, null
-  br i1 %.not.i.i35, label %_ZNSt12_Vector_baseIPN4llvm13CallGraphNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %83
+  %.not.i.i34 = icmp eq ptr %73, null
+  br i1 %.not.i.i34, label %_ZNSt12_Vector_baseIPN4llvm13CallGraphNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %83
 
 83:                                               ; preds = %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE20_M_allocate_and_copyIPKS2_EEPS2_mT_S9_.exit.i
   call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef %76) #22
@@ -1181,8 +1181,8 @@ _ZNSt12_Vector_baseIPN4llvm13CallGraphNodeESaIS2_EE13_M_deallocateEPS2_m.exit.i:
   %86 = load ptr, ptr %61, align 8
   %87 = ptrtoint ptr %86 to i64
   %88 = sub i64 %87, %75
-  %.not.i34 = icmp ult i64 %88, %71
-  br i1 %.not.i34, label %_ZSt7advanceIPKPN4llvm13CallGraphNodeEmEvRT_T0_.exit.i, label %89
+  %.not.i33 = icmp ult i64 %88, %71
+  br i1 %.not.i33, label %_ZSt7advanceIPKPN4llvm13CallGraphNodeEmEvRT_T0_.exit.i, label %89
 
 89:                                               ; preds = %85
   %.not.i.i.i.i.i.i = icmp eq ptr %67, %68
@@ -1234,7 +1234,7 @@ _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20for
   br label %101
 
 101:                                              ; preds = %_ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9CallGraphERb.exit, %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit
-  %.1 = phi i1 [ %.011.in48, %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit ], [ %189, %_ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9CallGraphERb.exit ]
+  %.1 = phi i1 [ %.011.in47, %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit ], [ %189, %_ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9CallGraphERb.exit ]
   %.0 = phi i32 [ 0, %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag.exit ], [ %190, %_ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9CallGraphERb.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #19
@@ -1247,7 +1247,7 @@ _ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9
   br label %.loopexit
 
 .lr.ph.i12:                                       ; preds = %101, %183
-  %.038 = phi i1 [ %.2, %183 ], [ false, %101 ]
+  %.037 = phi i1 [ %.2, %183 ], [ false, %101 ]
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i15, %183 ], [ 0, %101 ]
   %.047.i = phi i1 [ %184, %183 ], [ false, %101 ]
   %.03445.i = phi i8 [ %.237.i, %183 ], [ 1, %101 ]
@@ -1285,12 +1285,11 @@ _ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9
   %.val.i.i = load ptr, ptr %54, align 8
   %.val51.i.i = load ptr, ptr %61, align 8
   %119 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEb(ptr %.val.i.i, ptr %.val51.i.i, ptr noundef nonnull align 8 dereferenceable(72) %24)
-  %120 = or i1 %.038, %119
+  %120 = or i1 %.037, %119
   br label %121
 
 121:                                              ; preds = %118, %116
-  %.4 = phi i1 [ %.038, %116 ], [ %120, %118 ]
-  %.1.i17 = phi i8 [ %.03445.i, %116 ], [ 1, %118 ]
+  %.4 = phi i1 [ %.037, %116 ], [ %120, %118 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 20, i1 false)
   store i32 16, ptr %63, align 4
   %122 = load ptr, ptr %115, align 8
@@ -1300,8 +1299,8 @@ _ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9
   %126 = load ptr, ptr %125, align 8
   %127 = call noundef zeroext i1 %126(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr nonnull @.str.10, i64 9) #19
   %128 = call noundef ptr @_ZN4llvm12getPassTimerEPNS_4PassE(ptr noundef nonnull %105) #19
-  %.not.i.i.i18 = icmp eq ptr %128, null
-  br i1 %.not.i.i.i18, label %_ZN4llvm10TimeRegionC2EPNS_5TimerE.exit.i.i, label %129
+  %.not.i.i.i17 = icmp eq ptr %128, null
+  br i1 %.not.i.i.i17, label %_ZN4llvm10TimeRegionC2EPNS_5TimerE.exit.i.i, label %129
 
 129:                                              ; preds = %121
   call void @_ZN4llvm5Timer10startTimerEv(ptr noundef nonnull align 8 dereferenceable(176) %128) #19
@@ -1336,7 +1335,7 @@ _ZN4llvm10TimeRegionC2EPNS_5TimerE.exit.i.i:      ; preds = %129, %121
 
 146:                                              ; preds = %142, %135, %130
   %147 = phi i1 [ %140, %135 ], [ %140, %142 ], [ %134, %130 ]
-  br i1 %.not.i.i.i18, label %_ZN4llvm10TimeRegionD2Ev.exit.i.i, label %148
+  br i1 %.not.i.i.i17, label %_ZN4llvm10TimeRegionD2Ev.exit.i.i, label %148
 
 148:                                              ; preds = %146
   call void @_ZN4llvm5Timer9stopTimerEv(ptr noundef nonnull align 8 dereferenceable(176) %128) #19
@@ -1354,9 +1353,9 @@ _ZN4llvm10TimeRegionD2Ev.exit.i.i:                ; preds = %148, %146
 
 .lr.ph.preheader.i.i.i:                           ; preds = %151
   %153 = zext i32 %152 to i64
-  br label %.lr.ph.i.i.i19
+  br label %.lr.ph.i.i.i18
 
-.lr.ph.i.i.i19:                                   ; preds = %160, %.lr.ph.preheader.i.i.i
+.lr.ph.i.i.i18:                                   ; preds = %160, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %160 ]
   %154 = load ptr, ptr %3, align 8
   %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv.i.i.i
@@ -1367,16 +1366,16 @@ _ZN4llvm10TimeRegionD2Ev.exit.i.i:                ; preds = %148, %146
     i64 -8, label %160
   ]
 
-157:                                              ; preds = %.lr.ph.i.i.i19
+157:                                              ; preds = %.lr.ph.i.i.i18
   %158 = load i64, ptr %156, align 8
   %159 = add i64 %158, 17
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %156, i64 noundef %159, i64 noundef 8) #19
   br label %160
 
-160:                                              ; preds = %157, %.lr.ph.i.i.i19, %.lr.ph.i.i.i19
+160:                                              ; preds = %157, %.lr.ph.i.i.i18, %.lr.ph.i.i.i18
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %.not.i53.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %153
-  br i1 %.not.i53.i.i, label %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i, label %.lr.ph.i.i.i19, !llvm.loop !22
+  br i1 %.not.i53.i.i, label %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i, label %.lr.ph.i.i.i18, !llvm.loop !22
 
 161:                                              ; preds = %110
   %162 = load ptr, ptr %54, align 8
@@ -1444,8 +1443,8 @@ _ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCE
   br i1 %147, label %181, label %.critedge.i
 
 181:                                              ; preds = %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread.i
-  %.3 = phi i1 [ %.4, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i ], [ %.038, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread.i ]
-  %.238.i = phi i8 [ %.1.i17, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i ], [ 0, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread.i ]
+  %.3 = phi i1 [ %.4, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i ], [ %.037, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread.i ]
+  %.238.i = phi i8 [ 1, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i ], [ 0, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread.i ]
   call void @_ZN4llvm13PMDataManager12dumpPassInfoEPNS_4PassENS_19PassDebuggingStringES3_NS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(380) %62, ptr noundef nonnull %105, i32 noundef 1, i32 noundef 7, ptr nonnull @.str.9, i64 0) #19
   call void @_ZNK4llvm13PMDataManager16dumpPreservedSetEPKNS_4PassE(ptr noundef nonnull align 8 dereferenceable(380) %62, ptr noundef nonnull %105) #19
   call void @_ZN4llvm13PMDataManager23verifyPreservedAnalysisEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(380) %62, ptr noundef nonnull %105) #19
@@ -1453,15 +1452,15 @@ _ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCE
   br label %183
 
 .critedge.i:                                      ; preds = %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread40.i
-  %.139 = phi i1 [ %.4, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i ], [ %.038, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread40.i ]
+  %.138 = phi i1 [ %.4, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i ], [ %.037, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread40.i ]
   %182 = phi i1 [ %180, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i ], [ %.047.i, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread40.i ]
-  %.243.i = phi i8 [ %.1.i17, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i ], [ %.03445.i, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread40.i ]
+  %.243.i = phi i8 [ 1, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.i ], [ %.03445.i, %_ZN12_GLOBAL__N_113CGPassManager12RunPassOnSCCEPN4llvm4PassERNS1_12CallGraphSCCERNS1_9CallGraphERbS8_.exit.thread40.i ]
   call void @_ZNK4llvm13PMDataManager16dumpPreservedSetEPKNS_4PassE(ptr noundef nonnull align 8 dereferenceable(380) %62, ptr noundef nonnull %105) #19
   call void @_ZN4llvm13PMDataManager23verifyPreservedAnalysisEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(380) %62, ptr noundef nonnull %105) #19
   br label %183
 
 183:                                              ; preds = %.critedge.i, %181
-  %.2 = phi i1 [ %.3, %181 ], [ %.139, %.critedge.i ]
+  %.2 = phi i1 [ %.3, %181 ], [ %.138, %.critedge.i ]
   %184 = phi i1 [ true, %181 ], [ %182, %.critedge.i ]
   %.237.i = phi i8 [ %.238.i, %181 ], [ %.243.i, %.critedge.i ]
   call void @_ZN4llvm13PMDataManager23recordAvailableAnalysisEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(380) %62, ptr noundef nonnull %105) #19
@@ -1502,23 +1501,23 @@ _ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9
   %.011.in.lcssa = phi i1 [ %.0.lcssa.i, %_ZN12_GLOBAL__N_113CGPassManager16doInitializationERN4llvm9CallGraphE.exit ], [ %194, %.loopexit ]
   %198 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #19
   %199 = and i64 %198, 4294967295
-  %.not16.i20 = icmp eq i64 %199, 0
-  br i1 %.not16.i20, label %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit, label %.lr.ph.i21
+  %.not16.i19 = icmp eq i64 %199, 0
+  br i1 %.not16.i19, label %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit, label %.lr.ph.i20
 
-.lr.ph.i21:                                       ; preds = %._crit_edge, %220
-  %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i28, %220 ], [ 0, %._crit_edge ]
-  %.018.i23 = phi i1 [ %.1.i27, %220 ], [ false, %._crit_edge ]
-  %.val15.i24 = load ptr, ptr %25, align 8
-  %200 = getelementptr inbounds nuw ptr, ptr %.val15.i24, i64 %indvars.iv.i22
+.lr.ph.i20:                                       ; preds = %._crit_edge, %220
+  %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i27, %220 ], [ 0, %._crit_edge ]
+  %.018.i22 = phi i1 [ %.1.i26, %220 ], [ false, %._crit_edge ]
+  %.val15.i23 = load ptr, ptr %25, align 8
+  %200 = getelementptr inbounds nuw ptr, ptr %.val15.i23, i64 %indvars.iv.i21
   %201 = load ptr, ptr %200, align 8
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 112
   %204 = load ptr, ptr %203, align 8
   %205 = call noundef ptr %204(ptr noundef nonnull align 8 dereferenceable(28) %201) #19
-  %.not14.i25 = icmp eq ptr %205, null
-  br i1 %.not14.i25, label %213, label %206
+  %.not14.i24 = icmp eq ptr %205, null
+  br i1 %.not14.i24, label %213, label %206
 
-206:                                              ; preds = %.lr.ph.i21
+206:                                              ; preds = %.lr.ph.i20
   %207 = getelementptr inbounds i8, ptr %205, i64 -32
   %208 = load ptr, ptr %24, align 8
   %209 = load ptr, ptr %207, align 8
@@ -1527,9 +1526,9 @@ _ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9
   %212 = call noundef zeroext i1 %211(ptr noundef nonnull align 8 dereferenceable(412) %207, ptr noundef nonnull align 8 dereferenceable(857) %208) #19
   br label %220
 
-213:                                              ; preds = %.lr.ph.i21
-  %.val.i32 = load ptr, ptr %25, align 8
-  %214 = getelementptr inbounds nuw ptr, ptr %.val.i32, i64 %indvars.iv.i22
+213:                                              ; preds = %.lr.ph.i20
+  %.val.i31 = load ptr, ptr %25, align 8
+  %214 = getelementptr inbounds nuw ptr, ptr %.val.i31, i64 %indvars.iv.i21
   %215 = load ptr, ptr %214, align 8
   %216 = load ptr, ptr %215, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 152
@@ -1538,14 +1537,14 @@ _ZN12_GLOBAL__N_113CGPassManager17RunAllPassesOnSCCERN4llvm12CallGraphSCCERNS1_9
   br label %220
 
 220:                                              ; preds = %213, %206
-  %.pn.i26 = phi i1 [ %212, %206 ], [ %219, %213 ]
-  %.1.i27 = or i1 %.018.i23, %.pn.i26
-  %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i22, 1
-  %.not.i29 = icmp eq i64 %indvars.iv.next.i28, %199
-  br i1 %.not.i29, label %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit, label %.lr.ph.i21, !llvm.loop !26
+  %.pn.i25 = phi i1 [ %212, %206 ], [ %219, %213 ]
+  %.1.i26 = or i1 %.018.i22, %.pn.i25
+  %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i21, 1
+  %.not.i28 = icmp eq i64 %indvars.iv.next.i27, %199
+  br i1 %.not.i28, label %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit, label %.lr.ph.i20, !llvm.loop !26
 
 _ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit: ; preds = %220, %._crit_edge
-  %.0.lcssa.i31 = phi i1 [ false, %._crit_edge ], [ %.1.i27, %220 ]
+  %.0.lcssa.i30 = phi i1 [ false, %._crit_edge ], [ %.1.i26, %220 ]
   %221 = load ptr, ptr %54, align 8
   %.not.i.i.i.i = icmp eq ptr %221, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm12CallGraphSCCD2Ev.exit, label %222
@@ -1562,8 +1561,8 @@ _ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit: ; pred
 _ZN4llvm12CallGraphSCCD2Ev.exit:                  ; preds = %_ZN12_GLOBAL__N_113CGPassManager14doFinalizationERN4llvm9CallGraphE.exit, %222
   %228 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %229 = load ptr, ptr %228, align 8
-  %.not.i.i.i.i33 = icmp eq ptr %229, null
-  br i1 %.not.i.i.i.i33, label %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i, label %230
+  %.not.i.i.i.i32 = icmp eq ptr %229, null
+  br i1 %.not.i.i.i.i32, label %_ZNSt6vectorIN4llvm12scc_iteratorIPNS0_9CallGraphENS0_11GraphTraitsIS3_EEE12StackElementESaIS7_EED2Ev.exit.i, label %230
 
 230:                                              ; preds = %_ZN4llvm12CallGraphSCCD2Ev.exit
   %231 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -1603,7 +1602,7 @@ _ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i: ; preds = %237, %_ZNSt6
   br label %_ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit
 
 _ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds = %_ZNSt6vectorIPN4llvm13CallGraphNodeESaIS2_EED2Ev.exit.i, %244
-  %250 = or i1 %.011.in.lcssa, %.0.lcssa.i31
+  %250 = or i1 %.011.in.lcssa, %.0.lcssa.i30
   %251 = load ptr, ptr %51, align 8
   %252 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %253 = load i32, ptr %252, align 8
@@ -4613,7 +4612,6 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %19
   br label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit27
 
 _ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit27: ; preds = %43, %45
-  %.2 = phi i8 [ %.050, %43 ], [ 1, %45 ]
   %50 = load ptr, ptr %30, align 8
   tail call void @_ZNK4llvm8Function5printERNS_11raw_ostreamEPNS_24AssemblyAnnotationWriterEbb(ptr noundef nonnull align 8 dereferenceable(136) %35, ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #19
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit31
@@ -4634,7 +4632,6 @@ _ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_cl
   br label %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit28
 
 _ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit28: ; preds = %53, %55
-  %.3 = phi i8 [ %.050, %53 ], [ 1, %55 ]
   %60 = load ptr, ptr %30, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
@@ -4658,7 +4655,7 @@ _ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_cl
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit31
 
 _ZN4llvm11raw_ostreamlsEPKc.exit31:               ; preds = %71, %69, %38, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit27, %36, %51
-  %.146 = phi i8 [ %.050, %51 ], [ %.050, %36 ], [ %.050, %38 ], [ %.2, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit27 ], [ %.3, %69 ], [ %.3, %71 ]
+  %.146 = phi i8 [ %.050, %51 ], [ %.050, %36 ], [ %.050, %38 ], [ 1, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit27 ], [ 1, %69 ], [ 1, %71 ]
   %.1 = phi i1 [ %.01552, %51 ], [ %.01552, %36 ], [ %.015.mux, %38 ], [ true, %_ZZN12_GLOBAL__N_118PrintCallGraphPass8runOnSCCERN4llvm12CallGraphSCCEENKUlvE_clEv.exit27 ], [ %.01552, %69 ], [ %.01552, %71 ]
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.037.051, i64 8
   %.not47 = icmp eq ptr %74, %29

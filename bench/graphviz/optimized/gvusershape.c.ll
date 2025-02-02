@@ -1843,8 +1843,8 @@ strview_str.exit102:                              ; preds = %272
   br label %293
 
 293:                                              ; preds = %svg_units_convert.exit91, %292, %268, %svg_units_convert.exit
-  %.340 = phi i8 [ %.138215, %svg_units_convert.exit ], [ %.441, %svg_units_convert.exit91 ], [ %.138215, %292 ], [ %.138215, %268 ]
-  %.436 = phi i8 [ %.335, %svg_units_convert.exit ], [ %.133216, %svg_units_convert.exit91 ], [ %.133216, %292 ], [ %.133216, %268 ]
+  %.340 = phi i8 [ 0, %svg_units_convert.exit ], [ %.441, %svg_units_convert.exit91 ], [ %.138215, %292 ], [ %.138215, %268 ]
+  %.436 = phi i8 [ %.335, %svg_units_convert.exit ], [ 0, %svg_units_convert.exit91 ], [ %.133216, %292 ], [ %.133216, %268 ]
   %.327 = phi i32 [ %.125218, %svg_units_convert.exit ], [ %.428, %svg_units_convert.exit91 ], [ %.125218, %292 ], [ %.125218, %268 ]
   %.4 = phi i32 [ %.3, %svg_units_convert.exit ], [ %.1219, %svg_units_convert.exit91 ], [ %.1219, %292 ], [ %.1219, %268 ]
   %294 = load i8, ptr %122, align 1
@@ -1852,8 +1852,8 @@ strview_str.exit102:                              ; preds = %272
   br i1 %.not57.i, label %find_attribute.exit.thread, label %.lr.ph.i.preheader
 
 find_attribute.exit.thread:                       ; preds = %svg_units_convert.exit, %svg_units_convert.exit91, %293, %.loopexit54.i, %111, %agxbuse.exit, %281
-  %.239 = phi i8 [ 1, %281 ], [ %.037232, %agxbuse.exit ], [ %.138215, %111 ], [ %.138215, %.loopexit54.i ], [ %.138215, %svg_units_convert.exit ], [ %.441, %svg_units_convert.exit91 ], [ %.340, %293 ]
-  %.234 = phi i8 [ 1, %281 ], [ %.032233, %agxbuse.exit ], [ %.133216, %111 ], [ %.133216, %.loopexit54.i ], [ %.335, %svg_units_convert.exit ], [ %.133216, %svg_units_convert.exit91 ], [ %.436, %293 ]
+  %.239 = phi i8 [ 1, %281 ], [ %.037232, %agxbuse.exit ], [ %.138215, %111 ], [ %.138215, %.loopexit54.i ], [ 1, %svg_units_convert.exit ], [ %.441, %svg_units_convert.exit91 ], [ %.340, %293 ]
+  %.234 = phi i8 [ 1, %281 ], [ %.032233, %agxbuse.exit ], [ %.133216, %111 ], [ %.133216, %.loopexit54.i ], [ %.335, %svg_units_convert.exit ], [ 1, %svg_units_convert.exit91 ], [ %.436, %293 ]
   %.226 = phi i32 [ %291, %281 ], [ %.024235, %agxbuse.exit ], [ %.125218, %111 ], [ %.125218, %.loopexit54.i ], [ %.125218, %svg_units_convert.exit ], [ %.428, %svg_units_convert.exit91 ], [ %.327, %293 ]
   %.2 = phi i32 [ %286, %281 ], [ %.0236, %agxbuse.exit ], [ %.1219, %111 ], [ %.1219, %.loopexit54.i ], [ %.3, %svg_units_convert.exit ], [ %.1219, %svg_units_convert.exit91 ], [ %.4, %293 ]
   %295 = trunc nuw i8 %.234 to i1

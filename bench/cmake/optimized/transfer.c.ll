@@ -659,7 +659,7 @@ select_bits_paused.exit.thread:                   ; preds = %12, %._crit_edge
   br label %54
 
 54:                                               ; preds = %51, %.critedge111.i
-  %.156.i = phi i8 [ %.055.i, %.critedge111.i ], [ %53, %51 ]
+  %.156.i = phi i8 [ 1, %.critedge111.i ], [ %53, %51 ]
   %55 = load ptr, ptr %45, align 8
   %56 = load i32, ptr %46, align 4
   %57 = zext i32 %56 to i64

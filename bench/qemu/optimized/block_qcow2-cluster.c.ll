@@ -928,7 +928,7 @@ if.end15.i:                                       ; preds = %if.then12.i
   %53 = add nsw i32 %call.i.i, -3
   %or.cond.i = icmp ult i32 %53, 2
   %cmp18.i = icmp eq i32 %call.i.i, 1
-  %narrow.i = or i1 %cmp18.i, %or.cond.i
+  %frombool.i = or i1 %cmp18.i, %or.cond.i
   br label %if.end32.i
 
 if.else19.i:                                      ; preds = %if.end10.i
@@ -949,7 +949,7 @@ if.then23.i:                                      ; preds = %if.else22.i
 if.end32.i:                                       ; preds = %if.then23.i, %if.else22.i, %if.end15.i
   %expected_offset.1.i = phi i64 [ %and.i131, %if.end15.i ], [ %add24.i, %if.then23.i ], [ %expected_offset.037.i, %if.else22.i ]
   %expected_type.1.i = phi i32 [ %call.i.i, %if.end15.i ], [ %expected_type.038.i, %if.then23.i ], [ %expected_type.038.i, %if.else22.i ]
-  %check_offset.1.i = phi i1 [ %narrow.i, %if.end15.i ], [ true, %if.then23.i ], [ false, %if.else22.i ]
+  %check_offset.1.i = phi i1 [ %frombool.i, %if.end15.i ], [ true, %if.then23.i ], [ false, %if.else22.i ]
   %add33.i = add i32 %retval.0.i30.i, %count.040.i
   %55 = load i32, ptr %subclusters_per_cluster.i, align 4
   %cmp35.i = icmp uge i32 %.pn.i, %55
@@ -5378,7 +5378,7 @@ if.else40:                                        ; preds = %get_l2_bitmap.exit
 
 if.end42:                                         ; preds = %qcow2_get_subcluster_range_type.exit, %if.else40
   %type.0 = phi i32 [ %call.i, %qcow2_get_subcluster_range_type.exit ], [ %call41, %if.else40 ]
-  %skip_cow.1 = phi i8 [ %spec.select, %qcow2_get_subcluster_range_type.exit ], [ %skip_cow.0213, %if.else40 ]
+  %skip_cow.1 = phi i8 [ %spec.select, %qcow2_get_subcluster_range_type.exit ], [ 0, %if.else40 ]
   %cmp43 = icmp eq i32 %type.0, 6
   br i1 %cmp43, label %if.then45, label %for.cond
 

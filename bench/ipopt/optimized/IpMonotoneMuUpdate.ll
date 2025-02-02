@@ -1744,7 +1744,7 @@ _ZN5Ipopt16MonotoneMuUpdate15CalcNewMuAndTauERdS1_.exit: ; preds = %71, %76
   br label %.thread53
 
 .thread53:                                        ; preds = %135, %146, %148
-  %.12862 = phi i8 [ %.128, %146 ], [ %.128, %148 ], [ 1, %135 ]
+  %.12862 = phi i8 [ %.128, %146 ], [ 1, %148 ], [ 1, %135 ]
   %.13061 = phi double [ %.130, %146 ], [ %.130, %148 ], [ %.02967, %135 ]
   %.13260 = phi double [ %.132, %146 ], [ %.132, %148 ], [ %.03166, %135 ]
   %153 = fcmp ugt double %.13260, %.13061

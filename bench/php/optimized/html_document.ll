@@ -1375,7 +1375,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr noundef readonly cap
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %23 = icmp ne ptr %22, null
   call void @llvm.assume(i1 %23)
-  br label %213
+  br label %211
 
 24:                                               ; preds = %2
   %25 = load ptr, ptr %3, align 8
@@ -1388,7 +1388,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr noundef readonly cap
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
   call void @llvm.assume(i1 %29)
-  br label %213
+  br label %211
 
 30:                                               ; preds = %24
   %31 = load i64, ptr %7, align 8
@@ -1401,7 +1401,7 @@ define hidden void @zim_DOM_HTMLDocument_createFromFile(ptr noundef readonly cap
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
   call void @llvm.assume(i1 %35)
-  br label %213
+  br label %211
 
 36:                                               ; preds = %30
   store ptr %25, ptr %8, align 8
@@ -1474,7 +1474,7 @@ lxb_encoding_data_by_name.exit.thread:            ; preds = %63, %60, %lxb_encod
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
   %69 = icmp ne ptr %68, null
   call void @llvm.assume(i1 %69)
-  br label %213
+  br label %211
 
 dom_setup_parser_encoding_manually.exit:          ; preds = %lxb_encoding_data_by_name.exit
   store ptr %67, ptr %51, align 8
@@ -1504,7 +1504,6 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %lxb_encoding_data_b
   br label %82
 
 82:                                               ; preds = %dom_setup_parser_encoding_manually.exit, %48
-  %.0 = phi i8 [ 0, %dom_setup_parser_encoding_manually.exit ], [ 1, %48 ]
   %83 = load ptr, ptr %3, align 8
   %84 = call ptr @php_libxml_get_stream_context() #11
   %85 = call ptr @_php_stream_open_wrapper_ex(ptr noundef %83, ptr noundef nonnull @.str.9, i32 noundef 8, ptr noundef null, ptr noundef %84) #11
@@ -1526,266 +1525,263 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %lxb_encoding_data_b
 92:                                               ; preds = %86, %88
   %93 = phi i1 [ true, %86 ], [ %91, %88 ]
   call void @llvm.assume(i1 %93)
-  br label %213
+  br label %211
 
 94:                                               ; preds = %82
-  %95 = trunc nuw i8 %.0 to i1
-  br i1 %95, label %96, label %129
+  br i1 %.not69, label %95, label %128
 
-96:                                               ; preds = %94
-  %97 = call ptr @php_libxml_sniff_charset_from_stream(ptr noundef nonnull %85) #11
-  %.not73 = icmp eq ptr %97, null
-  br i1 %.not73, label %129, label %98
+95:                                               ; preds = %94
+  %96 = call ptr @php_libxml_sniff_charset_from_stream(ptr noundef nonnull %85) #11
+  %.not73 = icmp eq ptr %96, null
+  br i1 %.not73, label %128, label %97
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %100 = load i64, ptr %99, align 8
-  %101 = icmp eq i64 %100, 0
-  br i1 %101, label %lxb_encoding_data_by_name.exit86.thread, label %102
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %99 = load i64, ptr %98, align 8
+  %100 = icmp eq i64 %99, 0
+  br i1 %100, label %lxb_encoding_data_by_name.exit86.thread, label %101
 
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %104 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef nonnull %103, i64 noundef %100) #11
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %lxb_encoding_data_by_name.exit86.thread, label %lxb_encoding_data_by_name.exit86
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  %103 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef nonnull %102, i64 noundef %99) #11
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %lxb_encoding_data_by_name.exit86.thread, label %lxb_encoding_data_by_name.exit86
 
-lxb_encoding_data_by_name.exit86:                 ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %.not74 = icmp eq ptr %107, null
+lxb_encoding_data_by_name.exit86:                 ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %.not74 = icmp eq ptr %106, null
   br i1 %.not74, label %lxb_encoding_data_by_name.exit86.thread, label %dom_setup_parser_encoding_manually.exit93
 
 dom_setup_parser_encoding_manually.exit93:        ; preds = %lxb_encoding_data_by_name.exit86
-  store ptr %107, ptr %51, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %11, i64 4256
-  %109 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %110 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %110, i8 0, i64 56, i1 false)
-  %111 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr %108, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i64 4096, ptr %112, align 8
-  store ptr %107, ptr %109, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %113, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  store i64 1, ptr %114, align 8
-  %115 = load ptr, ptr %50, align 8
-  %116 = icmp eq ptr %107, %115
-  %117 = zext i1 %116 to i8
-  store i8 %117, ptr %11, align 8
-  %spec.select.i88 = select i1 %116, ptr null, ptr %108
-  %spec.select18.i89 = select i1 %116, ptr %10, ptr null
-  %118 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %spec.select.i88, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %spec.select18.i89, ptr %119, align 8
+  store ptr %106, ptr %51, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %11, i64 4256
+  %108 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %109, i8 0, i64 56, i1 false)
+  %110 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr %107, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store i64 4096, ptr %111, align 8
+  store ptr %106, ptr %108, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %11, i64 104
+  store i64 1, ptr %113, align 8
+  %114 = load ptr, ptr %50, align 8
+  %115 = icmp eq ptr %106, %114
+  %116 = zext i1 %115 to i8
+  store i8 %116, ptr %11, align 8
+  %spec.select.i88 = select i1 %115, ptr null, ptr %107
+  %spec.select18.i89 = select i1 %115, ptr %10, ptr null
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %spec.select.i88, ptr %117, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %spec.select18.i89, ptr %118, align 8
   br label %lxb_encoding_data_by_name.exit86.thread
 
-lxb_encoding_data_by_name.exit86.thread:          ; preds = %102, %98, %dom_setup_parser_encoding_manually.exit93, %lxb_encoding_data_by_name.exit86
-  %.2 = phi i8 [ 0, %dom_setup_parser_encoding_manually.exit93 ], [ %.0, %lxb_encoding_data_by_name.exit86 ], [ %.0, %98 ], [ %.0, %102 ]
-  %120 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %121 = load i32, ptr %120, align 4
-  %122 = and i32 %121, 64
-  %.not75 = icmp eq i32 %122, 0
-  br i1 %.not75, label %123, label %129
+lxb_encoding_data_by_name.exit86.thread:          ; preds = %101, %97, %dom_setup_parser_encoding_manually.exit93, %lxb_encoding_data_by_name.exit86
+  %.2 = phi i1 [ false, %dom_setup_parser_encoding_manually.exit93 ], [ true, %lxb_encoding_data_by_name.exit86 ], [ true, %97 ], [ true, %101 ]
+  %119 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %120 = load i32, ptr %119, align 4
+  %121 = and i32 %120, 64
+  %.not75 = icmp eq i32 %121, 0
+  br i1 %.not75, label %122, label %128
 
-123:                                              ; preds = %lxb_encoding_data_by_name.exit86.thread
-  %124 = load i32, ptr %97, align 4
-  %125 = icmp ne i32 %124, 0
-  call void @llvm.assume(i1 %125)
-  %126 = add i32 %124, -1
-  store i32 %126, ptr %97, align 4
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %128, label %129
+122:                                              ; preds = %lxb_encoding_data_by_name.exit86.thread
+  %123 = load i32, ptr %96, align 4
+  %124 = icmp ne i32 %123, 0
+  call void @llvm.assume(i1 %124)
+  %125 = add i32 %123, -1
+  store i32 %125, ptr %96, align 4
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %128
 
-128:                                              ; preds = %123
-  call void @_efree(ptr noundef nonnull %97) #11
-  br label %129
+127:                                              ; preds = %122
+  call void @_efree(ptr noundef nonnull %96) #11
+  br label %128
 
-129:                                              ; preds = %96, %123, %128, %lxb_encoding_data_by_name.exit86.thread, %94
-  %.1 = phi i8 [ %.2, %lxb_encoding_data_by_name.exit86.thread ], [ %.2, %128 ], [ %.2, %123 ], [ %.0, %96 ], [ %.0, %94 ]
-  %130 = call ptr @lxb_html_document_create() #11
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %.loopexit, label %132
+128:                                              ; preds = %95, %122, %127, %lxb_encoding_data_by_name.exit86.thread, %94
+  %.1 = phi i1 [ %.2, %lxb_encoding_data_by_name.exit86.thread ], [ %.2, %127 ], [ %.2, %122 ], [ true, %95 ], [ false, %94 ]
+  %129 = call ptr @lxb_html_document_create() #11
+  %130 = icmp eq ptr %129, null
+  br i1 %130, label %.loopexit, label %131
 
-132:                                              ; preds = %129
-  %133 = call i32 @lxb_html_document_parse_chunk_begin(ptr noundef nonnull %130) #11
-  %.not76 = icmp eq i32 %133, 0
-  br i1 %.not76, label %134, label %.loopexit
+131:                                              ; preds = %128
+  %132 = call i32 @lxb_html_document_parse_chunk_begin(ptr noundef nonnull %129) #11
+  %.not76 = icmp eq i32 %132, 0
+  br i1 %.not76, label %133, label %.loopexit
 
-134:                                              ; preds = %132
+133:                                              ; preds = %131
   store i64 0, ptr %12, align 8
   store i64 0, ptr %13, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %130, i64 232
-  %136 = load ptr, ptr %135, align 8
-  br label %137
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 232
+  %135 = load ptr, ptr %134, align 8
+  br label %136
 
-137:                                              ; preds = %143, %134
-  %.3 = phi i8 [ %.1, %134 ], [ %.4, %143 ]
-  %138 = call i64 @_php_stream_read(ptr noundef nonnull %85, ptr noundef nonnull %10, i64 noundef 4096) #11
-  store i64 %138, ptr %14, align 8
-  %139 = icmp sgt i64 %138, 0
-  br i1 %139, label %140, label %148
+136:                                              ; preds = %141, %133
+  %.3 = phi i1 [ %.1, %133 ], [ false, %141 ]
+  %137 = call i64 @_php_stream_read(ptr noundef nonnull %85, ptr noundef nonnull %10, i64 noundef 4096) #11
+  store i64 %137, ptr %14, align 8
+  %138 = icmp sgt i64 %137, 0
+  br i1 %138, label %139, label %146
 
-140:                                              ; preds = %137
+139:                                              ; preds = %136
   store ptr %10, ptr %15, align 8
-  %141 = trunc nuw i8 %.3 to i1
-  br i1 %141, label %142, label %143
+  br i1 %.3, label %140, label %141
 
-142:                                              ; preds = %140
+140:                                              ; preds = %139
   call fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef %15, ptr noundef %14, ptr noundef %11, ptr noundef %8)
   %.pre = load ptr, ptr %15, align 8
   %.pre101 = load i64, ptr %14, align 8
-  br label %143
+  br label %141
 
-143:                                              ; preds = %142, %140
-  %144 = phi i64 [ %.pre101, %142 ], [ %138, %140 ]
-  %145 = phi ptr [ %.pre, %142 ], [ %10, %140 ]
-  %.4 = phi i8 [ 0, %142 ], [ %.3, %140 ]
-  %146 = getelementptr inbounds i8, ptr %145, i64 %144
-  %147 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef %9, ptr noundef %130, ptr noundef %136, ptr noundef %15, ptr noundef %146, ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  br i1 %147, label %137, label %.loopexit
+141:                                              ; preds = %140, %139
+  %142 = phi i64 [ %.pre101, %140 ], [ %137, %139 ]
+  %143 = phi ptr [ %.pre, %140 ], [ %10, %139 ]
+  %144 = getelementptr inbounds i8, ptr %143, i64 %142
+  %145 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef %9, ptr noundef %129, ptr noundef %135, ptr noundef %15, ptr noundef %144, ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  br i1 %145, label %136, label %.loopexit
 
-148:                                              ; preds = %137
-  %149 = call fastcc zeroext i1 @dom_parse_decode_encode_finish(ptr noundef %9, ptr noundef %130, ptr noundef %136, ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  br i1 %149, label %150, label %.loopexit
+146:                                              ; preds = %136
+  %147 = call fastcc zeroext i1 @dom_parse_decode_encode_finish(ptr noundef %9, ptr noundef %129, ptr noundef %135, ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  br i1 %147, label %148, label %.loopexit
+
+148:                                              ; preds = %146
+  %149 = call i32 @lxb_html_document_parse_chunk_end(ptr noundef nonnull %129) #11
+  %.not77 = icmp eq i32 %149, 0
+  br i1 %.not77, label %150, label %.loopexit
 
 150:                                              ; preds = %148
-  %151 = call i32 @lxb_html_document_parse_chunk_end(ptr noundef nonnull %130) #11
-  %.not77 = icmp eq i32 %151, 0
-  br i1 %.not77, label %152, label %.loopexit
-
-152:                                              ; preds = %150
-  %153 = load i64, ptr %7, align 8
-  %154 = and i64 %153, 65536
-  %155 = icmp ne i64 %154, 0
-  %156 = and i64 %153, 2147483648
-  %.not78 = icmp eq i64 %156, 0
-  %157 = call i32 @lexbor_libxml2_bridge_convert_document(ptr noundef nonnull %130, ptr noundef nonnull %16, i1 noundef zeroext %155, i1 noundef zeroext %.not78) #11
-  %158 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @lexbor_libxml2_bridge_copy_observations(ptr noundef %159, ptr noundef nonnull %160) #11
-  switch i32 %157, label %164 [
-    i32 0, label %169
+  %151 = load i64, ptr %7, align 8
+  %152 = and i64 %151, 65536
+  %153 = icmp ne i64 %152, 0
+  %154 = and i64 %151, 2147483648
+  %.not78 = icmp eq i64 %154, 0
+  %155 = call i32 @lexbor_libxml2_bridge_convert_document(ptr noundef nonnull %129, ptr noundef nonnull %16, i1 noundef zeroext %153, i1 noundef zeroext %.not78) #11
+  %156 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  call void @lexbor_libxml2_bridge_copy_observations(ptr noundef %157, ptr noundef nonnull %158) #11
+  switch i32 %155, label %162 [
+    i32 0, label %167
     i32 1, label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
-    i32 2, label %161
-    i32 3, label %162
-    i32 4, label %163
+    i32 2, label %159
+    i32 3, label %160
+    i32 4, label %161
   ]
 
-161:                                              ; preds = %152
+159:                                              ; preds = %150
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
-162:                                              ; preds = %152
+160:                                              ; preds = %150
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
-163:                                              ; preds = %152
+161:                                              ; preds = %150
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
-164:                                              ; preds = %152
+162:                                              ; preds = %150
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
-dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %152, %161, %162, %163, %164
-  %.0.i94 = phi ptr [ @.str.70, %164 ], [ @.str.113, %163 ], [ @.str.112, %162 ], [ @.str.111, %161 ], [ @.str.110, %152 ]
-  %165 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i94, ptr noundef %165) #11
-  %166 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %130) #11
-  %167 = call i32 @_php_stream_free(ptr noundef nonnull %85, i32 noundef 3) #11
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %168, align 8
-  br label %213
+dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %150, %159, %160, %161, %162
+  %.0.i94 = phi ptr [ @.str.70, %162 ], [ @.str.113, %161 ], [ @.str.112, %160 ], [ @.str.111, %159 ], [ @.str.110, %150 ]
+  %163 = load ptr, ptr %3, align 8
+  call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i94, ptr noundef %163) #11
+  %164 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %129) #11
+  %165 = call i32 @_php_stream_free(ptr noundef nonnull %85, i32 noundef 3) #11
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %166, align 8
+  br label %211
 
-169:                                              ; preds = %152
-  %170 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %130) #11
-  %171 = load ptr, ptr %16, align 8
-  %172 = load i64, ptr %7, align 8
-  call fastcc void @dom_post_process_html5_loading(ptr noundef %171, i64 noundef %172, ptr noundef %160)
-  %173 = load ptr, ptr %51, align 8
-  %.not80 = icmp eq ptr %173, null
-  br i1 %.not80, label %177, label %174
+167:                                              ; preds = %150
+  %168 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %129) #11
+  %169 = load ptr, ptr %16, align 8
+  %170 = load i64, ptr %7, align 8
+  call fastcc void @dom_post_process_html5_loading(ptr noundef %169, i64 noundef %170, ptr noundef %158)
+  %171 = load ptr, ptr %51, align 8
+  %.not80 = icmp eq ptr %171, null
+  br i1 %.not80, label %175, label %172
 
-174:                                              ; preds = %169
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 40
-  %176 = load ptr, ptr %175, align 8
-  br label %177
+172:                                              ; preds = %167
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 40
+  %174 = load ptr, ptr %173, align 8
+  br label %175
 
-177:                                              ; preds = %169, %174
-  %.str.sink = phi ptr [ %176, %174 ], [ @.str, %169 ]
-  %178 = call ptr @xmlStrdup(ptr noundef %.str.sink) #11
-  %179 = load ptr, ptr %16, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 112
-  store ptr %178, ptr %180, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %85, i64 64
-  %182 = load ptr, ptr %181, align 8
-  %183 = icmp eq ptr %182, @php_plain_files_wrapper
-  %184 = load ptr, ptr %3, align 8
-  br i1 %183, label %185, label %196
+175:                                              ; preds = %167, %172
+  %.str.sink = phi ptr [ %174, %172 ], [ @.str, %167 ]
+  %176 = call ptr @xmlStrdup(ptr noundef %.str.sink) #11
+  %177 = load ptr, ptr %16, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 112
+  store ptr %176, ptr %178, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %85, i64 64
+  %180 = load ptr, ptr %179, align 8
+  %181 = icmp eq ptr %180, @php_plain_files_wrapper
+  %182 = load ptr, ptr %3, align 8
+  br i1 %181, label %183, label %194
 
-185:                                              ; preds = %177
-  %186 = call ptr @xmlPathToURI(ptr noundef %184) #11
-  %.not81 = icmp eq ptr %186, null
-  br i1 %.not81, label %.loopexit, label %187
+183:                                              ; preds = %175
+  %184 = call ptr @xmlPathToURI(ptr noundef %182) #11
+  %.not81 = icmp eq ptr %184, null
+  br i1 %.not81, label %.loopexit, label %185
+
+185:                                              ; preds = %183
+  %186 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull dereferenceable(7) @.str.11, i64 noundef 6) #12
+  %.not82 = icmp eq i32 %186, 0
+  br i1 %.not82, label %196, label %187
 
 187:                                              ; preds = %185
-  %188 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %186, ptr noundef nonnull dereferenceable(7) @.str.11, i64 noundef 6) #12
-  %.not82 = icmp eq i32 %188, 0
-  br i1 %.not82, label %198, label %189
+  %188 = call ptr @xmlStrdup(ptr noundef nonnull @.str.12) #11
+  %.not83 = icmp eq ptr %188, null
+  br i1 %.not83, label %.loopexit.sink.split, label %189
 
 189:                                              ; preds = %187
-  %190 = call ptr @xmlStrdup(ptr noundef nonnull @.str.12) #11
-  %.not83 = icmp eq ptr %190, null
-  br i1 %.not83, label %.loopexit.sink.split, label %191
+  %190 = call ptr @xmlStrcat(ptr noundef nonnull %188, ptr noundef nonnull %184) #11
+  %.not84 = icmp eq ptr %190, null
+  %191 = load ptr, ptr @xmlFree, align 8
+  br i1 %.not84, label %192, label %193
 
-191:                                              ; preds = %189
-  %192 = call ptr @xmlStrcat(ptr noundef nonnull %190, ptr noundef nonnull %186) #11
-  %.not84 = icmp eq ptr %192, null
-  %193 = load ptr, ptr @xmlFree, align 8
-  br i1 %.not84, label %194, label %195
-
-194:                                              ; preds = %191
-  call void %193(ptr noundef nonnull %190) #11
+192:                                              ; preds = %189
+  call void %191(ptr noundef nonnull %188) #11
   br label %.loopexit.sink.split
 
-195:                                              ; preds = %191
-  call void %193(ptr noundef nonnull %186) #11
-  br label %198
+193:                                              ; preds = %189
+  call void %191(ptr noundef nonnull %184) #11
+  br label %196
 
-196:                                              ; preds = %177
-  %197 = call ptr @xmlStrdup(ptr noundef %184) #11
-  br label %198
+194:                                              ; preds = %175
+  %195 = call ptr @xmlStrdup(ptr noundef %182) #11
+  br label %196
 
-198:                                              ; preds = %187, %195, %196
-  %.sink = phi ptr [ %192, %195 ], [ %197, %196 ], [ %186, %187 ]
-  %199 = load ptr, ptr %16, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 136
-  store ptr %.sink, ptr %200, align 8
-  %201 = call i32 @_php_stream_free(ptr noundef nonnull %85, i32 noundef 3) #11
-  %202 = load ptr, ptr @dom_html_document_class_entry, align 8
-  %203 = load ptr, ptr %16, align 8
-  %204 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %202, ptr noundef %203, ptr noundef null) #11
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 28
-  store i8 1, ptr %207, align 4
-  br label %213
+196:                                              ; preds = %185, %193, %194
+  %.sink = phi ptr [ %190, %193 ], [ %195, %194 ], [ %184, %185 ]
+  %197 = load ptr, ptr %16, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 136
+  store ptr %.sink, ptr %198, align 8
+  %199 = call i32 @_php_stream_free(ptr noundef nonnull %85, i32 noundef 3) #11
+  %200 = load ptr, ptr @dom_html_document_class_entry, align 8
+  %201 = load ptr, ptr %16, align 8
+  %202 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %200, ptr noundef %201, ptr noundef null) #11
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 28
+  store i8 1, ptr %205, align 4
+  br label %211
 
-.loopexit.sink.split:                             ; preds = %189, %194
-  %208 = load ptr, ptr @xmlFree, align 8
-  call void %208(ptr noundef nonnull %186) #11
+.loopexit.sink.split:                             ; preds = %187, %192
+  %206 = load ptr, ptr @xmlFree, align 8
+  call void %206(ptr noundef nonnull %184) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %143, %.loopexit.sink.split, %185, %150, %148, %132, %129
+.loopexit:                                        ; preds = %141, %.loopexit.sink.split, %183, %148, %146, %131, %128
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #11
-  %209 = call ptr @lxb_html_document_destroy(ptr noundef %130) #11
-  %210 = call i32 @_php_stream_free(ptr noundef nonnull %85, i32 noundef 3) #11
-  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
-  %212 = icmp ne ptr %211, null
-  call void @llvm.assume(i1 %212)
-  br label %213
+  %207 = call ptr @lxb_html_document_destroy(ptr noundef %129) #11
+  %208 = call i32 @_php_stream_free(ptr noundef nonnull %85, i32 noundef 3) #11
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8
+  %210 = icmp ne ptr %209, null
+  call void @llvm.assume(i1 %210)
+  br label %211
 
-213:                                              ; preds = %.loopexit, %198, %dom_lexbor_libxml2_bridge_status_code_to_string.exit, %92, %lxb_encoding_data_by_name.exit.thread, %33, %27, %21
+211:                                              ; preds = %.loopexit, %196, %dom_lexbor_libxml2_bridge_status_code_to_string.exit, %92, %lxb_encoding_data_by_name.exit.thread, %33, %27, %21
   ret void
 }
 

@@ -983,7 +983,7 @@ define dso_local void @appendPGArray(ptr noundef %0, ptr noundef %1) local_unnam
   %18 = getelementptr i8, ptr %.066, i64 1
   br label %.preheader, !llvm.loop !19
 
-.thread73:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %13, %10
+.thread73:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %10, %13
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 34) #11
   br label %19
 
@@ -1273,7 +1273,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   %.0107136 = phi i8 [ %.2109, %.loopexit ], [ 0, %13 ]
   %16 = sext i8 %15 to i32
   %17 = icmp eq i8 %15, 34
-  %18 = trunc i8 %.0107136 to i1
+  %18 = trunc nuw i8 %.0107136 to i1
   br i1 %17, label %19, label %31
 
 19:                                               ; preds = %.lr.ph141
@@ -1299,7 +1299,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   br label %29
 
 29:                                               ; preds = %24, %26, %27
-  %.1108 = phi i8 [ %28, %27 ], [ %.0107136, %26 ], [ %.0107136, %24 ]
+  %.1108 = phi i8 [ %28, %27 ], [ 1, %26 ], [ 1, %24 ]
   %.1101 = phi ptr [ %.0100138, %27 ], [ %21, %26 ], [ %21, %24 ]
   %30 = getelementptr i8, ptr %.1101, i64 1
   br label %.loopexit
@@ -1459,7 +1459,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   br i1 %.not124, label %.loopexit, label %.lr.ph.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %80, %44, %55, %71, %61, %64, %50, %29
-  %.2109 = phi i8 [ %.1108, %29 ], [ %.0107136, %50 ], [ %.0107136, %55 ], [ %.0107136, %61 ], [ %.0107136, %64 ], [ %.0107136, %71 ], [ %.0107136, %44 ], [ %.0107136, %80 ], [ %.0107136, %.lr.ph.split.us ], [ %.0107136, %.lr.ph.split ]
+  %.2109 = phi i8 [ %.1108, %29 ], [ 0, %50 ], [ 0, %55 ], [ 0, %61 ], [ 0, %64 ], [ %.0107136, %71 ], [ 0, %44 ], [ %.0107136, %80 ], [ %.0107136, %.lr.ph.split.us ], [ %.0107136, %.lr.ph.split ]
   %.2106 = phi i8 [ %.1105137, %29 ], [ %.1105137, %50 ], [ %.1105137, %55 ], [ 0, %61 ], [ 0, %64 ], [ %.1105137, %71 ], [ %.1105137, %44 ], [ %.1105137, %80 ], [ %.1105137, %.lr.ph.split.us ], [ %.1105137, %.lr.ph.split ]
   %.2102 = phi ptr [ %30, %29 ], [ %51, %50 ], [ %56, %55 ], [ %63, %61 ], [ %65, %64 ], [ %72, %71 ], [ %45, %44 ], [ %.0100138, %80 ], [ %86, %.lr.ph.split.us ], [ %90, %.lr.ph.split ]
   %.1 = phi ptr [ %.0139, %29 ], [ %.0139, %50 ], [ %.0139, %55 ], [ %62, %61 ], [ %.0139, %64 ], [ %.0139, %71 ], [ %.0139, %44 ], [ %.0139, %80 ], [ %.0139, %.lr.ph.split.us ], [ %.0139, %.lr.ph.split ]

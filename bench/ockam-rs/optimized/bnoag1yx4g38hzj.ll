@@ -14238,8 +14238,6 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load i32, ptr %24, align 4, !alias.scope !1835, !noalias !1836
   %trunc.i.i.i.i.i = trunc i16 %.fr.i to i1
-  %26 = icmp eq i16 %.fr.i, 0
-  %27 = icmp ne i16 %.fr.i, 0
   br i1 %trunc.i.i.i.i.i, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i.preheader", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i.preheader"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i.preheader": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.lr.ph.i.i"
@@ -14251,16 +14249,16 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i.preheader", %.noexc
-  %28 = phi ptr [ %29, %.noexc ], [ %.sroa.0.0.copyload.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i.preheader" ]
+  %26 = phi ptr [ %27, %.noexc ], [ %.sroa.0.0.copyload.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i.preheader" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1838)
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  store ptr %29, ptr %10, align 8, !alias.scope !1841, !noalias !1842
-  %.sroa.0.0.copyload14.i.us.i = load i16, ptr %28, align 8, !noalias !1844
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
+  store ptr %27, ptr %10, align 8, !alias.scope !1841, !noalias !1842
+  %.sroa.0.0.copyload14.i.us.i = load i16, ptr %26, align 8, !noalias !1844
   %.not.i.us.i = icmp eq i16 %.sroa.0.0.copyload14.i.us.i, 2
-  br i1 %.not.i.us.i, label %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", label %30
+  br i1 %.not.i.us.i, label %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", label %28
 
-30:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i"
-  %.sroa.9.0..sroa_idx15.i.us.i = getelementptr inbounds nuw i8, ptr %28, i64 2
+28:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i"
+  %.sroa.9.0..sroa_idx15.i.us.i = getelementptr inbounds nuw i8, ptr %26, i64 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4), !noalias !1845
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.4.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.9.0..sroa_idx15.i.us.i, i64 126, i1 false), !noalias !1845
   store i16 %.sroa.0.0.copyload14.i.us.i, ptr %4, align 8, !noalias !1845
@@ -14269,50 +14267,49 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %.sroa.4.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.9.0..sroa_idx15.i.us.i, i64 18, i1 false), !noalias !1845
   %.sroa.8.0.copyload.i.i.i.us.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i.i, align 8, !alias.scope !1852, !noalias !1856
-  %31 = icmp eq i16 %.sroa.0.0.copyload14.i.us.i, %.fr.i
-  br i1 %31, label %32, label %.thread.i.i.us.i
+  %29 = icmp eq i16 %.sroa.0.0.copyload14.i.us.i, %.fr.i
+  br i1 %29, label %30, label %.thread.i.i.us.i
 
-32:                                               ; preds = %30
+30:                                               ; preds = %28
   %.sroa.9.0.copyload.i.i.i.us.i = load i16, ptr %.sroa.9.0..sroa_idx.i.i.i.i, align 4, !alias.scope !1852, !noalias !1856
   %.sroa.7.0.copyload.i.i.i.us.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i.i.i, align 4, !alias.scope !1852, !noalias !1856
-  call void @llvm.assume(i1 %27)
   %.sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.2..sroa.4.i.i.2..sroa.4.i.2..sroa.4.i.2..sroa.4.2..sroa.4.2..sroa.4.4..i.i.i.us.i = load i128, ptr %.sroa.4.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx, align 2, !alias.scope !1858, !noalias !1863
-  %33 = icmp eq i128 %.sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.2..sroa.4.i.i.2..sroa.4.i.2..sroa.4.i.2..sroa.4.2..sroa.4.2..sroa.4.4..i.i.i.us.i, %19
-  %34 = icmp eq i16 %.sroa.9.0.copyload.i.i.i.us.i, %21
-  %or.cond.i.us.i = select i1 %33, i1 %34, i1 false
-  %35 = icmp eq i32 %.sroa.7.0.copyload.i.i.i.us.i, %23
-  %or.cond12.i.us.i = select i1 %or.cond.i.us.i, i1 %35, i1 false
-  br i1 %or.cond12.i.us.i, label %36, label %.thread.i.i.us.i
+  %31 = icmp eq i128 %.sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.2..sroa.4.i.i.2..sroa.4.i.2..sroa.4.i.2..sroa.4.2..sroa.4.2..sroa.4.4..i.i.i.us.i, %19
+  %32 = icmp eq i16 %.sroa.9.0.copyload.i.i.i.us.i, %21
+  %or.cond.i.us.i = select i1 %31, i1 %32, i1 false
+  %33 = icmp eq i32 %.sroa.7.0.copyload.i.i.i.us.i, %23
+  %or.cond12.i.us.i = select i1 %or.cond.i.us.i, i1 %33, i1 false
+  br i1 %or.cond12.i.us.i, label %34, label %.thread.i.i.us.i
 
-.thread.i.i.us.i:                                 ; preds = %32, %30
+.thread.i.i.us.i:                                 ; preds = %30, %28
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
-  br label %38
+  br label %36
 
-36:                                               ; preds = %32
-  %37 = icmp eq i32 %.sroa.8.0.copyload.i.i.i.us.i, %25
+34:                                               ; preds = %30
+  %35 = icmp eq i32 %.sroa.8.0.copyload.i.i.i.us.i, %25
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
-  br i1 %37, label %.split.us.i, label %38
+  br i1 %35, label %.split.us.i, label %36
 
-38:                                               ; preds = %36, %.thread.i.i.us.i
+36:                                               ; preds = %34, %.thread.i.i.us.i
   invoke void @"_ZN4core3ptr73drop_in_place$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$17hde4e7e855f960f1cE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %4)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %38
+.noexc:                                           ; preds = %36
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4), !noalias !1845
-  %39 = icmp eq ptr %29, %8
-  br i1 %39, label %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i"
+  %37 = icmp eq ptr %27, %8
+  br i1 %37, label %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i.preheader", %.noexc1
-  %40 = phi ptr [ %41, %.noexc1 ], [ %.sroa.0.0.copyload.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i.preheader" ]
+  %38 = phi ptr [ %39, %.noexc1 ], [ %.sroa.0.0.copyload.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i.preheader" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1838)
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 128
-  store ptr %41, ptr %10, align 8, !alias.scope !1841, !noalias !1842
-  %.sroa.0.0.copyload14.i.i = load i16, ptr %40, align 8, !noalias !1844
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 128
+  store ptr %39, ptr %10, align 8, !alias.scope !1841, !noalias !1842
+  %.sroa.0.0.copyload14.i.i = load i16, ptr %38, align 8, !noalias !1844
   %.not.i.i = icmp eq i16 %.sroa.0.0.copyload14.i.i, 2
-  br i1 %.not.i.i, label %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", label %42
+  br i1 %.not.i.i, label %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", label %40
 
-42:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i"
-  %.sroa.9.0..sroa_idx15.i.i = getelementptr inbounds nuw i8, ptr %40, i64 2
+40:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i"
+  %.sroa.9.0..sroa_idx15.i.i = getelementptr inbounds nuw i8, ptr %38, i64 2
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4), !noalias !1845
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.4.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.9.0..sroa_idx15.i.i, i64 126, i1 false), !noalias !1845
   store i16 %.sroa.0.0.copyload14.i.i, ptr %4, align 8, !noalias !1845
@@ -14320,76 +14317,73 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   call void @llvm.experimental.noalias.scope.decl(metadata !1849)
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %.sroa.4.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.9.0..sroa_idx15.i.i, i64 18, i1 false), !noalias !1845
-  %43 = icmp eq i16 %.sroa.0.0.copyload14.i.i, %.fr.i
-  br i1 %43, label %44, label %.thread.i.i.i
+  %41 = icmp eq i16 %.sroa.0.0.copyload14.i.i, %.fr.i
+  %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.2..i.i.i.i = load i32, ptr %.sroa.4.i.i.i.i, align 4, !noalias !1866
+  %42 = icmp eq i32 %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.2..i.i.i.i, %15
+  %or.cond.i = select i1 %41, i1 %42, i1 false
+  br i1 %or.cond.i, label %43, label %.thread.i.i.i
 
-44:                                               ; preds = %42
-  call void @llvm.assume(i1 %26)
-  %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.2..i.i.i.i = load i32, ptr %.sroa.4.i.i.i.i, align 4, !alias.scope !1866, !noalias !1867
-  %45 = icmp eq i32 %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.2..i.i.i.i, %15
-  br i1 %45, label %46, label %.thread.i.i.i
-
-46:                                               ; preds = %44
-  %.sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.4.6..i.i.i.i = load i16, ptr %.sroa.4.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4, !alias.scope !1866, !noalias !1867
-  %47 = icmp eq i16 %.sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.4.6..i.i.i.i, %17
+43:                                               ; preds = %40
+  %.sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.4.6..i.i.i.i = load i16, ptr %.sroa.4.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4, !alias.scope !1867, !noalias !1868
+  %44 = icmp eq i16 %.sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.4.6..i.i.i.i, %17
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
-  br i1 %47, label %.split.us.i, label %48
+  br i1 %44, label %.split.us.i, label %45
 
-.thread.i.i.i:                                    ; preds = %44, %42
+.thread.i.i.i:                                    ; preds = %40
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
-  br label %48
+  br label %45
 
-48:                                               ; preds = %.thread.i.i.i, %46
+45:                                               ; preds = %.thread.i.i.i, %43
   invoke void @"_ZN4core3ptr73drop_in_place$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$17hde4e7e855f960f1cE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %4)
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %48
+.noexc1:                                          ; preds = %45
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4), !noalias !1845
-  %49 = icmp eq ptr %41, %8
-  br i1 %49, label %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i"
+  %46 = icmp eq ptr %39, %8
+  br i1 %46, label %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i"
 
-.split.us.i:                                      ; preds = %46, %36
+.split.us.i:                                      ; preds = %43, %34
   call void @llvm.lifetime.start.p0(i64 126, ptr nonnull %.sroa.54.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.54.i, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.4.0..sroa_idx.i.i.i.i, i64 126, i1 false), !noalias !1868
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.54.i, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.4.0..sroa_idx.i.i.i.i, i64 126, i1 false), !noalias !1866
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4), !noalias !1845
   store i16 %.fr.i, ptr %0, align 8, !alias.scope !1822, !noalias !1869
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.54.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.54.i, i64 126, i1 false), !noalias !1869
-  br label %51
+  br label %48
 
 "_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i": ; preds = %.noexc1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i", %.noexc, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.us.i", %3
   call void @llvm.lifetime.start.p0(i64 126, ptr nonnull %.sroa.54.i)
   store i16 2, ptr %0, align 8, !alias.scope !1822, !noalias !1869
-  br label %51
+  br label %48
 
-.loopexit:                                        ; preds = %38
+.loopexit:                                        ; preds = %36
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %47
 
-.loopexit.split-lp:                               ; preds = %48
+.loopexit.split-lp:                               ; preds = %45
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %47
 
-50:                                               ; preds = %.loopexit.split-lp, %.loopexit
+47:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr112drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17hee5ca82412dfa6c6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #19
-          to label %54 unwind label %52
+          to label %51 unwind label %49
 
-51:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", %.split.us.i
+48:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", %.split.us.i
   call void @llvm.lifetime.end.p0(i64 126, ptr nonnull %.sroa.54.i)
   call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43289a7351e4dab8E.llvm.12836552674783018658"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #20
   unreachable
 
-54:                                               ; preds = %50
+51:                                               ; preds = %47
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -14880,8 +14874,6 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load i32, ptr %24, align 4, !alias.scope !2012, !noalias !2013
   %trunc.i.i.i.i.i = trunc i16 %.fr.i to i1
-  %26 = icmp eq i16 %.fr.i, 0
-  %27 = icmp ne i16 %.fr.i, 0
   br i1 %trunc.i.i.i.i.i, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i.preheader", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i.preheader"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i.preheader": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.lr.ph.i.i"
@@ -14893,16 +14885,16 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i.preheader", %.noexc
-  %28 = phi ptr [ %29, %.noexc ], [ %.sroa.0.0.copyload.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i.preheader" ]
+  %26 = phi ptr [ %27, %.noexc ], [ %.sroa.0.0.copyload.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i.preheader" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2015)
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 88
-  store ptr %29, ptr %10, align 8, !alias.scope !2018, !noalias !2019
-  %.sroa.0.0.copyload14.i.us.i = load i16, ptr %28, align 8, !noalias !2021
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 88
+  store ptr %27, ptr %10, align 8, !alias.scope !2018, !noalias !2019
+  %.sroa.0.0.copyload14.i.us.i = load i16, ptr %26, align 8, !noalias !2021
   %.not.i.us.i = icmp eq i16 %.sroa.0.0.copyload14.i.us.i, 2
-  br i1 %.not.i.us.i, label %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", label %30
+  br i1 %.not.i.us.i, label %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", label %28
 
-30:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i"
-  %.sroa.9.0..sroa_idx15.i.us.i = getelementptr inbounds nuw i8, ptr %28, i64 2
+28:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i"
+  %.sroa.9.0..sroa_idx15.i.us.i = getelementptr inbounds nuw i8, ptr %26, i64 2
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4), !noalias !2022
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(86) %.sroa.4.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(86) %.sroa.9.0..sroa_idx15.i.us.i, i64 86, i1 false), !noalias !2022
   store i16 %.sroa.0.0.copyload14.i.us.i, ptr %4, align 8, !noalias !2022
@@ -14911,50 +14903,49 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %.sroa.4.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.9.0..sroa_idx15.i.us.i, i64 18, i1 false), !noalias !2022
   %.sroa.8.0.copyload.i.i.i.us.i = load i32, ptr %.sroa.8.0..sroa_idx.i.i.i.i, align 8, !alias.scope !2029, !noalias !2033
-  %31 = icmp eq i16 %.sroa.0.0.copyload14.i.us.i, %.fr.i
-  br i1 %31, label %32, label %.thread.i.i.us.i
+  %29 = icmp eq i16 %.sroa.0.0.copyload14.i.us.i, %.fr.i
+  br i1 %29, label %30, label %.thread.i.i.us.i
 
-32:                                               ; preds = %30
+30:                                               ; preds = %28
   %.sroa.9.0.copyload.i.i.i.us.i = load i16, ptr %.sroa.9.0..sroa_idx.i.i.i.i, align 4, !alias.scope !2029, !noalias !2033
   %.sroa.7.0.copyload.i.i.i.us.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i.i.i, align 4, !alias.scope !2029, !noalias !2033
-  call void @llvm.assume(i1 %27)
   %.sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.2..sroa.4.i.i.2..sroa.4.i.2..sroa.4.i.2..sroa.4.2..sroa.4.2..sroa.4.4..i.i.i.us.i = load i128, ptr %.sroa.4.i.i.i.i.2.i.i.i.i.2.i.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx, align 2, !alias.scope !2035, !noalias !2040
-  %33 = icmp eq i128 %.sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.2..sroa.4.i.i.2..sroa.4.i.2..sroa.4.i.2..sroa.4.2..sroa.4.2..sroa.4.4..i.i.i.us.i, %19
-  %34 = icmp eq i16 %.sroa.9.0.copyload.i.i.i.us.i, %21
-  %or.cond.i.us.i = select i1 %33, i1 %34, i1 false
-  %35 = icmp eq i32 %.sroa.7.0.copyload.i.i.i.us.i, %23
-  %or.cond12.i.us.i = select i1 %or.cond.i.us.i, i1 %35, i1 false
-  br i1 %or.cond12.i.us.i, label %36, label %.thread.i.i.us.i
+  %31 = icmp eq i128 %.sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.i.2..sroa.4.i.i.2..sroa.4.i.i.2..sroa.4.i.2..sroa.4.i.2..sroa.4.2..sroa.4.2..sroa.4.4..i.i.i.us.i, %19
+  %32 = icmp eq i16 %.sroa.9.0.copyload.i.i.i.us.i, %21
+  %or.cond.i.us.i = select i1 %31, i1 %32, i1 false
+  %33 = icmp eq i32 %.sroa.7.0.copyload.i.i.i.us.i, %23
+  %or.cond12.i.us.i = select i1 %or.cond.i.us.i, i1 %33, i1 false
+  br i1 %or.cond12.i.us.i, label %34, label %.thread.i.i.us.i
 
-.thread.i.i.us.i:                                 ; preds = %32, %30
+.thread.i.i.us.i:                                 ; preds = %30, %28
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
-  br label %38
+  br label %36
 
-36:                                               ; preds = %32
-  %37 = icmp eq i32 %.sroa.8.0.copyload.i.i.i.us.i, %25
+34:                                               ; preds = %30
+  %35 = icmp eq i32 %.sroa.8.0.copyload.i.i.i.us.i, %25
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
-  br i1 %37, label %.split.us.i, label %38
+  br i1 %35, label %.split.us.i, label %36
 
-38:                                               ; preds = %36, %.thread.i.i.us.i
+36:                                               ; preds = %34, %.thread.i.i.us.i
   invoke void @"_ZN4core3ptr75drop_in_place$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$17he16431c5c85bd865E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %38
+.noexc:                                           ; preds = %36
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !2022
-  %39 = icmp eq ptr %29, %8
-  br i1 %39, label %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i"
+  %37 = icmp eq ptr %27, %8
+  br i1 %37, label %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i.preheader", %.noexc1
-  %40 = phi ptr [ %41, %.noexc1 ], [ %.sroa.0.0.copyload.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i.preheader" ]
+  %38 = phi ptr [ %39, %.noexc1 ], [ %.sroa.0.0.copyload.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i.preheader" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2015)
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 88
-  store ptr %41, ptr %10, align 8, !alias.scope !2018, !noalias !2019
-  %.sroa.0.0.copyload14.i.i = load i16, ptr %40, align 8, !noalias !2021
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 88
+  store ptr %39, ptr %10, align 8, !alias.scope !2018, !noalias !2019
+  %.sroa.0.0.copyload14.i.i = load i16, ptr %38, align 8, !noalias !2021
   %.not.i.i = icmp eq i16 %.sroa.0.0.copyload14.i.i, 2
-  br i1 %.not.i.i, label %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", label %42
+  br i1 %.not.i.i, label %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", label %40
 
-42:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i"
-  %.sroa.9.0..sroa_idx15.i.i = getelementptr inbounds nuw i8, ptr %40, i64 2
+40:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i"
+  %.sroa.9.0..sroa_idx15.i.i = getelementptr inbounds nuw i8, ptr %38, i64 2
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4), !noalias !2022
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(86) %.sroa.4.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(86) %.sroa.9.0..sroa_idx15.i.i, i64 86, i1 false), !noalias !2022
   store i16 %.sroa.0.0.copyload14.i.i, ptr %4, align 8, !noalias !2022
@@ -14962,76 +14953,73 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   call void @llvm.experimental.noalias.scope.decl(metadata !2026)
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %.sroa.4.i.i.i.i, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.9.0..sroa_idx15.i.i, i64 18, i1 false), !noalias !2022
-  %43 = icmp eq i16 %.sroa.0.0.copyload14.i.i, %.fr.i
-  br i1 %43, label %44, label %.thread.i.i.i
+  %41 = icmp eq i16 %.sroa.0.0.copyload14.i.i, %.fr.i
+  %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.2..i.i.i.i = load i32, ptr %.sroa.4.i.i.i.i, align 4, !noalias !2043
+  %42 = icmp eq i32 %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.2..i.i.i.i, %15
+  %or.cond.i = select i1 %41, i1 %42, i1 false
+  br i1 %or.cond.i, label %43, label %.thread.i.i.i
 
-44:                                               ; preds = %42
-  call void @llvm.assume(i1 %26)
-  %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.2..i.i.i.i = load i32, ptr %.sroa.4.i.i.i.i, align 4, !alias.scope !2043, !noalias !2044
-  %45 = icmp eq i32 %.sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.2..i.i.i.i, %15
-  br i1 %45, label %46, label %.thread.i.i.i
-
-46:                                               ; preds = %44
-  %.sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.4.6..i.i.i.i = load i16, ptr %.sroa.4.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4, !alias.scope !2043, !noalias !2044
-  %47 = icmp eq i16 %.sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.4.6..i.i.i.i, %17
+43:                                               ; preds = %40
+  %.sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.4.6..i.i.i.i = load i16, ptr %.sroa.4.i.i.i.i.4.i.i.i.i.4.i.i.i.i.4.i.i.i.4.i.i.i.4.i.i.4.i.i.4.i.4.i.4..sroa_idx, align 4, !alias.scope !2044, !noalias !2045
+  %44 = icmp eq i16 %.sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.i.4..sroa.4.i.i.4..sroa.4.i.i.4..sroa.4.i.4..sroa.4.i.4..sroa.4.4..sroa.4.4..sroa.4.6..i.i.i.i, %17
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
-  br i1 %47, label %.split.us.i, label %48
+  br i1 %44, label %.split.us.i, label %45
 
-.thread.i.i.i:                                    ; preds = %44, %42
+.thread.i.i.i:                                    ; preds = %40
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.4.i.i.i.i)
-  br label %48
+  br label %45
 
-48:                                               ; preds = %.thread.i.i.i, %46
+45:                                               ; preds = %.thread.i.i.i, %43
   invoke void @"_ZN4core3ptr75drop_in_place$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$17he16431c5c85bd865E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %4)
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %48
+.noexc1:                                          ; preds = %45
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !2022
-  %49 = icmp eq ptr %41, %8
-  br i1 %49, label %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i"
+  %46 = icmp eq ptr %39, %8
+  br i1 %46, label %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i"
 
-.split.us.i:                                      ; preds = %46, %36
+.split.us.i:                                      ; preds = %43, %34
   call void @llvm.lifetime.start.p0(i64 86, ptr nonnull %.sroa.54.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(86) %.sroa.54.i, ptr noundef nonnull align 2 dereferenceable(86) %.sroa.4.0..sroa_idx.i.i.i.i, i64 86, i1 false), !noalias !2045
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(86) %.sroa.54.i, ptr noundef nonnull align 2 dereferenceable(86) %.sroa.4.0..sroa_idx.i.i.i.i, i64 86, i1 false), !noalias !2043
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !2022
   store i16 %.fr.i, ptr %0, align 8, !alias.scope !2000, !noalias !2046
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(86) %.sroa.54.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(86) %.sroa.54.i, i64 86, i1 false), !noalias !2046
-  br label %51
+  br label %48
 
 "_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i": ; preds = %.noexc1, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i", %.noexc, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.us.i", %3
   call void @llvm.lifetime.start.p0(i64 86, ptr nonnull %.sroa.54.i)
   store i16 2, ptr %0, align 8, !alias.scope !2000, !noalias !2046
-  br label %51
+  br label %48
 
-.loopexit:                                        ; preds = %38
+.loopexit:                                        ; preds = %36
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %47
 
-.loopexit.split-lp:                               ; preds = %48
+.loopexit.split-lp:                               ; preds = %45
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %47
 
-50:                                               ; preds = %.loopexit.split-lp, %.loopexit
+47:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr114drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h09550eacdbb48f3dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #19
-          to label %54 unwind label %52
+          to label %51 unwind label %49
 
-51:                                               ; preds = %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", %.split.us.i
+48:                                               ; preds = %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", %.split.us.i
   call void @llvm.lifetime.end.p0(i64 86, ptr nonnull %.sroa.54.i)
   call void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbd61f78e5aa309a7E.llvm.12836552674783018658"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #20
   unreachable
 
-54:                                               ; preds = %50
+51:                                               ; preds = %47
   resume { ptr, i32 } %lpad.phi
 }
 
@@ -19703,9 +19691,9 @@ attributes #22 = { noreturn }
 !1863 = !{!1864, !1865, !1850, !1857, !1847, !1837, !1830, !1833, !1823, !1826, !1828}
 !1864 = distinct !{!1864, !1860, !"_ZN77_$LT$core..net..socket_addr..SocketAddrV6$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cb5ac8c5e2972e7E: argument 1"}
 !1865 = distinct !{!1865, !1862, !"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h100f087ffd326363E: argument 1"}
-!1866 = !{!1861}
-!1867 = !{!1865, !1850, !1857, !1847, !1837, !1830, !1833, !1823, !1826, !1828}
-!1868 = !{!1823, !1826, !1828}
+!1866 = !{!1823, !1826, !1828}
+!1867 = !{!1861}
+!1868 = !{!1865, !1850, !1857, !1847, !1837, !1830, !1833, !1823, !1826, !1828}
 !1869 = !{!1826, !1828}
 !1870 = !{!1871, !1873, !1875, !1877}
 !1871 = distinct !{!1871, !1872, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f182fe4ed70968fE.llvm.12836552674783018658: argument 0"}
@@ -19880,9 +19868,9 @@ attributes #22 = { noreturn }
 !2040 = !{!2041, !2042, !2027, !2034, !2024, !2014, !2008, !2011, !2001, !2004, !2006}
 !2041 = distinct !{!2041, !2037, !"_ZN77_$LT$core..net..socket_addr..SocketAddrV6$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6cb5ac8c5e2972e7E: argument 1"}
 !2042 = distinct !{!2042, !2039, !"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h100f087ffd326363E: argument 1"}
-!2043 = !{!2038}
-!2044 = !{!2042, !2027, !2034, !2024, !2014, !2008, !2011, !2001, !2004, !2006}
-!2045 = !{!2001, !2004, !2006}
+!2043 = !{!2001, !2004, !2006}
+!2044 = !{!2038}
+!2045 = !{!2042, !2027, !2034, !2024, !2014, !2008, !2011, !2001, !2004, !2006}
 !2046 = !{!2004, !2006}
 !2047 = !{!2048, !2050, !2052, !2054}
 !2048 = distinct !{!2048, !2049, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f182fe4ed70968fE.llvm.12836552674783018658: argument 0"}

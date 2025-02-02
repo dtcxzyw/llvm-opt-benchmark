@@ -395,8 +395,8 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   %12 = phi ptr [ %10, %8 ], [ null, %5 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
-  %.not120159 = icmp eq ptr %14, null
-  br i1 %.not120159, label %.thread.thread, label %.lr.ph
+  %.not120165 = icmp eq ptr %14, null
+  br i1 %.not120165, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -404,406 +404,403 @@ define dso_local void @add_path(ptr noundef captures(none) %0, ptr noundef %1) l
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  br label %20
+  br label %21
 
-20:                                               ; preds = %226, %.lr.ph
-  %.0163 = phi i8 [ 1, %.lr.ph ], [ %.2152, %226 ]
-  %.0101162 = phi i32 [ 0, %.lr.ph ], [ %.2103, %226 ]
-  %.sroa.5.0161 = phi i32 [ 0, %.lr.ph ], [ %228, %226 ]
-  %.sroa.0.0160 = phi ptr [ %14, %.lr.ph ], [ %.sroa.0.1, %226 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0160, i64 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp slt i32 %.sroa.5.0161, %22
-  br i1 %23, label %24, label %.thread
+.thread:                                          ; preds = %216, %compare_path_costs_fuzzily.exit.thread155, %225, %227
+  %.2103177 = phi i32 [ %.0101168, %227 ], [ %226, %225 ], [ %.0101168, %compare_path_costs_fuzzily.exit.thread155 ], [ %.0101168, %216 ]
+  %.sroa.5.1176 = phi i32 [ %.sroa.5.0167, %227 ], [ %.sroa.5.0167, %225 ], [ %212, %compare_path_costs_fuzzily.exit.thread155 ], [ %212, %216 ]
+  %.sroa.0.1175 = phi ptr [ %.sroa.0.0166, %227 ], [ %.sroa.0.0166, %225 ], [ %213, %compare_path_costs_fuzzily.exit.thread155 ], [ %213, %216 ]
+  %20 = add i32 %.sroa.5.1176, 1
+  %.not120 = icmp eq ptr %.sroa.0.1175, null
+  br i1 %.not120, label %._crit_edge.loopexit, label %21, !llvm.loop !7
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0160, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = sext i32 %.sroa.5.0161 to i64
-  %28 = getelementptr %union.ListCell, ptr %26, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  %30 = load double, ptr %15, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %32 = load double, ptr %31, align 8
-  %33 = fmul double %32, 1.010000e+00
-  %34 = fcmp ogt double %30, %33
-  br i1 %34, label %35, label %53
+21:                                               ; preds = %.lr.ph, %.thread
+  %.0101168 = phi i32 [ 0, %.lr.ph ], [ %.2103177, %.thread ]
+  %.sroa.5.0167 = phi i32 [ 0, %.lr.ph ], [ %20, %.thread ]
+  %.sroa.0.0166 = phi ptr [ %14, %.lr.ph ], [ %.sroa.0.1175, %.thread ]
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0166, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp slt i32 %.sroa.5.0167, %23
+  br i1 %24, label %25, label %._crit_edge.loopexit
 
-35:                                               ; preds = %24
-  %36 = load ptr, ptr %6, align 8
-  %37 = icmp eq ptr %36, null
-  %38 = load ptr, ptr %17, align 8
-  br i1 %37, label %39, label %43
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0166, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = sext i32 %.sroa.5.0167 to i64
+  %29 = getelementptr %union.ListCell, ptr %27, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  %31 = load double, ptr %15, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %33 = load double, ptr %32, align 8
+  %34 = fmul double %33, 1.010000e+00
+  %35 = fcmp ogt double %31, %34
+  br i1 %35, label %36, label %54
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %41 = load i8, ptr %40, align 8
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %47, label %85
+36:                                               ; preds = %25
+  %37 = load ptr, ptr %6, align 8
+  %38 = icmp eq ptr %37, null
+  %39 = load ptr, ptr %17, align 8
+  br i1 %38, label %40, label %44
 
-43:                                               ; preds = %35
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 25
-  %45 = load i8, ptr %44, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %85
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %42 = load i8, ptr %41, align 8
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %48, label %86
 
-47:                                               ; preds = %43, %39
-  %48 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %49 = load double, ptr %48, align 8
-  %50 = load double, ptr %16, align 8
-  %51 = fmul double %50, 1.010000e+00
-  %52 = fcmp ogt double %49, %51
-  br i1 %52, label %compare_path_costs_fuzzily.exit.thread149, label %85
+44:                                               ; preds = %36
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 25
+  %46 = load i8, ptr %45, align 1
+  %47 = trunc i8 %46 to i1
+  br i1 %47, label %48, label %86
 
-53:                                               ; preds = %24
-  %54 = fmul double %30, 1.010000e+00
-  %55 = fcmp ogt double %32, %54
-  br i1 %55, label %56, label %76
+48:                                               ; preds = %44, %40
+  %49 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %50 = load double, ptr %49, align 8
+  %51 = load double, ptr %16, align 8
+  %52 = fmul double %51, 1.010000e+00
+  %53 = fcmp ogt double %50, %52
+  br i1 %53, label %compare_path_costs_fuzzily.exit.thread149, label %86
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, null
-  %60 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %61 = load ptr, ptr %60, align 8
-  br i1 %59, label %62, label %66
+54:                                               ; preds = %25
+  %55 = fmul double %31, 1.010000e+00
+  %56 = fcmp ogt double %33, %55
+  br i1 %56, label %57, label %77
 
-62:                                               ; preds = %56
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %64 = load i8, ptr %63, align 8
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %70, label %85
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  %61 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %62 = load ptr, ptr %61, align 8
+  br i1 %60, label %63, label %67
 
-66:                                               ; preds = %56
-  %67 = getelementptr inbounds nuw i8, ptr %61, i64 25
-  %68 = load i8, ptr %67, align 1
-  %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %85
+63:                                               ; preds = %57
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %65 = load i8, ptr %64, align 8
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %71, label %86
 
-70:                                               ; preds = %66, %62
-  %71 = load double, ptr %16, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %73 = load double, ptr %72, align 8
-  %74 = fmul double %73, 1.010000e+00
-  %75 = fcmp ogt double %71, %74
-  br i1 %75, label %compare_path_costs_fuzzily.exit.thread149, label %85
+67:                                               ; preds = %57
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 25
+  %69 = load i8, ptr %68, align 1
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %86
 
-76:                                               ; preds = %53
-  %77 = load double, ptr %16, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %79 = load double, ptr %78, align 8
-  %80 = fmul double %79, 1.010000e+00
-  %81 = fcmp ogt double %77, %80
-  br i1 %81, label %85, label %82
+71:                                               ; preds = %67, %63
+  %72 = load double, ptr %16, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %74 = load double, ptr %73, align 8
+  %75 = fmul double %74, 1.010000e+00
+  %76 = fcmp ogt double %72, %75
+  br i1 %76, label %compare_path_costs_fuzzily.exit.thread149, label %86
 
-82:                                               ; preds = %76
-  %83 = fmul double %77, 1.010000e+00
-  %84 = fcmp ogt double %79, %83
-  %..i = zext i1 %84 to i32
-  br label %85
+77:                                               ; preds = %54
+  %78 = load double, ptr %16, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %80 = load double, ptr %79, align 8
+  %81 = fmul double %80, 1.010000e+00
+  %82 = fcmp ogt double %78, %81
+  br i1 %82, label %86, label %83
 
-85:                                               ; preds = %62, %66, %70, %39, %43, %47, %76, %82
-  %.0.i.ph = phi i32 [ %..i, %82 ], [ 2, %76 ], [ 2, %47 ], [ 2, %43 ], [ 2, %39 ], [ 1, %70 ], [ 1, %66 ], [ 1, %62 ]
-  %86 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %87 = load ptr, ptr %86, align 8
-  %.not123 = icmp eq ptr %87, null
-  br i1 %.not123, label %88, label %91
+83:                                               ; preds = %77
+  %84 = fmul double %78, 1.010000e+00
+  %85 = fcmp ogt double %80, %84
+  %..i = zext i1 %85 to i32
+  br label %86
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %90 = load ptr, ptr %89, align 8
-  br label %91
+86:                                               ; preds = %63, %67, %71, %40, %44, %48, %77, %83
+  %.0.i.ph = phi i32 [ %..i, %83 ], [ 2, %77 ], [ 2, %48 ], [ 2, %44 ], [ 2, %40 ], [ 1, %71 ], [ 1, %67 ], [ 1, %63 ]
+  %87 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %88 = load ptr, ptr %87, align 8
+  %.not123 = icmp eq ptr %88, null
+  br i1 %.not123, label %89, label %92
 
-91:                                               ; preds = %85, %88
-  %92 = phi ptr [ %90, %88 ], [ null, %85 ]
-  %93 = tail call i32 @compare_pathkeys(ptr noundef %12, ptr noundef %92) #9
-  %.not124 = icmp eq i32 %93, 3
-  br i1 %.not124, label %compare_path_costs_fuzzily.exit.thread149, label %94
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %30, i64 64
+  %91 = load ptr, ptr %90, align 8
+  br label %92
 
-94:                                               ; preds = %91
+92:                                               ; preds = %86, %89
+  %93 = phi ptr [ %91, %89 ], [ null, %86 ]
+  %94 = tail call i32 @compare_pathkeys(ptr noundef %12, ptr noundef %93) #9
+  %.not124 = icmp eq i32 %94, 3
+  br i1 %.not124, label %compare_path_costs_fuzzily.exit.thread149, label %95
+
+95:                                               ; preds = %92
   switch i32 %.0.i.ph, label %default.unreachable [
-    i32 0, label %95
-    i32 1, label %164
-    i32 2, label %184
+    i32 0, label %96
+    i32 1, label %165
+    i32 2, label %185
   ]
 
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %6, align 8
-  %.not133 = icmp eq ptr %96, null
-  br i1 %.not133, label %100, label %97
+96:                                               ; preds = %95
+  %97 = load ptr, ptr %6, align 8
+  %.not133 = icmp eq ptr %97, null
+  br i1 %.not133, label %101, label %98
 
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %99 = load ptr, ptr %98, align 8
-  br label %100
+98:                                               ; preds = %96
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %100 = load ptr, ptr %99, align 8
+  br label %101
 
-100:                                              ; preds = %95, %97
-  %101 = phi ptr [ %99, %97 ], [ null, %95 ]
-  %102 = load ptr, ptr %86, align 8
-  %.not134 = icmp eq ptr %102, null
-  br i1 %.not134, label %106, label %103
+101:                                              ; preds = %96, %98
+  %102 = phi ptr [ %100, %98 ], [ null, %96 ]
+  %103 = load ptr, ptr %87, align 8
+  %.not134 = icmp eq ptr %103, null
+  br i1 %.not134, label %107, label %104
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %105 = load ptr, ptr %104, align 8
-  br label %106
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %106 = load ptr, ptr %105, align 8
+  br label %107
 
-106:                                              ; preds = %100, %103
-  %107 = phi ptr [ %105, %103 ], [ null, %100 ]
-  %108 = tail call i32 @bms_subset_compare(ptr noundef %101, ptr noundef %107) #9
-  switch i32 %93, label %128 [
-    i32 1, label %109
-    i32 2, label %121
+107:                                              ; preds = %101, %104
+  %108 = phi ptr [ %106, %104 ], [ null, %101 ]
+  %109 = tail call i32 @bms_subset_compare(ptr noundef %102, ptr noundef %108) #9
+  switch i32 %94, label %129 [
+    i32 1, label %110
+    i32 2, label %122
   ]
 
-109:                                              ; preds = %106
-  %or.cond = icmp ult i32 %108, 2
-  br i1 %or.cond, label %110, label %compare_path_costs_fuzzily.exit.thread149
+110:                                              ; preds = %107
+  %or.cond = icmp ult i32 %109, 2
+  br i1 %or.cond, label %111, label %compare_path_costs_fuzzily.exit.thread149
 
-110:                                              ; preds = %109
-  %111 = load double, ptr %18, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %113 = load double, ptr %112, align 8
-  %114 = fcmp ugt double %111, %113
-  br i1 %114, label %compare_path_costs_fuzzily.exit.thread149, label %115
+111:                                              ; preds = %110
+  %112 = load double, ptr %18, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %114 = load double, ptr %113, align 8
+  %115 = fcmp ugt double %112, %114
+  br i1 %115, label %compare_path_costs_fuzzily.exit.thread149, label %116
 
-115:                                              ; preds = %110
-  %116 = load i8, ptr %19, align 1
-  %117 = and i8 %116, 1
-  %118 = getelementptr inbounds nuw i8, ptr %29, i64 33
-  %119 = load i8, ptr %118, align 1
-  %120 = and i8 %119, 1
-  %.not138.not = icmp samesign ult i8 %117, %120
+116:                                              ; preds = %111
+  %117 = load i8, ptr %19, align 1
+  %118 = and i8 %117, 1
+  %119 = getelementptr inbounds nuw i8, ptr %30, i64 33
+  %120 = load i8, ptr %119, align 1
+  %121 = and i8 %120, 1
+  %.not138.not = icmp samesign ult i8 %118, %121
   br i1 %.not138.not, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread155
 
-121:                                              ; preds = %106
-  %122 = and i32 %108, -3
-  %or.cond3 = icmp eq i32 %122, 0
-  br i1 %or.cond3, label %123, label %compare_path_costs_fuzzily.exit.thread149
+122:                                              ; preds = %107
+  %123 = and i32 %109, -3
+  %or.cond3 = icmp eq i32 %123, 0
+  br i1 %or.cond3, label %124, label %compare_path_costs_fuzzily.exit.thread149
 
-123:                                              ; preds = %121
-  %124 = load double, ptr %18, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %126 = load double, ptr %125, align 8
-  %127 = fcmp ult double %124, %126
-  br i1 %127, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread149.sink.split
+124:                                              ; preds = %122
+  %125 = load double, ptr %18, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %127 = load double, ptr %126, align 8
+  %128 = fcmp ult double %125, %127
+  br i1 %128, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread149.sink.split
 
-128:                                              ; preds = %106
-  switch i32 %108, label %compare_path_costs_fuzzily.exit.thread149 [
-    i32 0, label %129
-    i32 1, label %148
-    i32 2, label %159
+129:                                              ; preds = %107
+  switch i32 %109, label %compare_path_costs_fuzzily.exit.thread149 [
+    i32 0, label %130
+    i32 1, label %149
+    i32 2, label %160
   ]
 
-129:                                              ; preds = %128
-  %130 = load i8, ptr %19, align 1
-  %131 = and i8 %130, 1
-  %132 = getelementptr inbounds nuw i8, ptr %29, i64 33
-  %133 = load i8, ptr %132, align 1
-  %134 = and i8 %133, 1
-  %135 = icmp samesign ugt i8 %131, %134
-  br i1 %135, label %compare_path_costs_fuzzily.exit.thread155, label %136
+130:                                              ; preds = %129
+  %131 = load i8, ptr %19, align 1
+  %132 = and i8 %131, 1
+  %133 = getelementptr inbounds nuw i8, ptr %30, i64 33
+  %134 = load i8, ptr %133, align 1
+  %135 = and i8 %134, 1
+  %136 = icmp samesign ugt i8 %132, %135
+  br i1 %136, label %compare_path_costs_fuzzily.exit.thread155, label %137
 
-136:                                              ; preds = %129
-  %137 = icmp samesign ult i8 %131, %134
-  br i1 %137, label %compare_path_costs_fuzzily.exit.thread149, label %138
+137:                                              ; preds = %130
+  %138 = icmp samesign ult i8 %132, %135
+  br i1 %138, label %compare_path_costs_fuzzily.exit.thread149, label %139
 
-138:                                              ; preds = %136
-  %139 = load double, ptr %18, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %141 = load double, ptr %140, align 8
-  %142 = fcmp olt double %139, %141
-  br i1 %142, label %compare_path_costs_fuzzily.exit.thread155, label %143
+139:                                              ; preds = %137
+  %140 = load double, ptr %18, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %142 = load double, ptr %141, align 8
+  %143 = fcmp olt double %140, %142
+  br i1 %143, label %compare_path_costs_fuzzily.exit.thread155, label %144
 
-143:                                              ; preds = %138
-  %144 = fcmp ogt double %139, %141
-  br i1 %144, label %compare_path_costs_fuzzily.exit.thread149, label %145
+144:                                              ; preds = %139
+  %145 = fcmp ogt double %140, %142
+  br i1 %145, label %compare_path_costs_fuzzily.exit.thread149, label %146
 
-145:                                              ; preds = %143
-  %146 = tail call fastcc i32 @compare_path_costs_fuzzily(ptr noundef nonnull %1, ptr noundef nonnull %29, double noundef 0x3FF000000006DF38)
-  %147 = icmp eq i32 %146, 1
-  br i1 %147, label %compare_path_costs_fuzzily.exit.thread155, label %compare_path_costs_fuzzily.exit.thread149
+146:                                              ; preds = %144
+  %147 = tail call fastcc i32 @compare_path_costs_fuzzily(ptr noundef nonnull %1, ptr noundef nonnull %30, double noundef 0x3FF000000006DF38)
+  %148 = icmp eq i32 %147, 1
+  br i1 %148, label %compare_path_costs_fuzzily.exit.thread155, label %compare_path_costs_fuzzily.exit.thread149
 
-148:                                              ; preds = %128
-  %149 = load double, ptr %18, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %151 = load double, ptr %150, align 8
-  %152 = fcmp ugt double %149, %151
-  br i1 %152, label %compare_path_costs_fuzzily.exit.thread149, label %153
+149:                                              ; preds = %129
+  %150 = load double, ptr %18, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %152 = load double, ptr %151, align 8
+  %153 = fcmp ugt double %150, %152
+  br i1 %153, label %compare_path_costs_fuzzily.exit.thread149, label %154
 
-153:                                              ; preds = %148
-  %154 = load i8, ptr %19, align 1
-  %155 = and i8 %154, 1
-  %156 = getelementptr inbounds nuw i8, ptr %29, i64 33
-  %157 = load i8, ptr %156, align 1
-  %158 = and i8 %157, 1
-  %.not135 = icmp samesign ult i8 %155, %158
+154:                                              ; preds = %149
+  %155 = load i8, ptr %19, align 1
+  %156 = and i8 %155, 1
+  %157 = getelementptr inbounds nuw i8, ptr %30, i64 33
+  %158 = load i8, ptr %157, align 1
+  %159 = and i8 %158, 1
+  %.not135 = icmp samesign ult i8 %156, %159
   br i1 %.not135, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread155
 
-159:                                              ; preds = %128
-  %160 = load double, ptr %18, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %162 = load double, ptr %161, align 8
-  %163 = fcmp ult double %160, %162
-  br i1 %163, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread149.sink.split
+160:                                              ; preds = %129
+  %161 = load double, ptr %18, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %163 = load double, ptr %162, align 8
+  %164 = fcmp ult double %161, %163
+  br i1 %164, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread149.sink.split
 
-164:                                              ; preds = %94
-  %.not129 = icmp eq i32 %93, 2
-  br i1 %.not129, label %compare_path_costs_fuzzily.exit.thread149, label %165
+165:                                              ; preds = %95
+  %.not129 = icmp eq i32 %94, 2
+  br i1 %.not129, label %compare_path_costs_fuzzily.exit.thread149, label %166
 
-165:                                              ; preds = %164
-  %166 = load ptr, ptr %6, align 8
-  %.not130 = icmp eq ptr %166, null
-  br i1 %.not130, label %170, label %167
+166:                                              ; preds = %165
+  %167 = load ptr, ptr %6, align 8
+  %.not130 = icmp eq ptr %167, null
+  br i1 %.not130, label %171, label %168
 
-167:                                              ; preds = %165
-  %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %169 = load ptr, ptr %168, align 8
-  br label %170
+168:                                              ; preds = %166
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %170 = load ptr, ptr %169, align 8
+  br label %171
 
-170:                                              ; preds = %165, %167
-  %171 = phi ptr [ %169, %167 ], [ null, %165 ]
-  %172 = load ptr, ptr %86, align 8
-  %.not131 = icmp eq ptr %172, null
-  br i1 %.not131, label %176, label %173
+171:                                              ; preds = %166, %168
+  %172 = phi ptr [ %170, %168 ], [ null, %166 ]
+  %173 = load ptr, ptr %87, align 8
+  %.not131 = icmp eq ptr %173, null
+  br i1 %.not131, label %177, label %174
 
-173:                                              ; preds = %170
-  %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %175 = load ptr, ptr %174, align 8
-  br label %176
+174:                                              ; preds = %171
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %176 = load ptr, ptr %175, align 8
+  br label %177
 
-176:                                              ; preds = %170, %173
-  %177 = phi ptr [ %175, %173 ], [ null, %170 ]
-  %178 = tail call i32 @bms_subset_compare(ptr noundef %171, ptr noundef %177) #9
-  %or.cond5 = icmp ult i32 %178, 2
-  br i1 %or.cond5, label %179, label %compare_path_costs_fuzzily.exit.thread149
+177:                                              ; preds = %171, %174
+  %178 = phi ptr [ %176, %174 ], [ null, %171 ]
+  %179 = tail call i32 @bms_subset_compare(ptr noundef %172, ptr noundef %178) #9
+  %or.cond5 = icmp ult i32 %179, 2
+  br i1 %or.cond5, label %180, label %compare_path_costs_fuzzily.exit.thread149
 
-179:                                              ; preds = %176
-  %180 = load double, ptr %18, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %182 = load double, ptr %181, align 8
-  %183 = fcmp ugt double %180, %182
-  br i1 %183, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit
+180:                                              ; preds = %177
+  %181 = load double, ptr %18, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %183 = load double, ptr %182, align 8
+  %184 = fcmp ugt double %181, %183
+  br i1 %184, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit
 
-184:                                              ; preds = %94
-  %.not125 = icmp eq i32 %93, 1
-  br i1 %.not125, label %compare_path_costs_fuzzily.exit.thread149, label %185
+185:                                              ; preds = %95
+  %.not125 = icmp eq i32 %94, 1
+  br i1 %.not125, label %compare_path_costs_fuzzily.exit.thread149, label %186
 
-185:                                              ; preds = %184
-  %186 = load ptr, ptr %6, align 8
-  %.not126 = icmp eq ptr %186, null
-  br i1 %.not126, label %190, label %187
+186:                                              ; preds = %185
+  %187 = load ptr, ptr %6, align 8
+  %.not126 = icmp eq ptr %187, null
+  br i1 %.not126, label %191, label %188
 
-187:                                              ; preds = %185
-  %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %189 = load ptr, ptr %188, align 8
-  br label %190
+188:                                              ; preds = %186
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %190 = load ptr, ptr %189, align 8
+  br label %191
 
-190:                                              ; preds = %185, %187
-  %191 = phi ptr [ %189, %187 ], [ null, %185 ]
-  %192 = load ptr, ptr %86, align 8
-  %.not127 = icmp eq ptr %192, null
-  br i1 %.not127, label %196, label %193
+191:                                              ; preds = %186, %188
+  %192 = phi ptr [ %190, %188 ], [ null, %186 ]
+  %193 = load ptr, ptr %87, align 8
+  %.not127 = icmp eq ptr %193, null
+  br i1 %.not127, label %197, label %194
 
-193:                                              ; preds = %190
-  %194 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  %195 = load ptr, ptr %194, align 8
-  br label %196
+194:                                              ; preds = %191
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
+  %196 = load ptr, ptr %195, align 8
+  br label %197
 
-196:                                              ; preds = %190, %193
-  %197 = phi ptr [ %195, %193 ], [ null, %190 ]
-  %198 = tail call i32 @bms_subset_compare(ptr noundef %191, ptr noundef %197) #9
-  %199 = and i32 %198, -3
-  %or.cond7 = icmp eq i32 %199, 0
-  br i1 %or.cond7, label %200, label %compare_path_costs_fuzzily.exit.thread149
+197:                                              ; preds = %191, %194
+  %198 = phi ptr [ %196, %194 ], [ null, %191 ]
+  %199 = tail call i32 @bms_subset_compare(ptr noundef %192, ptr noundef %198) #9
+  %200 = and i32 %199, -3
+  %or.cond7 = icmp eq i32 %200, 0
+  br i1 %or.cond7, label %201, label %compare_path_costs_fuzzily.exit.thread149
 
-200:                                              ; preds = %196
-  %201 = load double, ptr %18, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %203 = load double, ptr %202, align 8
-  %204 = fcmp ult double %201, %203
-  br i1 %204, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread149.sink.split
+201:                                              ; preds = %197
+  %202 = load double, ptr %18, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %204 = load double, ptr %203, align 8
+  %205 = fcmp ult double %202, %204
+  br i1 %205, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread149.sink.split
 
-default.unreachable:                              ; preds = %94
+default.unreachable:                              ; preds = %95
   unreachable
 
-compare_path_costs_fuzzily.exit:                  ; preds = %179
-  %205 = load i8, ptr %19, align 1
-  %206 = and i8 %205, 1
-  %207 = getelementptr inbounds nuw i8, ptr %29, i64 33
-  %208 = load i8, ptr %207, align 1
-  %209 = and i8 %208, 1
-  %.not132.not = icmp samesign ult i8 %206, %209
+compare_path_costs_fuzzily.exit:                  ; preds = %180
+  %206 = load i8, ptr %19, align 1
+  %207 = and i8 %206, 1
+  %208 = getelementptr inbounds nuw i8, ptr %30, i64 33
+  %209 = load i8, ptr %208, align 1
+  %210 = and i8 %209, 1
+  %.not132.not = icmp samesign ult i8 %207, %210
   br i1 %.not132.not, label %compare_path_costs_fuzzily.exit.thread149, label %compare_path_costs_fuzzily.exit.thread155
 
-compare_path_costs_fuzzily.exit.thread155:        ; preds = %153, %138, %129, %145, %115, %compare_path_costs_fuzzily.exit
-  %210 = load ptr, ptr %13, align 8
-  %211 = add i32 %.sroa.5.0161, -1
-  %212 = tail call ptr @list_delete_nth_cell(ptr noundef %210, i32 noundef %.sroa.5.0161) #9
-  store ptr %212, ptr %13, align 8
-  %213 = load i32, ptr %29, align 4
-  %214 = icmp eq i32 %213, 264
-  br i1 %214, label %226, label %215
+compare_path_costs_fuzzily.exit.thread155:        ; preds = %154, %139, %130, %146, %116, %compare_path_costs_fuzzily.exit
+  %211 = load ptr, ptr %13, align 8
+  %212 = add i32 %.sroa.5.0167, -1
+  %213 = tail call ptr @list_delete_nth_cell(ptr noundef %211, i32 noundef %.sroa.5.0167) #9
+  store ptr %213, ptr %13, align 8
+  %214 = load i32, ptr %30, align 4
+  %215 = icmp eq i32 %214, 264
+  br i1 %215, label %.thread, label %216
 
-215:                                              ; preds = %compare_path_costs_fuzzily.exit.thread155
-  tail call void @pfree(ptr noundef nonnull %29) #9
-  br label %226
+216:                                              ; preds = %compare_path_costs_fuzzily.exit.thread155
+  tail call void @pfree(ptr noundef nonnull %30) #9
+  br label %.thread
 
-compare_path_costs_fuzzily.exit.thread149.sink.split: ; preds = %200, %159, %123
-  %216 = load i8, ptr %19, align 1
-  %217 = and i8 %216, 1
-  %218 = getelementptr inbounds nuw i8, ptr %29, i64 33
-  %219 = load i8, ptr %218, align 1
-  %220 = and i8 %219, 1
-  %.not128 = icmp samesign ugt i8 %217, %220
-  %spec.select142 = select i1 %.not128, i8 %.0163, i8 0
+compare_path_costs_fuzzily.exit.thread149.sink.split: ; preds = %201, %160, %124
+  %217 = load i8, ptr %19, align 1
+  %218 = and i8 %217, 1
+  %219 = getelementptr inbounds nuw i8, ptr %30, i64 33
+  %220 = load i8, ptr %219, align 1
+  %221 = and i8 %220, 1
+  %.not128 = icmp samesign ugt i8 %218, %221
   br label %compare_path_costs_fuzzily.exit.thread149
 
-compare_path_costs_fuzzily.exit.thread149:        ; preds = %compare_path_costs_fuzzily.exit.thread149.sink.split, %148, %153, %70, %47, %128, %143, %136, %91, %159, %121, %123, %109, %110, %164, %176, %179, %184, %196, %200, %145, %115, %compare_path_costs_fuzzily.exit
-  %.2153 = phi i8 [ %.0163, %compare_path_costs_fuzzily.exit ], [ %.0163, %115 ], [ 0, %145 ], [ %.0163, %70 ], [ %.0163, %47 ], [ %.0163, %128 ], [ 0, %143 ], [ 0, %136 ], [ %.0163, %91 ], [ %.0163, %159 ], [ %.0163, %121 ], [ %.0163, %123 ], [ %.0163, %109 ], [ %.0163, %110 ], [ %.0163, %164 ], [ %.0163, %176 ], [ %.0163, %179 ], [ %.0163, %184 ], [ %.0163, %196 ], [ %.0163, %200 ], [ %.0163, %153 ], [ %.0163, %148 ], [ %spec.select142, %compare_path_costs_fuzzily.exit.thread149.sink.split ]
-  %221 = load double, ptr %15, align 8
-  %222 = load double, ptr %31, align 8
-  %223 = fcmp ult double %221, %222
-  br i1 %223, label %226, label %224
+compare_path_costs_fuzzily.exit.thread149:        ; preds = %compare_path_costs_fuzzily.exit.thread149.sink.split, %149, %154, %71, %48, %129, %144, %137, %92, %160, %122, %124, %110, %111, %165, %177, %180, %185, %197, %201, %146, %116, %compare_path_costs_fuzzily.exit
+  %.2153.shrunk = phi i1 [ true, %compare_path_costs_fuzzily.exit ], [ true, %116 ], [ false, %146 ], [ true, %71 ], [ true, %48 ], [ true, %129 ], [ false, %144 ], [ false, %137 ], [ true, %92 ], [ true, %160 ], [ true, %122 ], [ true, %124 ], [ true, %110 ], [ true, %111 ], [ true, %165 ], [ true, %177 ], [ true, %180 ], [ true, %185 ], [ true, %197 ], [ true, %201 ], [ true, %154 ], [ true, %149 ], [ %.not128, %compare_path_costs_fuzzily.exit.thread149.sink.split ]
+  %222 = load double, ptr %15, align 8
+  %223 = load double, ptr %32, align 8
+  %224 = fcmp ult double %222, %223
+  br i1 %224, label %227, label %225
 
-224:                                              ; preds = %compare_path_costs_fuzzily.exit.thread149
-  %225 = add nsw i32 %.sroa.5.0161, 1
-  br label %226
+225:                                              ; preds = %compare_path_costs_fuzzily.exit.thread149
+  %226 = add nsw i32 %.sroa.5.0167, 1
+  br i1 %.2153.shrunk, label %.thread, label %230
 
-226:                                              ; preds = %compare_path_costs_fuzzily.exit.thread149, %224, %compare_path_costs_fuzzily.exit.thread155, %215
-  %.2152 = phi i8 [ %.0163, %compare_path_costs_fuzzily.exit.thread155 ], [ %.0163, %215 ], [ %.2153, %224 ], [ %.2153, %compare_path_costs_fuzzily.exit.thread149 ]
-  %.sroa.0.1 = phi ptr [ %212, %compare_path_costs_fuzzily.exit.thread155 ], [ %212, %215 ], [ %.sroa.0.0160, %224 ], [ %.sroa.0.0160, %compare_path_costs_fuzzily.exit.thread149 ]
-  %.sroa.5.1 = phi i32 [ %211, %compare_path_costs_fuzzily.exit.thread155 ], [ %211, %215 ], [ %.sroa.5.0161, %224 ], [ %.sroa.5.0161, %compare_path_costs_fuzzily.exit.thread149 ]
-  %.2103 = phi i32 [ %.0101162, %compare_path_costs_fuzzily.exit.thread155 ], [ %.0101162, %215 ], [ %225, %224 ], [ %.0101162, %compare_path_costs_fuzzily.exit.thread149 ]
-  %227 = trunc nuw i8 %.2152 to i1
-  %228 = add i32 %.sroa.5.1, 1
-  %.not120 = icmp ne ptr %.sroa.0.1, null
-  %or.cond175.not = select i1 %227, i1 %.not120, i1 false
-  br i1 %or.cond175.not, label %20, label %.thread, !llvm.loop !7
+227:                                              ; preds = %compare_path_costs_fuzzily.exit.thread149
+  br i1 %.2153.shrunk, label %.thread, label %230
 
-.thread:                                          ; preds = %226, %20
-  %.1102.ph = phi i32 [ %.2103, %226 ], [ %.0101162, %20 ]
-  %.1.ph = phi i8 [ %.2152, %226 ], [ %.0163, %20 ]
-  %229 = trunc nuw i8 %.1.ph to i1
-  br i1 %229, label %.thread.thread, label %232
+._crit_edge.loopexit:                             ; preds = %21, %.thread
+  %.0101.lcssa.ph = phi i32 [ %.2103177, %.thread ], [ %.0101168, %21 ]
+  %.pre = load ptr, ptr %13, align 8
+  br label %._crit_edge
 
-.thread.thread:                                   ; preds = %11, %.thread
-  %.1102173 = phi i32 [ %.1102.ph, %.thread ], [ 0, %11 ]
-  %230 = load ptr, ptr %13, align 8
-  %231 = tail call ptr @list_insert_nth(ptr noundef %230, i32 noundef %.1102173, ptr noundef %1) #9
-  store ptr %231, ptr %13, align 8
-  br label %236
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
+  %228 = phi ptr [ null, %11 ], [ %.pre, %._crit_edge.loopexit ]
+  %.0101.lcssa = phi i32 [ 0, %11 ], [ %.0101.lcssa.ph, %._crit_edge.loopexit ]
+  %229 = tail call ptr @list_insert_nth(ptr noundef %228, i32 noundef %.0101.lcssa, ptr noundef nonnull %1) #9
+  store ptr %229, ptr %13, align 8
+  br label %234
 
-232:                                              ; preds = %.thread
-  %233 = load i32, ptr %1, align 4
-  %234 = icmp eq i32 %233, 264
-  br i1 %234, label %236, label %235
+230:                                              ; preds = %225, %227
+  %231 = load i32, ptr %1, align 4
+  %232 = icmp eq i32 %231, 264
+  br i1 %232, label %234, label %233
 
-235:                                              ; preds = %232
+233:                                              ; preds = %230
   tail call void @pfree(ptr noundef nonnull %1) #9
-  br label %236
+  br label %234
 
-236:                                              ; preds = %232, %235, %.thread.thread
+234:                                              ; preds = %230, %233, %._crit_edge
   ret void
 }
 
@@ -1071,116 +1068,113 @@ define dso_local void @add_partial_path(ptr noundef captures(none) %0, ptr nound
 5:                                                ; preds = %2, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %.not4159 = icmp eq ptr %7, null
-  br i1 %.not4159, label %.thread.thread, label %.lr.ph
+  %.not4164 = icmp eq ptr %7, null
+  br i1 %.not4164, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  br label %10
+  br label %12
 
-10:                                               ; preds = %42, %.lr.ph
-  %.063 = phi i8 [ 1, %.lr.ph ], [ %.253, %42 ]
-  %.03462 = phi i32 [ 0, %.lr.ph ], [ %.236, %42 ]
-  %.sroa.0.061 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.1, %42 ]
-  %.sroa.5.060 = phi i32 [ 0, %.lr.ph ], [ %44, %42 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.061, i64 4
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp slt i32 %.sroa.5.060, %12
-  br i1 %13, label %14, label %.thread
+10:                                               ; preds = %42, %.thread, %44
+  %.23678 = phi i32 [ %.03467, %.thread ], [ %.03467, %44 ], [ %43, %42 ]
+  %.sroa.0.177 = phi ptr [ %40, %.thread ], [ %.sroa.0.066, %44 ], [ %.sroa.0.066, %42 ]
+  %.sroa.5.176 = phi i32 [ %39, %.thread ], [ %.sroa.5.065, %44 ], [ %.sroa.5.065, %42 ]
+  %11 = add i32 %.sroa.5.176, 1
+  %.not41 = icmp eq ptr %.sroa.0.177, null
+  br i1 %.not41, label %._crit_edge.loopexit, label %12, !llvm.loop !8
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.061, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = sext i32 %.sroa.5.060 to i64
-  %18 = getelementptr %union.ListCell, ptr %16, i64 %17
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @compare_pathkeys(ptr noundef %20, ptr noundef %22) #9
-  %.not43 = icmp eq i32 %23, 3
+12:                                               ; preds = %.lr.ph, %10
+  %.03467 = phi i32 [ 0, %.lr.ph ], [ %.23678, %10 ]
+  %.sroa.0.066 = phi ptr [ %7, %.lr.ph ], [ %.sroa.0.177, %10 ]
+  %.sroa.5.065 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.066, i64 4
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp slt i32 %.sroa.5.065, %14
+  br i1 %15, label %16, label %._crit_edge.loopexit
+
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.066, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = sext i32 %.sroa.5.065 to i64
+  %20 = getelementptr %union.ListCell, ptr %18, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call i32 @compare_pathkeys(ptr noundef %22, ptr noundef %24) #9
+  %.not43 = icmp eq i32 %25, 3
   %.pre = load double, ptr %9, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %.pre71 = load double, ptr %.phi.trans.insert, align 8
-  br i1 %.not43, label %.thread50, label %24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %.pre70 = load double, ptr %.phi.trans.insert, align 8
+  br i1 %.not43, label %.thread50, label %26
 
-24:                                               ; preds = %14
-  %25 = fmul double %.pre71, 1.010000e+00
-  %26 = fcmp ogt double %.pre, %25
-  br i1 %26, label %27, label %28
+26:                                               ; preds = %16
+  %27 = fmul double %.pre70, 1.010000e+00
+  %28 = fcmp ogt double %.pre, %27
+  br i1 %28, label %29, label %30
 
-27:                                               ; preds = %24
-  %.not45 = icmp eq i32 %23, 1
-  %spec.select = select i1 %.not45, i8 %.063, i8 0
+29:                                               ; preds = %26
+  %.not45 = icmp eq i32 %25, 1
   br label %.thread50
 
-28:                                               ; preds = %24
-  %29 = fmul double %.pre, 1.010000e+00
-  %30 = fcmp ogt double %.pre71, %29
-  br i1 %30, label %31, label %32
+30:                                               ; preds = %26
+  %31 = fmul double %.pre, 1.010000e+00
+  %32 = fcmp ogt double %.pre70, %31
+  br i1 %32, label %33, label %34
 
-31:                                               ; preds = %28
-  %.not44.not = icmp eq i32 %23, 2
-  br i1 %.not44.not, label %.thread50, label %.thread55
+33:                                               ; preds = %30
+  %.not44.not = icmp eq i32 %25, 2
+  br i1 %.not44.not, label %.thread50, label %.thread
 
-32:                                               ; preds = %28
-  switch i32 %23, label %33 [
-    i32 1, label %.thread55
+34:                                               ; preds = %30
+  switch i32 %25, label %35 [
+    i32 1, label %.thread
     i32 2, label %.thread50
   ]
 
-33:                                               ; preds = %32
-  %34 = fmul double %.pre, 0x3FF000000006DF38
-  %35 = fcmp ogt double %.pre71, %34
-  br i1 %35, label %.thread55, label %.thread50
+35:                                               ; preds = %34
+  %36 = fmul double %.pre, 0x3FF000000006DF38
+  %37 = fcmp ogt double %.pre70, %36
+  br i1 %37, label %.thread, label %.thread50
 
-.thread55:                                        ; preds = %32, %31, %33
-  %36 = load ptr, ptr %6, align 8
-  %37 = add i32 %.sroa.5.060, -1
-  %38 = tail call ptr @list_delete_nth_cell(ptr noundef %36, i32 noundef %.sroa.5.060) #9
-  store ptr %38, ptr %6, align 8
-  tail call void @pfree(ptr noundef nonnull %19) #9
-  br label %42
+.thread:                                          ; preds = %35, %33, %34
+  %38 = load ptr, ptr %6, align 8
+  %39 = add i32 %.sroa.5.065, -1
+  %40 = tail call ptr @list_delete_nth_cell(ptr noundef %38, i32 noundef %.sroa.5.065) #9
+  store ptr %40, ptr %6, align 8
+  tail call void @pfree(ptr noundef nonnull %21) #9
+  br label %10
 
-.thread50:                                        ; preds = %14, %32, %27, %31, %33
-  %.254 = phi i8 [ 0, %33 ], [ %.063, %31 ], [ %spec.select, %27 ], [ 0, %32 ], [ %.063, %14 ]
-  %39 = fcmp ult double %.pre, %.pre71
-  br i1 %39, label %42, label %40
+.thread50:                                        ; preds = %16, %34, %29, %33, %35
+  %.254 = phi i1 [ false, %35 ], [ true, %33 ], [ %.not45, %29 ], [ false, %34 ], [ true, %16 ]
+  %41 = fcmp ult double %.pre, %.pre70
+  br i1 %41, label %44, label %42
 
-40:                                               ; preds = %.thread50
-  %41 = add nsw i32 %.sroa.5.060, 1
-  br label %42
+42:                                               ; preds = %.thread50
+  %43 = add nsw i32 %.sroa.5.065, 1
+  br i1 %.254, label %10, label %47
 
-42:                                               ; preds = %.thread50, %40, %.thread55
-  %.253 = phi i8 [ %.063, %.thread55 ], [ %.254, %40 ], [ %.254, %.thread50 ]
-  %.sroa.5.1 = phi i32 [ %37, %.thread55 ], [ %.sroa.5.060, %40 ], [ %.sroa.5.060, %.thread50 ]
-  %.sroa.0.1 = phi ptr [ %38, %.thread55 ], [ %.sroa.0.061, %40 ], [ %.sroa.0.061, %.thread50 ]
-  %.236 = phi i32 [ %.03462, %.thread55 ], [ %41, %40 ], [ %.03462, %.thread50 ]
-  %43 = trunc nuw i8 %.253 to i1
-  %44 = add i32 %.sroa.5.1, 1
-  %.not41 = icmp ne ptr %.sroa.0.1, null
-  %or.cond.not = select i1 %43, i1 %.not41, i1 false
-  br i1 %or.cond.not, label %10, label %.thread, !llvm.loop !8
+44:                                               ; preds = %.thread50
+  br i1 %.254, label %10, label %47
 
-.thread:                                          ; preds = %42, %10
-  %.135.ph = phi i32 [ %.236, %42 ], [ %.03462, %10 ]
-  %.1.ph = phi i8 [ %.253, %42 ], [ %.063, %10 ]
-  %45 = trunc nuw i8 %.1.ph to i1
-  br i1 %45, label %.thread.thread, label %48
+._crit_edge.loopexit:                             ; preds = %12, %10
+  %.034.lcssa.ph = phi i32 [ %.23678, %10 ], [ %.03467, %12 ]
+  %.pre71 = load ptr, ptr %6, align 8
+  br label %._crit_edge
 
-.thread.thread:                                   ; preds = %5, %.thread
-  %.13574 = phi i32 [ %.135.ph, %.thread ], [ 0, %5 ]
-  %46 = load ptr, ptr %6, align 8
-  %47 = tail call ptr @list_insert_nth(ptr noundef %46, i32 noundef %.13574, ptr noundef %1) #9
-  store ptr %47, ptr %6, align 8
-  br label %49
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
+  %45 = phi ptr [ null, %5 ], [ %.pre71, %._crit_edge.loopexit ]
+  %.034.lcssa = phi i32 [ 0, %5 ], [ %.034.lcssa.ph, %._crit_edge.loopexit ]
+  %46 = tail call ptr @list_insert_nth(ptr noundef %45, i32 noundef %.034.lcssa, ptr noundef %1) #9
+  store ptr %46, ptr %6, align 8
+  br label %48
 
-48:                                               ; preds = %.thread
-  tail call void @pfree(ptr noundef %1) #9
-  br label %49
+47:                                               ; preds = %42, %44
+  tail call void @pfree(ptr noundef nonnull %1) #9
+  br label %48
 
-49:                                               ; preds = %48, %.thread.thread
+48:                                               ; preds = %47, %._crit_edge
   ret void
 }
 

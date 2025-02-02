@@ -22067,7 +22067,7 @@ if.else:                                          ; preds = %lor.lhs.false71, %s
   br label %sw.default
 
 sw.default:                                       ; preds = %if.else, %lor.lhs.false71, %land.lhs.true70, %if.end62
-  %isStatic.2 = phi i8 [ %isStatic.0, %if.end62 ], [ %isStatic.0, %land.lhs.true70 ], [ %isStatic.0, %lor.lhs.false71 ], [ 1, %if.else ]
+  %isStatic.2 = phi i8 [ %isStatic.0, %if.end62 ], [ %isStatic.0, %land.lhs.true70 ], [ 1, %lor.lhs.false71 ], [ 1, %if.else ]
   %tobool77 = trunc nuw i8 %isStatic.2 to i1
   %call81 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl17parseClassElementEbN4llvh7SMRangeEbbPNS_12UniqueStringEb(ptr noundef nonnull align 8 dereferenceable(2752) %this, i1 noundef zeroext %tobool77, ptr %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, i1 noundef zeroext %declare.0, i1 noundef zeroext %readonly.0, ptr noundef %accessibility.0, i1 noundef zeroext false)
   %28 = extractvalue { i64, i8 } %call81, 1

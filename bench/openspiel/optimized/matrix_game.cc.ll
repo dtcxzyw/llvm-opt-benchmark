@@ -2891,7 +2891,7 @@ define void @_ZN10open_spiel11matrix_game16CreateMatrixGameERKNSt7__cxx1112basic
 
 36:                                               ; preds = %27, %25, %21
   %.127.i = phi double [ %24, %21 ], [ %.0263.i, %25 ], [ %.0263.i, %27 ]
-  %.125.i = phi i8 [ %.0244.i, %21 ], [ %.0244.i, %25 ], [ %spec.select.i, %27 ]
+  %.125.i = phi i8 [ %.0244.i, %21 ], [ 0, %25 ], [ %spec.select.i, %27 ]
   %37 = trunc nuw i8 %.0235.i to i1
   br i1 %37, label %38, label %45
 
@@ -2907,7 +2907,7 @@ define void @_ZN10open_spiel11matrix_game16CreateMatrixGameERKNSt7__cxx1112basic
   br label %45
 
 45:                                               ; preds = %44, %38, %36
-  %.1.i = phi i8 [ 0, %44 ], [ %.0235.i, %38 ], [ %.0235.i, %36 ]
+  %.1.i = phi i8 [ 0, %44 ], [ 1, %38 ], [ 0, %36 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
@@ -3876,7 +3876,7 @@ define { i8, double } @_ZNK10open_spiel11matrix_game10MatrixGame10UtilitySumEv(p
 
 25:                                               ; preds = %16, %14, %10
   %.118.i = phi double [ %13, %10 ], [ %.0173.i, %14 ], [ %.0173.i, %16 ]
-  %.1.i = phi i8 [ %.0164.i, %10 ], [ %.0164.i, %14 ], [ %spec.select.i, %16 ]
+  %.1.i = phi i8 [ %.0164.i, %10 ], [ 0, %14 ], [ %spec.select.i, %16 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %umax.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45

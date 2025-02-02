@@ -6103,8 +6103,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit
-  %idx.0108 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit ]
-  %call24 = invoke noundef ptr @_ZNK19OpenColorIO_v2_4dev6Config24getColorSpaceNameByIndexENS_24SearchReferenceSpaceTypeENS_20ColorSpaceVisibilityEi(ptr noundef nonnull align 8 dereferenceable(8) %config, i32 noundef 0, i32 noundef 2, i32 noundef %idx.0108)
+  %idx.0107 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit ]
+  %call24 = invoke noundef ptr @_ZNK19OpenColorIO_v2_4dev6Config24getColorSpaceNameByIndexENS_24SearchReferenceSpaceTypeENS_20ColorSpaceVisibilityEi(ptr noundef nonnull align 8 dereferenceable(8) %config, i32 noundef 0, i32 noundef 2, i32 noundef %idx.0107)
           to label %invoke.cont23 unwind label %lpad18.loopexit
 
 invoke.cont23:                                    ; preds = %for.body
@@ -6211,9 +6211,9 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit: ; preds = %if.end33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %inc = add nuw nsw i32 %idx.0108, 1
+  %inc = add nuw nsw i32 %idx.0107, 1
   %cmp22 = icmp sge i32 %inc, %call21
-  %.not = or i1 %cmp22, %call28
+  %.not = or i1 %call28, %cmp22
   br i1 %.not, label %for.end, label %for.body, !llvm.loop !44
 
 for.end:                                          ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit
@@ -34085,7 +34085,7 @@ if.then4:                                         ; preds = %for.body
   %2 = load i16, ptr %arrayidx.i, align 2
   %and1.i = and i16 %2, 2048
   %tobool.i.not = icmp eq i16 %and1.i, 0
-  br i1 %tobool.i.not, label %if.else, label %if.then6
+  br i1 %tobool.i.not, label %if.end27.invoke, label %if.then6
 
 if.then6:                                         ; preds = %if.then4
   %call9 = invoke noundef i32 @_ZNKSt7__cxx1112regex_traitsIcE5valueEci(ptr noundef nonnull align 8 dereferenceable(8) %__traits, i8 noundef signext %0, i32 noundef 10)
@@ -34197,7 +34197,7 @@ lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
           cleanup
   br label %ehcleanup
 
-lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end27, %if.else, %if.then6
+lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end27.invoke, %if.then6
   %lpad.loopexit287 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -34207,12 +34207,8 @@ lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
           cleanup
   br label %ehcleanup
 
-if.else:                                          ; preds = %if.then4
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %__out.coerce, i8 noundef signext %0)
-          to label %for.inc unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
-
 if.end18:                                         ; preds = %for.body
-  switch i8 %0, label %if.end27 [
+  switch i8 %0, label %if.end27.invoke [
     i8 92, label %for.inc
     i8 38, label %if.then25
   ]
@@ -34257,12 +34253,12 @@ for.body.i.i.i.i.i.i55:                           ; preds = %if.then.i45, %.noex
   %cmp.i.i.i.i.i.i60 = icmp samesign ugt i64 %__n.06.i.i.i.i.i.i56, 1
   br i1 %cmp.i.i.i.i.i.i60, label %for.body.i.i.i.i.i.i55, label %for.inc, !llvm.loop !273
 
-if.end27:                                         ; preds = %if.end18
+if.end27.invoke:                                  ; preds = %if.end18, %if.then4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %__out.coerce, i8 noundef signext %0)
           to label %for.inc unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-for.inc:                                          ; preds = %.noexc65, %.noexc, %if.end27, %if.then25, %if.then.i45, %if.else, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i, %if.then.i, %if.end18
-  %__escaping.1 = phi i8 [ 1, %if.end18 ], [ 0, %if.then.i ], [ 0, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i ], [ 0, %if.else ], [ %__escaping.0306, %if.then.i45 ], [ %__escaping.0306, %if.then25 ], [ %__escaping.0306, %if.end27 ], [ 0, %.noexc ], [ %__escaping.0306, %.noexc65 ]
+for.inc:                                          ; preds = %.noexc65, %.noexc, %if.end27.invoke, %if.then25, %if.then.i45, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i, %if.then.i, %if.end18
+  %__escaping.1 = phi i8 [ 1, %if.end18 ], [ 0, %if.then.i ], [ 0, %_ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEEixEm.exit.i ], [ 0, %if.then.i45 ], [ 0, %if.then25 ], [ 0, %if.end27.invoke ], [ 0, %.noexc ], [ %__escaping.0306, %.noexc65 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__fmt_first.addr.0307, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %__fmt_last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !275

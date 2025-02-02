@@ -15611,7 +15611,7 @@ if.end175:                                        ; preds = %if.then.i.i.i.i, %_
   call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #26
   br i1 %perform_merge.3, label %if.end208, label %if.then177
 
-if.then177:                                       ; preds = %if.end55, %if.end40, %if.end175
+if.then177:                                       ; preds = %if.end40, %if.end55, %if.end175
   %cmp178.not = icmp eq ptr %res.0.i, null
   br i1 %cmp178.not, label %if.else198, label %if.then179
 

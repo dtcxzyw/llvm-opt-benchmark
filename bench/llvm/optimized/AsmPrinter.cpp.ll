@@ -11193,28 +11193,28 @@ _ZNK4llvm12MachineInstr20isIndirectDebugValueEv.exit.i: ; preds = %_ZNK4llvm12Ma
   %1041 = load i32, ptr %1036, align 8
   %1042 = and i32 %1041, 255
   %1043 = icmp eq i32 %1042, 0
-  br i1 %1043, label %1044, label %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.i
+  br i1 %1043, label %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.thread.i, label %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.i
 
-1044:                                             ; preds = %_ZNK4llvm12MachineInstr20isIndirectDebugValueEv.exit.i
-  %1045 = getelementptr inbounds nuw i8, ptr %1036, i64 48
-  %1046 = load i64, ptr %1045, align 8
-  br label %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.thread.i
+_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.thread.i: ; preds = %_ZNK4llvm12MachineInstr20isIndirectDebugValueEv.exit.i
+  %1044 = getelementptr inbounds nuw i8, ptr %1036, i64 48
+  %1045 = load i64, ptr %1044, align 8
+  br label %1046
 
 _ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.i: ; preds = %_ZNK4llvm12MachineInstr20isIndirectDebugValueEv.exit.i, %_ZNK4llvm12MachineInstr16isDebugOffsetImmEv.exit.i.i, %1033
-  br i1 %.not199.i, label %_ZN4llvm11raw_ostreamlsEc.exit133.i, label %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.thread.i
+  br i1 %.not199.i, label %_ZN4llvm11raw_ostreamlsEc.exit133.i, label %1046
 
-_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.thread.i: ; preds = %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.i, %1044
-  %.sroa.0144.2195.i = phi i64 [ %.sroa.0144.1.i, %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.i ], [ %1046, %1044 ]
+1046:                                             ; preds = %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.i, %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.thread.i
+  %.sroa.0144.2195.i = phi i64 [ %1045, %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.thread.i ], [ %.sroa.0144.1.i, %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.i ]
   %1047 = load ptr, ptr %225, align 8
   %1048 = load ptr, ptr %224, align 8
   %.not.i131.i = icmp ult ptr %1047, %1048
   br i1 %.not.i131.i, label %1051, label %1049
 
-1049:                                             ; preds = %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.thread.i
+1049:                                             ; preds = %1046
   %1050 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %27, i8 noundef zeroext 91) #33
   br label %_ZN4llvm11raw_ostreamlsEc.exit133.i
 
-1051:                                             ; preds = %_ZNSt8optionalIN4llvm11StackOffsetEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit130.thread.i
+1051:                                             ; preds = %1046
   %1052 = getelementptr inbounds nuw i8, ptr %1047, i64 1
   store ptr %1052, ptr %225, align 8
   store i8 91, ptr %1047, align 1

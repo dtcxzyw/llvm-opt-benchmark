@@ -2560,7 +2560,7 @@ if.then143:                                       ; preds = %if.end138
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else129, %if.then133, %sw.epilog, %_ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit, %if.then89, %if.then143, %if.end138
-  %rlp.1 = phi i8 [ %rlp.0182, %if.then89 ], [ 0, %_ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit ], [ 1, %if.then143 ], [ %rlp.0182, %if.end138 ], [ 0, %sw.epilog ], [ %rlp.0182, %if.then133 ], [ %rlp.0182, %if.else129 ]
+  %rlp.1 = phi i8 [ 1, %if.then89 ], [ 0, %_ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit ], [ 1, %if.then143 ], [ 0, %if.end138 ], [ 0, %sw.epilog ], [ 0, %if.then133 ], [ 0, %if.else129 ]
   %rlcount.1 = phi i32 [ %inc, %if.then89 ], [ %spec.store.select, %_ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit ], [ %inc128, %if.then143 ], [ %inc128, %if.end138 ], [ 0, %sw.epilog ], [ 0, %if.then133 ], [ 0, %if.else129 ]
   %rawcount.1 = phi i32 [ %rawcount.0184, %if.then89 ], [ %inc91, %_ZN18OpenImageIO_v2_6_09TGAOutput9flush_rlpEPhi.exit ], [ 0, %if.then143 ], [ %spec.select72, %if.end138 ], [ 1, %sw.epilog ], [ %sub134, %if.then133 ], [ %add131, %if.else129 ]
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1

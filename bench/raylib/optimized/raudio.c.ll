@@ -89699,7 +89699,7 @@ jar_xm_post_pattern_change.exit.i:                ; preds = %jar_xm_post_pattern
   br label %94
 
 94:                                               ; preds = %91, %89
-  %.1.i = phi i8 [ %.066.i, %89 ], [ %spec.select.i, %91 ]
+  %.1.i = phi i8 [ 1, %89 ], [ %spec.select.i, %91 ]
   %95 = add i8 %.05465.i, 1
   %96 = load i16, ptr %61, align 2
   %97 = zext i8 %95 to i16

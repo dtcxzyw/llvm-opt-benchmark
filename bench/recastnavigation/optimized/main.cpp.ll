@@ -1761,7 +1761,7 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
 658:                                              ; preds = %657, %.critedge
   %.1514 = phi float [ %.2515, %657 ], [ %.0513, %.critedge ]
   %.4489 = phi i8 [ %spec.select586, %657 ], [ %.2487, %.critedge ]
-  %.6454 = phi i8 [ %.7455686, %657 ], [ %.3451, %.critedge ]
+  %.6454 = phi i8 [ %.7455686, %657 ], [ 0, %.critedge ]
   %.1403 = phi ptr [ %.2404688, %657 ], [ %.0402, %.critedge ]
   %.sroa.19.1 = phi float [ %.sroa.19.2, %657 ], [ %472, %.critedge ]
   %.sroa.9.1 = phi float [ %.sroa.9.2, %657 ], [ %475, %.critedge ]
@@ -1988,7 +1988,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 ._crit_edge1017.thread:                           ; preds = %662, %747, %._crit_edge1017
   %.5518 = phi float [ %.6519, %747 ], [ %.1514, %._crit_edge1017 ], [ %.1514, %662 ]
   %.7477 = phi i8 [ %.8478699711, %747 ], [ %.1471, %._crit_edge1017 ], [ %.1471, %662 ]
-  %.7466 = phi i8 [ 0, %747 ], [ %.3462, %._crit_edge1017 ], [ %.3462, %662 ]
+  %.7466 = phi i8 [ 0, %747 ], [ %.3462, %._crit_edge1017 ], [ 1, %662 ]
   %.2412 = phi ptr [ %.3413700709, %747 ], [ %.0410, %._crit_edge1017 ], [ %.0410, %662 ]
   %.4406 = phi ptr [ %.5407701707, %747 ], [ %.1403, %._crit_edge1017 ], [ %.1403, %662 ]
   %.sroa.19.5 = phi float [ %.sroa.19.6, %747 ], [ %.sroa.19.1, %._crit_edge1017 ], [ %.sroa.19.1, %662 ]
@@ -2003,7 +2003,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %.4517 = phi float [ %.5518, %._crit_edge1017.thread ], [ %.1514, %658 ]
   %.6491 = phi i8 [ %spec.select587, %._crit_edge1017.thread ], [ %.4489, %658 ]
   %.6476 = phi i8 [ %.7477, %._crit_edge1017.thread ], [ %.1471, %658 ]
-  %.6465 = phi i8 [ %.7466, %._crit_edge1017.thread ], [ %.3462, %658 ]
+  %.6465 = phi i8 [ %.7466, %._crit_edge1017.thread ], [ 0, %658 ]
   %.1411 = phi ptr [ %.2412, %._crit_edge1017.thread ], [ %.0410, %658 ]
   %.3405 = phi ptr [ %.4406, %._crit_edge1017.thread ], [ %.1403, %658 ]
   %.sroa.19.4 = phi float [ %.sroa.19.5, %._crit_edge1017.thread ], [ %.sroa.19.1, %658 ]

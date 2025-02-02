@@ -603,11 +603,11 @@ define internal fastcc noundef zeroext i1 @CopyReadLine(ptr noundef %0) unnamed_
   %40 = phi i32 [ %37, %.outer.i ], [ %211, %.outer196.i.backedge ]
   %41 = phi i32 [ %38, %.outer.i ], [ %212, %.outer196.i.backedge ]
   %.0171.ph197.i = phi i32 [ %.0171.ph.i, %.outer.i ], [ %.1172.i, %.outer196.i.backedge ]
-  %.0169.ph198.i = phi i1 [ false, %.outer.i ], [ true, %.outer196.i.backedge ]
-  %.0167.ph199.i = phi i8 [ %.0167.ph.i, %.outer.i ], [ %.1168.i, %.outer196.i.backedge ]
-  %.0162.ph200.i = phi i8 [ %.0162.ph.i, %.outer.i ], [ %.1163.i, %.outer196.i.backedge ]
-  %.0158.ph201.i = phi i1 [ %.0158.ph.i, %.outer.i ], [ %.1159.i, %.outer196.i.backedge ]
-  %.0.ph202.i = phi i32 [ %.0.ph.i, %.outer.i ], [ %.1.i, %.outer196.i.backedge ]
+  %.0169.ph.i = phi i1 [ false, %.outer.i ], [ true, %.outer196.i.backedge ]
+  %.0167.ph198.i = phi i8 [ %.0167.ph.i, %.outer.i ], [ 0, %.outer196.i.backedge ]
+  %.0162.ph199.i = phi i8 [ %.0162.ph.i, %.outer.i ], [ %.1163.i, %.outer196.i.backedge ]
+  %.0158.ph200.i = phi i1 [ %.0158.ph.i, %.outer.i ], [ %.1159.i, %.outer196.i.backedge ]
+  %.0.ph201.i = phi i32 [ %.0.ph.i, %.outer.i ], [ %.1.i, %.outer196.i.backedge ]
   br label %42
 
 42:                                               ; preds = %220, %.outer196.i
@@ -615,30 +615,30 @@ define internal fastcc noundef zeroext i1 @CopyReadLine(ptr noundef %0) unnamed_
   %44 = phi i32 [ %211, %220 ], [ %40, %.outer196.i ]
   %45 = phi i32 [ %212, %220 ], [ %41, %.outer196.i ]
   %.0171.i = phi i32 [ %.1172.i, %220 ], [ %.0171.ph197.i, %.outer196.i ]
-  %.0169.i = phi i1 [ true, %220 ], [ %.0169.ph198.i, %.outer196.i ]
-  %.0167.i = phi i8 [ %.1168.i, %220 ], [ %.0167.ph199.i, %.outer196.i ]
-  %.0.i = phi i32 [ %.1.i, %220 ], [ %.0.ph202.i, %.outer196.i ]
+  %.0169.i = phi i1 [ true, %220 ], [ %.0169.ph.i, %.outer196.i ]
+  %.0167.i = phi i8 [ 0, %220 ], [ %.0167.ph198.i, %.outer196.i ]
+  %.0.i = phi i32 [ %.1.i, %220 ], [ %.0.ph201.i, %.outer196.i ]
   %.not.i = icmp sge i32 %.0.i, %.0171.i
   %brmerge.i = or i1 %.0169.i, %.not.i
   br i1 %brmerge.i, label %46, label %209
 
 46:                                               ; preds = %42
   %47 = icmp sgt i32 %.0.i, %45
-  %.pre434.i = load ptr, ptr %18, align 8
+  %.pre410.i = load ptr, ptr %18, align 8
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %46
   %49 = sext i32 %45 to i64
-  %50 = getelementptr i8, ptr %.pre434.i, i64 %49
+  %50 = getelementptr i8, ptr %.pre410.i, i64 %49
   %51 = sub i32 %.0.i, %45
   tail call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %50, i32 noundef %51) #17
   store i32 %.0.i, ptr %20, align 8
   %.pre.i = load i32, ptr %22, align 4
-  %.pre433.i = load ptr, ptr %18, align 8
+  %.pre409.i = load ptr, ptr %18, align 8
   br label %52
 
 52:                                               ; preds = %48, %46
-  %53 = phi ptr [ %.pre433.i, %48 ], [ %.pre434.i, %46 ]
+  %53 = phi ptr [ %.pre409.i, %48 ], [ %.pre410.i, %46 ]
   %54 = phi i32 [ %.0.i, %48 ], [ %45, %46 ]
   %55 = phi i32 [ %.pre.i, %48 ], [ %44, %46 ]
   %56 = sub i32 %55, %54
@@ -906,11 +906,11 @@ CopyLoadInputBuf.exit.i:                          ; preds = %171, %CopyConvertBu
 
 207:                                              ; preds = %CopyLoadInputBuf.exit.i
   %208 = load i8, ptr %31, align 8
-  %.pre435.i = load i8, ptr %4, align 2
+  %.pre411.i = load i8, ptr %4, align 2
   br label %209
 
 209:                                              ; preds = %207, %42
-  %210 = phi i8 [ %.pre435.i, %207 ], [ %43, %42 ]
+  %210 = phi i8 [ %.pre411.i, %207 ], [ %43, %42 ]
   %211 = phi i32 [ %138, %207 ], [ %44, %42 ]
   %212 = phi i32 [ %139, %207 ], [ %45, %42 ]
   %.1172.i = phi i32 [ %138, %207 ], [ %.0171.i, %42 ]
@@ -921,7 +921,7 @@ CopyLoadInputBuf.exit.i:                          ; preds = %171, %CopyConvertBu
   %215 = getelementptr i8, ptr %19, i64 %214
   %216 = load i8, ptr %215, align 1
   %217 = trunc i8 %210 to i1
-  br i1 %217, label %218, label %.loopexit203.i
+  br i1 %217, label %218, label %.loopexit202.i
 
 218:                                              ; preds = %209
   switch i8 %216, label %222 [
@@ -939,42 +939,42 @@ CopyLoadInputBuf.exit.i:                          ; preds = %171, %CopyConvertBu
 
 222:                                              ; preds = %220, %219, %218
   %223 = sext i8 %216 to i32
-  %224 = trunc nuw i8 %.0162.ph200.i to i1
+  %224 = trunc nuw i8 %.0162.ph199.i to i1
   %225 = icmp eq i32 %.0156.i, %223
   %or.cond.i = select i1 %224, i1 %225, i1 false
-  %.2160.i = xor i1 %.0158.ph201.i, %or.cond.i
+  %.2160.i = xor i1 %.0158.ph200.i, %or.cond.i
   %226 = icmp ne i32 %.0157.i, %223
   %brmerge192.i = select i1 %226, i1 true, i1 %.2160.i
   %not.brmerge192.i = xor i1 %brmerge192.i, true
   %227 = zext i1 %not.brmerge192.i to i8
-  %.2164.i = xor i8 %.0162.ph200.i, %227
+  %.2164.i = xor i8 %.0162.ph199.i, %227
   %spec.select.i = select i1 %225, i1 %.2160.i, i1 false
-  %.not = icmp eq i8 %.0162.ph200.i, %227
-  br i1 %.not, label %.loopexit203.i, label %228
+  %.not = icmp eq i8 %.0162.ph199.i, %227
+  br i1 %.not, label %.loopexit202.i, label %228
 
 228:                                              ; preds = %222
   %229 = load i32, ptr %34, align 8
   %230 = icmp eq i32 %229, 1
   %231 = select i1 %230, i32 10, i32 13
   %232 = icmp eq i32 %231, %223
-  br i1 %232, label %233, label %.loopexit203.i
+  br i1 %232, label %233, label %.loopexit202.i
 
 233:                                              ; preds = %228
   %234 = load i64, ptr %35, align 8
   %235 = add i64 %234, 1
   store i64 %235, ptr %35, align 8
-  br label %.loopexit203.i
+  br label %.loopexit202.i
 
-.loopexit203.i:                                   ; preds = %209, %233, %228, %222
-  %.1163.i = phi i8 [ %.2164.i, %233 ], [ %.2164.i, %228 ], [ %.2164.i, %222 ], [ %.0162.ph200.i, %209 ]
-  %.1159.i = phi i1 [ %spec.select.i, %233 ], [ %spec.select.i, %228 ], [ %spec.select.i, %222 ], [ %.0158.ph201.i, %209 ]
+.loopexit202.i:                                   ; preds = %209, %233, %228, %222
+  %.1163.i = phi i8 [ %.2164.i, %233 ], [ %.2164.i, %228 ], [ %.2164.i, %222 ], [ %.0162.ph199.i, %209 ]
+  %.1159.i = phi i1 [ %spec.select.i, %233 ], [ %spec.select.i, %228 ], [ %spec.select.i, %222 ], [ %.0158.ph200.i, %209 ]
   switch i8 %216, label %.outer.i.backedge [
     i8 13, label %236
     i8 10, label %271
     i8 92, label %286
   ]
 
-236:                                              ; preds = %.loopexit203.i
+236:                                              ; preds = %.loopexit202.i
   br i1 %217, label %237, label %239
 
 237:                                              ; preds = %236
@@ -1033,16 +1033,16 @@ CopyLoadInputBuf.exit.i:                          ; preds = %171, %CopyConvertBu
   %264 = tail call i32 @errcode(i32 noundef 67240066) #17
   %265 = load i8, ptr %4, align 2
   %266 = trunc i8 %265 to i1
-  %.str.19..str.18571.i = select i1 %266, ptr @.str.19, ptr @.str.18
-  %267 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.19..str.18571.i) #17
+  %.str.19..str.18546.i = select i1 %266, ptr @.str.19, ptr @.str.18
+  %267 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.19..str.18546.i) #17
   %268 = load i8, ptr %4, align 2
   %269 = trunc i8 %268 to i1
-  %.str.21.sink569.i = select i1 %269, ptr @.str.21, ptr @.str.20
-  %270 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.21.sink569.i) #17
+  %.str.21.sink544.i = select i1 %269, ptr @.str.21, ptr @.str.20
+  %270 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.21.sink544.i) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1326, ptr noundef nonnull @__func__.CopyReadLineText) #17
   unreachable
 
-271:                                              ; preds = %.loopexit203.i
+271:                                              ; preds = %.loopexit202.i
   br i1 %217, label %272, label %274
 
 272:                                              ; preds = %271
@@ -1070,7 +1070,7 @@ CopyLoadInputBuf.exit.i:                          ; preds = %171, %CopyConvertBu
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1342, ptr noundef nonnull @__func__.CopyReadLineText) #17
   unreachable
 
-286:                                              ; preds = %.loopexit203.i
+286:                                              ; preds = %.loopexit202.i
   %brmerge194.not.i = and i1 %.0165.ph.not.i, %217
   br i1 %brmerge194.not.i, label %.outer.i.backedge, label %287
 
@@ -1197,8 +1197,8 @@ CopyLoadInputBuf.exit.i:                          ; preds = %171, %CopyConvertBu
   %spec.select189.i = select i1 %217, i32 %213, i32 %294
   br label %.outer.i.backedge
 
-.outer.i.backedge:                                ; preds = %.loopexit203.i, %237, %286, %342, %325, %313, %306, %272
-  %.0.ph.i.be = phi i32 [ %spec.select189.i, %342 ], [ %213, %325 ], [ %213, %313 ], [ %213, %306 ], [ %213, %272 ], [ %213, %286 ], [ %213, %237 ], [ %213, %.loopexit203.i ]
+.outer.i.backedge:                                ; preds = %.loopexit202.i, %237, %286, %342, %325, %313, %306, %272
+  %.0.ph.i.be = phi i32 [ %spec.select189.i, %342 ], [ %213, %325 ], [ %213, %313 ], [ %213, %306 ], [ %213, %272 ], [ %213, %286 ], [ %213, %237 ], [ %213, %.loopexit202.i ]
   br label %.outer.i
 
 .loopexit.sink.split.i:                           ; preds = %274, %251, %249
@@ -1227,7 +1227,7 @@ CopyLoadInputBuf.exit.i:                          ; preds = %171, %CopyConvertBu
 
 CopyReadLineText.exit.thread.sink.split.sink.split: ; preds = %.loopexit.i.thread, %339
   %.1.i.sink = phi i32 [ %.1.i, %339 ], [ %213, %.loopexit.i.thread ]
-  %.lcssa315.sink.ph = phi i32 [ %340, %339 ], [ %213, %.loopexit.i.thread ]
+  %.lcssa314.sink.ph = phi i32 [ %340, %339 ], [ %213, %.loopexit.i.thread ]
   %349 = load ptr, ptr %18, align 8
   %350 = sext i32 %212 to i64
   %351 = getelementptr i8, ptr %349, i64 %350
@@ -1236,8 +1236,8 @@ CopyReadLineText.exit.thread.sink.split.sink.split: ; preds = %.loopexit.i.threa
   br label %CopyReadLineText.exit.thread.sink.split
 
 CopyReadLineText.exit.thread.sink.split:          ; preds = %CopyReadLineText.exit.thread.sink.split.sink.split, %339
-  %.lcssa315.sink = phi i32 [ %340, %339 ], [ %.lcssa315.sink.ph, %CopyReadLineText.exit.thread.sink.split.sink.split ]
-  store i32 %.lcssa315.sink, ptr %20, align 8
+  %.lcssa314.sink = phi i32 [ %340, %339 ], [ %.lcssa314.sink.ph, %CopyReadLineText.exit.thread.sink.split.sink.split ]
+  store i32 %.lcssa314.sink, ptr %20, align 8
   br label %CopyReadLineText.exit.thread
 
 CopyReadLineText.exit.thread:                     ; preds = %CopyLoadInputBuf.exit.i, %CopyReadLineText.exit.thread.sink.split, %.loopexit.i.thread
@@ -1300,9 +1300,9 @@ CopyReadLineText.exit:                            ; preds = %.loopexit.thread.si
   br label %381
 
 381:                                              ; preds = %CopyReadLineText.exit, %360, %367, %374, %CopyReadLineText.exit.thread, %358
-  %.0166438.i24 = phi i1 [ false, %CopyReadLineText.exit ], [ false, %360 ], [ false, %367 ], [ false, %374 ], [ true, %CopyReadLineText.exit.thread ], [ true, %358 ]
+  %.0166414.i24 = phi i1 [ false, %CopyReadLineText.exit ], [ false, %360 ], [ false, %367 ], [ false, %374 ], [ true, %CopyReadLineText.exit.thread ], [ true, %358 ]
   store i8 1, ptr %3, align 8
-  ret i1 %.0166438.i24
+  ret i1 %.0166414.i24
 }
 
 ; Function Attrs: nounwind uwtable

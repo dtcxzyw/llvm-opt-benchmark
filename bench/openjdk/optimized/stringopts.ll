@@ -3129,7 +3129,6 @@ _ZN9Node_List4pushEP4Node.exit191:                ; preds = %_ZN7Compile15record
   br i1 %525, label %.thread, label %.outer251._crit_edge.thread
 
 .outer251._crit_edge.thread:                      ; preds = %._crit_edge, %.outer251._crit_edge
-  %.0112.ph.lcssa269347 = phi i8 [ %.0112.ph.lcssa269, %.outer251._crit_edge ], [ 0, %._crit_edge ]
   %526 = load ptr, ptr %0, align 8
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 104
   store i32 0, ptr %527, align 8
@@ -3473,7 +3472,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit201.thread._crit_edge: ; preds = %_ZN16U
   br label %.outer, !llvm.loop !27
 
 .outer:                                           ; preds = %.preheader, %_ZN16Unique_Node_List6memberEP4Node.exit201.thread._crit_edge
-  %.4.ph = phi i8 [ %.0112.ph.lcssa269347, %.preheader ], [ %.5, %_ZN16Unique_Node_List6memberEP4Node.exit201.thread._crit_edge ]
+  %.4.ph = phi i8 [ 0, %.preheader ], [ %.5, %_ZN16Unique_Node_List6memberEP4Node.exit201.thread._crit_edge ]
   br label %589
 
 701:                                              ; preds = %589
@@ -6658,7 +6657,7 @@ _ZN8GraphKit3OrIEP4NodeS1_.exit:                  ; preds = %_ZN4NodenwEm.exit.i
   br label %1409
 
 1409:                                             ; preds = %.thread, %_ZN8GraphKit3OrIEP4NodeS1_.exit, %1381
-  %.3189455 = phi i8 [ %.1187479, %1381 ], [ %.1187479, %_ZN8GraphKit3OrIEP4NodeS1_.exit ], [ 1, %.thread ]
+  %.3189455 = phi i8 [ 1, %1381 ], [ 0, %_ZN8GraphKit3OrIEP4NodeS1_.exit ], [ 1, %.thread ]
   %.1195454 = phi ptr [ %.1195, %1381 ], [ %.1195, %_ZN8GraphKit3OrIEP4NodeS1_.exit ], [ %1380, %.thread ]
   %.4 = phi ptr [ %.1183481, %1381 ], [ %1408, %_ZN8GraphKit3OrIEP4NodeS1_.exit ], [ %1377, %.thread ]
   %1410 = load ptr, ptr %204, align 8
@@ -7005,7 +7004,7 @@ _ZN8IdealKit3OrIEP4NodeS1_.exit:                  ; preds = %_ZN4NodenwEm.exit.i
   br label %.critedge
 
 .critedge:                                        ; preds = %1437, %_ZN8IdealKit3OrIEP4NodeS1_.exit, %_ZN8GraphKit3OrIEP4NodeS1_.exit377, %1484
-  %.4190 = phi i8 [ %.1187479, %_ZN8IdealKit3OrIEP4NodeS1_.exit ], [ %.1187479, %_ZN8GraphKit3OrIEP4NodeS1_.exit377 ], [ 1, %1484 ], [ %.1187479, %1437 ]
+  %.4190 = phi i8 [ %.1187479, %_ZN8IdealKit3OrIEP4NodeS1_.exit ], [ 0, %_ZN8GraphKit3OrIEP4NodeS1_.exit377 ], [ 1, %1484 ], [ 1, %1437 ]
   %.5 = phi ptr [ %1606, %_ZN8IdealKit3OrIEP4NodeS1_.exit ], [ %1483, %_ZN8GraphKit3OrIEP4NodeS1_.exit377 ], [ %1485, %1484 ], [ %.1183481, %1437 ]
   %1608 = load ptr, ptr %204, align 8
   %1609 = call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %1608, i32 noundef 1) #11

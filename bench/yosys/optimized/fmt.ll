@@ -4260,7 +4260,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit167:          ; preds = %.noexc165
 
 445:                                              ; preds = %326, %328
   %.1105 = phi i8 [ %.0104394, %328 ], [ 1, %326 ]
-  %.1 = phi i8 [ 1, %328 ], [ %.0395, %326 ]
+  %.1 = phi i8 [ 1, %328 ], [ 0, %326 ]
   %446 = add nuw i64 %.2393, 1
   %447 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %168) #23
   %448 = icmp ult i64 %446, %447
@@ -4268,7 +4268,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit167:          ; preds = %.noexc165
 
 .loopexit:                                        ; preds = %445, %.preheader, %354, %380, %405, %424, %422, %417, %389, %363, %345
   %.2288 = phi i64 [ %.2393, %354 ], [ %.2393, %380 ], [ %.2393, %405 ], [ %.2393, %424 ], [ %.2393, %422 ], [ %.2393, %417 ], [ %.2393, %389 ], [ %.2393, %363 ], [ %.2393, %345 ], [ %.1109.lcssa, %.preheader ], [ %446, %445 ]
-  %.0104286 = phi i8 [ %.0104394, %354 ], [ %.0104394, %380 ], [ %.0104394, %405 ], [ %.0104394, %424 ], [ %.0104394, %422 ], [ %.0104394, %417 ], [ %.0104394, %389 ], [ %.0104394, %363 ], [ %.0104394, %345 ], [ 0, %.preheader ], [ %.1105, %445 ]
+  %.0104286 = phi i8 [ %.0104394, %354 ], [ %.0104394, %380 ], [ %.0104394, %405 ], [ 0, %424 ], [ 1, %422 ], [ %.0104394, %417 ], [ %.0104394, %389 ], [ %.0104394, %363 ], [ %.0104394, %345 ], [ 0, %.preheader ], [ %.1105, %445 ]
   %449 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %168) #23
   %450 = icmp eq i64 %.2288, %449
   br i1 %450, label %451, label %455

@@ -1831,7 +1831,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %7, %13
   br label %71
 
 71:                                               ; preds = %70, %68, %65
-  %.1 = phi i8 [ %.0, %68 ], [ 1, %70 ], [ %.0, %65 ]
+  %.1 = phi i8 [ 1, %68 ], [ 1, %70 ], [ %.0, %65 ]
   %72 = trunc nuw i8 %.1 to i1
   ret i1 %72
 }

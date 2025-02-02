@@ -8542,7 +8542,6 @@ define hidden void @zif_get_extension_funcs(ptr noundef readonly captures(none) 
   br label %69
 
 69:                                               ; preds = %67, %65
-  %.3 = phi i8 [ %.181, %65 ], [ 1, %67 ]
   %70 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -8562,7 +8561,7 @@ define hidden void @zif_get_extension_funcs(ptr noundef readonly captures(none) 
   br label %80
 
 80:                                               ; preds = %57, %61, %78, %53
-  %.2 = phi i8 [ %.181, %53 ], [ %.3, %78 ], [ %.181, %61 ], [ %.181, %57 ]
+  %.2 = phi i8 [ %.181, %53 ], [ 1, %78 ], [ %.181, %61 ], [ %.181, %57 ]
   %81 = getelementptr inbounds nuw i8, ptr %.06280, i64 32
   %.not71 = icmp eq ptr %81, %48
   br i1 %.not71, label %._crit_edge, label %53

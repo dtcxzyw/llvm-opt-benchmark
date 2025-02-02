@@ -4744,7 +4744,7 @@ assignSortGroupRef.exit:                          ; preds = %.lr.ph102, %._crit_
   br label %57
 
 57:                                               ; preds = %.lr.ph124, %54
-  %.160 = phi i8 [ %.059106122, %54 ], [ 1, %.lr.ph124 ]
+  %.160 = phi i8 [ 0, %54 ], [ 1, %.lr.ph124 ]
   %.1 = phi ptr [ %56, %54 ], [ %.0107121, %.lr.ph124 ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %58 = load i32, ptr %9, align 4

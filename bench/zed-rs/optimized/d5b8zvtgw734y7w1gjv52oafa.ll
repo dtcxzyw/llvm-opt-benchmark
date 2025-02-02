@@ -2103,6 +2103,8 @@ _ZN10async_task5utils14abort_on_panic17h4d3518f64a719623E.exit: ; preds = %141
   %.sroa.015.0.v = select i1 %155, i64 -11, i64 -4
   %.sroa.015.0 = and i64 %.sroa.015.0.v, %.sroa.016.1
   %brmerge = select i1 %155, i1 true, i1 %.sroa.011.0
+  %not. = xor i1 %155, true
+  %.sroa.011.0.mux = select i1 %not., i1 true, i1 %.sroa.011.0
   br i1 %brmerge, label %161, label %156
 
 156:                                              ; preds = %153
@@ -2130,7 +2132,7 @@ _ZN10async_task5utils14abort_on_panic17h4d3518f64a719623E.exit: ; preds = %141
   br label %161
 
 161:                                              ; preds = %153, %160
-  %.sroa.011.1 = phi i1 [ %.sroa.011.0, %153 ], [ true, %160 ]
+  %.sroa.011.1 = phi i1 [ %.sroa.011.0.mux, %153 ], [ true, %160 ]
   %162 = cmpxchg weak ptr %15, i64 %.sroa.016.1, i64 %.sroa.015.0 acq_rel acquire, align 8
   %.sroa.18.0.in.i129 = extractvalue { i64, i1 } %162, 1
   %.sroa.08.0.i132 = extractvalue { i64, i1 } %162, 0
@@ -2999,6 +3001,8 @@ _ZN10async_task5utils14abort_on_panic17hccb12e605463b72bE.exit: ; preds = %149
   %.sroa.019.0.v = select i1 %163, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %163, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %163, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %170, label %164
 
 164:                                              ; preds = %161
@@ -3023,7 +3027,7 @@ _ZN10async_task5utils14abort_on_panic17hccb12e605463b72bE.exit: ; preds = %149
   br label %170
 
 170:                                              ; preds = %161, %169
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %161 ], [ true, %169 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %161 ], [ true, %169 ]
   %171 = cmpxchg weak ptr %15, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %.sroa.18.0.in.i126 = extractvalue { i64, i1 } %171, 1
   %.sroa.08.0.i129 = extractvalue { i64, i1 } %171, 0
@@ -3913,6 +3917,8 @@ _ZN10async_task5utils14abort_on_panic17h23b00607c81c2673E.exit: ; preds = %153
   %.sroa.016.0.v = select i1 %169, i64 -11, i64 -4
   %.sroa.016.0 = and i64 %.sroa.016.0.v, %.sroa.017.1
   %brmerge = select i1 %169, i1 true, i1 %.sroa.013.0
+  %not. = xor i1 %169, true
+  %.sroa.013.0.mux = select i1 %not., i1 true, i1 %.sroa.013.0
   br i1 %brmerge, label %178, label %170
 
 170:                                              ; preds = %.preheader
@@ -3942,7 +3948,7 @@ _ZN10async_task5utils14abort_on_panic17h23b00607c81c2673E.exit: ; preds = %153
   br label %178
 
 178:                                              ; preds = %.preheader, %177
-  %.sroa.013.1 = phi i1 [ %.sroa.013.0, %.preheader ], [ true, %177 ]
+  %.sroa.013.1 = phi i1 [ %.sroa.013.0.mux, %.preheader ], [ true, %177 ]
   %179 = cmpxchg weak ptr %17, i64 %.sroa.017.1, i64 %.sroa.016.0 acq_rel acquire, align 8
   %.sroa.18.0.in.i123 = extractvalue { i64, i1 } %179, 1
   %.sroa.08.0.i126 = extractvalue { i64, i1 } %179, 0
@@ -4848,6 +4854,8 @@ _ZN10async_task5utils14abort_on_panic17h4f8e05e2c251eb19E.exit: ; preds = %150
   %.sroa.016.0.v = select i1 %166, i64 -11, i64 -4
   %.sroa.016.0 = and i64 %.sroa.016.0.v, %.sroa.017.1
   %brmerge = select i1 %166, i1 true, i1 %.sroa.013.0
+  %not. = xor i1 %166, true
+  %.sroa.013.0.mux = select i1 %not., i1 true, i1 %.sroa.013.0
   br i1 %brmerge, label %174, label %167
 
 167:                                              ; preds = %.preheader
@@ -4880,7 +4888,7 @@ _ZN10async_task5utils14abort_on_panic17h4f8e05e2c251eb19E.exit: ; preds = %150
   br label %174
 
 174:                                              ; preds = %.preheader, %173
-  %.sroa.013.1 = phi i1 [ %.sroa.013.0, %.preheader ], [ true, %173 ]
+  %.sroa.013.1 = phi i1 [ %.sroa.013.0.mux, %.preheader ], [ true, %173 ]
   %175 = cmpxchg weak ptr %17, i64 %.sroa.017.1, i64 %.sroa.016.0 acq_rel acquire, align 8
   %.sroa.18.0.in.i125 = extractvalue { i64, i1 } %175, 1
   %.sroa.08.0.i128 = extractvalue { i64, i1 } %175, 0
@@ -5766,6 +5774,8 @@ _ZN10async_task5utils14abort_on_panic17h157ca48608eb7d56E.exit: ; preds = %147
   %.sroa.019.0.v = select i1 %161, i64 -11, i64 -4
   %.sroa.019.0 = and i64 %.sroa.019.0.v, %.sroa.020.1
   %brmerge = select i1 %161, i1 true, i1 %.sroa.015.0
+  %not. = xor i1 %161, true
+  %.sroa.015.0.mux = select i1 %not., i1 true, i1 %.sroa.015.0
   br i1 %brmerge, label %167, label %162
 
 162:                                              ; preds = %159
@@ -5793,7 +5803,7 @@ _ZN10async_task5utils14abort_on_panic17h157ca48608eb7d56E.exit: ; preds = %147
   br label %167
 
 167:                                              ; preds = %159, %166
-  %.sroa.015.1 = phi i1 [ %.sroa.015.0, %159 ], [ true, %166 ]
+  %.sroa.015.1 = phi i1 [ %.sroa.015.0.mux, %159 ], [ true, %166 ]
   %168 = cmpxchg weak ptr %15, i64 %.sroa.020.1, i64 %.sroa.019.0 acq_rel acquire, align 8
   %.sroa.18.0.in.i128 = extractvalue { i64, i1 } %168, 1
   %.sroa.08.0.i131 = extractvalue { i64, i1 } %168, 0
@@ -6650,6 +6660,8 @@ _ZN10async_task5utils14abort_on_panic17h9ca39f5207c094bcE.exit: ; preds = %143
   %.sroa.015.0.v = select i1 %157, i64 -11, i64 -4
   %.sroa.015.0 = and i64 %.sroa.015.0.v, %.sroa.016.1
   %brmerge = select i1 %157, i1 true, i1 %.sroa.011.0
+  %not. = xor i1 %157, true
+  %.sroa.011.0.mux = select i1 %not., i1 true, i1 %.sroa.011.0
   br i1 %brmerge, label %164, label %158
 
 158:                                              ; preds = %155
@@ -6674,7 +6686,7 @@ _ZN10async_task5utils14abort_on_panic17h9ca39f5207c094bcE.exit: ; preds = %143
   br label %164
 
 164:                                              ; preds = %155, %163
-  %.sroa.011.1 = phi i1 [ %.sroa.011.0, %155 ], [ true, %163 ]
+  %.sroa.011.1 = phi i1 [ %.sroa.011.0.mux, %155 ], [ true, %163 ]
   %165 = cmpxchg weak ptr %15, i64 %.sroa.016.1, i64 %.sroa.015.0 acq_rel acquire, align 8
   %.sroa.18.0.in.i127 = extractvalue { i64, i1 } %165, 1
   %.sroa.08.0.i130 = extractvalue { i64, i1 } %165, 0
@@ -12189,7 +12201,7 @@ define hidden void @_ZN4gpui6keymap7context10KeyContext3set17h7054936b21dd256aE(
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17h891ad5288ddfe95cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #39
-          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h72b36b59dff56c04E.exit13" unwind label %35
+          to label %.thread18 unwind label %35
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcf859f0c74415f9bE.llvm.2221560088564545942.exit": ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -12214,7 +12226,7 @@ define hidden void @_ZN4gpui6keymap7context10KeyContext3set17h7054936b21dd256aE(
   %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$gpui..keymap..context..ContextEntry$GT$17h10523feea4253205E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8) #39
-          to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h72b36b59dff56c04E.exit13" unwind label %28
+          to label %.thread18 unwind label %28
 
 25:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcf859f0c74415f9bE.llvm.2221560088564545942.exit"
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17hb791ad1dba592f01E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
@@ -12275,8 +12287,8 @@ define hidden void @_ZN4gpui6keymap7context10KeyContext3set17h7054936b21dd256aE(
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17h891ad5288ddfe95cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #39
           to label %.thread unwind label %35
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h72b36b59dff56c04E.exit13": ; preds = %13, %23, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16203528845727909344.exit.i.i1.i.i12", %.thread
-  %.pn1016 = phi { ptr, i32 } [ %41, %.thread ], [ %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16203528845727909344.exit.i.i1.i.i12" ], [ %14, %13 ], [ %24, %23 ]
+.thread18:                                        ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16203528845727909344.exit.i.i1.i.i12", %.thread, %13, %23
+  %.pn1016 = phi { ptr, i32 } [ %24, %23 ], [ %14, %13 ], [ %41, %.thread ], [ %41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16203528845727909344.exit.i.i1.i.i12" ]
   resume { ptr, i32 } %.pn1016
 
 .thread:                                          ; preds = %40
@@ -12286,13 +12298,13 @@ define hidden void @_ZN4gpui6keymap7context10KeyContext3set17h7054936b21dd256aE(
   call void @llvm.experimental.noalias.scope.decl(metadata !2611)
   %42 = load i64, ptr %3, align 8, !alias.scope !2614, !noalias !2617, !noundef !7
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h72b36b59dff56c04E.exit13", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16203528845727909344.exit.i.i1.i.i12"
+  br i1 %43, label %.thread18, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16203528845727909344.exit.i.i1.i.i12"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16203528845727909344.exit.i.i1.i.i12": ; preds = %.thread
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !2614, !noalias !2617, !nonnull !7, !noundef !7
   call void @__rust_dealloc(ptr noundef nonnull %45, i64 noundef %42, i64 noundef 1) #30, !noalias !2619
-  br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h72b36b59dff56c04E.exit13"
+  br label %.thread18
 }
 
 ; Function Attrs: nonlazybind uwtable

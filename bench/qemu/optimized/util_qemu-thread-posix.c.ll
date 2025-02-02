@@ -987,34 +987,34 @@ compute_abs_deadline.exit:                        ; preds = %entry, %if.then.i
   %3 = inttoptr i64 %2 to ptr
   call void %3(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 291) #21
   %count = getelementptr inbounds nuw i8, ptr %sem, i64 104
-  %4 = load i32, ptr %count, align 8
-  %cmp15 = icmp eq i32 %4, 0
-  br i1 %cmp15, label %while.body2.lr.ph, label %if.then9
-
-while.body2.lr.ph:                                ; preds = %compute_abs_deadline.exit
   %cmp3 = icmp eq i32 %ms, 0
   %cond = getelementptr inbounds nuw i8, ptr %sem, i64 48
-  br i1 %cmp3, label %if.end11, label %while.body2
+  br i1 %cmp3, label %while.cond1.us, label %while.cond1
 
-while.cond1:                                      ; preds = %while.body2
+while.cond1.us:                                   ; preds = %compute_abs_deadline.exit
+  %4 = load i32, ptr %count, align 8
+  %cmp.not.us = icmp eq i32 %4, 0
+  br i1 %cmp.not.us, label %if.end11, label %if.then9
+
+while.cond1:                                      ; preds = %compute_abs_deadline.exit, %while.body2
   %5 = load i32, ptr %count, align 8
-  %cmp = icmp eq i32 %5, 0
-  br i1 %cmp, label %while.body2, label %if.then9, !llvm.loop !5
+  %cmp.not = icmp eq i32 %5, 0
+  br i1 %cmp.not, label %while.body2, label %if.then9
 
-while.body2:                                      ; preds = %while.body2.lr.ph, %while.cond1
+while.body2:                                      ; preds = %while.cond1
   %call = call fastcc zeroext i1 @qemu_cond_timedwait_ts(ptr noundef nonnull %cond, ptr noundef nonnull %sem, ptr noundef %ts, ptr noundef nonnull @.str.1, i32 noundef 297)
   br i1 %call, label %while.cond1, label %if.end11, !llvm.loop !5
 
-if.then9:                                         ; preds = %while.cond1, %compute_abs_deadline.exit
-  %6 = load i32, ptr %count, align 8
+if.then9:                                         ; preds = %while.cond1, %while.cond1.us
+  %6 = phi i32 [ %4, %while.cond1.us ], [ %5, %while.cond1 ]
   %dec = add i32 %6, -1
   store i32 %dec, ptr %count, align 8
   br label %if.end11
 
-if.end11:                                         ; preds = %while.body2, %while.body2.lr.ph, %if.then9
-  %not.tobool8 = phi i32 [ 0, %if.then9 ], [ -1, %while.body2.lr.ph ], [ -1, %while.body2 ]
+if.end11:                                         ; preds = %while.body2, %while.cond1.us, %if.then9
+  %cmp.not15 = phi i32 [ 0, %if.then9 ], [ -1, %while.cond1.us ], [ -1, %while.body2 ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %sem, ptr noundef nonnull @.str.1, i32 noundef 306)
-  ret i32 %not.tobool8
+  ret i32 %cmp.not15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

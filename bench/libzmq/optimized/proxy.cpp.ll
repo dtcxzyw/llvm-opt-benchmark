@@ -1690,6 +1690,8 @@ do.end930:                                        ; preds = %delete.end926, %del
   br label %return
 
 if.end935:                                        ; preds = %if.end895, %land.lhs.true897
+  %backend_in.4 = phi i8 [ 1, %land.lhs.true897 ], [ 0, %if.end895 ]
+  %frontend_out.4 = phi i8 [ 0, %land.lhs.true897 ], [ %frontend_out.1.lcssa, %if.end895 ]
   br i1 %or.cond333, label %if.then939.thread, label %if.else967
 
 if.then939:                                       ; preds = %if.then899
@@ -1742,7 +1744,7 @@ if.else967:                                       ; preds = %if.end935
   br i1 %tobool968, label %if.then969, label %if.end981
 
 if.then969:                                       ; preds = %if.else967
-  %tobool970 = trunc i8 %frontend_out.1.lcssa to i1
+  %tobool970 = trunc i8 %frontend_out.4 to i1
   br i1 %tobool970, label %if.end981, label %if.else972
 
 if.else972:                                       ; preds = %if.then969
@@ -1756,7 +1758,8 @@ if.else975:                                       ; preds = %if.else972
 
 if.end981:                                        ; preds = %if.else975, %if.else972, %if.then969, %if.else967
   %poller_wait.3 = phi ptr [ %poller_wait.0402, %if.else967 ], [ %poller_backend_only.0, %if.then969 ], [ %poller_both_blocked.0, %if.else972 ], [ %spec.select331, %if.else975 ]
-  br i1 %tobool896, label %if.then983, label %if.end997
+  %tobool982 = trunc nuw i8 %backend_in.4 to i1
+  br i1 %tobool982, label %if.then983, label %if.end997
 
 if.then983:                                       ; preds = %if.end981
   %tobool984 = trunc i8 %backend_out.4 to i1
@@ -1772,9 +1775,9 @@ if.else989:                                       ; preds = %if.else986
   br label %if.end997
 
 if.end997:                                        ; preds = %if.then943.thread, %if.else946.thread, %if.then939.thread, %if.else958, %if.else989, %if.else986, %if.then983, %if.then955, %if.then939, %if.end981, %for.end
-  %backend_out.3 = phi i8 [ %backend_out.4, %if.then939 ], [ %backend_out.4, %if.end981 ], [ %backend_out.1.lcssa, %for.end ], [ %backend_out.4, %if.then955 ], [ %backend_out.4, %if.then983 ], [ %backend_out.4, %if.else986 ], [ %backend_out.4, %if.else989 ], [ %backend_out.4, %if.else958 ], [ %backend_out.4, %if.then939.thread ], [ %backend_out.4, %if.else946.thread ], [ %backend_out.4, %if.then943.thread ]
-  %backend_in.3 = phi i8 [ 0, %if.then939 ], [ %backend_in.1.lcssa, %if.end981 ], [ %backend_in.1.lcssa, %for.end ], [ 0, %if.then955 ], [ %backend_in.1.lcssa, %if.then983 ], [ %backend_in.1.lcssa, %if.else986 ], [ %backend_in.1.lcssa, %if.else989 ], [ 0, %if.else958 ], [ %backend_in.1.lcssa, %if.then939.thread ], [ %backend_in.1.lcssa, %if.else946.thread ], [ %backend_in.1.lcssa, %if.then943.thread ]
-  %frontend_out.3 = phi i8 [ 0, %if.then939 ], [ %frontend_out.1.lcssa, %if.end981 ], [ %frontend_out.1.lcssa, %for.end ], [ 0, %if.then955 ], [ %frontend_out.1.lcssa, %if.then983 ], [ %frontend_out.1.lcssa, %if.else986 ], [ %frontend_out.1.lcssa, %if.else989 ], [ 0, %if.else958 ], [ %frontend_out.1.lcssa, %if.then939.thread ], [ %frontend_out.1.lcssa, %if.else946.thread ], [ %frontend_out.1.lcssa, %if.then943.thread ]
+  %backend_out.3 = phi i8 [ %backend_out.4, %if.then939 ], [ %backend_out.4, %if.end981 ], [ %backend_out.1.lcssa, %for.end ], [ %backend_out.4, %if.then955 ], [ 1, %if.then983 ], [ 0, %if.else986 ], [ 0, %if.else989 ], [ %backend_out.4, %if.else958 ], [ %backend_out.4, %if.then939.thread ], [ %backend_out.4, %if.else946.thread ], [ %backend_out.4, %if.then943.thread ]
+  %backend_in.3 = phi i8 [ 0, %if.then939 ], [ 0, %if.end981 ], [ %backend_in.1.lcssa, %for.end ], [ 0, %if.then955 ], [ 1, %if.then983 ], [ 1, %if.else986 ], [ 1, %if.else989 ], [ 0, %if.else958 ], [ %backend_in.4, %if.then939.thread ], [ %backend_in.4, %if.else946.thread ], [ %backend_in.4, %if.then943.thread ]
+  %frontend_out.3 = phi i8 [ 0, %if.then939 ], [ %frontend_out.4, %if.end981 ], [ %frontend_out.1.lcssa, %for.end ], [ 0, %if.then955 ], [ %frontend_out.4, %if.then983 ], [ %frontend_out.4, %if.else986 ], [ %frontend_out.4, %if.else989 ], [ 0, %if.else958 ], [ %frontend_out.4, %if.then939.thread ], [ %frontend_out.4, %if.else946.thread ], [ %frontend_out.4, %if.then943.thread ]
   %frontend_in.3 = phi i8 [ %frontend_in.4, %if.then939 ], [ %frontend_in.4, %if.end981 ], [ %frontend_in.1.lcssa, %for.end ], [ %frontend_in.4, %if.then955 ], [ %frontend_in.4, %if.then983 ], [ %frontend_in.4, %if.else986 ], [ %frontend_in.4, %if.else989 ], [ %frontend_in.4, %if.else958 ], [ %frontend_in.4, %if.then939.thread ], [ %frontend_in.4, %if.else946.thread ], [ %frontend_in.4, %if.then943.thread ]
   %poller_wait.1 = phi ptr [ %poller_wait.0402, %if.then939 ], [ %poller_wait.3, %if.end981 ], [ %poller_wait.0402, %for.end ], [ %call13, %if.then955 ], [ %poller_frontend_only.0, %if.then983 ], [ %poller_both_blocked.0, %if.else986 ], [ %spec.select332, %if.else989 ], [ %spec.select335, %if.else958 ], [ %poller_wait.0402, %if.then939.thread ], [ %spec.select334445, %if.else946.thread ], [ %poller_send_blocked.0, %if.then943.thread ]
   %cmp707.not = icmp eq i32 %state.1.lcssa, 2

@@ -15856,7 +15856,6 @@ _ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit:   ; preds = %25
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %25, %33, %35
-  %.sroa.036.244 = phi i8 [ %.sroa.036.063, %33 ], [ %.sroa.036.063, %35 ], [ 0, %25 ]
   %.0.i = phi ptr [ %34, %33 ], [ %6, %35 ], [ %6, %25 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %39 = load ptr, ptr %38, align 8
@@ -15920,7 +15919,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit16:    ; preds = %54, %56
   br label %_ZN4llvm11raw_ostreamlsEc.exit19
 
 _ZN4llvm11raw_ostreamlsEc.exit19:                 ; preds = %64, %62, %19
-  %.sroa.036.1 = phi i8 [ %.sroa.036.063, %19 ], [ %.sroa.036.244, %62 ], [ %.sroa.036.244, %64 ]
+  %.sroa.036.1 = phi i8 [ %.sroa.036.063, %19 ], [ 0, %62 ], [ 0, %64 ]
   %67 = getelementptr inbounds nuw i8, ptr %.064, i64 8
   %.not = icmp eq ptr %67, %16
   br i1 %.not, label %._crit_edge, label %19

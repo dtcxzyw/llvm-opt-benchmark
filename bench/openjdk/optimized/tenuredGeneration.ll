@@ -215,32 +215,32 @@ define hidden noundef zeroext i1 @_ZN17TenuredGeneration6expandEmm(ptr noundef n
   %.015 = phi i64 [ %9, %8 ], [ %6, %5 ]
   %11 = tail call noundef i64 @_ZN13ReservedSpace18page_align_size_upEm(i64 noundef %2) #8
   %12 = icmp ugt i64 %11, %.015
-  br i1 %12, label %13, label %15
+  br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %10
   %14 = tail call noundef zeroext i1 @_ZN17TenuredGeneration7grow_byEm(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 noundef %11)
-  br i1 %14, label %.critedge, label %15
+  br i1 %14, label %.thread24, label %.thread
 
-15:                                               ; preds = %13, %10
-  %16 = tail call noundef zeroext i1 @_ZN17TenuredGeneration7grow_byEm(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 noundef %.015)
-  br i1 %16, label %.critedge, label %17
+.thread:                                          ; preds = %10, %13
+  %15 = tail call noundef zeroext i1 @_ZN17TenuredGeneration7grow_byEm(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 noundef %.015)
+  br i1 %15, label %.thread24, label %16
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = tail call noundef i64 @_ZNK12VirtualSpace16uncommitted_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %18) #8
-  %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %.critedge, label %_ZN17TenuredGeneration16grow_to_reservedEv.exit
+16:                                               ; preds = %.thread
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = tail call noundef i64 @_ZNK12VirtualSpace16uncommitted_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %17) #8
+  %.not.i = icmp eq i64 %18, 0
+  br i1 %.not.i, label %.thread24, label %19
 
-_ZN17TenuredGeneration16grow_to_reservedEv.exit:  ; preds = %17
-  %20 = tail call noundef zeroext i1 @_ZN17TenuredGeneration7grow_byEm(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 noundef %19)
-  br i1 %20, label %.critedge, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
+19:                                               ; preds = %16
+  %20 = tail call noundef zeroext i1 @_ZN17TenuredGeneration7grow_byEm(ptr noundef nonnull align 8 dereferenceable(248) %0, i64 noundef %18)
+  br i1 %20, label %.thread24, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-.critedge:                                        ; preds = %13, %15, %17, %_ZN17TenuredGeneration16grow_to_reservedEv.exit
+.thread24:                                        ; preds = %13, %.thread, %16, %19
   %21 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
   %22 = trunc i8 %21 to i1
   br i1 %22, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-_ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %.critedge
+_ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %.thread24
   %23 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
@@ -254,8 +254,8 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %.critedge
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.4)
   br label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
-_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %.critedge, %_ZN17TenuredGeneration16grow_to_reservedEv.exit, %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %25, %27, %3
-  %.014 = phi i1 [ true, %3 ], [ true, %27 ], [ true, %25 ], [ true, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ false, %_ZN17TenuredGeneration16grow_to_reservedEv.exit ], [ true, %.critedge ]
+_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread: ; preds = %.thread24, %19, %_ZN8GCLocker22is_active_and_needs_gcEv.exit, %25, %27, %3
+  %.014 = phi i1 [ true, %3 ], [ true, %27 ], [ true, %25 ], [ true, %_ZN8GCLocker22is_active_and_needs_gcEv.exit ], [ false, %19 ], [ true, %.thread24 ]
   ret i1 %.014
 }
 

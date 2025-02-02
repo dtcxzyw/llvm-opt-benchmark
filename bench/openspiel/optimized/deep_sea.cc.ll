@@ -2828,7 +2828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56: ; 
   br label %90
 
 90:                                               ; preds = %89, %87, %.preheader.i.i
-  %.1.i.i = phi i8 [ %.01924.i.i, %.preheader.i.i ], [ %spec.select.i.i, %87 ], [ %spec.select21.i.i, %89 ]
+  %.1.i.i = phi i8 [ 0, %.preheader.i.i ], [ %spec.select.i.i, %87 ], [ %spec.select21.i.i, %89 ]
   %91 = add nuw nsw i64 %.01825.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %91, 624
   br i1 %exitcond.not.i.i, label %92, label %.preheader.i.i, !llvm.loop !9

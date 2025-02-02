@@ -2121,7 +2121,7 @@ define void @_ZNK3nix10ExprLambda4showERKNS_11SymbolTableERSo(ptr noundef nonnul
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not33 = icmp eq ptr %6, null
-  br i1 %.not33, label %65, label %7
+  br i1 %.not33, label %62, label %7
 
 7:                                                ; preds = %3
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.19)
@@ -2137,139 +2137,133 @@ define void @_ZNK3nix10ExprLambda4showERKNS_11SymbolTableERSo(ptr noundef nonnul
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %16
 
-16:                                               ; preds = %.lr.ph, %45
-  %.038 = phi i8 [ 1, %.lr.ph ], [ %.1, %45 ]
-  %.sroa.030.037 = phi ptr [ %10, %.lr.ph ], [ %46, %45 ]
-  %17 = trunc nuw i8 %.038 to i1
-  br i1 %17, label %20, label %18
+16:                                               ; preds = %.lr.ph, %44
+  %.038 = phi i1 [ true, %.lr.ph ], [ false, %44 ]
+  %.sroa.030.037 = phi ptr [ %10, %.lr.ph ], [ %45, %44 ]
+  br i1 %.038, label %19, label %17
 
-18:                                               ; preds = %16
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.24)
-  br label %20
+17:                                               ; preds = %16
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.24)
+  br label %19
 
-20:                                               ; preds = %16, %18
-  %.1 = phi i8 [ %.038, %18 ], [ 0, %16 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.030.037, i64 4
-  %.sroa.01.0.copyload = load i32, ptr %21, align 4
-  %22 = load i32, ptr %14, align 8
-  %23 = freeze i32 %22
-  %24 = add i32 %.sroa.01.0.copyload, -1
-  %or.cond.not.i = icmp ult i32 %24, %23
-  br i1 %or.cond.not.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit, label %25
+19:                                               ; preds = %16, %17
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.030.037, i64 4
+  %.sroa.01.0.copyload = load i32, ptr %20, align 4
+  %21 = load i32, ptr %14, align 8
+  %22 = freeze i32 %21
+  %23 = add i32 %.sroa.01.0.copyload, -1
+  %or.cond.not.i = icmp ult i32 %23, %22
+  br i1 %or.cond.not.i, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit, label %24
 
-25:                                               ; preds = %20
+24:                                               ; preds = %19
   tail call void @abort() #33
   unreachable
 
-_ZNK3nix11SymbolTableixENS_6SymbolE.exit:         ; preds = %20
-  %26 = zext i32 %24 to i64
-  %27 = lshr i64 %26, 13
-  %28 = load ptr, ptr %15, align 8
-  %29 = getelementptr inbounds nuw %"class.std::vector.261", ptr %28, i64 %27
-  %30 = and i64 %26, 8191
-  %31 = load ptr, ptr %29, align 8
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %31, i64 %30
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %35 = load i64, ptr %34, align 8
-  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix15printIdentifierERSoSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %35, ptr %33)
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.030.037, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %45, label %39
+_ZNK3nix11SymbolTableixENS_6SymbolE.exit:         ; preds = %19
+  %25 = zext i32 %23 to i64
+  %26 = lshr i64 %25, 13
+  %27 = load ptr, ptr %15, align 8
+  %28 = getelementptr inbounds nuw %"class.std::vector.261", ptr %27, i64 %26
+  %29 = and i64 %25, 8191
+  %30 = load ptr, ptr %28, align 8
+  %31 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %29
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %34 = load i64, ptr %33, align 8
+  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix15printIdentifierERSoSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %34, ptr %32)
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.030.037, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %44, label %38
 
-39:                                               ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit
-  %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.25)
-  %41 = load ptr, ptr %37, align 8
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %45
+38:                                               ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit
+  %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.25)
+  %40 = load ptr, ptr %36, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  br label %44
 
-45:                                               ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit, %39
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.030.037, i64 16
-  %47 = icmp eq ptr %46, %12
-  br i1 %47, label %._crit_edge, label %16
+44:                                               ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit, %38
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.030.037, i64 16
+  %46 = icmp eq ptr %45, %12
+  br i1 %46, label %._crit_edge, label %16
 
-._crit_edge:                                      ; preds = %45
+._crit_edge:                                      ; preds = %44
   %.pre = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %49 = load i8, ptr %48, align 8
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %54, label %59
+  %47 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
+  %48 = load i8, ptr %47, align 8
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %53, label %56
 
 ._crit_edge.thread:                               ; preds = %7
-  %51 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %52 = load i8, ptr %51, align 8
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %.thread, label %59
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %51 = load i8, ptr %50, align 8
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %.thread, label %56
 
-54:                                               ; preds = %._crit_edge
-  %55 = trunc nuw i8 %.1 to i1
-  br i1 %55, label %.thread, label %56
-
-56:                                               ; preds = %54
-  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.24)
+53:                                               ; preds = %._crit_edge
+  %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.24)
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge.thread, %56, %54
-  %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.26)
-  br label %59
+.thread:                                          ; preds = %._crit_edge.thread, %53
+  %55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.26)
+  br label %56
 
-59:                                               ; preds = %._crit_edge.thread, %.thread, %._crit_edge
-  %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.27)
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %62 = load i32, ptr %61, align 8
-  %.not34 = icmp eq i32 %62, 0
-  br i1 %.not34, label %65, label %63
+56:                                               ; preds = %._crit_edge.thread, %.thread, %._crit_edge
+  %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.27)
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %59 = load i32, ptr %58, align 8
+  %.not34 = icmp eq i32 %59, 0
+  br i1 %.not34, label %62, label %60
 
-63:                                               ; preds = %59
-  %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.28)
-  br label %65
+60:                                               ; preds = %56
+  %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.28)
+  br label %62
 
-65:                                               ; preds = %59, %63, %3
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+62:                                               ; preds = %56, %60, %3
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %64 = load i32, ptr %63, align 8
+  %.not35 = icmp eq i32 %64, 0
+  br i1 %.not35, label %83, label %65
+
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %67 = load i32, ptr %66, align 8
-  %.not35 = icmp eq i32 %67, 0
-  br i1 %.not35, label %86, label %68
+  %68 = freeze i32 %67
+  %69 = add i32 %64, -1
+  %or.cond.not.i26 = icmp ult i32 %69, %68
+  br i1 %or.cond.not.i26, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit27, label %70
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %70 = load i32, ptr %69, align 8
-  %71 = freeze i32 %70
-  %72 = add i32 %67, -1
-  %or.cond.not.i26 = icmp ult i32 %72, %71
-  br i1 %or.cond.not.i26, label %_ZNK3nix11SymbolTableixENS_6SymbolE.exit27, label %73
-
-73:                                               ; preds = %68
+70:                                               ; preds = %65
   tail call void @abort() #33
   unreachable
 
-_ZNK3nix11SymbolTableixENS_6SymbolE.exit27:       ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %75 = zext i32 %72 to i64
-  %76 = lshr i64 %75, 13
-  %77 = load ptr, ptr %74, align 8
-  %78 = getelementptr inbounds nuw %"class.std::vector.261", ptr %77, i64 %76
-  %79 = and i64 %75, 8191
-  %80 = load ptr, ptr %78, align 8
-  %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %80, i64 %79
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %84 = load i64, ptr %83, align 8
-  %85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix15printIdentifierERSoSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %84, ptr %82)
-  br label %86
+_ZNK3nix11SymbolTableixENS_6SymbolE.exit27:       ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %72 = zext i32 %69 to i64
+  %73 = lshr i64 %72, 13
+  %74 = load ptr, ptr %71, align 8
+  %75 = getelementptr inbounds nuw %"class.std::vector.261", ptr %74, i64 %73
+  %76 = and i64 %72, 8191
+  %77 = load ptr, ptr %75, align 8
+  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %77, i64 %76
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %81 = load i64, ptr %80, align 8
+  %82 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix15printIdentifierERSoSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %81, ptr %79)
+  br label %83
 
-86:                                               ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit27, %65
-  %87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.29)
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
+83:                                               ; preds = %_ZNK3nix11SymbolTableixENS_6SymbolE.exit27, %62
+  %84 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.29)
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = load ptr, ptr %91, align 8
-  tail call void %92(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.8)
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.8)
   ret void
 }
 

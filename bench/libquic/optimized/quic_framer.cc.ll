@@ -5691,8 +5691,8 @@ if.else75:                                        ; preds = %if.then62
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end33, %if.else, %_ZNSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE5resetEPS1_.exit, %if.else75, %if.end60, %if.then
-  %success.0.shrunk = phi i1 [ true, %if.then ], [ true, %_ZNSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE5resetEPS1_.exit ], [ true, %if.else75 ], [ false, %if.end60 ], [ false, %if.else ], [ false, %if.end33 ]
-  ret i1 %success.0.shrunk
+  %success.0 = phi i1 [ true, %if.then ], [ true, %_ZNSt10unique_ptrIN3net13QuicDecrypterESt14default_deleteIS1_EE5resetEPS1_.exit ], [ true, %if.else75 ], [ false, %if.end60 ], [ false, %if.else ], [ false, %if.end33 ]
+  ret i1 %success.0
 }
 
 ; Function Attrs: mustprogress uwtable

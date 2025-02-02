@@ -10562,7 +10562,7 @@ if.then325:                                       ; preds = %do.body
 cleanup331:                                       ; preds = %_ZN4pbrt15SampledSpectrumpLERKS0_.exit, %invoke.cont56, %if.then4, %do.body, %if.end45, %lor.lhs.false, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit332
   %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.1, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit332 ], [ 3, %lor.lhs.false ], [ 3, %if.end45 ], [ 2, %invoke.cont56 ], [ 0, %do.body ], [ 3, %if.then4 ], [ 3, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit ]
   %depth.1 = phi i32 [ %inc, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit332 ], [ %depth.0, %lor.lhs.false ], [ %inc, %if.end45 ], [ %inc, %invoke.cont56 ], [ %inc, %do.body ], [ %depth.0, %if.then4 ], [ %depth.0, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit ]
-  %specularBounce.1 = phi i8 [ %specularBounce.2, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit332 ], [ %specularBounce.0, %lor.lhs.false ], [ %specularBounce.0, %if.end45 ], [ 1, %invoke.cont56 ], [ %specularBounce.3, %do.body ], [ %specularBounce.0, %if.then4 ], [ %specularBounce.0, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit ]
+  %specularBounce.1 = phi i8 [ %specularBounce.2, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit332 ], [ 0, %lor.lhs.false ], [ %specularBounce.0, %if.end45 ], [ 1, %invoke.cont56 ], [ %specularBounce.3, %do.body ], [ %specularBounce.0, %if.then4 ], [ %specularBounce.0, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit ]
   %163 = load i8, ptr %set.i, align 8
   %tobool.i.i580 = trunc i8 %163 to i1
   br i1 %tobool.i.i580, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit.i.i, label %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit

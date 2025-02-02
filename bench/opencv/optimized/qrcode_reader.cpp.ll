@@ -2522,7 +2522,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit298: ; preds = %819, %82
 
 _ZN5zxing3RefINS_6ResultEED2Ev.exit:              ; preds = %756, %751, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit, %543, %546, %550
   %.3121.shrunk = phi i8 [ 10, %550 ], [ 10, %546 ], [ 10, %543 ], [ %.mask, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit ], [ %.mask, %751 ], [ %.mask, %756 ]
-  %.287 = phi i8 [ %.0851115, %550 ], [ %.0851115, %546 ], [ %.0851115, %543 ], [ 1, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit ], [ 1, %751 ], [ 1, %756 ]
+  %.287 = phi i8 [ 0, %550 ], [ 0, %546 ], [ 0, %543 ], [ 1, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit ], [ 1, %751 ], [ 1, %756 ]
   %.7 = phi i1 [ %.5731118, %550 ], [ %.5731118, %546 ], [ %.5731118, %543 ], [ %..573, %_ZNSt6vectorIN5zxing3RefINS0_6ResultEEESaIS3_EE9push_backERKS3_.exit ], [ %..573, %751 ], [ %..573, %756 ]
   %830 = load ptr, ptr %16, align 8
   %.not.i299 = icmp eq ptr %830, null
@@ -2696,7 +2696,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit310: ; preds = %_ZN5zxin
   br label %1636
 
 .lr.ph1140.preheader:                             ; preds = %.lr.ph, %860
-  %.085.lcssa = phi i8 [ %.186, %860 ], [ %.0851115, %.lr.ph ]
+  %.085.lcssa = phi i8 [ %.186, %860 ], [ 1, %.lr.ph ]
   %.573.lcssa = phi i1 [ %.674, %860 ], [ %.5731118, %.lr.ph ]
   %smax1447 = call i32 @llvm.smax.i32(i32 %247, i32 1)
   br label %.lr.ph1140
@@ -2753,7 +2753,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit310: ; preds = %_ZN5zxin
   %926 = phi ptr [ %1566, %1563 ], [ %921, %.preheader ]
   %.121129 = phi i1 [ %.13, %1563 ], [ %.101138, %.preheader ]
   %.0751128 = phi i64 [ %1564, %1563 ], [ 1, %.preheader ]
-  %.5901127 = phi i8 [ %.691, %1563 ], [ %.3881134, %.preheader ]
+  %.5901127 = phi i8 [ %.691, %1563 ], [ 0, %.preheader ]
   %927 = load ptr, ptr %5, align 8
   %928 = getelementptr inbounds nuw i8, ptr %927, i64 56
   %929 = load ptr, ptr %928, align 8
@@ -4365,7 +4365,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit344: ; preds = %1589, %1
 .split.loop.exit:                                 ; preds = %1563, %.preheader, %.split.loop.exit1123
   %1603 = phi ptr [ %.pre, %.split.loop.exit1123 ], [ %921, %.preheader ], [ %1566, %1563 ]
   %.9127 = phi i32 [ %.6124.le, %.split.loop.exit1123 ], [ 0, %.preheader ], [ 0, %1563 ]
-  %.893 = phi i8 [ %.691, %.split.loop.exit1123 ], [ %.3881134, %.preheader ], [ %.691, %1563 ]
+  %.893 = phi i8 [ %.691, %.split.loop.exit1123 ], [ 0, %.preheader ], [ %.691, %1563 ]
   %.16 = phi i1 [ %.13, %.split.loop.exit1123 ], [ %.101138, %.preheader ], [ %.13, %1563 ]
   %.not.i.i.i454 = icmp eq ptr %1603, null
   br i1 %.not.i.i.i454, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %1604
@@ -4386,7 +4386,7 @@ _ZN5zxing3RefINS_14DetectorResultEED2Ev.exit453:  ; preds = %1599, %1594, %_ZN5z
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1604, %.split.loop.exit, %910
   %.10128 = phi i32 [ 0, %910 ], [ %.9127, %.split.loop.exit ], [ %.9127, %1604 ]
-  %.994 = phi i8 [ %.3881134, %910 ], [ %.893, %.split.loop.exit ], [ %.893, %1604 ]
+  %.994 = phi i8 [ 0, %910 ], [ %.893, %.split.loop.exit ], [ %.893, %1604 ]
   %.17 = phi i1 [ %.101138, %910 ], [ %.16, %.split.loop.exit ], [ %.16, %1604 ]
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEEE, i64 16), ptr %29, align 8
   %1607 = load ptr, ptr %102, align 8

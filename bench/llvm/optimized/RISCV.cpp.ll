@@ -6408,7 +6408,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit67.thread: ; preds = %_ZNK4llvm9StringR
   br label %_ZN4llvm11SmallVectorINS_9StringRefELj1EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_9StringRefELj1EED2Ev.exit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread103, %_ZNK4llvm9StringRef11starts_withES0_.exit57, %123, %113, %._crit_edge, %_ZNK4llvm9StringRef11starts_withES0_.exit50.thread104, %_ZNK4llvm9StringRef11starts_withES0_.exit67, %135, %121, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit64
-  %.1 = phi i8 [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit50.thread104 ], [ %.036115, %121 ], [ %.036115, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit64 ], [ %.036115, %135 ], [ %.036115, %_ZNK4llvm9StringRef11starts_withES0_.exit67 ], [ 1, %._crit_edge ], [ 1, %113 ], [ %.036115, %123 ], [ %.036115, %_ZNK4llvm9StringRef11starts_withES0_.exit57 ], [ %.036115, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread103 ]
+  %.1 = phi i8 [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit50.thread104 ], [ 1, %121 ], [ %.036115, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit64 ], [ %.036115, %135 ], [ %.036115, %_ZNK4llvm9StringRef11starts_withES0_.exit67 ], [ 1, %._crit_edge ], [ 1, %113 ], [ 0, %123 ], [ %.036115, %_ZNK4llvm9StringRef11starts_withES0_.exit57 ], [ %.036115, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread103 ]
   %136 = getelementptr inbounds nuw i8, ptr %.037114, i64 16
   %.not = icmp eq ptr %136, %23
   br i1 %.not, label %._crit_edge117, label %36

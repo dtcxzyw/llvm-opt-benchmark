@@ -512,141 +512,121 @@ _ZN6Thread20current_or_null_safeEv.exit:          ; preds = %4, %17
   %or.cond = or i1 %19, %20
   %21 = icmp ne ptr %1, null
   %or.cond3 = and i1 %or.cond, %21
-  br i1 %or.cond3, label %22, label %30
+  br i1 %or.cond3, label %22, label %29
 
 22:                                               ; preds = %_ZN6Thread20current_or_null_safeEv.exit
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @g_assert_poison, align 8
   %26 = icmp eq ptr %24, %25
-  br i1 %26, label %27, label %30
+  br i1 %26, label %27, label %29
 
 27:                                               ; preds = %22
   %28 = call noundef zeroext i1 @_Z26handle_assert_poison_faultPKvS0_(ptr noundef %2, ptr noundef %24) #20
-  %29 = zext i1 %28 to i8
-  br label %30
+  br label %29
 
-30:                                               ; preds = %_ZN6Thread20current_or_null_safeEv.exit, %27, %22
-  %.0 = phi i8 [ %29, %27 ], [ 0, %22 ], [ 0, %_ZN6Thread20current_or_null_safeEv.exit ]
+29:                                               ; preds = %_ZN6Thread20current_or_null_safeEv.exit, %27, %22
+  %.0 = phi i1 [ %28, %27 ], [ false, %22 ], [ false, %_ZN6Thread20current_or_null_safeEv.exit ]
   %.not74 = icmp eq ptr %2, null
-  br i1 %.not74, label %33, label %31
+  br i1 %.not74, label %32, label %30
 
-31:                                               ; preds = %30
-  %32 = call noundef ptr @_ZN2os5Posix15ucontext_get_pcEPK10ucontext_t(ptr noundef nonnull %2) #20
-  br label %33
+30:                                               ; preds = %29
+  %31 = call noundef ptr @_ZN2os5Posix15ucontext_get_pcEPK10ucontext_t(ptr noundef nonnull %2) #20
+  br label %32
 
-33:                                               ; preds = %31, %30
-  %.068 = phi ptr [ %32, %31 ], [ null, %30 ]
-  %34 = trunc nuw i8 %.0 to i1
-  br i1 %34, label %38, label %35
+32:                                               ; preds = %30, %29
+  %.068 = phi ptr [ %31, %30 ], [ null, %29 ]
+  br i1 %.0, label %.thread89, label %33
+
+33:                                               ; preds = %32
+  %34 = call noundef zeroext i1 @_Z16handle_safefetchiPhPv(i32 noundef %0, ptr noundef %.068, ptr noundef %2) #20
+  br i1 %34, label %.thread89, label %35
 
 35:                                               ; preds = %33
-  %36 = call noundef zeroext i1 @_Z16handle_safefetchiPhPv(i32 noundef %0, ptr noundef %.068, ptr noundef %2) #20
-  %37 = zext i1 %36 to i8
-  br label %38
+  switch i32 %0, label %38 [
+    i32 25, label %36
+    i32 13, label %36
+  ]
 
-38:                                               ; preds = %35, %33
-  %.1 = phi i8 [ %.0, %33 ], [ %37, %35 ]
-  %39 = trunc nuw i8 %.1 to i1
+36:                                               ; preds = %35, %35
+  %37 = call noundef zeroext i1 @_ZN12PosixSignals15chained_handlerEiP9siginfo_tPv(i32 noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %.thread89
+
+38:                                               ; preds = %35
+  %39 = icmp eq ptr %.068, null
   br i1 %39, label %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread, label %40
 
 40:                                               ; preds = %38
-  switch i32 %0, label %42 [
-    i32 25, label %.thread
-    i32 13, label %.thread
-  ]
-
-.thread:                                          ; preds = %40, %40
-  %41 = call noundef zeroext i1 @_ZN12PosixSignals15chained_handlerEiP9siginfo_tPv(i32 noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %.thread84
+  %41 = call noundef zeroext i1 @_ZN2os19is_readable_pointerEPKv(ptr noundef nonnull %.068) #20
+  br i1 %41, label %42, label %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread
 
 42:                                               ; preds = %40
-  %43 = icmp eq ptr %.068, null
-  br i1 %43, label %62, label %44
+  %43 = load i8, ptr %.068, align 1
+  %44 = icmp eq i8 %43, 15
+  br i1 %44, label %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit, label %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread
 
-44:                                               ; preds = %42
-  %45 = call noundef zeroext i1 @_ZN2os19is_readable_pointerEPKv(ptr noundef nonnull %.068) #20
-  br i1 %45, label %46, label %62
+_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit: ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %.068, i64 1
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, -1
+  br i1 %47, label %48, label %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread
 
-46:                                               ; preds = %44
-  %47 = load i8, ptr %.068, align 1
-  %48 = icmp eq i8 %47, 15
-  br i1 %48, label %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit, label %62
+48:                                               ; preds = %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit
+  %49 = call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef nonnull %.068) #20
+  %.not = icmp eq ptr %49, null
+  br i1 %.not, label %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread, label %50
 
-_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit: ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %.068, i64 1
-  %50 = load i8, ptr %49, align 1
-  %51 = icmp eq i8 %50, -1
-  br i1 %51, label %52, label %62
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 52
+  %52 = load i8, ptr %51, align 4
+  %53 = icmp eq i8 %52, 1
+  br i1 %53, label %54, label %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread
 
-52:                                               ; preds = %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit
-  %53 = call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef nonnull %.068) #20
-  %.not = icmp eq ptr %53, null
-  br i1 %.not, label %62, label %54
-
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 52
-  %56 = load i8, ptr %55, align 4
-  %57 = icmp eq i8 %56, 1
-  br i1 %57, label %58, label %62
-
-58:                                               ; preds = %54
-  %59 = call noundef zeroext i1 @_ZN7nmethod23is_method_handle_returnEPh(ptr noundef nonnull align 8 dereferenceable(214) %53, ptr noundef nonnull %.068) #20
-  %.pn.in.in.v = select i1 %59, i64 172, i64 168
-  %.pn.in.in = getelementptr inbounds nuw i8, ptr %53, i64 %.pn.in.in.v
+54:                                               ; preds = %50
+  %55 = call noundef zeroext i1 @_ZN7nmethod23is_method_handle_returnEPh(ptr noundef nonnull align 8 dereferenceable(214) %49, ptr noundef nonnull %.068) #20
+  %.pn.in.in.v = select i1 %55, i64 172, i64 168
+  %.pn.in.in = getelementptr inbounds nuw i8, ptr %49, i64 %.pn.in.in.v
   %.pn.in = load i32, ptr %.pn.in.in, align 4
   %.pn = sext i32 %.pn.in to i64
-  %60 = getelementptr inbounds i8, ptr %53, i64 %.pn
+  %56 = getelementptr inbounds i8, ptr %49, i64 %.pn
   call void @_ZN2os24fetch_frame_from_contextEPKv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %6, ptr noundef %2) #20
-  %61 = call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %53, ptr noundef nonnull %6) #20
-  store ptr %.068, ptr %61, align 8
-  call void @_ZN2os5Posix15ucontext_set_pcEP10ucontext_tPh(ptr noundef %2, ptr noundef nonnull %60) #20
-  br label %.thread84
+  %57 = call noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull align 8 dereferenceable(214) %49, ptr noundef nonnull %6) #20
+  store ptr %.068, ptr %57, align 8
+  call void @_ZN2os5Posix15ucontext_set_pcEP10ucontext_tPh(ptr noundef %2, ptr noundef nonnull %56) #20
+  br label %.thread89
 
-62:                                               ; preds = %46, %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit, %54, %52, %44, %42
+_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread: ; preds = %42, %50, %48, %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit, %40, %38
   %.not76 = icmp eq ptr %.0.i, null
-  br i1 %.not76, label %68, label %63
+  br i1 %.not76, label %63, label %58
 
-63:                                               ; preds = %62
-  %64 = load ptr, ptr %.0.i, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
-  %66 = load ptr, ptr %65, align 8
-  %67 = call noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(888) %.0.i) #20
-  %spec.select = select i1 %67, ptr %.0.i, ptr null
-  br label %68
+58:                                               ; preds = %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread
+  %59 = load ptr, ptr %.0.i, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %61 = load ptr, ptr %60, align 8
+  %62 = call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(888) %.0.i) #20
+  %spec.select = select i1 %62, ptr %.0.i, ptr null
+  br label %63
 
-68:                                               ; preds = %63, %62
-  %69 = phi ptr [ null, %62 ], [ %spec.select, %63 ]
-  %70 = call noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEiP9siginfo_tP10ucontext_tP10JavaThread(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %69) #20
-  %71 = zext i1 %70 to i8
-  br label %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread
+63:                                               ; preds = %58, %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread
+  %64 = phi ptr [ null, %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread ], [ %spec.select, %58 ]
+  %65 = call noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEiP9siginfo_tP10ucontext_tP10JavaThread(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %64) #20
+  br i1 %65, label %.thread89, label %66
 
-_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread: ; preds = %38, %68
-  %.4 = phi i8 [ %71, %68 ], [ %.1, %38 ]
-  %72 = trunc nuw i8 %.4 to i1
-  br i1 %72, label %76, label %73
+66:                                               ; preds = %63
+  %67 = call noundef zeroext i1 @_ZN12PosixSignals15chained_handlerEiP9siginfo_tPv(i32 noundef %0, ptr noundef %1, ptr noundef %2)
+  %68 = zext i1 %67 to i32
+  %69 = icmp eq i32 %3, 0
+  %or.cond10.not = or i1 %69, %67
+  br i1 %or.cond10.not, label %.thread89, label %70
 
-73:                                               ; preds = %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread
-  %74 = call noundef zeroext i1 @_ZN12PosixSignals15chained_handlerEiP9siginfo_tPv(i32 noundef %0, ptr noundef %1, ptr noundef %2)
-  %75 = zext i1 %74 to i8
-  br label %76
-
-76:                                               ; preds = %73, %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread
-  %.5 = phi i8 [ %.4, %_ZN22NativeDeoptInstruction11is_deopt_atEPh.exit.thread ], [ %75, %73 ]
-  %77 = trunc nuw i8 %.5 to i1
-  %78 = icmp eq i32 %3, 0
-  %or.cond10.not = or i1 %78, %77
-  br i1 %or.cond10.not, label %.thread84, label %79
-
-79:                                               ; preds = %76
+70:                                               ; preds = %66
   call void @_ZN7VMError14report_and_dieEP6ThreadjPhPvS3_(ptr noundef %.0.i, i32 noundef %0, ptr noundef %.068, ptr noundef %1, ptr noundef %2) #22
   unreachable
 
-.thread84:                                        ; preds = %.thread, %58, %76
-  %.587 = phi i8 [ %.5, %76 ], [ 1, %58 ], [ 1, %.thread ]
-  %80 = zext nneg i8 %.587 to i32
+.thread89:                                        ; preds = %32, %36, %33, %54, %63, %66
+  %.592 = phi i32 [ %68, %66 ], [ 1, %63 ], [ 1, %54 ], [ 1, %36 ], [ 1, %33 ], [ 1, %32 ]
   store i32 %8, ptr %7, align 4
-  ret i32 %80
+  ret i32 %.592
 }
 
 declare void @_ZN21ThreadCrashProtection22check_crash_protectionEiP6Thread(i32 noundef, ptr noundef) local_unnamed_addr #2

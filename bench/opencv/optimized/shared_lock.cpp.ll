@@ -39,13 +39,12 @@ define noundef i64 @_ZN2cv4gapi3wip6onevpl10SharedLock11shared_lockEv(ptr nounde
   br label %12
 
 12:                                               ; preds = %10, %8
-  %.2 = phi i8 [ 0, %10 ], [ %.022, %8 ]
   %13 = tail call noundef i32 @sched_yield() #3
   br label %14
 
 14:                                               ; preds = %12, %6
   %.124 = phi i64 [ %.023, %12 ], [ %7, %6 ]
-  %.1 = phi i8 [ %.2, %12 ], [ 1, %6 ]
+  %.1 = phi i8 [ 0, %12 ], [ 1, %6 ]
   %15 = load atomic i8, ptr %0 seq_cst, align 8
   %16 = trunc i8 %15 to i1
   %17 = trunc nuw i8 %.1 to i1
@@ -96,12 +95,11 @@ _ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit: ; preds = %.p
   br label %14
 
 14:                                               ; preds = %13, %11
-  %.2 = phi i8 [ 0, %13 ], [ %.012, %11 ]
   %15 = tail call noundef i32 @sched_yield() #3
   br label %_ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit.thread
 
 _ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit.thread: ; preds = %_ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit, %.preheader, %14
-  %.1 = phi i8 [ %.2, %14 ], [ 1, %.preheader ], [ 1, %_ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit ]
+  %.1 = phi i8 [ 0, %14 ], [ 1, %.preheader ], [ 1, %_ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit ]
   %16 = load atomic i64, ptr %2 seq_cst, align 8
   %17 = icmp eq i64 %16, 0
   %18 = trunc nuw i8 %.1 to i1

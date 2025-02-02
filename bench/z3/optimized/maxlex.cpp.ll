@@ -4031,9 +4031,9 @@ if.then10.i:                                      ; preds = %if.else7.i
 call13.i.noexc:                                   ; preds = %if.then10.i
   %cond.i = zext i1 %call13.i6 to i32
   %not.call13.i = xor i1 %call13.i6, true
-  %spec.select.i = select i1 %not.call13.i, i1 true, i1 %second_undef.019.i
+  %tobool16.i = select i1 %not.call13.i, i1 true, i1 %second_undef.019.i
   store i32 %cond.i, ptr %value.i, align 8
-  br i1 %spec.select.i, label %for.inc.i, label %for.inc.sink.split.i
+  br i1 %tobool16.i, label %for.inc.i, label %for.inc.sink.split.i
 
 for.inc.sink.split.i:                             ; preds = %call13.i.noexc, %if.then6.i
   %second_undef.1.ph.i = phi i1 [ %second_undef.019.i, %if.then6.i ], [ false, %call13.i.noexc ]

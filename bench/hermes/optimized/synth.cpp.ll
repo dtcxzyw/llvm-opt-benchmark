@@ -3840,7 +3840,7 @@ invoke.cont38:                                    ; preds = %if.then.i.i, %invok
   %_ZN2clL11MaxHeapSizeE.val20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL11MaxHeapSizeE, i64 152), align 8
   %cmp.i41 = icmp sgt i32 %_ZN2clL11MaxHeapSizeE.val, 0
   %_ZN2clL15OccupancyTargetE.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL15OccupancyTargetE, i64 8), align 8
-  %_ZN2clL15OccupancyTargetE.val21241242 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL15OccupancyTargetE, i64 152), align 8
+  %_ZN2clL15OccupancyTargetE.val21245246 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL15OccupancyTargetE, i64 152), align 8
   %cmp.i46 = icmp sgt i32 %_ZN2clL15OccupancyTargetE.val, 0
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL19ShouldReleaseUnusedE, i64 8), align 8
   %cmp.i48 = icmp sgt i32 %20, 0
@@ -3870,10 +3870,10 @@ invoke.cont38:                                    ; preds = %if.then.i.i, %invok
   %bytecodeWarmupPercent = getelementptr inbounds nuw i8, ptr %options, i64 308
   store i64 %retval.sroa.0.0.insert.insert.i65, ptr %bytecodeWarmupPercent, align 4
   %_ZN2clL14GCSanitizeRateE.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14GCSanitizeRateE, i64 8), align 8
-  %_ZN2clL14GCSanitizeRateE.val22243244 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14GCSanitizeRateE, i64 152), align 8
+  %_ZN2clL14GCSanitizeRateE.val22247248 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL14GCSanitizeRateE, i64 152), align 8
   %cmp.i66 = icmp sgt i32 %_ZN2clL14GCSanitizeRateE.val, 0
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL20GCSanitizeRandomSeedE, i64 152), align 8
-  %tobool.not.not = icmp ne i64 %26, 0
+  %tobool.not.not = icmp eq i64 %26, 0
   %ShouldRecordStats_.i = getelementptr inbounds nuw i8, ptr %options, i64 48
   store i8 %shouldPrintGCStats.0, ptr %ShouldRecordStats_.i, align 8
   %ShouldRecordStatsExplicit_.i = getelementptr inbounds nuw i8, ptr %options, i64 206
@@ -3910,7 +3910,7 @@ if.end121:                                        ; preds = %invoke.cont117, %if
 
 invoke.cont126:                                   ; preds = %if.end121
   %OccupancyTarget_.i = getelementptr inbounds nuw i8, ptr %options, i64 16
-  store double %_ZN2clL15OccupancyTargetE.val21241242, ptr %OccupancyTarget_.i, align 8
+  store double %_ZN2clL15OccupancyTargetE.val21245246, ptr %OccupancyTarget_.i, align 8
   %OccupancyTargetExplicit_.i = getelementptr inbounds nuw i8, ptr %options, i64 203
   store i8 1, ptr %OccupancyTargetExplicit_.i, align 1
   br label %if.end130
@@ -3948,21 +3948,27 @@ invoke.cont154:                                   ; preds = %if.end149
   br label %if.end159
 
 if.end159:                                        ; preds = %invoke.cont154, %if.end149
-  %brmerge = select i1 %cmp.i66, i1 true, i1 %tobool.not.not
-  br i1 %brmerge, label %if.end172, label %if.end187
+  br i1 %cmp.i66, label %if.end172, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %if.end159
+  br i1 %tobool.not.not, label %if.end187, label %invoke.cont183
 
 if.end172:                                        ; preds = %if.end159
-  %_ZN2clL14GCSanitizeRateE.val22243244.mux = select i1 %cmp.i66, double %_ZN2clL14GCSanitizeRateE.val22243244, double 0.000000e+00
-  %spec.select240 = select i1 %tobool.not.not, i64 %26, i64 -1
+  %spec.select244 = select i1 %tobool.not.not, i64 -1, i64 %26
+  br label %invoke.cont183
+
+invoke.cont183:                                   ; preds = %lor.lhs.false, %if.end172
+  %sanitizeConfigBuilder.sroa.0.0241 = phi double [ %_ZN2clL14GCSanitizeRateE.val22247248, %if.end172 ], [ 0.000000e+00, %lor.lhs.false ]
+  %sanitizeConfigBuilder.sroa.4.0 = phi i64 [ %spec.select244, %if.end172 ], [ %26, %lor.lhs.false ]
   %SanitizeConfig_.i = getelementptr inbounds nuw i8, ptr %options, i64 32
-  store double %_ZN2clL14GCSanitizeRateE.val22243244.mux, ptr %SanitizeConfig_.i, align 8
+  store double %sanitizeConfigBuilder.sroa.0.0241, ptr %SanitizeConfig_.i, align 8
   %SanitizeConfig.sroa.2.0.SanitizeConfig_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %options, i64 40
-  store i64 %spec.select240, ptr %SanitizeConfig.sroa.2.0.SanitizeConfig_.sroa_idx.i, align 8
+  store i64 %sanitizeConfigBuilder.sroa.4.0, ptr %SanitizeConfig.sroa.2.0.SanitizeConfig_.sroa_idx.i, align 8
   %SanitizeConfigExplicit_.i = getelementptr inbounds nuw i8, ptr %options, i64 205
   store i8 1, ptr %SanitizeConfigExplicit_.i, align 1
   br label %if.end187
 
-if.end187:                                        ; preds = %if.end159, %if.end172
+if.end187:                                        ; preds = %invoke.cont183, %lor.lhs.false
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL13BytecodeFilesB5cxx11E, i64 152), align 8
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2clL13BytecodeFilesB5cxx11E, i64 160), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bytecodeFiles, i8 0, i64 24, i1 false)

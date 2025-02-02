@@ -949,8 +949,8 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 while.cond.preheader:                             ; preds = %_ZN8rationalD2Ev.exit
   %m_at_eof = getelementptr inbounds nuw i8, ptr %this, i64 17
   %17 = load i8, ptr %m_at_eof, align 1
-  %tobool136 = trunc i8 %17 to i1
-  br i1 %tobool136, label %if.end51, label %while.body.lr.ph
+  %tobool138 = trunc i8 %17 to i1
+  br i1 %tobool138, label %if.end51, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %m_kind.i.i.i23 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 4
@@ -977,7 +977,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end45
-  %is_float.0137 = phi i8 [ 0, %while.body.lr.ph ], [ %is_float.1, %if.end45 ]
+  %is_float.0139 = phi i8 [ 0, %while.body.lr.ph ], [ %is_float.1, %if.end45 ]
   %18 = load i8, ptr %m_curr.i, align 8
   %19 = add i8 %18, -48
   %or.cond = icmp ult i8 %19, 10
@@ -1125,7 +1125,7 @@ terminate.lpad.i99:                               ; preds = %.noexc.i100, %_ZN8r
   unreachable
 
 _ZN8rationalD2Ev.exit102:                         ; preds = %.noexc.i100
-  %tobool27 = trunc nuw i8 %is_float.0137 to i1
+  %tobool27 = trunc nuw i8 %is_float.0139 to i1
   br i1 %tobool27, label %if.then28, label %if.end
 
 if.then28:                                        ; preds = %_ZN8rationalD2Ev.exit102
@@ -1193,12 +1193,12 @@ terminate.lpad.i115:                              ; preds = %.noexc.i116, %invok
   unreachable
 
 lpad.loopexit:                                    ; preds = %if.end, %if.end41, %if.then, %if.then28
-  %lpad.loopexit124 = landingpad { ptr, i32 }
+  %lpad.loopexit125 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup53
 
 lpad.loopexit.split-lp:                           ; preds = %_ZN8rationalD2Ev.exit, %entry, %if.then47
-  %lpad.loopexit.split-lp125 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp126 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup53
 
@@ -1243,25 +1243,25 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp37, label %if.then38, label %while.end
 
 if.then38:                                        ; preds = %if.else
-  %tobool39 = trunc nuw i8 %is_float.0137 to i1
-  br i1 %tobool39, label %while.end, label %if.end41
+  %tobool39 = trunc nuw i8 %is_float.0139 to i1
+  br i1 %tobool39, label %if.then47, label %if.end41
 
 if.end41:                                         ; preds = %if.then38
   invoke void @_ZN4smt27scanner4nextEv(ptr noundef nonnull align 8 dereferenceable(1408) %this)
           to label %if.end45 unwind label %lpad.loopexit
 
 if.end45:                                         ; preds = %if.end41, %if.end
-  %is_float.1 = phi i8 [ %is_float.0137, %if.end ], [ 1, %if.end41 ]
+  %is_float.1 = phi i8 [ %is_float.0139, %if.end ], [ 1, %if.end41 ]
   %57 = load i8, ptr %m_at_eof, align 1
   %tobool = trunc i8 %57 to i1
   br i1 %tobool, label %while.end, label %while.body, !llvm.loop !9
 
-while.end:                                        ; preds = %if.end45, %if.then38, %if.else
-  %is_float.0.lcssa.ph = phi i8 [ %is_float.1, %if.end45 ], [ %is_float.0137, %if.then38 ], [ %is_float.0137, %if.else ]
+while.end:                                        ; preds = %if.end45, %if.else
+  %is_float.0.lcssa.ph = phi i8 [ %is_float.1, %if.end45 ], [ %is_float.0139, %if.else ]
   %58 = trunc nuw i8 %is_float.0.lcssa.ph to i1
   br i1 %58, label %if.then47, label %if.end51
 
-if.then47:                                        ; preds = %while.end
+if.then47:                                        ; preds = %if.then38, %while.end
   %59 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpq_managerILb1EE3divERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %59, ptr noundef nonnull align 8 dereferenceable(32) %m_number, ptr noundef nonnull align 8 dereferenceable(32) %q, ptr noundef nonnull align 8 dereferenceable(32) %m_number)
           to label %if.end51 unwind label %lpad.loopexit.split-lp
@@ -1287,7 +1287,7 @@ _ZN8rationalD2Ev.exit123:                         ; preds = %.noexc.i121
   ret i32 %cond
 
 ehcleanup53:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad31, %ehcleanup26
-  %.pn9 = phi { ptr, i32 } [ %56, %lpad31 ], [ %.pn.pn, %ehcleanup26 ], [ %lpad.loopexit124, %lpad.loopexit ], [ %lpad.loopexit.split-lp125, %lpad.loopexit.split-lp ]
+  %.pn9 = phi { ptr, i32 } [ %56, %lpad31 ], [ %.pn.pn, %ehcleanup26 ], [ %lpad.loopexit125, %lpad.loopexit ], [ %lpad.loopexit.split-lp126, %lpad.loopexit.split-lp ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %q) #16
   resume { ptr, i32 } %.pn9
 }

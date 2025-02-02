@@ -1608,6 +1608,7 @@ _ZNK4llvm13RegBankSelect11MappingCostgtERKS1_.exit.thread: ; preds = %_ZNK4llvm1
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %94 = zext i32 %78 to i64
+  %not..not65 = xor i1 %.not65, true
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %96
 
@@ -1775,6 +1776,7 @@ _ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit81: ; preds = %_ZN4llvm23Sma
 
 172:                                              ; preds = %167
   %brmerge = select i1 %.not65, i1 true, i1 %.0112
+  %.0.mux = select i1 %not..not65, i1 true, i1 %.0112
   br i1 %brmerge, label %_ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit, label %173
 
 173:                                              ; preds = %172
@@ -1951,7 +1953,7 @@ _ZNK4llvm13RegBankSelect11MappingCostgtERKS1_.exit93.thread: ; preds = %_ZNK4llv
   br i1 %or.cond, label %_ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit, label %212
 
 _ZN4llvm13RegBankSelect18RepairingPlacementD2Ev.exit: ; preds = %_ZNK4llvm13RegBankSelect11MappingCostgtERKS1_.exit93.thread, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread114, %172, %106, %144, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_13RegBankSelect11InsertPointESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %102, %96
-  %.1 = phi i1 [ %.0112, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit ], [ %.0112, %172 ], [ %.0112, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %.0112, %102 ], [ %.0112, %96 ], [ %.0112, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_13RegBankSelect11InsertPointESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i ], [ %.0112, %144 ], [ %.0112, %106 ], [ false, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread114 ], [ %.3.shrunk, %_ZNK4llvm13RegBankSelect11MappingCostgtERKS1_.exit93.thread ]
+  %.1 = phi i1 [ %.0112, %_ZNK4llvm13RegBankSelect15assignmentMatchENS_8RegisterERKNS_16RegisterBankInfo12ValueMappingERb.exit ], [ %.0.mux, %172 ], [ %.0112, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ %.0112, %102 ], [ %.0112, %96 ], [ %.0112, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_13RegBankSelect11InsertPointESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i ], [ %.0112, %144 ], [ %.0112, %106 ], [ false, %_ZNK4llvm13RegBankSelect13getRepairCostERKNS_14MachineOperandERKNS_16RegisterBankInfo12ValueMappingE.exit.thread114 ], [ %.3.shrunk, %_ZNK4llvm13RegBankSelect11MappingCostgtERKS1_.exit93.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not66 = icmp eq i64 %indvars.iv.next, %94
   br i1 %.not66, label %._crit_edge, label %96, !llvm.loop !41

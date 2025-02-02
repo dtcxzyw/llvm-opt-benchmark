@@ -6079,7 +6079,7 @@ pmix_obj_run_destructors.exit220:                 ; preds = %.lr.ph.i217, %145
 
 .loopexit238:                                     ; preds = %258, %..loopexit238_crit_edge, %.preheader237, %257, %253
   %260 = phi ptr [ %.pre287, %257 ], [ %.pre287, %253 ], [ %.pre, %..loopexit238_crit_edge ], [ %.pre287, %.preheader237 ], [ %.pre287, %258 ]
-  %.3 = phi i8 [ 0, %257 ], [ %.2264, %253 ], [ %.2264, %..loopexit238_crit_edge ], [ %.2264, %.preheader237 ], [ %.2264, %258 ]
+  %.3 = phi i8 [ 0, %257 ], [ %.2264, %253 ], [ 0, %..loopexit238_crit_edge ], [ 1, %.preheader237 ], [ %.2264, %258 ]
   %261 = getelementptr inbounds %struct.pmix_proc, ptr %260, i64 %.2181262
   %262 = load ptr, ptr %230, align 8
   %263 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %261, ptr noundef nonnull dereferenceable(1) %262, i64 noundef 255) #17
@@ -6177,7 +6177,7 @@ pmix_obj_new_tma.exit228:                         ; preds = %.lr.ph.i.i225, %293
   br label %309
 
 309:                                              ; preds = %._crit_edge266, %280, %pmix_obj_new_tma.exit228, %232
-  %.1175 = phi i8 [ %.0174270, %232 ], [ %.2.lcssa, %pmix_obj_new_tma.exit228 ], [ %.2.lcssa, %280 ], [ %.2.lcssa, %._crit_edge266 ]
+  %.1175 = phi i8 [ %.0174270, %232 ], [ %.2.lcssa, %pmix_obj_new_tma.exit228 ], [ 1, %280 ], [ 0, %._crit_edge266 ]
   %310 = getelementptr inbounds nuw i8, ptr %.0173271, i64 120
   %.0173 = load ptr, ptr %310, align 8
   %.not203 = icmp eq ptr %.0173, getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 552)
@@ -9936,7 +9936,7 @@ pmix_obj_new_tma.exit105.thread117:               ; preds = %.lr.ph.i.i102, %62
 
 .loopexit:                                        ; preds = %129, %..loopexit_crit_edge, %.preheader, %128, %124
   %131 = phi ptr [ %.pre142, %128 ], [ %.pre142, %124 ], [ %.pre, %..loopexit_crit_edge ], [ %.pre142, %.preheader ], [ %.pre142, %129 ]
-  %.3 = phi i8 [ 0, %128 ], [ %.2128, %124 ], [ %.2128, %..loopexit_crit_edge ], [ %.2128, %.preheader ], [ %.2128, %129 ]
+  %.3 = phi i8 [ 0, %128 ], [ %.2128, %124 ], [ 0, %..loopexit_crit_edge ], [ 1, %.preheader ], [ %.2128, %129 ]
   %132 = getelementptr inbounds %struct.pmix_proc, ptr %131, i64 %.081129
   %133 = load ptr, ptr %73, align 8
   %134 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) %133, i64 noundef 255) #17
@@ -10031,7 +10031,7 @@ pmix_obj_new_tma.exit112:                         ; preds = %.lr.ph.i.i109, %163
   br label %179
 
 179:                                              ; preds = %._crit_edge, %150, %pmix_obj_new_tma.exit112, %.lr.ph137
-  %.1 = phi i8 [ %.082134, %.lr.ph137 ], [ %.2.lcssa, %pmix_obj_new_tma.exit112 ], [ %.2.lcssa, %150 ], [ %.2.lcssa, %._crit_edge ]
+  %.1 = phi i8 [ %.082134, %.lr.ph137 ], [ %.2.lcssa, %pmix_obj_new_tma.exit112 ], [ 1, %150 ], [ 0, %._crit_edge ]
   %180 = getelementptr inbounds nuw i8, ptr %.083135, i64 120
   %.083 = load ptr, ptr %180, align 8
   %.not95 = icmp eq ptr %.083, getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 552)

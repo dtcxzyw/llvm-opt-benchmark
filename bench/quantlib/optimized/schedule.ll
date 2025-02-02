@@ -5012,7 +5012,7 @@ cond.false.i.i1069.invoke.cont1019_crit_edge:     ; preds = %cond.false.i.i1069
   br label %invoke.cont1019
 
 invoke.cont1019:                                  ; preds = %cond.false.i.i1069.invoke.cont1019_crit_edge, %sw.bb1017
-  %.pre2312 = phi i8 [ %.pre2312.pre, %cond.false.i.i1069.invoke.cont1019_crit_edge ], [ %494, %sw.bb1017 ]
+  %.pre2312 = phi i8 [ %.pre2312.pre, %cond.false.i.i1069.invoke.cont1019_crit_edge ], [ 1, %sw.bb1017 ]
   %495 = load i32, ptr %m_storage.i.i205, align 8, !tbaa !73
   %cmp1021 = icmp eq i32 %495, 8
   br i1 %cmp1021, label %if.then1026, label %lor.lhs.false
@@ -5575,7 +5575,7 @@ cond.false.i.i1289.invoke.cont1110_crit_edge:     ; preds = %cond.false.i.i1289
   br label %invoke.cont1110
 
 invoke.cont1110:                                  ; preds = %cond.false.i.i1289.invoke.cont1110_crit_edge, %if.else1108
-  %.pre2320 = phi i8 [ %.pre2320.pre, %cond.false.i.i1289.invoke.cont1110_crit_edge ], [ %549, %if.else1108 ]
+  %.pre2320 = phi i8 [ %.pre2320.pre, %cond.false.i.i1289.invoke.cont1110_crit_edge ], [ 1, %if.else1108 ]
   %550 = load i32, ptr %m_storage.i.i205, align 8, !tbaa !73
   %cmp1112 = icmp eq i32 %550, 5
   br i1 %cmp1112, label %if.then1133, label %lor.lhs.false1113
@@ -5594,7 +5594,7 @@ invoke.cont1115thread-pre-split:                  ; preds = %cond.false.i.i1294
   br label %invoke.cont1115
 
 invoke.cont1115:                                  ; preds = %invoke.cont1115thread-pre-split, %lor.lhs.false1113
-  %.pre2319 = phi i8 [ %.pre2319.pre, %invoke.cont1115thread-pre-split ], [ %.pre2320, %lor.lhs.false1113 ]
+  %.pre2319 = phi i8 [ %.pre2319.pre, %invoke.cont1115thread-pre-split ], [ 1, %lor.lhs.false1113 ]
   %551 = phi i32 [ %.pr2013, %invoke.cont1115thread-pre-split ], [ %550, %lor.lhs.false1113 ]
   %cmp1117 = icmp eq i32 %551, 6
   br i1 %cmp1117, label %if.then1133, label %lor.lhs.false1118
@@ -5613,7 +5613,7 @@ cond.false.i.i1299.invoke.cont1120_crit_edge:     ; preds = %cond.false.i.i1299
   br label %invoke.cont1120
 
 invoke.cont1120:                                  ; preds = %cond.false.i.i1299.invoke.cont1120_crit_edge, %lor.lhs.false1118
-  %.pre2318 = phi i8 [ %.pre2318.pre, %cond.false.i.i1299.invoke.cont1120_crit_edge ], [ %.pre2319, %lor.lhs.false1118 ]
+  %.pre2318 = phi i8 [ %.pre2318.pre, %cond.false.i.i1299.invoke.cont1120_crit_edge ], [ 1, %lor.lhs.false1118 ]
   %552 = phi i32 [ %.pre2314, %cond.false.i.i1299.invoke.cont1120_crit_edge ], [ %551, %lor.lhs.false1118 ]
   %cmp1122 = icmp eq i32 %552, 7
   br i1 %cmp1122, label %if.then1133, label %lor.lhs.false1123
@@ -5632,7 +5632,7 @@ invoke.cont1125thread-pre-split:                  ; preds = %cond.false.i.i1304
   br label %invoke.cont1125
 
 invoke.cont1125:                                  ; preds = %invoke.cont1125thread-pre-split, %lor.lhs.false1123
-  %.pre2317 = phi i8 [ %.pre2317.pre, %invoke.cont1125thread-pre-split ], [ %.pre2318, %lor.lhs.false1123 ]
+  %.pre2317 = phi i8 [ %.pre2317.pre, %invoke.cont1125thread-pre-split ], [ 1, %lor.lhs.false1123 ]
   %553 = phi i32 [ %.pr2014, %invoke.cont1125thread-pre-split ], [ %552, %lor.lhs.false1123 ]
   %cmp1127 = icmp eq i32 %553, 8
   br i1 %cmp1127, label %if.then1133, label %lor.lhs.false1128
@@ -6309,7 +6309,7 @@ cond.false.i.i1542.invoke.cont1303_crit_edge:     ; preds = %cond.false.i.i1542
   br label %invoke.cont1303
 
 invoke.cont1303:                                  ; preds = %cond.false.i.i1542.invoke.cont1303_crit_edge, %if.then1301
-  %.pre2331 = phi i8 [ %.pre2331.pre, %cond.false.i.i1542.invoke.cont1303_crit_edge ], [ %621, %if.then1301 ]
+  %.pre2331 = phi i8 [ %.pre2331.pre, %cond.false.i.i1542.invoke.cont1303_crit_edge ], [ 1, %if.then1301 ]
   %622 = load i32, ptr %m_storage.i.i205, align 8, !tbaa !73
   %cmp1305 = icmp eq i32 %622, 5
   br i1 %cmp1305, label %if.then1326, label %lor.lhs.false1306
@@ -6328,7 +6328,7 @@ invoke.cont1308thread-pre-split:                  ; preds = %cond.false.i.i1547
   br label %invoke.cont1308
 
 invoke.cont1308:                                  ; preds = %invoke.cont1308thread-pre-split, %lor.lhs.false1306
-  %.pre2330 = phi i8 [ %.pre2330.pre, %invoke.cont1308thread-pre-split ], [ %.pre2331, %lor.lhs.false1306 ]
+  %.pre2330 = phi i8 [ %.pre2330.pre, %invoke.cont1308thread-pre-split ], [ 1, %lor.lhs.false1306 ]
   %623 = phi i32 [ %.pr2018, %invoke.cont1308thread-pre-split ], [ %622, %lor.lhs.false1306 ]
   %cmp1310 = icmp eq i32 %623, 6
   br i1 %cmp1310, label %if.then1326, label %lor.lhs.false1311
@@ -6347,7 +6347,7 @@ cond.false.i.i1552.invoke.cont1313_crit_edge:     ; preds = %cond.false.i.i1552
   br label %invoke.cont1313
 
 invoke.cont1313:                                  ; preds = %cond.false.i.i1552.invoke.cont1313_crit_edge, %lor.lhs.false1311
-  %.pre2329 = phi i8 [ %.pre2329.pre, %cond.false.i.i1552.invoke.cont1313_crit_edge ], [ %.pre2330, %lor.lhs.false1311 ]
+  %.pre2329 = phi i8 [ %.pre2329.pre, %cond.false.i.i1552.invoke.cont1313_crit_edge ], [ 1, %lor.lhs.false1311 ]
   %624 = phi i32 [ %.pre2325, %cond.false.i.i1552.invoke.cont1313_crit_edge ], [ %623, %lor.lhs.false1311 ]
   %cmp1315 = icmp eq i32 %624, 7
   br i1 %cmp1315, label %if.then1326, label %lor.lhs.false1316
@@ -6366,7 +6366,7 @@ invoke.cont1318thread-pre-split:                  ; preds = %cond.false.i.i1557
   br label %invoke.cont1318
 
 invoke.cont1318:                                  ; preds = %invoke.cont1318thread-pre-split, %lor.lhs.false1316
-  %.pre2328 = phi i8 [ %.pre2328.pre, %invoke.cont1318thread-pre-split ], [ %.pre2329, %lor.lhs.false1316 ]
+  %.pre2328 = phi i8 [ %.pre2328.pre, %invoke.cont1318thread-pre-split ], [ 1, %lor.lhs.false1316 ]
   %625 = phi i32 [ %.pr2019, %invoke.cont1318thread-pre-split ], [ %624, %lor.lhs.false1316 ]
   %cmp1320 = icmp eq i32 %625, 8
   br i1 %cmp1320, label %if.then1326, label %lor.lhs.false1321

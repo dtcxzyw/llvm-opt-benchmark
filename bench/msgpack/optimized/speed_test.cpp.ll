@@ -2279,7 +2279,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   %32 = phi ptr [ %2153, %2151 ], [ null, %22 ]
   %33 = load i32, ptr %23, align 8, !tbaa !120
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %324
+  br i1 %34, label %35, label %325
 
 35:                                               ; preds = %29
   %36 = load i8, ptr %30, align 1, !tbaa !22
@@ -2665,7 +2665,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 270:                                              ; preds = %194
   store i32 32, ptr %23, align 8, !tbaa !120
-  br label %329
+  br label %330
 
 271:                                              ; preds = %191
   %272 = and i8 %36, -16
@@ -2761,48 +2761,55 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   %319 = phi i32 [ %317, %316 ], [ %190, %182 ]
   %320 = phi i8 [ 0, %316 ], [ 1, %182 ]
   %321 = icmp eq i32 %319, 0
-  br i1 %321, label %322, label %324
+  br i1 %321, label %322, label %._crit_edge
+
+._crit_edge:                                      ; preds = %318
+  %.pre = load ptr, ptr %19, align 8, !tbaa !125
+  br label %325
 
 322:                                              ; preds = %318
   %323 = trunc nuw i8 %320 to i1
-  br i1 %323, label %324, label %2151
+  br i1 %323, label %.thread, label %2151
 
-324:                                              ; preds = %322, %318, %29
-  %325 = phi i8 [ %320, %322 ], [ %320, %318 ], [ %31, %29 ]
-  %326 = phi i32 [ 0, %322 ], [ %319, %318 ], [ %33, %29 ]
-  %327 = trunc nuw i8 %325 to i1
-  %328 = load ptr, ptr %19, align 8, !tbaa !125
-  br i1 %327, label %329, label %333
+.thread:                                          ; preds = %322
+  %324 = load ptr, ptr %19, align 8, !tbaa !125
+  br label %330
 
-329:                                              ; preds = %324, %270
-  %330 = phi ptr [ %30, %270 ], [ %328, %324 ]
-  %331 = phi i32 [ 32, %270 ], [ %326, %324 ]
-  %332 = getelementptr inbounds nuw i8, ptr %330, i64 1
-  store ptr %332, ptr %19, align 8, !tbaa !125
-  br label %333
+325:                                              ; preds = %._crit_edge, %29
+  %326 = phi ptr [ %.pre, %._crit_edge ], [ %30, %29 ]
+  %327 = phi i8 [ %320, %._crit_edge ], [ %31, %29 ]
+  %328 = phi i32 [ %319, %._crit_edge ], [ %33, %29 ]
+  %329 = trunc nuw i8 %327 to i1
+  br i1 %329, label %330, label %334
 
-333:                                              ; preds = %329, %324
-  %334 = phi ptr [ %332, %329 ], [ %328, %324 ]
-  %335 = phi i32 [ %331, %329 ], [ %326, %324 ]
-  %336 = phi i8 [ 0, %329 ], [ %325, %324 ]
-  %337 = ptrtoint ptr %334 to i64
+330:                                              ; preds = %.thread, %325, %270
+  %331 = phi ptr [ %30, %270 ], [ %326, %325 ], [ %324, %.thread ]
+  %332 = phi i32 [ 32, %270 ], [ %328, %325 ], [ 0, %.thread ]
+  %333 = getelementptr inbounds nuw i8, ptr %331, i64 1
+  store ptr %333, ptr %19, align 8, !tbaa !125
+  br label %334
+
+334:                                              ; preds = %330, %325
+  %335 = phi ptr [ %333, %330 ], [ %326, %325 ]
+  %336 = phi i32 [ %332, %330 ], [ %328, %325 ]
+  %337 = ptrtoint ptr %335 to i64
   %338 = sub i64 %28, %337
   %339 = load i64, ptr %25, align 8, !tbaa !113
   %340 = icmp ult i64 %338, %339
   br i1 %340, label %341, label %345
 
-341:                                              ; preds = %333
+341:                                              ; preds = %334
   %342 = load ptr, ptr %0, align 8, !tbaa !124
   %343 = ptrtoint ptr %342 to i64
   %344 = sub i64 %337, %343
   store i64 %344, ptr %3, align 8, !tbaa !65
   br label %.loopexit174
 
-345:                                              ; preds = %333
-  %346 = getelementptr i8, ptr %334, i64 %339
+345:                                              ; preds = %334
+  %346 = getelementptr i8, ptr %335, i64 %339
   %347 = getelementptr i8, ptr %346, i64 -1
   store ptr %347, ptr %19, align 8, !tbaa !125
-  switch i32 %335, label %2139 [
+  switch i32 %336, label %2139 [
     i32 10, label %348
     i32 11, label %421
     i32 12, label %492
@@ -2837,7 +2844,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   ]
 
 348:                                              ; preds = %345
-  %349 = load i32, ptr %334, align 1
+  %349 = load i32, ptr %335, align 1
   %350 = call noundef i32 @llvm.bswap.i32(i32 %349)
   %351 = load ptr, ptr %24, align 8, !tbaa !126
   %352 = bitcast i32 %350 to float
@@ -2953,7 +2960,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 421:                                              ; preds = %345
-  %422 = load i64, ptr %334, align 1
+  %422 = load i64, ptr %335, align 1
   %423 = call noundef i64 @llvm.bswap.i64(i64 %422)
   %424 = load ptr, ptr %24, align 8, !tbaa !126
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 96
@@ -3067,7 +3074,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 492:                                              ; preds = %345
-  %493 = load i8, ptr %334, align 1, !tbaa !22
+  %493 = load i8, ptr %335, align 1, !tbaa !22
   %494 = load ptr, ptr %24, align 8, !tbaa !126
   %495 = zext i8 %493 to i64
   %496 = getelementptr inbounds nuw i8, ptr %494, i64 96
@@ -3181,7 +3188,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 563:                                              ; preds = %345
-  %564 = load i16, ptr %334, align 1
+  %564 = load i16, ptr %335, align 1
   %565 = call noundef i16 @llvm.bswap.i16(i16 %564)
   %566 = load ptr, ptr %24, align 8, !tbaa !126
   %567 = zext i16 %565 to i64
@@ -3296,7 +3303,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 635:                                              ; preds = %345
-  %636 = load i32, ptr %334, align 1
+  %636 = load i32, ptr %335, align 1
   %637 = call noundef i32 @llvm.bswap.i32(i32 %636)
   %638 = load ptr, ptr %24, align 8, !tbaa !126
   %639 = zext i32 %637 to i64
@@ -3411,7 +3418,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 707:                                              ; preds = %345
-  %708 = load i64, ptr %334, align 1
+  %708 = load i64, ptr %335, align 1
   %709 = call noundef i64 @llvm.bswap.i64(i64 %708)
   %710 = load ptr, ptr %24, align 8, !tbaa !126
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 96
@@ -3525,7 +3532,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 778:                                              ; preds = %345
-  %779 = load i8, ptr %334, align 1, !tbaa !22
+  %779 = load i8, ptr %335, align 1, !tbaa !22
   %780 = load ptr, ptr %24, align 8, !tbaa !126
   %781 = sext i8 %779 to i64
   %782 = getelementptr inbounds nuw i8, ptr %780, i64 96
@@ -3641,7 +3648,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 851:                                              ; preds = %345
-  %852 = load i16, ptr %334, align 1
+  %852 = load i16, ptr %335, align 1
   %853 = call noundef i16 @llvm.bswap.i16(i16 %852)
   %854 = load ptr, ptr %24, align 8, !tbaa !126
   %855 = sext i16 %853 to i64
@@ -3758,7 +3765,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 925:                                              ; preds = %345
-  %926 = load i32, ptr %334, align 1
+  %926 = load i32, ptr %335, align 1
   %927 = call noundef i32 @llvm.bswap.i32(i32 %926)
   %928 = load ptr, ptr %24, align 8, !tbaa !126
   %929 = sext i32 %927 to i64
@@ -3875,7 +3882,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 999:                                              ; preds = %345
-  %1000 = load i64, ptr %334, align 1
+  %1000 = load i64, ptr %335, align 1
   %1001 = call noundef i64 @llvm.bswap.i64(i64 %1000)
   %1002 = load ptr, ptr %24, align 8, !tbaa !126
   %1003 = getelementptr inbounds nuw i8, ptr %1002, i64 96
@@ -3992,7 +3999,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 1072:                                             ; preds = %345
   %1073 = load ptr, ptr %24, align 8, !tbaa !126
-  %1074 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1073, ptr noundef %334, i32 noundef 2)
+  %1074 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1073, ptr noundef %335, i32 noundef 2)
   %1075 = load ptr, ptr %19, align 8, !tbaa !125
   %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 1
   store ptr %1076, ptr %19, align 8, !tbaa !125
@@ -4110,7 +4117,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 1144:                                             ; preds = %345
   %1145 = load ptr, ptr %24, align 8, !tbaa !126
-  %1146 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1145, ptr noundef %334, i32 noundef 3)
+  %1146 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1145, ptr noundef %335, i32 noundef 3)
   %1147 = load ptr, ptr %19, align 8, !tbaa !125
   %1148 = getelementptr inbounds nuw i8, ptr %1147, i64 1
   store ptr %1148, ptr %19, align 8, !tbaa !125
@@ -4228,7 +4235,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 1216:                                             ; preds = %345
   %1217 = load ptr, ptr %24, align 8, !tbaa !126
-  %1218 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1217, ptr noundef %334, i32 noundef 5)
+  %1218 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1217, ptr noundef %335, i32 noundef 5)
   %1219 = load ptr, ptr %19, align 8, !tbaa !125
   %1220 = getelementptr inbounds nuw i8, ptr %1219, i64 1
   store ptr %1220, ptr %19, align 8, !tbaa !125
@@ -4346,7 +4353,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 1288:                                             ; preds = %345
   %1289 = load ptr, ptr %24, align 8, !tbaa !126
-  %1290 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1289, ptr noundef %334, i32 noundef 9)
+  %1290 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1289, ptr noundef %335, i32 noundef 9)
   %1291 = load ptr, ptr %19, align 8, !tbaa !125
   %1292 = getelementptr inbounds nuw i8, ptr %1291, i64 1
   store ptr %1292, ptr %19, align 8, !tbaa !125
@@ -4464,7 +4471,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 1360:                                             ; preds = %345
   %1361 = load ptr, ptr %24, align 8, !tbaa !126
-  %1362 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1361, ptr noundef %334, i32 noundef 17)
+  %1362 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1361, ptr noundef %335, i32 noundef 17)
   %1363 = load ptr, ptr %19, align 8, !tbaa !125
   %1364 = getelementptr inbounds nuw i8, ptr %1363, i64 1
   store ptr %1364, ptr %19, align 8, !tbaa !125
@@ -4581,7 +4588,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 1432:                                             ; preds = %345
-  %1433 = load i8, ptr %334, align 1, !tbaa !22
+  %1433 = load i8, ptr %335, align 1, !tbaa !22
   %1434 = zext i8 %1433 to i64
   store i64 %1434, ptr %25, align 8, !tbaa !113
   %1435 = icmp eq i8 %1433, 0
@@ -4589,7 +4596,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 1436:                                             ; preds = %1432
   %1437 = load ptr, ptr %24, align 8, !tbaa !126
-  %1438 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1437, ptr noundef nonnull %334, i32 noundef 0)
+  %1438 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1437, ptr noundef nonnull %335, i32 noundef 0)
   %1439 = load ptr, ptr %19, align 8, !tbaa !125
   %1440 = getelementptr inbounds nuw i8, ptr %1439, i64 1
   store ptr %1440, ptr %19, align 8, !tbaa !125
@@ -4706,7 +4713,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 1508:                                             ; preds = %345
-  %1509 = load i8, ptr %334, align 1, !tbaa !22
+  %1509 = load i8, ptr %335, align 1, !tbaa !22
   %1510 = zext i8 %1509 to i64
   store i64 %1510, ptr %25, align 8, !tbaa !113
   %1511 = icmp eq i8 %1509, 0
@@ -4714,7 +4721,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 1512:                                             ; preds = %1508
   %1513 = load ptr, ptr %24, align 8, !tbaa !126
-  %1514 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1513, ptr noundef nonnull %334, i32 noundef 0)
+  %1514 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1513, ptr noundef nonnull %335, i32 noundef 0)
   %1515 = load ptr, ptr %19, align 8, !tbaa !125
   %1516 = getelementptr inbounds nuw i8, ptr %1515, i64 1
   store ptr %1516, ptr %19, align 8, !tbaa !125
@@ -4831,14 +4838,14 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 1584:                                             ; preds = %345
-  %1585 = load i8, ptr %334, align 1, !tbaa !22
+  %1585 = load i8, ptr %335, align 1, !tbaa !22
   %1586 = zext i8 %1585 to i64
   %1587 = add nuw nsw i64 %1586, 1
   store i64 %1587, ptr %25, align 8, !tbaa !113
   br label %.loopexit
 
 1588:                                             ; preds = %345
-  %1589 = load i16, ptr %334, align 1
+  %1589 = load i16, ptr %335, align 1
   %1590 = call noundef i16 @llvm.bswap.i16(i16 %1589)
   %1591 = zext i16 %1590 to i64
   store i64 %1591, ptr %25, align 8, !tbaa !113
@@ -4848,7 +4855,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 1593:                                             ; preds = %1588
   %1594 = load ptr, ptr %24, align 8, !tbaa !126
   %1595 = zext nneg i16 %1590 to i32
-  %1596 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1594, ptr noundef nonnull %334, i32 noundef %1595)
+  %1596 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1594, ptr noundef nonnull %335, i32 noundef %1595)
   %1597 = load ptr, ptr %19, align 8, !tbaa !125
   %1598 = getelementptr inbounds nuw i8, ptr %1597, i64 1
   store ptr %1598, ptr %19, align 8, !tbaa !125
@@ -4965,7 +4972,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 1666:                                             ; preds = %345
-  %1667 = load i16, ptr %334, align 1
+  %1667 = load i16, ptr %335, align 1
   %1668 = call noundef i16 @llvm.bswap.i16(i16 %1667)
   %1669 = zext i16 %1668 to i64
   store i64 %1669, ptr %25, align 8, !tbaa !113
@@ -4975,7 +4982,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 1671:                                             ; preds = %1666
   %1672 = load ptr, ptr %24, align 8, !tbaa !126
   %1673 = zext nneg i16 %1668 to i32
-  %1674 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1672, ptr noundef nonnull %334, i32 noundef %1673)
+  %1674 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1672, ptr noundef nonnull %335, i32 noundef %1673)
   %1675 = load ptr, ptr %19, align 8, !tbaa !125
   %1676 = getelementptr inbounds nuw i8, ptr %1675, i64 1
   store ptr %1676, ptr %19, align 8, !tbaa !125
@@ -5092,7 +5099,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 1744:                                             ; preds = %345
-  %1745 = load i16, ptr %334, align 1
+  %1745 = load i16, ptr %335, align 1
   %1746 = call noundef i16 @llvm.bswap.i16(i16 %1745)
   %1747 = zext i16 %1746 to i64
   %1748 = add nuw nsw i64 %1747, 1
@@ -5100,7 +5107,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit
 
 1749:                                             ; preds = %345
-  %1750 = load i32, ptr %334, align 1
+  %1750 = load i32, ptr %335, align 1
   %1751 = call noundef i32 @llvm.bswap.i32(i32 %1750)
   %1752 = zext i32 %1751 to i64
   store i64 %1752, ptr %25, align 8, !tbaa !113
@@ -5109,7 +5116,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 1754:                                             ; preds = %1749
   %1755 = load ptr, ptr %24, align 8, !tbaa !126
-  %1756 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1755, ptr noundef nonnull %334, i32 noundef %1751)
+  %1756 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1755, ptr noundef nonnull %335, i32 noundef %1751)
   %1757 = load ptr, ptr %19, align 8, !tbaa !125
   %1758 = getelementptr inbounds nuw i8, ptr %1757, i64 1
   store ptr %1758, ptr %19, align 8, !tbaa !125
@@ -5226,7 +5233,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 1826:                                             ; preds = %345
-  %1827 = load i32, ptr %334, align 1
+  %1827 = load i32, ptr %335, align 1
   %1828 = call noundef i32 @llvm.bswap.i32(i32 %1827)
   %1829 = zext i32 %1828 to i64
   store i64 %1829, ptr %25, align 8, !tbaa !113
@@ -5235,7 +5242,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 1831:                                             ; preds = %1826
   %1832 = load ptr, ptr %24, align 8, !tbaa !126
-  %1833 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1832, ptr noundef nonnull %334, i32 noundef %1828)
+  %1833 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1832, ptr noundef nonnull %335, i32 noundef %1828)
   %1834 = load ptr, ptr %19, align 8, !tbaa !125
   %1835 = getelementptr inbounds nuw i8, ptr %1834, i64 1
   store ptr %1835, ptr %19, align 8, !tbaa !125
@@ -5352,7 +5359,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   br label %.loopexit174
 
 1903:                                             ; preds = %345
-  %1904 = load i32, ptr %334, align 1
+  %1904 = load i32, ptr %335, align 1
   %1905 = call noundef i32 @llvm.bswap.i32(i32 %1904)
   %1906 = zext i32 %1905 to i64
   %1907 = add nuw nsw i64 %1906, 1
@@ -5362,7 +5369,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 1908:                                             ; preds = %345
   %1909 = load ptr, ptr %24, align 8, !tbaa !126
   %1910 = trunc i64 %339 to i32
-  %1911 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1909, ptr noundef %334, i32 noundef %1910)
+  %1911 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1909, ptr noundef %335, i32 noundef %1910)
   %1912 = load ptr, ptr %19, align 8, !tbaa !125
   %1913 = getelementptr inbounds nuw i8, ptr %1912, i64 1
   store ptr %1913, ptr %19, align 8, !tbaa !125
@@ -5481,7 +5488,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 1981:                                             ; preds = %345
   %1982 = load ptr, ptr %24, align 8, !tbaa !126
   %1983 = trunc i64 %339 to i32
-  %1984 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1982, ptr noundef %334, i32 noundef %1983)
+  %1984 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %1982, ptr noundef %335, i32 noundef %1983)
   %1985 = load ptr, ptr %19, align 8, !tbaa !125
   %1986 = getelementptr inbounds nuw i8, ptr %1985, i64 1
   store ptr %1986, ptr %19, align 8, !tbaa !125
@@ -5600,7 +5607,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 2054:                                             ; preds = %345
   %2055 = load ptr, ptr %24, align 8, !tbaa !126
   %2056 = trunc i64 %339 to i32
-  %2057 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %2055, ptr noundef %334, i32 noundef %2056)
+  %2057 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_extEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %2055, ptr noundef %335, i32 noundef %2056)
   %2058 = load ptr, ptr %19, align 8, !tbaa !125
   %2059 = getelementptr inbounds nuw i8, ptr %2058, i64 1
   store ptr %2059, ptr %19, align 8, !tbaa !125
@@ -5721,7 +5728,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   store ptr %0, ptr %9, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
   store ptr %0, ptr %10, align 8, !tbaa !34
-  %2128 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateItNS6_8array_svENS6_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %334, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %2128 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateItNS6_8array_svENS6_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %335, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
   %2129 = icmp eq i32 %2128, 0
@@ -5732,7 +5739,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   store ptr %0, ptr %11, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
   store ptr %0, ptr %12, align 8, !tbaa !34
-  %2131 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateIjNS6_8array_svENS6_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %334, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %2131 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateIjNS6_8array_svENS6_8array_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %335, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
   %2132 = icmp eq i32 %2131, 0
@@ -5743,7 +5750,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   store ptr %0, ptr %13, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #25
   store ptr %0, ptr %14, align 8, !tbaa !34
-  %2134 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateItNS6_6map_svENS6_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %334, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %2134 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateItNS6_6map_svENS6_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %335, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
   %2135 = icmp eq i32 %2134, 0
@@ -5754,7 +5761,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
   store ptr %0, ptr %15, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #25
   store ptr %0, ptr %16, align 8, !tbaa !34
-  %2137 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateIjNS6_6map_svENS6_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %334, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %2137 = call noundef i32 @_ZN7msgpack2v26detail7contextINS1_12parse_helperINS1_21create_object_visitorEEEE15start_aggregateIjNS6_6map_svENS6_6map_evEEENS0_12parse_returnERKT0_RKT1_PKcRm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %335, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #25
   %2138 = icmp eq i32 %2137, 0
@@ -5775,14 +5782,14 @@ define linkonce_odr dso_local noundef i32 @_ZN7msgpack2v26detail7contextINS1_12p
 
 .loopexit:                                        ; preds = %217, %2074, %2001, %1928, %1850, %1773, %1691, %1613, %1531, %1455, %1379, %1307, %1235, %1163, %1091, %1019, %946, %872, %798, %725, %654, %582, %510, %439, %368, %127, %55, %2104, %2085, %2031, %2012, %1958, %1939, %1903, %1880, %1861, %1826, %1803, %1784, %1749, %1744, %1721, %1702, %1666, %1643, %1624, %1588, %1584, %1561, %1542, %1508, %1485, %1466, %1432, %1409, %1390, %1337, %1318, %1265, %1246, %1193, %1174, %1121, %1102, %1049, %1030, %976, %957, %902, %883, %828, %809, %755, %736, %684, %665, %612, %593, %540, %521, %469, %450, %398, %379, %247, %228, %157, %138, %85, %66
   %2148 = phi i32 [ 34, %1903 ], [ 34, %1744 ], [ 34, %1584 ], [ 0, %66 ], [ 0, %85 ], [ 0, %138 ], [ 0, %157 ], [ 0, %228 ], [ 0, %247 ], [ 0, %379 ], [ 0, %398 ], [ 0, %450 ], [ 0, %469 ], [ 0, %521 ], [ 0, %540 ], [ 0, %593 ], [ 0, %612 ], [ 0, %665 ], [ 0, %684 ], [ 0, %736 ], [ 0, %755 ], [ 0, %809 ], [ 0, %828 ], [ 0, %883 ], [ 0, %902 ], [ 0, %957 ], [ 0, %976 ], [ 0, %1030 ], [ 0, %1049 ], [ 0, %1102 ], [ 0, %1121 ], [ 0, %1174 ], [ 0, %1193 ], [ 0, %1246 ], [ 0, %1265 ], [ 0, %1318 ], [ 0, %1337 ], [ 0, %1390 ], [ 0, %1409 ], [ 32, %1432 ], [ 0, %1466 ], [ 0, %1485 ], [ 33, %1508 ], [ 0, %1542 ], [ 0, %1561 ], [ 32, %1588 ], [ 0, %1624 ], [ 0, %1643 ], [ 33, %1666 ], [ 0, %1702 ], [ 0, %1721 ], [ 32, %1749 ], [ 0, %1784 ], [ 0, %1803 ], [ 33, %1826 ], [ 0, %1861 ], [ 0, %1880 ], [ 0, %1939 ], [ 0, %1958 ], [ 0, %2012 ], [ 0, %2031 ], [ 0, %2085 ], [ 0, %2104 ], [ 0, %55 ], [ 0, %127 ], [ 0, %368 ], [ 0, %439 ], [ 0, %510 ], [ 0, %582 ], [ 0, %654 ], [ 0, %725 ], [ 0, %798 ], [ 0, %872 ], [ 0, %946 ], [ 0, %1019 ], [ 0, %1091 ], [ 0, %1163 ], [ 0, %1235 ], [ 0, %1307 ], [ 0, %1379 ], [ 0, %1455 ], [ 0, %1531 ], [ 0, %1613 ], [ 0, %1691 ], [ 0, %1773 ], [ 0, %1850 ], [ 0, %1928 ], [ 0, %2001 ], [ 0, %2074 ], [ 0, %217 ]
-  %2149 = phi i8 [ 1, %1903 ], [ 1, %1744 ], [ 1, %1584 ], [ 0, %66 ], [ 0, %85 ], [ 0, %138 ], [ 0, %157 ], [ 0, %228 ], [ 0, %247 ], [ %336, %379 ], [ %336, %398 ], [ %336, %450 ], [ %336, %469 ], [ %336, %521 ], [ %336, %540 ], [ %336, %593 ], [ %336, %612 ], [ %336, %665 ], [ %336, %684 ], [ %336, %736 ], [ %336, %755 ], [ %336, %809 ], [ %336, %828 ], [ %336, %883 ], [ %336, %902 ], [ %336, %957 ], [ %336, %976 ], [ %336, %1030 ], [ %336, %1049 ], [ %336, %1102 ], [ %336, %1121 ], [ %336, %1174 ], [ %336, %1193 ], [ %336, %1246 ], [ %336, %1265 ], [ %336, %1318 ], [ %336, %1337 ], [ %336, %1390 ], [ %336, %1409 ], [ 1, %1432 ], [ %336, %1466 ], [ %336, %1485 ], [ 1, %1508 ], [ %336, %1542 ], [ %336, %1561 ], [ 1, %1588 ], [ %336, %1624 ], [ %336, %1643 ], [ 1, %1666 ], [ %336, %1702 ], [ %336, %1721 ], [ 1, %1749 ], [ %336, %1784 ], [ %336, %1803 ], [ 1, %1826 ], [ %336, %1861 ], [ %336, %1880 ], [ %336, %1939 ], [ %336, %1958 ], [ %336, %2012 ], [ %336, %2031 ], [ %336, %2085 ], [ %336, %2104 ], [ 0, %55 ], [ 0, %127 ], [ %336, %368 ], [ %336, %439 ], [ %336, %510 ], [ %336, %582 ], [ %336, %654 ], [ %336, %725 ], [ %336, %798 ], [ %336, %872 ], [ %336, %946 ], [ %336, %1019 ], [ %336, %1091 ], [ %336, %1163 ], [ %336, %1235 ], [ %336, %1307 ], [ %336, %1379 ], [ %336, %1455 ], [ %336, %1531 ], [ %336, %1613 ], [ %336, %1691 ], [ %336, %1773 ], [ %336, %1850 ], [ %336, %1928 ], [ %336, %2001 ], [ %336, %2074 ], [ 0, %217 ]
-  %2150 = phi ptr [ %334, %1903 ], [ %334, %1744 ], [ %334, %1584 ], [ %32, %66 ], [ %32, %85 ], [ %32, %138 ], [ %32, %157 ], [ %32, %228 ], [ %32, %247 ], [ %334, %379 ], [ %334, %398 ], [ %334, %450 ], [ %334, %469 ], [ %334, %521 ], [ %334, %540 ], [ %334, %593 ], [ %334, %612 ], [ %334, %665 ], [ %334, %684 ], [ %334, %736 ], [ %334, %755 ], [ %334, %809 ], [ %334, %828 ], [ %334, %883 ], [ %334, %902 ], [ %334, %957 ], [ %334, %976 ], [ %334, %1030 ], [ %334, %1049 ], [ %334, %1102 ], [ %334, %1121 ], [ %334, %1174 ], [ %334, %1193 ], [ %334, %1246 ], [ %334, %1265 ], [ %334, %1318 ], [ %334, %1337 ], [ %334, %1390 ], [ %334, %1409 ], [ %334, %1432 ], [ %334, %1466 ], [ %334, %1485 ], [ %334, %1508 ], [ %334, %1542 ], [ %334, %1561 ], [ %334, %1588 ], [ %334, %1624 ], [ %334, %1643 ], [ %334, %1666 ], [ %334, %1702 ], [ %334, %1721 ], [ %334, %1749 ], [ %334, %1784 ], [ %334, %1803 ], [ %334, %1826 ], [ %334, %1861 ], [ %334, %1880 ], [ %334, %1939 ], [ %334, %1958 ], [ %334, %2012 ], [ %334, %2031 ], [ %334, %2085 ], [ %334, %2104 ], [ %32, %55 ], [ %32, %127 ], [ %334, %368 ], [ %334, %439 ], [ %334, %510 ], [ %334, %582 ], [ %334, %654 ], [ %334, %725 ], [ %334, %798 ], [ %334, %872 ], [ %334, %946 ], [ %334, %1019 ], [ %334, %1091 ], [ %334, %1163 ], [ %334, %1235 ], [ %334, %1307 ], [ %334, %1379 ], [ %334, %1455 ], [ %334, %1531 ], [ %334, %1613 ], [ %334, %1691 ], [ %334, %1773 ], [ %334, %1850 ], [ %334, %1928 ], [ %334, %2001 ], [ %334, %2074 ], [ %32, %217 ]
+  %2149 = phi i8 [ 1, %1903 ], [ 1, %1744 ], [ 1, %1584 ], [ 0, %66 ], [ 0, %85 ], [ 0, %138 ], [ 0, %157 ], [ 0, %228 ], [ 0, %247 ], [ 0, %379 ], [ 0, %398 ], [ 0, %450 ], [ 0, %469 ], [ 0, %521 ], [ 0, %540 ], [ 0, %593 ], [ 0, %612 ], [ 0, %665 ], [ 0, %684 ], [ 0, %736 ], [ 0, %755 ], [ 0, %809 ], [ 0, %828 ], [ 0, %883 ], [ 0, %902 ], [ 0, %957 ], [ 0, %976 ], [ 0, %1030 ], [ 0, %1049 ], [ 0, %1102 ], [ 0, %1121 ], [ 0, %1174 ], [ 0, %1193 ], [ 0, %1246 ], [ 0, %1265 ], [ 0, %1318 ], [ 0, %1337 ], [ 0, %1390 ], [ 0, %1409 ], [ 1, %1432 ], [ 0, %1466 ], [ 0, %1485 ], [ 1, %1508 ], [ 0, %1542 ], [ 0, %1561 ], [ 1, %1588 ], [ 0, %1624 ], [ 0, %1643 ], [ 1, %1666 ], [ 0, %1702 ], [ 0, %1721 ], [ 1, %1749 ], [ 0, %1784 ], [ 0, %1803 ], [ 1, %1826 ], [ 0, %1861 ], [ 0, %1880 ], [ 0, %1939 ], [ 0, %1958 ], [ 0, %2012 ], [ 0, %2031 ], [ 0, %2085 ], [ 0, %2104 ], [ 0, %55 ], [ 0, %127 ], [ 0, %368 ], [ 0, %439 ], [ 0, %510 ], [ 0, %582 ], [ 0, %654 ], [ 0, %725 ], [ 0, %798 ], [ 0, %872 ], [ 0, %946 ], [ 0, %1019 ], [ 0, %1091 ], [ 0, %1163 ], [ 0, %1235 ], [ 0, %1307 ], [ 0, %1379 ], [ 0, %1455 ], [ 0, %1531 ], [ 0, %1613 ], [ 0, %1691 ], [ 0, %1773 ], [ 0, %1850 ], [ 0, %1928 ], [ 0, %2001 ], [ 0, %2074 ], [ 0, %217 ]
+  %2150 = phi ptr [ %335, %1903 ], [ %335, %1744 ], [ %335, %1584 ], [ %32, %66 ], [ %32, %85 ], [ %32, %138 ], [ %32, %157 ], [ %32, %228 ], [ %32, %247 ], [ %335, %379 ], [ %335, %398 ], [ %335, %450 ], [ %335, %469 ], [ %335, %521 ], [ %335, %540 ], [ %335, %593 ], [ %335, %612 ], [ %335, %665 ], [ %335, %684 ], [ %335, %736 ], [ %335, %755 ], [ %335, %809 ], [ %335, %828 ], [ %335, %883 ], [ %335, %902 ], [ %335, %957 ], [ %335, %976 ], [ %335, %1030 ], [ %335, %1049 ], [ %335, %1102 ], [ %335, %1121 ], [ %335, %1174 ], [ %335, %1193 ], [ %335, %1246 ], [ %335, %1265 ], [ %335, %1318 ], [ %335, %1337 ], [ %335, %1390 ], [ %335, %1409 ], [ %335, %1432 ], [ %335, %1466 ], [ %335, %1485 ], [ %335, %1508 ], [ %335, %1542 ], [ %335, %1561 ], [ %335, %1588 ], [ %335, %1624 ], [ %335, %1643 ], [ %335, %1666 ], [ %335, %1702 ], [ %335, %1721 ], [ %335, %1749 ], [ %335, %1784 ], [ %335, %1803 ], [ %335, %1826 ], [ %335, %1861 ], [ %335, %1880 ], [ %335, %1939 ], [ %335, %1958 ], [ %335, %2012 ], [ %335, %2031 ], [ %335, %2085 ], [ %335, %2104 ], [ %32, %55 ], [ %32, %127 ], [ %335, %368 ], [ %335, %439 ], [ %335, %510 ], [ %335, %582 ], [ %335, %654 ], [ %335, %725 ], [ %335, %798 ], [ %335, %872 ], [ %335, %946 ], [ %335, %1019 ], [ %335, %1091 ], [ %335, %1163 ], [ %335, %1235 ], [ %335, %1307 ], [ %335, %1379 ], [ %335, %1455 ], [ %335, %1531 ], [ %335, %1613 ], [ %335, %1691 ], [ %335, %1773 ], [ %335, %1850 ], [ %335, %1928 ], [ %335, %2001 ], [ %335, %2074 ], [ %32, %217 ]
   store i32 %2148, ptr %23, align 8, !tbaa !120
   br label %2151
 
 2151:                                             ; preds = %.loopexit, %2136, %2133, %2130, %2127, %322
-  %2152 = phi i8 [ %336, %2136 ], [ %336, %2133 ], [ %336, %2130 ], [ %336, %2127 ], [ %320, %322 ], [ %2149, %.loopexit ]
-  %2153 = phi ptr [ %334, %2136 ], [ %334, %2133 ], [ %334, %2130 ], [ %334, %2127 ], [ %32, %322 ], [ %2150, %.loopexit ]
+  %2152 = phi i8 [ 0, %2136 ], [ 0, %2133 ], [ 0, %2130 ], [ 0, %2127 ], [ 0, %322 ], [ %2149, %.loopexit ]
+  %2153 = phi ptr [ %335, %2136 ], [ %335, %2133 ], [ %335, %2130 ], [ %335, %2127 ], [ %32, %322 ], [ %2150, %.loopexit ]
   %2154 = load ptr, ptr %19, align 8, !tbaa !125
   %2155 = icmp eq ptr %2154, %20
   br i1 %2155, label %2156, label %29, !llvm.loop !132

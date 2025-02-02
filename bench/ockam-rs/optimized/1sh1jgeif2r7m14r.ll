@@ -1216,17 +1216,17 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   %3 = load i8, ptr %0, align 1, !range !205, !noundef !7
   %4 = load i8, ptr %1, align 1, !range !205, !noundef !7
   %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %8
+  br i1 %5, label %.sink.split, label %7
 
 .sink.split:                                      ; preds = %2
   %6 = trunc nuw i8 %4 to i1
   %trunc = trunc nuw i8 %3 to i1
-  %7 = icmp eq i8 %3, 0
-  %spec.select = select i1 %trunc, i1 %6, i1 %7
+  %not.trunc = xor i1 %trunc, true
+  %spec.select = select i1 %not.trunc, i1 true, i1 %6
   tail call void @llvm.assume(i1 %spec.select)
-  br label %8
+  br label %7
 
-8:                                                ; preds = %.sink.split, %2
+7:                                                ; preds = %.sink.split, %2
   ret i1 %5
 }
 
@@ -4024,10 +4024,11 @@ define void @_ZN10ockam_core7routing5route5Route14contains_route17hff4bc5c58837b
   br label %59
 
 28:                                               ; preds = %18, %60
-  %.sroa.0.019 = phi i64 [ 0, %18 ], [ %spec.select17, %60 ]
-  %29 = icmp ult i64 %.sroa.0.019, %19
-  %30 = zext i1 %29 to i64
-  %spec.select17 = add nuw i64 %.sroa.0.019, %30
+  %.sroa.0.018 = phi i64 [ 0, %18 ], [ %spec.select17, %60 ]
+  %29 = icmp uge i64 %.sroa.0.018, %19
+  %not. = xor i1 %29, true
+  %30 = zext i1 %not. to i64
+  %spec.select17 = add nuw i64 %.sroa.0.018, %30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !613
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !noalias !617
   %31 = load ptr, ptr %7, align 8, !noalias !613, !nonnull !7, !align !13, !noundef !7
@@ -4051,7 +4052,7 @@ define void @_ZN10ockam_core7routing5route5Route14contains_route17hff4bc5c58837b
   store ptr %35, ptr %.sroa.05.sroa.2.0..sroa_idx, align 8, !noalias !630
   store ptr %33, ptr %.sroa.05.sroa.3.0..sroa_idx, align 8, !noalias !630
   store ptr %36, ptr %.sroa.05.sroa.4.0..sroa_idx, align 8, !noalias !630
-  store i64 %.sroa.0.019, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !630
+  store i64 %.sroa.0.018, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !630
   store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8, !noalias !630
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !626
   store ptr %37, ptr %4, align 8, !alias.scope !631, !noalias !635
@@ -4106,9 +4107,9 @@ _ZN4core4iter6traits8iterator8Iterator5eq_by17hd9a32fa60eccc5d6E.exit: ; preds =
   ret void
 
 60:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator5eq_by17hd9a32fa60eccc5d6E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator5eq_by17hd9a32fa60eccc5d6E.exit
-  %.not.i = icmp ule i64 %spec.select17, %19
-  %or.cond.not = select i1 %29, i1 %.not.i, i1 false
-  br i1 %or.cond.not, label %28, label %45
+  %.not.i = icmp ugt i64 %spec.select17, %19
+  %or.cond = select i1 %29, i1 true, i1 %.not.i
+  br i1 %or.cond, label %45, label %28
 
 61:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator5eq_by17hd9a32fa60eccc5d6E.exit
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1

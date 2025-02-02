@@ -15107,7 +15107,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i379:   ; preds = %670
   br label %.body
 
 _ZN7QStringD2Ev.exit377:                          ; preds = %668, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i375, %665, %619, %_ZN5QListI7QStringED2Ev.exit
-  %.1 = phi i8 [ %.0844, %619 ], [ %.0844, %_ZN5QListI7QStringED2Ev.exit ], [ 1, %665 ], [ 1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i375 ], [ 1, %668 ]
+  %.1 = phi i8 [ 1, %619 ], [ %.0844, %_ZN5QListI7QStringED2Ev.exit ], [ 1, %665 ], [ 1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i375 ], [ 1, %668 ]
   %676 = getelementptr inbounds nuw i8, ptr %219, i64 7592
   %677 = load i64, ptr %676, align 8
   %678 = trunc i64 %677 to i32
@@ -15321,7 +15321,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i407:   ; preds = %741
   br label %.body
 
 _ZN7QStringD2Ev.exit405:                          ; preds = %739, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i403, %736, %714, %_ZN7QStringD2Ev.exit377
-  %.184 = phi i8 [ %.083843, %714 ], [ %.083843, %_ZN7QStringD2Ev.exit377 ], [ 1, %736 ], [ 1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i403 ], [ 1, %739 ]
+  %.184 = phi i8 [ 1, %714 ], [ %.083843, %_ZN7QStringD2Ev.exit377 ], [ 1, %736 ], [ 1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i403 ], [ 1, %739 ]
   %747 = getelementptr inbounds nuw i8, ptr %219, i64 7616
   %748 = load i64, ptr %747, align 8
   %749 = trunc i64 %748 to i32
@@ -15535,7 +15535,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i435:   ; preds = %812
   br label %.body
 
 _ZN7QStringD2Ev.exit433:                          ; preds = %810, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i431, %807, %785, %_ZN7QStringD2Ev.exit405
-  %.186 = phi i8 [ %.085842, %785 ], [ %.085842, %_ZN7QStringD2Ev.exit405 ], [ 1, %807 ], [ 1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i431 ], [ 1, %810 ]
+  %.186 = phi i8 [ 1, %785 ], [ %.085842, %_ZN7QStringD2Ev.exit405 ], [ 1, %807 ], [ 1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i431 ], [ 1, %810 ]
   %818 = getelementptr inbounds nuw i8, ptr %219, i64 7640
   %819 = load i64, ptr %818, align 8
   %820 = trunc i64 %819 to i32
@@ -15749,7 +15749,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i463:   ; preds = %883
   br label %.body
 
 _ZN7QStringD2Ev.exit461:                          ; preds = %881, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i459, %878, %856, %_ZN7QStringD2Ev.exit433
-  %.189 = phi i8 [ %.088840, %856 ], [ %.088840, %_ZN7QStringD2Ev.exit433 ], [ 1, %878 ], [ 1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i459 ], [ 1, %881 ]
+  %.189 = phi i8 [ 1, %856 ], [ %.088840, %_ZN7QStringD2Ev.exit433 ], [ 1, %878 ], [ 1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i459 ], [ 1, %881 ]
   %889 = load ptr, ptr %25, align 8
   %.not.i.i.i466 = icmp eq ptr %889, null
   br i1 %.not.i.i.i466, label %_ZN7QStringD2Ev.exit469, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i467

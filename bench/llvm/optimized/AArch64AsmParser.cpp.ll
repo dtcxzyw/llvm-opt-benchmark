@@ -39431,7 +39431,7 @@ _ZNK4llvm13FeatureBitset5countEv.exit137:         ; preds = %_ZNK4llvm13FeatureB
 
 .thread153:                                       ; preds = %.thread, %135, %132, %110, %_ZNK4llvm13FeatureBitset5countEv.exit137, %157, %214, %167
   %.4 = phi i32 [ %166, %167 ], [ %213, %214 ], [ %.0100184, %157 ], [ %.0100184, %_ZNK4llvm13FeatureBitset5countEv.exit137 ], [ %.0100184, %132 ], [ %.3, %135 ], [ %.0100184, %.thread ], [ %.0100184, %110 ]
-  %.195 = phi i8 [ 1, %167 ], [ 1, %214 ], [ %.094185, %157 ], [ %.094185, %_ZNK4llvm13FeatureBitset5countEv.exit137 ], [ %.094185, %132 ], [ %.094185, %135 ], [ %.094185, %.thread ], [ %.094185, %110 ]
+  %.195 = phi i8 [ 1, %167 ], [ 1, %214 ], [ %.094185, %157 ], [ %.094185, %_ZNK4llvm13FeatureBitset5countEv.exit137 ], [ 0, %132 ], [ 0, %135 ], [ 1, %.thread ], [ %.094185, %110 ]
   %.1 = phi i1 [ %.093186, %167 ], [ %.093186, %214 ], [ true, %157 ], [ true, %_ZNK4llvm13FeatureBitset5countEv.exit137 ], [ %.093186, %132 ], [ %.093186, %135 ], [ %.093186, %.thread ], [ %.093186, %110 ]
   %247 = getelementptr inbounds nuw i8, ptr %.0104182, i64 36
   %.not = icmp eq ptr %247, %.sroa.3.0.i.i

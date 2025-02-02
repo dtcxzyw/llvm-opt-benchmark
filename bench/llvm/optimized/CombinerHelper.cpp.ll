@@ -19108,7 +19108,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit41: ; pre
   br label %106
 
 106:                                              ; preds = %79, %77, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit41
-  %.135 = phi i8 [ %.03462, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit41 ], [ %.03462, %77 ], [ 1, %79 ]
+  %.135 = phi i8 [ %.03462, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit41 ], [ 0, %77 ], [ 1, %79 ]
   %.1 = phi i1 [ %.03363, %_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit41 ], [ true, %77 ], [ false, %79 ]
   %107 = add i32 %.03661, 1
   %108 = zext i32 %107 to i64
@@ -41723,7 +41723,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %21, %2
   store i32 1, ptr %36, align 8
   %37 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildFConstantERKNS_5DstOpEd(ptr noundef nonnull align 8 dereferenceable(88) %35, ptr noundef nonnull align 8 dereferenceable(12) %10, double noundef 1.000000e+00) #27
   %38 = call noundef ptr @_ZN4llvm12MachineInstr16removeFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #27
-  br label %96
+  br label %95
 
 39:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
   %spec.select = tail call i64 @llvm.abs.i64(i64 %2, i1 true)
@@ -41745,16 +41745,16 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %21, %2
   %.sroa.8.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br label %44
 
-44:                                               ; preds = %39, %61
-  %45 = phi i8 [ 0, %39 ], [ %62, %61 ]
-  %46 = phi i8 [ 0, %39 ], [ %63, %61 ]
-  %.191 = phi i64 [ %spec.select, %39 ], [ %71, %61 ]
-  %.sroa.062.090 = phi ptr [ %41, %39 ], [ %69, %61 ]
-  %.sroa.8.089 = phi i32 [ 0, %39 ], [ 1, %61 ]
-  %.sroa.7.088 = phi ptr [ undef, %39 ], [ %70, %61 ]
+44:                                               ; preds = %39, %60
+  %45 = phi i8 [ 0, %39 ], [ %61, %60 ]
+  %46 = phi i8 [ 0, %39 ], [ %62, %60 ]
+  %.191 = phi i64 [ %spec.select, %39 ], [ %70, %60 ]
+  %.sroa.062.090 = phi ptr [ %41, %39 ], [ %68, %60 ]
+  %.sroa.8.089 = phi i32 [ 0, %39 ], [ 1, %60 ]
+  %.sroa.7.088 = phi ptr [ undef, %39 ], [ %69, %60 ]
   %47 = and i64 %.191, 1
   %.not = icmp eq i64 %47, 0
-  br i1 %.not, label %61, label %48
+  br i1 %.not, label %60, label %48
 
 48:                                               ; preds = %44
   %49 = trunc nuw i8 %46 to i1
@@ -41765,7 +41765,7 @@ _ZNSt8optionalIN4llvm5SrcOpEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sa
   store ptr %.sroa.7.088, ptr %.sroa.7.0..sroa_idx, align 8
   store i32 %.sroa.8.089, ptr %.sroa.8.0..sroa_idx, align 8
   store i8 1, ptr %40, align 8
-  br label %61
+  br label %60
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr %0, align 8
@@ -41795,14 +41795,13 @@ _ZNSt8optionalIN4llvm5SrcOpEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sa
   br label %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit
 
 _ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit: ; preds = %50, %59
-  %60 = phi i8 [ 1, %59 ], [ %45, %50 ]
   store i32 1, ptr %.sroa.8.0..sroa_idx, align 8
-  br label %61
+  br label %60
 
-61:                                               ; preds = %_ZNSt8optionalIN4llvm5SrcOpEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit, %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit, %44
-  %62 = phi i8 [ 1, %_ZNSt8optionalIN4llvm5SrcOpEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %60, %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit ], [ %45, %44 ]
-  %63 = phi i8 [ 1, %_ZNSt8optionalIN4llvm5SrcOpEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ %60, %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit ], [ %46, %44 ]
-  %64 = load ptr, ptr %0, align 8
+60:                                               ; preds = %_ZNSt8optionalIN4llvm5SrcOpEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit, %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit, %44
+  %61 = phi i8 [ 1, %_ZNSt8optionalIN4llvm5SrcOpEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ 1, %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit ], [ %45, %44 ]
+  %62 = phi i8 [ 1, %_ZNSt8optionalIN4llvm5SrcOpEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIS4_SA_EEERS2_E4typeEOSA_.exit ], [ 1, %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit ], [ %46, %44 ]
+  %63 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store i64 %.sroa.04.0.i, ptr %6, align 8
@@ -41813,78 +41812,78 @@ _ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__an
   store ptr %.sroa.062.090, ptr %43, align 8
   store ptr %.sroa.7.088, ptr %.sroa.7.0..sroa_idx73, align 8
   store i32 %.sroa.8.089, ptr %.sroa.8.0..sroa_idx81, align 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %67 = load ptr, ptr %66, align 8
-  %68 = call { ptr, ptr } %67(ptr noundef nonnull align 8 dereferenceable(88) %64, i32 noundef 175, ptr nonnull %6, i64 1, ptr nonnull %7, i64 2, i64 0) #27
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %66 = load ptr, ptr %65, align 8
+  %67 = call { ptr, ptr } %66(ptr noundef nonnull align 8 dereferenceable(88) %63, i32 noundef 175, ptr nonnull %6, i64 1, ptr nonnull %7, i64 2, i64 0) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  %69 = extractvalue { ptr, ptr } %68, 0
-  %70 = extractvalue { ptr, ptr } %68, 1
-  %71 = lshr i64 %.191, 1
+  %68 = extractvalue { ptr, ptr } %67, 0
+  %69 = extractvalue { ptr, ptr } %67, 1
+  %70 = lshr i64 %.191, 1
   %.not87 = icmp samesign ult i64 %.191, 2
-  br i1 %.not87, label %72, label %44, !llvm.loop !236
+  br i1 %.not87, label %71, label %44, !llvm.loop !236
 
-72:                                               ; preds = %61
-  %73 = icmp slt i64 %2, 0
-  br i1 %73, label %74, label %92
+71:                                               ; preds = %60
+  %72 = icmp slt i64 %2, 0
+  br i1 %72, label %73, label %91
 
-74:                                               ; preds = %72
-  %75 = load ptr, ptr %0, align 8
+73:                                               ; preds = %71
+  %74 = load ptr, ptr %0, align 8
   store i64 %.sroa.04.0.i, ptr %12, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 0, ptr %76, align 8
-  %77 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildFConstantERKNS_5DstOpEd(ptr noundef nonnull align 8 dereferenceable(88) %75, ptr noundef nonnull align 8 dereferenceable(12) %12, double noundef 1.000000e+00) #27
-  %78 = extractvalue { ptr, ptr } %77, 0
-  %79 = extractvalue { ptr, ptr } %77, 1
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %81 = load i32, ptr %80, align 4
-  %82 = and i32 %81, 16777215
-  %.sroa.0.0.insert.ext = zext nneg i32 %82 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 0, ptr %75, align 8
+  %76 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildFConstantERKNS_5DstOpEd(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr noundef nonnull align 8 dereferenceable(12) %12, double noundef 1.000000e+00) #27
+  %77 = extractvalue { ptr, ptr } %76, 0
+  %78 = extractvalue { ptr, ptr } %76, 1
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %80 = load i32, ptr %79, align 4
+  %81 = and i32 %80, 16777215
+  %.sroa.0.0.insert.ext = zext nneg i32 %81 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, 4294967296
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store i64 %.sroa.04.0.i, ptr %4, align 8
   %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %.sroa.237.0..sroa_idx, align 8
-  store ptr %78, ptr %5, align 8
+  store ptr %77, ptr %5, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %79, ptr %.sroa.235.0..sroa_idx, align 8
+  store ptr %78, ptr %.sroa.235.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %.sroa.3.0..sroa_idx, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %83, ptr noundef nonnull align 8 dereferenceable(20) %11, i64 20, i1 false)
-  %84 = load ptr, ptr %75, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load ptr, ptr %85, align 8
-  %87 = call { ptr, ptr } %86(ptr noundef nonnull align 8 dereferenceable(88) %75, i32 noundef 178, ptr nonnull %4, i64 1, ptr nonnull %5, i64 2, i64 %.sroa.0.0.insert.insert) #27
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %82, ptr noundef nonnull align 8 dereferenceable(20) %11, i64 20, i1 false)
+  %83 = load ptr, ptr %74, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %85 = load ptr, ptr %84, align 8
+  %86 = call { ptr, ptr } %85(ptr noundef nonnull align 8 dereferenceable(88) %74, i32 noundef 178, ptr nonnull %4, i64 1, ptr nonnull %5, i64 2, i64 %.sroa.0.0.insert.insert) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %88 = extractvalue { ptr, ptr } %87, 0
-  %89 = extractvalue { ptr, ptr } %87, 1
-  %90 = trunc nuw i8 %62 to i1
-  br i1 %90, label %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit31, label %91
+  %87 = extractvalue { ptr, ptr } %86, 0
+  %88 = extractvalue { ptr, ptr } %86, 1
+  %89 = trunc nuw i8 %61 to i1
+  br i1 %89, label %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit31, label %90
 
-91:                                               ; preds = %74
+90:                                               ; preds = %73
   store i8 1, ptr %40, align 8
   br label %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit31
 
-_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit31: ; preds = %74, %91
-  store ptr %88, ptr %11, align 8
-  store ptr %89, ptr %.sroa.7.0..sroa_idx, align 8
+_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit31: ; preds = %73, %90
+  store ptr %87, ptr %11, align 8
+  store ptr %88, ptr %.sroa.7.0..sroa_idx, align 8
   store i32 1, ptr %.sroa.8.0..sroa_idx, align 8
-  br label %92
+  br label %91
 
-92:                                               ; preds = %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit31, %72
-  %93 = load ptr, ptr %0, align 8
+91:                                               ; preds = %_ZNSt8optionalIN4llvm5SrcOpEEaSINS0_19MachineInstrBuilderEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS1_ES7_IS1_NSt5decayISA_E4typeEEEEESt16is_constructibleIS1_JSA_EESt13is_assignableIRS1_SA_EEERS2_E4typeEOSA_.exit31, %71
+  %92 = load ptr, ptr %0, align 8
   store i32 %17, ptr %13, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 1, ptr %94, align 8
-  %95 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %93, ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(20) %11) #27
+  %93 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 1, ptr %93, align 8
+  %94 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %92, ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(20) %11) #27
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #27
-  br label %96
+  br label %95
 
-96:                                               ; preds = %92, %34
+95:                                               ; preds = %91, %34
   ret void
 }
 

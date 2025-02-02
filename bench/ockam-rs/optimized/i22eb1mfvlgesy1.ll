@@ -709,20 +709,21 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$allo
   br label %6
 
 6:                                                ; preds = %6, %.lr.ph.i
-  %.sroa.0.012.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select8.i, %6 ]
-  %7 = icmp ult i64 %.sroa.0.012.i, %4
-  %8 = zext i1 %7 to i64
-  %spec.select8.i = add nuw i64 %.sroa.0.012.i, %8
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %.sroa.0.012.i
+  %.sroa.0.011.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select8.i, %6 ]
+  %7 = icmp uge i64 %.sroa.0.011.i, %4
+  %not..i = xor i1 %7, true
+  %8 = zext i1 %not..i to i64
+  %spec.select8.i = add nuw i64 %.sroa.0.011.i, %8
+  %9 = getelementptr inbounds ptr, ptr %5, i64 %.sroa.0.011.i
   %10 = load ptr, ptr %9, align 8, !noalias !144, !nonnull !14, !noundef !14
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 352
   store ptr %0, ptr %11, align 8, !noalias !151
-  %12 = trunc i64 %.sroa.0.012.i to i16
+  %12 = trunc i64 %.sroa.0.011.i to i16
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 360
   store i16 %12, ptr %13, align 8, !noalias !151
-  %.not.i.i.i = icmp ule i64 %spec.select8.i, %4
-  %or.cond.i.not = select i1 %7, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.i.not, label %6, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h9e4fb8927b4a77b5E.exit"
+  %.not.i.i.i = icmp ugt i64 %spec.select8.i, %4
+  %or.cond.i = select i1 %7, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h9e4fb8927b4a77b5E.exit", label %6
 
 "_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h9e4fb8927b4a77b5E.exit": ; preds = %6
   %14 = insertvalue { ptr, i64 } poison, ptr %0, 0

@@ -156,11 +156,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .thread:                                          ; preds = %26, %34
   %39 = trunc nuw i8 %.034 to i1
-  br i1 %39, label %.thread60, label %41
+  br i1 %39, label %.thread48, label %41
 
-.thread60:                                        ; preds = %.thread
+.thread48:                                        ; preds = %.thread
   %40 = call ptr @simple_prompt(ptr noundef nonnull @.str.13, i1 noundef zeroext true) #5
-  br label %43
+  br label %44
 
 41:                                               ; preds = %.thread
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14) #5
@@ -169,63 +169,63 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 42:                                               ; preds = %34
-  %.pre = trunc nuw i8 %.034 to i1
-  br i1 %.pre, label %43, label %47
+  %43 = trunc nuw i8 %.034 to i1
+  br i1 %43, label %44, label %48
 
-43:                                               ; preds = %.thread60, %42
-  %.163 = phi ptr [ %40, %.thread60 ], [ %37, %42 ]
-  %44 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.15, ptr noundef %.163) #5
-  %45 = call zeroext i1 @yesno_prompt(ptr noundef nonnull @.str.16) #5
-  br i1 %45, label %47, label %46
+44:                                               ; preds = %.thread48, %42
+  %.150 = phi ptr [ %40, %.thread48 ], [ %37, %42 ]
+  %45 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.15, ptr noundef %.150) #5
+  %46 = call zeroext i1 @yesno_prompt(ptr noundef nonnull @.str.16) #5
+  br i1 %46, label %48, label %47
 
-46:                                               ; preds = %43
+47:                                               ; preds = %44
   call void @exit(i32 noundef 0) #7
   unreachable
 
-47:                                               ; preds = %43, %42
-  %.164 = phi ptr [ %.163, %43 ], [ %37, %42 ]
+48:                                               ; preds = %44, %42
+  %.151 = phi ptr [ %.150, %44 ], [ %37, %42 ]
   store ptr null, ptr %4, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.032, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.042, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.040, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 %.038, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr null, ptr %52, align 8
-  %53 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %.036) #5
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %.032, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %.042, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %.040, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i32 %.038, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr null, ptr %53, align 8
+  %54 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %.036) #5
   call void @initPQExpBuffer(ptr noundef nonnull %5) #5
-  %54 = load i32, ptr @main.if_exists, align 4
-  %.not45 = icmp eq i32 %54, 0
-  %55 = select i1 %.not45, ptr @.str.19, ptr @.str.18
-  %56 = call ptr @fmtId(ptr noundef %.164) #5
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.17, ptr noundef nonnull %55, ptr noundef %56) #5
-  br i1 %.036, label %57, label %60
+  %55 = load i32, ptr @main.if_exists, align 4
+  %.not45 = icmp eq i32 %55, 0
+  %56 = select i1 %.not45, ptr @.str.19, ptr @.str.18
+  %57 = call ptr @fmtId(ptr noundef %.151) #5
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.17, ptr noundef nonnull %56, ptr noundef %57) #5
+  br i1 %.036, label %58, label %61
 
-57:                                               ; preds = %47
-  %58 = load ptr, ptr %5, align 8
-  %59 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.20, ptr noundef %58) #5
-  br label %60
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %5, align 8
+  %60 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.20, ptr noundef %59) #5
+  br label %61
 
-60:                                               ; preds = %57, %47
-  %61 = load ptr, ptr %5, align 8
-  %62 = call ptr @PQexec(ptr noundef %53, ptr noundef %61) #5
-  %63 = call i32 @PQresultStatus(ptr noundef %62) #5
-  %.not46 = icmp eq i32 %63, 1
-  br i1 %.not46, label %66, label %64
+61:                                               ; preds = %58, %48
+  %62 = load ptr, ptr %5, align 8
+  %63 = call ptr @PQexec(ptr noundef %54, ptr noundef %62) #5
+  %64 = call i32 @PQresultStatus(ptr noundef %63) #5
+  %.not46 = icmp eq i32 %64, 1
+  br i1 %.not46, label %67, label %65
 
-64:                                               ; preds = %60
-  %65 = call ptr @PQerrorMessage(ptr noundef %53) #5
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.21, ptr noundef %.164, ptr noundef %65) #5
-  call void @PQfinish(ptr noundef %53) #5
+65:                                               ; preds = %61
+  %66 = call ptr @PQerrorMessage(ptr noundef %54) #5
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.21, ptr noundef %.151, ptr noundef %66) #5
+  call void @PQfinish(ptr noundef %54) #5
   call void @exit(i32 noundef 1) #6
   unreachable
 
-66:                                               ; preds = %60
-  call void @PQclear(ptr noundef %62) #5
-  call void @PQfinish(ptr noundef %53) #5
+67:                                               ; preds = %61
+  call void @PQclear(ptr noundef %63) #5
+  call void @PQfinish(ptr noundef %54) #5
   call void @exit(i32 noundef 0) #7
   unreachable
 }

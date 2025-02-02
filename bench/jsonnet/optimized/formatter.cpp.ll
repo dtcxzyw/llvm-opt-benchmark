@@ -18668,15 +18668,15 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal16PrettyFieldNames12
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
-  %.02432.not = phi i1 [ true, %16 ], [ false, %.lr.ph.preheader ]
-  %.sroa.027.031 = phi ptr [ %17, %16 ], [ %7, %.lr.ph.preheader ]
-  %9 = load i32, ptr %.sroa.027.031, align 4
+  %.024.not34 = phi i1 [ true, %16 ], [ false, %.lr.ph.preheader ]
+  %.sroa.027.033 = phi ptr [ %17, %16 ], [ %7, %.lr.ph.preheader ]
+  %9 = load i32, ptr %.sroa.027.033, align 4
   %10 = add i32 %9, -48
   %11 = icmp ult i32 %10, 10
-  %or.cond3.not.not34 = select i1 %.02432.not, i1 %11, i1 false
+  %or.cond3.not.not31 = select i1 %.024.not34, i1 %11, i1 false
   %12 = add i32 %9, -65
   %or.cond5 = icmp ult i32 %12, 26
-  %or.cond = select i1 %or.cond3.not.not34, i1 true, i1 %or.cond5
+  %or.cond = select i1 %or.cond3.not.not31, i1 true, i1 %or.cond5
   br i1 %or.cond, label %16, label %13
 
 13:                                               ; preds = %.lr.ph
@@ -18687,7 +18687,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7jsonnet8internal16PrettyFieldNames12
   br i1 %or.cond9, label %16, label %.loopexit
 
 16:                                               ; preds = %13, %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.027.031, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.027.033, i64 4
   %.not = icmp eq ptr %17, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

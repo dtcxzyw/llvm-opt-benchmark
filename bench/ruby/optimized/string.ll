@@ -22717,7 +22717,7 @@ rb_str_cat.exit73.i:                              ; preds = %202, %192
 
 undump_after_backslash.exit:                      ; preds = %107, %unescape_ascii.exit.i, %145, %rb_str_cat.exit73.i, %220, %224
   %.3 = phi ptr [ %.057106, %224 ], [ %.057106, %unescape_ascii.exit.i ], [ %.259, %145 ], [ %.259, %rb_str_cat.exit73.i ], [ %.057106, %220 ], [ %.057106, %107 ]
-  %.256 = phi i8 [ %.054107, %224 ], [ %.054107, %unescape_ascii.exit.i ], [ 1, %145 ], [ 1, %rb_str_cat.exit73.i ], [ %.054107, %220 ], [ %.054107, %107 ]
+  %.256 = phi i8 [ %.054107, %224 ], [ %.054107, %unescape_ascii.exit.i ], [ 1, %145 ], [ 1, %rb_str_cat.exit73.i ], [ 0, %220 ], [ %.054107, %107 ]
   %.2 = phi i1 [ %.0108, %224 ], [ %.0108, %unescape_ascii.exit.i ], [ false, %145 ], [ false, %rb_str_cat.exit73.i ], [ true, %220 ], [ %.0108, %107 ]
   %.0.i42 = phi ptr [ %226, %224 ], [ %118, %unescape_ascii.exit.i ], [ %146, %145 ], [ %205, %rb_str_cat.exit73.i ], [ %223, %220 ], [ %109, %107 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)

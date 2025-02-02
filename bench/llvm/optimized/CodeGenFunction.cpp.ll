@@ -13249,7 +13249,7 @@ _ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.
   br label %_ZN5clang7CodeGen15CodeGenFunction21ConditionalEvaluation3endERS1_.exit235
 
 88:                                               ; preds = %80, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit.thread, %81, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit
-  %.1265 = phi i8 [ 0, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit.thread ], [ %.0258, %81 ], [ %.0258, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit ], [ %.0258, %80 ]
+  %.1265 = phi i8 [ 0, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit.thread ], [ 0, %81 ], [ %.0258, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit ], [ %.0258, %80 ]
   %89 = getelementptr inbounds nuw i8, ptr %.lcssa405, i64 24
   %90 = load ptr, ptr %89, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -13617,7 +13617,7 @@ _ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.
   br label %_ZN5clang7CodeGen15CodeGenFunction21ConditionalEvaluation3endERS1_.exit235
 
 273:                                              ; preds = %265, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit173.thread, %266, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit173
-  %.1260272 = phi i8 [ 0, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit173.thread ], [ %.0259, %266 ], [ %.0259, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit173 ], [ %.0259, %265 ]
+  %.1260272 = phi i8 [ 0, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit173.thread ], [ 1, %266 ], [ %.0259, %_ZN5clang7CodeGen15CodeGenFunction28ConstantFoldsToSimpleIntegerEPKNS_4ExprERbb.exit173 ], [ %.0259, %265 ]
   %274 = getelementptr inbounds nuw i8, ptr %.lcssa405, i64 24
   %275 = load ptr, ptr %274, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)

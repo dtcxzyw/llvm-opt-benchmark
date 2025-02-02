@@ -521,7 +521,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCAssembler13evaluateFixupERKNS_
   store ptr @.str.33, ptr %10, align 8
   store i8 3, ptr %17, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %13, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %10) #11
-  br label %165
+  br label %167
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -545,7 +545,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCAssembler13evaluateFixupERKNS_
   store ptr @.str.34, ptr %11, align 8
   store i8 3, ptr %28, align 8
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %13, ptr %.sroa.0.0.copyload.i88, ptr noundef nonnull align 8 dereferenceable(34) %11) #11
-  br label %165
+  br label %167
 
 30:                                               ; preds = %22, %19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -568,7 +568,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCAssembler13evaluateFixupERKNS_
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(372) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  br label %165
+  br label %167
 
 48:                                               ; preds = %30
   %49 = and i32 %40, 1
@@ -773,7 +773,7 @@ _ZNK4llvm11MCAssembler17getFragmentOffsetERKNS_10MCFragmentE.exit: ; preds = %13
   br label %145
 
 145:                                              ; preds = %_ZNK4llvm11MCAssembler17getFragmentOffsetERKNS_10MCFragmentE.exit, %_ZNK4llvm8MCSymbol9isDefinedEv.exit92.thread97
-  br i1 %.072.shrunk, label %146, label %.critedge
+  br i1 %.072.shrunk, label %146, label %153
 
 146:                                              ; preds = %145
   %147 = load ptr, ptr %31, align 8
@@ -781,37 +781,37 @@ _ZNK4llvm11MCAssembler17getFragmentOffsetERKNS_10MCFragmentE.exit: ; preds = %13
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 72
   %150 = load ptr, ptr %149, align 8
   %151 = tail call noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(372) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %4) #11
-  br i1 %151, label %.thread, label %165
+  br i1 %151, label %152, label %167
 
-.thread:                                          ; preds = %146
+152:                                              ; preds = %146
   store i8 1, ptr %6, align 1
-  br label %.critedge
+  br label %153
 
-.critedge:                                        ; preds = %145, %.thread
-  %152 = load ptr, ptr %3, align 8
-  %.not86 = icmp eq ptr %152, null
-  %153 = load ptr, ptr %20, align 8
-  %.not87 = icmp eq ptr %153, null
+153:                                              ; preds = %152, %145
+  %154 = load ptr, ptr %3, align 8
+  %.not86 = icmp eq ptr %154, null
+  %155 = load ptr, ptr %20, align 8
+  %.not87 = icmp eq ptr %155, null
   %or.cond = select i1 %.not86, i1 true, i1 %.not87
-  br i1 %or.cond, label %165, label %154
+  br i1 %or.cond, label %167, label %156
 
-154:                                              ; preds = %.critedge
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 1
-  %156 = load i32, ptr %155, align 1
-  %157 = and i32 %156, 65535
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %159, label %165
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 1
+  %158 = load i32, ptr %157, align 1
+  %159 = and i32 %158, 65535
+  %160 = icmp eq i32 %159, 0
+  br i1 %160, label %161, label %167
 
-159:                                              ; preds = %154
-  %160 = load ptr, ptr %31, align 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 104
+161:                                              ; preds = %156
+  %162 = load ptr, ptr %31, align 8
   %163 = load ptr, ptr %162, align 8
-  %164 = tail call noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull align 8 dereferenceable(372) %0, ptr noundef nonnull align 8 dereferenceable(30) %2, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  br label %165
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 104
+  %165 = load ptr, ptr %164, align 8
+  %166 = tail call noundef zeroext i1 %165(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(372) %0, ptr noundef nonnull align 8 dereferenceable(30) %2, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #11
+  br label %167
 
-165:                                              ; preds = %146, %159, %.critedge, %154, %42, %26, %15
-  %.071 = phi i1 [ true, %26 ], [ %47, %42 ], [ true, %15 ], [ false, %154 ], [ false, %.critedge ], [ %164, %159 ], [ true, %146 ]
+167:                                              ; preds = %161, %153, %156, %146, %42, %26, %15
+  %.071 = phi i1 [ true, %26 ], [ %47, %42 ], [ true, %15 ], [ false, %156 ], [ false, %153 ], [ true, %146 ], [ %166, %161 ]
   ret i1 %.071
 }
 

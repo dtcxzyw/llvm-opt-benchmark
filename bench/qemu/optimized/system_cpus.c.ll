@@ -771,47 +771,34 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %halt_cond = getelementptr inbounds nuw i8, ptr %cpu, i64 192
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.lr.ph, %while.end
-  %slept.07 = phi i8 [ 0, %while.body.lr.ph ], [ %slept.1, %while.end ]
-  %tobool = trunc nuw i8 %slept.07 to i1
-  br i1 %tobool, label %while.end, label %if.then
-
-if.then:                                          ; preds = %while.body
   tail call void @qemu_plugin_vcpu_idle_cb(ptr noundef %cpu) #17
   br label %while.end
 
-while.end:                                        ; preds = %if.then, %while.body
-  %slept.1 = phi i8 [ %slept.07, %while.body ], [ 1, %if.then ]
+while.end:                                        ; preds = %while.end, %while.body.lr.ph
   %0 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load ptr, ptr %halt_cond, align 16
   tail call void %1(ptr noundef %2, ptr noundef nonnull @qemu_global_mutex, ptr noundef nonnull @.str, i32 noundef 431) #17
   %call = tail call zeroext i1 @cpu_thread_is_idle(ptr noundef %cpu)
-  br i1 %call, label %while.body, label %while.end3, !llvm.loop !24
+  br i1 %call, label %while.end, label %if.then5, !llvm.loop !24
 
-while.end3:                                       ; preds = %while.end
-  %3 = trunc nuw i8 %slept.1 to i1
-  br i1 %3, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %while.end3
+if.then5:                                         ; preds = %while.end
   tail call void @qemu_plugin_vcpu_resume_cb(ptr noundef nonnull %cpu) #17
   br label %if.end6
 
-if.end6:                                          ; preds = %entry, %if.then5, %while.end3
+if.end6:                                          ; preds = %entry, %if.then5
   %thread_kicked.i = getelementptr inbounds nuw i8, ptr %cpu, i64 200
-  %4 = atomicrmw xchg ptr %thread_kicked.i, i8 0 seq_cst, align 8
+  %3 = atomicrmw xchg ptr %thread_kicked.i, i8 0 seq_cst, align 8
   fence syncscope("singlethread") seq_cst
   %stop.i = getelementptr inbounds nuw i8, ptr %cpu, i64 202
-  %5 = load i8, ptr %stop.i, align 2
-  %tobool5.i = trunc i8 %5 to i1
+  %4 = load i8, ptr %stop.i, align 2
+  %tobool5.i = trunc i8 %4 to i1
   br i1 %tobool5.i, label %if.then.i, label %qemu_wait_io_event_common.exit
 
 if.then.i:                                        ; preds = %if.end6
   %thread.i.i.i = getelementptr inbounds nuw i8, ptr %cpu, i64 176
-  %6 = load ptr, ptr %thread.i.i.i, align 16
-  %call.i.i.i = tail call zeroext i1 @qemu_thread_is_self(ptr noundef %6) #17
+  %5 = load ptr, ptr %thread.i.i.i, align 16
+  %call.i.i.i = tail call zeroext i1 @qemu_thread_is_self(ptr noundef %5) #17
   br i1 %call.i.i.i, label %qemu_cpu_stop.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i

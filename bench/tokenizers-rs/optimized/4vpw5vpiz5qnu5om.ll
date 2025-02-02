@@ -2387,6 +2387,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i27
   %.sroa.12.0 = phi i64 [ %.sroa.12.2.ph, %.lr.ph.i.i ], [ %.sroa.12.1, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbefa37afee85d2e0E.exit" ]
   %.sroa.1745.0 = phi i64 [ %.sroa.1745.2.ph, %.lr.ph.i.i ], [ %.sroa.1745.1, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbefa37afee85d2e0E.exit" ]
   %.sroa.35.0 = phi i64 [ %.sroa.35.4.ph, %.lr.ph.i.i ], [ %.sroa.35.2, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbefa37afee85d2e0E.exit" ]
+  %.sroa.30.0 = phi i64 [ %20, %.lr.ph.i.i ], [ %.sroa.30.2, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbefa37afee85d2e0E.exit" ]
   %.sroa.26.0 = phi i64 [ %.sroa.26.2, %.lr.ph.i.i ], [ %.sroa.26.1, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbefa37afee85d2e0E.exit" ]
   %.sroa.22.0 = phi i64 [ %.sroa.22.2, %.lr.ph.i.i ], [ %.sroa.22.1, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbefa37afee85d2e0E.exit" ]
   %.sroa.17.0 = phi i64 [ %.sroa.17.2, %.lr.ph.i.i ], [ %.sroa.17.1, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbefa37afee85d2e0E.exit" ]
@@ -2406,8 +2407,9 @@ _ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i27
   %trunc.i.i.i.i = trunc nuw i64 %.sroa.034.0 to i1
   %spec.select.i.i.i.i.i.i.i.i = call i64 @llvm.usub.sat.i64(i64 %.sroa.17.0, i64 %.sroa.10.0)
   %.sroa.7.0.i.i.i.i = select i1 %trunc.i.i.i.i, i64 %spec.select.i.i.i.i.i.i.i.i, i64 0
+  %trunc40.i.i.i.i = trunc nuw i64 %.sroa.30.0 to i1
   %spec.select.i.i.i.i57.i.i.i.i = call i64 @llvm.usub.sat.i64(i64 %.sroa.40.0.copyload, i64 %.sroa.35.0)
-  %.sroa.8.0.i.i.i.i = select i1 %trunc40.i.i, i64 %spec.select.i.i.i.i57.i.i.i.i, i64 0
+  %.sroa.8.0.i.i.i.i = select i1 %trunc40.i.i.i.i, i64 %spec.select.i.i.i.i57.i.i.i.i, i64 0
   %117 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0.i.i.i.i, i64 %.sroa.8.0.i.i.i.i)
   %118 = icmp eq ptr %.sroa.47.0, null
   br i1 %118, label %.critedge.i.i.i.i, label %119
@@ -2555,8 +2557,9 @@ _ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.i.i.i: ; preds =
 
 187:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i.i.i.i.i", %139, %_ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.i.i.i
   %.sroa.47.4 = phi ptr [ null, %_ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.i.i.i ], [ %.sroa.47.1, %139 ], [ %168, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i.i.i.i.i" ]
+  %trunc.i4.i.i = trunc nuw i64 %.sroa.30.0 to i1
   %188 = icmp ult i64 %.sroa.35.0, %.sroa.40.0.copyload
-  %or.cond71 = select i1 %trunc40.i.i, i1 %188, i1 false
+  %or.cond71 = select i1 %trunc.i4.i.i, i1 %188, i1 false
   br i1 %or.cond71, label %_ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h1eef3089d3159ffdE.exit"
 
 _ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i: ; preds = %187
@@ -2568,6 +2571,7 @@ _ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i: 
   %.sroa.12.1 = phi i64 [ %.sroa.22.1, %135 ], [ %.sroa.43.0.copyload, %_ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i ]
   %.sroa.1745.1 = phi i64 [ %137, %135 ], [ %.pre-phi, %_ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i ]
   %.sroa.35.2 = phi i64 [ %.sroa.35.0, %135 ], [ %189, %_ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i ]
+  %.sroa.30.2 = phi i64 [ %.sroa.30.0, %135 ], [ 1, %_ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i ]
   %.sroa.10.2 = phi i64 [ %136, %135 ], [ %.sroa.10.1, %_ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i ]
   %.sroa.034.3 = phi i64 [ %.sroa.034.1, %135 ], [ %.sroa.034.2, %_ZN4core3ops8function6FnOnce9call_once17hb35288c90cdbf3daE.exit.thread.i11.i.i ]
   %.pre = load i64, ptr %5, align 8, !alias.scope !680, !noalias !691

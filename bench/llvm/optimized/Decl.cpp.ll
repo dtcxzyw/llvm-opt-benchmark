@@ -5316,237 +5316,233 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang9NamedDecl21getExplicit
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc range(i64 0, 8589934592) i64 @_ZL24getExplicitVisibilityAuxPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindEb(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
   %4 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef %0, i32 noundef %1)
-  %.sroa.10.0.extract.shift = lshr i64 %4, 32
-  %5 = trunc nuw i64 %.sroa.10.0.extract.shift to i1
-  br i1 %5, label %.loopexit, label %6
+  %.not117 = icmp samesign ult i64 %4, 4294967296
+  br i1 %.not117, label %5, label %.loopexit
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %8 = load i32, ptr %7, align 4
-  %9 = and i32 %8, 127
-  %10 = add nsw i32 %9, -59
-  %11 = icmp ult i32 %10, -3
-  %.not117 = icmp eq ptr %0, null
-  %.not = or i1 %.not117, %11
-  br i1 %.not, label %16, label %12
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4
+  %8 = and i32 %7, 127
+  %9 = add nsw i32 %8, -59
+  %10 = icmp ult i32 %9, -3
+  %.not118 = icmp eq ptr %0, null
+  %.not = or i1 %.not118, %10
+  br i1 %.not, label %15, label %11
 
-12:                                               ; preds = %6
-  %13 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #27
-  %.not48 = icmp eq ptr %13, null
-  br i1 %.not48, label %._crit_edge, label %14
+11:                                               ; preds = %5
+  %12 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144) %0) #27
+  %.not48 = icmp eq ptr %12, null
+  br i1 %.not48, label %._crit_edge, label %13
 
-._crit_edge:                                      ; preds = %12
-  %.pre = load i32, ptr %7, align 4
-  %.pre133 = and i32 %.pre, 127
-  %.pre134 = add nsw i32 %.pre133, -59
-  br label %16
+._crit_edge:                                      ; preds = %11
+  %.pre = load i32, ptr %6, align 4
+  %.pre135 = and i32 %.pre, 127
+  %.pre136 = add nsw i32 %.pre135, -59
+  br label %15
 
-14:                                               ; preds = %12
-  %15 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef nonnull %13, i32 noundef %1)
-  %.sroa.10.0.extract.shift82 = lshr i64 %15, 32
+13:                                               ; preds = %11
+  %14 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef nonnull %12, i32 noundef %1)
+  %.sroa.10.0.extract.shift82 = and i64 %14, 4294967296
   br label %.loopexit
 
-16:                                               ; preds = %._crit_edge, %6
-  %.pre-phi135 = phi i32 [ %.pre134, %._crit_edge ], [ %10, %6 ]
-  %.pre-phi = phi i32 [ %.pre133, %._crit_edge ], [ %9, %6 ]
-  %17 = icmp ult i32 %.pre-phi135, -2
-  %.not49 = or i1 %.not117, %17
-  br i1 %.not49, label %28, label %18
+15:                                               ; preds = %._crit_edge, %5
+  %.pre-phi137 = phi i32 [ %.pre136, %._crit_edge ], [ %9, %5 ]
+  %.pre-phi = phi i32 [ %.pre135, %._crit_edge ], [ %8, %5 ]
+  %16 = icmp ult i32 %.pre-phi137, -2
+  %.not49 = or i1 %.not118, %16
+  br i1 %.not49, label %26, label %17
 
-18:                                               ; preds = %16
-  %19 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %0) #27
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %21 = load ptr, ptr %20, align 8
-  %.not58124 = icmp eq ptr %21, null
-  br i1 %.not58124, label %.loopexit, label %.lr.ph
+17:                                               ; preds = %15
+  %18 = tail call noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181) %0) #27
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %20 = load ptr, ptr %19, align 8
+  %.not58126 = icmp eq ptr %20, null
+  br i1 %.not58126, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %18, %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit
-  %.0125 = phi ptr [ %27, %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit ], [ %21, %18 ]
-  %22 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef nonnull %.0125, i32 noundef %1)
-  %.sroa.10.0.extract.shift84 = lshr i64 %22, 32
-  %23 = trunc nuw i64 %.sroa.10.0.extract.shift84 to i1
-  br i1 %23, label %.loopexit, label %24
+.lr.ph:                                           ; preds = %17, %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit
+  %.0127 = phi ptr [ %25, %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit ], [ %20, %17 ]
+  %21 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef nonnull %.0127, i32 noundef %1)
+  %.not120 = icmp samesign ult i64 %21, 4294967296
+  br i1 %.not120, label %22, label %.loopexit
 
-24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i8, ptr %.0125, i64 96
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %25, align 8
-  %26 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
-  %.not.i.i.i.i = icmp eq i64 %26, 0
+22:                                               ; preds = %.lr.ph
+  %23 = getelementptr inbounds nuw i8, ptr %.0127, i64 96
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %23, align 8
+  %24 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
+  %.not.i.i.i.i = icmp eq i64 %24, 0
   br i1 %.not.i.i.i.i, label %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit, label %.loopexit
 
-_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit: ; preds = %24
-  %27 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(144) %.0125)
-  %.not58 = icmp eq ptr %27, null
+_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit: ; preds = %22
+  %25 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(144) %.0127)
+  %.not58 = icmp eq ptr %25, null
   br i1 %.not58, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
-28:                                               ; preds = %16
-  %29 = icmp eq i32 %.pre-phi, 21
-  %or.cond = or i1 %2, %29
-  br i1 %or.cond, label %37, label %30
+26:                                               ; preds = %15
+  %27 = icmp eq i32 %.pre-phi, 21
+  %or.cond = or i1 %2, %27
+  br i1 %or.cond, label %36, label %28
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(48) %0) #27
-  %.not50 = icmp eq ptr %34, %0
-  br i1 %.not50, label %._crit_edge131, label %35
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %0, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(48) %0) #27
+  %.not50 = icmp eq ptr %32, %0
+  br i1 %.not50, label %._crit_edge133, label %33
 
-._crit_edge131:                                   ; preds = %30
-  %.pre132 = load i32, ptr %7, align 4
-  %.pre136 = and i32 %.pre132, 127
-  br label %37
+._crit_edge133:                                   ; preds = %28
+  %.pre134 = load i32, ptr %6, align 4
+  %.pre138 = and i32 %.pre134, 127
+  br label %36
 
-35:                                               ; preds = %30
-  %36 = tail call fastcc i64 @_ZL24getExplicitVisibilityAuxPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindEb(ptr noundef %34, i32 noundef %1, i1 noundef zeroext true)
-  %.sroa.10.0.extract.shift96 = lshr i64 %36, 32
+33:                                               ; preds = %28
+  %34 = tail call fastcc i64 @_ZL24getExplicitVisibilityAuxPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindEb(ptr noundef %32, i32 noundef %1, i1 noundef zeroext true)
+  %35 = and i64 %34, 4294967296
   br label %.loopexit
 
-37:                                               ; preds = %._crit_edge131, %28
-  %.pre-phi137 = phi i32 [ %.pre136, %._crit_edge131 ], [ %.pre-phi, %28 ]
-  %38 = add nsw i32 %.pre-phi137, -44
-  %39 = icmp ult i32 %38, -7
-  %.not51 = or i1 %.not117, %39
-  br i1 %.not51, label %79, label %40
+36:                                               ; preds = %._crit_edge133, %26
+  %.pre-phi139 = phi i32 [ %.pre138, %._crit_edge133 ], [ %.pre-phi, %26 ]
+  %37 = add nsw i32 %.pre-phi139, -44
+  %38 = icmp ult i32 %37, -7
+  %.not51 = or i1 %.not118, %38
+  br i1 %.not51, label %78, label %39
 
-40:                                               ; preds = %37
-  %.not.i = icmp eq i32 %.pre-phi137, 40
-  br i1 %.not.i, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread, label %41
+39:                                               ; preds = %36
+  %.not.i = icmp eq i32 %.pre-phi139, 40
+  br i1 %.not.i, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread, label %40
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %42, align 8
-  %43 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %44 = icmp eq i64 %43, 0
-  %45 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
-  %46 = inttoptr i64 %45 to ptr
-  br i1 %44, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread140
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %41, align 8
+  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %43 = icmp eq i64 %42, 0
+  %44 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -8
+  %45 = inttoptr i64 %44 to ptr
+  br i1 %43, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread142
 
-_ZNK5clang7VarDecl18isStaticDataMemberEv.exit:    ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i16, ptr %47, align 8
-  %49 = and i16 %48, 127
-  %50 = add nsw i16 %49, -55
-  %spec.select.i.i61 = icmp ult i16 %50, 4
+_ZNK5clang7VarDecl18isStaticDataMemberEv.exit:    ; preds = %40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i16, ptr %46, align 8
+  %48 = and i16 %47, 127
+  %49 = add nsw i16 %48, -55
+  %spec.select.i.i61 = icmp ult i16 %49, 4
   br i1 %spec.select.i.i61, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i.i, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
 
-_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread140: ; preds = %41
-  %51 = load ptr, ptr %46, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load i16, ptr %52, align 8
-  %54 = and i16 %53, 127
-  %55 = add nsw i16 %54, -55
-  %spec.select.i.i61142 = icmp ult i16 %55, 4
-  br i1 %spec.select.i.i61142, label %56, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
+_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread142: ; preds = %40
+  %50 = load ptr, ptr %45, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i16, ptr %51, align 8
+  %53 = and i16 %52, 127
+  %54 = add nsw i16 %53, -55
+  %spec.select.i.i61144 = icmp ult i16 %54, 4
+  br i1 %spec.select.i.i61144, label %55, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
 
-56:                                               ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread140
-  %57 = load ptr, ptr %46, align 8
+55:                                               ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread142
+  %56 = load ptr, ptr %45, align 8
   br label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i.i
 
-_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i.i: ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit, %56
-  %.0.i.i.i.i.i = phi ptr [ %57, %56 ], [ %46, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit ]
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
-  %59 = load i16, ptr %58, align 8
-  %60 = and i16 %59, 127
-  %61 = add nsw i16 %60, -55
-  %spec.select.i.i.i.i = icmp ult i16 %61, 4
-  br i1 %spec.select.i.i.i.i, label %62, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
+_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i.i: ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit, %55
+  %.0.i.i.i.i.i = phi ptr [ %56, %55 ], [ %45, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit ]
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
+  %58 = load i16, ptr %57, align 8
+  %59 = and i16 %58, 127
+  %60 = add nsw i16 %59, -55
+  %spec.select.i.i.i.i = icmp ult i16 %60, 4
+  br i1 %spec.select.i.i.i.i, label %61, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
 
-62:                                               ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i.i
-  %63 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(100) %0) #26
-  %64 = tail call i64 @_ZN5clang10ASTContext31getTemplateOrSpecializationInfoEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %63, ptr noundef nonnull align 8 dereferenceable(100) %0) #27
-  %65 = and i64 %64, 4
-  %.not.i.i.i.i.i.i = icmp eq i64 %65, 0
-  %66 = and i64 %64, -8
-  %.not.i62 = icmp eq i64 %66, 0
+61:                                               ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i.i
+  %62 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(100) %0) #26
+  %63 = tail call i64 @_ZN5clang10ASTContext31getTemplateOrSpecializationInfoEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(23096) %62, ptr noundef nonnull align 8 dereferenceable(100) %0) #27
+  %64 = and i64 %63, 4
+  %.not.i.i.i.i.i.i = icmp eq i64 %64, 0
+  %65 = and i64 %63, -8
+  %.not.i62 = icmp eq i64 %65, 0
   %or.cond.i = or i1 %.not.i.i.i.i.i.i, %.not.i62
   br i1 %or.cond.i, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread, label %_ZNK5clang7VarDecl35getInstantiatedFromStaticDataMemberEv.exit
 
-_ZNK5clang7VarDecl35getInstantiatedFromStaticDataMemberEv.exit: ; preds = %62
-  %67 = inttoptr i64 %66 to ptr
-  %.0.copyload.i.i.i.i.i = load i64, ptr %67, align 8
-  %68 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not56 = icmp eq i64 %68, 0
-  br i1 %.not56, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread, label %69
+_ZNK5clang7VarDecl35getInstantiatedFromStaticDataMemberEv.exit: ; preds = %61
+  %66 = inttoptr i64 %65 to ptr
+  %.0.copyload.i.i.i.i.i = load i64, ptr %66, align 8
+  %67 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %.not56 = icmp eq i64 %67, 0
+  br i1 %.not56, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread, label %68
 
-69:                                               ; preds = %_ZNK5clang7VarDecl35getInstantiatedFromStaticDataMemberEv.exit
-  %70 = inttoptr i64 %68 to ptr
-  %71 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef nonnull %70, i32 noundef %1)
-  %.sroa.10.0.extract.shift86 = lshr i64 %71, 32
+68:                                               ; preds = %_ZNK5clang7VarDecl35getInstantiatedFromStaticDataMemberEv.exit
+  %69 = inttoptr i64 %67 to ptr
+  %70 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef nonnull %69, i32 noundef %1)
+  %.sroa.10.0.extract.shift86 = and i64 %70, 4294967296
   br label %.loopexit
 
-_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread140, %62, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i.i, %40, %_ZNK5clang7VarDecl35getInstantiatedFromStaticDataMemberEv.exit, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit
-  %72 = load i32, ptr %7, align 4
-  %73 = and i32 %72, 126
-  %.not130 = icmp eq i32 %73, 38
-  br i1 %.not130, label %74, label %.loopexit
+_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread142, %61, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.i.i, %39, %_ZNK5clang7VarDecl35getInstantiatedFromStaticDataMemberEv.exit, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit
+  %71 = load i32, ptr %6, align 4
+  %72 = and i32 %71, 126
+  %.not132 = icmp eq i32 %72, 38
+  br i1 %.not132, label %73, label %.loopexit
 
-74:                                               ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
-  %75 = tail call noundef ptr @_ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(141) %0) #27
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
-  %77 = load ptr, ptr %76, align 8
-  %78 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef %77, i32 noundef %1)
-  %.sroa.10.0.extract.shift88 = lshr i64 %78, 32
+73:                                               ; preds = %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread
+  %74 = tail call noundef ptr @_ZNK5clang29VarTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(141) %0) #27
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef %76, i32 noundef %1)
+  %.sroa.10.0.extract.shift88 = and i64 %77, 4294967296
   br label %.loopexit
 
-79:                                               ; preds = %37
-  %80 = add nsw i32 %.pre-phi137, -37
-  %81 = icmp ult i32 %80, -6
-  %.not52 = or i1 %.not117, %81
-  br i1 %.not52, label %99, label %82
+78:                                               ; preds = %36
+  %79 = add nsw i32 %.pre-phi139, -37
+  %80 = icmp ult i32 %79, -6
+  %.not52 = or i1 %.not118, %80
+  br i1 %.not52, label %98, label %81
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %83, align 8
-  %84 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 6
-  %85 = icmp ne i64 %84, 4
-  %86 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %.not54122 = icmp eq i64 %86, 0
-  %.not54 = or i1 %85, %.not54122
-  br i1 %.not54, label %95, label %87
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %82, align 8
+  %83 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 6
+  %84 = icmp ne i64 %83, 4
+  %85 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
+  %.not54124 = icmp eq i64 %85, 0
+  %.not54 = or i1 %84, %.not54124
+  br i1 %.not54, label %94, label %86
 
-87:                                               ; preds = %82
-  %88 = inttoptr i64 %86 to ptr
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %.0.copyload.i.i.i.i = load i64, ptr %89, align 8
-  %90 = and i64 %.0.copyload.i.i.i.i, -8
-  %91 = inttoptr i64 %90 to ptr
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
-  %93 = load ptr, ptr %92, align 8
-  %94 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef %93, i32 noundef %1)
-  %.sroa.10.0.extract.shift90 = lshr i64 %94, 32
+86:                                               ; preds = %81
+  %87 = inttoptr i64 %85 to ptr
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %.0.copyload.i.i.i.i = load i64, ptr %88, align 8
+  %89 = and i64 %.0.copyload.i.i.i.i, -8
+  %90 = inttoptr i64 %89 to ptr
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
+  %92 = load ptr, ptr %91, align 8
+  %93 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef %92, i32 noundef %1)
+  %.sroa.10.0.extract.shift90 = and i64 %93, 4294967296
   br label %.loopexit
 
-95:                                               ; preds = %82
-  %96 = tail call noundef ptr @_ZNK5clang12FunctionDecl33getInstantiatedFromMemberFunctionEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
-  %.not55 = icmp eq ptr %96, null
-  br i1 %.not55, label %.loopexit, label %97
+94:                                               ; preds = %81
+  %95 = tail call noundef ptr @_ZNK5clang12FunctionDecl33getInstantiatedFromMemberFunctionEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
+  %.not55 = icmp eq ptr %95, null
+  br i1 %.not55, label %.loopexit, label %96
 
-97:                                               ; preds = %95
-  %98 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef nonnull %96, i32 noundef %1)
-  %.sroa.10.0.extract.shift92 = lshr i64 %98, 32
+96:                                               ; preds = %94
+  %97 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef nonnull %95, i32 noundef %1)
+  %.sroa.10.0.extract.shift92 = and i64 %97, 4294967296
   br label %.loopexit
 
-99:                                               ; preds = %79
-  %100 = add nsw i32 %.pre-phi137, -72
-  %101 = icmp ult i32 %100, -7
-  %.not53 = or i1 %.not117, %101
-  br i1 %.not53, label %.loopexit, label %102
+98:                                               ; preds = %78
+  %99 = add nsw i32 %.pre-phi139, -72
+  %100 = icmp ult i32 %99, -7
+  %.not53 = or i1 %.not118, %100
+  br i1 %.not53, label %.loopexit, label %101
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %104 = load ptr, ptr %103, align 8
-  %105 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef %104, i32 noundef %1)
-  %.sroa.10.0.extract.shift94 = lshr i64 %105, 32
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call fastcc i64 @_ZL15getVisibilityOfPKN5clang9NamedDeclENS0_22ExplicitVisibilityKindE(ptr noundef %103, i32 noundef %1)
+  %.sroa.10.0.extract.shift94 = and i64 %104, 4294967296
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %.lr.ph, %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit, %18, %99, %95, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread, %3, %102, %97, %87, %74, %69, %35, %14
-  %.sroa.10.0 = phi i64 [ %.sroa.10.0.extract.shift, %3 ], [ %.sroa.10.0.extract.shift94, %102 ], [ %.sroa.10.0.extract.shift92, %97 ], [ %.sroa.10.0.extract.shift90, %87 ], [ %.sroa.10.0.extract.shift88, %74 ], [ %.sroa.10.0.extract.shift86, %69 ], [ %.sroa.10.0.extract.shift96, %35 ], [ %.sroa.10.0.extract.shift82, %14 ], [ 0, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread ], [ 0, %95 ], [ 0, %99 ], [ 0, %18 ], [ 0, %24 ], [ %.sroa.10.0.extract.shift84, %.lr.ph ], [ 0, %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit ]
-  %.sroa.0.0 = phi i64 [ %4, %3 ], [ %105, %102 ], [ %98, %97 ], [ %94, %87 ], [ %78, %74 ], [ %71, %69 ], [ %36, %35 ], [ %15, %14 ], [ %4, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread ], [ %4, %95 ], [ %4, %99 ], [ %4, %18 ], [ %22, %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit ], [ %22, %.lr.ph ], [ %22, %24 ]
-  %.sroa.10.0.insert.ext = shl nuw nsw i64 %.sroa.10.0, 32
-  %.sroa.10.0.insert.shift = and i64 %.sroa.10.0.insert.ext, 1095216660480
+.loopexit:                                        ; preds = %22, %.lr.ph, %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit, %17, %98, %94, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread, %3, %101, %96, %86, %73, %68, %33, %13
+  %.sroa.10.0 = phi i64 [ 4294967296, %3 ], [ %.sroa.10.0.extract.shift94, %101 ], [ %.sroa.10.0.extract.shift92, %96 ], [ %.sroa.10.0.extract.shift90, %86 ], [ %.sroa.10.0.extract.shift88, %73 ], [ %.sroa.10.0.extract.shift86, %68 ], [ %35, %33 ], [ %.sroa.10.0.extract.shift82, %13 ], [ 0, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread ], [ 0, %94 ], [ 0, %98 ], [ 0, %17 ], [ 0, %22 ], [ 4294967296, %.lr.ph ], [ 0, %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit ]
+  %.sroa.0.0 = phi i64 [ %4, %3 ], [ %104, %101 ], [ %97, %96 ], [ %93, %86 ], [ %77, %73 ], [ %70, %68 ], [ %34, %33 ], [ %14, %13 ], [ %4, %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread ], [ %4, %94 ], [ %4, %98 ], [ %4, %17 ], [ %21, %_ZNK5clang13CXXRecordDecl15getPreviousDeclEv.exit ], [ %21, %.lr.ph ], [ %21, %22 ]
   %.sroa.0.0.insert.ext = and i64 %.sroa.0.0, 4294967295
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.10.0.insert.shift, %.sroa.0.0.insert.ext
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.10.0, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
 }
 

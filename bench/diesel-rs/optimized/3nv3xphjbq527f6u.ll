@@ -1747,17 +1747,17 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   %3 = load i8, ptr %0, align 1, !range !274, !noundef !4
   %4 = load i8, ptr %1, align 1, !range !274, !noundef !4
   %5 = icmp eq i8 %3, %4
-  br i1 %5, label %.sink.split, label %8
+  br i1 %5, label %.sink.split, label %7
 
 .sink.split:                                      ; preds = %2
   %6 = trunc nuw i8 %4 to i1
   %trunc = trunc nuw i8 %3 to i1
-  %7 = icmp eq i8 %3, 0
-  %spec.select = select i1 %trunc, i1 %6, i1 %7
+  %not.trunc = xor i1 %trunc, true
+  %spec.select = select i1 %not.trunc, i1 true, i1 %6
   tail call void @llvm.assume(i1 %spec.select)
-  br label %8
+  br label %7
 
-8:                                                ; preds = %.sink.split, %2
+7:                                                ; preds = %.sink.split, %2
   ret i1 %5
 }
 
@@ -8141,7 +8141,7 @@ define void @"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..
 28:                                               ; preds = %109, %25, %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit"
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %173
 
 "_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit": ; preds = %3, %25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
@@ -8189,7 +8189,7 @@ define void @"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..
 40:                                               ; preds = %50, %41
   %.pn.i = phi { ptr, i32 } [ %51, %50 ], [ %42, %41 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$diesel..pg..connection..private..ConnectionAndTransactionManager$GT$17hb8c79798e0f516d6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #46
-          to label %.thread unwind label %111, !noalias !1707
+          to label %173 unwind label %111, !noalias !1707
 
 41:                                               ; preds = %39, %33
   %42 = landingpad { ptr, i32 }
@@ -8403,7 +8403,7 @@ define void @"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..
 .body.i:                                          ; preds = %104, %83, %63
   %eh.lpad-body.i = phi { ptr, i32 } [ %105, %104 ], [ %64, %63 ], [ %84, %83 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$diesel..pg..connection..PgConnection$GT$17h3ea12d663d43faffE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %15) #46
-          to label %.thread unwind label %111, !noalias !1707
+          to label %173 unwind label %111, !noalias !1707
 
 106:                                              ; preds = %99
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(128) %15, i64 128, i1 false)
@@ -8575,8 +8575,8 @@ define void @"_ZN87_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..
   call void @__rust_dealloc(ptr noundef nonnull %120, i64 noundef %163, i64 noundef %165) #45, !noalias !1793
   br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE.exit36"
 
-common.resume:                                    ; preds = %.thread, %.body30, %153, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.11693277841074805610.exit.i.i.i33"
-  %common.resume.op = phi { ptr, i32 } [ %154, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.11693277841074805610.exit.i.i.i33" ], [ %154, %153 ], [ %.pn.pn40, %.thread ], [ %135, %.body30 ]
+common.resume:                                    ; preds = %173, %.body30, %153, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.11693277841074805610.exit.i.i.i33"
+  %common.resume.op = phi { ptr, i32 } [ %154, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.11693277841074805610.exit.i.i.i33" ], [ %154, %153 ], [ %.pn.pn.ph, %173 ], [ %135, %.body30 ]
   resume { ptr, i32 } %common.resume.op
 
 .body30:                                          ; preds = %134, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.11693277841074805610.exit.i.i.i"
@@ -8598,7 +8598,7 @@ common.resume:                                    ; preds = %.thread, %.body30, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   ret void
 
-169:                                              ; preds = %.thread, %171, %.body30
+169:                                              ; preds = %173, %171, %.body30
   %170 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #47
@@ -8608,10 +8608,10 @@ common.resume:                                    ; preds = %.thread, %.body30, 
   %172 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..PgConnection$C$diesel..result..ConnectionError$GT$$GT$17hbec06849909fc038E"(ptr noalias noundef align 8 dereferenceable(128) %19) #46
-          to label %.thread unwind label %169
+          to label %173 unwind label %169
 
-.thread:                                          ; preds = %171, %40, %.body.i, %28
-  %.pn.pn40 = phi { ptr, i32 } [ %29, %28 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn.i, %40 ], [ %172, %171 ]
+173:                                              ; preds = %171, %28, %.body.i, %40
+  %.pn.pn.ph = phi { ptr, i32 } [ %172, %171 ], [ %29, %28 ], [ %eh.lpad-body.i, %.body.i ], [ %.pn.i, %40 ]
   invoke void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21) #46
           to label %common.resume unwind label %169
 }

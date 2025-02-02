@@ -6177,7 +6177,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 
 80:                                               ; preds = %.critedge8, %78, %.critedge
   %81 = phi i64 [ %11, %.critedge8 ], [ %79, %78 ], [ %11, %.critedge ]
-  %82 = phi i8 [ %12, %.critedge8 ], [ 1, %78 ], [ 0, %.critedge ]
+  %82 = phi i8 [ 1, %.critedge8 ], [ 1, %78 ], [ 0, %.critedge ]
   %83 = icmp eq i32 %.sroa.4.0.i.ph, 10
   br i1 %83, label %84, label %86
 
@@ -6352,7 +6352,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 
 83:                                               ; preds = %.critedge12, %81, %.critedge
   %84 = phi i64 [ %12, %.critedge12 ], [ %82, %81 ], [ %12, %.critedge ]
-  %85 = phi i8 [ %13, %.critedge12 ], [ 1, %81 ], [ 0, %.critedge ]
+  %85 = phi i8 [ 1, %.critedge12 ], [ 1, %81 ], [ 0, %.critedge ]
   switch i32 %.sroa.4.0.i.ph, label %86 [
     i32 10, label %123
     i32 13, label %123
@@ -6771,7 +6771,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 
 84:                                               ; preds = %.critedge12, %82, %.critedge
   %85 = phi i64 [ %14, %.critedge12 ], [ %83, %82 ], [ %14, %.critedge ]
-  %86 = phi i8 [ %15, %.critedge12 ], [ 1, %82 ], [ 0, %.critedge ]
+  %86 = phi i8 [ 1, %.critedge12 ], [ 1, %82 ], [ 0, %.critedge ]
   switch i32 %.sroa.4.0.i.ph, label %87 [
     i32 10, label %124
     i32 13, label %124
@@ -7212,7 +7212,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 
 78:                                               ; preds = %.critedge8, %76, %.critedge
   %79 = phi i64 [ %9, %.critedge8 ], [ %77, %76 ], [ %9, %.critedge ]
-  %80 = phi i8 [ %10, %.critedge8 ], [ 1, %76 ], [ 0, %.critedge ]
+  %80 = phi i8 [ 1, %.critedge8 ], [ 1, %76 ], [ 0, %.critedge ]
   %81 = icmp eq ptr %.sroa.0.1.ph, %5
   br i1 %81, label %.thread, label %8
 }
@@ -7369,7 +7369,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 
 80:                                               ; preds = %.critedge8, %78, %.critedge
   %81 = phi i64 [ %11, %.critedge8 ], [ %79, %78 ], [ %11, %.critedge ]
-  %82 = phi i8 [ %12, %.critedge8 ], [ 1, %78 ], [ 0, %.critedge ]
+  %82 = phi i8 [ 1, %.critedge8 ], [ 1, %78 ], [ 0, %.critedge ]
   %83 = add i64 %10, 1
   store i64 %83, ptr %8, align 8
   %84 = icmp eq ptr %.sroa.0.1.ph, %5
@@ -7710,7 +7710,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 
 82:                                               ; preds = %.critedge8, %80, %.critedge
   %83 = phi i64 [ %13, %.critedge8 ], [ %81, %80 ], [ %13, %.critedge ]
-  %84 = phi i8 [ %14, %.critedge8 ], [ 1, %80 ], [ 0, %.critedge ]
+  %84 = phi i8 [ 1, %.critedge8 ], [ 1, %80 ], [ 0, %.critedge ]
   %85 = icmp eq i32 %.sroa.4.0.i.ph, 10
   br i1 %85, label %86, label %88
 
@@ -8088,7 +8088,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 
 86:                                               ; preds = %.critedge12, %84, %.critedge
   %87 = phi i64 [ %16, %.critedge12 ], [ %85, %84 ], [ %16, %.critedge ]
-  %88 = phi i8 [ %17, %.critedge12 ], [ 1, %84 ], [ 0, %.critedge ]
+  %88 = phi i8 [ 1, %.critedge12 ], [ 1, %84 ], [ 0, %.critedge ]
   switch i32 %.sroa.4.0.i.ph, label %89 [
     i32 10, label %126
     i32 13, label %126
@@ -8355,7 +8355,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit: ; p
 
 85:                                               ; preds = %.critedge12, %83, %.critedge
   %86 = phi i64 [ %14, %.critedge12 ], [ %84, %83 ], [ %14, %.critedge ]
-  %87 = phi i8 [ %15, %.critedge12 ], [ 1, %83 ], [ 0, %.critedge ]
+  %87 = phi i8 [ 1, %.critedge12 ], [ 1, %83 ], [ 0, %.critedge ]
   switch i32 %.sroa.4.0.i.ph, label %88 [
     i32 10, label %125
     i32 13, label %125

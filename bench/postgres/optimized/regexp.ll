@@ -1286,7 +1286,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %82
   %.0166.us.us = phi ptr [ %85, %82 ], [ %.0.ph184, %.lr.ph.split.us ]
   %.0131165.us.us = phi ptr [ %84, %82 ], [ %.0131.ph183, %.lr.ph.split.us ]
-  %.0137164.us.us = phi i8 [ %.1138.us.us, %82 ], [ %.0137.ph180, %.lr.ph.split.us ]
+  %.0137164.us.us = phi i8 [ 0, %82 ], [ %.0137.ph180, %.lr.ph.split.us ]
   %.0141163.us.us = phi i32 [ %86, %82 ], [ %.0141.ph179, %.lr.ph.split.us ]
   %75 = load i8, ptr %.0166.us.us, align 1
   %76 = tail call i32 @pg_mblen(ptr noundef nonnull %.0166.us.us) #8
@@ -1304,7 +1304,6 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
 
 82:                                               ; preds = %78, %80
   %.sink216 = phi ptr [ %81, %80 ], [ %.0131165.us.us, %78 ]
-  %.1138.us.us = phi i8 [ 0, %80 ], [ %.0137164.us.us, %78 ]
   %83 = zext nneg i32 %76 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sink216, ptr nonnull align 1 %.0166.us.us, i64 %83, i1 false)
   %84 = getelementptr i8, ptr %.sink216, i64 %83
@@ -1356,7 +1355,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
 
 104:                                              ; preds = %._crit_edge, %100, %97
   %.pre-phi200 = phi i64 [ %.pre, %._crit_edge ], [ %102, %100 ], [ %98, %97 ]
-  %.1138.us = phi i8 [ 1, %._crit_edge ], [ 0, %100 ], [ %.0137164.us, %97 ]
+  %.1138.us = phi i8 [ 1, %._crit_edge ], [ 0, %100 ], [ 0, %97 ]
   %.1.us = phi ptr [ %.0131165.us, %._crit_edge ], [ %103, %100 ], [ %99, %97 ]
   %105 = getelementptr i8, ptr %.0166.us, i64 %.pre-phi200
   %106 = sub nsw i32 %.0141163.us, %89
@@ -1530,8 +1529,8 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   br label %.outer
 
 .outer:                                           ; preds = %153, %144, %138, %140, %157, %162, %168, %171, %164, %159
-  %.2139 = phi i8 [ %.us-phi169, %157 ], [ %.us-phi169, %159 ], [ %.us-phi169, %162 ], [ %.us-phi169, %164 ], [ %.us-phi169, %168 ], [ %.us-phi169, %171 ], [ 0, %140 ], [ 0, %138 ], [ 1, %144 ], [ %.us-phi169, %153 ]
-  %.1136 = phi i8 [ 1, %157 ], [ %.0135.ph181, %159 ], [ %.0135.ph181, %162 ], [ %.0135.ph181, %164 ], [ %.0135.ph181, %168 ], [ %.0135.ph181, %171 ], [ %.0135.ph181, %140 ], [ %.0135.ph181, %138 ], [ %.0135.ph181, %144 ], [ %spec.select, %153 ]
+  %.2139 = phi i8 [ 0, %157 ], [ 0, %159 ], [ 0, %162 ], [ 0, %164 ], [ 0, %168 ], [ 0, %171 ], [ 0, %140 ], [ 0, %138 ], [ 1, %144 ], [ 0, %153 ]
+  %.1136 = phi i8 [ 1, %157 ], [ 0, %159 ], [ 0, %162 ], [ 0, %164 ], [ 0, %168 ], [ 0, %171 ], [ %.0135.ph181, %140 ], [ 0, %138 ], [ %.0135.ph181, %144 ], [ %spec.select, %153 ]
   %.2134 = phi i32 [ %.0132.ph182, %157 ], [ %.0132.ph182, %159 ], [ %.0132.ph182, %162 ], [ %.0132.ph182, %164 ], [ %.0132.ph182, %168 ], [ %.0132.ph182, %171 ], [ %.0132.ph182, %140 ], [ %139, %138 ], [ %.0132.ph182, %144 ], [ %.0132.ph182, %153 ]
   %.4 = phi ptr [ %158, %157 ], [ %161, %159 ], [ %163, %162 ], [ %167, %164 ], [ %170, %168 ], [ %172, %171 ], [ %142, %140 ], [ %.2, %138 ], [ %.us-phi170, %144 ], [ %154, %153 ]
   %173 = getelementptr i8, ptr %.us-phi171, i64 1

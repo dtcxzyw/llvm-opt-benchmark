@@ -378,48 +378,49 @@ declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 nounde
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @ExecIndexAdvanceArrayKeys(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
-  %.02630 = add i32 %1, -1
-  %3 = icmp sgt i32 %.02630, -1
-  br i1 %3, label %.lr.ph, label %._crit_edge
+  %3 = zext i32 %1 to i64
+  br label %4
 
-.lr.ph:                                           ; preds = %2, %.lr.ph
-  %.02631 = phi i32 [ %.026, %.lr.ph ], [ %.02630, %2 ]
-  %4 = zext nneg i32 %.02631 to i64
-  %5 = getelementptr %struct.IndexArrayKeyInfo, ptr %0, i64 %4
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %.not = icmp slt i32 %8, %10
-  %. = select i1 %.not, i32 %8, i32 0
-  %15 = sext i32 %. to i64
-  %16 = getelementptr i64, ptr %12, i64 %15
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i64 %17, ptr %18, align 8
-  %19 = getelementptr i8, ptr %14, i64 %15
-  %20 = load i8, ptr %19, align 1
-  %21 = load i32, ptr %6, align 8
-  %22 = and i32 %21, -2
-  %23 = and i8 %20, 1
-  %masksel = zext nneg i8 %23 to i32
-  %storemerge = or disjoint i32 %22, %masksel
-  store i32 %storemerge, ptr %6, align 8
-  %24 = add i32 %., 1
-  store i32 %24, ptr %7, align 8
-  %.026 = add nsw i32 %.02631, -1
-  %25 = icmp slt i32 %.02631, 1
-  %or.cond.not = or i1 %25, %.not
-  br i1 %or.cond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+4:                                                ; preds = %7, %2
+  %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ %3, %2 ]
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %5 = and i64 %indvars.iv.next, 2147483648
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %29
 
-._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.1 = phi i1 [ false, %2 ], [ %.not, %.lr.ph ]
-  ret i1 %.1
+7:                                                ; preds = %4
+  %8 = and i64 %indvars.iv.next, 2147483647
+  %9 = getelementptr %struct.IndexArrayKeyInfo, ptr %0, i64 %8
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %12 = load i32, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %14 = load i32, ptr %13, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %.not = icmp slt i32 %12, %14
+  %. = select i1 %.not, i32 %12, i32 0
+  %19 = sext i32 %. to i64
+  %20 = getelementptr i64, ptr %16, i64 %19
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store i64 %21, ptr %22, align 8
+  %23 = getelementptr i8, ptr %18, i64 %19
+  %24 = load i8, ptr %23, align 1
+  %25 = load i32, ptr %10, align 8
+  %26 = and i32 %25, -2
+  %27 = and i8 %24, 1
+  %masksel = zext nneg i8 %27 to i32
+  %storemerge = or disjoint i32 %26, %masksel
+  store i32 %storemerge, ptr %10, align 8
+  %28 = add i32 %., 1
+  store i32 %28, ptr %11, align 8
+  br i1 %.not, label %29, label %4, !llvm.loop !10
+
+29:                                               ; preds = %7, %4
+  ret i1 %6
 }
 
 ; Function Attrs: nounwind uwtable

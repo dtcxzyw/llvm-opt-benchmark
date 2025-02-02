@@ -2029,6 +2029,8 @@ invoke.cont130:                                   ; preds = %if.else
   %and.i.i.i116 = and i32 %89, %shl.i.i.i.i115
   %cmp.i.i.i117.not = icmp ne i32 %and.i.i.i116, 0
   %brmerge = select i1 %cmp.i.i.i117.not, i1 true, i1 %was_unsafe.0190
+  %not.cmp.i.i.i117.not = xor i1 %cmp.i.i.i117.not, true
+  %was_unsafe.0.mux = select i1 %not.cmp.i.i.i117.not, i1 true, i1 %was_unsafe.0190
   br i1 %brmerge, label %for.inc148, label %if.end138
 
 if.else133:                                       ; preds = %if.else
@@ -2101,7 +2103,7 @@ _ZN3euf12dependent_eqaSERKS0_.exit:               ; preds = %if.then141, %_ZN7ob
 for.inc148:                                       ; preds = %invoke.cont130, %_ZN3euf12dependent_eqaSERKS0_.exit, %invoke.cont107, %invoke.cont139, %if.else133, %if.end85.cont, %_ZNK6vectorIjLb0EjE3getEjRKj.exit83, %for.body70
   %j.1 = phi i32 [ %j.0188, %_ZNK6vectorIjLb0EjE3getEjRKj.exit83 ], [ %j.0188, %if.end85.cont ], [ %inc142, %_ZN3euf12dependent_eqaSERKS0_.exit ], [ %j.0188, %invoke.cont139 ], [ %j.0188, %invoke.cont130 ], [ %j.0188, %if.else133 ], [ %j.0188, %for.body70 ], [ %j.0188, %invoke.cont107 ]
   %last_var.1 = phi ptr [ %last_var.0189, %_ZNK6vectorIjLb0EjE3getEjRKj.exit83 ], [ %last_var.0189, %if.end85.cont ], [ %last_var.2, %_ZN3euf12dependent_eqaSERKS0_.exit ], [ %last_var.2, %invoke.cont139 ], [ %last_var.0189, %invoke.cont130 ], [ %last_var.0189, %if.else133 ], [ %last_var.0189, %for.body70 ], [ %68, %invoke.cont107 ]
-  %was_unsafe.1 = phi i1 [ %was_unsafe.0190, %_ZNK6vectorIjLb0EjE3getEjRKj.exit83 ], [ %was_unsafe.0190, %if.end85.cont ], [ false, %_ZN3euf12dependent_eqaSERKS0_.exit ], [ false, %invoke.cont139 ], [ %was_unsafe.0190, %invoke.cont130 ], [ true, %if.else133 ], [ %was_unsafe.0190, %for.body70 ], [ true, %invoke.cont107 ]
+  %was_unsafe.1 = phi i1 [ %was_unsafe.0190, %_ZNK6vectorIjLb0EjE3getEjRKj.exit83 ], [ %was_unsafe.0190, %if.end85.cont ], [ false, %_ZN3euf12dependent_eqaSERKS0_.exit ], [ false, %invoke.cont139 ], [ %was_unsafe.0.mux, %invoke.cont130 ], [ true, %if.else133 ], [ %was_unsafe.0190, %for.body70 ], [ true, %invoke.cont107 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.0191, i64 40
   %cmp69.not = icmp eq ptr %incdec.ptr, %add.ptr.i67
   br i1 %cmp69.not, label %for.end149, label %for.body70

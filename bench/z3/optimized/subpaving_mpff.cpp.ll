@@ -3961,7 +3961,6 @@ entry:
 define weak_odr hidden noundef ptr @_ZN9subpaving9context_tINS_11config_mpffEE8mk_boundEjRK4mpffbbPNS2_4nodeENS2_13justificationE(ptr noundef nonnull align 8 dereferenceable(784) %this, i32 noundef %x, ptr noundef nonnull align 4 dereferenceable(8) %val, i1 noundef zeroext %lower, i1 noundef zeroext %open, ptr noundef %n, ptr noundef %jst) local_unnamed_addr #4 comdat align 2 {
 entry:
   %b.addr.i = alloca ptr, align 8
-  %frombool1 = zext i1 %open to i8
   %m_num_mk_bounds = getelementptr inbounds nuw i8, ptr %this, i64 600
   %0 = load i32, ptr %m_num_mk_bounds, align 8
   %inc = add i32 %0, 1
@@ -3990,19 +3989,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call6 = tail call noundef zeroext i1 @_ZNK12mpff_manager6is_intERK4mpff(ptr noundef nonnull align 8 dereferenceable(89) %4, ptr noundef nonnull align 4 dereferenceable(8) %val)
-  %spec.select = select i1 %call6, i8 %frombool1, i8 0
+  %narrow = and i1 %open, %call6
   %5 = load ptr, ptr %m_c.i, align 8
   tail call void @_ZN12mpff_manager3setER4mpffRKS0_(ptr noundef nonnull align 8 dereferenceable(89) %5, ptr noundef nonnull align 4 dereferenceable(8) %call3, ptr noundef nonnull align 4 dereferenceable(8) %val)
-  %tobool13 = trunc nuw i8 %spec.select to i1
   br i1 %lower, label %if.end12, label %if.end12.thread
 
 if.end12:                                         ; preds = %if.then
   tail call void @_ZN12mpff_manager4ceilER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %5, ptr noundef nonnull align 4 dereferenceable(8) %call3)
-  br i1 %tobool13, label %if.then16, label %if.end29
+  br i1 %narrow, label %if.then16, label %if.end29
 
 if.end12.thread:                                  ; preds = %if.then
   tail call void @_ZN12mpff_manager5floorER4mpff(ptr noundef nonnull align 8 dereferenceable(89) %5, ptr noundef nonnull align 4 dereferenceable(8) %call3)
-  br i1 %tobool13, label %if.else20, label %if.end29
+  br i1 %narrow, label %if.else20, label %if.end29
 
 if.then16:                                        ; preds = %if.end12
   %6 = load ptr, ptr %m_c.i, align 8
@@ -4024,96 +4022,95 @@ if.else20:                                        ; preds = %if.end12.thread
 
 if.else26:                                        ; preds = %entry
   tail call void @_ZN12mpff_manager3setER4mpffRKS0_(ptr noundef nonnull align 8 dereferenceable(89) %4, ptr noundef nonnull align 4 dereferenceable(8) %call3, ptr noundef nonnull align 4 dereferenceable(8) %val)
+  %10 = select i1 %open, i32 1073741824, i32 0
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end12.thread, %if.end12, %if.else20, %if.then16, %if.else26
-  %open.addr.1 = phi i8 [ 0, %if.then16 ], [ 0, %if.else20 ], [ %spec.select, %if.end12 ], [ %frombool1, %if.else26 ], [ %spec.select, %if.end12.thread ]
+  %open.addr.1 = phi i32 [ 0, %if.then16 ], [ 0, %if.else20 ], [ 0, %if.end12 ], [ %10, %if.else26 ], [ 0, %if.end12.thread ]
   %bf.load31 = load i32, ptr %m_x, align 8
   %bf.shl = select i1 %lower, i32 536870912, i32 0
   %bf.clear33 = and i32 %bf.load31, 536870911
-  %bf.set34 = or disjoint i32 %bf.shl, %bf.clear33
-  %bf.value38 = zext nneg i8 %open.addr.1 to i32
-  %bf.shl39 = shl nuw nsw i32 %bf.value38, 30
-  %bf.set41 = or disjoint i32 %bf.set34, %bf.shl39
+  %bf.set34 = or disjoint i32 %open.addr.1, %bf.shl
+  %bf.set41 = or disjoint i32 %bf.set34, %bf.clear33
   store i32 %bf.set41, ptr %m_x, align 8
   %m_timestamp = getelementptr inbounds nuw i8, ptr %this, i64 432
-  %10 = load i64, ptr %m_timestamp, align 8
+  %11 = load i64, ptr %m_timestamp, align 8
   %m_timestamp45 = getelementptr inbounds nuw i8, ptr %call3, i64 16
-  store i64 %10, ptr %m_timestamp45, align 8
+  store i64 %11, ptr %m_timestamp45, align 8
   %m_trail.i = getelementptr inbounds nuw i8, ptr %n, i64 56
-  %11 = load ptr, ptr %m_trail.i, align 8
+  %12 = load ptr, ptr %m_trail.i, align 8
   %m_prev = getelementptr inbounds nuw i8, ptr %call3, i64 24
-  store ptr %11, ptr %m_prev, align 8
-  %12 = load i64, ptr %jst, align 8
-  store i64 %12, ptr %m_jst.i, align 8
+  store ptr %12, ptr %m_prev, align 8
+  %13 = load i64, ptr %jst, align 8
+  store i64 %13, ptr %m_jst.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %b.addr.i)
   store ptr %call3, ptr %b.addr.i, align 8
   store ptr %call3, ptr %m_trail.i, align 8
   %bf.load.i.i = load i32, ptr %m_x, align 8
-  %13 = and i32 %bf.load.i.i, 536870912
-  %tobool.i.not.i = icmp eq i32 %13, 0
-  %14 = load ptr, ptr %n, align 8
+  %14 = and i32 %bf.load.i.i, 536870912
+  %tobool.i.not.i = icmp eq i32 %14, 0
+  %15 = load ptr, ptr %n, align 8
   %bf.clear.i4.i = and i32 %bf.load.i.i, 536870911
   %..i = select i1 %tobool.i.not.i, i64 24, i64 8
   %m_uppers.i = getelementptr inbounds nuw i8, ptr %n, i64 %..i
-  call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE3setERNS5_3refEjRKPNS3_5boundE(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(12) %m_uppers.i, i32 noundef %bf.clear.i4.i, ptr noundef nonnull align 8 dereferenceable(8) %b.addr.i)
+  call void @_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpffEE18bound_array_configEE3setERNS5_3refEjRKPNS3_5boundE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(12) %m_uppers.i, i32 noundef %bf.clear.i4.i, ptr noundef nonnull align 8 dereferenceable(8) %b.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.addr.i)
   %call47 = call noundef zeroext i1 @_ZNK9subpaving9context_tINS_11config_mpffEE18conflicting_boundsEjPNS2_4nodeE(ptr noundef nonnull align 8 dereferenceable(784) %this, i32 noundef %x, ptr noundef nonnull %n)
   br i1 %call47, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.end29
   %m_num_conflicts.i = getelementptr inbounds nuw i8, ptr %this, i64 596
-  %15 = load i32, ptr %m_num_conflicts.i, align 4
-  %inc.i = add i32 %15, 1
+  %16 = load i32, ptr %m_num_conflicts.i, align 4
+  %inc.i = add i32 %16, 1
   store i32 %inc.i, ptr %m_num_conflicts.i, align 4
   %m_conflict.i.i = getelementptr inbounds nuw i8, ptr %n, i64 40
   store i32 %x, ptr %m_conflict.i.i, align 8
   %m_prev.i.i.i = getelementptr inbounds nuw i8, ptr %n, i64 88
-  %16 = load ptr, ptr %m_prev.i.i.i, align 8
+  %17 = load ptr, ptr %m_prev.i.i.i, align 8
   %m_next.i.i.i = getelementptr inbounds nuw i8, ptr %n, i64 96
-  %17 = load ptr, ptr %m_next.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %16, null
+  %18 = load ptr, ptr %m_next.i.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then48
-  %m_next.i12.i.i = getelementptr inbounds nuw i8, ptr %16, i64 96
-  store ptr %17, ptr %m_next.i12.i.i, align 8
+  %m_next.i12.i.i = getelementptr inbounds nuw i8, ptr %17, i64 96
+  store ptr %18, ptr %m_next.i12.i.i, align 8
   store ptr null, ptr %m_prev.i.i.i, align 8
   br label %if.end6.i.i
 
 if.else.i.i:                                      ; preds = %if.then48
   %m_leaf_head.i.i = getelementptr inbounds nuw i8, ptr %this, i64 448
-  %18 = load ptr, ptr %m_leaf_head.i.i, align 8
-  %cmp3.i.i = icmp eq ptr %18, %n
+  %19 = load ptr, ptr %m_leaf_head.i.i, align 8
+  %cmp3.i.i = icmp eq ptr %19, %n
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end6.i.i
 
 if.then4.i.i:                                     ; preds = %if.else.i.i
-  store ptr %17, ptr %m_leaf_head.i.i, align 8
+  store ptr %18, ptr %m_leaf_head.i.i, align 8
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %if.else.i.i, %if.then.i.i
-  %cmp7.not.i.i = icmp eq ptr %17, null
+  %cmp7.not.i.i = icmp eq ptr %18, null
   br i1 %cmp7.not.i.i, label %if.else9.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.end6.i.i
-  %m_prev.i14.i.i = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store ptr %16, ptr %m_prev.i14.i.i, align 8
+  %m_prev.i14.i.i = getelementptr inbounds nuw i8, ptr %18, i64 88
+  store ptr %17, ptr %m_prev.i14.i.i, align 8
   store ptr null, ptr %m_next.i.i.i, align 8
   br label %if.end49
 
 if.else9.i.i:                                     ; preds = %if.end6.i.i
   %m_leaf_tail.i.i = getelementptr inbounds nuw i8, ptr %this, i64 456
-  %19 = load ptr, ptr %m_leaf_tail.i.i, align 8
-  %cmp10.i.i = icmp eq ptr %19, %n
+  %20 = load ptr, ptr %m_leaf_tail.i.i, align 8
+  %cmp10.i.i = icmp eq ptr %20, %n
   br i1 %cmp10.i.i, label %if.then11.i.i, label %if.end49
 
 if.then11.i.i:                                    ; preds = %if.else9.i.i
-  store ptr %16, ptr %m_leaf_tail.i.i, align 8
+  store ptr %17, ptr %m_leaf_tail.i.i, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then11.i.i, %if.else9.i.i, %if.then8.i.i, %if.end29
-  %20 = load i64, ptr %m_timestamp, align 8
-  %inc51 = add i64 %20, 1
+  %21 = load i64, ptr %m_timestamp, align 8
+  %inc51 = add i64 %21, 1
   store i64 %inc51, ptr %m_timestamp, align 8
   %cmp = icmp eq i64 %inc51, -1
   br i1 %cmp, label %if.then53, label %if.end54

@@ -33023,7 +33023,7 @@ _ZN12_GLOBAL__N_118CombineRuleBuilder23emitBuiltinApplyPatternERN4llvm14CodeExpa
   br label %329
 
 329:                                              ; preds = %327, %325, %321, %319
-  %.1 = phi i8 [ %.0400467, %321 ], [ %.0400467, %325 ], [ 1, %327 ], [ %.0400467, %319 ]
+  %.1 = phi i8 [ %.0400467, %321 ], [ 1, %325 ], [ 1, %327 ], [ %.0400467, %319 ]
   %330 = getelementptr inbounds nuw i8, ptr %.0128468, i64 8
   %331 = load i8, ptr %330, align 8
   %332 = trunc i8 %331 to i1

@@ -702,7 +702,7 @@ define dso_local zeroext i1 @handleCopyOut(ptr noundef %0, ptr noundef %1, ptr n
   br label %20
 
 20:                                               ; preds = %19, %16, %14
-  %.2 = phi i8 [ 0, %19 ], [ %.027, %16 ], [ %.027, %14 ]
+  %.2 = phi i8 [ 0, %19 ], [ 1, %16 ], [ 0, %14 ]
   %21 = load ptr, ptr %4, align 8
   call void @PQfreemem(ptr noundef %21) #10
   br label %22
@@ -731,7 +731,7 @@ define dso_local zeroext i1 @handleCopyOut(ptr noundef %0, ptr noundef %1, ptr n
   br label %30
 
 30:                                               ; preds = %29, %27, %._crit_edge
-  %.3 = phi i8 [ 0, %29 ], [ %.0.lcssa, %27 ], [ %.0.lcssa, %._crit_edge ]
+  %.3 = phi i8 [ 0, %29 ], [ 1, %27 ], [ %.0.lcssa, %._crit_edge ]
   %31 = icmp eq i32 %.lcssa, -2
   br i1 %31, label %32, label %34
 
@@ -835,7 +835,6 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %32, label %.loopexit, label %.thread67
 
 .preheader:                                       ; preds = %.preheader.preheader, %75
-  %.04872 = phi i8 [ %.149, %75 ], [ 0, %.preheader.preheader ]
   %.05171 = phi i1 [ %.152, %75 ], [ true, %.preheader.preheader ]
   %.05370 = phi i32 [ %.255, %75 ], [ 0, %.preheader.preheader ]
   %brmerge.not = and i1 %.not58.not, %.05171
@@ -893,7 +892,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   br label %60
 
 60:                                               ; preds = %55, %54, %57, %59, %53
-  %.250 = phi i8 [ 1, %59 ], [ %.04872, %57 ], [ %.04872, %53 ], [ %.04872, %54 ], [ %.04872, %55 ]
+  %.250 = phi i8 [ 1, %59 ], [ 0, %57 ], [ 0, %53 ], [ 0, %54 ], [ 0, %55 ]
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 304), align 8
   %62 = icmp eq ptr %1, %61
   br i1 %62, label %63, label %68
@@ -910,7 +909,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
 68:                                               ; preds = %44, %60, %63, %39
   %.154 = phi i32 [ %.05370, %39 ], [ %47, %63 ], [ %47, %60 ], [ %47, %44 ]
   %.152 = phi i1 [ %.05171, %39 ], [ true, %63 ], [ true, %60 ], [ false, %44 ]
-  %.149 = phi i8 [ 1, %39 ], [ %.250, %63 ], [ %.250, %60 ], [ %.04872, %44 ]
+  %.149 = phi i8 [ 1, %39 ], [ %.250, %63 ], [ %.250, %60 ], [ 0, %44 ]
   %69 = icmp sgt i32 %.154, 8186
   %70 = trunc nuw i8 %.149 to i1
   %71 = icmp sgt i32 %.154, 0

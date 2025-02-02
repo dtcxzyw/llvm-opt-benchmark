@@ -908,35 +908,32 @@ mythread_condtime_set.exit.i:                     ; preds = %231, %216
 234:                                              ; preds = %213, %mythread_condtime_set.exit.i
   %.1104 = phi i1 [ %.0103.ph, %213 ], [ true, %mythread_condtime_set.exit.i ]
   %235 = call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #11
-  br i1 %214, label %.split.us.us.i.outer, label %.split.i102
+  br i1 %214, label %.split.us.us.i, label %.split.i102
 
-.split.us.us.i.outer:                             ; preds = %234, %248
-  %.2.us.us.us.i.ph = phi i8 [ %251, %248 ], [ 0, %234 ]
-  %236 = trunc nuw i8 %.2.us.us.us.i.ph to i1
-  br label %.split.us.us.i
+.split.us.us.i:                                   ; preds = %234, %.split.us.us.i.backedge
+  %.2.us.us.us.i = phi i8 [ %.2.us.us.us.i.be, %.split.us.us.i.backedge ], [ 0, %234 ]
+  %236 = load ptr, ptr %34, align 8
+  %237 = icmp eq ptr %236, null
+  br i1 %237, label %240, label %238
 
-.split.us.us.i:                                   ; preds = %.split.us.us.i.outer, %252
-  %237 = load ptr, ptr %34, align 8
-  %238 = icmp eq ptr %237, null
-  br i1 %238, label %241, label %239
-
-239:                                              ; preds = %.split.us.us.i
+238:                                              ; preds = %.split.us.us.i
   %.val.us.us.us.i = load i32, ptr %32, align 8
   %.val31.us.us.us.i = load i32, ptr %33, align 8
-  %240 = icmp ult i32 %.val31.us.us.us.i, %.val.us.us.us.i
-  br i1 %240, label %wait_for_work.exit, label %241
+  %239 = icmp ult i32 %.val31.us.us.us.i, %.val.us.us.us.i
+  br i1 %239, label %wait_for_work.exit, label %240
 
-241:                                              ; preds = %239, %.split.us.us.i
-  %242 = call zeroext i1 @lzma_outq_is_readable(ptr noundef nonnull %29) #11
-  br i1 %242, label %wait_for_work.exit, label %243
+240:                                              ; preds = %238, %.split.us.us.i
+  %241 = call zeroext i1 @lzma_outq_is_readable(ptr noundef nonnull %29) #11
+  br i1 %241, label %wait_for_work.exit, label %242
 
-243:                                              ; preds = %241
-  %244 = load i32, ptr %28, align 4
-  %245 = icmp ne i32 %244, 0
-  %or.cond.not.us.us.us.i = select i1 %245, i1 true, i1 %236
+242:                                              ; preds = %240
+  %243 = load i32, ptr %28, align 4
+  %244 = icmp ne i32 %243, 0
+  %245 = trunc nuw i8 %.2.us.us.us.i to i1
+  %or.cond.not.us.us.us.i = select i1 %244, i1 true, i1 %245
   br i1 %or.cond.not.us.us.us.i, label %wait_for_work.exit, label %246
 
-246:                                              ; preds = %243
+246:                                              ; preds = %242
   %247 = load i32, ptr %39, align 8
   %.not30.us.us.us.i = icmp eq i32 %247, 0
   br i1 %.not30.us.us.us.i, label %252, label %248
@@ -945,10 +942,14 @@ mythread_condtime_set.exit.i:                     ; preds = %231, %216
   %249 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %42, ptr noundef nonnull %26, ptr noundef nonnull %16) #11
   %250 = icmp ne i32 %249, 0
   %251 = zext i1 %250 to i8
-  br label %.split.us.us.i.outer, !llvm.loop !19
+  br label %.split.us.us.i.backedge
 
 252:                                              ; preds = %246
   %253 = call i32 @pthread_cond_wait(ptr noundef nonnull %42, ptr noundef nonnull %26) #11
+  br label %.split.us.us.i.backedge
+
+.split.us.us.i.backedge:                          ; preds = %252, %248
+  %.2.us.us.us.i.be = phi i8 [ %251, %248 ], [ 0, %252 ]
   br label %.split.us.us.i, !llvm.loop !19
 
 .split.i102:                                      ; preds = %234
@@ -979,12 +980,12 @@ mythread_condtime_set.exit.i:                     ; preds = %231, %216
   br label %266
 
 266:                                              ; preds = %264, %260
-  %.3.i = phi i8 [ %263, %260 ], [ %.232.i, %264 ]
+  %.3.i = phi i8 [ %263, %260 ], [ 0, %264 ]
   %267 = call zeroext i1 @lzma_outq_is_readable(ptr noundef nonnull %29) #11
   br i1 %267, label %wait_for_work.exit, label %.lr.ph.i, !llvm.loop !19
 
-wait_for_work.exit:                               ; preds = %.lr.ph.i, %266, %239, %241, %243, %.split.i102
-  %.us-phi.i = phi i8 [ 0, %.split.i102 ], [ %.2.us.us.us.i.ph, %243 ], [ %.2.us.us.us.i.ph, %241 ], [ %.2.us.us.us.i.ph, %239 ], [ %.232.i, %.lr.ph.i ], [ %.3.i, %266 ]
+wait_for_work.exit:                               ; preds = %.lr.ph.i, %266, %238, %240, %242, %.split.i102
+  %.us-phi.i = phi i8 [ 0, %.split.i102 ], [ %.2.us.us.us.i, %242 ], [ %.2.us.us.us.i, %240 ], [ %.2.us.us.us.i, %238 ], [ %.232.i, %.lr.ph.i ], [ %.3.i, %266 ]
   %268 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #11
   %269 = trunc nuw i8 %.us-phi.i to i1
   br i1 %269, label %threads_stop.exit, label %.outer

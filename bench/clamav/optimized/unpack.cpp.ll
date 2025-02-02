@@ -7840,8 +7840,8 @@ define void @_ZN6Unpack8Unpack29Eb(ptr noundef nonnull align 8 dereferenceable(5
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %._crit_edge ], [ 0, %2 ]
   %.0100219 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %2 ]
   %.0102217 = phi i32 [ %.1103.lcssa, %._crit_edge ], [ 0, %2 ]
-  %.not229 = icmp eq i64 %indvars.iv236, 17
-  br i1 %.not229, label %._crit_edge, label %.lr.ph
+  %.not228 = icmp eq i64 %indvars.iv236, 17
+  br i1 %.not228, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader193
   %5 = getelementptr inbounds nuw [19 x i32], ptr @_ZZN6Unpack8Unpack29EbE16DBitLengthCounts, i64 0, i64 %indvars.iv236
@@ -8161,22 +8161,22 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit.thread:      ; preds = %168
 
 _ZN6Unpack17SafePPMDecodeCharEv.exit145:          ; preds = %.preheader.preheader, %.preheader
   %176 = phi i32 [ %181, %.preheader ], [ %170, %.preheader.preheader ]
-  %.0112227268 = phi i32 [ %180, %.preheader ], [ 0, %.preheader.preheader ]
-  %.0110228267 = phi i32 [ %179, %.preheader ], [ 0, %.preheader.preheader ]
-  %177 = icmp eq i32 %.0112227268, 3
+  %.0112226268 = phi i32 [ %180, %.preheader ], [ 0, %.preheader.preheader ]
+  %.0110227267 = phi i32 [ %179, %.preheader ], [ 0, %.preheader.preheader ]
+  %177 = icmp eq i32 %.0112226268, 3
   br i1 %177, label %.thread252, label %.preheader
 
 .preheader:                                       ; preds = %_ZN6Unpack17SafePPMDecodeCharEv.exit145
-  %178 = shl i32 %.0110228267, 8
+  %178 = shl i32 %.0110227267, 8
   %179 = add nuw nsw i32 %176, %178
-  %180 = add nuw nsw i32 %.0112227268, 1
+  %180 = add nuw nsw i32 %.0112226268, 1
   %181 = tail call noundef i32 @_ZN8ModelPPM10DecodeCharEv(ptr noundef nonnull align 8 dereferenceable(19648) %109)
   %182 = icmp eq i32 %181, -1
   br i1 %182, label %.thread257, label %_ZN6Unpack17SafePPMDecodeCharEv.exit145, !llvm.loop !74
 
 .thread252:                                       ; preds = %_ZN6Unpack17SafePPMDecodeCharEv.exit145
   %183 = add nsw i32 %176, 32
-  %184 = add i32 %.0110228267, 2
+  %184 = add i32 %.0110227267, 2
   tail call void @_ZN6Unpack10CopyStringEjj(ptr noundef nonnull align 8 dereferenceable(59688) %0, i32 noundef %183, i32 noundef %184)
   br label %.backedge
 

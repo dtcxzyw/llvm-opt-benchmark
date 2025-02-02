@@ -3632,7 +3632,6 @@ _ZN8rational5resetEv.exit60:                      ; preds = %.noexc58
 
 if.end32:                                         ; preds = %_ZN8rational5resetEv.exit60, %sw.bb28
   %lo1.1 = phi i32 [ %j.0241, %_ZN8rational5resetEv.exit60 ], [ %lo1.0239, %sw.bb28 ]
-  %is_x.1 = phi i8 [ 0, %_ZN8rational5resetEv.exit60 ], [ %is_x.0240, %sw.bb28 ]
   %sub = sub i32 %j.0241, %lo1.1
   invoke void @_ZN8rational12power_of_twoEj(ptr nonnull sret(%class.rational) align 8 %ref.tmp, i32 noundef %sub)
           to label %invoke.cont33 unwind label %lpad24.loopexit
@@ -3844,7 +3843,7 @@ invoke.cont56:                                    ; preds = %sw.default
 
 for.inc:                                          ; preds = %.noexc.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZN8rational5resetEv.exit, %sw.bb37, %sw.bb
   %lo1.2 = phi i32 [ %j.0241, %_ZN8rational5resetEv.exit ], [ %lo1.0239, %sw.bb ], [ %lo1.0239, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %lo1.0239, %sw.bb37 ], [ %lo1.1, %.noexc.i ]
-  %is_x.2 = phi i8 [ 0, %_ZN8rational5resetEv.exit ], [ %is_x.0240, %sw.bb ], [ 1, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ 1, %sw.bb37 ], [ %is_x.1, %.noexc.i ]
+  %is_x.2 = phi i8 [ 0, %_ZN8rational5resetEv.exit ], [ 0, %sw.bb ], [ 1, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ 1, %sw.bb37 ], [ 0, %.noexc.i ]
   %inc = add nuw i32 %j.0241, 1
   %exitcond.not = icmp eq i32 %inc, %15
   br i1 %exitcond.not, label %for.end, label %invoke.cont25, !llvm.loop !24

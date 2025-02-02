@@ -4576,7 +4576,7 @@ _ZN7QStringD2Ev.exit217:                          ; preds = %318, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit164
 
 .thread:                                          ; preds = %171, %144, %_ZNK8QVariant5valueIjEET_v.exit148, %_ZN7QStringD2Ev.exit160, %320, %117, %324, %110
-  %.0106 = phi i8 [ %112, %110 ], [ %.2108, %320 ], [ %.2108, %324 ], [ 0, %117 ], [ %152, %171 ], [ %146, %144 ], [ %132, %_ZNK8QVariant5valueIjEET_v.exit148 ], [ %152, %_ZN7QStringD2Ev.exit160 ]
+  %.0106 = phi i8 [ %112, %110 ], [ %.2108, %320 ], [ 0, %324 ], [ 0, %117 ], [ %152, %171 ], [ %146, %144 ], [ %132, %_ZNK8QVariant5valueIjEET_v.exit148 ], [ %152, %_ZN7QStringD2Ev.exit160 ]
   %357 = trunc nuw i8 %.0106 to i1
   br label %359
 

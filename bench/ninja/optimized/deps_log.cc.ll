@@ -551,7 +551,7 @@ define dso_local noundef zeroext i1 @_ZN7DepsLog10RecordDepsEP4NodeliPS1_(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %.166 = phi i8 [ %.048, %.lr.ph.preheader ], [ %.2, %23 ]
+  %.165 = phi i8 [ %.048, %.lr.ph.preheader ], [ %.2, %23 ]
   %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 112
@@ -564,7 +564,7 @@ define dso_local noundef zeroext i1 @_ZN7DepsLog10RecordDepsEP4NodeliPS1_(ptr no
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %21, %.lr.ph
-  %.2 = phi i8 [ %.166, %.lr.ph ], [ 1, %21 ]
+  %.2 = phi i8 [ %.165, %.lr.ph ], [ 1, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -611,9 +611,9 @@ _ZN7DepsLog7GetDepsEP4Node.exit:                  ; preds = %28
   br i1 %.not55, label %.preheader61, label %.thread
 
 .preheader61:                                     ; preds = %43
-  br i1 %15, label %.lr.ph68, label %.loopexit
+  br i1 %15, label %.lr.ph67, label %.loopexit
 
-.lr.ph68:                                         ; preds = %.preheader61
+.lr.ph67:                                         ; preds = %.preheader61
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %47 = load ptr, ptr %46, align 8
   %wide.trip.count79 = zext nneg i32 %3 to i64
@@ -624,8 +624,8 @@ _ZN7DepsLog7GetDepsEP4Node.exit:                  ; preds = %28
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
   br i1 %exitcond80.not, label %.loopexit, label %49, !llvm.loop !10
 
-49:                                               ; preds = %.lr.ph68, %48
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next77, %48 ]
+49:                                               ; preds = %.lr.ph67, %48
+  %indvars.iv76 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next77, %48 ]
   %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv76
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv76
@@ -633,7 +633,7 @@ _ZN7DepsLog7GetDepsEP4Node.exit:                  ; preds = %28
   %.not56 = icmp eq ptr %51, %53
   br i1 %.not56, label %48, label %.thread
 
-.thread:                                          ; preds = %49, %._crit_edge, %25, %28, %_ZN7DepsLog7GetDepsEP4Node.exit, %41, %43
+.thread:                                          ; preds = %49, %25, %28, %_ZN7DepsLog7GetDepsEP4Node.exit, %41, %43, %._crit_edge
   %54 = shl i32 %3, 2
   %55 = add i32 %54, 12
   %56 = icmp ugt i32 %55, 524287

@@ -33449,8 +33449,8 @@ define internal fastcc void @_ZL17handleNonNullAttrRN5clang4SemaEPNS_4DeclERKNS_
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 65535
-  %.not71 = icmp eq i32 %10, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph
+  %.not70 = icmp eq i32 %10, 0
+  br i1 %.not70, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -33717,24 +33717,24 @@ _ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit55: ; preds = %143, %153
   %.0.i53 = phi i32 [ %148, %143 ], [ %155, %153 ], [ %158, %156 ]
   %159 = icmp eq i32 %.0.i53, 0
   %.not4566 = select i1 %159, i1 true, i1 %.0.i51
-  br i1 %.not4566, label %._crit_edge70, label %.lr.ph69
+  br i1 %.not4566, label %._crit_edge69, label %.lr.ph68
 
-.lr.ph69:                                         ; preds = %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit55
+.lr.ph68:                                         ; preds = %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit55
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %163 = zext i32 %.0.i53 to i64
   br label %164
 
-164:                                              ; preds = %.lr.ph69, %190
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next74, %190 ]
+164:                                              ; preds = %.lr.ph68, %190
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next73, %190 ]
   %165 = call noundef ptr @_ZNK5clang4Decl15getFunctionTypeEb(ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #22
   %.not.i56 = icmp eq ptr %165, null
   br i1 %.not.i56, label %169, label %166
 
 166:                                              ; preds = %164
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 48
-  %168 = getelementptr inbounds nuw %"class.clang::QualType", ptr %167, i64 %indvars.iv73
+  %168 = getelementptr inbounds nuw %"class.clang::QualType", ptr %167, i64 %indvars.iv72
   br label %_ZN5clang28getFunctionOrMethodParamTypeEPKNS_4DeclEj.exit60
 
 169:                                              ; preds = %164
@@ -33745,14 +33745,14 @@ _ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit55: ; preds = %143, %153
 
 172:                                              ; preds = %169
   %173 = load ptr, ptr %162, align 8
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv73
+  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv72
   %175 = load ptr, ptr %174, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 48
   br label %_ZN5clang28getFunctionOrMethodParamTypeEPKNS_4DeclEj.exit60
 
 177:                                              ; preds = %169
   %178 = load ptr, ptr %161, align 8
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv73
+  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv72
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 48
   br label %_ZN5clang28getFunctionOrMethodParamTypeEPKNS_4DeclEj.exit60
@@ -33774,21 +33774,21 @@ _ZN5clang28getFunctionOrMethodParamTypeEPKNS_4DeclEj.exit60: ; preds = %166, %17
   br i1 %189, label %.critedge, label %190
 
 190:                                              ; preds = %188
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %191 = icmp eq i64 %indvars.iv.next74, %163
-  br i1 %191, label %._crit_edge70.thread80, label %164, !llvm.loop !156
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %191 = icmp eq i64 %indvars.iv.next73, %163
+  br i1 %191, label %._crit_edge69.thread80, label %164, !llvm.loop !156
 
-._crit_edge70:                                    ; preds = %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit55
-  br i1 %.0.i51, label %.critedge, label %._crit_edge70.thread80
+._crit_edge69:                                    ; preds = %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit55
+  br i1 %.0.i51, label %.critedge, label %._crit_edge69.thread80
 
-._crit_edge70.thread80:                           ; preds = %190, %._crit_edge70
+._crit_edge69.thread80:                           ; preds = %190, %._crit_edge69
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i61 = load i32, ptr %112, align 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %192, i32 %.sroa.0.0.copyload.i.i61, i32 noundef 6159, i1 noundef zeroext false) #22
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #22
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN5clang28getFunctionOrMethodParamTypeEPKNS_4DeclEj.exit60, %188, %111, %._crit_edge, %._crit_edge70, %._crit_edge70.thread80, %114
+.critedge:                                        ; preds = %_ZN5clang28getFunctionOrMethodParamTypeEPKNS_4DeclEj.exit60, %188, %111, %._crit_edge, %._crit_edge69, %._crit_edge69.thread80, %114
   %193 = load ptr, ptr %4, align 8
   %194 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
   %195 = trunc i64 %194 to i32
@@ -39537,8 +39537,8 @@ _ZNK4llvm6APSInt10isNegativeEv.exit.thread:       ; preds = %48, %_ZNK4llvm6APSI
   br label %82
 
 82:                                               ; preds = %.cont182, %74
-  %switch = phi i1 [ true, %.cont182 ], [ false, %74 ]
-  %.1 = phi i32 [ %81, %.cont182 ], [ 0, %74 ]
+  %switch = phi i1 [ false, %74 ], [ true, %.cont182 ]
+  %.1 = phi i32 [ 0, %74 ], [ %81, %.cont182 ]
   %83 = icmp ult i32 %51, 65
   %84 = icmp eq i64 %49, 0
   %or.cond257 = select i1 %83, i1 true, i1 %84
@@ -39581,9 +39581,9 @@ _ZN4llvm6APSIntD2Ev.exit98:                       ; preds = %87
   %99 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %100 = load i8, ptr %99, align 8
   %101 = trunc i8 %100 to i1
-  br i1 %101, label %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit102.thread320, label %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit109.thread
+  br i1 %101, label %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit102.thread314, label %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit109.thread
 
-_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit102.thread320: ; preds = %96
+_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit102.thread314: ; preds = %96
   %102 = load i64, ptr %11, align 8
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %104 = load i32, ptr %103, align 8
@@ -39612,11 +39612,11 @@ _ZNSt8optionalIN4llvm6APSIntEED2Ev.exit109.thread: ; preds = %96, %_ZN4llvm6APSI
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #22
   br label %288
 
-.cont155:                                         ; preds = %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit102.thread320
+.cont155:                                         ; preds = %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit102.thread314
   %117 = trunc i64 %102 to i32
   br i1 %107, label %131, label %119
 
-.cont155.thread:                                  ; preds = %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit102.thread320
+.cont155.thread:                                  ; preds = %_ZNSt8optionalIN4llvm6APSIntEED2Ev.exit102.thread314
   %.0.i105.else.val = load i64, ptr %109, align 8
   %118 = trunc i64 %.0.i105.else.val to i32
   br i1 %107, label %131, label %.else
@@ -39664,8 +39664,8 @@ _ZNSt8optionalIN4llvm6APSIntEED2Ev.exit109.thread: ; preds = %96, %_ZN4llvm6APSI
   br label %139
 
 139:                                              ; preds = %131, %.cont, %133
-  %.182 = phi i32 [ %132, %131 ], [ %125, %.cont ], [ %134, %133 ]
-  %switch92 = phi i1 [ true, %131 ], [ true, %.cont ], [ false, %133 ]
+  %.182 = phi i32 [ %134, %133 ], [ %125, %.cont ], [ %132, %131 ]
+  %switch92 = phi i1 [ false, %133 ], [ true, %.cont ], [ true, %131 ]
   %140 = icmp ult i32 %104, 65
   %141 = icmp eq i64 %102, 0
   %or.cond258 = select i1 %140, i1 true, i1 %141
@@ -39705,11 +39705,11 @@ _ZNSt8optionalIN4llvm6APSIntEED2Ev.exit109:       ; preds = %139
 158:                                              ; preds = %150
   %159 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %154) #22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %159, i64 16
-  %.pre261 = load i8, ptr %.phi.trans.insert, align 16
+  %.pre259 = load i8, ptr %.phi.trans.insert, align 16
   br label %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit
 
 _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %150, %158
-  %160 = phi i8 [ %.pre261, %158 ], [ %156, %150 ]
+  %160 = phi i8 [ %.pre259, %158 ], [ %156, %150 ]
   %.0.i110 = phi ptr [ %159, %158 ], [ %154, %150 ]
   %161 = icmp eq i8 %160, 25
   br i1 %161, label %162, label %165
@@ -39810,11 +39810,11 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %150, %158
   br i1 %209, label %._crit_edge, label %241
 
 ._crit_edge:                                      ; preds = %208
-  %.pre262 = load ptr, ptr %199, align 16
+  %.pre260 = load ptr, ptr %199, align 16
   br label %210
 
 210:                                              ; preds = %._crit_edge, %196
-  %211 = phi ptr [ %.pre262, %._crit_edge ], [ %200, %196 ]
+  %211 = phi ptr [ %.pre260, %._crit_edge ], [ %200, %196 ]
   %212 = call noundef zeroext i1 @_ZNK5clang4Type21isFunctionPointerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %211)
   br i1 %212, label %213, label %215
 
@@ -97058,7 +97058,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %54, %62
   br label %74
 
 74:                                               ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit, %.lr.ph
-  %.1 = phi i8 [ %.02151, %.lr.ph ], [ %73, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ]
+  %.1 = phi i8 [ 1, %.lr.ph ], [ %73, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit ]
   %75 = trunc nuw i8 %.02349 to i1
   br i1 %75, label %96, label %76
 
@@ -97098,7 +97098,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit41:    ; preds = %76, %84
   br label %96
 
 96:                                               ; preds = %74, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit41
-  %.124 = phi i8 [ %.02349, %74 ], [ %95, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit41 ]
+  %.124 = phi i8 [ 1, %74 ], [ %95, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit41 ]
   %97 = getelementptr inbounds nuw i8, ptr %.02250, i64 24
   %.not26 = icmp eq ptr %97, %52
   br i1 %.not26, label %._crit_edge.loopexit, label %.lr.ph

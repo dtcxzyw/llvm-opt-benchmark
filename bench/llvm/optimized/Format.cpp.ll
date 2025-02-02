@@ -45318,7 +45318,7 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %35, %40
   ]
 
 51:                                               ; preds = %.lr.ph.split.us, %.lr.ph.split.us
-  %52 = trunc i8 %.04186.us to i1
+  %52 = trunc nuw i8 %.04186.us to i1
   %53 = icmp ne i8 %50, 39
   %or.cond.not.us = or i1 %53, %52
   br i1 %or.cond.not.us, label %73, label %54
@@ -45333,7 +45333,7 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %35, %40
   br label %73
 
 58:                                               ; preds = %.lr.ph.split.us
-  %59 = trunc i8 %.04186.us to i1
+  %59 = trunc nuw i8 %.04186.us to i1
   br i1 %59, label %71, label %60
 
 60:                                               ; preds = %58
@@ -45361,7 +45361,7 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %35, %40
   br label %73
 
 73:                                               ; preds = %71, %67, %54, %51, %.lr.ph.split.us
-  %.1.us = phi i8 [ %72, %71 ], [ %.04186.us, %67 ], [ 0, %54 ], [ 0, %51 ], [ 0, %.lr.ph.split.us ]
+  %.1.us = phi i8 [ %72, %71 ], [ 0, %67 ], [ 0, %54 ], [ 0, %51 ], [ 0, %.lr.ph.split.us ]
   %74 = add nuw i64 %.04087.us, 1
   %exitcond97.not = icmp eq i64 %74, %47
   br i1 %exitcond97.not, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit, label %.lr.ph.split.us, !llvm.loop !664
@@ -45378,7 +45378,7 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %35, %40
   ]
 
 77:                                               ; preds = %.lr.ph.split
-  %78 = trunc i8 %.04186 to i1
+  %78 = trunc nuw i8 %.04186 to i1
   br i1 %78, label %89, label %79
 
 79:                                               ; preds = %77
@@ -45406,7 +45406,7 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %35, %40
   br label %98
 
 91:                                               ; preds = %.lr.ph.split, %.lr.ph.split
-  %92 = trunc i8 %.04186 to i1
+  %92 = trunc nuw i8 %.04186 to i1
   %93 = icmp eq i8 %76, 39
   %or.cond.not = or i1 %93, %92
   br i1 %or.cond.not, label %98, label %94
@@ -45421,7 +45421,7 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %35, %40
   br label %98
 
 98:                                               ; preds = %.lr.ph.split, %91, %94, %89, %85
-  %.1 = phi i8 [ %90, %89 ], [ %.04186, %85 ], [ 0, %94 ], [ 0, %91 ], [ 0, %.lr.ph.split ]
+  %.1 = phi i8 [ %90, %89 ], [ 0, %85 ], [ 0, %94 ], [ 0, %91 ], [ 0, %.lr.ph.split ]
   %99 = add nuw i64 %.04087, 1
   %exitcond.not = icmp eq i64 %99, %47
   br i1 %exitcond.not, label %_ZNK5clang6format11FormatToken15isStringLiteralEv.exit, label %.lr.ph.split, !llvm.loop !664

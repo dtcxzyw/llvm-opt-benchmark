@@ -164,7 +164,7 @@ sw.epilog:                                        ; preds = %if.end18, %if.end27
   %pattern.sroa.0.1 = phi i64 [ %sub.i27, %if.end18 ], [ %sub.i35, %if.end27 ], [ %sub.i10, %sw.bb7 ], [ %sub.i, %sw.bb ]
   %str.sroa.10.1 = phi ptr [ %add.ptr.i29, %if.end18 ], [ %add.ptr.i37, %if.end27 ], [ %add.ptr.i12, %sw.bb7 ], [ %str.sroa.10.096, %sw.bb ]
   %str.sroa.0.1 = phi i64 [ %sub.i30, %if.end18 ], [ %sub.i38, %if.end27 ], [ %sub.i13, %sw.bb7 ], [ %str.sroa.0.097, %sw.bb ]
-  %in_wildcard_match.1 = phi i8 [ 0, %if.end18 ], [ %in_wildcard_match.098, %if.end27 ], [ %in_wildcard_match.098, %sw.bb7 ], [ 1, %sw.bb ]
+  %in_wildcard_match.1 = phi i8 [ 0, %if.end18 ], [ 0, %if.end27 ], [ %in_wildcard_match.098, %sw.bb7 ], [ 1, %sw.bb ]
   %cmp.i = icmp eq i64 %pattern.sroa.0.1, 0
   br i1 %cmp.i, label %if.then.loopexit, label %if.end, !llvm.loop !9
 

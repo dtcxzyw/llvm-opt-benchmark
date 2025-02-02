@@ -81373,93 +81373,99 @@ _ZNSt22_Optional_payload_baseIN4llvm6APSIntEE12_M_constructIJRKS1_EEEvDpOT_.exit
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintC2ERKS1_.exit
 
 _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintC2ERKS1_.exit: ; preds = %2, %_ZNSt22_Optional_payload_baseIN4llvm6APSIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i
-  %25 = phi i8 [ undef, %2 ], [ %24, %_ZNSt22_Optional_payload_baseIN4llvm6APSIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i ]
-  %26 = phi i8 [ 0, %2 ], [ 1, %_ZNSt22_Optional_payload_baseIN4llvm6APSIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %27, ptr noundef nonnull align 8 dereferenceable(20) %28, i64 16, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %30 = load i32, ptr %29, align 8
-  %switch.tableidx = add nsw i32 %30, -10
-  %31 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraint6negateEv, i64 0, i64 %31
+  %25 = phi i8 [ 0, %2 ], [ %24, %_ZNSt22_Optional_payload_baseIN4llvm6APSIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %26, ptr noundef nonnull align 8 dereferenceable(20) %27, i64 16, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %29 = load i32, ptr %28, align 8
+  %switch.tableidx = add nsw i32 %29, -10
+  %30 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraint6negateEv, i64 0, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 %switch.load, ptr %32, align 8
-  %33 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #18, !noalias !4576
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 1, ptr %34, align 8, !noalias !4581
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  store i32 1, ptr %35, align 4, !noalias !4581
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %33, align 8, !noalias !4581
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %38 = load i32, ptr %4, align 8, !noalias !4581
-  store i32 %38, ptr %37, align 8, !noalias !4581
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %36, align 8, !noalias !4581
-  %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %40 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  store i8 0, ptr %40, align 8, !noalias !4581
-  %41 = trunc nuw i8 %26 to i1
-  br i1 %41, label %42, label %_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store i32 %switch.load, ptr %31, align 8
+  %32 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #18, !noalias !4576
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i32 1, ptr %33, align 8, !noalias !4581
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 12
+  store i32 1, ptr %34, align 4, !noalias !4581
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %32, align 8, !noalias !4581
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %37 = load i32, ptr %4, align 8, !noalias !4581
+  store i32 %37, ptr %36, align 8, !noalias !4581
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %35, align 8, !noalias !4581
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  store i8 0, ptr %39, align 8, !noalias !4581
+  br i1 %12, label %42, label %_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit.thread
+
+_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit.thread: ; preds = %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintC2ERKS1_.exit
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %40, ptr noundef nonnull align 8 dereferenceable(20) %26, i64 20, i1 false), !noalias !4581
+  store ptr %35, ptr %0, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %32, ptr %41, align 8
+  br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit
 
 42:                                               ; preds = %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintC2ERKS1_.exit
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %45 = load i32, ptr %44, align 8, !noalias !4581
   store i32 %45, ptr %43, align 8, !noalias !4581
   %46 = icmp ult i32 %45, 65
-  br i1 %46, label %47, label %49
+  br i1 %46, label %.critedge, label %_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit
 
-47:                                               ; preds = %42
-  %48 = load i64, ptr %7, align 8, !noalias !4581
-  store i64 %48, ptr %39, align 8, !noalias !4581
-  br label %_ZNSt22_Optional_payload_baseIN4llvm6APSIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+.critedge:                                        ; preds = %42
+  %47 = load i64, ptr %7, align 8, !noalias !4581
+  store i64 %47, ptr %38, align 8, !noalias !4581
+  %48 = getelementptr inbounds nuw i8, ptr %32, i64 44
+  store i8 %25, ptr %48, align 4, !noalias !4581
+  store i8 1, ptr %39, align 8, !noalias !4581
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %49, ptr noundef nonnull align 8 dereferenceable(20) %26, i64 20, i1 false), !noalias !4581
+  store ptr %35, ptr %0, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %32, ptr %50, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %3, align 8
+  br label %56
 
-49:                                               ; preds = %42
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %7) #19, !noalias !4581
+_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit: ; preds = %42
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %7) #19, !noalias !4581
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 28
   %.pre = load i8, ptr %.phi.trans.insert, align 4, !noalias !4581
   %.pre1.pre = load i8, ptr %10, align 8
-  br label %_ZNSt22_Optional_payload_baseIN4llvm6APSIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-
-_ZNSt22_Optional_payload_baseIN4llvm6APSIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %49, %47
-  %.pre1 = phi i8 [ %.pre1.pre, %49 ], [ %26, %47 ]
-  %50 = phi i8 [ %.pre, %49 ], [ %25, %47 ]
-  %51 = getelementptr inbounds nuw i8, ptr %33, i64 44
-  %52 = and i8 %50, 1
-  store i8 %52, ptr %51, align 4, !noalias !4581
-  store i8 1, ptr %40, align 8, !noalias !4581
-  br label %_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit
-
-_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit: ; preds = %_ZNSt22_Optional_payload_baseIN4llvm6APSIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintC2ERKS1_.exit
-  %53 = phi i8 [ %.pre1, %_ZNSt22_Optional_payload_baseIN4llvm6APSIntEE12_M_constructIJRKS1_EEEvDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %26, %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintC2ERKS1_.exit ]
-  %54 = getelementptr inbounds nuw i8, ptr %33, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %54, ptr noundef nonnull align 8 dereferenceable(20) %27, i64 20, i1 false), !noalias !4581
-  store ptr %36, ptr %0, align 8
+  %51 = trunc i8 %.pre1.pre to i1
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 44
+  %53 = and i8 %.pre, 1
+  store i8 %53, ptr %52, align 4, !noalias !4581
+  store i8 1, ptr %39, align 8, !noalias !4581
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %54, ptr noundef nonnull align 8 dereferenceable(20) %26, i64 20, i1 false), !noalias !4581
+  store ptr %35, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %33, ptr %55, align 8
+  store ptr %32, ptr %55, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %3, align 8
-  %56 = trunc i8 %53 to i1
-  br i1 %56, label %57, label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit
+  br i1 %51, label %56, label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit
 
-57:                                               ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit
+56:                                               ; preds = %.critedge, %_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit
   store i8 0, ptr %10, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp ugt i32 %59, 64
-  br i1 %60, label %61, label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp ugt i32 %58, 64
+  br i1 %59, label %60, label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %7, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit, label %64
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %7, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit, label %63
 
-64:                                               ; preds = %61
-  call void @_ZdaPv(ptr noundef nonnull %62) #21
+63:                                               ; preds = %60
+  call void @_ZdaPv(ptr noundef nonnull %61) #21
   br label %_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit
 
-_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit: ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit, %57, %61, %64
+_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev.exit: ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit.thread, %_ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintEED2Ev.exit, %56, %60, %63
   ret void
 }
 

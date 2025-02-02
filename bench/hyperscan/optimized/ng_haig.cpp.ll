@@ -2267,7 +2267,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %for.end22.i.i.i.i
   br label %for.inc26.i.i.i.i
 
 for.inc26.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i, %for.end22.i.i.i.i
-  %top_allowed.1.i.i.i.i = phi i8 [ %top_allowed.0289.i.i.i.i, %for.end22.i.i.i.i ], [ %spec.select.i.i.i.i, %land.lhs.true.i.i.i.i ]
+  %top_allowed.1.i.i.i.i = phi i8 [ 0, %for.end22.i.i.i.i ], [ %spec.select.i.i.i.i, %land.lhs.true.i.i.i.i ]
   %cmp.not.i.i.i.i65.i = icmp ult i64 %i.0288.i.i.i.i, 256
   br i1 %cmp.not.i.i.i.i65.i, label %if.end.i.i.i.i73.i, label %for.end28.i.i.i.i
 
@@ -6339,7 +6339,7 @@ invoke.cont33.i.i.i:                              ; preds = %for.end32.i.i.i
   br label %for.inc37.i.i.i
 
 for.inc37.i.i.i:                                  ; preds = %invoke.cont33.i.i.i, %for.end32.i.i.i
-  %top_allowed.1.i.i.i = phi i8 [ %top_allowed.0761.i.i.i, %for.end32.i.i.i ], [ %spec.select.i.i.i, %invoke.cont33.i.i.i ]
+  %top_allowed.1.i.i.i = phi i8 [ 0, %for.end32.i.i.i ], [ %spec.select.i.i.i, %invoke.cont33.i.i.i ]
   %260 = load i64, ptr %m_num_bits.i.i225.i, align 8
   %sub.i.i.i.i104 = add i64 %260, -1
   %cmp.i.i.i257.i = icmp uge i64 %i.0760.i.i.i, %sub.i.i.i.i104

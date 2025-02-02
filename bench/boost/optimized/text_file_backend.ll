@@ -1827,9 +1827,9 @@ _ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_
   br label %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit67
 
 128:                                              ; preds = %30, %26, %.critedge35, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit, %36
-  %129 = phi ptr [ %.pre, %.critedge35 ], [ %65, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49 ], [ %55, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42 ], [ %45, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ %38, %36 ], [ %20, %26 ], [ %32, %30 ]
-  %.sroa.069.1 = phi ptr [ %127, %.critedge35 ], [ %68, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49 ], [ %58, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42 ], [ %48, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ %37, %36 ], [ %27, %26 ], [ %31, %30 ]
-  %.128 = phi i1 [ false, %.critedge35 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ false, %36 ], [ true, %26 ], [ false, %30 ]
+  %129 = phi ptr [ %20, %26 ], [ %32, %30 ], [ %.pre, %.critedge35 ], [ %65, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49 ], [ %55, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42 ], [ %45, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ %38, %36 ]
+  %.sroa.069.1 = phi ptr [ %27, %26 ], [ %31, %30 ], [ %127, %.critedge35 ], [ %68, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49 ], [ %58, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42 ], [ %48, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ %37, %36 ]
+  %.128 = phi i1 [ true, %26 ], [ false, %30 ], [ false, %.critedge35 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit49 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit42 ], [ false, %_ZZN5boost3log11v2_mt_posix5sinks9anonymous13match_patternERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRbEN5local11scan_digitsERN9__gnu_cxx17__normal_iteratorIPKcS9_EESJ_l.exit ], [ false, %36 ]
   %.not = icmp eq ptr %129, %15
   br i1 %.not, label %.critedge.thread, label %.lr.ph140, !llvm.loop !33
 
@@ -2614,7 +2614,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   %.sroa.0179.2 = phi ptr [ %277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %223, %260 ], [ %223, %.thread ]
   %.sroa.0186.2 = phi ptr [ %279, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %.sroa.0186.0, %260 ], [ %.sroa.0186.0, %.thread ]
   %.448 = phi i64 [ %266, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %.044, %260 ], [ %.044, %.thread ]
-  %.443 = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %.039, %260 ], [ %.039, %.thread ]
+  %.443 = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 0, %260 ], [ %.039, %.thread ]
   %.438 = phi i32 [ %.034, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %231, %260 ], [ %231, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #29
   br label %282
@@ -2623,7 +2623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   %.sroa.0179.1.ph = phi ptr [ %.sroa.0179.2, %281 ], [ %223, %230 ], [ %229, %228 ]
   %.sroa.0186.1.ph = phi ptr [ %.sroa.0186.2, %281 ], [ %.sroa.0186.0, %230 ], [ %.sroa.0186.0, %228 ]
   %.246.ph = phi i64 [ %.448, %281 ], [ %.044, %230 ], [ %.044, %228 ]
-  %.241.ph = phi i8 [ %.443, %281 ], [ %.039, %230 ], [ %.039, %228 ]
+  %.241.ph = phi i8 [ %.443, %281 ], [ 1, %230 ], [ %.039, %228 ]
   %.236.ph = phi i32 [ %.438, %281 ], [ %231, %230 ], [ %.034, %228 ]
   %.not209 = icmp eq ptr %.sroa.0179.1.ph, %.sroa.0186.1.ph
   br i1 %.not209, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SB_SB_RKT0_.exit.thread, label %160, !llvm.loop !39
@@ -7855,8 +7855,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN5boost3log11v2_mt_posix5sinks9anonymou
   %251 = sub i32 %.pre, %.sroa.8103.2164
   %252 = icmp slt i32 %251, 0
   %or.cond.not = select i1 %250, i1 %252, i1 false
-  %spec.select = select i1 %or.cond.not, i8 %.sroa.4102.2163, i8 1
-  %spec.select182 = select i1 %or.cond.not, i32 %.sroa.8103.2164, i32 %.pre
+  %spec.select = select i1 %or.cond.not, i32 %.sroa.8103.2164, i32 %.pre
   br label %271
 
 253:                                              ; preds = %171
@@ -7920,8 +7919,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 
 271:                                              ; preds = %249, %239, %.critedge
   %.sroa.0100.4 = phi i64 [ %246, %239 ], [ %.sroa.0100.2162, %.critedge ], [ %246, %249 ]
-  %.sroa.4102.4 = phi i8 [ %.sroa.4102.2163, %239 ], [ %.sroa.4102.2163, %.critedge ], [ %spec.select, %249 ]
-  %.sroa.8103.4 = phi i32 [ %.sroa.8103.2164, %239 ], [ %.sroa.8103.2164, %.critedge ], [ %spec.select182, %249 ]
+  %.sroa.4102.4 = phi i8 [ %.sroa.4102.2163, %239 ], [ %.sroa.4102.2163, %.critedge ], [ 1, %249 ]
+  %.sroa.8103.4 = phi i32 [ %.sroa.8103.2164, %239 ], [ %.sroa.8103.2164, %.critedge ], [ %spec.select, %249 ]
   %.230 = phi i64 [ %223, %239 ], [ %.028165, %.critedge ], [ %223, %249 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #29

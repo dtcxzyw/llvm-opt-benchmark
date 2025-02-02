@@ -584,7 +584,7 @@ _ZNK5boost4core17basic_string_viewIcE11starts_withEc.exit.thread: ; preds = %._Z
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 133
   %115 = load i8, ptr %114, align 1, !tbaa !27, !range !19, !noundef !20
   %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %117, label %122
+  br i1 %116, label %117, label %123
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -599,42 +599,42 @@ _ZNK5boost4core17basic_string_viewIcE11starts_withEc.exit.thread: ; preds = %._Z
   %121 = call noundef i64 @_ZN5boost4urls6detail12pct_vmeasureERKNS0_7grammar9lut_charsERNS1_20format_parse_contextERNS1_15measure_contextE(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5boost4urls6detailL14fragment_charsE, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
   store i64 0, ptr %42, align 8, !tbaa !9
   %.pre364 = load i8, ptr %114, align 1, !tbaa !27, !range !19
-  br label %122
+  %122 = zext nneg i8 %.pre364 to i64
+  br label %123
 
-122:                                              ; preds = %117, %113
-  %123 = phi i8 [ %.pre364, %117 ], [ %115, %113 ]
+123:                                              ; preds = %117, %113
+  %124 = phi i64 [ %122, %117 ], [ 0, %113 ]
   %.sroa.31.0 = phi i64 [ %121, %117 ], [ 0, %113 ]
-  %124 = icmp ne i64 %.sroa.0327.0, 0
-  %125 = zext i1 %124 to i64
-  %126 = add i64 %.sroa.0327.0, %125
-  %127 = load i8, ptr %50, align 8, !tbaa !16, !range !19, !noundef !20
-  %128 = shl nuw nsw i8 %127, 1
-  %129 = zext nneg i8 %128 to i64
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 130
-  %131 = load i8, ptr %130, align 2, !tbaa !24, !range !19, !noundef !20
-  %132 = zext nneg i8 %131 to i64
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 129
-  %134 = load i8, ptr %133, align 1, !tbaa !21, !range !19, !noundef !20
-  %135 = zext nneg i8 %134 to i64
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 131
-  %137 = load i8, ptr %136, align 1, !tbaa !25, !range !19, !noundef !20
-  %138 = zext nneg i8 %137 to i64
-  %139 = load i8, ptr %105, align 4, !tbaa !26, !range !19, !noundef !20
-  %140 = zext nneg i8 %139 to i64
-  %141 = zext nneg i8 %123 to i64
-  %142 = add i64 %126, %.sroa.18.0
+  %125 = icmp ne i64 %.sroa.0327.0, 0
+  %126 = zext i1 %125 to i64
+  %127 = add i64 %.sroa.0327.0, %126
+  %128 = load i8, ptr %50, align 8, !tbaa !16, !range !19, !noundef !20
+  %129 = shl nuw nsw i8 %128, 1
+  %130 = zext nneg i8 %129 to i64
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 130
+  %132 = load i8, ptr %131, align 2, !tbaa !24, !range !19, !noundef !20
+  %133 = zext nneg i8 %132 to i64
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 129
+  %135 = load i8, ptr %134, align 1, !tbaa !21, !range !19, !noundef !20
+  %136 = zext nneg i8 %135 to i64
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 131
+  %138 = load i8, ptr %137, align 1, !tbaa !25, !range !19, !noundef !20
+  %139 = zext nneg i8 %138 to i64
+  %140 = load i8, ptr %105, align 4, !tbaa !26, !range !19, !noundef !20
+  %141 = zext nneg i8 %140 to i64
+  %142 = add i64 %127, %.sroa.18.0
   %143 = add i64 %142, %.sroa.14.0
   %144 = add i64 %143, %.sroa.11.0
   %145 = add i64 %144, %.sroa.8330.0
   %146 = add i64 %145, %.sroa.21.0
   %147 = add i64 %146, %.sroa.28.0
   %148 = add i64 %147, %.sroa.31.0
-  %149 = add i64 %148, %129
-  %150 = add i64 %149, %132
-  %151 = add i64 %150, %135
-  %152 = add i64 %151, %138
-  %153 = add i64 %152, %140
-  %154 = add i64 %153, %141
+  %149 = add i64 %148, %130
+  %150 = add i64 %149, %133
+  %151 = add i64 %150, %136
+  %152 = add i64 %151, %139
+  %153 = add i64 %152, %141
+  %154 = add i64 %153, %124
   call void @_ZN5boost4urls8url_base12reserve_implEm(ptr noundef nonnull align 8 dereferenceable(216) %1, i64 noundef %154)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #22
@@ -651,7 +651,7 @@ _ZNK5boost4core17basic_string_viewIcE11starts_withEc.exit.thread: ; preds = %._Z
   %157 = icmp eq i64 %156, 0
   br i1 %157, label %193, label %158
 
-158:                                              ; preds = %122
+158:                                              ; preds = %123
   %159 = add i64 %.sroa.0327.0, 1
   %160 = invoke noundef ptr @_ZN5boost4urls8url_base11resize_implEimRNS1_4op_tE(ptr noundef nonnull align 8 dereferenceable(216) %1, i32 noundef -1, i64 noundef %159, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %161 unwind label %187
@@ -750,13 +750,13 @@ _ZN5boost4urls7grammar5parseINS0_6detail11scheme_ruleEEENS_6system6resultINT_10v
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #22
   br label %519
 
-193:                                              ; preds = %_ZN5boost4urls7grammar5parseINS0_6detail11scheme_ruleEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit, %122
+193:                                              ; preds = %_ZN5boost4urls7grammar5parseINS0_6detail11scheme_ruleEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit, %123
   %194 = load i8, ptr %50, align 8, !tbaa !16, !range !19, !noundef !20
   %195 = trunc nuw i8 %194 to i1
   br i1 %195, label %196, label %368
 
 196:                                              ; preds = %193
-  %197 = load i8, ptr %133, align 1, !tbaa !21, !range !19, !noundef !20
+  %197 = load i8, ptr %134, align 1, !tbaa !21, !range !19, !noundef !20
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %199, label %239
 
@@ -790,7 +790,7 @@ _ZN5boost4urls15pct_string_viewC2EPKcm.exit:      ; preds = %205
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i64 %210, ptr %211, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #22
-  %212 = load i8, ptr %130, align 2, !tbaa !24, !range !19, !noundef !20
+  %212 = load i8, ptr %131, align 2, !tbaa !24, !range !19, !noundef !20
   %213 = trunc nuw i8 %212 to i1
   br i1 %213, label %214, label %239
 
@@ -1047,7 +1047,7 @@ _ZN5boost4urls7grammar5parseINS0_6detail11host_rule_tEEENS_6system6resultINT_10v
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %308, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5272.24..sroa_idx, i64 16, i1 false)
   %309 = getelementptr inbounds nuw i8, ptr %1, i64 180
   store i32 %.sroa.0271.0.copyload, ptr %309, align 4, !tbaa !65
-  %310 = load i8, ptr %136, align 1, !tbaa !25, !range !19, !noundef !20
+  %310 = load i8, ptr %137, align 1, !tbaa !25, !range !19, !noundef !20
   %311 = trunc nuw i8 %310 to i1
   br i1 %311, label %312, label %366
 

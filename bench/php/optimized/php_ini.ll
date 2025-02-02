@@ -133,7 +133,6 @@ define void @display_ini_entries(ptr noundef readonly %0) local_unnamed_addr #0 
   br label %26
 
 26:                                               ; preds = %25, %23
-  %.2 = phi i8 [ 0, %25 ], [ %.04093, %23 ]
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 248), align 8
   %.not46 = icmp eq i32 %27, 0
   br i1 %.not46, label %28, label %87
@@ -413,7 +412,7 @@ php_ini_displayer_cb.exit90:                      ; preds = %113, %141, %.thread
   br label %144
 
 144:                                              ; preds = %php_ini_displayer_cb.exit57, %php_ini_displayer_cb.exit90, %19, %.lr.ph
-  %.1 = phi i8 [ %.04093, %.lr.ph ], [ %.04093, %19 ], [ %.2, %php_ini_displayer_cb.exit90 ], [ %.2, %php_ini_displayer_cb.exit57 ]
+  %.1 = phi i8 [ %.04093, %.lr.ph ], [ %.04093, %19 ], [ 0, %php_ini_displayer_cb.exit90 ], [ 0, %php_ini_displayer_cb.exit57 ]
   %145 = getelementptr inbounds nuw i8, ptr %.04192, i64 32
   %.not44 = icmp eq ptr %145, %12
   br i1 %.not44, label %._crit_edge, label %.lr.ph

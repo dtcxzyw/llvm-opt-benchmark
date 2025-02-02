@@ -3796,17 +3796,19 @@ land.lhs.true:                                    ; preds = %for.body
   %conv = fpext float %4 to double
   %5 = load double, ptr %m_qi_lazy_threshold, align 8
   %cmp6 = fcmp ult double %5, %conv
+  br i1 %cmp6, label %for.inc, label %land.lhs.true7
+
+land.lhs.true7:                                   ; preds = %land.lhs.true
   %cmp10 = fcmp uge float %4, %min_cost.047
   %or.cond.not = select i1 %init.048, i1 %cmp10, i1 false
-  %or.cond = select i1 %cmp6, i1 true, i1 %or.cond.not
-  br i1 %or.cond, label %for.inc, label %if.then11
+  br i1 %or.cond.not, label %for.inc, label %if.then11
 
-if.then11:                                        ; preds = %land.lhs.true
+if.then11:                                        ; preds = %land.lhs.true7
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then11
-  %min_cost.1 = phi float [ %min_cost.047, %for.body ], [ %4, %if.then11 ], [ %min_cost.047, %land.lhs.true ]
-  %init.1 = phi i1 [ %init.048, %for.body ], [ true, %if.then11 ], [ %init.048, %land.lhs.true ]
+for.inc:                                          ; preds = %land.lhs.true7, %for.body, %land.lhs.true, %if.then11
+  %min_cost.1 = phi float [ %min_cost.047, %for.body ], [ %4, %if.then11 ], [ %min_cost.047, %land.lhs.true ], [ %min_cost.047, %land.lhs.true7 ]
+  %init.1 = phi i1 [ %init.048, %for.body ], [ true, %if.then11 ], [ %init.048, %land.lhs.true ], [ true, %land.lhs.true7 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond.not, label %for.body16.lr.ph, label %for.body, !llvm.loop !13

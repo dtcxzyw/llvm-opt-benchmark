@@ -2729,7 +2729,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit786:    ; preds = %410
 415:                                              ; preds = %384, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit786, %_ZNSt10filesystem7__cxx114pathD2Ev.exit784
   %.080 = phi ptr [ %412, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit786 ], [ null, %384 ], [ null, %_ZNSt10filesystem7__cxx114pathD2Ev.exit784 ]
   %.0562 = phi i32 [ %spec.select, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit786 ], [ %spec.select, %384 ], [ -1, %_ZNSt10filesystem7__cxx114pathD2Ev.exit784 ]
-  %.0468.shrunk = phi i1 [ true, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit786 ], [ false, %384 ], [ false, %_ZNSt10filesystem7__cxx114pathD2Ev.exit784 ]
+  %.0468 = phi i1 [ true, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit786 ], [ false, %384 ], [ false, %_ZNSt10filesystem7__cxx114pathD2Ev.exit784 ]
   %416 = load ptr, ptr %107, align 8
   %.not609 = icmp eq ptr %416, null
   br i1 %.not609, label %437, label %417
@@ -3451,7 +3451,7 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit:        ; preds = %651
           to label %712 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 712:                                              ; preds = %704
-  br i1 %.0468.shrunk, label %713, label %742
+  br i1 %.0468, label %713, label %742
 
 713:                                              ; preds = %712
   %714 = load ptr, ptr %132, align 8
@@ -5073,7 +5073,7 @@ _ZL8calc_epsdddd.exit:                            ; preds = %1464, %1515
           to label %1604 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1604:                                             ; preds = %1591, %1590
-  br i1 %.0468.shrunk, label %1605, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
+  br i1 %.0468, label %1605, label %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit
 
 1605:                                             ; preds = %1604
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)

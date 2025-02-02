@@ -3255,17 +3255,20 @@ _ZN12_GLOBAL__N_128LoopInterchangeProfitability32isProfitablePerLoopCacheAnalysi
 
 868:                                              ; preds = %862
   %.039.mux.i.i.i = select i1 %865, i1 true, i1 %.03960.i.i.i
-  %869 = icmp eq ptr %864, %2
-  %brmerge59.not.i.i.i = select i1 %869, i1 %.039.mux.i.i.i, i1 false
-  %.037.mux.i.i.i = select i1 %869, i1 true, i1 %.03761.i.i.i
-  br i1 %brmerge59.not.i.i.i, label %870, label %872
+  %869 = icmp ne ptr %864, %2
+  %.039.mux.not.i.i.i = xor i1 %.039.mux.i.i.i, true
+  %brmerge59.i.i.i = select i1 %869, i1 true, i1 %.039.mux.not.i.i.i
+  %.039.mux.mux.i.i.i = select i1 %869, i1 %.039.mux.i.i.i, i1 false
+  %not..i.i.i = xor i1 %869, true
+  %.037.mux.i.i.i = select i1 %not..i.i.i, i1 true, i1 %.03761.i.i.i
+  br i1 %brmerge59.i.i.i, label %872, label %870
 
 870:                                              ; preds = %868
   %871 = add i32 %.13465.i.i.i, 1
   br label %.loopexit.i.i12.i
 
 872:                                              ; preds = %868, %850, %.lr.ph.i.i.i18
-  %.140.i.i.i = phi i1 [ %.039.mux.i.i.i, %868 ], [ %.03960.i.i.i, %850 ], [ %.03960.i.i.i, %.lr.ph.i.i.i18 ]
+  %.140.i.i.i = phi i1 [ %.039.mux.mux.i.i.i, %868 ], [ %.03960.i.i.i, %850 ], [ %.03960.i.i.i, %.lr.ph.i.i.i18 ]
   %.138.i.i.i = phi i1 [ %.037.mux.i.i.i, %868 ], [ %.03761.i.i.i, %850 ], [ %.03761.i.i.i, %.lr.ph.i.i.i18 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i

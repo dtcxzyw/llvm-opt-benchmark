@@ -1866,7 +1866,7 @@ define hidden void @_ZN9mitm_node15tcp_interceptor8registry15TcpMitmRegistry13ad
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.pr = load i64, ptr %8, align 8
   %60 = icmp eq i64 %.pr, 0
-  br i1 %60, label %.thread34, label %.thread28
+  br i1 %60, label %.thread33, label %.thread28
 
 .body:                                            ; preds = %52, %56
   %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %53, %52 ]
@@ -1938,7 +1938,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14529172514207159973.exit.t
   invoke void @"_ZN4core3ptr284drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockWriteGuard$LT$mitm_node..tcp_interceptor..registry..InternalRegistry$GT$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockWriteGuard$LT$mitm_node..tcp_interceptor..registry..InternalRegistry$GT$$GT$$GT$$GT$17h35ca98671746a688E.llvm.7577897545201684169"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
           to label %84 unwind label %21
 
-.thread34:                                        ; preds = %.noexc11
+.thread33:                                        ; preds = %.noexc11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$tokio..net..tcp..split_owned..OwnedWriteHalf$GT$$GT$$GT$17hb3ec4a7939f162ebE.exit"
 
@@ -1946,7 +1946,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14529172514207159973.exit.t
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br i1 %26, label %85, label %"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$tokio..net..tcp..split_owned..OwnedWriteHalf$GT$$GT$$GT$17hb3ec4a7939f162ebE.exit"
 
-"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$tokio..net..tcp..split_owned..OwnedWriteHalf$GT$$GT$$GT$17hb3ec4a7939f162ebE.exit": ; preds = %89, %85, %.thread34, %84
+"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Arc$LT$tokio..sync..mutex..Mutex$LT$tokio..net..tcp..split_owned..OwnedWriteHalf$GT$$GT$$GT$17hb3ec4a7939f162ebE.exit": ; preds = %89, %85, %.thread33, %84
   ret void
 
 85:                                               ; preds = %84

@@ -3046,7 +3046,7 @@ entry:
   %wasCalled_ = getelementptr inbounds nuw i8, ptr %this, i64 216
   %8 = load i8, ptr %wasCalled_, align 8, !tbaa !107, !range !109, !noundef !110
   %loadedv21 = trunc nuw i8 %8 to i1
-  br i1 %loadedv21, label %if.end, label %land.lhs.true
+  br i1 %loadedv21, label %if.then41, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %_M_data.i22 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3066,8 +3066,8 @@ if.then:                                          ; preds = %land.lhs.true
   %.pre = load i8, ptr %wasCalled_, align 8, !tbaa !107, !range !109
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %13 = phi i8 [ %.pre, %if.then ], [ %8, %land.lhs.true ], [ %8, %entry ]
+if.end:                                           ; preds = %if.then, %land.lhs.true
+  %13 = phi i8 [ %.pre, %if.then ], [ 0, %land.lhs.true ]
   %loadedv25 = trunc nuw i8 %13 to i1
   %loadedv7.not = xor i1 %loadedv7, true
   %brmerge = select i1 %loadedv25, i1 true, i1 %loadedv7.not
@@ -3077,7 +3077,7 @@ land.lhs.true28:                                  ; preds = %if.end
   %callable_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %14 = load i8, ptr %callable_, align 8, !tbaa !11, !range !109, !noundef !110
   %loadedv29 = trunc nuw i8 %14 to i1
-  br i1 %loadedv29, label %if.then30, label %if.end38
+  br i1 %loadedv29, label %if.then30, label %if.else
 
 if.then30:                                        ; preds = %land.lhs.true28
   %strategy_31 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3090,12 +3090,12 @@ if.then30:                                        ; preds = %land.lhs.true28
   store i8 %storedv37, ptr %wasCalled_, align 8, !tbaa !107
   br label %if.end38
 
-if.end38:                                         ; preds = %if.end, %if.then30, %land.lhs.true28
-  %17 = phi i8 [ %13, %if.end ], [ %storedv37, %if.then30 ], [ %13, %land.lhs.true28 ]
+if.end38:                                         ; preds = %if.end, %if.then30
+  %17 = phi i8 [ %13, %if.end ], [ %storedv37, %if.then30 ]
   %loadedv40 = trunc nuw i8 %17 to i1
   br i1 %loadedv40, label %if.then41, label %if.else
 
-if.then41:                                        ; preds = %if.end38
+if.then41:                                        ; preds = %entry, %if.end38
   br i1 %loadedv13, label %if.then43, label %if.end77.thread
 
 if.then43:                                        ; preds = %if.then41
@@ -3150,7 +3150,7 @@ for.body54:                                       ; preds = %for.body54.lr.ph, %
   %cmp52 = icmp ult i64 %inc, %27
   br i1 %cmp52, label %for.body54, label %for.cond.cleanup53, !llvm.loop !114
 
-if.else:                                          ; preds = %if.end38
+if.else:                                          ; preds = %land.lhs.true28, %if.end38
   br i1 %loadedv13, label %if.then62, label %if.end68
 
 if.then62:                                        ; preds = %if.else

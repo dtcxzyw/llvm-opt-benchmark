@@ -4515,7 +4515,7 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
 34:                                               ; preds = %157, %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit", %31
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %222
 
 "_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit": ; preds = %3, %31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
@@ -4538,7 +4538,7 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
   %.1.i = phi i8 [ %.0.i, %39 ], [ %.4.i, %"_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..raw..RawConnection$GT$17h91983490a616c6bfE.exit.i" ]
   %.pn43.i = phi { ptr, i32 } [ %40, %39 ], [ %.pn.i, %"_ZN4core3ptr66drop_in_place$LT$diesel..mysql..connection..raw..RawConnection$GT$17h91983490a616c6bfE.exit.i" ]
   %38 = trunc nuw i8 %.1.i to i1
-  br i1 %38, label %159, label %.thread
+  br i1 %38, label %159, label %222
 
 39:                                               ; preds = %152, %145, %.noexc25
   %.0.i = phi i8 [ 0, %145 ], [ %.5.i, %152 ], [ 1, %.noexc25 ]
@@ -4983,7 +4983,7 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
 159:                                              ; preds = %37
   %160 = load ptr, ptr %22, align 8, !alias.scope !1402, !noalias !1298, !nonnull !11, !noundef !11
   invoke void @mysql_close(ptr noundef nonnull %160)
-          to label %.thread unwind label %153, !noalias !1295
+          to label %222 unwind label %153, !noalias !1295
 
 161:                                              ; preds = %155, %148, %157
   %.not = phi ptr [ %25, %155 ], [ %150, %148 ], [ %25, %157 ]
@@ -5114,8 +5114,8 @@ define void @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$di
   call void @__rust_dealloc(ptr noundef nonnull %166, i64 noundef range(i64 1, -9223372036854775808) %211, i64 noundef range(i64 1, -9223372036854775807) %213) #29, !noalias !1422
   br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE.exit34"
 
-common.resume:                                    ; preds = %.thread, %.body30, %200, %208
-  %common.resume.op = phi { ptr, i32 } [ %201, %208 ], [ %201, %200 ], [ %.pn.pn38, %.thread ], [ %180, %.body30 ]
+common.resume:                                    ; preds = %222, %.body30, %200, %208
+  %common.resume.op = phi { ptr, i32 } [ %201, %208 ], [ %201, %200 ], [ %.pn.pn.ph, %222 ], [ %180, %.body30 ]
   resume { ptr, i32 } %common.resume.op
 
 .body30:                                          ; preds = %179, %187
@@ -5137,7 +5137,7 @@ common.resume:                                    ; preds = %.thread, %.body30, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   ret void
 
-218:                                              ; preds = %.thread, %220, %.body30
+218:                                              ; preds = %222, %220, %.body30
   %219 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31
@@ -5147,10 +5147,10 @@ common.resume:                                    ; preds = %.thread, %.body30, 
   %221 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$diesel..mysql..connection..MysqlConnection$C$diesel..result..ConnectionError$GT$$GT$17h476027fc659cb6feE"(ptr noalias noundef align 8 dereferenceable(80) %25) #30
-          to label %.thread unwind label %218
+          to label %222 unwind label %218
 
-.thread:                                          ; preds = %220, %37, %159, %34
-  %.pn.pn38 = phi { ptr, i32 } [ %35, %34 ], [ %.pn43.i, %159 ], [ %.pn43.i, %37 ], [ %221, %220 ]
+222:                                              ; preds = %220, %34, %159, %37
+  %.pn.pn.ph = phi { ptr, i32 } [ %221, %220 ], [ %35, %34 ], [ %.pn43.i, %159 ], [ %.pn43.i, %37 ]
   invoke void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$diesel..connection..instrumentation..Instrumentation$GT$$GT$$GT$17h103f52571b62c52dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #30
           to label %common.resume unwind label %218
 }

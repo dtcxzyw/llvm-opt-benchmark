@@ -9420,12 +9420,12 @@ entry:
 if.then:                                          ; preds = %entry
   %and.i = bitcast double %0 to i64
   %cmp.i = icmp samesign ugt i64 %and.i, 9218868437227405312
-  %.sink170 = select i1 %cmp.i, i8 78, i8 73
-  %.sink169 = select i1 %cmp.i, i8 65, i8 78
+  %.sink165 = select i1 %cmp.i, i8 78, i8 73
+  %.sink164 = select i1 %cmp.i, i8 65, i8 78
   %.sink = select i1 %cmp.i, i8 78, i8 70
-  store i8 %.sink170, ptr %buffer, align 1
+  store i8 %.sink165, ptr %buffer, align 1
   %1 = getelementptr inbounds nuw i8, ptr %buffer, i64 1
-  store i8 %.sink169, ptr %1, align 1
+  store i8 %.sink164, ptr %1, align 1
   %2 = getelementptr inbounds nuw i8, ptr %buffer, i64 2
   store i8 %.sink, ptr %2, align 1
   %t.0 = getelementptr inbounds nuw i8, ptr %buffer, i64 3
@@ -9534,113 +9534,107 @@ if.end48:                                         ; preds = %for.body44, %if.end
   %cmp4987 = icmp slt i32 %sub86.fr, 0
   %storemerge = select i1 %cmp4987, i32 %expcnt.084, i32 %conv51
   store i32 %storemerge, ptr %decimalPos, align 4
-  %cmp55128 = icmp sgt i32 %sub86.fr, 0
-  %tobool5699129 = fcmp une double %fract.0, 0.000000e+00
-  %10 = select i1 %cmp55128, i1 %tobool5699129, i1 false
+  %cmp55123 = icmp sgt i32 %sub86.fr, 0
+  %tobool5699124 = fcmp une double %fract.0, 0.000000e+00
+  %10 = select i1 %cmp55123, i1 %tobool5699124, i1 false
   br i1 %10, label %while.body.lr.ph.preheader, label %while.end
 
 while.body.lr.ph.preheader:                       ; preds = %if.end48
   %cmp54 = fcmp olt double %dValue.addr.0, 1.000000e+00
-  br label %while.body.lr.ph
+  br label %while.body.preheader
 
-while.body.lr.ph:                                 ; preds = %while.body.lr.ph.preheader, %if.else64
-  %leading.0.ph135 = phi i1 [ false, %if.else64 ], [ %cmp54, %while.body.lr.ph.preheader ]
-  %t.3.idx.ph133 = phi i64 [ %t.3.add76, %if.else64 ], [ %t.1.idx, %while.body.lr.ph.preheader ]
-  %fract.2.ph132 = phi double [ %.us-phi, %if.else64 ], [ %fract.0, %while.body.lr.ph.preheader ]
-  %nDigitCountAfterDecimal.0.ph130 = phi i32 [ %sub69, %if.else64 ], [ %sub86.fr, %while.body.lr.ph.preheader ]
-  br i1 %leading.0.ph135, label %while.body.us, label %while.body.lr.ph.split
+while.body.preheader:                             ; preds = %if.else64, %while.body.lr.ph.preheader
+  %leading.0.ph130 = phi i1 [ false, %if.else64 ], [ %cmp54, %while.body.lr.ph.preheader ]
+  %t.3.idx.ph128 = phi i64 [ %t.3.add76, %if.else64 ], [ %t.1.idx, %while.body.lr.ph.preheader ]
+  %fract.2.ph127 = phi double [ %call58, %if.else64 ], [ %fract.0, %while.body.lr.ph.preheader ]
+  %nDigitCountAfterDecimal.0.ph125 = phi i32 [ %sub69, %if.else64 ], [ %sub86.fr, %while.body.lr.ph.preheader ]
+  br label %while.body
 
-while.body.us:                                    ; preds = %while.body.lr.ph, %if.then62.us
-  %fract.2100.us = phi double [ %call58.us, %if.then62.us ], [ %fract.2.ph132, %while.body.lr.ph ]
-  %mul57.us = fmul double %fract.2100.us, 1.000000e+01
-  %call58.us = call double @modf(double noundef %mul57.us, ptr noundef nonnull %tmp) #35
-  %11 = load double, ptr %tmp, align 8
-  %conv60.us = fptosi double %11 to i32
-  %cmp61.us = icmp eq i32 %conv60.us, 0
-  br i1 %cmp61.us, label %if.then62.us, label %if.else64
-
-if.then62.us:                                     ; preds = %while.body.us
-  %12 = load i32, ptr %decimalPos, align 4
-  %dec63.us = add nsw i32 %12, -1
-  store i32 %dec63.us, ptr %decimalPos, align 4
-  %tobool56.us = fcmp une double %call58.us, 0.000000e+00
-  br i1 %tobool56.us, label %while.body.us, label %if.end122, !llvm.loop !190
-
-while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
-  %mul57 = fmul double %fract.2.ph132, 1.000000e+01
+while.body:                                       ; preds = %while.body.preheader, %if.then62
+  %leading.0101 = phi i1 [ true, %if.then62 ], [ %leading.0.ph130, %while.body.preheader ]
+  %fract.2100 = phi double [ %call58, %if.then62 ], [ %fract.2.ph127, %while.body.preheader ]
+  %mul57 = fmul double %fract.2100, 1.000000e+01
   %call58 = call double @modf(double noundef %mul57, ptr noundef nonnull %tmp) #35
-  %.pre = load double, ptr %tmp, align 8
-  br label %if.else64
+  %.pre.pre = load double, ptr %tmp, align 8
+  %conv60 = fptosi double %.pre.pre to i32
+  %cmp61 = icmp eq i32 %conv60, 0
+  %or.cond180 = select i1 %leading.0101, i1 %cmp61, i1 false
+  br i1 %or.cond180, label %if.then62, label %if.else64
 
-if.else64:                                        ; preds = %while.body.us, %while.body.lr.ph.split
-  %13 = phi double [ %.pre, %while.body.lr.ph.split ], [ %11, %while.body.us ]
-  %.us-phi = phi double [ %call58, %while.body.lr.ph.split ], [ %call58.us, %while.body.us ]
-  %t.3.ptr.le = getelementptr inbounds i8, ptr %buffer, i64 %t.3.idx.ph133
-  %conv65 = fptosi double %13 to i32
-  %14 = trunc i32 %conv65 to i8
-  %conv67 = add i8 %14, 48
-  %t.3.add76 = add nuw nsw i64 %t.3.idx.ph133, 1
+if.then62:                                        ; preds = %while.body
+  %11 = load i32, ptr %decimalPos, align 4
+  %dec63 = add nsw i32 %11, -1
+  store i32 %dec63, ptr %decimalPos, align 4
+  %tobool56 = fcmp une double %call58, 0.000000e+00
+  br i1 %tobool56, label %while.body, label %if.end122, !llvm.loop !190
+
+if.else64:                                        ; preds = %while.body
+  %t.3.ptr.le = getelementptr inbounds i8, ptr %buffer, i64 %t.3.idx.ph128
+  %conv65 = fptosi double %.pre.pre to i32
+  %12 = trunc i32 %conv65 to i8
+  %conv67 = add i8 %12, 48
+  %t.3.add76 = add nuw nsw i64 %t.3.idx.ph128, 1
   store i8 %conv67, ptr %t.3.ptr.le, align 1
-  %sub69 = add nsw i32 %nDigitCountAfterDecimal.0.ph130, -1
-  %cmp55 = icmp sgt i32 %nDigitCountAfterDecimal.0.ph130, 1
-  %tobool5699 = fcmp une double %.us-phi, 0.000000e+00
-  %15 = select i1 %cmp55, i1 %tobool5699, i1 false
-  br i1 %15, label %while.body.lr.ph, label %while.end, !llvm.loop !190
+  %sub69 = add nsw i32 %nDigitCountAfterDecimal.0.ph125, -1
+  %cmp55 = icmp sgt i32 %nDigitCountAfterDecimal.0.ph125, 1
+  %tobool5699 = fcmp une double %call58, 0.000000e+00
+  %13 = select i1 %cmp55, i1 %tobool5699, i1 false
+  br i1 %13, label %while.body.preheader, label %while.end, !llvm.loop !190
 
 while.end:                                        ; preds = %if.else64, %if.end48
   %t.3.idx.ph.lcssa98 = phi i64 [ %t.1.idx, %if.end48 ], [ %t.3.add76, %if.else64 ]
   %nDigitCountAfterDecimal.0.ph.lcssa = phi i32 [ %sub86.fr, %if.end48 ], [ %sub69, %if.else64 ]
-  %fract.2.lcssa = phi double [ %fract.0, %if.end48 ], [ %.us-phi, %if.else64 ]
-  %tobool56.lcssa = phi i1 [ %tobool5699129, %if.end48 ], [ %tobool5699, %if.else64 ]
+  %fract.2.lcssa = phi double [ %fract.0, %if.end48 ], [ %call58, %if.else64 ]
+  %tobool56.lcssa = phi i1 [ %tobool5699124, %if.end48 ], [ %tobool5699, %if.else64 ]
   br i1 %tobool56.lcssa, label %if.then72, label %if.end122
 
 if.then72:                                        ; preds = %while.end
   %t.3.add = add nsw i64 %t.3.idx.ph.lcssa98, -1
   %mul74 = fmul double %fract.2.lcssa, 1.000000e+01
   %call75 = call double @modf(double noundef %mul74, ptr noundef nonnull %tmp) #35
-  %16 = load double, ptr %tmp, align 8
-  %cmp76 = fcmp ogt double %16, 4.000000e+00
+  %14 = load double, ptr %tmp, align 8
+  %cmp76 = fcmp ogt double %14, 4.000000e+00
   br i1 %cmp76, label %for.cond78.preheader, label %if.else98
 
 for.cond78.preheader:                             ; preds = %if.then72
-  %scan.0.ptr147 = getelementptr inbounds i8, ptr %buffer, i64 %t.3.add
-  %17 = load i8, ptr %scan.0.ptr147, align 1
-  %cmp80148 = icmp eq i8 %17, 46
-  %scan.0.add149 = sext i1 %cmp80148 to i64
-  %spec.select150 = add nsw i64 %t.3.add, %scan.0.add149
-  %scan.1.ptr151 = getelementptr inbounds i8, ptr %buffer, i64 %spec.select150
-  %18 = load i8, ptr %scan.1.ptr151, align 1
-  %inc84152 = add i8 %18, 1
-  store i8 %inc84152, ptr %scan.1.ptr151, align 1
-  %cmp86153 = icmp slt i8 %inc84152, 58
-  br i1 %cmp86153, label %if.end122, label %if.end88
+  %scan.0.ptr142 = getelementptr inbounds i8, ptr %buffer, i64 %t.3.add
+  %15 = load i8, ptr %scan.0.ptr142, align 1
+  %cmp80143 = icmp eq i8 %15, 46
+  %scan.0.add144 = sext i1 %cmp80143 to i64
+  %spec.select145 = add nsw i64 %t.3.add, %scan.0.add144
+  %scan.1.ptr146 = getelementptr inbounds i8, ptr %buffer, i64 %spec.select145
+  %16 = load i8, ptr %scan.1.ptr146, align 1
+  %inc84147 = add i8 %16, 1
+  store i8 %inc84147, ptr %scan.1.ptr146, align 1
+  %cmp86148 = icmp slt i8 %inc84147, 58
+  br i1 %cmp86148, label %if.end122, label %if.end88
 
 for.cond78:                                       ; preds = %if.end88
-  %scan.1.add = add nsw i64 %spec.select154, -1
+  %scan.1.add = add nsw i64 %spec.select149, -1
   %scan.0.ptr = getelementptr inbounds i8, ptr %buffer, i64 %scan.1.add
-  %19 = load i8, ptr %scan.0.ptr, align 1
-  %cmp80 = icmp eq i8 %19, 46
+  %17 = load i8, ptr %scan.0.ptr, align 1
+  %cmp80 = icmp eq i8 %17, 46
   %scan.0.add = sext i1 %cmp80 to i64
   %spec.select = add nsw i64 %scan.1.add, %scan.0.add
   %scan.1.ptr = getelementptr inbounds i8, ptr %buffer, i64 %spec.select
-  %20 = load i8, ptr %scan.1.ptr, align 1
-  %inc84 = add i8 %20, 1
+  %18 = load i8, ptr %scan.1.ptr, align 1
+  %inc84 = add i8 %18, 1
   store i8 %inc84, ptr %scan.1.ptr, align 1
   %cmp86 = icmp slt i8 %inc84, 58
   br i1 %cmp86, label %if.end122, label %if.end88, !llvm.loop !191
 
 if.end88:                                         ; preds = %for.cond78.preheader, %for.cond78
-  %scan.1.ptr155 = phi ptr [ %scan.1.ptr, %for.cond78 ], [ %scan.1.ptr151, %for.cond78.preheader ]
-  %spec.select154 = phi i64 [ %spec.select, %for.cond78 ], [ %spec.select150, %for.cond78.preheader ]
-  store i8 48, ptr %scan.1.ptr155, align 1
-  %cmp89 = icmp eq i64 %spec.select154, 1
+  %scan.1.ptr150 = phi ptr [ %scan.1.ptr, %for.cond78 ], [ %scan.1.ptr146, %for.cond78.preheader ]
+  %spec.select149 = phi i64 [ %spec.select, %for.cond78 ], [ %spec.select145, %for.cond78.preheader ]
+  store i8 48, ptr %scan.1.ptr150, align 1
+  %cmp89 = icmp eq i64 %spec.select149, 1
   br i1 %cmp89, label %if.then90, label %for.cond78
 
 if.then90:                                        ; preds = %if.end88
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %scan.1.ptr155, i64 -1
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %scan.1.ptr150, i64 -1
   store i8 49, ptr %incdec.ptr91, align 1
-  %21 = load i32, ptr %decimalPos, align 4
-  %inc93 = add nsw i32 %21, 1
+  %19 = load i32, ptr %decimalPos, align 4
+  %inc93 = add nsw i32 %19, 1
   store i32 %inc93, ptr %decimalPos, align 4
   br label %if.end122
 
@@ -9648,55 +9642,55 @@ if.else98:                                        ; preds = %if.then72
   br i1 %cmp9, label %for.cond101.preheader, label %if.end122
 
 for.cond101.preheader:                            ; preds = %if.else98
-  %cmp102.not142 = icmp sgt i64 %t.3.idx.ph.lcssa98, 2
-  br i1 %cmp102.not142, label %if.end104, label %if.end122
+  %cmp102.not137 = icmp sgt i64 %t.3.idx.ph.lcssa98, 2
+  br i1 %cmp102.not137, label %if.end104, label %if.end122
 
 if.end104:                                        ; preds = %for.cond101.preheader, %if.end113
-  %scan.2.idx144 = phi i64 [ %scan.3.add, %if.end113 ], [ %t.3.add, %for.cond101.preheader ]
-  %neg.2143 = phi i32 [ %spec.select78, %if.end113 ], [ 1, %for.cond101.preheader ]
-  %scan.2.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %scan.2.idx144
-  %22 = load i8, ptr %scan.2.ptr, align 1
-  %cmp106 = icmp eq i8 %22, 46
+  %scan.2.idx139 = phi i64 [ %scan.3.add, %if.end113 ], [ %t.3.add, %for.cond101.preheader ]
+  %neg.2138 = phi i32 [ %spec.select78, %if.end113 ], [ 1, %for.cond101.preheader ]
+  %scan.2.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %scan.2.idx139
+  %20 = load i8, ptr %scan.2.ptr, align 1
+  %cmp106 = icmp eq i8 %20, 46
   %scan.2.add = sext i1 %cmp106 to i64
-  %spec.select77 = add nsw i64 %scan.2.idx144, %scan.2.add
+  %spec.select77 = add nsw i64 %scan.2.idx139, %scan.2.add
   %scan.3.ptr = getelementptr inbounds i8, ptr %buffer, i64 %spec.select77
-  %23 = load i8, ptr %scan.3.ptr, align 1
-  %cmp111.not = icmp eq i8 %23, 48
-  br i1 %cmp111.not, label %if.end113, label %if.end122.loopexit160
+  %21 = load i8, ptr %scan.3.ptr, align 1
+  %cmp111.not = icmp eq i8 %21, 48
+  br i1 %cmp111.not, label %if.end113, label %if.end122.loopexit155
 
 if.end113:                                        ; preds = %if.end104
   %cmp114 = icmp eq i64 %spec.select77, 1
-  %spec.select78 = select i1 %cmp114, i32 0, i32 %neg.2143
+  %spec.select78 = select i1 %cmp114, i32 0, i32 %neg.2138
   %scan.3.add = add nsw i64 %spec.select77, -1
   %cmp102.not = icmp sgt i64 %spec.select77, 2
-  br i1 %cmp102.not, label %if.end104, label %if.end122.loopexit160, !llvm.loop !192
+  br i1 %cmp102.not, label %if.end104, label %if.end122.loopexit155, !llvm.loop !192
 
-if.end122.loopexit160:                            ; preds = %if.end113, %if.end104
-  %neg.1.ph = phi i32 [ %spec.select78, %if.end113 ], [ %neg.2143, %if.end104 ]
-  %24 = icmp ne i32 %neg.1.ph, 0
+if.end122.loopexit155:                            ; preds = %if.end113, %if.end104
+  %neg.1.ph = phi i32 [ %spec.select78, %if.end113 ], [ %neg.2138, %if.end104 ]
+  %22 = icmp ne i32 %neg.1.ph, 0
   br label %if.end122
 
-if.end122:                                        ; preds = %if.then62.us, %for.cond78, %if.end122.loopexit160, %for.cond101.preheader, %for.cond78.preheader, %if.then90, %if.else98, %while.end
-  %nDigitCountAfterDecimal.0.ph.lcssa177 = phi i32 [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.then90 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.else98 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %while.end ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond101.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.end122.loopexit160 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78 ], [ %nDigitCountAfterDecimal.0.ph130, %if.then62.us ]
-  %t.3.idx.ph.lcssa98176 = phi i64 [ %t.3.idx.ph.lcssa98, %if.then90 ], [ %t.3.idx.ph.lcssa98, %if.else98 ], [ %t.3.idx.ph.lcssa98, %while.end ], [ %t.3.idx.ph.lcssa98, %for.cond78.preheader ], [ %t.3.idx.ph.lcssa98, %for.cond101.preheader ], [ %t.3.idx.ph.lcssa98, %if.end122.loopexit160 ], [ %t.3.idx.ph.lcssa98, %for.cond78 ], [ %t.3.idx.ph133, %if.then62.us ]
-  %neg.1 = phi i1 [ %cmp9, %if.then90 ], [ false, %if.else98 ], [ %cmp9, %while.end ], [ %cmp9, %for.cond78.preheader ], [ true, %for.cond101.preheader ], [ %24, %if.end122.loopexit160 ], [ %cmp9, %for.cond78 ], [ %cmp9, %if.then62.us ]
-  %t.3.ptr.le97178 = getelementptr i8, ptr %buffer, i64 %t.3.idx.ph.lcssa98176
-  %tobool128.not156 = icmp slt i32 %nDigitCountAfterDecimal.0.ph.lcssa177, 1
-  br i1 %tobool128.not156, label %while.end131, label %while.body129.preheader
+if.end122:                                        ; preds = %if.then62, %for.cond78, %if.end122.loopexit155, %for.cond101.preheader, %for.cond78.preheader, %if.then90, %if.else98, %while.end
+  %nDigitCountAfterDecimal.0.ph.lcssa173 = phi i32 [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.then90 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.else98 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %while.end ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond101.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.end122.loopexit155 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78 ], [ %nDigitCountAfterDecimal.0.ph125, %if.then62 ]
+  %t.3.idx.ph.lcssa98172 = phi i64 [ %t.3.idx.ph.lcssa98, %if.then90 ], [ %t.3.idx.ph.lcssa98, %if.else98 ], [ %t.3.idx.ph.lcssa98, %while.end ], [ %t.3.idx.ph.lcssa98, %for.cond78.preheader ], [ %t.3.idx.ph.lcssa98, %for.cond101.preheader ], [ %t.3.idx.ph.lcssa98, %if.end122.loopexit155 ], [ %t.3.idx.ph.lcssa98, %for.cond78 ], [ %t.3.idx.ph128, %if.then62 ]
+  %neg.1 = phi i1 [ %cmp9, %if.then90 ], [ false, %if.else98 ], [ %cmp9, %while.end ], [ %cmp9, %for.cond78.preheader ], [ true, %for.cond101.preheader ], [ %22, %if.end122.loopexit155 ], [ %cmp9, %for.cond78 ], [ %cmp9, %if.then62 ]
+  %t.3.ptr.le97174 = getelementptr i8, ptr %buffer, i64 %t.3.idx.ph.lcssa98172
+  %tobool128.not151 = icmp slt i32 %nDigitCountAfterDecimal.0.ph.lcssa173, 1
+  br i1 %tobool128.not151, label %while.end131, label %while.body129.preheader
 
 while.body129.preheader:                          ; preds = %if.end122
-  %25 = zext nneg i32 %nDigitCountAfterDecimal.0.ph.lcssa177 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %t.3.ptr.le97178, i8 48, i64 %25, i1 false)
-  %26 = getelementptr i8, ptr %buffer, i64 %t.3.idx.ph.lcssa98176
-  %27 = zext nneg i32 %nDigitCountAfterDecimal.0.ph.lcssa177 to i64
-  %28 = getelementptr i8, ptr %26, i64 %27
+  %23 = zext nneg i32 %nDigitCountAfterDecimal.0.ph.lcssa173 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %t.3.ptr.le97174, i8 48, i64 %23, i1 false)
+  %24 = getelementptr i8, ptr %buffer, i64 %t.3.idx.ph.lcssa98172
+  %25 = zext nneg i32 %nDigitCountAfterDecimal.0.ph.lcssa173 to i64
+  %26 = getelementptr i8, ptr %24, i64 %25
   br label %while.end131
 
 while.end131:                                     ; preds = %while.body129.preheader, %if.end122
-  %t.4.lcssa = phi ptr [ %t.3.ptr.le97178, %if.end122 ], [ %28, %while.body129.preheader ]
+  %t.4.lcssa = phi ptr [ %t.3.ptr.le97174, %if.end122 ], [ %26, %while.body129.preheader ]
   store i8 0, ptr %t.4.lcssa, align 1
-  %29 = load i8, ptr %buffer, align 1
-  %cmp134 = icmp eq i8 %29, 0
+  %27 = load i8, ptr %buffer, align 1
+  %cmp134 = icmp eq i8 %27, 0
   br i1 %cmp134, label %if.then135, label %if.end141
 
 if.then135:                                       ; preds = %while.end131

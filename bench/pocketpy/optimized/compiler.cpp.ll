@@ -8113,7 +8113,6 @@ _ZN4pkpy2TKEPKc.exit43:                           ; preds = %93, %91
   br i1 %96, label %.thread, label %215
 
 .thread:                                          ; preds = %_ZN4pkpy2TKEPKc.exit43, %64, %95
-  %.2276 = phi i8 [ %.0, %95 ], [ 1, %64 ], [ 1, %_ZN4pkpy2TKEPKc.exit43 ]
   %97 = call noundef ptr @_ZN4pkpy13pool128_allocEm(i64 noundef 32) #36, !noalias !70
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 0, ptr %98, align 8, !noalias !70
@@ -8449,7 +8448,7 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit86:   ; preds = %246, %_ZN4pkpy5stac
 
 251:                                              ; preds = %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit86, %_ZN4pkpy14unique_ptr_128INS_12DictItemExprEED2Ev.exit78
   %252 = phi i1 [ false, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit86 ], [ true, %_ZN4pkpy14unique_ptr_128INS_12DictItemExprEED2Ev.exit78 ]
-  %.2275 = phi i8 [ %.0, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit86 ], [ %.2276, %_ZN4pkpy14unique_ptr_128INS_12DictItemExprEED2Ev.exit78 ]
+  %.2275 = phi i8 [ 0, %_ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit86 ], [ 1, %_ZN4pkpy14unique_ptr_128INS_12DictItemExprEED2Ev.exit78 ]
   %253 = load ptr, ptr %10, align 8
   %storemerge = getelementptr inbounds nuw i8, ptr %253, i64 8
   store ptr %storemerge, ptr %10, align 8

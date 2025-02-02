@@ -135,7 +135,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   %9 = call { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS0_19from_chars_result_tIcEEPKcS6_RbRT_RT0_NS0_12chars_formatE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %3) #13
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  switch i32 %11, label %84 [
+  switch i32 %11, label %83 [
     i32 75, label %12
     i32 95, label %17
     i32 0, label %28
@@ -147,7 +147,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   %15 = select i1 %14, float 0xFFF0000000000000, float 0x7FF0000000000000
   store float %15, ptr %2, align 4, !tbaa !11
   %16 = insertvalue { ptr, i32 } %9, i32 0, 1
-  br label %84
+  br label %83
 
 17:                                               ; preds = %4
   %18 = load i64, ptr %6, align 8, !tbaa !7
@@ -168,7 +168,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   %storemerge = phi float [ %25, %24 ], [ %23, %22 ]
   store float %storemerge, ptr %2, align 4, !tbaa !11
   %27 = insertvalue { ptr, i32 } %9, i32 0, 1
-  br label %84
+  br label %83
 
 28:                                               ; preds = %4
   %29 = load i64, ptr %6, align 8, !tbaa !7
@@ -181,7 +181,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   %34 = select i1 %33, float -0.000000e+00, float 0.000000e+00
   store float %34, ptr %2, align 4, !tbaa !11
   %35 = insertvalue { ptr, i32 } %9, i32 0, 1
-  br label %84
+  br label %83
 
 36:                                               ; preds = %28
   %37 = load i64, ptr %7, align 8, !tbaa !7
@@ -204,92 +204,84 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21from_chars_f
   %45 = call noundef double @_ZN5boost8charconv6detail15compute_float64ElmbRb(i64 noundef %37, i64 noundef %29, i1 noundef zeroext %39, ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   %46 = load i8, ptr %8, align 1, !tbaa !3, !range !9, !noundef !10
   %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %53
+  br i1 %47, label %48, label %52
 
 48:                                               ; preds = %._crit_edge
   %49 = call double @llvm.fabs.f64(double %45)
   %or.cond.i = fcmp ogt double %49, 0x47EFFFFFE0000000
-  br i1 %or.cond.i, label %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread, label %51
+  br i1 %or.cond.i, label %50, label %79
 
-_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread: ; preds = %48
-  %50 = select i1 %39, float 0xFFF0000000000000, float 0x7FF0000000000000
+50:                                               ; preds = %48
+  %51 = select i1 %39, float 0xFFF0000000000000, float 0x7FF0000000000000
   store i8 0, ptr %8, align 1, !tbaa !3
-  br label %60
+  br label %58
 
-51:                                               ; preds = %48
-  %52 = fptrunc double %45 to float
-  br label %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
+52:                                               ; preds = %._crit_edge
+  %53 = icmp sgt i64 %37, 38
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %._crit_edge
-  %54 = icmp sgt i64 %37, 38
-  br i1 %54, label %55, label %57
+54:                                               ; preds = %52
+  %55 = select i1 %39, float 0xFFF0000000000000, float 0x7FF0000000000000
+  br label %58
 
-55:                                               ; preds = %53
-  %56 = select i1 %39, float 0xFFF0000000000000, float 0x7FF0000000000000
-  br label %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
+56:                                               ; preds = %52
+  %57 = select i1 %39, float -0.000000e+00, float 0.000000e+00
+  br label %58
 
-57:                                               ; preds = %53
-  %58 = select i1 %39, float -0.000000e+00, float 0.000000e+00
-  br label %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
+58:                                               ; preds = %50, %54, %56
+  %.0.i.ph = phi float [ %57, %56 ], [ %55, %54 ], [ %51, %50 ]
+  %59 = load i64, ptr %6, align 8, !tbaa !7
+  %60 = icmp eq i64 %59, 1
+  %61 = load i64, ptr %7, align 8
+  %62 = icmp eq i64 %61, 0
+  %or.cond = select i1 %60, i1 %62, i1 false
+  br i1 %or.cond, label %63, label %66
 
-_ZN5boost8charconv6detail15compute_float32ElmbRb.exit: ; preds = %51, %55, %57
-  %.0.i = phi float [ %52, %51 ], [ %56, %55 ], [ %58, %57 ]
-  %59 = trunc nuw i8 %46 to i1
-  br i1 %59, label %81, label %60
-
-60:                                               ; preds = %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread, %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
-  %.0.i29 = phi float [ %50, %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit.thread ], [ %.0.i, %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit ]
-  %61 = load i64, ptr %6, align 8, !tbaa !7
-  %62 = icmp eq i64 %61, 1
-  %63 = load i64, ptr %7, align 8
-  %64 = icmp eq i64 %63, 0
-  %or.cond = select i1 %62, i1 %64, i1 false
-  br i1 %or.cond, label %65, label %68
-
-65:                                               ; preds = %60
+63:                                               ; preds = %58
   store float 1.000000e+00, ptr %2, align 4, !tbaa !11
-  %66 = insertvalue { ptr, i32 } poison, ptr %1, 0
-  %67 = insertvalue { ptr, i32 } %66, i32 0, 1
-  br label %83
+  %64 = insertvalue { ptr, i32 } poison, ptr %1, 0
+  %65 = insertvalue { ptr, i32 } %64, i32 0, 1
+  br label %82
 
-68:                                               ; preds = %60
-  %69 = call float @llvm.fabs.f32(float %.0.i29)
-  %or.cond3 = fcmp oeq float %69, 0x7FF0000000000000
-  br i1 %or.cond3, label %70, label %72
+66:                                               ; preds = %58
+  %67 = call float @llvm.fabs.f32(float %.0.i.ph)
+  %or.cond3 = fcmp oeq float %67, 0x7FF0000000000000
+  br i1 %or.cond3, label %68, label %70
 
-70:                                               ; preds = %68
-  store float %.0.i29, ptr %2, align 4, !tbaa !11
-  %71 = insertvalue { ptr, i32 } %9, i32 34, 1
-  br label %83
+68:                                               ; preds = %66
+  store float %.0.i.ph, ptr %2, align 4, !tbaa !11
+  %69 = insertvalue { ptr, i32 } %9, i32 34, 1
+  br label %82
 
-72:                                               ; preds = %68
-  %73 = icmp slt i64 %63, -46
-  br i1 %73, label %74, label %79
+70:                                               ; preds = %66
+  %71 = icmp slt i64 %61, -46
+  br i1 %71, label %72, label %77
 
-74:                                               ; preds = %72
-  %75 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
-  %76 = trunc nuw i8 %75 to i1
-  %77 = select i1 %76, float -0.000000e+00, float 0.000000e+00
-  store float %77, ptr %2, align 4, !tbaa !11
-  %78 = insertvalue { ptr, i32 } %9, i32 34, 1
-  br label %83
+72:                                               ; preds = %70
+  %73 = load i8, ptr %5, align 1, !tbaa !3, !range !9, !noundef !10
+  %74 = trunc nuw i8 %73 to i1
+  %75 = select i1 %74, float -0.000000e+00, float 0.000000e+00
+  store float %75, ptr %2, align 4, !tbaa !11
+  %76 = insertvalue { ptr, i32 } %9, i32 34, 1
+  br label %82
 
-79:                                               ; preds = %72
-  %80 = call { ptr, i32 } @_ZN5boost8charconv6detail17from_chars_strtodIfEENS0_19from_chars_result_tIcEEPKcS6_RT_(ptr noundef %0, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %2) #13
-  br label %83
+77:                                               ; preds = %70
+  %78 = call { ptr, i32 } @_ZN5boost8charconv6detail17from_chars_strtodIfEENS0_19from_chars_result_tIcEEPKcS6_RT_(ptr noundef %0, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(4) %2) #13
+  br label %82
 
-81:                                               ; preds = %_ZN5boost8charconv6detail15compute_float32ElmbRb.exit
-  store float %.0.i, ptr %2, align 4, !tbaa !11
-  %82 = insertvalue { ptr, i32 } %9, i32 0, 1
-  br label %83
+79:                                               ; preds = %48
+  %80 = fptrunc double %45 to float
+  store float %80, ptr %2, align 4, !tbaa !11
+  %81 = insertvalue { ptr, i32 } %9, i32 0, 1
+  br label %82
 
-83:                                               ; preds = %65, %74, %79, %70, %81
-  %.merged = phi { ptr, i32 } [ %82, %81 ], [ %67, %65 ], [ %71, %70 ], [ %78, %74 ], [ %80, %79 ]
+82:                                               ; preds = %63, %72, %77, %68, %79
+  %.merged = phi { ptr, i32 } [ %81, %79 ], [ %65, %63 ], [ %69, %68 ], [ %76, %72 ], [ %78, %77 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #13
-  br label %84
+  br label %83
 
-84:                                               ; preds = %4, %83, %31, %26, %12
-  %.fca.1.insert.merged = phi { ptr, i32 } [ %16, %12 ], [ %27, %26 ], [ %35, %31 ], [ %.merged, %83 ], [ %9, %4 ]
+83:                                               ; preds = %4, %82, %31, %26, %12
+  %.fca.1.insert.merged = phi { ptr, i32 } [ %16, %12 ], [ %27, %26 ], [ %35, %31 ], [ %.merged, %82 ], [ %9, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13

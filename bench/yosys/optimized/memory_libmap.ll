@@ -16038,7 +16038,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
   %.0324.lcssa1838.i = phi i1 [ true, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i.i ], [ false, %._crit_edge1395.i ], [ true, %._crit_edge1421.i ]
   %4573 = phi ptr [ %.pre1798.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i.i ], [ %.pre1799.i, %._crit_edge1395.i ], [ %.pre17991842.i, %._crit_edge1421.i ]
   %.2300.i = phi i32 [ %4571, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i.i ], [ %.1299.i, %._crit_edge1395.i ], [ %.1299.i, %._crit_edge1421.i ]
-  %.2294.i = phi i8 [ 1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i.i ], [ %.1293.i, %._crit_edge1395.i ], [ %.1293.i, %._crit_edge1421.i ]
+  %.2294.i = phi i8 [ 1, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i.i ], [ %.1293.i, %._crit_edge1395.i ], [ 1, %._crit_edge1421.i ]
   %4574 = getelementptr inbounds nuw i8, ptr %4573, i64 120
   %4575 = load i32, ptr %4574, align 8
   %.not354.i = icmp eq i32 %4575, 2

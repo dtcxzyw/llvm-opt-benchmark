@@ -2795,7 +2795,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit319:              ; preds = %1074
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %818) #24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %819) #24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %820) #24
+  %.not = xor i1 %1024, true
   %1079 = select i1 %1024, i1 %.0133, i1 false
+  %.0133.mux = select i1 %.not, i1 %.0133, i1 false
   br i1 %1079, label %1080, label %1535
 
 1080:                                             ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit319
@@ -4144,7 +4146,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit341:                 ; preds = %1513, %1510
 
 1535:                                             ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit319, %1531
   %.2140 = phi i32 [ %.4142, %1531 ], [ %.0138, %_ZN2cv3MataSERKNS_7MatExprE.exit319 ]
-  %.2135 = phi i1 [ %1534, %1531 ], [ %.0133, %_ZN2cv3MataSERKNS_7MatExprE.exit319 ]
+  %.2135 = phi i1 [ %1534, %1531 ], [ %.0133.mux, %_ZN2cv3MataSERKNS_7MatExprE.exit319 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %247) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %246, ptr noundef nonnull @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %247)
           to label %1536 unwind label %1551

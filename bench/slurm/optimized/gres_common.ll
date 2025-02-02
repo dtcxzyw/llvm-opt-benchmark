@@ -33,12 +33,13 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i1 @gres_use_local_device_index() #5
+  %.fr = freeze i1 %6
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %103, label %9
+  br i1 %.not, label %122, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 57
@@ -50,213 +51,278 @@ define void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %.not65 = icmp eq ptr %15, null
-  br i1 %.not65, label %103, label %16
+  br i1 %.not65, label %122, label %16
 
 16:                                               ; preds = %13, %9
   %17 = load ptr, ptr %0, align 8
   %.not66 = icmp eq ptr %17, null
-  br i1 %.not66, label %103, label %18
+  br i1 %.not66, label %122, label %18
 
 18:                                               ; preds = %16
   %19 = tail call ptr @slurm_list_iterator_create(ptr noundef nonnull %8) #5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %21 = zext i1 %6 to i32
+  %21 = zext i1 %.fr to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %.outer
+  br i1 %.fr, label %.outer.us, label %.outer
 
-.outer:                                           ; preds = %73, %18
-  %.059.ph = phi ptr [ @.str.4, %73 ], [ @.str, %18 ]
-  %.056.ph = phi i32 [ %.us-phi89, %73 ], [ -1, %18 ]
-  %.054.ph = phi i1 [ true, %73 ], [ false, %18 ]
-  %.052.ph = phi i32 [ %.153, %73 ], [ 0, %18 ]
+.outer.us:                                        ; preds = %18, %34
+  %.059.ph.us = phi ptr [ @.str.4, %34 ], [ @.str, %18 ]
+  %.056.ph.us = phi i32 [ %.15778.us.us, %34 ], [ -1, %18 ]
+  %.054.ph.us = phi i1 [ true, %34 ], [ false, %18 ]
+  %.052.ph.us = phi i64 [ %indvars.iv.next, %34 ], [ 0, %18 ]
+  %sext = shl i64 %.052.ph.us, 32
+  %25 = ashr exact i64 %sext, 32
+  br label %.outer79.us.us
+
+26:                                               ; preds = %.split.us.us
+  %27 = load i32, ptr %50, align 4
+  store i32 %27, ptr %23, align 4
+  br label %28
+
+28:                                               ; preds = %.split.us.us, %26
+  %29 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %30 = load ptr, ptr %29, align 8
+  %.not75.us = icmp eq ptr %30, null
+  %31 = load ptr, ptr %24, align 8
+  br i1 %.not75.us, label %33, label %32
+
+32:                                               ; preds = %28
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %.059.ph.us, ptr noundef %31, ptr noundef nonnull %30) #5
+  br label %34
+
+33:                                               ; preds = %28
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %.059.ph.us, ptr noundef %31, i32 noundef %58) #5
+  br label %34
+
+34:                                               ; preds = %33, %32
+  %35 = load ptr, ptr %24, align 8
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %.059.ph.us, ptr noundef %35, i32 noundef %.0.us.us) #5
+  br label %.outer.us, !llvm.loop !6
+
+.outer79.us.us:                                   ; preds = %53, %.outer.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ %25, %.outer.us ]
+  %.056.ph80.us.us = phi i32 [ %.15778.us.us, %53 ], [ %.056.ph.us, %.outer.us ]
+  %.054.ph81.us.us = phi i1 [ true, %53 ], [ %.054.ph.us, %.outer.us ]
+  br label %.outer84.us.us
+
+36:                                               ; preds = %56
+  %37 = load ptr, ptr %0, align 8
+  %38 = load i32, ptr %57, align 8
+  %39 = sext i32 %38 to i64
+  %40 = call i32 @slurm_bit_test(ptr noundef %37, i64 noundef %39) #5
+  %.not72.us.us = icmp eq i32 %40, 0
+  br i1 %.not72.us.us, label %56, label %41, !llvm.loop !6
+
+41:                                               ; preds = %36
+  %42 = load i32, ptr %57, align 8
+  %43 = icmp slt i32 %.056.ph80.us.us, %42
+  br i1 %43, label %.thread.us.us, label %44
+
+44:                                               ; preds = %41
+  %.not73.us.us = icmp eq i32 %.056.ph80.us.us, %42
+  br i1 %.not73.us.us, label %47, label %45
+
+45:                                               ; preds = %44
+  %46 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, i32 noundef %.056.ph80.us.us, i32 noundef %42) #5
+  br label %47
+
+47:                                               ; preds = %45, %44
+  br i1 %.054.ph85.us.us, label %.outer84.us.us, label %.thread.us.us, !llvm.loop !6
+
+.thread.us.us:                                    ; preds = %47, %41
+  %.15778.us.us = phi i32 [ %.056.ph80.us.us, %47 ], [ %42, %41 ]
+  %48 = load i8, ptr %20, align 8
+  %49 = trunc i8 %48 to i1
+  %50 = getelementptr inbounds nuw i8, ptr %57, i64 20
+  %.0.in.us.us = select i1 %49, ptr %50, ptr %57
+  %.0.us.us = load i32, ptr %.0.in.us.us, align 4
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %51 = load i8, ptr %10, align 1
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %.split.us.us
+
+53:                                               ; preds = %.thread.us.us
+  %54 = load ptr, ptr %22, align 8
+  %55 = call i32 @slurm_bit_test(ptr noundef %54, i64 noundef %indvars.iv) #5
+  %.not74.us.us = icmp eq i32 %55, 0
+  br i1 %.not74.us.us, label %.outer79.us.us, label %.split.us.us, !llvm.loop !6
+
+56:                                               ; preds = %.outer84.us.us, %36
+  %57 = call ptr @slurm_list_next(ptr noundef %19) #5
+  %.not67.us.us = icmp eq ptr %57, null
+  br i1 %.not67.us.us, label %.split99.us.loopexit, label %36
+
+.outer84.us.us:                                   ; preds = %47, %.outer79.us.us
+  %.054.ph85.us.us = phi i1 [ %.054.ph81.us.us, %.outer79.us.us ], [ true, %47 ]
+  br label %56
+
+.split.us.us:                                     ; preds = %53, %.thread.us.us
+  %58 = trunc nsw i64 %indvars.iv to i32
+  br i1 %.054.ph.us, label %28, label %26
+
+.outer:                                           ; preds = %18, %91
+  %.059.ph = phi ptr [ @.str.4, %91 ], [ @.str, %18 ]
+  %.056.ph = phi i32 [ %.15778, %91 ], [ -1, %18 ]
+  %.054.ph = phi i1 [ true, %91 ], [ false, %18 ]
+  %.052.ph = phi i32 [ %.153, %91 ], [ 0, %18 ]
   br label %.outer79
 
-.outer79:                                         ; preds = %.outer, %59
-  %.056.ph80 = phi i32 [ %.056.ph, %.outer ], [ %.us-phi89, %59 ]
-  %.054.ph81 = phi i1 [ %.054.ph, %.outer ], [ true, %59 ]
-  %.052.ph82 = phi i32 [ %.052.ph, %.outer ], [ %.153, %59 ]
-  %25 = call ptr @slurm_list_next(ptr noundef %19) #5
-  %.not6787 = icmp eq ptr %25, null
-  br i1 %.not6787, label %.outer79._crit_edge, label %.lr.ph
+.outer79:                                         ; preds = %.outer, %78
+  %.056.ph80 = phi i32 [ %.056.ph, %.outer ], [ %.15778, %78 ]
+  %.054.ph81 = phi i1 [ %.054.ph, %.outer ], [ true, %78 ]
+  %.052.ph82 = phi i32 [ %.052.ph, %.outer ], [ %.153, %78 ]
+  br label %.outer84
 
-.lr.ph:                                           ; preds = %.outer79
-  br i1 %.054.ph81, label %.lr.ph.split.us, label %.lr.ph.split
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %26 = phi ptr [ %37, %.backedge.us ], [ %25, %.lr.ph ]
-  %27 = load ptr, ptr %0, align 8
-  %28 = load i32, ptr %26, align 8
-  %29 = sext i32 %28 to i64
-  %30 = call i32 @slurm_bit_test(ptr noundef %27, i64 noundef %29) #5
-  %.not72.us = icmp eq i32 %30, 0
-  br i1 %.not72.us, label %.backedge.us, label %31
-
-31:                                               ; preds = %.lr.ph.split.us
-  %32 = load i32, ptr %26, align 8
-  %33 = icmp slt i32 %.056.ph80, %32
-  br i1 %33, label %.thread, label %34
-
-34:                                               ; preds = %31
-  %.not73.us = icmp eq i32 %.056.ph80, %32
-  br i1 %.not73.us, label %.backedge.us, label %35
-
-35:                                               ; preds = %34
-  %36 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, i32 noundef %.056.ph80, i32 noundef %32) #5
-  br label %.backedge.us
-
-.backedge.us:                                     ; preds = %34, %35, %.lr.ph.split.us
-  %37 = call ptr @slurm_list_next(ptr noundef %19) #5
-  %.not67.us = icmp eq ptr %37, null
-  br i1 %.not67.us, label %.outer79._crit_edge, label %.lr.ph.split.us, !llvm.loop !6
-
-.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
-  %38 = phi ptr [ %43, %.backedge ], [ %25, %.lr.ph ]
-  %39 = load ptr, ptr %0, align 8
-  %40 = load i32, ptr %38, align 8
-  %41 = sext i32 %40 to i64
-  %42 = call i32 @slurm_bit_test(ptr noundef %39, i64 noundef %41) #5
-  %.not72 = icmp eq i32 %42, 0
-  br i1 %.not72, label %.backedge, label %44
-
-.backedge:                                        ; preds = %.lr.ph.split
-  %43 = call ptr @slurm_list_next(ptr noundef %19) #5
-  %.not67 = icmp eq ptr %43, null
-  br i1 %.not67, label %.outer79._crit_edge, label %.lr.ph.split, !llvm.loop !6
-
-44:                                               ; preds = %.lr.ph.split
-  %45 = load i32, ptr %38, align 8
-  %46 = icmp slt i32 %.056.ph80, %45
-  br i1 %46, label %.thread, label %47
-
-47:                                               ; preds = %44
-  %.not73 = icmp eq i32 %.056.ph80, %45
-  br i1 %.not73, label %.thread, label %48
-
-48:                                               ; preds = %47
-  %49 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, i32 noundef %.056.ph80, i32 noundef %45) #5
-  br label %.thread
-
-.thread:                                          ; preds = %31, %44, %47, %48
-  %.us-phi = phi ptr [ %38, %48 ], [ %38, %47 ], [ %38, %44 ], [ %26, %31 ]
-  %.us-phi89 = phi i32 [ %.056.ph80, %48 ], [ %.056.ph80, %47 ], [ %45, %44 ], [ %32, %31 ]
-  %50 = load i8, ptr %20, align 8
-  %51 = trunc i8 %50 to i1
-  %52 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 20
-  %.0.in = select i1 %51, ptr %52, ptr %.us-phi
-  %.0 = load i32, ptr %.0.in, align 4
-  %.153 = add nsw i32 %.052.ph82, %21
-  %53 = load i8, ptr %10, align 1
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %55, label %63
-
-55:                                               ; preds = %.thread
-  %56 = load ptr, ptr %22, align 8
-  br i1 %6, label %59, label %57
-
-57:                                               ; preds = %55
-  %58 = load i32, ptr %.us-phi, align 8
+.outer84:                                         ; preds = %.outer79, %72
+  %.054.ph85 = phi i1 [ %.054.ph81, %.outer79 ], [ true, %72 ]
   br label %59
 
-59:                                               ; preds = %55, %57
-  %60 = phi i32 [ %58, %57 ], [ %.052.ph82, %55 ]
-  %61 = sext i32 %60 to i64
-  %62 = call i32 @slurm_bit_test(ptr noundef %56, i64 noundef %61) #5
-  %.not74 = icmp eq i32 %62, 0
-  br i1 %.not74, label %.outer79, label %63, !llvm.loop !6
+59:                                               ; preds = %.outer84, %61
+  %60 = call ptr @slurm_list_next(ptr noundef %19) #5
+  %.not67 = icmp eq ptr %60, null
+  br i1 %.not67, label %.split99.us, label %61
 
-63:                                               ; preds = %59, %.thread
-  %64 = select i1 %6, i32 %.052.ph82, i32 %.0
-  br i1 %.054.ph, label %67, label %65
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %0, align 8
+  %63 = load i32, ptr %60, align 8
+  %64 = sext i32 %63 to i64
+  %65 = call i32 @slurm_bit_test(ptr noundef %62, i64 noundef %64) #5
+  %.not72 = icmp eq i32 %65, 0
+  br i1 %.not72, label %59, label %66, !llvm.loop !6
 
-65:                                               ; preds = %63
-  %66 = load i32, ptr %52, align 4
-  store i32 %66, ptr %23, align 4
-  br label %67
+66:                                               ; preds = %61
+  %67 = load i32, ptr %60, align 8
+  %68 = icmp slt i32 %.056.ph80, %67
+  br i1 %68, label %.thread, label %69
 
-67:                                               ; preds = %65, %63
-  %68 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
-  %69 = load ptr, ptr %68, align 8
-  %.not75 = icmp eq ptr %69, null
-  %70 = load ptr, ptr %24, align 8
-  br i1 %.not75, label %72, label %71
+69:                                               ; preds = %66
+  %.not73 = icmp eq i32 %.056.ph80, %67
+  br i1 %.not73, label %72, label %70
 
-71:                                               ; preds = %67
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %.059.ph, ptr noundef %70, ptr noundef nonnull %69) #5
-  br label %73
+70:                                               ; preds = %69
+  %71 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1, i32 noundef %.056.ph80, i32 noundef %67) #5
+  br label %72
 
-72:                                               ; preds = %67
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %.059.ph, ptr noundef %70, i32 noundef %64) #5
-  br label %73
+72:                                               ; preds = %69, %70
+  br i1 %.054.ph85, label %.outer84, label %.thread, !llvm.loop !6
 
-73:                                               ; preds = %72, %71
-  %74 = load ptr, ptr %24, align 8
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %.059.ph, ptr noundef %74, i32 noundef %.0) #5
+.thread:                                          ; preds = %66, %72
+  %.15778 = phi i32 [ %.056.ph80, %72 ], [ %67, %66 ]
+  %73 = load i8, ptr %20, align 8
+  %74 = trunc i8 %73 to i1
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 20
+  %.0.in = select i1 %74, ptr %75, ptr %60
+  %.0 = load i32, ptr %.0.in, align 4
+  %.153 = add nsw i32 %.052.ph82, %21
+  %76 = load i8, ptr %10, align 1
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %.split
+
+78:                                               ; preds = %.thread
+  %79 = load ptr, ptr %22, align 8
+  %80 = load i32, ptr %60, align 8
+  %81 = sext i32 %80 to i64
+  %82 = call i32 @slurm_bit_test(ptr noundef %79, i64 noundef %81) #5
+  %.not74 = icmp eq i32 %82, 0
+  br i1 %.not74, label %.outer79, label %.split, !llvm.loop !6
+
+.split:                                           ; preds = %78, %.thread
+  br i1 %.054.ph, label %85, label %83
+
+83:                                               ; preds = %.split
+  %84 = load i32, ptr %75, align 4
+  store i32 %84, ptr %23, align 4
+  br label %85
+
+85:                                               ; preds = %83, %.split
+  %86 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %87 = load ptr, ptr %86, align 8
+  %.not75 = icmp eq ptr %87, null
+  %88 = load ptr, ptr %24, align 8
+  br i1 %.not75, label %90, label %89
+
+89:                                               ; preds = %85
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %.059.ph, ptr noundef %88, ptr noundef nonnull %87) #5
+  br label %91
+
+90:                                               ; preds = %85
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %.059.ph, ptr noundef %88, i32 noundef %.0) #5
+  br label %91
+
+91:                                               ; preds = %90, %89
+  %92 = load ptr, ptr %24, align 8
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %.059.ph, ptr noundef %92, i32 noundef %.0) #5
   br label %.outer, !llvm.loop !6
 
-.outer79._crit_edge:                              ; preds = %.outer79, %.backedge, %.backedge.us
+.split99.us.loopexit:                             ; preds = %56
+  %93 = trunc nsw i64 %indvars.iv to i32
+  br label %.split99.us
+
+.split99.us:                                      ; preds = %59, %.split99.us.loopexit
+  %.us-phi100 = phi i32 [ %93, %.split99.us.loopexit ], [ %.052.ph82, %59 ]
   call void @slurm_list_iterator_destroy(ptr noundef %19) #5
-  %75 = load ptr, ptr %2, align 8
-  %.not68 = icmp eq ptr %75, null
-  br i1 %.not68, label %79, label %76
+  %94 = load ptr, ptr %2, align 8
+  %.not68 = icmp eq ptr %94, null
+  br i1 %.not68, label %98, label %95
 
-76:                                               ; preds = %.outer79._crit_edge
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @slurm_xfree(ptr noundef nonnull %77) #5
-  %78 = load ptr, ptr %2, align 8
-  store ptr %78, ptr %77, align 8
-  br label %79
+95:                                               ; preds = %.split99.us
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @slurm_xfree(ptr noundef nonnull %96) #5
+  %97 = load ptr, ptr %2, align 8
+  store ptr %97, ptr %96, align 8
+  br label %98
 
-79:                                               ; preds = %76, %.outer79._crit_edge
-  %80 = load ptr, ptr %3, align 8
-  %.not69 = icmp eq ptr %80, null
-  br i1 %.not69, label %84, label %81
+98:                                               ; preds = %95, %.split99.us
+  %99 = load ptr, ptr %3, align 8
+  %.not69 = icmp eq ptr %99, null
+  br i1 %.not69, label %103, label %100
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @slurm_xfree(ptr noundef nonnull %82) #5
-  %83 = load ptr, ptr %3, align 8
-  store ptr %83, ptr %82, align 8
-  br label %84
-
-84:                                               ; preds = %81, %79
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %86 = load i32, ptr %85, align 8
-  %87 = and i32 %86, 1
-  %.not70 = icmp eq i32 %87, 0
-  br i1 %.not70, label %103, label %88
-
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %22, align 8
-  %.not71 = icmp eq ptr %89, null
-  br i1 %.not71, label %92, label %90
-
-90:                                               ; preds = %88
-  %91 = call ptr @slurm_bit_fmt_hexmask_trim(ptr noundef nonnull %89) #5
-  br label %94
-
-92:                                               ; preds = %88
-  %93 = call ptr @slurm_xstrdup(ptr noundef nonnull @.str.5) #5
-  br label %94
-
-94:                                               ; preds = %92, %90
-  %storemerge = phi ptr [ %93, %92 ], [ %91, %90 ]
-  store ptr %storemerge, ptr %4, align 8
-  %95 = load ptr, ptr %0, align 8
-  %96 = call ptr @slurm_bit_fmt_hexmask_trim(ptr noundef %95) #5
-  store ptr %96, ptr %5, align 8
-  %97 = load ptr, ptr @stderr, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %101 = load ptr, ptr %100, align 8
-  %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.6, ptr noundef %storemerge, ptr noundef %96, i32 noundef %.052.ph82, ptr noundef %99, ptr noundef %101) #6
-  call void @slurm_xfree(ptr noundef nonnull %5) #5
-  call void @slurm_xfree(ptr noundef nonnull %4) #5
+100:                                              ; preds = %98
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @slurm_xfree(ptr noundef nonnull %101) #5
+  %102 = load ptr, ptr %3, align 8
+  store ptr %102, ptr %101, align 8
   br label %103
 
-103:                                              ; preds = %16, %13, %1, %94, %84
+103:                                              ; preds = %100, %98
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = load i32, ptr %104, align 8
+  %106 = and i32 %105, 1
+  %.not70 = icmp eq i32 %106, 0
+  br i1 %.not70, label %122, label %107
+
+107:                                              ; preds = %103
+  %108 = load ptr, ptr %22, align 8
+  %.not71 = icmp eq ptr %108, null
+  br i1 %.not71, label %111, label %109
+
+109:                                              ; preds = %107
+  %110 = call ptr @slurm_bit_fmt_hexmask_trim(ptr noundef nonnull %108) #5
+  br label %113
+
+111:                                              ; preds = %107
+  %112 = call ptr @slurm_xstrdup(ptr noundef nonnull @.str.5) #5
+  br label %113
+
+113:                                              ; preds = %111, %109
+  %storemerge = phi ptr [ %112, %111 ], [ %110, %109 ]
+  store ptr %storemerge, ptr %4, align 8
+  %114 = load ptr, ptr %0, align 8
+  %115 = call ptr @slurm_bit_fmt_hexmask_trim(ptr noundef %114) #5
+  store ptr %115, ptr %5, align 8
+  %116 = load ptr, ptr @stderr, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %120 = load ptr, ptr %119, align 8
+  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.6, ptr noundef %storemerge, ptr noundef %115, i32 noundef %.us-phi100, ptr noundef %118, ptr noundef %120) #6
+  call void @slurm_xfree(ptr noundef nonnull %5) #5
+  call void @slurm_xfree(ptr noundef nonnull %4) #5
+  br label %122
+
+122:                                              ; preds = %16, %13, %1, %113, %103
   ret void
 }
 

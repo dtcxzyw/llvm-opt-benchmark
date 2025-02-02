@@ -31965,7 +31965,7 @@ _ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_11TypePackVarE.exit
   br label %562
 
 562:                                              ; preds = %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_11TypePackVarE.exit230, %539, %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_4TypeE.exit217, %496, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
-  %.2 = phi i8 [ %.0298, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ 1, %496 ], [ %.0.i211, %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_4TypeE.exit217 ], [ 1, %539 ], [ %.0.i224, %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_11TypePackVarE.exit230 ]
+  %.2 = phi i8 [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ 1, %496 ], [ %.0.i211, %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_4TypeE.exit217 ], [ 1, %539 ], [ %.0.i224, %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_11TypePackVarE.exit230 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
   %563 = load i8, ptr %79, align 8
@@ -41947,7 +41947,7 @@ _ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_11TypePackVarE.exit
   br label %562
 
 562:                                              ; preds = %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_11TypePackVarE.exit230, %539, %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_4TypeE.exit217, %496, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
-  %.2 = phi i8 [ %.0298, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ 1, %496 ], [ %.0.i211, %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_4TypeE.exit217 ], [ 1, %539 ], [ %.0.i224, %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_11TypePackVarE.exit230 ]
+  %.2 = phi i8 [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ 1, %496 ], [ %.0.i211, %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_4TypeE.exit217 ], [ 1, %539 ], [ %.0.i224, %_ZN4Luau12TypeChecker218isErrorSuppressingENS_8LocationEPKNS_11TypePackVarE.exit230 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #25
   %563 = load i8, ptr %79, align 8

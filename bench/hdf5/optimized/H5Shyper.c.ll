@@ -5338,7 +5338,7 @@ define range(i32 -1, 1) i32 @H5Sget_select_hyper_blocklist(i64 noundef %0, i64 n
 
 65:                                               ; preds = %55
   %.not22 = icmp eq i64 %2, 0
-  br i1 %.not22, label %202, label %66
+  br i1 %.not22, label %194, label %66
 
 66:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5409,7 +5409,7 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %75, %74
   %100 = phi i32 [ %.pre147.i, %H5S__hyper_rebuild.exit.i ], [ %67, %66 ]
   %101 = phi ptr [ %.pre.i, %H5S__hyper_rebuild.exit.i ], [ %57, %66 ]
   %102 = icmp eq i32 %100, 2
-  br i1 %102, label %103, label %198
+  br i1 %102, label %103, label %190
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %41, i64 56
@@ -5462,152 +5462,137 @@ H5S__hyper_rebuild.exit.i:                        ; preds = %75, %74
   br i1 %exitcond.not.i, label %.lr.ph129.i, label %.lr.ph.i
 
 131:                                              ; preds = %.loopexit.i, %.lr.ph129.i
-  %.078128.i = phi i8 [ 0, %.lr.ph129.i ], [ %.179.i, %.loopexit.i ]
   %.lcssa99121127.i = phi i64 [ %2, %.lr.ph129.i ], [ %.lcssa99.i, %.loopexit.i ]
-  %132 = phi i64 [ %1, %.lr.ph129.i ], [ %164, %.loopexit.i ]
+  %132 = phi i64 [ %1, %.lr.ph129.i ], [ %160, %.loopexit.i ]
   %.lcssa101125126.i = phi ptr [ %3, %.lr.ph129.i ], [ %.lcssa101.i, %.loopexit.i ]
   %.not.i = icmp eq i64 %132, 0
   %.promoted.pre.i = load i64, ptr %111, align 8
-  br i1 %.not.i, label %144, label %133
+  br i1 %.not.i, label %143, label %133
 
 133:                                              ; preds = %131
   %.not87.i = icmp ult i64 %132, %.promoted.pre.i
-  br i1 %.not87.i, label %136, label %.thread.i
+  br i1 %.not87.i, label %135, label %.thread.i
 
 .thread.i:                                        ; preds = %133
   %134 = sub nuw i64 %132, %.promoted.pre.i
-  %135 = icmp ne i64 %.lcssa99121127.i, 0
   br label %._crit_edge.i
 
-136:                                              ; preds = %133
-  %137 = load i64, ptr %112, align 8
-  %138 = mul i64 %137, %132
-  %139 = load i64, ptr %113, align 8
-  %140 = add i64 %139, %138
-  store i64 %140, ptr %113, align 8
-  %141 = load i64, ptr %114, align 8
-  %142 = add i64 %141, %138
-  store i64 %142, ptr %114, align 8
-  %143 = sub nuw i64 %.promoted.pre.i, %132
-  br label %144
+135:                                              ; preds = %133
+  %136 = load i64, ptr %112, align 8
+  %137 = mul i64 %136, %132
+  %138 = load i64, ptr %113, align 8
+  %139 = add i64 %138, %137
+  store i64 %139, ptr %113, align 8
+  %140 = load i64, ptr %114, align 8
+  %141 = add i64 %140, %137
+  store i64 %141, ptr %114, align 8
+  %142 = sub nuw i64 %.promoted.pre.i, %132
+  br label %143
 
-144:                                              ; preds = %136, %131
-  %.promoted.i = phi i64 [ %143, %136 ], [ %.promoted.pre.i, %131 ]
-  %145 = icmp ne i64 %.promoted.i, 0
-  %146 = icmp ne i64 %.lcssa99121127.i, 0
-  %147 = select i1 %145, i1 %146, i1 false
-  br i1 %147, label %.lr.ph102.i, label %._crit_edge.i
+143:                                              ; preds = %135, %131
+  %.promoted.i = phi i64 [ %142, %135 ], [ %.promoted.pre.i, %131 ]
+  %.not62 = icmp eq i64 %.promoted.i, 0
+  br i1 %.not62, label %._crit_edge.i, label %.lr.ph102.i
 
-.lr.ph102.i:                                      ; preds = %144
+.lr.ph102.i:                                      ; preds = %143
   %.promoted108.i = load i64, ptr %113, align 8
   %.promoted109.i = load i64, ptr %114, align 8
-  br label %148
+  br label %144
 
-148:                                              ; preds = %148, %.lr.ph102.i
-  %149 = phi i64 [ %.promoted109.i, %.lr.ph102.i ], [ %159, %148 ]
-  %150 = phi i64 [ %.promoted108.i, %.lr.ph102.i ], [ %158, %148 ]
-  %151 = phi i64 [ %.promoted.i, %.lr.ph102.i ], [ %160, %148 ]
-  %152 = phi i64 [ %.lcssa99121127.i, %.lr.ph102.i ], [ %156, %148 ]
-  %153 = phi ptr [ %.lcssa101125126.i, %.lr.ph102.i ], [ %155, %148 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %153, ptr nonnull align 16 %10, i64 %115, i1 false)
-  %154 = getelementptr inbounds nuw i64, ptr %153, i64 %.pre-phi
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %154, ptr nonnull align 16 %11, i64 %115, i1 false)
-  %155 = getelementptr inbounds nuw i64, ptr %154, i64 %.pre-phi
-  %156 = add i64 %152, -1
-  %157 = load i64, ptr %112, align 8
-  %158 = add i64 %157, %150
-  store i64 %158, ptr %113, align 8
-  %159 = add i64 %157, %149
-  store i64 %159, ptr %114, align 8
-  %160 = add i64 %151, -1
-  %161 = icmp ne i64 %160, 0
-  %162 = icmp ne i64 %156, 0
-  %163 = select i1 %161, i1 %162, i1 false
-  br i1 %163, label %148, label %._crit_edge.i
+144:                                              ; preds = %144, %.lr.ph102.i
+  %145 = phi i64 [ %.promoted109.i, %.lr.ph102.i ], [ %155, %144 ]
+  %146 = phi i64 [ %.promoted108.i, %.lr.ph102.i ], [ %154, %144 ]
+  %147 = phi i64 [ %.promoted.i, %.lr.ph102.i ], [ %156, %144 ]
+  %148 = phi i64 [ %.lcssa99121127.i, %.lr.ph102.i ], [ %152, %144 ]
+  %149 = phi ptr [ %.lcssa101125126.i, %.lr.ph102.i ], [ %151, %144 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %149, ptr nonnull align 16 %10, i64 %115, i1 false)
+  %150 = getelementptr inbounds nuw i64, ptr %149, i64 %.pre-phi
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %150, ptr nonnull align 16 %11, i64 %115, i1 false)
+  %151 = getelementptr inbounds nuw i64, ptr %150, i64 %.pre-phi
+  %152 = add i64 %148, -1
+  %153 = load i64, ptr %112, align 8
+  %154 = add i64 %153, %146
+  store i64 %154, ptr %113, align 8
+  %155 = add i64 %153, %145
+  store i64 %155, ptr %114, align 8
+  %156 = add i64 %147, -1
+  %157 = icmp ne i64 %156, 0
+  %158 = icmp ne i64 %152, 0
+  %159 = select i1 %157, i1 %158, i1 false
+  br i1 %159, label %144, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %148, %144, %.thread.i
-  %164 = phi i64 [ 0, %144 ], [ %134, %.thread.i ], [ 0, %148 ]
-  %.lcssa101.i = phi ptr [ %.lcssa101125126.i, %144 ], [ %.lcssa101125126.i, %.thread.i ], [ %155, %148 ]
-  %.lcssa99.i = phi i64 [ %.lcssa99121127.i, %144 ], [ %.lcssa99121127.i, %.thread.i ], [ %156, %148 ]
-  %.lcssa97.i = phi i64 [ %.promoted.i, %144 ], [ 0, %.thread.i ], [ %160, %148 ]
-  %.lcssa.i = phi i1 [ %146, %144 ], [ %135, %.thread.i ], [ %162, %148 ]
+._crit_edge.i:                                    ; preds = %144, %143, %.thread.i
+  %160 = phi i64 [ 0, %143 ], [ %134, %.thread.i ], [ 0, %144 ]
+  %.lcssa101.i = phi ptr [ %.lcssa101125126.i, %143 ], [ %.lcssa101125126.i, %.thread.i ], [ %151, %144 ]
+  %.lcssa99.i = phi i64 [ %.lcssa99121127.i, %143 ], [ %.lcssa99121127.i, %.thread.i ], [ %152, %144 ]
+  %.lcssa97.i = phi i64 [ %.promoted.i, %143 ], [ 0, %.thread.i ], [ %156, %144 ]
+  %.lcssa.i = phi i1 [ true, %143 ], [ true, %.thread.i ], [ %158, %144 ]
   store i64 %.lcssa97.i, ptr %111, align 8
   %or.cond.i = select i1 %116, i1 %.lcssa.i, i1 false
-  br i1 %or.cond.i, label %165, label %.loopexit91.i
+  br i1 %or.cond.i, label %161, label %.loopexit91.i
 
-165:                                              ; preds = %._crit_edge.i
-  %166 = load i64, ptr %117, align 8
-  store i64 %166, ptr %111, align 8
-  %167 = trunc nuw i8 %.078128.i to i1
-  %.not89110.i = select i1 %119, i1 true, i1 %167
-  br i1 %.not89110.i, label %.loopexit91.i, label %.lr.ph114.i
+161:                                              ; preds = %._crit_edge.i
+  %162 = load i64, ptr %117, align 8
+  store i64 %162, ptr %111, align 8
+  br i1 %119, label %.loopexit91.i, label %.lr.ph114.i
 
-.lr.ph114.i:                                      ; preds = %165, %172
-  %.0112.i = phi i32 [ %176, %172 ], [ %118, %165 ]
-  %.2111.i = phi i8 [ %spec.select.i, %172 ], [ %.078128.i, %165 ]
-  %168 = zext nneg i32 %.0112.i to i64
-  %169 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %168
-  %170 = load i64, ptr %169, align 8
-  %171 = add i64 %170, -1
-  store i64 %171, ptr %169, align 8
-  %.not90.i = icmp eq i64 %171, 0
-  br i1 %.not90.i, label %172, label %.loopexit91.i
+.lr.ph114.i:                                      ; preds = %161, %167
+  %.0112.i = phi i32 [ %170, %167 ], [ %118, %161 ]
+  %163 = zext nneg i32 %.0112.i to i64
+  %164 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %163
+  %165 = load i64, ptr %164, align 8
+  %166 = add i64 %165, -1
+  store i64 %166, ptr %164, align 8
+  %.not90.i = icmp eq i64 %166, 0
+  br i1 %.not90.i, label %167, label %.loopexit91.i
 
-172:                                              ; preds = %.lr.ph114.i
-  %173 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %.081.i, i64 %168, i32 2
-  %174 = load i64, ptr %173, align 8
-  store i64 %174, ptr %169, align 8
-  %175 = icmp eq i32 %.0112.i, 0
-  %spec.select.i = select i1 %175, i8 1, i8 %.2111.i
-  %176 = add nsw i32 %.0112.i, -1
-  %177 = icmp slt i32 %.0112.i, 1
-  %178 = trunc nuw i8 %spec.select.i to i1
-  %.not89.i = select i1 %177, i1 true, i1 %178
-  br i1 %.not89.i, label %.loopexit91.i, label %.lr.ph114.i
+167:                                              ; preds = %.lr.ph114.i
+  %168 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %.081.i, i64 %163, i32 2
+  %169 = load i64, ptr %168, align 8
+  store i64 %169, ptr %164, align 8
+  %170 = add nsw i32 %.0112.i, -1
+  %171 = icmp slt i32 %.0112.i, 1
+  br i1 %171, label %H5S__get_select_hyper_blocklist.exit, label %.lr.ph114.i
 
-.loopexit91.i:                                    ; preds = %172, %.lr.ph114.i, %165, %._crit_edge.i
-  %.179.i = phi i8 [ %.078128.i, %._crit_edge.i ], [ %.078128.i, %165 ], [ %spec.select.i, %172 ], [ %.2111.i, %.lr.ph114.i ]
-  %179 = trunc nuw i8 %.179.i to i1
-  %brmerge.i = or i1 %.not134.i, %179
-  br i1 %brmerge.i, label %.loopexit.i, label %.lr.ph119.i
+.loopexit91.i:                                    ; preds = %.lr.ph114.i, %161, %._crit_edge.i
+  br i1 %.not134.i, label %.loopexit.i, label %.lr.ph119.i
 
 .lr.ph119.i:                                      ; preds = %.loopexit91.i, %.lr.ph119.i
   %indvars.iv142.i = phi i64 [ %indvars.iv.next143.i, %.lr.ph119.i ], [ 0, %.loopexit91.i ]
-  %180 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %.081.i, i64 %indvars.iv142.i
-  %181 = load i64, ptr %180, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %183 = load i64, ptr %182, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  %172 = getelementptr inbounds nuw %struct.H5S_hyper_dim_t, ptr %.081.i, i64 %indvars.iv142.i
+  %173 = load i64, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %175 = load i64, ptr %174, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 16
+  %177 = load i64, ptr %176, align 8
+  %178 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv142.i
+  %179 = load i64, ptr %178, align 8
+  %180 = sub i64 %177, %179
+  %181 = mul i64 %180, %175
+  %182 = add i64 %181, %173
+  %183 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %indvars.iv142.i
+  store i64 %182, ptr %183, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %185 = load i64, ptr %184, align 8
-  %186 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv142.i
-  %187 = load i64, ptr %186, align 8
-  %188 = sub i64 %185, %187
-  %189 = mul i64 %188, %183
-  %190 = add i64 %189, %181
-  %191 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %indvars.iv142.i
-  store i64 %190, ptr %191, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %193 = load i64, ptr %192, align 8
-  %194 = add i64 %193, -1
-  %195 = add i64 %194, %190
-  %196 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv142.i
-  store i64 %195, ptr %196, align 8
+  %186 = add i64 %185, -1
+  %187 = add i64 %186, %182
+  %188 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv142.i
+  store i64 %187, ptr %188, align 8
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 1
   %exitcond146.not.i = icmp eq i64 %indvars.iv.next143.i, %.pre-phi
   br i1 %exitcond146.not.i, label %.loopexit.i, label %.lr.ph119.i
 
 .loopexit.i:                                      ; preds = %.lr.ph119.i, %.loopexit91.i
-  %197 = icmp eq i64 %.lcssa99.i, 0
-  %.not86.i = select i1 %179, i1 true, i1 %197
-  br i1 %.not86.i, label %H5S__get_select_hyper_blocklist.exit, label %131
+  %189 = icmp eq i64 %.lcssa99.i, 0
+  br i1 %189, label %H5S__get_select_hyper_blocklist.exit, label %131
 
-198:                                              ; preds = %99
-  %199 = getelementptr inbounds nuw i8, ptr %101, i64 2584
-  %200 = load ptr, ptr %199, align 8
-  call fastcc void @H5S__hyper_span_blocklist(ptr noundef %200, ptr noundef %12, ptr noundef %13, i64 noundef 0, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+190:                                              ; preds = %99
+  %191 = getelementptr inbounds nuw i8, ptr %101, i64 2584
+  %192 = load ptr, ptr %191, align 8
+  call fastcc void @H5S__hyper_span_blocklist(ptr noundef %192, ptr noundef %12, ptr noundef %13, i64 noundef 0, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   br label %H5S__get_select_hyper_blocklist.exit
 
-H5S__get_select_hyper_blocklist.exit:             ; preds = %.loopexit.i, %198
+H5S__get_select_hyper_blocklist.exit:             ; preds = %.loopexit.i, %167, %190
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -5616,22 +5601,22 @@ H5S__get_select_hyper_blocklist.exit:             ; preds = %.loopexit.i, %198
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13)
-  br label %202
+  br label %194
 
 .thread37:                                        ; preds = %61, %51, %43, %36
-  %201 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #15
+  %193 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #15
   br label %.thread31
 
-202:                                              ; preds = %65, %H5S__get_select_hyper_blocklist.exit
-  %203 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #15
-  br label %205
+194:                                              ; preds = %65, %H5S__get_select_hyper_blocklist.exit
+  %195 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #15
+  br label %197
 
 .thread31:                                        ; preds = %29, %22, %.thread37
-  %204 = tail call i32 @H5E_dump_api_stack() #15
-  br label %205
+  %196 = tail call i32 @H5E_dump_api_stack() #15
+  br label %197
 
-205:                                              ; preds = %202, %.thread31
-  %.0182634 = phi i32 [ -1, %.thread31 ], [ 0, %202 ]
+197:                                              ; preds = %194, %.thread31
+  %.0182634 = phi i32 [ -1, %.thread31 ], [ 0, %194 ]
   ret i32 %.0182634
 }
 
@@ -17278,137 +17263,140 @@ thread-pre-split482:                              ; preds = %610, %674, %663
   br label %752
 
 752:                                              ; preds = %.sink.split, %734, %713, %717, %581, %585, %561, %563, %417, %271, %240, %87
-  %.1371 = phi i8 [ %.0370828, %87 ], [ 1, %240 ], [ %.0370828, %271 ], [ %.0370828, %417 ], [ 1, %563 ], [ 1, %561 ], [ %.0370828, %581 ], [ 0, %585 ], [ %.0370828, %713 ], [ 0, %717 ], [ %.0370828, %734 ], [ %.1371.ph, %.sink.split ]
+  %.1371 = phi i8 [ %.0370828, %87 ], [ 1, %240 ], [ 0, %271 ], [ 0, %417 ], [ 1, %563 ], [ 1, %561 ], [ 0, %581 ], [ 0, %585 ], [ 0, %713 ], [ 0, %717 ], [ 0, %734 ], [ %.1371.ph, %.sink.split ]
   %.2369 = phi i8 [ %.0367829, %87 ], [ %.3, %240 ], [ %.4, %271 ], [ 1, %417 ], [ %.5, %563 ], [ %.5, %561 ], [ %.6, %581 ], [ %.6, %585 ], [ 1, %713 ], [ 1, %717 ], [ %.0367829, %734 ], [ %.2369.ph, %.sink.split ]
   %.1365 = phi ptr [ %.0364830, %87 ], [ %206, %240 ], [ %273, %271 ], [ %419, %417 ], [ %533, %563 ], [ %533, %561 ], [ %583, %581 ], [ %583, %585 ], [ %715, %713 ], [ %715, %717 ], [ %736, %734 ], [ %.1365.ph, %.sink.split ]
   %.1 = phi ptr [ %89, %87 ], [ %225, %240 ], [ %256, %271 ], [ %385, %417 ], [ %552, %563 ], [ %552, %561 ], [ %572, %581 ], [ %572, %585 ], [ %687, %713 ], [ %687, %717 ], [ %.0363831, %734 ], [ %.1.ph, %.sink.split ]
   %753 = icmp ne ptr %.1, null
   %754 = icmp ne ptr %.1365, null
   %755 = select i1 %753, i1 %754, i1 false
-  br i1 %755, label %71, label %._crit_edge
+  br i1 %755, label %71, label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %752, %62
-  %.0370.lcssa = phi i8 [ 0, %62 ], [ %.1371, %752 ]
-  %.0367.lcssa = phi i8 [ 0, %62 ], [ %.2369, %752 ]
-  %.0364.lcssa = phi ptr [ %66, %62 ], [ %.1365, %752 ]
-  %.0363.lcssa = phi ptr [ %64, %62 ], [ %.1, %752 ]
-  %.lcssa547 = phi i1 [ %67, %62 ], [ %753, %752 ]
-  %.lcssa = phi i1 [ %68, %62 ], [ %754, %752 ]
-  %756 = icmp eq ptr %.0364.lcssa, null
-  %or.cond3 = select i1 %.lcssa547, i1 %756, i1 false
-  br i1 %or.cond3, label %757, label %796
+._crit_edge.loopexit:                             ; preds = %752
+  %756 = trunc nuw i8 %.1371 to i1
+  br label %._crit_edge
 
-757:                                              ; preds = %._crit_edge
-  br i1 %.not, label %787, label %.preheader
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %62
+  %.0370.lcssa = phi i1 [ false, %62 ], [ %756, %._crit_edge.loopexit ]
+  %.0367.lcssa = phi i8 [ 0, %62 ], [ %.2369, %._crit_edge.loopexit ]
+  %.0364.lcssa = phi ptr [ %66, %62 ], [ %.1365, %._crit_edge.loopexit ]
+  %.0363.lcssa = phi ptr [ %64, %62 ], [ %.1, %._crit_edge.loopexit ]
+  %.lcssa547 = phi i1 [ %67, %62 ], [ %753, %._crit_edge.loopexit ]
+  %.lcssa = phi i1 [ %68, %62 ], [ %754, %._crit_edge.loopexit ]
+  %757 = icmp eq ptr %.0364.lcssa, null
+  %or.cond3 = select i1 %.lcssa547, i1 %757, i1 false
+  br i1 %or.cond3, label %758, label %797
 
-.preheader:                                       ; preds = %757
+758:                                              ; preds = %._crit_edge
+  br i1 %.not, label %788, label %.preheader
+
+.preheader:                                       ; preds = %758
   %.not415841 = icmp eq ptr %.0363.lcssa, null
   br i1 %.not415841, label %.loopexit, label %.lr.ph844
 
-.lr.ph844:                                        ; preds = %.preheader, %786
-  %.2843 = phi ptr [ %771, %786 ], [ %.0363.lcssa, %.preheader ]
-  %.7842 = phi i8 [ %.8, %786 ], [ %.0367.lcssa, %.preheader ]
-  %758 = load i64, ptr %.2843, align 8
-  %759 = getelementptr inbounds nuw i8, ptr %.2843, i64 8
-  %760 = load i64, ptr %759, align 8
-  %761 = getelementptr inbounds nuw i8, ptr %.2843, i64 16
-  %762 = load ptr, ptr %761, align 8
-  %763 = tail call fastcc i32 @H5S__hyper_append_span(ptr noundef %4, i32 noundef %3, i64 noundef %758, i64 noundef %760, ptr noundef %762)
-  %764 = icmp slt i32 %763, 0
-  br i1 %764, label %765, label %769
+.lr.ph844:                                        ; preds = %.preheader, %787
+  %.2843 = phi ptr [ %772, %787 ], [ %.0363.lcssa, %.preheader ]
+  %.7842 = phi i8 [ %.8, %787 ], [ %.0367.lcssa, %.preheader ]
+  %759 = load i64, ptr %.2843, align 8
+  %760 = getelementptr inbounds nuw i8, ptr %.2843, i64 8
+  %761 = load i64, ptr %760, align 8
+  %762 = getelementptr inbounds nuw i8, ptr %.2843, i64 16
+  %763 = load ptr, ptr %762, align 8
+  %764 = tail call fastcc i32 @H5S__hyper_append_span(ptr noundef %4, i32 noundef %3, i64 noundef %759, i64 noundef %761, ptr noundef %763)
+  %765 = icmp slt i32 %764, 0
+  br i1 %765, label %766, label %770
 
-765:                                              ; preds = %.lr.ph844
-  %766 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %767 = load i64, ptr @H5E_CANTAPPEND_g, align 8
-  %768 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 7964, i64 noundef %766, i64 noundef %767, ptr noundef nonnull @.str.88) #15
+766:                                              ; preds = %.lr.ph844
+  %767 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %768 = load i64, ptr @H5E_CANTAPPEND_g, align 8
+  %769 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 7964, i64 noundef %767, i64 noundef %768, ptr noundef nonnull @.str.88) #15
   br label %.loopexit
 
-769:                                              ; preds = %.lr.ph844
-  %770 = getelementptr inbounds nuw i8, ptr %.2843, i64 24
-  %771 = load ptr, ptr %770, align 8
-  %772 = trunc i8 %.7842 to i1
-  br i1 %772, label %773, label %786
+770:                                              ; preds = %.lr.ph844
+  %771 = getelementptr inbounds nuw i8, ptr %.2843, i64 24
+  %772 = load ptr, ptr %771, align 8
+  %773 = trunc i8 %.7842 to i1
+  br i1 %773, label %774, label %787
 
-773:                                              ; preds = %769
-  %774 = load ptr, ptr %761, align 8
-  %.not.i468 = icmp eq ptr %774, null
-  br i1 %.not.i468, label %H5S__hyper_free_span.exit470, label %775
+774:                                              ; preds = %770
+  %775 = load ptr, ptr %762, align 8
+  %.not.i468 = icmp eq ptr %775, null
+  br i1 %.not.i468, label %H5S__hyper_free_span.exit470, label %776
 
-775:                                              ; preds = %773
-  %776 = tail call fastcc i32 @H5S__hyper_free_span_info(ptr noundef nonnull %774)
-  %777 = icmp slt i32 %776, 0
-  br i1 %777, label %779, label %H5S__hyper_free_span.exit470
+776:                                              ; preds = %774
+  %777 = tail call fastcc i32 @H5S__hyper_free_span_info(ptr noundef nonnull %775)
+  %778 = icmp slt i32 %777, 0
+  br i1 %778, label %780, label %H5S__hyper_free_span.exit470
 
-H5S__hyper_free_span.exit470:                     ; preds = %773, %775
-  %778 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_hyper_span_t_reg_free_list, ptr noundef nonnull %.2843) #15
-  br label %786
+H5S__hyper_free_span.exit470:                     ; preds = %774, %776
+  %779 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_hyper_span_t_reg_free_list, ptr noundef nonnull %.2843) #15
+  br label %787
 
-779:                                              ; preds = %775
-  %780 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %781 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %782 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_free_span, i32 noundef 3169, i64 noundef %780, i64 noundef %781, ptr noundef nonnull @.str.12) #15
-  %783 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %784 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %785 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 7967, i64 noundef %783, i64 noundef %784, ptr noundef nonnull @.str.91) #15
+780:                                              ; preds = %776
+  %781 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %782 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %783 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_free_span, i32 noundef 3169, i64 noundef %781, i64 noundef %782, ptr noundef nonnull @.str.12) #15
+  %784 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %785 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %786 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 7967, i64 noundef %784, i64 noundef %785, ptr noundef nonnull @.str.91) #15
   br label %.loopexit
 
-786:                                              ; preds = %H5S__hyper_free_span.exit470, %769
-  %.8 = phi i8 [ %.7842, %769 ], [ 0, %H5S__hyper_free_span.exit470 ]
-  %.not415 = icmp eq ptr %771, null
+787:                                              ; preds = %H5S__hyper_free_span.exit470, %770
+  %.8 = phi i8 [ %.7842, %770 ], [ 0, %H5S__hyper_free_span.exit470 ]
+  %.not415 = icmp eq ptr %772, null
   br i1 %.not415, label %.loopexit, label %.lr.ph844
 
-787:                                              ; preds = %757
-  %788 = trunc i8 %.0367.lcssa to i1
-  br i1 %788, label %789, label %.loopexit
+788:                                              ; preds = %758
+  %789 = trunc i8 %.0367.lcssa to i1
+  br i1 %789, label %790, label %.loopexit
 
-789:                                              ; preds = %787
-  %790 = tail call fastcc i32 @H5S__hyper_free_span(ptr noundef nonnull %.0363.lcssa)
-  %791 = icmp slt i32 %790, 0
-  br i1 %791, label %792, label %.loopexit
+790:                                              ; preds = %788
+  %791 = tail call fastcc i32 @H5S__hyper_free_span(ptr noundef nonnull %.0363.lcssa)
+  %792 = icmp slt i32 %791, 0
+  br i1 %792, label %793, label %.loopexit
 
-792:                                              ; preds = %789
-  %793 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %794 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %795 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 7974, i64 noundef %793, i64 noundef %794, ptr noundef nonnull @.str.91) #15
+793:                                              ; preds = %790
+  %794 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %795 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %796 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 7974, i64 noundef %794, i64 noundef %795, ptr noundef nonnull @.str.91) #15
   br label %.loopexit
 
-796:                                              ; preds = %._crit_edge
-  %797 = icmp eq ptr %.0363.lcssa, null
-  %or.cond5 = select i1 %797, i1 %.lcssa, i1 false
-  br i1 %or.cond5, label %798, label %.loopexit
+797:                                              ; preds = %._crit_edge
+  %798 = icmp eq ptr %.0363.lcssa, null
+  %or.cond5 = select i1 %798, i1 %.lcssa, i1 false
+  br i1 %or.cond5, label %799, label %.loopexit
 
-798:                                              ; preds = %796
+799:                                              ; preds = %797
   br i1 %.not413, label %828, label %.preheader489
 
-.preheader489:                                    ; preds = %798
-  br i1 %756, label %.loopexit, label %.lr.ph840
+.preheader489:                                    ; preds = %799
+  br i1 %757, label %.loopexit, label %.lr.ph840
 
 .lr.ph840:                                        ; preds = %.preheader489, %827
-  %.2366839 = phi ptr [ %812, %827 ], [ %.0364.lcssa, %.preheader489 ]
-  %.7377838 = phi i8 [ %.8378, %827 ], [ %.0370.lcssa, %.preheader489 ]
-  %799 = load i64, ptr %.2366839, align 8
-  %800 = getelementptr inbounds nuw i8, ptr %.2366839, i64 8
-  %801 = load i64, ptr %800, align 8
-  %802 = getelementptr inbounds nuw i8, ptr %.2366839, i64 16
-  %803 = load ptr, ptr %802, align 8
-  %804 = tail call fastcc i32 @H5S__hyper_append_span(ptr noundef %6, i32 noundef %3, i64 noundef %799, i64 noundef %801, ptr noundef %803)
-  %805 = icmp slt i32 %804, 0
-  br i1 %805, label %806, label %810
+  %.2366839 = phi ptr [ %813, %827 ], [ %.0364.lcssa, %.preheader489 ]
+  %.7377838 = phi i1 [ false, %827 ], [ %.0370.lcssa, %.preheader489 ]
+  %800 = load i64, ptr %.2366839, align 8
+  %801 = getelementptr inbounds nuw i8, ptr %.2366839, i64 8
+  %802 = load i64, ptr %801, align 8
+  %803 = getelementptr inbounds nuw i8, ptr %.2366839, i64 16
+  %804 = load ptr, ptr %803, align 8
+  %805 = tail call fastcc i32 @H5S__hyper_append_span(ptr noundef %6, i32 noundef %3, i64 noundef %800, i64 noundef %802, ptr noundef %804)
+  %806 = icmp slt i32 %805, 0
+  br i1 %806, label %807, label %811
 
-806:                                              ; preds = %.lr.ph840
-  %807 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %808 = load i64, ptr @H5E_CANTAPPEND_g, align 8
-  %809 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 7992, i64 noundef %807, i64 noundef %808, ptr noundef nonnull @.str.88) #15
+807:                                              ; preds = %.lr.ph840
+  %808 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %809 = load i64, ptr @H5E_CANTAPPEND_g, align 8
+  %810 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 7992, i64 noundef %808, i64 noundef %809, ptr noundef nonnull @.str.88) #15
   br label %.loopexit
 
-810:                                              ; preds = %.lr.ph840
-  %811 = getelementptr inbounds nuw i8, ptr %.2366839, i64 24
-  %812 = load ptr, ptr %811, align 8
-  %813 = trunc nuw i8 %.7377838 to i1
-  br i1 %813, label %814, label %827
+811:                                              ; preds = %.lr.ph840
+  %812 = getelementptr inbounds nuw i8, ptr %.2366839, i64 24
+  %813 = load ptr, ptr %812, align 8
+  br i1 %.7377838, label %814, label %827
 
-814:                                              ; preds = %810
-  %815 = load ptr, ptr %802, align 8
+814:                                              ; preds = %811
+  %815 = load ptr, ptr %803, align 8
   %.not.i471 = icmp eq ptr %815, null
   br i1 %.not.i471, label %H5S__hyper_free_span.exit473, label %816
 
@@ -17430,28 +17418,26 @@ H5S__hyper_free_span.exit473:                     ; preds = %814, %816
   %826 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 7995, i64 noundef %824, i64 noundef %825, ptr noundef nonnull @.str.91) #15
   br label %.loopexit
 
-827:                                              ; preds = %H5S__hyper_free_span.exit473, %810
-  %.8378 = phi i8 [ %.7377838, %810 ], [ 0, %H5S__hyper_free_span.exit473 ]
-  %.not414 = icmp eq ptr %812, null
+827:                                              ; preds = %H5S__hyper_free_span.exit473, %811
+  %.not414 = icmp eq ptr %813, null
   br i1 %.not414, label %.loopexit, label %.lr.ph840
 
-828:                                              ; preds = %798
-  %829 = trunc nuw i8 %.0370.lcssa to i1
-  br i1 %829, label %830, label %.loopexit
+828:                                              ; preds = %799
+  br i1 %.0370.lcssa, label %829, label %.loopexit
 
-830:                                              ; preds = %828
-  %831 = tail call fastcc i32 @H5S__hyper_free_span(ptr noundef nonnull %.0364.lcssa)
-  %832 = icmp slt i32 %831, 0
-  br i1 %832, label %833, label %.loopexit
+829:                                              ; preds = %828
+  %830 = tail call fastcc i32 @H5S__hyper_free_span(ptr noundef nonnull %.0364.lcssa)
+  %831 = icmp slt i32 %830, 0
+  br i1 %831, label %832, label %.loopexit
 
-833:                                              ; preds = %830
-  %834 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %835 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %836 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 8002, i64 noundef %834, i64 noundef %835, ptr noundef nonnull @.str.91) #15
+832:                                              ; preds = %829
+  %833 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %834 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %835 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_clip_spans, i32 noundef 8002, i64 noundef %833, i64 noundef %834, ptr noundef nonnull @.str.91) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %827, %786, %.preheader489, %.preheader, %H5S__hyper_copy_span.exit439, %H5S__hyper_copy_span.exit438, %H5S__hyper_copy_span.exit, %15, %45, %787, %789, %796, %830, %828, %61, %30, %833, %820, %806, %792, %779, %765, %744, %730, %720, %709, %697, %677, %670, %659, %652, %641, %634, %623, %614, %601, %588, %577, %566, %557, %543, %520, %513, %502, %495, %484, %477, %466, %457, %443, %427, %410, %395, %375, %368, %357, %350, %339, %332, %321, %312, %299, %281, %264, %247, %233, %216, %193, %186, %175, %168, %157, %150, %139, %130, %116, %97, %83, %54, %38, %23
-  %.0 = phi i32 [ 0, %15 ], [ -1, %23 ], [ 0, %H5S__hyper_copy_span.exit ], [ 0, %30 ], [ -1, %38 ], [ 0, %H5S__hyper_copy_span.exit438 ], [ 0, %45 ], [ -1, %54 ], [ 0, %H5S__hyper_copy_span.exit439 ], [ 0, %61 ], [ -1, %83 ], [ -1, %97 ], [ -1, %116 ], [ -1, %130 ], [ -1, %216 ], [ -1, %233 ], [ -1, %247 ], [ -1, %264 ], [ -1, %281 ], [ -1, %139 ], [ -1, %150 ], [ -1, %157 ], [ -1, %168 ], [ -1, %175 ], [ -1, %186 ], [ -1, %193 ], [ -1, %299 ], [ -1, %312 ], [ -1, %395 ], [ -1, %410 ], [ -1, %427 ], [ -1, %321 ], [ -1, %332 ], [ -1, %339 ], [ -1, %350 ], [ -1, %357 ], [ -1, %368 ], [ -1, %375 ], [ -1, %443 ], [ -1, %457 ], [ -1, %543 ], [ -1, %557 ], [ -1, %566 ], [ -1, %577 ], [ -1, %588 ], [ -1, %466 ], [ -1, %477 ], [ -1, %484 ], [ -1, %495 ], [ -1, %502 ], [ -1, %513 ], [ -1, %520 ], [ -1, %601 ], [ -1, %614 ], [ -1, %697 ], [ -1, %709 ], [ -1, %720 ], [ -1, %623 ], [ -1, %634 ], [ -1, %641 ], [ -1, %652 ], [ -1, %659 ], [ -1, %670 ], [ -1, %677 ], [ -1, %730 ], [ -1, %744 ], [ -1, %765 ], [ -1, %779 ], [ -1, %792 ], [ 0, %789 ], [ 0, %787 ], [ -1, %806 ], [ -1, %820 ], [ -1, %833 ], [ 0, %830 ], [ 0, %828 ], [ 0, %796 ], [ 0, %.preheader ], [ 0, %.preheader489 ], [ 0, %786 ], [ 0, %827 ]
+.loopexit:                                        ; preds = %827, %787, %.preheader489, %.preheader, %H5S__hyper_copy_span.exit439, %H5S__hyper_copy_span.exit438, %H5S__hyper_copy_span.exit, %15, %45, %788, %790, %797, %829, %828, %61, %30, %832, %820, %807, %793, %780, %766, %744, %730, %720, %709, %697, %677, %670, %659, %652, %641, %634, %623, %614, %601, %588, %577, %566, %557, %543, %520, %513, %502, %495, %484, %477, %466, %457, %443, %427, %410, %395, %375, %368, %357, %350, %339, %332, %321, %312, %299, %281, %264, %247, %233, %216, %193, %186, %175, %168, %157, %150, %139, %130, %116, %97, %83, %54, %38, %23
+  %.0 = phi i32 [ 0, %15 ], [ -1, %23 ], [ 0, %H5S__hyper_copy_span.exit ], [ 0, %30 ], [ -1, %38 ], [ 0, %H5S__hyper_copy_span.exit438 ], [ 0, %45 ], [ -1, %54 ], [ 0, %H5S__hyper_copy_span.exit439 ], [ 0, %61 ], [ -1, %83 ], [ -1, %97 ], [ -1, %116 ], [ -1, %130 ], [ -1, %216 ], [ -1, %233 ], [ -1, %247 ], [ -1, %264 ], [ -1, %281 ], [ -1, %139 ], [ -1, %150 ], [ -1, %157 ], [ -1, %168 ], [ -1, %175 ], [ -1, %186 ], [ -1, %193 ], [ -1, %299 ], [ -1, %312 ], [ -1, %395 ], [ -1, %410 ], [ -1, %427 ], [ -1, %321 ], [ -1, %332 ], [ -1, %339 ], [ -1, %350 ], [ -1, %357 ], [ -1, %368 ], [ -1, %375 ], [ -1, %443 ], [ -1, %457 ], [ -1, %543 ], [ -1, %557 ], [ -1, %566 ], [ -1, %577 ], [ -1, %588 ], [ -1, %466 ], [ -1, %477 ], [ -1, %484 ], [ -1, %495 ], [ -1, %502 ], [ -1, %513 ], [ -1, %520 ], [ -1, %601 ], [ -1, %614 ], [ -1, %697 ], [ -1, %709 ], [ -1, %720 ], [ -1, %623 ], [ -1, %634 ], [ -1, %641 ], [ -1, %652 ], [ -1, %659 ], [ -1, %670 ], [ -1, %677 ], [ -1, %730 ], [ -1, %744 ], [ -1, %766 ], [ -1, %780 ], [ -1, %793 ], [ 0, %790 ], [ 0, %788 ], [ -1, %807 ], [ -1, %820 ], [ -1, %832 ], [ 0, %829 ], [ 0, %828 ], [ 0, %797 ], [ 0, %.preheader ], [ 0, %.preheader489 ], [ 0, %787 ], [ 0, %827 ]
   ret i32 %.0
 }
 
@@ -18660,110 +18646,113 @@ H5S__hyper_free_span.exit356:                     ; preds = %491, %493
   br label %546
 
 546:                                              ; preds = %.sink.split, %529, %504, %407, %376, %275, %177, %146, %44
-  %.1277 = phi i8 [ %.0276606, %44 ], [ 1, %146 ], [ %.0276606, %177 ], [ %.0276606, %275 ], [ 1, %376 ], [ %.0276606, %407 ], [ %.0276606, %504 ], [ %.0276606, %529 ], [ %.1277.ph, %.sink.split ]
+  %.1277 = phi i8 [ %.0276606, %44 ], [ 1, %146 ], [ 0, %177 ], [ 0, %275 ], [ 1, %376 ], [ 0, %407 ], [ 0, %504 ], [ 0, %529 ], [ %.1277.ph, %.sink.split ]
   %.2274 = phi i8 [ %.0272607, %44 ], [ %.3275, %146 ], [ %.4, %177 ], [ 1, %275 ], [ %.5, %376 ], [ %.6, %407 ], [ 1, %504 ], [ %.0272607, %529 ], [ %.2274.ph, %.sink.split ]
   %.1270 = phi ptr [ %.0269608, %44 ], [ %112, %146 ], [ %179, %177 ], [ %277, %275 ], [ %342, %376 ], [ %409, %407 ], [ %506, %504 ], [ %531, %529 ], [ %.1270.ph, %.sink.split ]
   %.1268 = phi ptr [ %46, %44 ], [ %131, %146 ], [ %162, %177 ], [ %243, %275 ], [ %361, %376 ], [ %392, %407 ], [ %472, %504 ], [ %.0267609, %529 ], [ %.1268.ph, %.sink.split ]
   %547 = icmp ne ptr %.1268, null
   %548 = icmp ne ptr %.1270, null
   %549 = select i1 %547, i1 %548, i1 false
-  br i1 %549, label %29, label %._crit_edge
+  br i1 %549, label %29, label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %546, %20
-  %.0276.lcssa = phi i8 [ 0, %20 ], [ %.1277, %546 ]
-  %.0272.lcssa = phi i8 [ 0, %20 ], [ %.2274, %546 ]
-  %.0269.lcssa = phi ptr [ %24, %20 ], [ %.1270, %546 ]
-  %.0267.lcssa = phi ptr [ %22, %20 ], [ %.1268, %546 ]
-  %.lcssa425 = phi i1 [ %25, %20 ], [ %547, %546 ]
-  %.lcssa = phi i1 [ %26, %20 ], [ %548, %546 ]
-  %550 = icmp eq ptr %.0269.lcssa, null
-  %or.cond = select i1 %.lcssa425, i1 %550, i1 false
+._crit_edge.loopexit:                             ; preds = %546
+  %550 = trunc nuw i8 %.1277 to i1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %20
+  %.0276.lcssa = phi i1 [ false, %20 ], [ %550, %._crit_edge.loopexit ]
+  %.0272.lcssa = phi i8 [ 0, %20 ], [ %.2274, %._crit_edge.loopexit ]
+  %.0269.lcssa = phi ptr [ %24, %20 ], [ %.1270, %._crit_edge.loopexit ]
+  %.0267.lcssa = phi ptr [ %22, %20 ], [ %.1268, %._crit_edge.loopexit ]
+  %.lcssa425 = phi i1 [ %25, %20 ], [ %547, %._crit_edge.loopexit ]
+  %.lcssa = phi i1 [ %26, %20 ], [ %548, %._crit_edge.loopexit ]
+  %551 = icmp eq ptr %.0269.lcssa, null
+  %or.cond = select i1 %.lcssa425, i1 %551, i1 false
   br i1 %or.cond, label %.preheader387, label %.loopexit388
 
-.preheader387:                                    ; preds = %._crit_edge, %579
-  %.7 = phi i8 [ %.8, %579 ], [ %.0272.lcssa, %._crit_edge ]
-  %.3 = phi ptr [ %564, %579 ], [ %.0267.lcssa, %._crit_edge ]
-  %551 = load i64, ptr %.3, align 8
-  %552 = getelementptr inbounds nuw i8, ptr %.3, i64 8
-  %553 = load i64, ptr %552, align 8
-  %554 = getelementptr inbounds nuw i8, ptr %.3, i64 16
-  %555 = load ptr, ptr %554, align 8
-  %556 = call fastcc i32 @H5S__hyper_append_span(ptr noundef %4, i32 noundef %2, i64 noundef %551, i64 noundef %553, ptr noundef %555)
-  %557 = icmp slt i32 %556, 0
-  br i1 %557, label %558, label %562
+.preheader387:                                    ; preds = %._crit_edge, %580
+  %.7 = phi i8 [ %.8, %580 ], [ %.0272.lcssa, %._crit_edge ]
+  %.3 = phi ptr [ %565, %580 ], [ %.0267.lcssa, %._crit_edge ]
+  %552 = load i64, ptr %.3, align 8
+  %553 = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %554 = load i64, ptr %553, align 8
+  %555 = getelementptr inbounds nuw i8, ptr %.3, i64 16
+  %556 = load ptr, ptr %555, align 8
+  %557 = call fastcc i32 @H5S__hyper_append_span(ptr noundef %4, i32 noundef %2, i64 noundef %552, i64 noundef %554, ptr noundef %556)
+  %558 = icmp slt i32 %557, 0
+  br i1 %558, label %559, label %563
 
-558:                                              ; preds = %.preheader387
-  %559 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %560 = load i64, ptr @H5E_CANTAPPEND_g, align 8
-  %561 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_merge_spans_helper, i32 noundef 8320, i64 noundef %559, i64 noundef %560, ptr noundef nonnull @.str.88) #15
+559:                                              ; preds = %.preheader387
+  %560 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %561 = load i64, ptr @H5E_CANTAPPEND_g, align 8
+  %562 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_merge_spans_helper, i32 noundef 8320, i64 noundef %560, i64 noundef %561, ptr noundef nonnull @.str.88) #15
   br label %611
 
-562:                                              ; preds = %.preheader387
-  %563 = getelementptr inbounds nuw i8, ptr %.3, i64 24
-  %564 = load ptr, ptr %563, align 8
-  %565 = trunc i8 %.7 to i1
-  br i1 %565, label %566, label %579
+563:                                              ; preds = %.preheader387
+  %564 = getelementptr inbounds nuw i8, ptr %.3, i64 24
+  %565 = load ptr, ptr %564, align 8
+  %566 = trunc i8 %.7 to i1
+  br i1 %566, label %567, label %580
 
-566:                                              ; preds = %562
-  %567 = load ptr, ptr %554, align 8
-  %.not.i363 = icmp eq ptr %567, null
-  br i1 %.not.i363, label %H5S__hyper_free_span.exit365, label %568
+567:                                              ; preds = %563
+  %568 = load ptr, ptr %555, align 8
+  %.not.i363 = icmp eq ptr %568, null
+  br i1 %.not.i363, label %H5S__hyper_free_span.exit365, label %569
 
-568:                                              ; preds = %566
-  %569 = tail call fastcc i32 @H5S__hyper_free_span_info(ptr noundef nonnull %567)
-  %570 = icmp slt i32 %569, 0
-  br i1 %570, label %572, label %H5S__hyper_free_span.exit365
+569:                                              ; preds = %567
+  %570 = tail call fastcc i32 @H5S__hyper_free_span_info(ptr noundef nonnull %568)
+  %571 = icmp slt i32 %570, 0
+  br i1 %571, label %573, label %H5S__hyper_free_span.exit365
 
-H5S__hyper_free_span.exit365:                     ; preds = %566, %568
-  %571 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_hyper_span_t_reg_free_list, ptr noundef nonnull %.3) #15
-  br label %579
+H5S__hyper_free_span.exit365:                     ; preds = %567, %569
+  %572 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_hyper_span_t_reg_free_list, ptr noundef nonnull %.3) #15
+  br label %580
 
-572:                                              ; preds = %568
-  %573 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %574 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %575 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_free_span, i32 noundef 3169, i64 noundef %573, i64 noundef %574, ptr noundef nonnull @.str.12) #15
-  %576 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %577 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %578 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_merge_spans_helper, i32 noundef 8323, i64 noundef %576, i64 noundef %577, ptr noundef nonnull @.str.91) #15
+573:                                              ; preds = %569
+  %574 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %575 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %576 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_free_span, i32 noundef 3169, i64 noundef %574, i64 noundef %575, ptr noundef nonnull @.str.12) #15
+  %577 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %578 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %579 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_merge_spans_helper, i32 noundef 8323, i64 noundef %577, i64 noundef %578, ptr noundef nonnull @.str.91) #15
   br label %611
 
-579:                                              ; preds = %H5S__hyper_free_span.exit365, %562
-  %.8 = phi i8 [ %.7, %562 ], [ 0, %H5S__hyper_free_span.exit365 ]
-  %.old4.not = icmp eq ptr %564, null
+580:                                              ; preds = %H5S__hyper_free_span.exit365, %563
+  %.8 = phi i8 [ %.7, %563 ], [ 0, %H5S__hyper_free_span.exit365 ]
+  %.old4.not = icmp eq ptr %565, null
   br i1 %.old4.not, label %.loopexit388, label %.preheader387
 
-.loopexit388:                                     ; preds = %579, %._crit_edge
-  %.2 = phi ptr [ %.0267.lcssa, %._crit_edge ], [ null, %579 ]
-  %580 = icmp eq ptr %.2, null
-  %or.cond8 = select i1 %580, i1 %.lcssa, i1 false
+.loopexit388:                                     ; preds = %580, %._crit_edge
+  %.2 = phi ptr [ %.0267.lcssa, %._crit_edge ], [ null, %580 ]
+  %581 = icmp eq ptr %.2, null
+  %or.cond8 = select i1 %581, i1 %.lcssa, i1 false
   br i1 %or.cond8, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit388, %609
-  %.7283 = phi i8 [ %.8284, %609 ], [ %.0276.lcssa, %.loopexit388 ]
-  %.2271 = phi ptr [ %594, %609 ], [ %.0269.lcssa, %.loopexit388 ]
-  %581 = load i64, ptr %.2271, align 8
-  %582 = getelementptr inbounds nuw i8, ptr %.2271, i64 8
-  %583 = load i64, ptr %582, align 8
-  %584 = getelementptr inbounds nuw i8, ptr %.2271, i64 16
-  %585 = load ptr, ptr %584, align 8
-  %586 = call fastcc i32 @H5S__hyper_append_span(ptr noundef %4, i32 noundef %2, i64 noundef %581, i64 noundef %583, ptr noundef %585)
-  %587 = icmp slt i32 %586, 0
-  br i1 %587, label %588, label %592
+  %.7283 = phi i1 [ false, %609 ], [ %.0276.lcssa, %.loopexit388 ]
+  %.2271 = phi ptr [ %595, %609 ], [ %.0269.lcssa, %.loopexit388 ]
+  %582 = load i64, ptr %.2271, align 8
+  %583 = getelementptr inbounds nuw i8, ptr %.2271, i64 8
+  %584 = load i64, ptr %583, align 8
+  %585 = getelementptr inbounds nuw i8, ptr %.2271, i64 16
+  %586 = load ptr, ptr %585, align 8
+  %587 = call fastcc i32 @H5S__hyper_append_span(ptr noundef %4, i32 noundef %2, i64 noundef %582, i64 noundef %584, ptr noundef %586)
+  %588 = icmp slt i32 %587, 0
+  br i1 %588, label %589, label %593
 
-588:                                              ; preds = %.preheader
-  %589 = load i64, ptr @H5E_DATASPACE_g, align 8
-  %590 = load i64, ptr @H5E_CANTAPPEND_g, align 8
-  %591 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_merge_spans_helper, i32 noundef 8332, i64 noundef %589, i64 noundef %590, ptr noundef nonnull @.str.88) #15
+589:                                              ; preds = %.preheader
+  %590 = load i64, ptr @H5E_DATASPACE_g, align 8
+  %591 = load i64, ptr @H5E_CANTAPPEND_g, align 8
+  %592 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_merge_spans_helper, i32 noundef 8332, i64 noundef %590, i64 noundef %591, ptr noundef nonnull @.str.88) #15
   br label %611
 
-592:                                              ; preds = %.preheader
-  %593 = getelementptr inbounds nuw i8, ptr %.2271, i64 24
-  %594 = load ptr, ptr %593, align 8
-  %595 = trunc nuw i8 %.7283 to i1
-  br i1 %595, label %596, label %609
+593:                                              ; preds = %.preheader
+  %594 = getelementptr inbounds nuw i8, ptr %.2271, i64 24
+  %595 = load ptr, ptr %594, align 8
+  br i1 %.7283, label %596, label %609
 
-596:                                              ; preds = %592
-  %597 = load ptr, ptr %584, align 8
+596:                                              ; preds = %593
+  %597 = load ptr, ptr %585, align 8
   %.not.i366 = icmp eq ptr %597, null
   br i1 %.not.i366, label %H5S__hyper_free_span.exit368, label %598
 
@@ -18785,17 +18774,16 @@ H5S__hyper_free_span.exit368:                     ; preds = %596, %598
   %608 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__hyper_merge_spans_helper, i32 noundef 8335, i64 noundef %606, i64 noundef %607, ptr noundef nonnull @.str.91) #15
   br label %611
 
-609:                                              ; preds = %H5S__hyper_free_span.exit368, %592
-  %.8284 = phi i8 [ %.7283, %592 ], [ 0, %H5S__hyper_free_span.exit368 ]
-  %.old7.not = icmp eq ptr %594, null
+609:                                              ; preds = %H5S__hyper_free_span.exit368, %593
+  %.old7.not = icmp eq ptr %595, null
   br i1 %.old7.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %609, %6, %H5S__hyper_copy_span.exit, %.loopexit388
   %610 = load ptr, ptr %4, align 8
   br label %611
 
-611:                                              ; preds = %.loopexit, %602, %588, %572, %558, %538, %525, %513, %497, %482, %462, %455, %443, %433, %416, %400, %383, %369, %352, %330, %323, %311, %301, %284, %268, %253, %233, %226, %214, %206, %186, %170, %153, %139, %122, %100, %93, %81, %73, %53, %40, %13
-  %.0 = phi ptr [ %610, %.loopexit ], [ null, %13 ], [ null, %40 ], [ null, %53 ], [ null, %73 ], [ null, %122 ], [ null, %139 ], [ null, %153 ], [ null, %170 ], [ null, %186 ], [ null, %81 ], [ null, %93 ], [ null, %100 ], [ null, %206 ], [ null, %253 ], [ null, %268 ], [ null, %284 ], [ null, %214 ], [ null, %226 ], [ null, %233 ], [ null, %301 ], [ null, %352 ], [ null, %369 ], [ null, %383 ], [ null, %400 ], [ null, %416 ], [ null, %311 ], [ null, %323 ], [ null, %330 ], [ null, %433 ], [ null, %482 ], [ null, %497 ], [ null, %513 ], [ null, %443 ], [ null, %455 ], [ null, %462 ], [ null, %525 ], [ null, %538 ], [ null, %558 ], [ null, %572 ], [ null, %588 ], [ null, %602 ]
+611:                                              ; preds = %.loopexit, %602, %589, %573, %559, %538, %525, %513, %497, %482, %462, %455, %443, %433, %416, %400, %383, %369, %352, %330, %323, %311, %301, %284, %268, %253, %233, %226, %214, %206, %186, %170, %153, %139, %122, %100, %93, %81, %73, %53, %40, %13
+  %.0 = phi ptr [ %610, %.loopexit ], [ null, %13 ], [ null, %40 ], [ null, %53 ], [ null, %73 ], [ null, %122 ], [ null, %139 ], [ null, %153 ], [ null, %170 ], [ null, %186 ], [ null, %81 ], [ null, %93 ], [ null, %100 ], [ null, %206 ], [ null, %253 ], [ null, %268 ], [ null, %284 ], [ null, %214 ], [ null, %226 ], [ null, %233 ], [ null, %301 ], [ null, %352 ], [ null, %369 ], [ null, %383 ], [ null, %400 ], [ null, %416 ], [ null, %311 ], [ null, %323 ], [ null, %330 ], [ null, %433 ], [ null, %482 ], [ null, %497 ], [ null, %513 ], [ null, %443 ], [ null, %455 ], [ null, %462 ], [ null, %525 ], [ null, %538 ], [ null, %559 ], [ null, %573 ], [ null, %589 ], [ null, %602 ]
   %612 = icmp eq ptr %.0, null
   %613 = load ptr, ptr %4, align 8
   %614 = icmp ne ptr %613, null

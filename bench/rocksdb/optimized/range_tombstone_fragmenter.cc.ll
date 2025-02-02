@@ -1693,20 +1693,20 @@ if.end:                                           ; preds = %for.body
   %15 = load ptr, ptr %vfn.i20, align 8
   %call.i21 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(16) %next_start_key, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %cur_end_key, i1 noundef zeroext true)
   %cmp10 = icmp slt i32 %call.i21, 1
-  %.pre460 = load ptr, ptr %this, align 8
+  %.pre459 = load ptr, ptr %this, align 8
   br i1 %cmp10, label %land.rhs.i.i.i, label %if.end19
 
 land.rhs.i.i.i:                                   ; preds = %if.end
-  %_M_left.i.i22 = getelementptr inbounds nuw i8, ptr %.pre460, i64 24
+  %_M_left.i.i22 = getelementptr inbounds nuw i8, ptr %.pre459, i64 24
   %16 = load ptr, ptr %_M_left.i.i22, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre460, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre459, i64 8
   %cmp.i1.i.i.i = icmp eq ptr %it.sroa.0.0452, %add.ptr.i.i.i.i
   br i1 %cmp.i1.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre460, i64 16
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre459, i64 16
   %17 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN7rocksdb17ParsedInternalKeyES1_St9_IdentityIS1_ENS0_27ParsedInternalKeyComparatorESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %.pre460, ptr noundef %17)
+  invoke void @_ZNSt8_Rb_treeIN7rocksdb17ParsedInternalKeyES1_St9_IdentityIS1_ENS0_27ParsedInternalKeyComparatorESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %.pre459, ptr noundef %17)
           to label %_ZNSt8_Rb_treeIN7rocksdb17ParsedInternalKeyES1_St9_IdentityIS1_ENS0_27ParsedInternalKeyComparatorESaIS1_EE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i
@@ -1719,9 +1719,9 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i
 _ZNSt8_Rb_treeIN7rocksdb17ParsedInternalKeyES1_St9_IdentityIS1_ENS0_27ParsedInternalKeyComparatorESaIS1_EE5clearEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i22, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre460, i64 32
+  %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre459, i64 32
   store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre460, i64 40
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre459, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %_ZNSt3setIN7rocksdb17ParsedInternalKeyENS0_27ParsedInternalKeyComparatorESaIS1_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS1_ES6_.exit
 
@@ -1730,7 +1730,7 @@ if.else.i.i.i:                                    ; preds = %land.rhs.i.i.i
   br i1 %cmp.i3.not8.i.i.i, label %_ZNSt3setIN7rocksdb17ParsedInternalKeyENS0_27ParsedInternalKeyComparatorESaIS1_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS1_ES6_.exit, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.else.i.i.i
-  %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre460, i64 40
+  %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre459, i64 40
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.lr.ph.i.i.i
@@ -1750,7 +1750,7 @@ _ZNSt3setIN7rocksdb17ParsedInternalKeyENS0_27ParsedInternalKeyComparatorESaIS1_E
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZNSt3setIN7rocksdb17ParsedInternalKeyENS0_27ParsedInternalKeyComparatorESaIS1_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS1_ES6_.exit, %if.end
-  %21 = phi ptr [ %.pre, %_ZNSt3setIN7rocksdb17ParsedInternalKeyENS0_27ParsedInternalKeyComparatorESaIS1_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS1_ES6_.exit ], [ %.pre460, %if.end ]
+  %21 = phi ptr [ %.pre, %_ZNSt3setIN7rocksdb17ParsedInternalKeyENS0_27ParsedInternalKeyComparatorESaIS1_EE5eraseB5cxx11ESt23_Rb_tree_const_iteratorIS1_ES6_.exit ], [ %.pre459, %if.end ]
   store i64 0, ptr %seqnums_to_flush, align 8
   store ptr %buf_.i, ptr %values_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vect_.i, i8 0, i64 24, i1 false)
@@ -1977,14 +1977,14 @@ for.inc:                                          ; preds = %_ZNSt6vectorIN7rock
   br i1 %cmp.i27.not, label %invoke.cont43, label %for.body25, !llvm.loop !21
 
 invoke.cont43:                                    ; preds = %for.inc
-  %.pre461 = load i64, ptr %seqnums_to_flush, align 8, !noalias !22
-  %.pre462 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !22
-  %.pre463 = load ptr, ptr %vect_.i, align 8, !noalias !22
-  %48 = ptrtoint ptr %.pre462 to i64
-  %49 = ptrtoint ptr %.pre463 to i64
+  %.pre460 = load i64, ptr %seqnums_to_flush, align 8, !noalias !22
+  %.pre461 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !22
+  %.pre462 = load ptr, ptr %vect_.i, align 8, !noalias !22
+  %48 = ptrtoint ptr %.pre461 to i64
+  %49 = ptrtoint ptr %.pre462 to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 3
-  %52 = add i64 %51, %.pre461
+  %52 = add i64 %51, %.pre460
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp6.i.i)
@@ -2361,11 +2361,11 @@ for.inc106:                                       ; preds = %invoke.cont75, %inv
 
 cleanup.loopexit:                                 ; preds = %invoke.cont80, %invoke.cont89, %for.inc106
   %104 = phi ptr [ %96, %invoke.cont80 ], [ %96, %invoke.cont89 ], [ %103, %for.inc106 ]
-  %.pre464 = load ptr, ptr %tombstone_seqs_, align 8
-  %.pre465 = ptrtoint ptr %104 to i64
-  %.pre466 = ptrtoint ptr %.pre464 to i64
-  %.pre467 = sub i64 %.pre465, %.pre466
-  %.pre468 = ashr exact i64 %.pre467, 3
+  %.pre463 = load ptr, ptr %tombstone_seqs_, align 8
+  %.pre464 = ptrtoint ptr %104 to i64
+  %.pre465 = ptrtoint ptr %.pre463 to i64
+  %.pre466 = sub i64 %.pre464, %.pre465
+  %.pre467 = ashr exact i64 %.pre466, 3
   br label %if.end155
 
 invoke.cont125:                                   ; preds = %land.lhs.true, %if.end60
@@ -2427,7 +2427,7 @@ lpad147:                                          ; preds = %invoke.cont145
   br label %ehcleanup182
 
 if.end155:                                        ; preds = %for.cond70.preheader, %cleanup.loopexit, %invoke.cont128, %invoke.cont148
-  %end_idx.0 = phi i64 [ %add, %invoke.cont128 ], [ %add, %invoke.cont148 ], [ %.pre468, %cleanup.loopexit ], [ %sub.ptr.div.i, %for.cond70.preheader ]
+  %end_idx.0 = phi i64 [ %add, %invoke.cont128 ], [ %add, %invoke.cont148 ], [ %.pre467, %cleanup.loopexit ], [ %sub.ptr.div.i, %for.cond70.preheader ]
   %114 = load ptr, ptr %6, align 8
   %115 = load i64, ptr %114, align 8
   %tobool156.not = icmp eq i64 %115, 0
@@ -2812,11 +2812,11 @@ for.end186:                                       ; preds = %for.inc184
   br i1 %reached_next_start_key.1, label %if.end189, label %if.then188
 
 if.then188:                                       ; preds = %entry, %for.end186
-  %add.ptr.i.i.lcssa475 = phi ptr [ %add.ptr.i.i, %for.end186 ], [ %add.ptr.i.i450, %entry ]
-  %.lcssa474 = phi ptr [ %142, %for.end186 ], [ %2, %entry ]
-  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa474, i64 16
+  %add.ptr.i.i.lcssa474 = phi ptr [ %add.ptr.i.i, %for.end186 ], [ %add.ptr.i.i450, %entry ]
+  %.lcssa473 = phi ptr [ %142, %for.end186 ], [ %2, %entry ]
+  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa473, i64 16
   %148 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN7rocksdb17ParsedInternalKeyES1_St9_IdentityIS1_ENS0_27ParsedInternalKeyComparatorESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %.lcssa474, ptr noundef %148)
+  invoke void @_ZNSt8_Rb_treeIN7rocksdb17ParsedInternalKeyES1_St9_IdentityIS1_ENS0_27ParsedInternalKeyComparatorESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %.lcssa473, ptr noundef %148)
           to label %_ZNSt3setIN7rocksdb17ParsedInternalKeyENS0_27ParsedInternalKeyComparatorESaIS1_EE5clearEv.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then188
@@ -2828,11 +2828,11 @@ terminate.lpad.i.i:                               ; preds = %if.then188
 
 _ZNSt3setIN7rocksdb17ParsedInternalKeyENS0_27ParsedInternalKeyComparatorESaIS1_EE5clearEv.exit: ; preds = %if.then188
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa474, i64 24
-  store ptr %add.ptr.i.i.lcssa475, ptr %_M_left.i.i.i, align 8
-  %_M_right.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa474, i64 32
-  store ptr %add.ptr.i.i.lcssa475, ptr %_M_right.i.i.i, align 8
-  %_M_node_count.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa474, i64 40
+  %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa473, i64 24
+  store ptr %add.ptr.i.i.lcssa474, ptr %_M_left.i.i.i, align 8
+  %_M_right.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa473, i64 32
+  store ptr %add.ptr.i.i.lcssa474, ptr %_M_right.i.i.i, align 8
+  %_M_node_count.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa473, i64 40
   store i64 0, ptr %_M_node_count.i.i.i, align 8
   br label %if.end189
 

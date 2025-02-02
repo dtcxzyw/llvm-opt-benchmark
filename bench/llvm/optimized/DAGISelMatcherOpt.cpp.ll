@@ -1355,7 +1355,7 @@ _ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i237: ; preds = %260
   br label %277
 
 277:                                              ; preds = %270, %.lr.ph389
-  %.1168 = phi i8 [ %.0167387, %.lr.ph389 ], [ %spec.select, %270 ]
+  %.1168 = phi i8 [ 0, %.lr.ph389 ], [ %spec.select, %270 ]
   %278 = trunc nuw i8 %.0169386 to i1
   br i1 %278, label %279, label %297
 
@@ -1399,7 +1399,7 @@ _ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit244.thread: ; preds = %286
   br label %297
 
 297:                                              ; preds = %277, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit244.thread, %295
-  %.1170 = phi i8 [ 0, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit244.thread ], [ %.0169386, %295 ], [ %.0169386, %277 ]
+  %.1170 = phi i8 [ 0, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit244.thread ], [ %.0169386, %295 ], [ 0, %277 ]
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %.not195 = icmp eq i64 %indvars.iv.next441, %268
   br i1 %.not195, label %._crit_edge390, label %.lr.ph389, !llvm.loop !16

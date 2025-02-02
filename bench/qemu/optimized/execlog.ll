@@ -150,8 +150,8 @@ entry:
   %0 = load ptr, ptr @imatches, align 8
   %1 = load ptr, ptr @amatches, align 8
   %call = tail call i64 @qemu_plugin_tb_n_insns(ptr noundef %tb) #5
-  %cmp32.not = icmp eq i64 %call, 0
-  br i1 %cmp32.not, label %for.end48, label %for.body.preheader
+  %cmp30.not = icmp eq i64 %call, 0
+  br i1 %cmp30.not, label %for.end48, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %tobool = icmp ne ptr %0, null
@@ -161,12 +161,12 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc46
-  %skip.034 = phi i8 [ %skip.7, %for.inc46 ], [ %frombool, %for.body.preheader ]
-  %i.033 = phi i64 [ %inc47, %for.inc46 ], [ 0, %for.body.preheader ]
-  %call2 = tail call ptr @qemu_plugin_tb_get_insn(ptr noundef %tb, i64 noundef %i.033) #5
+  %skip.032 = phi i8 [ %skip.7, %for.inc46 ], [ %frombool, %for.body.preheader ]
+  %i.031 = phi i64 [ %inc47, %for.inc46 ], [ 0, %for.body.preheader ]
+  %call2 = tail call ptr @qemu_plugin_tb_get_insn(ptr noundef %tb, i64 noundef %i.031) #5
   %call3 = tail call ptr @qemu_plugin_insn_disas(ptr noundef %call2) #5
   %call4 = tail call i64 @qemu_plugin_insn_vaddr(ptr noundef %call2) #5
-  %tobool5 = trunc nuw i8 %skip.034 to i1
+  %tobool5 = trunc nuw i8 %skip.032 to i1
   %3 = load ptr, ptr @imatches, align 8
   %tobool6 = icmp ne ptr %3, null
   %or.cond = select i1 %tobool5, i1 %tobool6, i1 false
@@ -181,25 +181,26 @@ for.cond7.preheader:                              ; preds = %for.body
 for.body10:                                       ; preds = %for.cond7.preheader, %for.body10
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body10 ], [ 0, %for.cond7.preheader ]
   %5 = phi ptr [ %8, %for.body10 ], [ %3, %for.cond7.preheader ]
-  %skip.226 = phi i8 [ %spec.select, %for.body10 ], [ %skip.034, %for.cond7.preheader ]
   %6 = load ptr, ptr %5, align 8
   %arrayidx = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
   %call11 = tail call i32 @g_str_has_prefix(ptr noundef %call3, ptr noundef %7) #5
   %tobool12.not = icmp eq i32 %call11, 0
-  %spec.select = select i1 %tobool12.not, i8 %skip.226, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load ptr, ptr @imatches, align 8
   %len = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i32, ptr %len, align 8
   %10 = zext i32 %9 to i64
   %cmp8 = icmp samesign ult i64 %indvars.iv.next, %10
-  %tobool9 = trunc nuw i8 %spec.select to i1
-  %11 = select i1 %cmp8, i1 %tobool9, i1 false
-  br i1 %11, label %for.body10, label %if.end14, !llvm.loop !6
+  %11 = select i1 %cmp8, i1 %tobool12.not, i1 false
+  br i1 %11, label %for.body10, label %if.end14.loopexit, !llvm.loop !6
 
-if.end14:                                         ; preds = %for.body10, %for.cond7.preheader, %for.body
-  %skip.1 = phi i8 [ %skip.034, %for.body ], [ %skip.034, %for.cond7.preheader ], [ %spec.select, %for.body10 ]
+if.end14.loopexit:                                ; preds = %for.body10
+  %spec.select = zext i1 %tobool12.not to i8
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.end14.loopexit, %for.cond7.preheader, %for.body
+  %skip.1 = phi i8 [ %skip.032, %for.body ], [ 1, %for.cond7.preheader ], [ %spec.select, %if.end14.loopexit ]
   %tobool15 = trunc nuw i8 %skip.1 to i1
   %12 = load ptr, ptr @amatches, align 8
   %tobool17 = icmp ne ptr %12, null
@@ -209,8 +210,8 @@ if.end14:                                         ; preds = %for.body10, %for.co
 for.cond20.preheader:                             ; preds = %if.end14
   %len21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load i32, ptr %len21, align 8
-  %cmp2227.not = icmp eq i32 %13, 0
-  br i1 %cmp2227.not, label %if.end35, label %for.body26.lr.ph
+  %cmp2226.not = icmp eq i32 %13, 0
+  br i1 %cmp2226.not, label %if.then37, label %for.body26.lr.ph
 
 for.body26.lr.ph:                                 ; preds = %for.cond20.preheader
   %14 = load ptr, ptr %12, align 8
@@ -218,24 +219,25 @@ for.body26.lr.ph:                                 ; preds = %for.cond20.preheade
   br label %for.body26
 
 for.body26:                                       ; preds = %for.body26.lr.ph, %for.body26
-  %indvars.iv35 = phi i64 [ 0, %for.body26.lr.ph ], [ %indvars.iv.next36, %for.body26 ]
-  %skip.530 = phi i8 [ %skip.1, %for.body26.lr.ph ], [ %spec.select20, %for.body26 ]
-  %arrayidx28 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv35
+  %indvars.iv33 = phi i64 [ 0, %for.body26.lr.ph ], [ %indvars.iv.next34, %for.body26 ]
+  %arrayidx28 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv33
   %16 = load i64, ptr %arrayidx28, align 8
-  %cmp29 = icmp eq i64 %16, %call4
-  %spec.select20 = select i1 %cmp29, i8 0, i8 %skip.530
-  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %cmp22 = icmp samesign ult i64 %indvars.iv.next36, %15
-  %tobool24 = trunc nuw i8 %spec.select20 to i1
-  %17 = select i1 %cmp22, i1 %tobool24, i1 false
-  br i1 %17, label %for.body26, label %if.end35, !llvm.loop !7
+  %cmp29 = icmp ne i64 %16, %call4
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %cmp22 = icmp samesign ult i64 %indvars.iv.next34, %15
+  %17 = select i1 %cmp22, i1 %cmp29, i1 false
+  br i1 %17, label %for.body26, label %if.end35.loopexit, !llvm.loop !7
 
-if.end35:                                         ; preds = %for.body26, %for.cond20.preheader, %if.end14
-  %skip.4 = phi i8 [ %skip.1, %if.end14 ], [ %skip.1, %for.cond20.preheader ], [ %spec.select20, %for.body26 ]
+if.end35.loopexit:                                ; preds = %for.body26
+  %spec.select20 = zext i1 %cmp29 to i8
+  br label %if.end35
+
+if.end35:                                         ; preds = %if.end35.loopexit, %if.end14
+  %skip.4 = phi i8 [ %skip.1, %if.end14 ], [ %spec.select20, %if.end35.loopexit ]
   %tobool36 = trunc nuw i8 %skip.4 to i1
   br i1 %tobool36, label %if.then37, label %if.else
 
-if.then37:                                        ; preds = %if.end35
+if.then37:                                        ; preds = %for.cond20.preheader, %if.end35
   tail call void @g_free(ptr noundef %call3) #5
   br label %for.inc46
 
@@ -254,8 +256,8 @@ if.else:                                          ; preds = %if.end35
   br label %for.inc46
 
 for.inc46:                                        ; preds = %if.then37, %if.else
-  %skip.7 = phi i8 [ %skip.4, %if.then37 ], [ %frombool44, %if.else ]
-  %inc47 = add nuw i64 %i.033, 1
+  %skip.7 = phi i8 [ 1, %if.then37 ], [ %frombool44, %if.else ]
+  %inc47 = add nuw i64 %i.031, 1
   %exitcond.not = icmp eq i64 %inc47, %call
   br i1 %exitcond.not, label %for.end48, label %for.body, !llvm.loop !8
 

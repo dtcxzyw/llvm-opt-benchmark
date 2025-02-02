@@ -3729,7 +3729,7 @@ land.lhs.true165:                                 ; preds = %_ZN10ClipperLib9Ini
   br label %do.cond
 
 do.cond:                                          ; preds = %land.lhs.true165, %_ZN10ClipperLib9InitEdge2ERNS_5TEdgeENS_8PolyTypeE.exit
-  %IsFlat.1 = phi i8 [ %IsFlat.0, %_ZN10ClipperLib9InitEdge2ERNS_5TEdgeENS_8PolyTypeE.exit ], [ %spec.select132, %land.lhs.true165 ]
+  %IsFlat.1 = phi i8 [ 0, %_ZN10ClipperLib9InitEdge2ERNS_5TEdgeENS_8PolyTypeE.exit ], [ %spec.select132, %land.lhs.true165 ]
   %cmp172.not = icmp eq ptr %97, %eStart.0.ph
   br i1 %cmp172.not, label %do.end, label %do.body, !llvm.loop !39
 

@@ -6928,8 +6928,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit75.i:             ; preds = %2491, %2489
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit78.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit78.i:             ; preds = %2502, %2500, %2470
-  %2505 = phi ptr [ %.pre69.i, %2470 ], [ %.pre68.i, %2500 ], [ %2504, %2502 ]
-  %.2.i = phi i8 [ %.059.i, %2470 ], [ 1, %2500 ], [ 1, %2502 ]
+  %2505 = phi ptr [ %2504, %2502 ], [ %.pre68.i, %2500 ], [ %.pre69.i, %2470 ]
   %2506 = load ptr, ptr %277, align 8
   %2507 = ptrtoint ptr %2506 to i64
   %2508 = ptrtoint ptr %2505 to i64
@@ -7203,7 +7202,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit107.i:            ; preds = %2629, %2627
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit92.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit92.i:             ; preds = %2642, %2640, %2573, %2571, %._crit_edge.i924
-  %.1.i = phi i8 [ %.059.i, %._crit_edge.i924 ], [ %.2.i, %2571 ], [ %.2.i, %2573 ], [ %.2.i, %2640 ], [ %.2.i, %2642 ]
+  %.1.i = phi i8 [ %.059.i, %._crit_edge.i924 ], [ 1, %2571 ], [ 1, %2573 ], [ 1, %2640 ], [ 1, %2642 ]
   %.not.i.i.i114.i = icmp eq ptr %.sroa.016.3.lcssa.i, null
   br i1 %.not.i.i.i114.i, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit.i929, label %2645
 
@@ -38862,7 +38861,6 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i82.i: ; preds = %_ZNK4llvm9Strin
 
 111:                                              ; preds = %104, %102
   %.373.i = phi i8 [ 0, %104 ], [ %.07042.i, %102 ]
-  %.269.i = phi i8 [ 0, %104 ], [ %.06743.i, %102 ]
   %.sroa.speculated5.i.i = call i64 @llvm.umin.i64(i64 %34, i64 %.07641.i)
   %112 = getelementptr inbounds i8, ptr %33, i64 %.sroa.speculated5.i.i
   %113 = icmp ugt i64 %34, %.07641.i
@@ -38921,7 +38919,6 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i94.i: ; preds = %_ZNK4llvm9Strin
   br label %133
 
 133:                                              ; preds = %126, %124
-  %.3.i = phi i8 [ 0, %126 ], [ %.06743.i, %124 ]
   %134 = add i64 %.07641.i, 1
   br label %178
 
@@ -38955,7 +38952,6 @@ _ZNK4llvm9StringRef8containsEc.exit97.thread.i:   ; preds = %_ZNSt11char_traitsI
 
 143:                                              ; preds = %137, %135
   %.474.i = phi i8 [ 0, %137 ], [ %.07042.i, %135 ]
-  %.4.i = phi i8 [ 0, %137 ], [ %.06743.i, %135 ]
   %144 = add i64 %.07641.i, 1
   %.sroa.speculated5.i106.i = call i64 @llvm.umin.i64(i64 %34, i64 %144)
   %145 = getelementptr inbounds i8, ptr %33, i64 %.sroa.speculated5.i106.i
@@ -38999,7 +38995,6 @@ _ZNK4llvm9StringRef8containsEc.exit97.thread.i:   ; preds = %_ZNSt11char_traitsI
 
 158:                                              ; preds = %151, %149
   %.575.i = phi i8 [ 0, %151 ], [ %.07042.i, %149 ]
-  %.5.i = phi i8 [ 0, %151 ], [ %.06743.i, %149 ]
   %159 = add i64 %.07641.i, 1
   %160 = icmp eq i64 %159, %34
   br i1 %160, label %178, label %161
@@ -39049,7 +39044,7 @@ _ZNK4llvm9StringRef4findEcm.exit.i:               ; preds = %168, %_ZNSt11char_t
 178:                                              ; preds = %_ZNK4llvm9StringRef4findEcm.exit.i, %161, %158, %143, %_ZNK4llvm9StringRef8containsEc.exit97.thread.i, %133, %111, %88, %86
   %.177.i = phi i64 [ %.07641.i, %111 ], [ %.07641.i, %133 ], [ %.0.i.i.i, %_ZNK4llvm9StringRef4findEcm.exit.i ], [ %144, %143 ], [ %.07641.i, %88 ], [ %.07641.i, %86 ], [ %.07641.i, %161 ], [ %.07641.i, %158 ], [ %.07641.i, %_ZNK4llvm9StringRef8containsEc.exit97.thread.i ]
   %.272.i = phi i8 [ 1, %111 ], [ 1, %133 ], [ 0, %_ZNK4llvm9StringRef4findEcm.exit.i ], [ 0, %143 ], [ 0, %88 ], [ %.07042.i, %86 ], [ %.575.i, %161 ], [ %.575.i, %158 ], [ %.07042.i, %_ZNK4llvm9StringRef8containsEc.exit97.thread.i ]
-  %.168.i = phi i8 [ %.269.i, %111 ], [ %.3.i, %133 ], [ %.5.i, %_ZNK4llvm9StringRef4findEcm.exit.i ], [ %.4.i, %143 ], [ 1, %88 ], [ 1, %86 ], [ %.5.i, %161 ], [ %.5.i, %158 ], [ 1, %_ZNK4llvm9StringRef8containsEc.exit97.thread.i ]
+  %.168.i = phi i8 [ 0, %111 ], [ 0, %133 ], [ 0, %_ZNK4llvm9StringRef4findEcm.exit.i ], [ 0, %143 ], [ 1, %88 ], [ 1, %86 ], [ 0, %161 ], [ 0, %158 ], [ 1, %_ZNK4llvm9StringRef8containsEc.exit97.thread.i ]
   %.2.i = phi i64 [ %115, %111 ], [ %134, %133 ], [ %171, %_ZNK4llvm9StringRef4findEcm.exit.i ], [ %148, %143 ], [ %.07641.i, %88 ], [ %.044.i, %86 ], [ %.07641.i, %161 ], [ %.07641.i, %158 ], [ %.044.i, %_ZNK4llvm9StringRef8containsEc.exit97.thread.i ]
   %179 = add i64 %.177.i, 1
   %.not.i = icmp eq i64 %179, %34

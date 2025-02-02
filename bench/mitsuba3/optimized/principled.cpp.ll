@@ -2926,7 +2926,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
 .thread:                                          ; preds = %126
   %183 = load i8, ptr %69, align 2
   %184 = trunc i8 %183 to i1
-  %spec.select529 = select i1 %184, float %174, float 0.000000e+00
+  %spec.select526 = select i1 %184, float %174, float 0.000000e+00
   br label %.thread524
 
 185:                                              ; preds = %175
@@ -2937,7 +2937,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
 .thread524:                                       ; preds = %.thread, %175, %185
   %188 = phi i1 [ true, %185 ], [ false, %175 ], [ %184, %.thread ]
   %189 = phi float [ %180, %185 ], [ %180, %175 ], [ %spec.select.i, %.thread ]
-  %190 = phi contract float [ %187, %185 ], [ 0.000000e+00, %175 ], [ %spec.select529, %.thread ]
+  %190 = phi contract float [ %187, %185 ], [ 0.000000e+00, %175 ], [ %spec.select526, %.thread ]
   %191 = load i8, ptr %93, align 8
   %192 = trunc i8 %191 to i1
   %brmerge.demorgan = and i1 %113, %192
@@ -2964,12 +2964,12 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %213 = fcmp contract uge float %4, %212
   %214 = fcmp contract oge float %4, %212
   %215 = select i1 %188, i1 %173, i1 false
-  %or.cond532 = select i1 %215, i1 %214, i1 false
-  %.pre542 = fadd contract float %205, %212
+  %or.cond529 = select i1 %215, i1 %214, i1 false
+  %.pre539 = fadd contract float %205, %212
   %216 = fadd contract float %205, %212
   %217 = fcmp contract olt float %4, %216
-  %.pre-phi543 = select i1 %or.cond532, float %216, float %.pre542
-  %218 = fcmp contract oge float %4, %.pre-phi543
+  %.pre-phi540 = select i1 %or.cond529, float %216, float %.pre539
+  %218 = fcmp contract oge float %4, %.pre-phi540
   %219 = select i1 %173, i1 %218, i1 false
   store float 1.000000e+00, ptr %29, align 4
   br i1 %219, label %220, label %240
@@ -3009,7 +3009,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
 240:                                              ; preds = %238, %.thread524
   %241 = phi <4 x float> [ %226, %238 ], [ zeroinitializer, %.thread524 ]
   %.0.in = phi i1 [ %239, %238 ], [ %173, %.thread524 ]
-  %242 = select i1 %188, i1 %or.cond532, i1 false
+  %242 = select i1 %188, i1 %or.cond529, i1 false
   %brmerge.not = select i1 %242, i1 %217, i1 false
   br i1 %brmerge.not, label %243, label %273
 
@@ -3062,8 +3062,8 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %275 = select i1 %192, i1 %173, i1 false
   %276 = xor i1 %275, true
   %277 = select i1 %276, i1 true, i1 %211
-  %brmerge536 = select i1 %277, i1 true, i1 %213
-  br i1 %brmerge536, label %370, label %278
+  %brmerge533 = select i1 %277, i1 true, i1 %213
+  br i1 %brmerge533, label %370, label %278
 
 278:                                              ; preds = %273
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -3201,8 +3201,8 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %382 = fmul contract float %.sroa.speculated, 0x3FE921FB60000000
   %383 = fdiv contract float %382, %.sroa.speculated500
   %384 = fsub contract float 0x3FF921FB60000000, %383
-  %spec.select530 = select i1 %381, float %384, float %383
-  %.1523 = select i1 %narrow, float 0.000000e+00, float %spec.select530
+  %spec.select527 = select i1 %381, float %384, float %383
+  %.1523 = select i1 %narrow, float 0.000000e+00, float %spec.select527
   %385 = call contract noundef float @llvm.fabs.f32(float %.1523)
   %386 = fmul contract float %385, 0x3FF45F3060000000
   %387 = fptosi float %386 to i32

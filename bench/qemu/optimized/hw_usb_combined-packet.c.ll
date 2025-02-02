@@ -62,13 +62,12 @@ land.rhs.lr.ph:                                   ; preds = %land.lhs.true
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %done.046 = phi i8 [ 0, %land.rhs.lr.ph ], [ %done.2, %for.inc ]
+  %done.046 = phi i1 [ false, %land.rhs.lr.ph ], [ %done.2, %for.inc ]
   %p.addr.045 = phi ptr [ %3, %land.rhs.lr.ph ], [ %10, %for.inc ]
   %actual_length.043 = phi i32 [ %9, %land.rhs.lr.ph ], [ %actual_length.1, %for.inc ]
   %combined_entry = getelementptr inbounds nuw i8, ptr %p.addr.045, i64 120
   %10 = load ptr, ptr %combined_entry, align 8
-  %tobool16 = trunc nuw i8 %done.046 to i1
-  br i1 %tobool16, label %if.else41, label %if.then17
+  br i1 %done.046, label %if.else41, label %if.then17
 
 if.then17:                                        ; preds = %land.rhs
   %conv = sext i32 %actual_length.043 to i64
@@ -92,7 +91,6 @@ if.end27:                                         ; preds = %if.then17
 
 if.end36:                                         ; preds = %if.end27, %if.end27.thread
   %.sink = phi i32 [ %4, %if.end27.thread ], [ %spec.select, %if.end27 ]
-  %done.140 = phi i8 [ 1, %if.end27.thread ], [ %done.046, %if.end27 ]
   %status35 = getelementptr inbounds nuw i8, ptr %p.addr.045, i64 84
   store i32 %.sink, ptr %status35, align 4
   %short_not_ok38 = getelementptr inbounds nuw i8, ptr %p.addr.045, i64 80
@@ -155,7 +153,7 @@ if.else41:                                        ; preds = %land.rhs
 
 for.inc:                                          ; preds = %usb_combined_packet_remove.exit, %if.else41
   %actual_length.1 = phi i32 [ %actual_length.043, %if.else41 ], [ %sub, %usb_combined_packet_remove.exit ]
-  %done.2 = phi i8 [ %done.046, %if.else41 ], [ %done.140, %usb_combined_packet_remove.exit ]
+  %done.2 = phi i1 [ true, %if.else41 ], [ %cmp18.not, %usb_combined_packet_remove.exit ]
   %tobool15.not = icmp eq ptr %10, null
   br i1 %tobool15.not, label %leave, label %land.rhs, !llvm.loop !5
 

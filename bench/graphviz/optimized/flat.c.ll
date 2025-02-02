@@ -637,10 +637,8 @@ checkFlatAdjacent.exit144:                        ; preds = %.preheader.i133, %.
   br label %._crit_edge196.thread
 
 ._crit_edge196.thread:                            ; preds = %.loopexit154, %337, %._crit_edge196
-  %.092.lcssa207 = phi i8 [ %.5, %337 ], [ %.5, %._crit_edge196 ], [ 0, %.loopexit154 ]
-  %.mask = and i8 %.092.lcssa207, 1
-  %338 = zext nneg i8 %.mask to i32
-  ret i32 %338
+  %.092.lcssa207 = phi i32 [ 1, %337 ], [ 0, %._crit_edge196 ], [ 0, %.loopexit154 ]
+  ret i32 %.092.lcssa207
 }
 
 declare void @rec_save_vlists(ptr noundef) local_unnamed_addr #1

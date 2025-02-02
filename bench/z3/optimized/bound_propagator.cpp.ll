@@ -3999,7 +3999,7 @@ if.else13:                                        ; preds = %if.then8
 
 if.end15:                                         ; preds = %if.then10, %if.else13, %if.then
   %ll.1 = phi double [ %ll.0480, %if.then ], [ %14, %if.else13 ], [ %ll.0480, %if.then10 ]
-  %ll_failed.1 = phi i8 [ %ll_failed.0482, %if.then ], [ %ll_failed.0482, %if.else13 ], [ %ll_failed.0., %if.then10 ]
+  %ll_failed.1 = phi i8 [ 1, %if.then ], [ 0, %if.else13 ], [ %ll_failed.0., %if.then10 ]
   %ll_i.1 = phi i32 [ %ll_i.0484, %if.then ], [ %ll_i.0484, %if.else13 ], [ %i.0.ll_i.0, %if.then10 ]
   %tobool16 = trunc nuw i8 %uu_failed.0481 to i1
   br i1 %tobool16, label %if.end56, label %if.then17
@@ -4045,7 +4045,7 @@ if.else38:                                        ; preds = %if.then31
 
 if.end42:                                         ; preds = %if.then33, %if.else38, %if.else29
   %ll.3 = phi double [ %ll.0480, %if.else29 ], [ %20, %if.else38 ], [ %ll.0480, %if.then33 ]
-  %ll_failed.3 = phi i8 [ %ll_failed.0482, %if.else29 ], [ %ll_failed.0482, %if.else38 ], [ %ll_failed.0.99, %if.then33 ]
+  %ll_failed.3 = phi i8 [ 1, %if.else29 ], [ 0, %if.else38 ], [ %ll_failed.0.99, %if.then33 ]
   %ll_i.3 = phi i32 [ %ll_i.0484, %if.else29 ], [ %ll_i.0484, %if.else38 ], [ %i.0.ll_i.0100, %if.then33 ]
   %tobool43 = trunc nuw i8 %uu_failed.0481 to i1
   br i1 %tobool43, label %if.end56, label %if.then44
@@ -4071,7 +4071,7 @@ if.else51:                                        ; preds = %if.then44
 if.end56:                                         ; preds = %if.then46, %if.then19, %if.end42, %if.else51, %if.end15, %if.else24
   %uu.1 = phi double [ %uu.0479, %if.end15 ], [ %17, %if.else24 ], [ %uu.0479, %if.end42 ], [ %23, %if.else51 ], [ %uu.0479, %if.then19 ], [ %uu.0479, %if.then46 ]
   %ll.2 = phi double [ %ll.1, %if.end15 ], [ %ll.1, %if.else24 ], [ %ll.3, %if.end42 ], [ %ll.3, %if.else51 ], [ %ll.1, %if.then19 ], [ %ll.3, %if.then46 ]
-  %uu_failed.1 = phi i8 [ %uu_failed.0481, %if.end15 ], [ %uu_failed.0481, %if.else24 ], [ %uu_failed.0481, %if.end42 ], [ %uu_failed.0481, %if.else51 ], [ %uu_failed.0., %if.then19 ], [ %uu_failed.0.101, %if.then46 ]
+  %uu_failed.1 = phi i8 [ 1, %if.end15 ], [ 0, %if.else24 ], [ 1, %if.end42 ], [ 0, %if.else51 ], [ %uu_failed.0., %if.then19 ], [ %uu_failed.0.101, %if.then46 ]
   %ll_failed.2 = phi i8 [ %ll_failed.1, %if.end15 ], [ %ll_failed.1, %if.else24 ], [ %ll_failed.3, %if.end42 ], [ %ll_failed.3, %if.else51 ], [ %ll_failed.1, %if.then19 ], [ %ll_failed.3, %if.then46 ]
   %uu_i.1 = phi i32 [ %uu_i.0483, %if.end15 ], [ %uu_i.0483, %if.else24 ], [ %uu_i.0483, %if.end42 ], [ %uu_i.0483, %if.else51 ], [ %i.0.uu_i.0, %if.then19 ], [ %i.0.uu_i.0102, %if.then46 ]
   %ll_i.2 = phi i32 [ %ll_i.1, %if.end15 ], [ %ll_i.1, %if.else24 ], [ %ll_i.3, %if.end42 ], [ %ll_i.3, %if.else51 ], [ %ll_i.1, %if.then19 ], [ %ll_i.3, %if.then46 ]

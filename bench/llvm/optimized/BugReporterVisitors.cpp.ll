@@ -3254,7 +3254,7 @@ define dso_local void @_ZN5clang4ento11bugreporter7TrackerC2ERNS0_22PathSensitiv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 258) i16 @_ZN5clang4ento11bugreporter7Tracker5trackEPKNS_4ExprEPKNS0_12ExplodedNodeENS1_15TrackingOptionsE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local range(i16 0, 256) i16 @_ZN5clang4ento11bugreporter7Tracker5trackEPKNS_4ExprEPKNS0_12ExplodedNodeENS1_15TrackingOptionsE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -3291,8 +3291,7 @@ _ZL21findNodeForExpressionPKN5clang4ento12ExplodedNodeEPKNS_4ExprE.exit: ; preds
 
 21:                                               ; preds = %22, %_ZL21findNodeForExpressionPKN5clang4ento12ExplodedNodeEPKNS_4ExprE.exit
   %.sroa.019.0.in = phi ptr [ %20, %_ZL21findNodeForExpressionPKN5clang4ento12ExplodedNodeEPKNS_4ExprE.exit ], [ %.sroa.019.0, %22 ]
-  %.sroa.022.1 = phi i8 [ 0, %_ZL21findNodeForExpressionPKN5clang4ento12ExplodedNodeEPKNS_4ExprE.exit ], [ %29, %22 ]
-  %.sroa.6.1 = phi i8 [ 0, %_ZL21findNodeForExpressionPKN5clang4ento12ExplodedNodeEPKNS_4ExprE.exit ], [ %30, %22 ]
+  %.sroa.022.1 = phi i8 [ 0, %_ZL21findNodeForExpressionPKN5clang4ento12ExplodedNodeEPKNS_4ExprE.exit ], [ %30, %22 ]
   %.sroa.019.0 = load ptr, ptr %.sroa.019.0.in, align 8
   %.not = icmp eq ptr %.sroa.019.0, %20
   br i1 %.not, label %.loopexit.loopexit, label %22
@@ -3305,28 +3304,20 @@ _ZL21findNodeForExpressionPKN5clang4ento12ExplodedNodeEPKNS_4ExprE.exit: ; preds
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i16 %27(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %.079.i, i64 %3) #22
   %.sroa.0.0.extract.trunc = trunc i16 %28 to i8
-  %.sroa.2.0.extract.shift = lshr i16 %28, 8
-  %.sroa.2.0.extract.trunc = trunc nuw i16 %.sroa.2.0.extract.shift to i8
+  %29 = and i16 %28, 256
+  %.sroa.2.0.extract.trunc.not = icmp eq i16 %29, 0
   %.sroa.0.0.extract.trunc.masked = and i8 %.sroa.0.0.extract.trunc, 1
-  %29 = or i8 %.sroa.0.0.extract.trunc.masked, %.sroa.022.1
-  %.sroa.2.0.extract.trunc.masked = and i8 %.sroa.2.0.extract.trunc, 1
-  %30 = or i8 %.sroa.2.0.extract.trunc.masked, %.sroa.6.1
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %.loopexit.loopexit, label %21
+  %30 = or i8 %.sroa.0.0.extract.trunc.masked, %.sroa.022.1
+  br i1 %.sroa.2.0.extract.trunc.not, label %21, label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %21, %22
-  %.sroa.022.0.ph = phi i8 [ %.sroa.022.1, %21 ], [ %29, %22 ]
-  %.sroa.6.0.ph = phi i8 [ %.sroa.6.1, %21 ], [ 0, %22 ]
-  %32 = zext nneg i8 %.sroa.6.0.ph to i16
-  %33 = shl nuw nsw i16 %32, 8
-  %34 = zext nneg i8 %.sroa.022.0.ph to i16
+  %.sroa.022.0.ph = phi i8 [ %.sroa.022.1, %21 ], [ %30, %22 ]
+  %31 = zext nneg i8 %.sroa.022.0.ph to i16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit.i, %11, %.loopexit.loopexit, %4
-  %.sroa.022.0 = phi i16 [ 0, %4 ], [ %34, %.loopexit.loopexit ], [ 0, %11 ], [ 0, %_ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit.i ]
-  %.sroa.6.0 = phi i16 [ 0, %4 ], [ %33, %.loopexit.loopexit ], [ 0, %11 ], [ 0, %_ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit.i ]
-  %.sroa.022.0.insert.insert = or disjoint i16 %.sroa.6.0, %.sroa.022.0
-  ret i16 %.sroa.022.0.insert.insert
+  %.sroa.022.0 = phi i16 [ 0, %4 ], [ %31, %.loopexit.loopexit ], [ 0, %11 ], [ 0, %_ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit.i ]
+  ret i16 %.sroa.022.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -14600,133 +14600,125 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$zbus..match_rule..MatchRule$u20$as$
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = load i64, ptr %24, align 8, !range !683, !noundef !19
   %26 = icmp eq i64 %25, 3
-  br i1 %23, label %31, label %32
+  br i1 %23, label %30, label %31
 
 "_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit": ; preds = %18
-  %trunc.i = trunc nuw i64 %13 to i1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = icmp eq i64 %13, 0
-  %.sink.i = xor i1 %29, %trunc.i
-  tail call void @llvm.assume(i1 %.sink.i)
-  %30 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
-  br i1 %30, label %20, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+  %29 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
+  br i1 %29, label %20, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+
+30:                                               ; preds = %20
+  br i1 %26, label %32, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
 31:                                               ; preds = %20
-  br i1 %26, label %33, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+  br i1 %26, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread", label %39
 
-32:                                               ; preds = %20
-  br i1 %26, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread", label %40
+32:                                               ; preds = %30, %39
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %34 = load i64, ptr %33, align 8, !range !683, !noundef !19
+  %35 = icmp eq i64 %34, 3
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %37 = load i64, ptr %36, align 8, !range !683, !noundef !19
+  %38 = icmp eq i64 %37, 3
+  br i1 %35, label %41, label %42
 
-33:                                               ; preds = %31, %40
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %35 = load i64, ptr %34, align 8, !range !683, !noundef !19
-  %36 = icmp eq i64 %35, 3
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %38 = load i64, ptr %37, align 8, !range !683, !noundef !19
-  %39 = icmp eq i64 %38, 3
-  br i1 %36, label %42, label %43
+39:                                               ; preds = %31
+  %40 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  br i1 %40, label %32, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
-40:                                               ; preds = %32
-  %41 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
-  br i1 %41, label %33, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+41:                                               ; preds = %32
+  br i1 %38, label %43, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
-42:                                               ; preds = %33
-  br i1 %39, label %44, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+42:                                               ; preds = %32
+  br i1 %38, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread", label %49
 
-43:                                               ; preds = %33
-  br i1 %39, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread", label %50
+43:                                               ; preds = %41, %49
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %45 = load i64, ptr %44, align 8, !range !367, !noundef !19
+  %46 = icmp eq i64 %45, 2
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %48 = load i64, ptr %47, align 8, !range !367, !noundef !19
+  br i1 %46, label %51, label %53
 
-44:                                               ; preds = %42, %50
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %46 = load i64, ptr %45, align 8, !range !367, !noundef !19
-  %47 = icmp eq i64 %46, 2
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %49 = load i64, ptr %48, align 8, !range !367, !noundef !19
-  br i1 %47, label %52, label %54
+49:                                               ; preds = %42
+  %50 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %36)
+  br i1 %50, label %43, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
-50:                                               ; preds = %43
-  %51 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37)
-  br i1 %51, label %44, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+51:                                               ; preds = %43
+  %52 = icmp eq i64 %48, 2
+  br i1 %52, label %55, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
-52:                                               ; preds = %44
-  %53 = icmp eq i64 %49, 2
-  br i1 %53, label %56, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+53:                                               ; preds = %43
+  %54 = icmp eq i64 %45, %48
+  br i1 %54, label %"_ZN67_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec8c674e6c801a61E.exit", label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
-54:                                               ; preds = %44
-  %55 = icmp eq i64 %46, %49
-  br i1 %55, label %"_ZN67_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec8c674e6c801a61E.exit", label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+55:                                               ; preds = %51, %"_ZN67_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec8c674e6c801a61E.exit"
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %57 = load i64, ptr %56, align 8, !range !683, !noundef !19
+  %58 = icmp eq i64 %57, 3
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %60 = load i64, ptr %59, align 8, !range !683, !noundef !19
+  %61 = icmp eq i64 %60, 3
+  br i1 %58, label %65, label %66
 
-56:                                               ; preds = %52, %"_ZN67_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec8c674e6c801a61E.exit"
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %58 = load i64, ptr %57, align 8, !range !683, !noundef !19
-  %59 = icmp eq i64 %58, 3
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %61 = load i64, ptr %60, align 8, !range !683, !noundef !19
-  %62 = icmp eq i64 %61, 3
-  br i1 %59, label %67, label %68
+"_ZN67_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec8c674e6c801a61E.exit": ; preds = %53
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %64 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %62, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63)
+  br i1 %64, label %55, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
-"_ZN67_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec8c674e6c801a61E.exit": ; preds = %54
-  %trunc.i11 = trunc nuw i64 %46 to i1
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %65 = icmp eq i64 %46, 0
-  %.sink.i12 = xor i1 %65, %trunc.i11
-  tail call void @llvm.assume(i1 %.sink.i12)
-  %66 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %64)
-  br i1 %66, label %56, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+65:                                               ; preds = %55
+  br i1 %61, label %67, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
-67:                                               ; preds = %56
-  br i1 %62, label %69, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+66:                                               ; preds = %55
+  br i1 %61, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread", label %73
 
-68:                                               ; preds = %56
-  br i1 %62, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread", label %75
+67:                                               ; preds = %65, %73
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %.val = load ptr, ptr %68, align 8, !nonnull !19, !noundef !19
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %.val2 = load i64, ptr %69, align 8, !noundef !19
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %.val3 = load ptr, ptr %70, align 8, !nonnull !19, !noundef !19
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %.val4 = load i64, ptr %71, align 8, !noundef !19
+  %72 = tail call fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hc30b1ce22cf5f5a1E"(ptr nonnull %.val, i64 %.val2, ptr nonnull %.val3, i64 %.val4)
+  br i1 %72, label %75, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
-69:                                               ; preds = %67, %75
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.val = load ptr, ptr %70, align 8, !nonnull !19, !noundef !19
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %.val2 = load i64, ptr %71, align 8, !noundef !19
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %.val3 = load ptr, ptr %72, align 8, !nonnull !19, !noundef !19
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %.val4 = load i64, ptr %73, align 8, !noundef !19
-  %74 = tail call fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hc30b1ce22cf5f5a1E"(ptr nonnull %.val, i64 %.val2, ptr nonnull %.val3, i64 %.val4)
-  br i1 %74, label %77, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+73:                                               ; preds = %66
+  %74 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59)
+  br i1 %74, label %67, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
-75:                                               ; preds = %68
-  %76 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60)
-  br i1 %76, label %69, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+75:                                               ; preds = %67
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %.val5 = load ptr, ptr %76, align 8, !nonnull !19, !noundef !19
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %.val6 = load i64, ptr %77, align 8, !noundef !19
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %.val7 = load ptr, ptr %78, align 8, !nonnull !19, !noundef !19
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %.val8 = load i64, ptr %79, align 8, !noundef !19
+  %80 = tail call fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17he99fd02cdd8a9522E"(ptr nonnull %.val5, i64 %.val6, ptr nonnull %.val7, i64 %.val8)
+  br i1 %80, label %81, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 
-77:                                               ; preds = %69
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.val5 = load ptr, ptr %78, align 8, !nonnull !19, !noundef !19
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %.val6 = load i64, ptr %79, align 8, !noundef !19
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %.val7 = load ptr, ptr %80, align 8, !nonnull !19, !noundef !19
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %.val8 = load i64, ptr %81, align 8, !noundef !19
-  %82 = tail call fastcc noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17he99fd02cdd8a9522E"(ptr nonnull %.val5, i64 %.val6, ptr nonnull %.val7, i64 %.val8)
-  br i1 %82, label %83, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
+81:                                               ; preds = %75
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %83 = load i64, ptr %82, align 8, !range !683, !noundef !19
+  %84 = icmp eq i64 %83, 3
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %86 = load i64, ptr %85, align 8, !range !683, !noundef !19
+  %87 = icmp eq i64 %86, 3
+  %brmerge = or i1 %84, %87
+  %.mux = and i1 %84, %87
+  br i1 %brmerge, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread", label %88
 
-83:                                               ; preds = %77
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %85 = load i64, ptr %84, align 8, !range !683, !noundef !19
-  %86 = icmp eq i64 %85, 3
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %88 = load i64, ptr %87, align 8, !range !683, !noundef !19
-  %89 = icmp eq i64 %88, 3
-  %brmerge = or i1 %86, %89
-  %.mux = and i1 %86, %89
-  br i1 %brmerge, label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread", label %90
-
-"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread": ; preds = %83, %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit", %40, %50, %"_ZN67_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec8c674e6c801a61E.exit", %75, %8, %10, %16, %18, %31, %32, %42, %43, %52, %54, %67, %68, %69, %77, %90
-  %.sroa.0.0 = phi i1 [ %91, %90 ], [ false, %77 ], [ false, %69 ], [ false, %68 ], [ false, %67 ], [ false, %54 ], [ false, %52 ], [ false, %43 ], [ false, %42 ], [ false, %32 ], [ false, %31 ], [ false, %18 ], [ false, %16 ], [ false, %10 ], [ false, %8 ], [ false, %75 ], [ false, %"_ZN67_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec8c674e6c801a61E.exit" ], [ false, %50 ], [ false, %40 ], [ false, %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit" ], [ %.mux, %83 ]
+"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread": ; preds = %81, %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit", %39, %49, %"_ZN67_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec8c674e6c801a61E.exit", %73, %8, %10, %16, %18, %30, %31, %41, %42, %51, %53, %65, %66, %67, %75, %88
+  %.sroa.0.0 = phi i1 [ %89, %88 ], [ false, %75 ], [ false, %67 ], [ false, %66 ], [ false, %65 ], [ false, %53 ], [ false, %51 ], [ false, %42 ], [ false, %41 ], [ false, %31 ], [ false, %30 ], [ false, %18 ], [ false, %16 ], [ false, %10 ], [ false, %8 ], [ false, %73 ], [ false, %"_ZN67_$LT$zbus..match_rule..PathSpec$u20$as$u20$core..cmp..PartialEq$GT$2eq17hec8c674e6c801a61E.exit" ], [ false, %49 ], [ false, %39 ], [ false, %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit" ], [ %.mux, %81 ]
   ret i1 %.sroa.0.0
 
-90:                                               ; preds = %83
-  %91 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %87)
+88:                                               ; preds = %81
+  %89 = tail call noundef zeroext i1 @"_ZN61_$LT$zvariant..str..Inner$u20$as$u20$core..cmp..PartialEq$GT$2eq17he1cdd65dcfef2a7eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %85)
   br label %"_ZN70_$LT$zbus_names..bus_name..BusName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd211de9cdfcf3147E.exit.thread"
 }
 
@@ -25424,7 +25416,7 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit: ; preds = %18
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i58", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i", %63
-  %.sroa.0.0 = phi ptr [ null, %63 ], [ null, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i" ], [ %.sroa.0.292, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit" ], [ %.sroa.0.292, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i58" ]
+  %.sroa.0.0 = phi ptr [ null, %63 ], [ null, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i" ], [ %.sroa.0.297, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit" ], [ %.sroa.0.297, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i58" ]
   ret ptr %.sroa.0.0
 
 67:                                               ; preds = %58
@@ -25491,7 +25483,7 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit: ; preds = %18
   unreachable
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i", %89, %67
-  %.sroa.0.292 = phi ptr [ %62, %67 ], [ %.sroa.0.2.ph, %89 ], [ %.sroa.0.2.ph, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ]
+  %.sroa.0.297 = phi ptr [ %62, %67 ], [ %.sroa.0.2.ph, %89 ], [ %.sroa.0.2.ph, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ]
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !10303)
   call void @llvm.experimental.noalias.scope.decl(metadata !10306)
@@ -25525,10 +25517,10 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit: ; preds = %18
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit63": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i62", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit65"
-  resume { ptr, i32 } %.pn96
+  resume { ptr, i32 } %.pn74
 
-"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit65": ; preds = %.body.thread, %.body, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i64", %97
-  %.pn96 = phi { ptr, i32 } [ %.pn.ph, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i64" ], [ %.pn.ph, %97 ], [ %lpad.thr_comm.split-lp, %.body ], [ %55, %.body.thread ]
+"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit65": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i64", %97, %.body, %.body.thread
+  %.pn74 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body ], [ %55, %.body.thread ], [ %.pn.ph, %97 ], [ %.pn.ph, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i64" ]
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !10345)
   call void @llvm.experimental.noalias.scope.decl(metadata !10348)
@@ -25544,8 +25536,8 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit: ; preds = %18
   call void @__rust_dealloc(ptr noundef nonnull %96, i64 noundef %93, i64 noundef 1) #36, !noalias !10362
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit63"
 
-97:                                               ; preds = %81, %14, %76
-  %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body.i, %76 ], [ %15, %14 ], [ %lpad.thr_comm, %81 ]
+97:                                               ; preds = %81, %76, %14
+  %.pn.ph = phi { ptr, i32 } [ %lpad.thr_comm, %81 ], [ %15, %14 ], [ %eh.lpad-body.i, %76 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10363)
   call void @llvm.experimental.noalias.scope.decl(metadata !10366)
   call void @llvm.experimental.noalias.scope.decl(metadata !10369)

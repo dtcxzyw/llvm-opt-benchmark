@@ -1452,7 +1452,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   br label %range_gist_consider_split.exit.i
 
 range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129, %.critedge2.i
-  %.sroa.11.2.i = phi i8 [ 0, %.critedge.i.i ], [ %.sroa.11.0267.i, %129 ], [ %.sroa.11.0267.i, %.critedge2.i ]
+  %.sroa.11.2.i = phi i8 [ 0, %.critedge.i.i ], [ 0, %129 ], [ %.sroa.11.0267.i, %.critedge2.i ]
   %.sroa.17223.2.i = phi ptr [ %.1183246.i, %.critedge.i.i ], [ %.sroa.17223.0268.i, %129 ], [ %.sroa.17223.0268.i, %.critedge2.i ]
   %.sroa.21.2.i = phi ptr [ %101, %.critedge.i.i ], [ %.sroa.21.0269.i, %129 ], [ %.sroa.21.0269.i, %.critedge2.i ]
   %.sroa.25.2.i = phi float [ %112, %.critedge.i.i ], [ %.sroa.25.0270.i, %129 ], [ %.sroa.25.0270.i, %.critedge2.i ]
@@ -1584,7 +1584,7 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
   br label %range_gist_consider_split.exit212.i
 
 range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %181, %.critedge6.i
-  %.sroa.11.3.i = phi i8 [ 0, %.critedge.i208.i ], [ %.sroa.11.1302.i, %181 ], [ %.sroa.11.1302.i, %.critedge6.i ]
+  %.sroa.11.3.i = phi i8 [ 0, %.critedge.i208.i ], [ 0, %181 ], [ %.sroa.11.1302.i, %.critedge6.i ]
   %.sroa.17223.3.i = phi ptr [ %150, %.critedge.i208.i ], [ %.sroa.17223.1303.i, %181 ], [ %.sroa.17223.1303.i, %.critedge6.i ]
   %.sroa.21.3.i = phi ptr [ %.2188284.i, %.critedge.i208.i ], [ %.sroa.21.1304.i, %181 ], [ %.sroa.21.1304.i, %.critedge6.i ]
   %.sroa.25.3.i = phi float [ %164, %.critedge.i208.i ], [ %.sroa.25.1305.i, %181 ], [ %.sroa.25.1305.i, %.critedge6.i ]

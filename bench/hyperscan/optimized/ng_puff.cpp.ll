@@ -1249,7 +1249,7 @@ for.inc.i277.i:                                   ; preds = %for.body21.i.i.i287
   br i1 %cmp.i.i.i.i.i.i.i.not.i279.i, label %if.end181.i, label %for.body.i274.i
 
 if.end181.i:                                      ; preds = %for.inc.i277.i, %if.end.i270.i, %invoke.cont159.thread.i, %if.else153.i, %invoke.cont145.i
-  %unbounded.4.ph.i = phi i8 [ 1, %if.end.i270.i ], [ %unbounded.3.i, %invoke.cont159.thread.i ], [ %unbounded.3.i, %if.else153.i ], [ %unbounded.3.i, %invoke.cont145.i ], [ 1, %for.inc.i277.i ]
+  %unbounded.4.ph.i = phi i8 [ 1, %if.end.i270.i ], [ %unbounded.3.i, %invoke.cont159.thread.i ], [ 1, %if.else153.i ], [ %unbounded.3.i, %invoke.cont145.i ], [ 1, %for.inc.i277.i ]
   %74 = load i8, ptr %puffImproveHead.i, align 4
   %tobool182.i = trunc i8 %74 to i1
   %agg.tmp.sroa.0.0.copyload.i305.i = load ptr, ptr %start.i, align 8

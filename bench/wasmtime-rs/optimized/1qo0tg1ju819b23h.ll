@@ -18507,8 +18507,8 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform4unit10clone_unit17hf
 .noexc464:                                        ; preds = %96
   unreachable
 
-97:                                               ; preds = %._crit_edge970, %679, %100, %98
-  %.pn431 = phi { ptr, i32 } [ %99, %98 ], [ %.pn429558, %679 ], [ %.pn425, %100 ], [ %.pn427564, %._crit_edge970 ]
+97:                                               ; preds = %679, %100, %98
+  %.pn431 = phi { ptr, i32 } [ %99, %98 ], [ %.pn429558, %679 ], [ %.pn429, %100 ]
   invoke void @"_ZN4core3ptr137drop_in_place$LT$gimli..read..dwarf..Unit$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17hf2551b88f550ab9bE"(ptr noalias noundef nonnull align 8 dereferenceable(424) %2) #17
           to label %common.resume unwind label %393
 
@@ -18517,8 +18517,10 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform4unit10clone_unit17hf
           cleanup
   br label %97
 
-100:                                              ; preds = %102
-  br i1 %592, label %679, label %97
+100:                                              ; preds = %678, %102
+  %.0 = phi i1 [ %.1563, %678 ], [ %592, %102 ]
+  %.pn429 = phi { ptr, i32 } [ %.pn427564, %678 ], [ %.pn425, %102 ]
+  br i1 %.0, label %679, label %97
 
 .thread:                                          ; preds = %647
   %101 = landingpad { ptr, i32 }
@@ -20459,16 +20461,12 @@ common.resume:                                    ; preds = %97, %665, %670
 
 678:                                              ; preds = %.thread559, %102
   %.pn427564 = phi { ptr, i32 } [ %104, %.thread559 ], [ %.pn425, %102 ]
-  %.1563 = phi i8 [ 1, %.thread559 ], [ %.3, %102 ]
+  %.1563 = phi i1 [ true, %.thread559 ], [ %592, %102 ]
   invoke void @"_ZN4core3ptr80drop_in_place$LT$wasmtime_cranelift..debug..transform..refs..PendingUnitRefs$GT$17h42b46ba69fb704e9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93) #17
-          to label %._crit_edge970 unwind label %393
+          to label %100 unwind label %393
 
-._crit_edge970:                                   ; preds = %678
-  %.pre971 = trunc nuw i8 %.1563 to i1
-  br i1 %.pre971, label %679, label %97
-
-679:                                              ; preds = %._crit_edge970, %.thread, %100
-  %.pn429558 = phi { ptr, i32 } [ %101, %.thread ], [ %.pn425, %100 ], [ %.pn427564, %._crit_edge970 ]
+679:                                              ; preds = %.thread, %100
+  %.pn429558 = phi { ptr, i32 } [ %101, %.thread ], [ %.pn429, %100 ]
   invoke void @"_ZN4core3ptr76drop_in_place$LT$wasmtime_cranelift..debug..transform..refs..UnitRefsMap$GT$17h1f1e8d6ee3dc2afdE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %94) #17
           to label %97 unwind label %393
 }

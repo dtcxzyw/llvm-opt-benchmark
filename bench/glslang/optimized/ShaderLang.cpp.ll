@@ -2301,7 +2301,7 @@ _ZN7glslang13TInputScannerC2EiPKPKcPmS4_iib.exit162.i: ; preds = %_ZN7glslang13T
   br label %415
 
 415:                                              ; preds = %.critedge.i.i, %405, %402, %397
-  %.1.in.i.i = phi i1 [ true, %402 ], [ %408, %405 ], [ false, %.critedge.i.i ], [ true, %397 ]
+  %.1.i.i = phi i1 [ true, %402 ], [ %408, %405 ], [ false, %.critedge.i.i ], [ true, %397 ]
   %416 = and i32 %.17479.i, 4
   %.not18.i.i = icmp eq i32 %416, 0
   br i1 %.not18.i.i, label %_ZN12_GLOBAL__N_111DoFullParseclERN7glslang17TParseContextBaseERNS1_10TPpContextERNS1_13TInputScannerEbRNS1_12TSymbolTableERNS1_13TIntermediateE20EShOptimizationLevel11EShMessages.exit.i, label %417
@@ -2335,7 +2335,7 @@ _ZNSt10unique_ptrIN7glslang17TParseContextBaseESt14default_deleteIS1_EED2Ev.exit
   br label %_ZN12_GLOBAL__N_125AddContextSpecificSymbolsEPK16TBuiltInResourceR9TInfoSinkRN7glslang12TSymbolTableEi8EProfileRKNS5_10SpvVersionE11EShLanguageNS5_9EShSourceE.exit.i
 
 _ZN12_GLOBAL__N_125AddContextSpecificSymbolsEPK16TBuiltInResourceR9TInfoSinkRN7glslang12TSymbolTableEi8EProfileRKNS5_10SpvVersionE11EShLanguageNS5_9EShSourceE.exit.i: ; preds = %_ZNSt10unique_ptrIN7glslang17TParseContextBaseESt14default_deleteIS1_EED2Ev.exit.i, %297
-  %.1.i = phi i1 [ %.1.in.i.i, %_ZNSt10unique_ptrIN7glslang17TParseContextBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ false, %297 ]
+  %.1.i = phi i1 [ %.1.i.i, %_ZNSt10unique_ptrIN7glslang17TParseContextBaseESt14default_deleteIS1_EED2Ev.exit.i ], [ false, %297 ]
   %428 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %429 = load ptr, ptr %428, align 8
   %430 = load ptr, ptr %274, align 8
@@ -5973,7 +5973,7 @@ define noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %18, label %6
+  br i1 %5, label %16, label %6
 
 6:                                                ; preds = %2
   store i8 1, ptr %3, align 8
@@ -5993,17 +5993,14 @@ define noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef n
 
 12:                                               ; preds = %9
   %13 = trunc nuw i8 %spec.select to i1
-  br i1 %13, label %18, label %14
+  br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
   %15 = tail call noundef zeroext i1 @_ZN7glslang8TProgram15crossStageCheckE11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %0, i32 poison)
-  %16 = trunc nuw i8 %spec.select to i1
-  %.not = xor i1 %16, true
-  %17 = select i1 %15, i1 %.not, i1 false
-  br label %18
+  br label %16
 
-18:                                               ; preds = %12, %14, %2
-  %.09 = phi i1 [ false, %2 ], [ %17, %14 ], [ false, %12 ]
+16:                                               ; preds = %12, %14, %2
+  %.09 = phi i1 [ false, %2 ], [ false, %12 ], [ %15, %14 ]
   ret i1 %.09
 }
 

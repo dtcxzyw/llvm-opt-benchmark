@@ -2693,7 +2693,7 @@ _ZN4llvm16EscapeEnumeratorD2Ev.exit.i:            ; preds = %1091, %._crit_edge1
   br label %_ZN4llvm24InstrumentationIRBuilderD2Ev.exit.i
 
 _ZN4llvm24InstrumentationIRBuilderD2Ev.exit.i:    ; preds = %1095, %_ZN4llvm16EscapeEnumeratorD2Ev.exit.i, %1020, %.thread205.i, %1017
-  %.6.i = phi i8 [ %.2.i, %1020 ], [ 1, %_ZN4llvm16EscapeEnumeratorD2Ev.exit.i ], [ 1, %1095 ], [ %.2.i, %.thread205.i ], [ %.2.i, %1017 ]
+  %.6.i = phi i8 [ %.2.i, %1020 ], [ 1, %_ZN4llvm16EscapeEnumeratorD2Ev.exit.i ], [ 1, %1095 ], [ 0, %.thread205.i ], [ 0, %1017 ]
   %1096 = trunc nuw i8 %.6.i to i1
   %1097 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %57) #17
   %1098 = load ptr, ptr %57, align 8

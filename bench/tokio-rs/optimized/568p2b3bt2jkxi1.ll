@@ -33803,7 +33803,7 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit: ; preds
   invoke void %42(ptr noundef %.fca.1.extract)
           to label %"_ZN4core3ptr171drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..linked_list..LinkedList$LT$tokio..sync..notify..Waiter$C$tokio..sync..notify..Waiter$GT$$GT$$GT$17h775b0e77bae9003dE.exit31" unwind label %43
 
-43:                                               ; preds = %49, %39
+43:                                               ; preds = %50, %39
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
@@ -33818,18 +33818,18 @@ _ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit: ; preds
   tail call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hece2ff75ef233b4aE(ptr noundef nonnull align 1 %8, i1 noundef zeroext false), !noalias !12350
   br label %"_ZN4core3ptr171drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..linked_list..LinkedList$LT$tokio..sync..notify..Waiter$C$tokio..sync..notify..Waiter$GT$$GT$$GT$17h775b0e77bae9003dE.exit28"
 
-"_ZN4core3ptr171drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..linked_list..LinkedList$LT$tokio..sync..notify..Waiter$C$tokio..sync..notify..Waiter$GT$$GT$$GT$17h775b0e77bae9003dE.exit31": ; preds = %39, %47, %49
-  %.pn48 = phi { ptr, i32 } [ %lpad.thr_comm, %49 ], [ %lpad.thr_comm, %47 ], [ %40, %39 ]
+"_ZN4core3ptr171drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..linked_list..LinkedList$LT$tokio..sync..notify..Waiter$C$tokio..sync..notify..Waiter$GT$$GT$$GT$17h775b0e77bae9003dE.exit31": ; preds = %39, %47, %50
+  %.pn48 = phi { ptr, i32 } [ %48, %50 ], [ %48, %47 ], [ %40, %39 ]
   resume { ptr, i32 } %.pn48
 
-47:                                               ; preds = %.invoke, %12, %_ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit, %31
-  %lpad.thr_comm = landingpad { ptr, i32 }
+47:                                               ; preds = %.invoke, %12, %31, %_ZN5tokio4sync6notify18AtomicNotification4load17h709ace75ec01c33aE.exit
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %48 = cmpxchg ptr %8, i8 1, i8 0 release monotonic, align 1, !noalias !12357
-  %.sroa.18.0.in.i.i.i.i.i29 = extractvalue { i8, i1 } %48, 1
-  br i1 %.sroa.18.0.in.i.i.i.i.i29, label %"_ZN4core3ptr171drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..linked_list..LinkedList$LT$tokio..sync..notify..Waiter$C$tokio..sync..notify..Waiter$GT$$GT$$GT$17h775b0e77bae9003dE.exit31", label %49
+  %49 = cmpxchg ptr %8, i8 1, i8 0 release monotonic, align 1, !noalias !12357
+  %.sroa.18.0.in.i.i.i.i.i29 = extractvalue { i8, i1 } %49, 1
+  br i1 %.sroa.18.0.in.i.i.i.i.i29, label %"_ZN4core3ptr171drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..linked_list..LinkedList$LT$tokio..sync..notify..Waiter$C$tokio..sync..notify..Waiter$GT$$GT$$GT$17h775b0e77bae9003dE.exit31", label %50
 
-49:                                               ; preds = %47
+50:                                               ; preds = %47
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hece2ff75ef233b4aE(ptr noundef nonnull align 1 %8, i1 noundef zeroext false)
           to label %"_ZN4core3ptr171drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..util..linked_list..LinkedList$LT$tokio..sync..notify..Waiter$C$tokio..sync..notify..Waiter$GT$$GT$$GT$17h775b0e77bae9003dE.exit31" unwind label %43
 }

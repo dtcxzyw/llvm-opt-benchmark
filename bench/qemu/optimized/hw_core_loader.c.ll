@@ -4766,8 +4766,7 @@ if.then6:                                         ; preds = %if.then4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.then4
-  %rom.val.i = phi ptr [ %3, %if.then4 ], [ %rom.val.i.pre, %if.then6 ]
-  %found_overlap.4 = phi i8 [ %found_overlap.034, %if.then4 ], [ 1, %if.then6 ]
+  %rom.val.i = phi ptr [ %rom.val.i.pre, %if.then6 ], [ %3, %if.then4 ]
   %tobool.not.i.i = icmp eq ptr %rom.val.i, null
   br i1 %tobool.not.i.i, label %if.end9, label %cond.true.i.i
 
@@ -4797,12 +4796,12 @@ if.end9:                                          ; preds = %cond.true.i.i, %if.
   br i1 %tobool11.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %roms_overlap.exit, %if.end.i, %if.then3, %if.end9
-  %found_overlap.2.ph30 = phi i8 [ %found_overlap.4, %if.end9 ], [ %found_overlap.034, %if.then3 ], [ %found_overlap.034, %if.end.i ], [ %found_overlap.034, %roms_overlap.exit ]
+  %found_overlap.2.ph30 = phi i8 [ 1, %if.end9 ], [ %found_overlap.034, %if.then3 ], [ %found_overlap.034, %if.end.i ], [ %found_overlap.034, %roms_overlap.exit ]
   %call13 = call ptr @get_system_memory() #23
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %if.end9, %cond.false
-  %found_overlap.224 = phi i8 [ %found_overlap.2.ph30, %cond.false ], [ %found_overlap.4, %if.end9 ], [ %found_overlap.034, %if.end ]
+  %found_overlap.224 = phi i8 [ %found_overlap.2.ph30, %cond.false ], [ 1, %if.end9 ], [ %found_overlap.034, %if.end ]
   %last_rom.223 = phi ptr [ %rom.035, %cond.false ], [ %rom.035, %if.end9 ], [ %last_rom.033, %if.end ]
   %cond = phi ptr [ %call13, %cond.false ], [ %.pr.pr.pre, %if.end9 ], [ %1, %if.end ]
   %addr = getelementptr inbounds nuw i8, ptr %rom.035, i64 96
@@ -6110,7 +6109,7 @@ for.inc.i:                                        ; preds = %if.end86.i.i, %sw.d
   %70 = phi i8 [ 0, %sw.bb18.i ], [ %11, %handle_record_type.exit.i ], [ %11, %sw.bb.i ], [ %11, %sw.default.i ], [ %62, %if.end86.i.i ]
   %our_checksum.1.i = phi i8 [ %our_checksum.040.i, %sw.bb18.i ], [ 0, %handle_record_type.exit.i ], [ %our_checksum.040.i, %sw.bb.i ], [ %our_checksum.040.i, %sw.default.i ], [ %conv90.i.i, %if.end86.i.i ]
   %record_index.1.i = phi i32 [ 0, %sw.bb18.i ], [ %record_index.041.i, %handle_record_type.exit.i ], [ %record_index.041.i, %sw.bb.i ], [ %record_index.041.i, %sw.default.i ], [ %inc.i.i, %if.end86.i.i ]
-  %in_process.1.i = phi i8 [ 1, %sw.bb18.i ], [ 0, %handle_record_type.exit.i ], [ %in_process.042.i, %sw.bb.i ], [ %in_process.042.i, %sw.default.i ], [ %in_process.042.i, %if.end86.i.i ]
+  %in_process.1.i = phi i8 [ 1, %sw.bb18.i ], [ 0, %handle_record_type.exit.i ], [ 0, %sw.bb.i ], [ %in_process.042.i, %sw.default.i ], [ 1, %if.end86.i.i ]
   %incdec.ptr.i = getelementptr i8, ptr %hex_blob.addr.043.i, i64 1
   %cmp.i = icmp uge ptr %incdec.ptr.i, %add.ptr.i
   %tobool.i = trunc i8 %63 to i1

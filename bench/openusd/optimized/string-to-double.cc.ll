@@ -44,7 +44,7 @@ define linkonce_odr noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_
 21:                                               ; preds = %5
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load double, ptr %22, align 8
-  br label %534
+  br label %535
 
 24:                                               ; preds = %5
   %25 = and i32 %13, 8
@@ -83,7 +83,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
   store i32 %2, ptr %4, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load double, ptr %34, align 8
-  br label %534
+  br label %535
 
 36:                                               ; preds = %28
   store ptr %26, ptr %6, align 8
@@ -94,7 +94,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load double, ptr %38, align 8
-  br label %534
+  br label %535
 
 40:                                               ; preds = %._crit_edge, %36
   %41 = phi i8 [ %.pre, %._crit_edge ], [ %27, %36 ]
@@ -106,10 +106,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 
 43:                                               ; preds = %40, %40
   %44 = icmp eq i8 %41, 45
-  %.ptr361 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store ptr %.ptr361, ptr %6, align 8
-  %.not10.not.i220 = icmp eq ptr %.ptr361, %12
-  br i1 %.not10.not.i220, label %.loopexit372, label %.lr.ph.i221
+  %.ptr382 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  store ptr %.ptr382, ptr %6, align 8
+  %.not10.not.i220 = icmp eq ptr %.ptr382, %12
+  br i1 %.not10.not.i220, label %.loopexit394, label %.lr.ph.i221
 
 .lr.ph.i221:                                      ; preds = %43, %50
   %.0336.idx = phi i64 [ %.0336.add, %50 ], [ 1, %43 ]
@@ -133,22 +133,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
   %.0336.add = add nuw nsw i64 %.0336.idx, 1
   %.ptr = getelementptr inbounds nuw i8, ptr %42, i64 %.0336.add
   %.not.not.i227 = icmp eq ptr %.ptr, %12
-  br i1 %.not.not.i227, label %.loopexit372, label %.lr.ph.i221, !llvm.loop !6
+  br i1 %.not.not.i227, label %.loopexit394, label %.lr.ph.i221, !llvm.loop !6
 
-.loopexit372:                                     ; preds = %50, %43
+.loopexit394:                                     ; preds = %50, %43
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load double, ptr %51, align 8
-  br label %534
+  br label %535
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit228: ; preds = %46
   %.not186 = icmp eq i64 %.0336.idx, 1
-  %or.cond354 = or i1 %.not184, %.not186
-  br i1 %or.cond354, label %56, label %53
+  %or.cond372 = or i1 %.not184, %.not186
+  br i1 %or.cond372, label %56, label %53
 
 53:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit228
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load double, ptr %54, align 8
-  br label %534
+  br label %535
 
 56:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit228
   %.0336.ptr.le = getelementptr inbounds nuw i8, ptr %42, i64 %.0336.idx
@@ -215,7 +215,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
   br i1 %81, label %82, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
-  %.pre487.pre = load ptr, ptr %6, align 8
+  %.pre510.pre = load ptr, ptr %6, align 8
   br label %110
 
 82:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
@@ -226,7 +226,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %87 = load double, ptr %86, align 8
-  br label %534
+  br label %535
 
 88:                                               ; preds = %82
   %brmerge198 = select i1 %.not183.not, i1 true, i1 %15
@@ -240,11 +240,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 90:                                               ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load double, ptr %91, align 8
-  br label %534
+  br label %535
 
 93:                                               ; preds = %88
-  %or.cond355 = select i1 %15, i1 true, i1 %.not10.not.i230
-  br i1 %or.cond355, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238.thread, label %.lr.ph.i231
+  %or.cond373 = select i1 %15, i1 true, i1 %.not10.not.i230
+  br i1 %or.cond373, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238.thread, label %.lr.ph.i231
 
 .lr.ph.i231:                                      ; preds = %93, %100
   %94 = phi ptr [ %101, %100 ], [ %.promoted.i229, %93 ]
@@ -271,7 +271,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238: ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %103 = load double, ptr %102, align 8
-  br label %534
+  br label %535
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238.thread: ; preds = %100, %89, %93
   %104 = phi ptr [ %.promoted.i229, %93 ], [ %12, %89 ], [ %12, %100 ]
@@ -280,20 +280,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
   %107 = sub i64 %105, %106
   %108 = trunc i64 %107 to i32
   store i32 %108, ptr %4, align 4
-  br i1 %.0151, label %534, label %109
+  br i1 %.0151, label %535, label %109
 
 109:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238.thread
-  br label %534
+  br label %535
 
 110:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge, %57
-  %.pre487 = phi ptr [ %.pre487.pre, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge ], [ %58, %57 ]
+  %.pre510 = phi ptr [ %.pre510.pre, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge ], [ %58, %57 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %112 = load ptr, ptr %111, align 8
   %.not188 = icmp eq ptr %112, null
   br i1 %.not188, label %162, label %113
 
 113:                                              ; preds = %110
-  %114 = load i8, ptr %.pre487, align 1
+  %114 = load i8, ptr %.pre510, align 1
   br i1 %19, label %115, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit242
 
 115:                                              ; preds = %113
@@ -339,7 +339,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
   br i1 %133, label %134, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit242._crit_edge
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit242._crit_edge: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit242
-  %.pre486 = load ptr, ptr %6, align 8
+  %.pre509 = load ptr, ptr %6, align 8
   br label %162
 
 134:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit242
@@ -350,7 +350,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 137:                                              ; preds = %134
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = load double, ptr %138, align 8
-  br label %534
+  br label %535
 
 140:                                              ; preds = %134
   %brmerge200 = select i1 %.not183.not, i1 true, i1 %15
@@ -364,11 +364,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 142:                                              ; preds = %141
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %144 = load double, ptr %143, align 8
-  br label %534
+  br label %535
 
 145:                                              ; preds = %140
-  %or.cond356 = select i1 %15, i1 true, i1 %.not10.not.i244
-  br i1 %or.cond356, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252.thread, label %.lr.ph.i245
+  %or.cond374 = select i1 %15, i1 true, i1 %.not10.not.i244
+  br i1 %or.cond374, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252.thread, label %.lr.ph.i245
 
 .lr.ph.i245:                                      ; preds = %145, %152
   %146 = phi ptr [ %153, %152 ], [ %.promoted.i243, %145 ]
@@ -395,7 +395,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252: ; preds = %148
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %155 = load double, ptr %154, align 8
-  br label %534
+  br label %535
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252.thread: ; preds = %152, %141, %145
   %156 = phi ptr [ %.promoted.i243, %145 ], [ %12, %141 ], [ %12, %152 ]
@@ -404,13 +404,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
   %159 = sub i64 %157, %158
   %160 = trunc i64 %159 to i32
   store i32 %160, ptr %4, align 4
-  br i1 %.0151, label %534, label %161
+  br i1 %.0151, label %535, label %161
 
 161:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252.thread
-  br label %534
+  br label %535
 
 162:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit242._crit_edge, %110
-  %163 = phi ptr [ %.pre486, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit242._crit_edge ], [ %.pre487, %110 ]
+  %163 = phi ptr [ %.pre509, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit242._crit_edge ], [ %.pre510, %110 ]
   %164 = load i8, ptr %163, align 1
   %165 = icmp ne i8 %164, 48
   br i1 %165, label %.critedge203, label %166
@@ -463,27 +463,27 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i, %173
   store i32 %2, ptr %4, align 4
   %188 = select i1 %.0151, double -0.000000e+00, double 0.000000e+00
-  br label %534
+  br label %535
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit.thread345: ; preds = %174, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i, %173
-  %.promoted399 = phi ptr [ %171, %174 ], [ %186, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i ], [ %171, %173 ]
+  %.promoted422 = phi ptr [ %171, %174 ], [ %186, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i ], [ %171, %173 ]
   %189 = load i32, ptr %0, align 8
   %190 = and i32 %189, 128
   %.not190 = icmp eq i32 %190, 0
   %191 = and i32 %189, 129
   %or.cond201 = icmp eq i32 %191, 0
-  %.pre488 = load i8, ptr %.promoted399, align 1
+  %.pre511 = load i8, ptr %.promoted422, align 1
   br i1 %or.cond201, label %231, label %192
 
 192:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit.thread345
-  switch i8 %.pre488, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge [
+  switch i8 %.pre511, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge [
     i8 120, label %193
     i8 88, label %193
     i8 48, label %.lr.ph
   ]
 
 193:                                              ; preds = %192, %192
-  %194 = getelementptr inbounds nuw i8, ptr %.promoted399, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %.promoted422, i64 1
   store ptr %194, ptr %6, align 8
   %195 = icmp eq ptr %194, %12
   br i1 %195, label %196, label %199
@@ -491,7 +491,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
 196:                                              ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %198 = load double, ptr %197, align 8
-  br label %534
+  br label %535
 
 199:                                              ; preds = %193
   br i1 %.not190, label %.thread347, label %200
@@ -518,7 +518,7 @@ switch.early.test:                                ; preds = %.thread347
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread348: ; preds = %switch.hole_check, %switch.early.test
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %209 = load double, ptr %208, align 8
-  br label %534
+  br label %535
 
 switch.hole_check:                                ; preds = %switch.early.test
   %switch.maskindex = zext nneg i8 %switch.tableidx to i64
@@ -534,13 +534,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
   %214 = call fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi4EPKcEEdPT0_S4_btbbdbPb(ptr noundef %6, ptr noundef nonnull %12, i1 noundef zeroext %.0151, i16 noundef zeroext %211, i1 noundef zeroext %210, i1 noundef zeroext %15, double noundef %213, i1 noundef zeroext %3, ptr noundef %7)
   %215 = load i8, ptr %7, align 1
   %216 = trunc i8 %215 to i1
-  br i1 %216, label %534, label %217
+  br i1 %216, label %535, label %217
 
 217:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread
   %.promoted.i253 = load ptr, ptr %6, align 8
   %.not10.not.i254 = icmp eq ptr %.promoted.i253, %12
-  %or.cond358 = select i1 %.not183, i1 true, i1 %.not10.not.i254
-  br i1 %or.cond358, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit262, label %.lr.ph.i255
+  %or.cond376 = select i1 %.not183, i1 true, i1 %.not10.not.i254
+  br i1 %or.cond376, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit262, label %.lr.ph.i255
 
 .lr.ph.i255:                                      ; preds = %217, %224
   %218 = phi ptr [ %225, %224 ], [ %.promoted.i253, %217 ]
@@ -571,17 +571,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
   %229 = sub i64 %227, %228
   %230 = trunc i64 %229 to i32
   store i32 %230, ptr %4, align 4
-  br label %534
+  br label %535
 
 231:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit.thread345
-  %232 = icmp eq i8 %.pre488, 48
+  %232 = icmp eq i8 %.pre511, 48
   br i1 %232, label %.lr.ph, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge
 
 .lr.ph:                                           ; preds = %192, %231
   br i1 %170, label %.lr.ph.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i267
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge.us
-  %233 = phi ptr [ %234, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge.us ], [ %.promoted399, %.lr.ph ]
+  %233 = phi ptr [ %234, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge.us ], [ %.promoted422, %.lr.ph ]
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 1
   %235 = icmp eq ptr %234, %12
   br i1 %235, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge.us
@@ -592,13 +592,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
   br i1 %237, label %.lr.ph.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge, !llvm.loop !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i267: ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge
-  %238 = phi ptr [ %242, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge ], [ %.promoted399, %.lr.ph ]
+  %238 = phi ptr [ %242, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge ], [ %.promoted422, %.lr.ph ]
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 1
   %240 = icmp eq ptr %239, %12
   br i1 %240, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.thread, label %244
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge: ; preds = %244, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i268
-  %241 = phi i8 [ %256, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i268 ], [ %.pre489, %244 ]
+  %241 = phi i8 [ %256, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i268 ], [ %.pre512, %244 ]
   %242 = phi ptr [ %257, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i268 ], [ %239, %244 ]
   %243 = icmp eq i8 %241, 48
   br i1 %243, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i267, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge, !llvm.loop !8
@@ -606,11 +606,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
 244:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i267
   %245 = getelementptr inbounds nuw i8, ptr %238, i64 2
   %246 = icmp eq ptr %245, %12
-  %.pre489 = load i8, ptr %239, align 1
+  %.pre512 = load i8, ptr %239, align 1
   br i1 %246, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge, label %247
 
 247:                                              ; preds = %244
-  %248 = sext i8 %.pre489 to i32
+  %248 = sext i8 %.pre512 to i32
   %249 = icmp eq i32 %248, %169
   br i1 %249, label %250, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i268
 
@@ -621,13 +621,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
   %or.cond.i25.i269 = icmp ult i32 %253, 10
   %254 = icmp ult i8 %251, 58
   %or.cond19.i26.i270 = and i1 %254, %or.cond.i25.i269
-  %255 = select i1 %or.cond19.i26.i270, i8 %251, i8 %.pre489
-  %spec.select442 = select i1 %or.cond19.i26.i270, ptr %245, ptr %239
+  %255 = select i1 %or.cond19.i26.i270, i8 %251, i8 %.pre512
+  %spec.select465 = select i1 %or.cond19.i26.i270, ptr %245, ptr %239
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i268
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i268: ; preds = %250, %247
-  %256 = phi i8 [ %.pre489, %247 ], [ %255, %250 ]
-  %257 = phi ptr [ %239, %247 ], [ %spec.select442, %250 ]
+  %256 = phi i8 [ %.pre512, %247 ], [ %255, %250 ]
+  %257 = phi ptr [ %239, %247 ], [ %spec.select465, %250 ]
   %258 = icmp eq ptr %257, %12
   br i1 %258, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge
 
@@ -639,64 +639,64 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
   %262 = trunc i64 %261 to i32
   store i32 %262, ptr %4, align 4
   %263 = select i1 %.0151, double -0.000000e+00, double 0.000000e+00
-  br label %534
+  br label %535
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge.us, %192, %231
-  %.lcssa400 = phi ptr [ %.promoted399, %231 ], [ %.promoted399, %192 ], [ %234, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge.us ], [ %242, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge ]
-  store ptr %.lcssa400, ptr %6, align 8
+  %.lcssa423 = phi ptr [ %.promoted422, %231 ], [ %.promoted422, %192 ], [ %234, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge.us ], [ %242, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.backedge ]
+  store ptr %.lcssa423, ptr %6, align 8
   %264 = trunc i32 %189 to i8
   %265 = lshr i8 %264, 1
-  %.pre491 = load i8, ptr %.lcssa400, align 1
+  %.pre514 = load i8, ptr %.lcssa423, align 1
   br label %.critedge203
 
 .critedge203:                                     ; preds = %162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge
-  %266 = phi i8 [ %.pre491, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge ], [ %164, %162 ]
-  %.promoted402 = phi ptr [ %.lcssa400, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge ], [ %163, %162 ]
+  %266 = phi i8 [ %.pre514, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge ], [ %164, %162 ]
+  %.promoted425 = phi ptr [ %.lcssa423, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge ], [ %163, %162 ]
   %267 = phi i8 [ %265, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272._crit_edge ], [ 0, %162 ]
   %268 = add i8 %266, -48
-  %or.cond204404 = icmp ult i8 %268, 10
-  br i1 %or.cond204404, label %.lr.ph410, label %.critedge
+  %or.cond204427 = icmp ult i8 %268, 10
+  br i1 %or.cond204427, label %.lr.ph433, label %.critedge
 
-.lr.ph410:                                        ; preds = %.critedge203
+.lr.ph433:                                        ; preds = %.critedge203
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %270 = load i16, ptr %269, align 8
   %271 = zext i16 %270 to i32
   %272 = icmp eq i16 %270, 0
   br label %273
 
-273:                                              ; preds = %.lr.ph410, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge
-  %274 = phi i8 [ %266, %.lr.ph410 ], [ %299, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
-  %.0137409 = phi i32 [ 0, %.lr.ph410 ], [ %.1138, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
-  %.0142408 = phi i32 [ 0, %.lr.ph410 ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
-  %.0145407 = phi i8 [ 0, %.lr.ph410 ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
-  %.0154406 = phi i8 [ %267, %.lr.ph410 ], [ %294, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
-  %.0157405 = phi i32 [ 0, %.lr.ph410 ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
-  %275 = phi ptr [ %.promoted402, %.lr.ph410 ], [ %298, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
-  %276 = icmp slt i32 %.0137409, 772
+273:                                              ; preds = %.lr.ph433, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge
+  %274 = phi i8 [ %266, %.lr.ph433 ], [ %299, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
+  %.0137432 = phi i32 [ 0, %.lr.ph433 ], [ %.1138, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
+  %.0142431 = phi i32 [ 0, %.lr.ph433 ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
+  %.0145430 = phi i8 [ 0, %.lr.ph433 ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
+  %.0154429 = phi i8 [ %267, %.lr.ph433 ], [ %294, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
+  %.0157428 = phi i32 [ 0, %.lr.ph433 ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
+  %275 = phi ptr [ %.promoted425, %.lr.ph433 ], [ %298, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
+  %276 = icmp slt i32 %.0137432, 772
   br i1 %276, label %277, label %282
 
 277:                                              ; preds = %273
-  %278 = add nsw i32 %.0157405, 1
-  %279 = sext i32 %.0157405 to i64
+  %278 = add nsw i32 %.0157428, 1
+  %279 = sext i32 %.0157428 to i64
   %280 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %279
   store i8 %274, ptr %280, align 1
-  %281 = add nsw i32 %.0137409, 1
+  %281 = add nsw i32 %.0137432, 1
   br label %287
 
 282:                                              ; preds = %273
-  %283 = add nsw i32 %.0142408, 1
-  %284 = trunc nuw i8 %.0145407 to i1
+  %283 = add nsw i32 %.0142431, 1
+  %284 = trunc nuw i8 %.0145430 to i1
   %285 = icmp ne i8 %274, 48
-  %narrow362 = or i1 %285, %284
-  %286 = zext i1 %narrow362 to i8
+  %narrow384 = or i1 %285, %284
+  %286 = zext i1 %narrow384 to i8
   br label %287
 
 287:                                              ; preds = %282, %277
-  %.1158 = phi i32 [ %278, %277 ], [ %.0157405, %282 ]
-  %.1146 = phi i8 [ %.0145407, %277 ], [ %286, %282 ]
-  %.1143 = phi i32 [ %.0142408, %277 ], [ %283, %282 ]
-  %.1138 = phi i32 [ %281, %277 ], [ %.0137409, %282 ]
-  %288 = trunc i8 %.0154406 to i1
+  %.1158 = phi i32 [ %278, %277 ], [ %.0157428, %282 ]
+  %.1146 = phi i8 [ %.0145430, %277 ], [ %286, %282 ]
+  %.1143 = phi i32 [ %.0142431, %277 ], [ %283, %282 ]
+  %.1138 = phi i32 [ %281, %277 ], [ %.0137432, %282 ]
+  %288 = trunc i8 %.0154429 to i1
   br i1 %288, label %289, label %293
 
 289:                                              ; preds = %287
@@ -756,23 +756,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
   %or.cond.i25.i279 = icmp ult i32 %319, 10
   %320 = icmp ult i8 %317, 58
   %or.cond19.i26.i280 = and i1 %320, %or.cond.i25.i279
-  %spec.select443 = select i1 %or.cond19.i26.i280, ptr %310, ptr %306
+  %spec.select466 = select i1 %or.cond19.i26.i280, ptr %310, ptr %306
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278: ; preds = %316, %312
-  %321 = phi ptr [ %306, %312 ], [ %spec.select443, %316 ]
+  %321 = phi ptr [ %306, %312 ], [ %spec.select466, %316 ]
   %322 = icmp eq ptr %321, %12
   br i1 %322, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge
 
 .critedge:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge, %.critedge203
-  %.lcssa403 = phi ptr [ %.promoted402, %.critedge203 ], [ %298, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
+  %.lcssa426 = phi ptr [ %.promoted425, %.critedge203 ], [ %298, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
   %.0157.lcssa = phi i32 [ 0, %.critedge203 ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
   %.0154.lcssa = phi i8 [ %267, %.critedge203 ], [ %294, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
   %.0145.lcssa = phi i8 [ 0, %.critedge203 ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
   %.0142.lcssa = phi i32 [ 0, %.critedge203 ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
   %.0137.lcssa = phi i32 [ 0, %.critedge203 ], [ %.1138, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
   %.lcssa = phi i8 [ %266, %.critedge203 ], [ %299, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit282.backedge ]
-  store ptr %.lcssa403, ptr %6, align 8
+  store ptr %.lcssa426, ptr %6, align 8
   %323 = icmp eq i32 %.0137.lcssa, 0
   %spec.select = select i1 %323, i8 0, i8 %.0154.lcssa
   %324 = icmp eq i8 %.lcssa, 46
@@ -787,481 +787,493 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.
 327:                                              ; preds = %325
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %329 = load double, ptr %328, align 8
-  br label %534
+  br label %535
 
 330:                                              ; preds = %325
-  br i1 %326, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312, label %331
+  br i1 %326, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread365, label %331
 
 331:                                              ; preds = %330
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %333 = load i16, ptr %332, align 8
   %334 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_(ptr noundef %6, i16 noundef zeroext %333, i32 noundef 10, ptr nonnull %12)
-  br i1 %334, label %335, label %340
+  br i1 %334, label %335, label %339
 
 335:                                              ; preds = %331
-  br i1 %323, label %336, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312
+  %brmerge379.not = and i1 %165, %323
+  br i1 %brmerge379.not, label %336, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread
 
 336:                                              ; preds = %335
-  br i1 %165, label %337, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %338 = load double, ptr %337, align 8
+  br label %535
 
-337:                                              ; preds = %336
-  %338 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %339 = load double, ptr %338, align 8
-  br label %534
+339:                                              ; preds = %331
+  %.promoted444.pre = load ptr, ptr %6, align 8
+  %340 = load i8, ptr %.promoted444.pre, align 1
+  %341 = icmp eq i8 %340, 48
+  %or.cond557 = select i1 %323, i1 %341, i1 false
+  br i1 %or.cond557, label %.lr.ph442, label %.loopexit
 
-340:                                              ; preds = %331
-  %.promoted421.pre = load ptr, ptr %6, align 8
-  %341 = load i8, ptr %.promoted421.pre, align 1
-  %342 = icmp eq i8 %341, 48
-  %or.cond541 = select i1 %323, i1 %342, i1 false
-  br i1 %or.cond541, label %.lr.ph419, label %.loopexit
+.lr.ph442:                                        ; preds = %339, %350
+  %.3441 = phi i32 [ %351, %350 ], [ 0, %339 ]
+  %342 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_(ptr noundef %6, i16 noundef zeroext %333, i32 noundef 10, ptr nonnull %12)
+  br i1 %342, label %343, label %350
 
-.lr.ph419:                                        ; preds = %340, %351
-  %.3418 = phi i32 [ %352, %351 ], [ 0, %340 ]
-  %343 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_(ptr noundef %6, i16 noundef zeroext %333, i32 noundef 10, ptr nonnull %12)
-  br i1 %343, label %344, label %351
+343:                                              ; preds = %.lr.ph442
+  %344 = load ptr, ptr %6, align 8
+  %345 = ptrtoint ptr %344 to i64
+  %346 = ptrtoint ptr %1 to i64
+  %347 = sub i64 %345, %346
+  %348 = trunc i64 %347 to i32
+  store i32 %348, ptr %4, align 4
+  %349 = select i1 %.0151, double -0.000000e+00, double 0.000000e+00
+  br label %535
 
-344:                                              ; preds = %.lr.ph419
-  %345 = load ptr, ptr %6, align 8
-  %346 = ptrtoint ptr %345 to i64
-  %347 = ptrtoint ptr %1 to i64
-  %348 = sub i64 %346, %347
-  %349 = trunc i64 %348 to i32
-  store i32 %349, ptr %4, align 4
-  %350 = select i1 %.0151, double -0.000000e+00, double 0.000000e+00
-  br label %534
+350:                                              ; preds = %.lr.ph442
+  %351 = add nsw i32 %.3441, -1
+  %352 = load ptr, ptr %6, align 8
+  %353 = load i8, ptr %352, align 1
+  %354 = icmp eq i8 %353, 48
+  br i1 %354, label %.lr.ph442, label %.loopexit, !llvm.loop !10
 
-351:                                              ; preds = %.lr.ph419
-  %352 = add nsw i32 %.3418, -1
-  %353 = load ptr, ptr %6, align 8
-  %354 = load i8, ptr %353, align 1
-  %355 = icmp eq i8 %354, 48
-  br i1 %355, label %.lr.ph419, label %.loopexit, !llvm.loop !10
+.loopexit:                                        ; preds = %350, %339
+  %355 = phi i8 [ %340, %339 ], [ %353, %350 ]
+  %.promoted444 = phi ptr [ %.promoted444.pre, %339 ], [ %352, %350 ]
+  %.2 = phi i32 [ 0, %339 ], [ %351, %350 ]
+  %356 = add i8 %355, -48
+  %or.cond207446 = icmp ult i8 %356, 10
+  br i1 %or.cond207446, label %.lr.ph451, label %.critedge2.loopexit
 
-.loopexit:                                        ; preds = %351, %340
-  %356 = phi i8 [ %341, %340 ], [ %354, %351 ]
-  %.promoted421 = phi ptr [ %.promoted421.pre, %340 ], [ %353, %351 ]
-  %.2 = phi i32 [ 0, %340 ], [ %352, %351 ]
-  %357 = add i8 %356, -48
-  %or.cond207423 = icmp ult i8 %357, 10
-  br i1 %or.cond207423, label %.lr.ph428, label %.critedge2.loopexit
+.lr.ph451:                                        ; preds = %.loopexit
+  %357 = zext i16 %333 to i32
+  %358 = icmp eq i16 %333, 0
+  br label %359
 
-.lr.ph428:                                        ; preds = %.loopexit
-  %358 = zext i16 %333 to i32
-  %359 = icmp eq i16 %333, 0
-  br label %360
+359:                                              ; preds = %.lr.ph451, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge
+  %360 = phi i8 [ %355, %.lr.ph451 ], [ %378, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
+  %.4450 = phi i32 [ %.2, %.lr.ph451 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
+  %.3140449 = phi i32 [ %.0137.lcssa, %.lr.ph451 ], [ %.4141, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
+  %.4149448 = phi i8 [ %.0145.lcssa, %.lr.ph451 ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
+  %.4161447 = phi i32 [ %.0157.lcssa, %.lr.ph451 ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
+  %361 = phi ptr [ %.promoted444, %.lr.ph451 ], [ %377, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
+  %362 = icmp slt i32 %.3140449, 772
+  br i1 %362, label %363, label %369
 
-360:                                              ; preds = %.lr.ph428, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge
-  %361 = phi i8 [ %356, %.lr.ph428 ], [ %379, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
-  %.4427 = phi i32 [ %.2, %.lr.ph428 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
-  %.3140426 = phi i32 [ %.0137.lcssa, %.lr.ph428 ], [ %.4141, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
-  %.4149425 = phi i8 [ %.0145.lcssa, %.lr.ph428 ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
-  %.4161424 = phi i32 [ %.0157.lcssa, %.lr.ph428 ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
-  %362 = phi ptr [ %.promoted421, %.lr.ph428 ], [ %378, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
-  %363 = icmp slt i32 %.3140426, 772
-  br i1 %363, label %364, label %370
+363:                                              ; preds = %359
+  %364 = add nsw i32 %.4161447, 1
+  %365 = sext i32 %.4161447 to i64
+  %366 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %365
+  store i8 %360, ptr %366, align 1
+  %367 = add nsw i32 %.3140449, 1
+  %368 = add nsw i32 %.4450, -1
+  br label %373
 
-364:                                              ; preds = %360
-  %365 = add nsw i32 %.4161424, 1
-  %366 = sext i32 %.4161424 to i64
-  %367 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %366
-  store i8 %361, ptr %367, align 1
-  %368 = add nsw i32 %.3140426, 1
-  %369 = add nsw i32 %.4427, -1
-  br label %374
+369:                                              ; preds = %359
+  %370 = trunc nuw i8 %.4149448 to i1
+  %371 = icmp ne i8 %360, 48
+  %narrow = or i1 %371, %370
+  %372 = zext i1 %narrow to i8
+  br label %373
 
-370:                                              ; preds = %360
-  %371 = trunc nuw i8 %.4149425 to i1
-  %372 = icmp ne i8 %361, 48
-  %narrow = or i1 %372, %371
-  %373 = zext i1 %narrow to i8
-  br label %374
+373:                                              ; preds = %369, %363
+  %.5162 = phi i32 [ %364, %363 ], [ %.4161447, %369 ]
+  %.5150 = phi i8 [ %.4149448, %363 ], [ %372, %369 ]
+  %.4141 = phi i32 [ %367, %363 ], [ %.3140449, %369 ]
+  %.5 = phi i32 [ %368, %363 ], [ %.4450, %369 ]
+  br i1 %358, label %374, label %380
 
-374:                                              ; preds = %370, %364
-  %.5162 = phi i32 [ %365, %364 ], [ %.4161424, %370 ]
-  %.5150 = phi i8 [ %.4149425, %364 ], [ %373, %370 ]
-  %.4141 = phi i32 [ %368, %364 ], [ %.3140426, %370 ]
-  %.5 = phi i32 [ %369, %364 ], [ %.4427, %370 ]
-  br i1 %359, label %375, label %381
+374:                                              ; preds = %373
+  %375 = getelementptr inbounds nuw i8, ptr %361, i64 1
+  %376 = icmp eq ptr %375, %12
+  br i1 %376, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge
 
-375:                                              ; preds = %374
-  %376 = getelementptr inbounds nuw i8, ptr %362, i64 1
-  %377 = icmp eq ptr %376, %12
-  br i1 %377, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge: ; preds = %374, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288, %387, %388
+  %377 = phi ptr [ %375, %374 ], [ %400, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %385, %387 ], [ %385, %388 ]
+  %378 = load i8, ptr %377, align 1
+  %379 = add i8 %378, -48
+  %or.cond207 = icmp ult i8 %379, 10
+  br i1 %or.cond207, label %359, label %.critedge2.loopexit, !llvm.loop !11
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge: ; preds = %375, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288, %388, %389
-  %378 = phi ptr [ %376, %375 ], [ %401, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %386, %388 ], [ %386, %389 ]
-  %379 = load i8, ptr %378, align 1
-  %380 = add i8 %379, -48
-  %or.cond207 = icmp ult i8 %380, 10
-  br i1 %or.cond207, label %360, label %.critedge2.loopexit, !llvm.loop !11
+380:                                              ; preds = %373
+  %381 = load i8, ptr %361, align 1
+  %382 = sext i8 %381 to i32
+  %383 = add nsw i32 %382, -48
+  %or.cond.i.i283 = icmp ult i32 %383, 10
+  %384 = icmp ult i8 %381, 58
+  %or.cond19.i.i284 = and i1 %384, %or.cond.i.i283
+  %385 = getelementptr inbounds nuw i8, ptr %361, i64 1
+  %386 = icmp eq ptr %385, %12
+  br i1 %or.cond19.i.i284, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287, label %387
 
-381:                                              ; preds = %374
-  %382 = load i8, ptr %362, align 1
-  %383 = sext i8 %382 to i32
-  %384 = add nsw i32 %383, -48
-  %or.cond.i.i283 = icmp ult i32 %384, 10
-  %385 = icmp ult i8 %382, 58
-  %or.cond19.i.i284 = and i1 %385, %or.cond.i.i283
-  %386 = getelementptr inbounds nuw i8, ptr %362, i64 1
-  %387 = icmp eq ptr %386, %12
-  br i1 %or.cond19.i.i284, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287, label %388
+387:                                              ; preds = %380
+  br i1 %386, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge
 
-388:                                              ; preds = %381
-  br i1 %387, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287: ; preds = %380
+  br i1 %386, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %388
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287: ; preds = %381
-  br i1 %387, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %389
+388:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287
+  %389 = getelementptr inbounds nuw i8, ptr %361, i64 2
+  %390 = icmp eq ptr %389, %12
+  br i1 %390, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge, label %391
 
-389:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287
-  %390 = getelementptr inbounds nuw i8, ptr %362, i64 2
-  %391 = icmp eq ptr %390, %12
-  br i1 %391, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge, label %392
+391:                                              ; preds = %388
+  %392 = load i8, ptr %385, align 1
+  %393 = sext i8 %392 to i32
+  %394 = icmp eq i32 %393, %357
+  br i1 %394, label %395, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288
 
-392:                                              ; preds = %389
-  %393 = load i8, ptr %386, align 1
-  %394 = sext i8 %393 to i32
-  %395 = icmp eq i32 %394, %358
-  br i1 %395, label %396, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288
-
-396:                                              ; preds = %392
-  %397 = load i8, ptr %390, align 1
-  %398 = sext i8 %397 to i32
-  %399 = add nsw i32 %398, -48
-  %or.cond.i25.i289 = icmp ult i32 %399, 10
-  %400 = icmp ult i8 %397, 58
-  %or.cond19.i26.i290 = and i1 %400, %or.cond.i25.i289
-  %spec.select444 = select i1 %or.cond19.i26.i290, ptr %390, ptr %386
+395:                                              ; preds = %391
+  %396 = load i8, ptr %389, align 1
+  %397 = sext i8 %396 to i32
+  %398 = add nsw i32 %397, -48
+  %or.cond.i25.i289 = icmp ult i32 %398, 10
+  %399 = icmp ult i8 %396, 58
+  %or.cond19.i26.i290 = and i1 %399, %or.cond.i25.i289
+  %spec.select467 = select i1 %or.cond19.i26.i290, ptr %389, ptr %385
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288: ; preds = %396, %392
-  %401 = phi ptr [ %386, %392 ], [ %spec.select444, %396 ]
-  %402 = icmp eq ptr %401, %12
-  br i1 %402, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288: ; preds = %395, %391
+  %400 = phi ptr [ %385, %391 ], [ %spec.select467, %395 ]
+  %401 = icmp eq ptr %400, %12
+  br i1 %401, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge
 
 .critedge2.loopexit:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge, %.loopexit
-  %.lcssa422 = phi ptr [ %.promoted421, %.loopexit ], [ %378, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
+  %.lcssa445 = phi ptr [ %.promoted444, %.loopexit ], [ %377, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
   %.4161.lcssa = phi i32 [ %.0157.lcssa, %.loopexit ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
   %.4149.lcssa = phi i8 [ %.0145.lcssa, %.loopexit ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
   %.3140.lcssa = phi i32 [ %.0137.lcssa, %.loopexit ], [ %.4141, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
   %.4.lcssa = phi i32 [ %.2, %.loopexit ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit292.backedge ]
-  store ptr %.lcssa422, ptr %6, align 8
+  store ptr %.lcssa445, ptr %6, align 8
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
-  %403 = phi ptr [ %.lcssa403, %.critedge ], [ %.lcssa422, %.critedge2.loopexit ]
+  %402 = phi ptr [ %.lcssa426, %.critedge ], [ %.lcssa445, %.critedge2.loopexit ]
   %.3160 = phi i32 [ %.0157.lcssa, %.critedge ], [ %.4161.lcssa, %.critedge2.loopexit ]
   %.3148 = phi i8 [ %.0145.lcssa, %.critedge ], [ %.4149.lcssa, %.critedge2.loopexit ]
   %.2139 = phi i32 [ %.0137.lcssa, %.critedge ], [ %.3140.lcssa, %.critedge2.loopexit ]
   %.1 = phi i32 [ 0, %.critedge ], [ %.4.lcssa, %.critedge2.loopexit ]
-  %404 = icmp eq i32 %.1, 0
-  %or.cond = select i1 %165, i1 %404, i1 false
-  %405 = icmp eq i32 %.2139, 0
-  %or.cond5 = select i1 %or.cond, i1 %405, i1 false
-  br i1 %or.cond5, label %406, label %409
+  %403 = icmp eq i32 %.1, 0
+  %or.cond = select i1 %165, i1 %403, i1 false
+  %404 = icmp eq i32 %.2139, 0
+  %or.cond5 = select i1 %or.cond, i1 %404, i1 false
+  br i1 %or.cond5, label %405, label %408
 
-406:                                              ; preds = %.critedge2
-  %407 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %408 = load double, ptr %407, align 8
-  br label %534
+405:                                              ; preds = %.critedge2
+  %406 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %407 = load double, ptr %406, align 8
+  br label %535
 
-409:                                              ; preds = %.critedge2
-  %410 = load i8, ptr %403, align 1
-  switch i8 %410, label %462 [
-    i8 101, label %411
-    i8 69, label %411
+408:                                              ; preds = %.critedge2
+  %409 = load i8, ptr %402, align 1
+  switch i8 %409, label %461 [
+    i8 101, label %410
+    i8 69, label %410
   ]
 
-411:                                              ; preds = %409, %409
-  %412 = trunc i8 %spec.select to i1
-  %.not208 = xor i1 %412, true
+410:                                              ; preds = %408, %408
+  %411 = trunc i8 %spec.select to i1
+  %.not208 = xor i1 %411, true
   %brmerge209 = select i1 %.not208, i1 true, i1 %15
-  br i1 %brmerge209, label %416, label %413
+  br i1 %brmerge209, label %415, label %412
 
-413:                                              ; preds = %411
-  %414 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %415 = load double, ptr %414, align 8
-  br label %534
+412:                                              ; preds = %410
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %414 = load double, ptr %413, align 8
+  br label %535
 
-416:                                              ; preds = %411
-  br i1 %412, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312, label %417
+415:                                              ; preds = %410
+  br i1 %411, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread365, label %416
 
-417:                                              ; preds = %416
-  %418 = getelementptr inbounds nuw i8, ptr %403, i64 1
-  store ptr %418, ptr %6, align 8
-  %419 = icmp eq ptr %418, %12
-  br i1 %419, label %420, label %424
+416:                                              ; preds = %415
+  %417 = getelementptr inbounds nuw i8, ptr %402, i64 1
+  store ptr %417, ptr %6, align 8
+  %418 = icmp eq ptr %417, %12
+  br i1 %418, label %419, label %423
 
-420:                                              ; preds = %417
-  br i1 %15, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %421
+419:                                              ; preds = %416
+  br i1 %15, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread.sink.split, label %420
 
-421:                                              ; preds = %420
-  %422 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %423 = load double, ptr %422, align 8
-  br label %534
+420:                                              ; preds = %419
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %422 = load double, ptr %421, align 8
+  br label %535
 
-424:                                              ; preds = %417
-  %425 = load i8, ptr %418, align 1
-  switch i8 %425, label %433 [
-    i8 43, label %426
-    i8 45, label %426
+423:                                              ; preds = %416
+  %424 = load i8, ptr %417, align 1
+  switch i8 %424, label %432 [
+    i8 43, label %425
+    i8 45, label %425
   ]
 
-426:                                              ; preds = %424, %424
-  %427 = getelementptr inbounds nuw i8, ptr %403, i64 2
-  store ptr %427, ptr %6, align 8
-  %428 = icmp eq ptr %427, %12
-  br i1 %428, label %429, label %433
+425:                                              ; preds = %423, %423
+  %426 = getelementptr inbounds nuw i8, ptr %402, i64 2
+  store ptr %426, ptr %6, align 8
+  %427 = icmp eq ptr %426, %12
+  br i1 %427, label %428, label %432
 
-429:                                              ; preds = %426
-  br i1 %15, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %430
+428:                                              ; preds = %425
+  br i1 %15, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread.sink.split, label %429
 
-430:                                              ; preds = %429
-  %431 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %432 = load double, ptr %431, align 8
-  br label %534
+429:                                              ; preds = %428
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %431 = load double, ptr %430, align 8
+  br label %535
 
-433:                                              ; preds = %424, %426
-  %.promoted434 = phi ptr [ %427, %426 ], [ %418, %424 ]
-  %.0164 = phi i8 [ %425, %426 ], [ 43, %424 ]
-  %434 = icmp eq ptr %.promoted434, %12
-  br i1 %434, label %438, label %435
+432:                                              ; preds = %423, %425
+  %.promoted457 = phi ptr [ %426, %425 ], [ %417, %423 ]
+  %.0164 = phi i8 [ %424, %425 ], [ 43, %423 ]
+  %433 = icmp eq ptr %.promoted457, %12
+  br i1 %433, label %437, label %434
 
-435:                                              ; preds = %433
-  %436 = load i8, ptr %.promoted434, align 1
-  %437 = add i8 %436, -58
-  %or.cond210 = icmp ult i8 %437, -10
-  br i1 %or.cond210, label %438, label %.preheader
+434:                                              ; preds = %432
+  %435 = load i8, ptr %.promoted457, align 1
+  %436 = add i8 %435, -58
+  %or.cond210 = icmp ult i8 %436, -10
+  br i1 %or.cond210, label %437, label %.preheader
 
-438:                                              ; preds = %435, %433
-  br i1 %15, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %439
+437:                                              ; preds = %434, %432
+  br i1 %15, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread.sink.split, label %438
 
-439:                                              ; preds = %438
-  %440 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %441 = load double, ptr %440, align 8
-  br label %534
+438:                                              ; preds = %437
+  %439 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %440 = load double, ptr %439, align 8
+  br label %535
 
-.preheader:                                       ; preds = %435, %455
-  %442 = phi i8 [ %456, %455 ], [ %436, %435 ]
-  %443 = phi ptr [ %454, %455 ], [ %.promoted434, %435 ]
-  %.0165 = phi i32 [ %.1166, %455 ], [ 0, %435 ]
-  %444 = zext nneg i8 %442 to i32
-  %445 = icmp sgt i32 %.0165, 107374181
-  br i1 %445, label %446, label %449
+.preheader:                                       ; preds = %434, %454
+  %441 = phi i8 [ %455, %454 ], [ %435, %434 ]
+  %442 = phi ptr [ %453, %454 ], [ %.promoted457, %434 ]
+  %.0165 = phi i32 [ %.1166, %454 ], [ 0, %434 ]
+  %443 = zext nneg i8 %441 to i32
+  %444 = icmp sgt i32 %.0165, 107374181
+  br i1 %444, label %445, label %448
 
-446:                                              ; preds = %.preheader
-  %447 = icmp eq i32 %.0165, 107374182
-  %448 = icmp samesign ult i8 %442, 52
-  %or.cond7 = and i1 %447, %448
-  br i1 %or.cond7, label %449, label %453
+445:                                              ; preds = %.preheader
+  %446 = icmp eq i32 %.0165, 107374182
+  %447 = icmp samesign ult i8 %441, 52
+  %or.cond7 = and i1 %446, %447
+  br i1 %or.cond7, label %448, label %452
 
-449:                                              ; preds = %446, %.preheader
-  %450 = mul nsw i32 %.0165, 10
-  %451 = add i32 %450, -48
-  %452 = add i32 %451, %444
-  br label %453
+448:                                              ; preds = %445, %.preheader
+  %449 = mul nsw i32 %.0165, 10
+  %450 = add i32 %449, -48
+  %451 = add i32 %450, %443
+  br label %452
 
-453:                                              ; preds = %446, %449
-  %.1166 = phi i32 [ %452, %449 ], [ 1073741823, %446 ]
-  %454 = getelementptr inbounds nuw i8, ptr %443, i64 1
-  %.not = icmp eq ptr %454, %12
-  br i1 %.not, label %.critedge9, label %455
+452:                                              ; preds = %445, %448
+  %.1166 = phi i32 [ %451, %448 ], [ 1073741823, %445 ]
+  %453 = getelementptr inbounds nuw i8, ptr %442, i64 1
+  %.not = icmp eq ptr %453, %12
+  br i1 %.not, label %.critedge9, label %454
 
-455:                                              ; preds = %453
-  %456 = load i8, ptr %454, align 1
-  %457 = add i8 %456, -48
-  %or.cond211 = icmp ult i8 %457, 10
+454:                                              ; preds = %452
+  %455 = load i8, ptr %453, align 1
+  %456 = add i8 %455, -48
+  %or.cond211 = icmp ult i8 %456, 10
   br i1 %or.cond211, label %.preheader, label %.critedge9, !llvm.loop !12
 
-.critedge9:                                       ; preds = %455, %453
-  store ptr %454, ptr %6, align 8
-  %458 = icmp eq i8 %.0164, 45
-  %459 = sub nsw i32 0, %.1166
-  %460 = select i1 %458, i32 %459, i32 %.1166
-  %461 = add nsw i32 %460, %.1
-  br label %462
+.critedge9:                                       ; preds = %454, %452
+  store ptr %453, ptr %6, align 8
+  %457 = icmp eq i8 %.0164, 45
+  %458 = sub nsw i32 0, %.1166
+  %459 = select i1 %457, i32 %458, i32 %.1166
+  %460 = add nsw i32 %459, %.1
+  br label %461
 
-462:                                              ; preds = %409, %.critedge9
-  %.promoted436 = phi ptr [ %454, %.critedge9 ], [ %403, %409 ]
-  %.6 = phi i32 [ %461, %.critedge9 ], [ %.1, %409 ]
+461:                                              ; preds = %408, %.critedge9
+  %.promoted459 = phi ptr [ %453, %.critedge9 ], [ %402, %408 ]
+  %.6 = phi i32 [ %460, %.critedge9 ], [ %.1, %408 ]
   %brmerge213 = select i1 %.not183.not, i1 true, i1 %15
-  %.not10.not.i294 = icmp eq ptr %.promoted436, %12
-  br i1 %brmerge213, label %467, label %463
+  %.not10.not.i294 = icmp eq ptr %.promoted459, %12
+  br i1 %brmerge213, label %466, label %462
+
+462:                                              ; preds = %461
+  br i1 %.not10.not.i294, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312, label %463
 
 463:                                              ; preds = %462
-  br i1 %.not10.not.i294, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312, label %464
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %465 = load double, ptr %464, align 8
+  br label %535
 
-464:                                              ; preds = %463
-  %465 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %466 = load double, ptr %465, align 8
-  br label %534
+466:                                              ; preds = %461
+  %or.cond380 = or i1 %15, %.not10.not.i294
+  br i1 %or.cond380, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread, label %.lr.ph.i295
 
-467:                                              ; preds = %462
-  %or.cond359 = or i1 %15, %.not10.not.i294
-  br i1 %or.cond359, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread, label %.lr.ph.i295
-
-.lr.ph.i295:                                      ; preds = %467, %474
-  %468 = phi ptr [ %475, %474 ], [ %.promoted436, %467 ]
-  %469 = load i8, ptr %468, align 1
+.lr.ph.i295:                                      ; preds = %466, %473
+  %467 = phi ptr [ %474, %473 ], [ %.promoted459, %466 ]
+  %468 = load i8, ptr %467, align 1
   br label %.preheader.i.i296
 
-470:                                              ; preds = %.preheader.i.i296
+469:                                              ; preds = %.preheader.i.i296
   %indvars.iv.next21.i.i298 = add nuw nsw i64 %indvars.iv20.i.i297, 1
   %exitcond23.not.i.i299 = icmp eq i64 %indvars.iv.next21.i.i298, 6
   br i1 %exitcond23.not.i.i299, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302, label %.preheader.i.i296, !llvm.loop !4
 
-.preheader.i.i296:                                ; preds = %470, %.lr.ph.i295
-  %indvars.iv20.i.i297 = phi i64 [ %indvars.iv.next21.i.i298, %470 ], [ 0, %.lr.ph.i295 ]
-  %471 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i297
-  %472 = load i8, ptr %471, align 1
-  %473 = icmp eq i8 %469, %472
-  br i1 %473, label %474, label %470
+.preheader.i.i296:                                ; preds = %469, %.lr.ph.i295
+  %indvars.iv20.i.i297 = phi i64 [ %indvars.iv.next21.i.i298, %469 ], [ 0, %.lr.ph.i295 ]
+  %470 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i297
+  %471 = load i8, ptr %470, align 1
+  %472 = icmp eq i8 %468, %471
+  br i1 %472, label %473, label %469
 
-474:                                              ; preds = %.preheader.i.i296
-  %475 = getelementptr inbounds nuw i8, ptr %468, i64 1
-  %.not.not.i301 = icmp eq ptr %475, %12
+473:                                              ; preds = %.preheader.i.i296
+  %474 = getelementptr inbounds nuw i8, ptr %467, i64 1
+  %.not.not.i301 = icmp eq ptr %474, %12
   br i1 %.not.not.i301, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread.loopexit, label %.lr.ph.i295, !llvm.loop !6
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302: ; preds = %470
-  %476 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %477 = load double, ptr %476, align 8
-  br label %534
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302: ; preds = %469
+  %475 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %476 = load double, ptr %475, align 8
+  br label %535
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread.loopexit: ; preds = %474
-  store ptr %475, ptr %6, align 8
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread.loopexit: ; preds = %473
+  store ptr %474, ptr %6, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread.loopexit, %467
-  %.promoted439 = phi ptr [ %475, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread.loopexit ], [ %.promoted436, %467 ]
-  %.not10.not.i304 = icmp eq ptr %.promoted439, %12
-  %or.cond360 = or i1 %.not183, %.not10.not.i304
-  br i1 %or.cond360, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312, label %.lr.ph.i305
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread.loopexit, %466
+  %.promoted462 = phi ptr [ %474, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread.loopexit ], [ %.promoted459, %466 ]
+  %.not10.not.i304 = icmp eq ptr %.promoted462, %12
+  %or.cond381 = or i1 %.not183, %.not10.not.i304
+  br i1 %or.cond381, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312, label %.lr.ph.i305
 
-.lr.ph.i305:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread, %484
-  %478 = phi ptr [ %485, %484 ], [ %.promoted439, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ]
-  %479 = load i8, ptr %478, align 1
+.lr.ph.i305:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread, %483
+  %477 = phi ptr [ %484, %483 ], [ %.promoted462, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ]
+  %478 = load i8, ptr %477, align 1
   br label %.preheader.i.i306
 
-480:                                              ; preds = %.preheader.i.i306
+479:                                              ; preds = %.preheader.i.i306
   %indvars.iv.next21.i.i308 = add nuw nsw i64 %indvars.iv20.i.i307, 1
   %exitcond23.not.i.i309 = icmp eq i64 %indvars.iv.next21.i.i308, 6
   br i1 %exitcond23.not.i.i309, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %.preheader.i.i306, !llvm.loop !4
 
-.preheader.i.i306:                                ; preds = %480, %.lr.ph.i305
-  %indvars.iv20.i.i307 = phi i64 [ %indvars.iv.next21.i.i308, %480 ], [ 0, %.lr.ph.i305 ]
-  %481 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i307
-  %482 = load i8, ptr %481, align 1
-  %483 = icmp eq i8 %479, %482
-  br i1 %483, label %484, label %480
+.preheader.i.i306:                                ; preds = %479, %.lr.ph.i305
+  %indvars.iv20.i.i307 = phi i64 [ %indvars.iv.next21.i.i308, %479 ], [ 0, %.lr.ph.i305 ]
+  %480 = getelementptr inbounds nuw [6 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17kWhitespaceTable7E, i64 0, i64 %indvars.iv20.i.i307
+  %481 = load i8, ptr %480, align 1
+  %482 = icmp eq i8 %478, %481
+  br i1 %482, label %483, label %479
 
-484:                                              ; preds = %.preheader.i.i306
-  %485 = getelementptr inbounds nuw i8, ptr %478, i64 1
-  %.not.not.i311 = icmp eq ptr %485, %12
+483:                                              ; preds = %.preheader.i.i306
+  %484 = getelementptr inbounds nuw i8, ptr %477, i64 1
+  %.not.not.i311 = icmp eq ptr %484, %12
   br i1 %.not.not.i311, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, label %.lr.ph.i305, !llvm.loop !6
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277, %308, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278, %295, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287, %388, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288, %375, %484, %480, %438, %429, %420
-  %.sink = phi ptr [ %403, %420 ], [ %403, %429 ], [ %403, %438 ], [ %478, %480 ], [ %485, %484 ], [ %386, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %386, %388 ], [ %401, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %376, %375 ], [ %306, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ], [ %306, %308 ], [ %321, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %296, %295 ]
-  %.2159.ph = phi i32 [ %.3160, %420 ], [ %.3160, %429 ], [ %.3160, %438 ], [ %.3160, %480 ], [ %.3160, %484 ], [ %.5162, %375 ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %.5162, %388 ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %.1158, %295 ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %.1158, %308 ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ]
-  %.1155.ph = phi i8 [ %spec.select, %420 ], [ %spec.select, %429 ], [ %spec.select, %438 ], [ %spec.select, %480 ], [ %spec.select, %484 ], [ %spec.select, %375 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %spec.select, %388 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %294, %295 ], [ %294, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %294, %308 ], [ %294, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ]
-  %.2147.ph = phi i8 [ %.3148, %420 ], [ %.3148, %429 ], [ %.3148, %438 ], [ %.3148, %480 ], [ %.3148, %484 ], [ %.5150, %375 ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %.5150, %388 ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %.1146, %295 ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %.1146, %308 ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ]
-  %.2144.ph = phi i32 [ %.0142.lcssa, %420 ], [ %.0142.lcssa, %429 ], [ %.0142.lcssa, %438 ], [ %.0142.lcssa, %480 ], [ %.0142.lcssa, %484 ], [ %.0142.lcssa, %375 ], [ %.0142.lcssa, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %.0142.lcssa, %388 ], [ %.0142.lcssa, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %.1143, %295 ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %.1143, %308 ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ]
-  %.0136.ph = phi i32 [ %.1, %420 ], [ %.1, %429 ], [ %.1, %438 ], [ %.6, %480 ], [ %.6, %484 ], [ %.5, %375 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %.5, %388 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ 0, %295 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ 0, %308 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ]
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread.sink.split: ; preds = %437, %428, %419
+  store ptr %402, ptr %6, align 8
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread
+
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread.sink.split, %335
+  %.2159.ph = phi i32 [ %.0157.lcssa, %335 ], [ %.3160, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread.sink.split ]
+  %.2147.ph = phi i8 [ %.0145.lcssa, %335 ], [ %.3148, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread.sink.split ]
+  %.0136.ph = phi i32 [ 0, %335 ], [ %.1, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread.sink.split ]
+  %485 = add nsw i32 %.0136.ph, %.0142.lcssa
+  br label %501
+
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277, %308, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278, %295, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287, %387, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288, %374, %483, %479
+  %.sink = phi ptr [ %477, %479 ], [ %484, %483 ], [ %385, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %385, %387 ], [ %400, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %375, %374 ], [ %306, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ], [ %306, %308 ], [ %321, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %296, %295 ]
+  %.ph = phi ptr [ %477, %479 ], [ %12, %483 ], [ %385, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %385, %387 ], [ %400, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %375, %374 ], [ %306, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ], [ %306, %308 ], [ %321, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %296, %295 ]
+  %.2159.ph592 = phi i32 [ %.3160, %479 ], [ %.3160, %483 ], [ %.5162, %374 ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %.5162, %387 ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %.1158, %295 ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %.1158, %308 ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ]
+  %.1155.ph = phi i8 [ %spec.select, %479 ], [ %spec.select, %483 ], [ %spec.select, %374 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %spec.select, %387 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %294, %295 ], [ %294, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %294, %308 ], [ %294, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ]
+  %.2147.ph593 = phi i8 [ %.3148, %479 ], [ %.3148, %483 ], [ %.5150, %374 ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %.5150, %387 ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %.1146, %295 ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %.1146, %308 ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ]
+  %.2144.ph = phi i32 [ %.0142.lcssa, %479 ], [ %.0142.lcssa, %483 ], [ %.0142.lcssa, %374 ], [ %.0142.lcssa, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %.0142.lcssa, %387 ], [ %.0142.lcssa, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ %.1143, %295 ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ %.1143, %308 ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ]
+  %.0136.ph594 = phi i32 [ %.6, %479 ], [ %.6, %483 ], [ %.5, %374 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i288 ], [ %.5, %387 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i287 ], [ 0, %295 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i278 ], [ 0, %308 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i277 ]
   store ptr %.sink, ptr %6, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, %463, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread, %416, %335, %330
-  %.2159 = phi i32 [ %.0157.lcssa, %330 ], [ %.0157.lcssa, %335 ], [ %.3160, %416 ], [ %.3160, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %.3160, %463 ], [ %.2159.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
-  %.1155 = phi i8 [ %spec.select, %330 ], [ %.0154.lcssa, %335 ], [ %spec.select, %416 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %spec.select, %463 ], [ %.1155.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
-  %.2147 = phi i8 [ %.0145.lcssa, %330 ], [ %.0145.lcssa, %335 ], [ %.3148, %416 ], [ %.3148, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %.3148, %463 ], [ %.2147.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
-  %.2144 = phi i32 [ %.0142.lcssa, %330 ], [ %.0142.lcssa, %335 ], [ %.0142.lcssa, %416 ], [ %.0142.lcssa, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %.0142.lcssa, %463 ], [ %.2144.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
-  %.0136 = phi i32 [ 0, %330 ], [ 0, %335 ], [ %.1, %416 ], [ %.6, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %.6, %463 ], [ %.0136.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
-  %486 = add nsw i32 %.0136, %.2144
-  %487 = trunc i8 %.1155 to i1
-  br i1 %487, label %488, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split, %462, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread
+  %486 = phi ptr [ %.promoted462, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %.promoted459, %462 ], [ %.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
+  %.2159 = phi i32 [ %.3160, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %.3160, %462 ], [ %.2159.ph592, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
+  %.1155 = phi i8 [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %spec.select, %462 ], [ %.1155.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
+  %.2147 = phi i8 [ %.3148, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %.3148, %462 ], [ %.2147.ph593, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
+  %.2144 = phi i32 [ %.0142.lcssa, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %.0142.lcssa, %462 ], [ %.2144.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
+  %.0136 = phi i32 [ %.6, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302.thread ], [ %.6, %462 ], [ %.0136.ph594, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.sink.split ]
+  %487 = add nsw i32 %.0136, %.2144
+  %488 = trunc i8 %.1155 to i1
+  br i1 %488, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread365, label %501
 
-488:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread365: ; preds = %415, %330, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312
+  %489 = phi ptr [ %486, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312 ], [ %402, %415 ], [ %.lcssa426, %330 ]
+  %.2159371 = phi i32 [ %.2159, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312 ], [ %.3160, %415 ], [ %.0157.lcssa, %330 ]
   store ptr %8, ptr %10, align 8
-  %489 = sext i32 %.2159 to i64
-  %490 = getelementptr inbounds i8, ptr %8, i64 %489
-  %491 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %492 = load i16, ptr %491, align 8
-  %493 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %494 = load double, ptr %493, align 8
-  %495 = call fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb(ptr noundef %10, ptr noundef %490, i1 noundef zeroext %.0151, i16 noundef zeroext %492, i1 noundef zeroext %15, double noundef %494, i1 noundef zeroext %3, ptr noundef %9)
-  %496 = load ptr, ptr %6, align 8
-  %497 = ptrtoint ptr %496 to i64
+  %490 = sext i32 %.2159371 to i64
+  %491 = getelementptr inbounds i8, ptr %8, i64 %490
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %493 = load i16, ptr %492, align 8
+  %494 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %495 = load double, ptr %494, align 8
+  %496 = call fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb(ptr noundef %10, ptr noundef %491, i1 noundef zeroext %.0151, i16 noundef zeroext %493, i1 noundef zeroext %15, double noundef %495, i1 noundef zeroext %3, ptr noundef %9)
+  %497 = ptrtoint ptr %489 to i64
   %498 = ptrtoint ptr %1 to i64
   %499 = sub i64 %497, %498
   %500 = trunc i64 %499 to i32
   store i32 %500, ptr %4, align 4
-  br label %534
+  br label %535
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread: ; preds = %336, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312
-  %501 = phi i32 [ %486, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312 ], [ %.0142.lcssa, %336 ]
-  %.2147505 = phi i8 [ %.2147, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312 ], [ %.0145.lcssa, %336 ]
-  %.2159504 = phi i32 [ %.2159, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312 ], [ %.0157.lcssa, %336 ]
-  %502 = trunc nuw i8 %.2147505 to i1
-  br i1 %502, label %503, label %508
+501:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312
+  %502 = phi i32 [ %485, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread ], [ %487, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312 ]
+  %.2147360 = phi i8 [ %.2147.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread ], [ %.2147, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312 ]
+  %.2159359 = phi i32 [ %.2159.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread ], [ %.2159, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312 ]
+  %503 = trunc nuw i8 %.2147360 to i1
+  br i1 %503, label %504, label %509
 
-503:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread
-  %504 = add nsw i32 %.2159504, 1
-  %505 = sext i32 %.2159504 to i64
-  %506 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %505
-  store i8 49, ptr %506, align 1
-  %507 = add nsw i32 %501, -1
-  br label %508
+504:                                              ; preds = %501
+  %505 = add nsw i32 %.2159359, 1
+  %506 = sext i32 %.2159359 to i64
+  %507 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %506
+  store i8 49, ptr %507, align 1
+  %508 = add nsw i32 %502, -1
+  br label %509
 
-508:                                              ; preds = %503, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread
-  %.6163 = phi i32 [ %504, %503 ], [ %.2159504, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread ]
-  %.7 = phi i32 [ %507, %503 ], [ %501, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread ]
-  %509 = sext i32 %.6163 to i64
-  %510 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %509
-  store i8 0, ptr %510, align 1
-  %511 = zext i32 %.6163 to i64
-  br label %512
+509:                                              ; preds = %504, %501
+  %.6163 = phi i32 [ %505, %504 ], [ %.2159359, %501 ]
+  %.7 = phi i32 [ %508, %504 ], [ %502, %501 ]
+  %510 = sext i32 %.6163 to i64
+  %511 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %510
+  store i8 0, ptr %511, align 1
+  %512 = zext i32 %.6163 to i64
+  br label %513
 
-512:                                              ; preds = %515, %508
-  %indvars.iv.i = phi i64 [ %516, %515 ], [ %511, %508 ]
-  %513 = trunc nuw i64 %indvars.iv.i to i32
-  %514 = icmp sgt i32 %513, 0
-  br i1 %514, label %515, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
+513:                                              ; preds = %516, %509
+  %indvars.iv.i = phi i64 [ %517, %516 ], [ %512, %509 ]
+  %514 = trunc nuw i64 %indvars.iv.i to i32
+  %515 = icmp sgt i32 %514, 0
+  br i1 %515, label %516, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
 
-515:                                              ; preds = %512
-  %516 = add nsw i64 %indvars.iv.i, -1
-  %517 = getelementptr inbounds nuw i8, ptr %8, i64 %516
-  %518 = load i8, ptr %517, align 1
-  %.not.i = icmp eq i8 %518, 48
-  br i1 %.not.i, label %512, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit, !llvm.loop !13
+516:                                              ; preds = %513
+  %517 = add nsw i64 %indvars.iv.i, -1
+  %518 = getelementptr inbounds nuw i8, ptr %8, i64 %517
+  %519 = load i8, ptr %518, align 1
+  %.not.i = icmp eq i8 %519, 48
+  br i1 %.not.i, label %513, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit, !llvm.loop !13
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit: ; preds = %512, %515
-  %.sroa.3.0.i = phi i32 [ 0, %512 ], [ %513, %515 ]
-  %519 = sub nsw i32 %.6163, %.sroa.3.0.i
-  %520 = add nsw i32 %519, %.7
-  br i1 %3, label %521, label %523
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit: ; preds = %513, %516
+  %.sroa.3.0.i = phi i32 [ 0, %513 ], [ %514, %516 ]
+  %520 = sub nsw i32 %.6163, %.sroa.3.0.i
+  %521 = add nsw i32 %520, %.7
+  br i1 %3, label %522, label %524
 
-521:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
-  %522 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.0.i, i32 noundef %520)
-  br label %526
+522:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
+  %523 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.0.i, i32 noundef %521)
+  br label %527
 
-523:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
-  %524 = call noundef float @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.0.i, i32 noundef %520)
-  %525 = fpext float %524 to double
-  br label %526
+524:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
+  %525 = call noundef float @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.0.i, i32 noundef %521)
+  %526 = fpext float %525 to double
+  br label %527
 
-526:                                              ; preds = %523, %521
-  %.0152 = phi double [ %522, %521 ], [ %525, %523 ]
-  %527 = load ptr, ptr %6, align 8
-  %528 = ptrtoint ptr %527 to i64
-  %529 = ptrtoint ptr %1 to i64
-  %530 = sub i64 %528, %529
-  %531 = trunc i64 %530 to i32
-  store i32 %531, ptr %4, align 4
-  %532 = fneg double %.0152
-  %533 = select i1 %.0151, double %532, double %.0152
-  br label %534
+527:                                              ; preds = %524, %522
+  %.0152 = phi double [ %523, %522 ], [ %526, %524 ]
+  %528 = load ptr, ptr %6, align 8
+  %529 = ptrtoint ptr %528 to i64
+  %530 = ptrtoint ptr %1 to i64
+  %531 = sub i64 %529, %530
+  %532 = trunc i64 %531 to i32
+  store i32 %532, ptr %4, align 4
+  %533 = fneg double %.0152
+  %534 = select i1 %.0151, double %533, double %.0152
+  br label %535
 
-534:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit262, %161, %109, %526, %488, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302, %464, %439, %430, %421, %413, %406, %344, %337, %327, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread348, %196, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252, %142, %137, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238, %90, %85, %53, %.loopexit372, %37, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit, %21
-  %.0 = phi double [ %23, %21 ], [ %103, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238 ], [ %92, %90 ], [ %87, %85 ], [ %155, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252 ], [ %144, %142 ], [ %139, %137 ], [ %188, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit.thread ], [ %198, %196 ], [ %209, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread348 ], [ %263, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.thread ], [ %495, %488 ], [ %533, %526 ], [ %339, %337 ], [ %350, %344 ], [ %408, %406 ], [ %423, %421 ], [ %432, %430 ], [ %441, %439 ], [ %477, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302 ], [ %466, %464 ], [ %415, %413 ], [ %329, %327 ], [ %55, %53 ], [ %52, %.loopexit372 ], [ %39, %37 ], [ %35, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit ], [ 0x7FF0000000000000, %109 ], [ 0x7FF8000000000000, %161 ], [ %214, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit262 ], [ %214, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread ], [ 0xFFF0000000000000, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238.thread ], [ 0xFFF8000000000000, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252.thread ]
+535:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit262, %161, %109, %527, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread365, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302, %463, %438, %429, %420, %412, %405, %343, %336, %327, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread348, %196, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252, %142, %137, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238, %90, %85, %53, %.loopexit394, %37, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit, %21
+  %.0 = phi double [ %23, %21 ], [ %103, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238 ], [ %92, %90 ], [ %87, %85 ], [ %155, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252 ], [ %144, %142 ], [ %139, %137 ], [ %188, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit.thread ], [ %198, %196 ], [ %209, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread348 ], [ %263, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit272.thread ], [ %496, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread365 ], [ %534, %527 ], [ %338, %336 ], [ %349, %343 ], [ %407, %405 ], [ %422, %420 ], [ %431, %429 ], [ %440, %438 ], [ %476, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit302 ], [ %465, %463 ], [ %414, %412 ], [ %329, %327 ], [ %55, %53 ], [ %52, %.loopexit394 ], [ %39, %37 ], [ %35, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit ], [ 0x7FF0000000000000, %109 ], [ 0x7FF8000000000000, %161 ], [ %214, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit262 ], [ %214, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread ], [ 0xFFF0000000000000, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit238.thread ], [ 0xFFF8000000000000, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit252.thread ]
   ret double %.0
 }
 
@@ -1297,7 +1309,7 @@ define linkonce_odr noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_
 21:                                               ; preds = %5
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load double, ptr %22, align 8
-  br label %521
+  br label %518
 
 24:                                               ; preds = %5
   %25 = and i32 %13, 8
@@ -1320,7 +1332,7 @@ define linkonce_odr noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_
 31:                                               ; preds = %.preheader.i.i
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %exitcond23.not.i.i = icmp eq i64 %indvars.iv.next21.i.i, 6
-  br i1 %exitcond23.not.i.i, label %.loopexit318, label %.preheader.i.i, !llvm.loop !4
+  br i1 %exitcond23.not.i.i, label %.loopexit341, label %.preheader.i.i, !llvm.loop !4
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i, %31
   %indvars.iv20.i.i = phi i64 [ %indvars.iv.next21.i.i, %31 ], [ 0, %.lr.ph.i ]
@@ -1333,7 +1345,7 @@ define linkonce_odr noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_
 36:                                               ; preds = %.preheader12.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 20
-  br i1 %exitcond.not.i.i, label %.loopexit318, label %.preheader12.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.loopexit341, label %.preheader12.i.i, !llvm.loop !14
 
 .preheader12.i.i:                                 ; preds = %.lr.ph.i, %36
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %36 ], [ 0, %.lr.ph.i ]
@@ -1351,22 +1363,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
   store i32 %2, ptr %4, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load double, ptr %41, align 8
-  br label %521
+  br label %518
 
-.loopexit318:                                     ; preds = %36, %31
+.loopexit341:                                     ; preds = %36, %31
   store ptr %27, ptr %6, align 8
   %.not185 = icmp eq ptr %1, %27
   %or.cond196 = or i1 %.not182, %.not185
   br i1 %or.cond196, label %46, label %43
 
-43:                                               ; preds = %.loopexit318
+43:                                               ; preds = %.loopexit341
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load double, ptr %44, align 8
-  br label %521
+  br label %518
 
-46:                                               ; preds = %._crit_edge, %.loopexit318
-  %47 = phi i16 [ %.pre, %._crit_edge ], [ %28, %.loopexit318 ]
-  %48 = phi ptr [ %1, %._crit_edge ], [ %27, %.loopexit318 ]
+46:                                               ; preds = %._crit_edge, %.loopexit341
+  %47 = phi i16 [ %.pre, %._crit_edge ], [ %28, %.loopexit341 ]
+  %48 = phi ptr [ %1, %._crit_edge ], [ %27, %.loopexit341 ]
   switch i16 %47, label %69 [
     i16 43, label %49
     i16 45, label %49
@@ -1374,9 +1386,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 
 49:                                               ; preds = %46, %46
   %50 = icmp eq i16 %47, 45
-  %.ptr309 = getelementptr inbounds nuw i8, ptr %48, i64 2
-  store ptr %.ptr309, ptr %6, align 8
-  %.not13.not.i220 = icmp eq ptr %.ptr309, %12
+  %.ptr331 = getelementptr inbounds nuw i8, ptr %48, i64 2
+  store ptr %.ptr331, ptr %6, align 8
+  %.not13.not.i220 = icmp eq ptr %.ptr331, %12
   br i1 %.not13.not.i220, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit233, label %.lr.ph.i221
 
 .lr.ph.i221:                                      ; preds = %49, %.loopexit.i227
@@ -1390,7 +1402,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 54:                                               ; preds = %.preheader.i.i229
   %indvars.iv.next21.i.i231 = add nuw nsw i64 %indvars.iv20.i.i230, 1
   %exitcond23.not.i.i232 = icmp eq i64 %indvars.iv.next21.i.i231, 6
-  br i1 %exitcond23.not.i.i232, label %.loopexit315, label %.preheader.i.i229, !llvm.loop !4
+  br i1 %exitcond23.not.i.i232, label %.loopexit338, label %.preheader.i.i229, !llvm.loop !4
 
 .preheader.i.i229:                                ; preds = %.lr.ph.i221, %54
   %indvars.iv20.i.i230 = phi i64 [ %indvars.iv.next21.i.i231, %54 ], [ 0, %.lr.ph.i221 ]
@@ -1403,7 +1415,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 59:                                               ; preds = %.preheader12.i.i222
   %indvars.iv.next.i.i224 = add nuw nsw i64 %indvars.iv.i.i223, 1
   %exitcond.not.i.i225 = icmp eq i64 %indvars.iv.next.i.i224, 20
-  br i1 %exitcond.not.i.i225, label %.loopexit315, label %.preheader12.i.i222, !llvm.loop !14
+  br i1 %exitcond.not.i.i225, label %.loopexit338, label %.preheader12.i.i222, !llvm.loop !14
 
 .preheader12.i.i222:                              ; preds = %.lr.ph.i221, %59
   %indvars.iv.i.i223 = phi i64 [ %indvars.iv.next.i.i224, %59 ], [ 0, %.lr.ph.i221 ]
@@ -1421,25 +1433,25 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit233: ; preds = %.loopexit.i227, %49
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load double, ptr %63, align 8
-  br label %521
+  br label %518
 
-.loopexit315:                                     ; preds = %59, %54
+.loopexit338:                                     ; preds = %59, %54
   %.not186 = icmp eq i64 %.0291.idx, 2
-  %or.cond307 = or i1 %.not184, %.not186
-  br i1 %or.cond307, label %68, label %65
+  %or.cond326 = or i1 %.not184, %.not186
+  br i1 %or.cond326, label %68, label %65
 
-65:                                               ; preds = %.loopexit315
+65:                                               ; preds = %.loopexit338
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load double, ptr %66, align 8
-  br label %521
+  br label %518
 
-68:                                               ; preds = %.loopexit315
-  %.0291.ptr.le470 = getelementptr inbounds nuw i8, ptr %48, i64 %.0291.idx
-  store ptr %.0291.ptr.le470, ptr %6, align 8
+68:                                               ; preds = %.loopexit338
+  %.0291.ptr.le488 = getelementptr inbounds nuw i8, ptr %48, i64 %.0291.idx
+  store ptr %.0291.ptr.le488, ptr %6, align 8
   br label %69
 
 69:                                               ; preds = %46, %68
-  %70 = phi ptr [ %.0291.ptr.le470, %68 ], [ %48, %46 ]
+  %70 = phi ptr [ %.0291.ptr.le488, %68 ], [ %48, %46 ]
   %.0151 = phi i1 [ %50, %68 ], [ false, %46 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load ptr, ptr %71, align 8
@@ -1499,7 +1511,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
   br i1 %94, label %95, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
-  %.pre416.pre = load ptr, ptr %6, align 8
+  %.pre440.pre = load ptr, ptr %6, align 8
   br label %121
 
 95:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
@@ -1510,7 +1522,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %100 = load double, ptr %99, align 8
-  br label %521
+  br label %518
 
 101:                                              ; preds = %95
   %102 = and i32 %13, 20
@@ -1525,7 +1537,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 105:                                              ; preds = %103
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load double, ptr %106, align 8
-  br label %521
+  br label %518
 
 108:                                              ; preds = %101
   br i1 %15, label %113, label %.thread
@@ -1537,7 +1549,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 110:                                              ; preds = %.thread
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %112 = load double, ptr %111, align 8
-  br label %521
+  br label %518
 
 113:                                              ; preds = %.thread, %108
   %114 = load ptr, ptr %6, align 8
@@ -1547,20 +1559,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
   %118 = lshr exact i64 %117, 1
   %119 = trunc i64 %118 to i32
   store i32 %119, ptr %4, align 4
-  br i1 %.0151, label %521, label %120
+  br i1 %.0151, label %518, label %120
 
 120:                                              ; preds = %113
-  br label %521
+  br label %518
 
 121:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge, %69
-  %.pre416 = phi ptr [ %.pre416.pre, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge ], [ %70, %69 ]
+  %.pre440 = phi ptr [ %.pre440.pre, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge ], [ %70, %69 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %123 = load ptr, ptr %122, align 8
   %.not188 = icmp eq ptr %123, null
   br i1 %.not188, label %172, label %124
 
 124:                                              ; preds = %121
-  %125 = load i16, ptr %.pre416, align 2
+  %125 = load i16, ptr %.pre440, align 2
   %126 = trunc i16 %125 to i8
   br i1 %19, label %127, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit237
 
@@ -1607,7 +1619,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
   br i1 %145, label %146, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit237._crit_edge
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit237._crit_edge: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit237
-  %.pre415 = load ptr, ptr %6, align 8
+  %.pre439 = load ptr, ptr %6, align 8
   br label %172
 
 146:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit237
@@ -1618,7 +1630,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %151 = load double, ptr %150, align 8
-  br label %521
+  br label %518
 
 152:                                              ; preds = %146
   %153 = and i32 %13, 20
@@ -1633,7 +1645,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 156:                                              ; preds = %154
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %158 = load double, ptr %157, align 8
-  br label %521
+  br label %518
 
 159:                                              ; preds = %152
   br i1 %15, label %164, label %.thread297
@@ -1645,7 +1657,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
 161:                                              ; preds = %.thread297
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %163 = load double, ptr %162, align 8
-  br label %521
+  br label %518
 
 164:                                              ; preds = %.thread297, %159
   %165 = load ptr, ptr %6, align 8
@@ -1655,13 +1667,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121Cons
   %169 = lshr exact i64 %168, 1
   %170 = trunc i64 %169 to i32
   store i32 %170, ptr %4, align 4
-  br i1 %.0151, label %521, label %171
+  br i1 %.0151, label %518, label %171
 
 171:                                              ; preds = %164
-  br label %521
+  br label %518
 
 172:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit237._crit_edge, %121
-  %173 = phi ptr [ %.pre415, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit237._crit_edge ], [ %.pre416, %121 ]
+  %173 = phi ptr [ %.pre439, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit237._crit_edge ], [ %.pre440, %121 ]
   %174 = load i16, ptr %173, align 2
   %175 = icmp ne i16 %174, 48
   br i1 %175, label %.critedge203, label %176
@@ -1709,27 +1721,27 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i, %182
   store i32 %2, ptr %4, align 4
   %194 = select i1 %.0151, double -0.000000e+00, double 0.000000e+00
-  br label %521
+  br label %518
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit.thread299: ; preds = %183, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i, %182
-  %.promoted345 = phi ptr [ %180, %183 ], [ %192, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i ], [ %180, %182 ]
+  %.promoted369 = phi ptr [ %180, %183 ], [ %192, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i ], [ %180, %182 ]
   %195 = load i32, ptr %0, align 8
   %196 = and i32 %195, 128
   %.not190 = icmp eq i32 %196, 0
   %197 = and i32 %195, 129
   %or.cond201 = icmp eq i32 %197, 0
-  %.pre417 = load i16, ptr %.promoted345, align 2
+  %.pre441 = load i16, ptr %.promoted369, align 2
   br i1 %or.cond201, label %230, label %198
 
 198:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit.thread299
-  switch i16 %.pre417, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge [
+  switch i16 %.pre441, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge [
     i16 120, label %199
     i16 88, label %199
     i16 48, label %.lr.ph
   ]
 
 199:                                              ; preds = %198, %198
-  %200 = getelementptr inbounds nuw i8, ptr %.promoted345, i64 2
+  %200 = getelementptr inbounds nuw i8, ptr %.promoted369, i64 2
   store ptr %200, ptr %6, align 8
   %201 = icmp eq ptr %200, %12
   br i1 %201, label %202, label %205
@@ -1737,7 +1749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
 202:                                              ; preds = %199
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %204 = load double, ptr %203, align 8
-  br label %521
+  br label %518
 
 205:                                              ; preds = %199
   br i1 %.not190, label %.thread301, label %206
@@ -1748,20 +1760,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
 
 .thread301:                                       ; preds = %205, %206
   %208 = load i16, ptr %200, align 2
-  %.fr385 = freeze i16 %208
-  %209 = add i16 %.fr385, -48
+  %.fr409 = freeze i16 %208
+  %209 = add i16 %.fr409, -48
   %or.cond19.i = icmp ult i16 %209, 10
   br i1 %or.cond19.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %.thread301
-  %switch.tableidx = add i16 %.fr385, -65
+  %switch.tableidx = add i16 %.fr409, -65
   %210 = icmp ult i16 %switch.tableidx, 38
   br i1 %210, label %switch.hole_check, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread302
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread302: ; preds = %switch.hole_check, %switch.early.test
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %212 = load double, ptr %211, align 8
-  br label %521
+  br label %518
 
 switch.hole_check:                                ; preds = %switch.early.test
   %switch.maskindex = zext nneg i16 %switch.tableidx to i64
@@ -1777,7 +1789,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
   %217 = call fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi4EPKtEEdPT0_S4_btbbdbPb(ptr noundef %6, ptr noundef nonnull %12, i1 noundef zeroext %.0151, i16 noundef zeroext %214, i1 noundef zeroext %213, i1 noundef zeroext %15, double noundef %216, i1 noundef zeroext %3, ptr noundef %7)
   %218 = load i8, ptr %7, align 1
   %219 = trunc i8 %218 to i1
-  br i1 %219, label %521, label %220
+  br i1 %219, label %518, label %220
 
 220:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread
   br i1 %.not183.not, label %223, label %221
@@ -1794,17 +1806,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
   %228 = lshr exact i64 %227, 1
   %229 = trunc i64 %228 to i32
   store i32 %229, ptr %4, align 4
-  br label %521
+  br label %518
 
 230:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit.thread299
-  %231 = icmp eq i16 %.pre417, 48
+  %231 = icmp eq i16 %.pre441, 48
   br i1 %231, label %.lr.ph, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge
 
 .lr.ph:                                           ; preds = %198, %230
   br i1 %179, label %.lr.ph.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i242
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge.us
-  %232 = phi ptr [ %233, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge.us ], [ %.promoted345, %.lr.ph ]
+  %232 = phi ptr [ %233, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge.us ], [ %.promoted369, %.lr.ph ]
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 2
   %234 = icmp eq ptr %233, %12
   br i1 %234, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge.us
@@ -1815,13 +1827,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   br i1 %236, label %.lr.ph.split.us, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i242: ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge
-  %237 = phi ptr [ %241, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge ], [ %.promoted345, %.lr.ph ]
+  %237 = phi ptr [ %241, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge ], [ %.promoted369, %.lr.ph ]
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 2
   %239 = icmp eq ptr %238, %12
   br i1 %239, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.thread, label %243
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge: ; preds = %243, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i243
-  %240 = phi i16 [ %252, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i243 ], [ %.pre418, %243 ]
+  %240 = phi i16 [ %252, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i243 ], [ %.pre442, %243 ]
   %241 = phi ptr [ %253, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i243 ], [ %238, %243 ]
   %242 = icmp eq i16 %240, 48
   br i1 %242, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i242, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge, !llvm.loop !16
@@ -1829,11 +1841,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
 243:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i242
   %244 = getelementptr inbounds nuw i8, ptr %237, i64 4
   %245 = icmp eq ptr %244, %12
-  %.pre418 = load i16, ptr %238, align 2
+  %.pre442 = load i16, ptr %238, align 2
   br i1 %245, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge, label %246
 
 246:                                              ; preds = %243
-  %247 = icmp eq i16 %.pre418, %178
+  %247 = icmp eq i16 %.pre442, %178
   br i1 %247, label %248, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i243
 
 248:                                              ; preds = %246
@@ -1841,12 +1853,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   %250 = add i16 %249, -48
   %or.cond19.i26.i245 = icmp ult i16 %250, 10
   %251 = select i1 %or.cond19.i26.i245, i16 %249, i16 %178
-  %spec.select382 = select i1 %or.cond19.i26.i245, ptr %244, ptr %238
+  %spec.select406 = select i1 %or.cond19.i26.i245, ptr %244, ptr %238
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i243
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i243: ; preds = %248, %246
-  %252 = phi i16 [ %.pre418, %246 ], [ %251, %248 ]
-  %253 = phi ptr [ %238, %246 ], [ %spec.select382, %248 ]
+  %252 = phi i16 [ %.pre442, %246 ], [ %251, %248 ]
+  %253 = phi ptr [ %238, %246 ], [ %spec.select406, %248 ]
   %254 = icmp eq ptr %253, %12
   br i1 %254, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge
 
@@ -1859,64 +1871,64 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   %259 = trunc i64 %258 to i32
   store i32 %259, ptr %4, align 4
   %260 = select i1 %.0151, double -0.000000e+00, double 0.000000e+00
-  br label %521
+  br label %518
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge.us, %198, %230
-  %.lcssa346 = phi ptr [ %.promoted345, %230 ], [ %.promoted345, %198 ], [ %233, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge.us ], [ %241, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge ]
-  store ptr %.lcssa346, ptr %6, align 8
+  %.lcssa370 = phi ptr [ %.promoted369, %230 ], [ %.promoted369, %198 ], [ %233, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge.us ], [ %241, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.backedge ]
+  store ptr %.lcssa370, ptr %6, align 8
   %261 = trunc i32 %195 to i8
   %262 = lshr i8 %261, 1
-  %.pre420 = load i16, ptr %.lcssa346, align 2
+  %.pre444 = load i16, ptr %.lcssa370, align 2
   br label %.critedge203
 
 .critedge203:                                     ; preds = %172, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge
-  %263 = phi i16 [ %.pre420, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge ], [ %174, %172 ]
-  %.promoted348 = phi ptr [ %.lcssa346, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge ], [ %173, %172 ]
+  %263 = phi i16 [ %.pre444, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge ], [ %174, %172 ]
+  %.promoted372 = phi ptr [ %.lcssa370, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge ], [ %173, %172 ]
   %264 = phi i8 [ %262, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247._crit_edge ], [ 0, %172 ]
   %265 = add i16 %263, -48
-  %or.cond204350 = icmp ult i16 %265, 10
-  br i1 %or.cond204350, label %.lr.ph356, label %.critedge
+  %or.cond204374 = icmp ult i16 %265, 10
+  br i1 %or.cond204374, label %.lr.ph380, label %.critedge
 
-.lr.ph356:                                        ; preds = %.critedge203
+.lr.ph380:                                        ; preds = %.critedge203
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %267 = load i16, ptr %266, align 8
   %268 = icmp eq i16 %267, 0
   br label %269
 
-269:                                              ; preds = %.lr.ph356, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge
-  %270 = phi i16 [ %263, %.lr.ph356 ], [ %296, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
-  %.0137355 = phi i32 [ 0, %.lr.ph356 ], [ %.1138, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
-  %.0142354 = phi i32 [ 0, %.lr.ph356 ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
-  %.0145353 = phi i8 [ 0, %.lr.ph356 ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
-  %.0154352 = phi i8 [ %264, %.lr.ph356 ], [ %291, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
-  %.0157351 = phi i32 [ 0, %.lr.ph356 ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
-  %271 = phi ptr [ %.promoted348, %.lr.ph356 ], [ %295, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
-  %272 = icmp slt i32 %.0137355, 772
+269:                                              ; preds = %.lr.ph380, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge
+  %270 = phi i16 [ %263, %.lr.ph380 ], [ %296, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
+  %.0137379 = phi i32 [ 0, %.lr.ph380 ], [ %.1138, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
+  %.0142378 = phi i32 [ 0, %.lr.ph380 ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
+  %.0145377 = phi i8 [ 0, %.lr.ph380 ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
+  %.0154376 = phi i8 [ %264, %.lr.ph380 ], [ %291, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
+  %.0157375 = phi i32 [ 0, %.lr.ph380 ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
+  %271 = phi ptr [ %.promoted372, %.lr.ph380 ], [ %295, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
+  %272 = icmp slt i32 %.0137379, 772
   br i1 %272, label %273, label %279
 
 273:                                              ; preds = %269
   %274 = trunc nuw i16 %270 to i8
-  %275 = add nsw i32 %.0157351, 1
-  %276 = sext i32 %.0157351 to i64
+  %275 = add nsw i32 %.0157375, 1
+  %276 = sext i32 %.0157375 to i64
   %277 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %276
   store i8 %274, ptr %277, align 1
-  %278 = add nsw i32 %.0137355, 1
+  %278 = add nsw i32 %.0137379, 1
   br label %284
 
 279:                                              ; preds = %269
-  %280 = add nsw i32 %.0142354, 1
-  %281 = trunc nuw i8 %.0145353 to i1
+  %280 = add nsw i32 %.0142378, 1
+  %281 = trunc nuw i8 %.0145377 to i1
   %282 = icmp ne i16 %270, 48
-  %narrow310 = or i1 %282, %281
-  %283 = zext i1 %narrow310 to i8
+  %narrow333 = or i1 %282, %281
+  %283 = zext i1 %narrow333 to i8
   br label %284
 
 284:                                              ; preds = %279, %273
-  %.1158 = phi i32 [ %275, %273 ], [ %.0157351, %279 ]
-  %.1146 = phi i8 [ %.0145353, %273 ], [ %283, %279 ]
-  %.1143 = phi i32 [ %.0142354, %273 ], [ %280, %279 ]
-  %.1138 = phi i32 [ %278, %273 ], [ %.0137355, %279 ]
-  %285 = trunc i8 %.0154352 to i1
+  %.1158 = phi i32 [ %275, %273 ], [ %.0157375, %279 ]
+  %.1146 = phi i8 [ %.0145377, %273 ], [ %283, %279 ]
+  %.1143 = phi i32 [ %.0142378, %273 ], [ %280, %279 ]
+  %.1138 = phi i32 [ %278, %273 ], [ %.0137379, %279 ]
+  %285 = trunc i8 %.0154376 to i1
   br i1 %285, label %286, label %290
 
 286:                                              ; preds = %284
@@ -1932,7 +1944,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
 292:                                              ; preds = %290
   %293 = getelementptr inbounds nuw i8, ptr %271, i64 2
   %294 = icmp eq ptr %293, %12
-  br i1 %294, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge
+  br i1 %294, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge: ; preds = %292, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i253, %303, %304
   %295 = phi ptr [ %293, %292 ], [ %313, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i253 ], [ %301, %303 ], [ %301, %304 ]
@@ -1950,10 +1962,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   br i1 %or.cond19.i.i249, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i252, label %303
 
 303:                                              ; preds = %298
-  br i1 %302, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge
+  br i1 %302, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i252: ; preds = %298
-  br i1 %302, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314, label %304
+  br i1 %302, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337, label %304
 
 304:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i252
   %305 = getelementptr inbounds nuw i8, ptr %271, i64 4
@@ -1969,23 +1981,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
   %311 = load i16, ptr %305, align 2
   %312 = add i16 %311, -48
   %or.cond19.i26.i255 = icmp ult i16 %312, 10
-  %spec.select383 = select i1 %or.cond19.i26.i255, ptr %305, ptr %301
+  %spec.select407 = select i1 %or.cond19.i26.i255, ptr %305, ptr %301
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i253
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i253: ; preds = %310, %307
-  %313 = phi ptr [ %301, %307 ], [ %spec.select383, %310 ]
+  %313 = phi ptr [ %301, %307 ], [ %spec.select407, %310 ]
   %314 = icmp eq ptr %313, %12
-  br i1 %314, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge
+  br i1 %314, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge
 
 .critedge:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge, %.critedge203
-  %.lcssa349 = phi ptr [ %.promoted348, %.critedge203 ], [ %295, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
+  %.lcssa373 = phi ptr [ %.promoted372, %.critedge203 ], [ %295, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
   %.0157.lcssa = phi i32 [ 0, %.critedge203 ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
   %.0154.lcssa = phi i8 [ %264, %.critedge203 ], [ %291, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
   %.0145.lcssa = phi i8 [ 0, %.critedge203 ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
   %.0142.lcssa = phi i32 [ 0, %.critedge203 ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
   %.0137.lcssa = phi i32 [ 0, %.critedge203 ], [ %.1138, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
   %.lcssa = phi i16 [ %263, %.critedge203 ], [ %296, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.backedge ]
-  store ptr %.lcssa349, ptr %6, align 8
+  store ptr %.lcssa373, ptr %6, align 8
   %315 = icmp eq i32 %.0137.lcssa, 0
   %spec.select = select i1 %315, i8 0, i8 %.0154.lcssa
   %316 = icmp eq i16 %.lcssa, 46
@@ -2000,448 +2012,450 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.
 319:                                              ; preds = %317
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %321 = load double, ptr %320, align 8
-  br label %521
+  br label %518
 
 322:                                              ; preds = %317
-  br i1 %318, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread, label %323
+  br i1 %318, label %.thread319, label %323
 
 323:                                              ; preds = %322
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %325 = load i16, ptr %324, align 8
   %326 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_(ptr noundef %6, i16 noundef zeroext %325, i32 noundef 10, ptr nonnull %12)
-  br i1 %326, label %327, label %332
+  br i1 %326, label %327, label %331
 
 327:                                              ; preds = %323
-  br i1 %315, label %328, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
+  %brmerge330.not = and i1 %175, %315
+  br i1 %brmerge330.not, label %328, label %.thread307
 
 328:                                              ; preds = %327
-  br i1 %175, label %329, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.thread
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %330 = load double, ptr %329, align 8
+  br label %518
 
-329:                                              ; preds = %328
-  %330 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %331 = load double, ptr %330, align 8
-  br label %521
+331:                                              ; preds = %323
+  %.promoted391.pre = load ptr, ptr %6, align 8
+  %332 = load i16, ptr %.promoted391.pre, align 2
+  %333 = icmp eq i16 %332, 48
+  %or.cond490 = select i1 %315, i1 %333, i1 false
+  br i1 %or.cond490, label %.lr.ph389, label %.loopexit
 
-332:                                              ; preds = %323
-  %.promoted367.pre = load ptr, ptr %6, align 8
-  %333 = load i16, ptr %.promoted367.pre, align 2
-  %334 = icmp eq i16 %333, 48
-  %or.cond472 = select i1 %315, i1 %334, i1 false
-  br i1 %or.cond472, label %.lr.ph365, label %.loopexit
+.lr.ph389:                                        ; preds = %331, %343
+  %.3388 = phi i32 [ %344, %343 ], [ 0, %331 ]
+  %334 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_(ptr noundef %6, i16 noundef zeroext %325, i32 noundef 10, ptr nonnull %12)
+  br i1 %334, label %335, label %343
 
-.lr.ph365:                                        ; preds = %332, %344
-  %.3364 = phi i32 [ %345, %344 ], [ 0, %332 ]
-  %335 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_(ptr noundef %6, i16 noundef zeroext %325, i32 noundef 10, ptr nonnull %12)
-  br i1 %335, label %336, label %344
+335:                                              ; preds = %.lr.ph389
+  %336 = load ptr, ptr %6, align 8
+  %337 = ptrtoint ptr %336 to i64
+  %338 = ptrtoint ptr %1 to i64
+  %339 = sub i64 %337, %338
+  %340 = lshr exact i64 %339, 1
+  %341 = trunc i64 %340 to i32
+  store i32 %341, ptr %4, align 4
+  %342 = select i1 %.0151, double -0.000000e+00, double 0.000000e+00
+  br label %518
 
-336:                                              ; preds = %.lr.ph365
-  %337 = load ptr, ptr %6, align 8
-  %338 = ptrtoint ptr %337 to i64
-  %339 = ptrtoint ptr %1 to i64
-  %340 = sub i64 %338, %339
-  %341 = lshr exact i64 %340, 1
-  %342 = trunc i64 %341 to i32
-  store i32 %342, ptr %4, align 4
-  %343 = select i1 %.0151, double -0.000000e+00, double 0.000000e+00
-  br label %521
+343:                                              ; preds = %.lr.ph389
+  %344 = add nsw i32 %.3388, -1
+  %345 = load ptr, ptr %6, align 8
+  %346 = load i16, ptr %345, align 2
+  %347 = icmp eq i16 %346, 48
+  br i1 %347, label %.lr.ph389, label %.loopexit, !llvm.loop !18
 
-344:                                              ; preds = %.lr.ph365
-  %345 = add nsw i32 %.3364, -1
-  %346 = load ptr, ptr %6, align 8
-  %347 = load i16, ptr %346, align 2
-  %348 = icmp eq i16 %347, 48
-  br i1 %348, label %.lr.ph365, label %.loopexit, !llvm.loop !18
+.loopexit:                                        ; preds = %343, %331
+  %348 = phi i16 [ %332, %331 ], [ %346, %343 ]
+  %.promoted391 = phi ptr [ %.promoted391.pre, %331 ], [ %345, %343 ]
+  %.2 = phi i32 [ 0, %331 ], [ %344, %343 ]
+  %349 = add i16 %348, -48
+  %or.cond207393 = icmp ult i16 %349, 10
+  br i1 %or.cond207393, label %.lr.ph398, label %.critedge2.loopexit
 
-.loopexit:                                        ; preds = %344, %332
-  %349 = phi i16 [ %333, %332 ], [ %347, %344 ]
-  %.promoted367 = phi ptr [ %.promoted367.pre, %332 ], [ %346, %344 ]
-  %.2 = phi i32 [ 0, %332 ], [ %345, %344 ]
-  %350 = add i16 %349, -48
-  %or.cond207369 = icmp ult i16 %350, 10
-  br i1 %or.cond207369, label %.lr.ph374, label %.critedge2.loopexit
+.lr.ph398:                                        ; preds = %.loopexit
+  %350 = icmp eq i16 %325, 0
+  br label %351
 
-.lr.ph374:                                        ; preds = %.loopexit
-  %351 = icmp eq i16 %325, 0
-  br label %352
+351:                                              ; preds = %.lr.ph398, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge
+  %352 = phi i16 [ %348, %.lr.ph398 ], [ %371, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
+  %.4397 = phi i32 [ %.2, %.lr.ph398 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
+  %.3140396 = phi i32 [ %.0137.lcssa, %.lr.ph398 ], [ %.4141, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
+  %.4149395 = phi i8 [ %.0145.lcssa, %.lr.ph398 ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
+  %.4161394 = phi i32 [ %.0157.lcssa, %.lr.ph398 ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
+  %353 = phi ptr [ %.promoted391, %.lr.ph398 ], [ %370, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
+  %354 = icmp slt i32 %.3140396, 772
+  br i1 %354, label %355, label %362
 
-352:                                              ; preds = %.lr.ph374, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge
-  %353 = phi i16 [ %349, %.lr.ph374 ], [ %372, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
-  %.4373 = phi i32 [ %.2, %.lr.ph374 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
-  %.3140372 = phi i32 [ %.0137.lcssa, %.lr.ph374 ], [ %.4141, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
-  %.4149371 = phi i8 [ %.0145.lcssa, %.lr.ph374 ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
-  %.4161370 = phi i32 [ %.0157.lcssa, %.lr.ph374 ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
-  %354 = phi ptr [ %.promoted367, %.lr.ph374 ], [ %371, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
-  %355 = icmp slt i32 %.3140372, 772
-  br i1 %355, label %356, label %363
+355:                                              ; preds = %351
+  %356 = trunc nuw i16 %352 to i8
+  %357 = add nsw i32 %.4161394, 1
+  %358 = sext i32 %.4161394 to i64
+  %359 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %358
+  store i8 %356, ptr %359, align 1
+  %360 = add nsw i32 %.3140396, 1
+  %361 = add nsw i32 %.4397, -1
+  br label %366
 
-356:                                              ; preds = %352
-  %357 = trunc nuw i16 %353 to i8
-  %358 = add nsw i32 %.4161370, 1
-  %359 = sext i32 %.4161370 to i64
-  %360 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %359
-  store i8 %357, ptr %360, align 1
-  %361 = add nsw i32 %.3140372, 1
-  %362 = add nsw i32 %.4373, -1
-  br label %367
+362:                                              ; preds = %351
+  %363 = trunc nuw i8 %.4149395 to i1
+  %364 = icmp ne i16 %352, 48
+  %narrow = or i1 %364, %363
+  %365 = zext i1 %narrow to i8
+  br label %366
 
-363:                                              ; preds = %352
-  %364 = trunc nuw i8 %.4149371 to i1
-  %365 = icmp ne i16 %353, 48
-  %narrow = or i1 %365, %364
-  %366 = zext i1 %narrow to i8
-  br label %367
+366:                                              ; preds = %362, %355
+  %.5162 = phi i32 [ %357, %355 ], [ %.4161394, %362 ]
+  %.5150 = phi i8 [ %.4149395, %355 ], [ %365, %362 ]
+  %.4141 = phi i32 [ %360, %355 ], [ %.3140396, %362 ]
+  %.5 = phi i32 [ %361, %355 ], [ %.4397, %362 ]
+  br i1 %350, label %367, label %373
 
-367:                                              ; preds = %363, %356
-  %.5162 = phi i32 [ %358, %356 ], [ %.4161370, %363 ]
-  %.5150 = phi i8 [ %.4149371, %356 ], [ %366, %363 ]
-  %.4141 = phi i32 [ %361, %356 ], [ %.3140372, %363 ]
-  %.5 = phi i32 [ %362, %356 ], [ %.4373, %363 ]
-  br i1 %351, label %368, label %374
+367:                                              ; preds = %366
+  %368 = getelementptr inbounds nuw i8, ptr %353, i64 2
+  %369 = icmp eq ptr %368, %12
+  br i1 %369, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge
 
-368:                                              ; preds = %367
-  %369 = getelementptr inbounds nuw i8, ptr %354, i64 2
-  %370 = icmp eq ptr %369, %12
-  br i1 %370, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge: ; preds = %367, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263, %378, %379
+  %370 = phi ptr [ %368, %367 ], [ %388, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263 ], [ %376, %378 ], [ %376, %379 ]
+  %371 = load i16, ptr %370, align 2
+  %372 = add i16 %371, -48
+  %or.cond207 = icmp ult i16 %372, 10
+  br i1 %or.cond207, label %351, label %.critedge2.loopexit, !llvm.loop !19
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge: ; preds = %368, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263, %379, %380
-  %371 = phi ptr [ %369, %368 ], [ %389, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263 ], [ %377, %379 ], [ %377, %380 ]
-  %372 = load i16, ptr %371, align 2
-  %373 = add i16 %372, -48
-  %or.cond207 = icmp ult i16 %373, 10
-  br i1 %or.cond207, label %352, label %.critedge2.loopexit, !llvm.loop !19
+373:                                              ; preds = %366
+  %374 = load i16, ptr %353, align 2
+  %375 = add i16 %374, -48
+  %or.cond19.i.i259 = icmp ult i16 %375, 10
+  %376 = getelementptr inbounds nuw i8, ptr %353, i64 2
+  %377 = icmp eq ptr %376, %12
+  br i1 %or.cond19.i.i259, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i262, label %378
 
-374:                                              ; preds = %367
-  %375 = load i16, ptr %354, align 2
-  %376 = add i16 %375, -48
-  %or.cond19.i.i259 = icmp ult i16 %376, 10
-  %377 = getelementptr inbounds nuw i8, ptr %354, i64 2
-  %378 = icmp eq ptr %377, %12
-  br i1 %or.cond19.i.i259, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i262, label %379
+378:                                              ; preds = %373
+  br i1 %377, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge
 
-379:                                              ; preds = %374
-  br i1 %378, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i262: ; preds = %373
+  br i1 %377, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit, label %379
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i262: ; preds = %374
-  br i1 %378, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit, label %380
+379:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i262
+  %380 = getelementptr inbounds nuw i8, ptr %353, i64 4
+  %381 = icmp eq ptr %380, %12
+  br i1 %381, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge, label %382
 
-380:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i262
-  %381 = getelementptr inbounds nuw i8, ptr %354, i64 4
-  %382 = icmp eq ptr %381, %12
-  br i1 %382, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge, label %383
+382:                                              ; preds = %379
+  %383 = load i16, ptr %376, align 2
+  %384 = icmp eq i16 %383, %325
+  br i1 %384, label %385, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263
 
-383:                                              ; preds = %380
-  %384 = load i16, ptr %377, align 2
-  %385 = icmp eq i16 %384, %325
-  br i1 %385, label %386, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263
-
-386:                                              ; preds = %383
-  %387 = load i16, ptr %381, align 2
-  %388 = add i16 %387, -48
-  %or.cond19.i26.i265 = icmp ult i16 %388, 10
-  %spec.select384 = select i1 %or.cond19.i26.i265, ptr %381, ptr %377
+385:                                              ; preds = %382
+  %386 = load i16, ptr %380, align 2
+  %387 = add i16 %386, -48
+  %or.cond19.i26.i265 = icmp ult i16 %387, 10
+  %spec.select408 = select i1 %or.cond19.i26.i265, ptr %380, ptr %376
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263: ; preds = %386, %383
-  %389 = phi ptr [ %377, %383 ], [ %spec.select384, %386 ]
-  %390 = icmp eq ptr %389, %12
-  br i1 %390, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263: ; preds = %385, %382
+  %388 = phi ptr [ %376, %382 ], [ %spec.select408, %385 ]
+  %389 = icmp eq ptr %388, %12
+  br i1 %389, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge
 
 .critedge2.loopexit:                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge, %.loopexit
-  %.lcssa368 = phi ptr [ %.promoted367, %.loopexit ], [ %371, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
+  %.lcssa392 = phi ptr [ %.promoted391, %.loopexit ], [ %370, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
   %.4161.lcssa = phi i32 [ %.0157.lcssa, %.loopexit ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
   %.4149.lcssa = phi i8 [ %.0145.lcssa, %.loopexit ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
   %.3140.lcssa = phi i32 [ %.0137.lcssa, %.loopexit ], [ %.4141, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
   %.4.lcssa = phi i32 [ %.2, %.loopexit ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit267.backedge ]
-  store ptr %.lcssa368, ptr %6, align 8
+  store ptr %.lcssa392, ptr %6, align 8
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
-  %391 = phi ptr [ %.lcssa349, %.critedge ], [ %.lcssa368, %.critedge2.loopexit ]
+  %390 = phi ptr [ %.lcssa373, %.critedge ], [ %.lcssa392, %.critedge2.loopexit ]
   %.3160 = phi i32 [ %.0157.lcssa, %.critedge ], [ %.4161.lcssa, %.critedge2.loopexit ]
   %.3148 = phi i8 [ %.0145.lcssa, %.critedge ], [ %.4149.lcssa, %.critedge2.loopexit ]
   %.2139 = phi i32 [ %.0137.lcssa, %.critedge ], [ %.3140.lcssa, %.critedge2.loopexit ]
   %.1 = phi i32 [ 0, %.critedge ], [ %.4.lcssa, %.critedge2.loopexit ]
-  %392 = icmp eq i32 %.1, 0
-  %or.cond = select i1 %175, i1 %392, i1 false
-  %393 = icmp eq i32 %.2139, 0
-  %or.cond5 = select i1 %or.cond, i1 %393, i1 false
-  br i1 %or.cond5, label %394, label %397
+  %391 = icmp eq i32 %.1, 0
+  %or.cond = select i1 %175, i1 %391, i1 false
+  %392 = icmp eq i32 %.2139, 0
+  %or.cond5 = select i1 %or.cond, i1 %392, i1 false
+  br i1 %or.cond5, label %393, label %396
 
-394:                                              ; preds = %.critedge2
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %396 = load double, ptr %395, align 8
-  br label %521
+393:                                              ; preds = %.critedge2
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %395 = load double, ptr %394, align 8
+  br label %518
 
-397:                                              ; preds = %.critedge2
-  %398 = load i16, ptr %391, align 2
-  switch i16 %398, label %454 [
-    i16 101, label %399
-    i16 69, label %399
+396:                                              ; preds = %.critedge2
+  %397 = load i16, ptr %390, align 2
+  switch i16 %397, label %450 [
+    i16 101, label %398
+    i16 69, label %398
   ]
 
-399:                                              ; preds = %397, %397
-  %400 = trunc i8 %spec.select to i1
-  %.not208 = xor i1 %400, true
+398:                                              ; preds = %396, %396
+  %399 = trunc i8 %spec.select to i1
+  %.not208 = xor i1 %399, true
   %brmerge209 = select i1 %.not208, i1 true, i1 %15
-  br i1 %brmerge209, label %404, label %401
+  br i1 %brmerge209, label %403, label %400
 
-401:                                              ; preds = %399
-  %402 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %403 = load double, ptr %402, align 8
-  br label %521
+400:                                              ; preds = %398
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %402 = load double, ptr %401, align 8
+  br label %518
 
-404:                                              ; preds = %399
-  br i1 %400, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread, label %405
+403:                                              ; preds = %398
+  br i1 %399, label %.thread319, label %404
 
-405:                                              ; preds = %404
-  %406 = getelementptr inbounds nuw i8, ptr %391, i64 2
-  store ptr %406, ptr %6, align 8
-  %407 = icmp eq ptr %406, %12
-  br i1 %407, label %408, label %413
+404:                                              ; preds = %403
+  %405 = getelementptr inbounds nuw i8, ptr %390, i64 2
+  store ptr %405, ptr %6, align 8
+  %406 = icmp eq ptr %405, %12
+  br i1 %406, label %407, label %411
 
-408:                                              ; preds = %405
-  br i1 %15, label %409, label %410
+407:                                              ; preds = %404
+  br i1 %15, label %.thread307.sink.split, label %408
 
-409:                                              ; preds = %408
-  store ptr %391, ptr %6, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
+408:                                              ; preds = %407
+  %409 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %410 = load double, ptr %409, align 8
+  br label %518
 
-410:                                              ; preds = %408
-  %411 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %412 = load double, ptr %411, align 8
-  br label %521
-
-413:                                              ; preds = %405
-  %414 = load i16, ptr %406, align 2
-  switch i16 %414, label %424 [
-    i16 43, label %415
-    i16 45, label %415
+411:                                              ; preds = %404
+  %412 = load i16, ptr %405, align 2
+  switch i16 %412, label %421 [
+    i16 43, label %413
+    i16 45, label %413
   ]
 
-415:                                              ; preds = %413, %413
-  %416 = zext nneg i16 %414 to i32
-  %417 = getelementptr inbounds nuw i8, ptr %391, i64 4
-  store ptr %417, ptr %6, align 8
-  %418 = icmp eq ptr %417, %12
-  br i1 %418, label %419, label %424
+413:                                              ; preds = %411, %411
+  %414 = zext nneg i16 %412 to i32
+  %415 = getelementptr inbounds nuw i8, ptr %390, i64 4
+  store ptr %415, ptr %6, align 8
+  %416 = icmp eq ptr %415, %12
+  br i1 %416, label %417, label %421
 
-419:                                              ; preds = %415
-  br i1 %15, label %420, label %421
+417:                                              ; preds = %413
+  br i1 %15, label %.thread307.sink.split, label %418
 
-420:                                              ; preds = %419
-  store ptr %391, ptr %6, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
+418:                                              ; preds = %417
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %420 = load double, ptr %419, align 8
+  br label %518
 
-421:                                              ; preds = %419
-  %422 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %423 = load double, ptr %422, align 8
-  br label %521
+421:                                              ; preds = %411, %413
+  %.promoted404 = phi ptr [ %415, %413 ], [ %405, %411 ]
+  %.0164 = phi i32 [ %414, %413 ], [ 43, %411 ]
+  %422 = icmp eq ptr %.promoted404, %12
+  br i1 %422, label %426, label %423
 
-424:                                              ; preds = %413, %415
-  %.promoted380 = phi ptr [ %417, %415 ], [ %406, %413 ]
-  %.0164 = phi i32 [ %416, %415 ], [ 43, %413 ]
-  %425 = icmp eq ptr %.promoted380, %12
-  br i1 %425, label %429, label %426
+423:                                              ; preds = %421
+  %424 = load i16, ptr %.promoted404, align 2
+  %425 = add i16 %424, -58
+  %or.cond210 = icmp ult i16 %425, -10
+  br i1 %or.cond210, label %426, label %.preheader
 
-426:                                              ; preds = %424
-  %427 = load i16, ptr %.promoted380, align 2
-  %428 = add i16 %427, -58
-  %or.cond210 = icmp ult i16 %428, -10
-  br i1 %or.cond210, label %429, label %.preheader
+426:                                              ; preds = %423, %421
+  br i1 %15, label %.thread307.sink.split, label %427
 
-429:                                              ; preds = %426, %424
-  br i1 %15, label %430, label %431
+427:                                              ; preds = %426
+  %428 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %429 = load double, ptr %428, align 8
+  br label %518
 
-430:                                              ; preds = %429
-  store ptr %391, ptr %6, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
+.preheader:                                       ; preds = %423, %443
+  %430 = phi i16 [ %444, %443 ], [ %424, %423 ]
+  %431 = phi ptr [ %442, %443 ], [ %.promoted404, %423 ]
+  %.0165 = phi i32 [ %.1166, %443 ], [ 0, %423 ]
+  %432 = zext nneg i16 %430 to i32
+  %433 = icmp sgt i32 %.0165, 107374181
+  br i1 %433, label %434, label %437
 
-431:                                              ; preds = %429
-  %432 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %433 = load double, ptr %432, align 8
-  br label %521
+434:                                              ; preds = %.preheader
+  %435 = icmp eq i32 %.0165, 107374182
+  %436 = icmp samesign ult i16 %430, 52
+  %or.cond7 = and i1 %435, %436
+  br i1 %or.cond7, label %437, label %441
 
-.preheader:                                       ; preds = %426, %447
-  %434 = phi i16 [ %448, %447 ], [ %427, %426 ]
-  %435 = phi ptr [ %446, %447 ], [ %.promoted380, %426 ]
-  %.0165 = phi i32 [ %.1166, %447 ], [ 0, %426 ]
-  %436 = zext nneg i16 %434 to i32
-  %437 = icmp sgt i32 %.0165, 107374181
-  br i1 %437, label %438, label %441
+437:                                              ; preds = %434, %.preheader
+  %438 = mul nsw i32 %.0165, 10
+  %439 = add i32 %438, -48
+  %440 = add i32 %439, %432
+  br label %441
 
-438:                                              ; preds = %.preheader
-  %439 = icmp eq i32 %.0165, 107374182
-  %440 = icmp samesign ult i16 %434, 52
-  %or.cond7 = and i1 %439, %440
-  br i1 %or.cond7, label %441, label %445
+441:                                              ; preds = %434, %437
+  %.1166 = phi i32 [ %440, %437 ], [ 1073741823, %434 ]
+  %442 = getelementptr inbounds nuw i8, ptr %431, i64 2
+  %.not = icmp eq ptr %442, %12
+  br i1 %.not, label %.critedge9, label %443
 
-441:                                              ; preds = %438, %.preheader
-  %442 = mul nsw i32 %.0165, 10
-  %443 = add i32 %442, -48
-  %444 = add i32 %443, %436
-  br label %445
-
-445:                                              ; preds = %438, %441
-  %.1166 = phi i32 [ %444, %441 ], [ 1073741823, %438 ]
-  %446 = getelementptr inbounds nuw i8, ptr %435, i64 2
-  %.not = icmp eq ptr %446, %12
-  br i1 %.not, label %.critedge9, label %447
-
-447:                                              ; preds = %445
-  %448 = load i16, ptr %446, align 2
-  %449 = add i16 %448, -48
-  %or.cond211 = icmp ult i16 %449, 10
+443:                                              ; preds = %441
+  %444 = load i16, ptr %442, align 2
+  %445 = add i16 %444, -48
+  %or.cond211 = icmp ult i16 %445, 10
   br i1 %or.cond211, label %.preheader, label %.critedge9, !llvm.loop !20
 
-.critedge9:                                       ; preds = %447, %445
-  store ptr %446, ptr %6, align 8
+.critedge9:                                       ; preds = %443, %441
+  store ptr %442, ptr %6, align 8
   %sext.mask = and i32 %.0164, 255
-  %450 = icmp eq i32 %sext.mask, 45
-  %451 = sub nsw i32 0, %.1166
-  %452 = select i1 %450, i32 %451, i32 %.1166
-  %453 = add nsw i32 %452, %.1
-  br label %454
+  %446 = icmp eq i32 %sext.mask, 45
+  %447 = sub nsw i32 0, %.1166
+  %448 = select i1 %446, i32 %447, i32 %.1166
+  %449 = add nsw i32 %448, %.1
+  br label %450
 
-454:                                              ; preds = %397, %.critedge9
-  %455 = phi ptr [ %446, %.critedge9 ], [ %391, %397 ]
-  %.6 = phi i32 [ %453, %.critedge9 ], [ %.1, %397 ]
-  %456 = and i32 %13, 20
-  %brmerge213.not = icmp eq i32 %456, 0
-  br i1 %brmerge213.not, label %457, label %461
+450:                                              ; preds = %396, %.critedge9
+  %451 = phi ptr [ %442, %.critedge9 ], [ %390, %396 ]
+  %.6 = phi i32 [ %449, %.critedge9 ], [ %.1, %396 ]
+  %452 = and i32 %13, 20
+  %brmerge213.not = icmp eq i32 %452, 0
+  br i1 %brmerge213.not, label %453, label %457
 
-457:                                              ; preds = %454
-  %.not191 = icmp eq ptr %455, %12
-  br i1 %.not191, label %.thread306, label %458
+453:                                              ; preds = %450
+  %.not191 = icmp eq ptr %451, %12
+  br i1 %.not191, label %.thread306, label %454
 
-458:                                              ; preds = %457
-  %459 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %460 = load double, ptr %459, align 8
-  br label %521
+454:                                              ; preds = %453
+  %455 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %456 = load double, ptr %455, align 8
+  br label %518
 
-461:                                              ; preds = %454
-  br i1 %15, label %466, label %.thread306
+457:                                              ; preds = %450
+  br i1 %15, label %462, label %.thread306
 
-.thread306:                                       ; preds = %457, %461
-  %462 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_(ptr noundef %6, ptr noundef nonnull %12)
-  br i1 %462, label %463, label %466
+.thread306:                                       ; preds = %453, %457
+  %458 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_(ptr noundef %6, ptr noundef nonnull %12)
+  br i1 %458, label %459, label %462
 
-463:                                              ; preds = %.thread306
-  %464 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %465 = load double, ptr %464, align 8
-  br label %521
+459:                                              ; preds = %.thread306
+  %460 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %461 = load double, ptr %460, align 8
+  br label %518
 
-466:                                              ; preds = %.thread306, %461
-  br i1 %.not183.not, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread, label %467
+462:                                              ; preds = %.thread306, %457
+  br i1 %.not183.not, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread, label %463
 
-467:                                              ; preds = %466
-  %468 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_(ptr noundef %6, ptr noundef nonnull %12)
+463:                                              ; preds = %462
+  %464 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_(ptr noundef %6, ptr noundef nonnull %12)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit: ; preds = %368, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263, %379, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i262
-  %469 = phi ptr [ %369, %368 ], [ %389, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263 ], [ %377, %379 ], [ %377, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i262 ]
-  store ptr %469, ptr %6, align 8
+.thread307.sink.split:                            ; preds = %426, %417, %407
+  store ptr %390, ptr %6, align 8
+  br label %.thread307
+
+.thread307:                                       ; preds = %.thread307.sink.split, %327
+  %.2159.ph = phi i32 [ %.0157.lcssa, %327 ], [ %.3160, %.thread307.sink.split ]
+  %.2147.ph = phi i8 [ %.0145.lcssa, %327 ], [ %.3148, %.thread307.sink.split ]
+  %.0136.ph = phi i32 [ 0, %327 ], [ %.1, %.thread307.sink.split ]
+  %465 = add nsw i32 %.0136.ph, %.0142.lcssa
+  br label %483
+
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit: ; preds = %367, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263, %378, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i262
+  %466 = phi ptr [ %368, %367 ], [ %388, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i263 ], [ %376, %378 ], [ %376, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i262 ]
+  store ptr %466, ptr %6, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314: ; preds = %292, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i253, %303, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i252
-  %470 = phi ptr [ %293, %292 ], [ %313, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i253 ], [ %301, %303 ], [ %301, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i252 ]
-  store ptr %470, ptr %6, align 8
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337: ; preds = %292, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i253, %303, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i252
+  %467 = phi ptr [ %293, %292 ], [ %313, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.thread2.i253 ], [ %301, %303 ], [ %301, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread.i252 ]
+  store ptr %467, ptr %6, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit, %466, %467, %404, %327, %322, %430, %420, %409
-  %.2159 = phi i32 [ %.0157.lcssa, %322 ], [ %.0157.lcssa, %327 ], [ %.3160, %404 ], [ %.3160, %409 ], [ %.3160, %420 ], [ %.3160, %430 ], [ %.3160, %467 ], [ %.3160, %466 ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314 ]
-  %.1155 = phi i8 [ %spec.select, %322 ], [ %.0154.lcssa, %327 ], [ %spec.select, %404 ], [ %spec.select, %409 ], [ %spec.select, %420 ], [ %spec.select, %430 ], [ %spec.select, %467 ], [ %spec.select, %466 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit ], [ %291, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314 ]
-  %.2147 = phi i8 [ %.0145.lcssa, %322 ], [ %.0145.lcssa, %327 ], [ %.3148, %404 ], [ %.3148, %409 ], [ %.3148, %420 ], [ %.3148, %430 ], [ %.3148, %467 ], [ %.3148, %466 ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314 ]
-  %.2144 = phi i32 [ %.0142.lcssa, %322 ], [ %.0142.lcssa, %327 ], [ %.0142.lcssa, %404 ], [ %.0142.lcssa, %409 ], [ %.0142.lcssa, %420 ], [ %.0142.lcssa, %430 ], [ %.0142.lcssa, %467 ], [ %.0142.lcssa, %466 ], [ %.0142.lcssa, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314 ]
-  %.0136 = phi i32 [ 0, %322 ], [ 0, %327 ], [ %.1, %404 ], [ %.1, %409 ], [ %.1, %420 ], [ %.1, %430 ], [ %.6, %467 ], [ %.6, %466 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit314 ]
-  %471 = add nsw i32 %.0136, %.2144
-  %472 = trunc i8 %.1155 to i1
-  br i1 %472, label %473, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.thread
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit, %462, %463
+  %.2159 = phi i32 [ %.3160, %463 ], [ %.3160, %462 ], [ %.5162, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit ], [ %.1158, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337 ]
+  %.1155 = phi i8 [ %spec.select, %463 ], [ %spec.select, %462 ], [ %spec.select, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit ], [ %291, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337 ]
+  %.2147 = phi i8 [ %.3148, %463 ], [ %.3148, %462 ], [ %.5150, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit ], [ %.1146, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337 ]
+  %.2144 = phi i32 [ %.0142.lcssa, %463 ], [ %.0142.lcssa, %462 ], [ %.0142.lcssa, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit ], [ %.1143, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337 ]
+  %.0136 = phi i32 [ %.6, %463 ], [ %.6, %462 ], [ %.5, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.loopexit337 ]
+  %468 = add nsw i32 %.0136, %.2144
+  %469 = trunc i8 %.1155 to i1
+  br i1 %469, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread..thread319_crit_edge, label %483
 
-473:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread..thread319_crit_edge: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
+  %.pre447 = load ptr, ptr %6, align 8
+  br label %.thread319
+
+.thread319:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread..thread319_crit_edge, %403, %322
+  %470 = phi ptr [ %.pre447, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread..thread319_crit_edge ], [ %390, %403 ], [ %.lcssa373, %322 ]
+  %.2159325 = phi i32 [ %.2159, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread..thread319_crit_edge ], [ %.3160, %403 ], [ %.0157.lcssa, %322 ]
   store ptr %8, ptr %10, align 8
-  %474 = sext i32 %.2159 to i64
-  %475 = getelementptr inbounds i8, ptr %8, i64 %474
-  %476 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %477 = load i16, ptr %476, align 8
-  %478 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %479 = load double, ptr %478, align 8
-  %480 = call fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb(ptr noundef %10, ptr noundef %475, i1 noundef zeroext %.0151, i16 noundef zeroext %477, i1 noundef zeroext %15, double noundef %479, i1 noundef zeroext %3, ptr noundef %9)
-  %481 = load ptr, ptr %6, align 8
-  %482 = ptrtoint ptr %481 to i64
-  %483 = ptrtoint ptr %1 to i64
-  %484 = sub i64 %482, %483
-  %485 = lshr exact i64 %484, 1
-  %486 = trunc i64 %485 to i32
-  store i32 %486, ptr %4, align 4
-  br label %521
+  %471 = sext i32 %.2159325 to i64
+  %472 = getelementptr inbounds i8, ptr %8, i64 %471
+  %473 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %474 = load i16, ptr %473, align 8
+  %475 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %476 = load double, ptr %475, align 8
+  %477 = call fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17RadixStringToIeeeILi3EPcEEdPT0_S3_btbbdbPb(ptr noundef %10, ptr noundef %472, i1 noundef zeroext %.0151, i16 noundef zeroext %474, i1 noundef zeroext %15, double noundef %476, i1 noundef zeroext %3, ptr noundef %9)
+  %478 = ptrtoint ptr %470 to i64
+  %479 = ptrtoint ptr %1 to i64
+  %480 = sub i64 %478, %479
+  %481 = lshr exact i64 %480, 1
+  %482 = trunc i64 %481 to i32
+  store i32 %482, ptr %4, align 4
+  br label %518
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.thread: ; preds = %328, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
-  %487 = phi i32 [ %471, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread ], [ %.0142.lcssa, %328 ]
-  %.2147430 = phi i8 [ %.2147, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread ], [ %.0145.lcssa, %328 ]
-  %.2159429 = phi i32 [ %.2159, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread ], [ %.0157.lcssa, %328 ]
-  %488 = trunc nuw i8 %.2147430 to i1
-  br i1 %488, label %489, label %494
+483:                                              ; preds = %.thread307, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
+  %484 = phi i32 [ %465, %.thread307 ], [ %468, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread ]
+  %.2147314 = phi i8 [ %.2147.ph, %.thread307 ], [ %.2147, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread ]
+  %.2159313 = phi i32 [ %.2159.ph, %.thread307 ], [ %.2159, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread ]
+  %485 = trunc nuw i8 %.2147314 to i1
+  br i1 %485, label %486, label %491
 
-489:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.thread
-  %490 = add nsw i32 %.2159429, 1
-  %491 = sext i32 %.2159429 to i64
-  %492 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %491
-  store i8 49, ptr %492, align 1
-  %493 = add nsw i32 %487, -1
-  br label %494
+486:                                              ; preds = %483
+  %487 = add nsw i32 %.2159313, 1
+  %488 = sext i32 %.2159313 to i64
+  %489 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %488
+  store i8 49, ptr %489, align 1
+  %490 = add nsw i32 %484, -1
+  br label %491
 
-494:                                              ; preds = %489, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.thread
-  %.6163 = phi i32 [ %490, %489 ], [ %.2159429, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.thread ]
-  %.7 = phi i32 [ %493, %489 ], [ %487, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.thread ]
-  %495 = sext i32 %.6163 to i64
-  %496 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %495
-  store i8 0, ptr %496, align 1
-  %497 = zext i32 %.6163 to i64
-  br label %498
+491:                                              ; preds = %486, %483
+  %.6163 = phi i32 [ %487, %486 ], [ %.2159313, %483 ]
+  %.7 = phi i32 [ %490, %486 ], [ %484, %483 ]
+  %492 = sext i32 %.6163 to i64
+  %493 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %492
+  store i8 0, ptr %493, align 1
+  %494 = zext i32 %.6163 to i64
+  br label %495
 
-498:                                              ; preds = %501, %494
-  %indvars.iv.i = phi i64 [ %502, %501 ], [ %497, %494 ]
-  %499 = trunc nuw i64 %indvars.iv.i to i32
-  %500 = icmp sgt i32 %499, 0
-  br i1 %500, label %501, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
+495:                                              ; preds = %498, %491
+  %indvars.iv.i = phi i64 [ %499, %498 ], [ %494, %491 ]
+  %496 = trunc nuw i64 %indvars.iv.i to i32
+  %497 = icmp sgt i32 %496, 0
+  br i1 %497, label %498, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
 
-501:                                              ; preds = %498
-  %502 = add nsw i64 %indvars.iv.i, -1
-  %503 = getelementptr inbounds nuw i8, ptr %8, i64 %502
-  %504 = load i8, ptr %503, align 1
-  %.not.i = icmp eq i8 %504, 48
-  br i1 %.not.i, label %498, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit, !llvm.loop !13
+498:                                              ; preds = %495
+  %499 = add nsw i64 %indvars.iv.i, -1
+  %500 = getelementptr inbounds nuw i8, ptr %8, i64 %499
+  %501 = load i8, ptr %500, align 1
+  %.not.i = icmp eq i8 %501, 48
+  br i1 %.not.i, label %495, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit, !llvm.loop !13
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit: ; preds = %498, %501
-  %.sroa.3.0.i = phi i32 [ 0, %498 ], [ %499, %501 ]
-  %505 = sub nsw i32 %.6163, %.sroa.3.0.i
-  %506 = add nsw i32 %505, %.7
-  br i1 %3, label %507, label %509
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit: ; preds = %495, %498
+  %.sroa.3.0.i = phi i32 [ 0, %495 ], [ %496, %498 ]
+  %502 = sub nsw i32 %.6163, %.sroa.3.0.i
+  %503 = add nsw i32 %502, %.7
+  br i1 %3, label %504, label %506
 
-507:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
-  %508 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.0.i, i32 noundef %506)
-  br label %512
+504:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
+  %505 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.0.i, i32 noundef %503)
+  br label %509
 
-509:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
-  %510 = call noundef float @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.0.i, i32 noundef %506)
-  %511 = fpext float %510 to double
-  br label %512
+506:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit
+  %507 = call noundef float @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtofTrimmedENS0_6VectorIKcEEi(ptr nonnull %8, i32 %.sroa.3.0.i, i32 noundef %503)
+  %508 = fpext float %507 to double
+  br label %509
 
-512:                                              ; preds = %509, %507
-  %.0152 = phi double [ %508, %507 ], [ %511, %509 ]
-  %513 = load ptr, ptr %6, align 8
-  %514 = ptrtoint ptr %513 to i64
-  %515 = ptrtoint ptr %1 to i64
-  %516 = sub i64 %514, %515
-  %517 = lshr exact i64 %516, 1
-  %518 = trunc i64 %517 to i32
-  store i32 %518, ptr %4, align 4
-  %519 = fneg double %.0152
-  %520 = select i1 %.0151, double %519, double %.0152
-  br label %521
+509:                                              ; preds = %506, %504
+  %.0152 = phi double [ %505, %504 ], [ %508, %506 ]
+  %510 = load ptr, ptr %6, align 8
+  %511 = ptrtoint ptr %510 to i64
+  %512 = ptrtoint ptr %1 to i64
+  %513 = sub i64 %511, %512
+  %514 = lshr exact i64 %513, 1
+  %515 = trunc i64 %514 to i32
+  store i32 %515, ptr %4, align 4
+  %516 = fneg double %.0152
+  %517 = select i1 %.0151, double %516, double %.0152
+  br label %518
 
-521:                                              ; preds = %164, %113, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread, %223, %171, %120, %512, %473, %463, %458, %431, %421, %410, %401, %394, %336, %329, %319, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread302, %202, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit.thread, %161, %156, %149, %110, %105, %98, %65, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit233, %43, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit, %21
-  %.0 = phi double [ %23, %21 ], [ %112, %110 ], [ %107, %105 ], [ %100, %98 ], [ %163, %161 ], [ %158, %156 ], [ %151, %149 ], [ %194, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit.thread ], [ %204, %202 ], [ %212, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread302 ], [ %260, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.thread ], [ %480, %473 ], [ %520, %512 ], [ %331, %329 ], [ %343, %336 ], [ %396, %394 ], [ %412, %410 ], [ %423, %421 ], [ %433, %431 ], [ %465, %463 ], [ %460, %458 ], [ %403, %401 ], [ %321, %319 ], [ %67, %65 ], [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit233 ], [ %45, %43 ], [ %42, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit ], [ 0x7FF0000000000000, %120 ], [ 0x7FF8000000000000, %171 ], [ %217, %223 ], [ %217, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread ], [ 0xFFF0000000000000, %113 ], [ 0xFFF8000000000000, %164 ]
+518:                                              ; preds = %164, %113, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread, %223, %171, %120, %509, %.thread319, %459, %454, %427, %418, %408, %400, %393, %335, %328, %319, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.thread, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread302, %202, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit.thread, %161, %156, %149, %110, %105, %98, %65, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit233, %43, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit, %21
+  %.0 = phi double [ %23, %21 ], [ %112, %110 ], [ %107, %105 ], [ %100, %98 ], [ %163, %161 ], [ %158, %156 ], [ %151, %149 ], [ %194, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit.thread ], [ %204, %202 ], [ %212, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread302 ], [ %260, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit247.thread ], [ %477, %.thread319 ], [ %517, %509 ], [ %330, %328 ], [ %342, %335 ], [ %395, %393 ], [ %410, %408 ], [ %420, %418 ], [ %429, %427 ], [ %461, %459 ], [ %456, %454 ], [ %402, %400 ], [ %321, %319 ], [ %67, %65 ], [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit233 ], [ %45, %43 ], [ %42, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit ], [ 0x7FF0000000000000, %120 ], [ 0x7FF8000000000000, %171 ], [ %217, %223 ], [ %217, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.thread ], [ 0xFFF0000000000000, %113 ], [ 0xFFF8000000000000, %164 ]
   ret double %.0
 }
 

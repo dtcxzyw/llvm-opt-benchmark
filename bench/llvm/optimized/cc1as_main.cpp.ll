@@ -3586,7 +3586,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i.i:             ; preds = %1404, %1403
   br label %1426
 
 1426:                                             ; preds = %1418, %._crit_edge.i.i
-  %.pre-phi.i.i = phi i1 [ %1425, %1418 ], [ true, %._crit_edge.i.i ]
+  %.1109.i.i = phi i1 [ true, %._crit_edge.i.i ], [ %1425, %1418 ]
   %.not.i226.i.i = icmp eq ptr %.0.i210366.i.i, null
   br i1 %.not.i226.i.i, label %_ZNSt10unique_ptrIN4llvm17MCTargetAsmParserESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN4llvm17MCTargetAsmParserEEclEPS1_.exit.i.i.i
 
@@ -3679,7 +3679,7 @@ _ZNKSt14default_deleteIN4llvm14raw_fd_ostreamEEclEPS1_.exit.i239.i.i: ; preds = 
   br label %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit240.i.i
 
 _ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit240.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm14raw_fd_ostreamEEclEPS1_.exit.i239.i.i, %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit237.i.i, %1085
-  %.2369.i.i = phi i1 [ %.pre-phi.i.i, %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit237.i.i ], [ %.pre-phi.i.i, %_ZNKSt14default_deleteIN4llvm14raw_fd_ostreamEEclEPS1_.exit.i239.i.i ], [ true, %1085 ]
+  %.2369.i.i = phi i1 [ %.1109.i.i, %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit237.i.i ], [ %.1109.i.i, %_ZNKSt14default_deleteIN4llvm14raw_fd_ostreamEEclEPS1_.exit.i239.i.i ], [ true, %1085 ]
   %.not.i241.i.i = icmp eq ptr %.0.i146.i.i, null
   br i1 %.not.i241.i.i, label %_ZNSt10unique_ptrIN4llvm9MCAsmInfoESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN4llvm9MCAsmInfoEEclEPS1_.exit.i.i.i
 

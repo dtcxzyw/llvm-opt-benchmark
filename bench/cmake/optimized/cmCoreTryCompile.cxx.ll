@@ -6272,7 +6272,7 @@ _ZNK7cmValue7IsEmptyEv.exit.thread:               ; preds = %1184, %_ZNK7cmValue
   br label %1511
 
 1224:                                             ; preds = %1211, %1219, %1207, %1209, %.lr.ph1180
-  %.1562 = phi i8 [ %.05611178, %.lr.ph1180 ], [ %.05611178, %1211 ], [ 1, %1219 ], [ 0, %1209 ], [ %.05611178, %1207 ]
+  %.1562 = phi i8 [ %.05611178, %.lr.ph1180 ], [ 1, %1211 ], [ 1, %1219 ], [ 0, %1209 ], [ 0, %1207 ]
   %1225 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0928.01177) #23
   %1226 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %781, ptr noundef nonnull @.str.273, ptr noundef %1225) #23
   %1227 = call noundef zeroext i1 @_ZN16cmCoreTryCompile11IsTemporaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0928.01177)

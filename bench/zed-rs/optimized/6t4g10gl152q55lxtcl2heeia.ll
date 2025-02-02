@@ -20108,7 +20108,7 @@ define internal fastcc void @"_ZN166_$LT$serde..de..impls..$LT$impl$u20$serde..d
   %95 = phi ptr [ %.pre.i.i, %84 ], [ %48, %61 ]
   %.ph.i.i = phi i64 [ %78, %84 ], [ %68, %61 ]
   %.ph104.i.i = phi i8 [ %74, %84 ], [ %66, %61 ]
-  %.ph105.i.i = phi i8 [ %72, %84 ], [ %64, %61 ]
+  %.ph105.i.i = phi i8 [ 1, %84 ], [ %64, %61 ]
   %.ph106.i.i = phi ptr [ %.phi.trans.insert.i.i, %84 ], [ %47, %61 ]
   %.sroa.7.0.ph.i.i = phi i64 [ %88, %84 ], [ %55, %61 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %39), !noalias !5490
@@ -20669,7 +20669,7 @@ define internal fastcc void @"_ZN166_$LT$serde..de..impls..$LT$impl$u20$serde..d
   %296 = phi ptr [ %.pre.i.i18, %285 ], [ %249, %262 ]
   %.ph.i.i19 = phi i64 [ %279, %285 ], [ %269, %262 ]
   %.ph105.i.i20 = phi i8 [ %275, %285 ], [ %267, %262 ]
-  %.ph106.i.i21 = phi i8 [ %273, %285 ], [ %265, %262 ]
+  %.ph106.i.i21 = phi i8 [ 1, %285 ], [ %265, %262 ]
   %.ph107.i.i = phi ptr [ %.phi.trans.insert.i.i16, %285 ], [ %248, %262 ]
   %.sroa.7.0.ph.i.i22 = phi i64 [ %289, %285 ], [ %256, %262 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %23), !noalias !5644
@@ -26866,7 +26866,7 @@ define internal fastcc void @"_ZN170_$LT$zbus..message..header.._..$LT$impl$u20$
   %93 = phi ptr [ %.pre.i.i, %82 ], [ %46, %59 ]
   %.ph.i.i = phi i64 [ %76, %82 ], [ %66, %59 ]
   %.ph105.i.i = phi i8 [ %72, %82 ], [ %64, %59 ]
-  %.ph106.i.i = phi i8 [ %70, %82 ], [ %62, %59 ]
+  %.ph106.i.i = phi i8 [ 1, %82 ], [ %62, %59 ]
   %.ph107.i.i = phi ptr [ %.phi.trans.insert.i.i, %82 ], [ %45, %59 ]
   %.sroa.7.0.ph.i.i = phi i64 [ %86, %82 ], [ %53, %59 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %37), !noalias !7528
@@ -27446,7 +27446,7 @@ define internal fastcc void @"_ZN170_$LT$zbus..message..header.._..$LT$impl$u20$
   %291 = phi ptr [ %.pre.i.i71, %280 ], [ %243, %256 ]
   %.ph.i.i72 = phi i64 [ %273, %280 ], [ %263, %256 ]
   %.ph108.i.i = phi i8 [ %269, %280 ], [ %261, %256 ]
-  %.ph109.i.i = phi i8 [ %267, %280 ], [ %259, %256 ]
+  %.ph109.i.i = phi i8 [ 1, %280 ], [ %259, %256 ]
   %.ph110.i.i = phi ptr [ %.phi.trans.insert.i.i69, %280 ], [ %242, %256 ]
   %.sroa.7.0.ph.i.i73 = phi i64 [ %284, %280 ], [ %250, %256 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %21), !noalias !7682
@@ -41533,7 +41533,7 @@ define internal fastcc void @"_ZN177_$LT$zbus..message..header.._..$LT$impl$u20$
   %116 = phi ptr [ %.pre.i.i, %105 ], [ %69, %82 ]
   %.ph.i.i = phi i64 [ %99, %105 ], [ %89, %82 ]
   %.ph104.i.i = phi i8 [ %95, %105 ], [ %87, %82 ]
-  %.ph105.i.i = phi i8 [ %93, %105 ], [ %85, %82 ]
+  %.ph105.i.i = phi i8 [ 1, %105 ], [ %85, %82 ]
   %.ph106.i.i = phi ptr [ %.phi.trans.insert.i.i, %105 ], [ %68, %82 ]
   %.sroa.7.0.ph.i.i = phi i64 [ %109, %105 ], [ %76, %82 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %53), !noalias !12095
@@ -42094,7 +42094,7 @@ define internal fastcc void @"_ZN177_$LT$zbus..message..header.._..$LT$impl$u20$
   %316 = phi ptr [ %.pre.i.i168, %305 ], [ %269, %282 ]
   %.ph.i.i169 = phi i64 [ %299, %305 ], [ %289, %282 ]
   %.ph104.i.i170 = phi i8 [ %295, %305 ], [ %287, %282 ]
-  %.ph105.i.i171 = phi i8 [ %293, %305 ], [ %285, %282 ]
+  %.ph105.i.i171 = phi i8 [ 1, %305 ], [ %285, %282 ]
   %.ph106.i.i172 = phi ptr [ %.phi.trans.insert.i.i165, %305 ], [ %268, %282 ]
   %.sroa.7.0.ph.i.i173 = phi i64 [ %309, %305 ], [ %276, %282 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %37), !noalias !12249
@@ -42660,7 +42660,7 @@ define internal fastcc void @"_ZN177_$LT$zbus..message..header.._..$LT$impl$u20$
   %516 = phi ptr [ %.pre.i.i229, %505 ], [ %468, %481 ]
   %.ph.i.i230 = phi i64 [ %498, %505 ], [ %488, %481 ]
   %.ph106.i.i231 = phi i8 [ %494, %505 ], [ %486, %481 ]
-  %.ph107.i.i = phi i8 [ %492, %505 ], [ %484, %481 ]
+  %.ph107.i.i = phi i8 [ 1, %505 ], [ %484, %481 ]
   %.ph108.i.i = phi ptr [ %.phi.trans.insert129.i.i, %505 ], [ %467, %481 ]
   %.sroa.7.0.ph.i.i232 = phi i64 [ %509, %505 ], [ %475, %481 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %21), !noalias !12403
@@ -44298,7 +44298,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h27e708edca42
   %71 = phi ptr [ %.pre.i, %60 ], [ %24, %37 ]
   %.ph.i = phi i64 [ %54, %60 ], [ %44, %37 ]
   %.ph104.i = phi i8 [ %50, %60 ], [ %42, %37 ]
-  %.ph105.i = phi i8 [ %48, %60 ], [ %40, %37 ]
+  %.ph105.i = phi i8 [ 1, %60 ], [ %40, %37 ]
   %.ph106.i = phi ptr [ %.phi.trans.insert.i, %60 ], [ %23, %37 ]
   %.sroa.7.0.ph.i = phi i64 [ %64, %60 ], [ %31, %37 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17), !noalias !12910
@@ -44824,7 +44824,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hd7452133050c
   %71 = phi ptr [ %.pre.i, %60 ], [ %24, %37 ]
   %.ph.i = phi i64 [ %54, %60 ], [ %44, %37 ]
   %.ph105.i = phi i8 [ %50, %60 ], [ %42, %37 ]
-  %.ph106.i = phi i8 [ %48, %60 ], [ %40, %37 ]
+  %.ph106.i = phi i8 [ 1, %60 ], [ %40, %37 ]
   %.ph107.i = phi ptr [ %.phi.trans.insert.i, %60 ], [ %23, %37 ]
   %.sroa.7.0.ph.i = phi i64 [ %64, %60 ], [ %31, %37 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17), !noalias !13059
@@ -45352,7 +45352,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hf00225d01ca8
   %71 = phi ptr [ %.pre.i, %60 ], [ %24, %37 ]
   %.ph.i = phi i64 [ %54, %60 ], [ %44, %37 ]
   %.ph105.i = phi i8 [ %50, %60 ], [ %42, %37 ]
-  %.ph106.i = phi i8 [ %48, %60 ], [ %40, %37 ]
+  %.ph106.i = phi i8 [ 1, %60 ], [ %40, %37 ]
   %.ph107.i = phi ptr [ %.phi.trans.insert.i, %60 ], [ %23, %37 ]
   %.sroa.7.0.ph.i = phi i64 [ %64, %60 ], [ %31, %37 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17), !noalias !13208
@@ -48305,7 +48305,7 @@ define internal fastcc void @"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$a
   %86 = phi ptr [ %.pre.i.i, %77 ], [ %44, %54 ]
   %.ph.i.i = phi i64 [ %71, %77 ], [ %61, %54 ]
   %.ph105.i.i = phi i8 [ %67, %77 ], [ %59, %54 ]
-  %.ph106.i.i = phi i8 [ %65, %77 ], [ %57, %54 ]
+  %.ph106.i.i = phi i8 [ 1, %77 ], [ %57, %54 ]
   %.sroa.7.0.ph.i.i = phi i64 [ %80, %77 ], [ %49, %54 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %22), !noalias !14114
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21), !noalias !14114
@@ -52687,7 +52687,7 @@ define hidden void @"_ZN91_$LT$zvariant..gvariant..de..ArrayDeserializer$LT$F$GT
   %71 = phi ptr [ %.pre, %60 ], [ %24, %37 ]
   %.ph = phi i64 [ %54, %60 ], [ %44, %37 ]
   %.ph102 = phi i8 [ %50, %60 ], [ %42, %37 ]
-  %.ph103 = phi i8 [ %48, %60 ], [ %40, %37 ]
+  %.ph103 = phi i8 [ 1, %60 ], [ %40, %37 ]
   %.ph104 = phi ptr [ %.phi.trans.insert, %60 ], [ %23, %37 ]
   %.sroa.7.0.ph = phi i64 [ %64, %60 ], [ %31, %37 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17)
@@ -53209,7 +53209,7 @@ define hidden void @"_ZN91_$LT$zvariant..gvariant..de..ArrayDeserializer$LT$F$GT
   %72 = phi ptr [ %.pre, %62 ], [ %26, %39 ]
   %.ph = phi i64 [ %56, %62 ], [ %46, %39 ]
   %.ph125 = phi i8 [ %52, %62 ], [ %44, %39 ]
-  %.ph126 = phi i8 [ %50, %62 ], [ %42, %39 ]
+  %.ph126 = phi i8 [ 1, %62 ], [ %42, %39 ]
   %.ph127 = phi ptr [ %.phi.trans.insert, %62 ], [ %25, %39 ]
   %.sroa.7.0.ph = phi i64 [ %66, %62 ], [ %33, %39 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %19)
@@ -53791,7 +53791,7 @@ define hidden void @"_ZN91_$LT$zvariant..gvariant..de..ArrayDeserializer$LT$F$GT
   %71 = phi ptr [ %.pre, %60 ], [ %24, %37 ]
   %.ph = phi i64 [ %54, %60 ], [ %44, %37 ]
   %.ph104 = phi i8 [ %50, %60 ], [ %42, %37 ]
-  %.ph105 = phi i8 [ %48, %60 ], [ %40, %37 ]
+  %.ph105 = phi i8 [ 1, %60 ], [ %40, %37 ]
   %.ph106 = phi ptr [ %.phi.trans.insert, %60 ], [ %23, %37 ]
   %.sroa.7.0.ph = phi i64 [ %64, %60 ], [ %31, %37 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17)

@@ -3105,7 +3105,7 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %land.lhs.true.i, %while.end.i
-  %vcpu_total_blocktime.2.i = phi i8 [ %vcpu_total_blocktime.028.i, %while.end.i ], [ %spec.select.i, %land.lhs.true.i ]
+  %vcpu_total_blocktime.2.i = phi i8 [ 1, %while.end.i ], [ %spec.select.i, %land.lhs.true.i ]
   %29 = load ptr, ptr %vcpu_blocktime24.i, align 8
   %arrayidx26.i = getelementptr i32, ptr %29, i64 %idxprom.i
   %30 = load i32, ptr %arrayidx26.i, align 4

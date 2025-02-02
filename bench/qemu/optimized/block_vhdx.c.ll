@@ -1966,7 +1966,7 @@ if.then37:                                        ; preds = %if.end29
 sw.bb60:                                          ; preds = %if.then12, %if.then37, %if.end29, %if.else
   %sinfo.sroa.21.0 = phi i64 [ %sinfo.sroa.21.1, %if.else ], [ %sinfo.sroa.21.2, %if.then37 ], [ %sinfo.sroa.21.2, %if.end29 ], [ %add, %if.then12 ]
   %bat_entry_offset.1 = phi i64 [ %bat_entry_offset.0, %if.else ], [ %add.i49, %if.then37 ], [ %add.i49, %if.end29 ], [ %add.i49, %if.then12 ]
-  %use_zero_buffers.1 = phi i8 [ 0, %if.else ], [ %use_zero_buffers.2, %if.then37 ], [ %use_zero_buffers.2, %if.end29 ], [ %use_zero_buffers.2, %if.then12 ]
+  %use_zero_buffers.1 = phi i1 [ false, %if.else ], [ true, %if.then37 ], [ true, %if.end29 ], [ false, %if.then12 ]
   %sectors_to_write.0 = phi i32 [ %spec.select, %if.else ], [ %conv57, %if.then37 ], [ %sectors_to_write.1, %if.end29 ], [ %spec.select, %if.then12 ]
   %bat_prior_offset.1 = phi i64 [ %bat_prior_offset.0, %if.else ], [ %sinfo.sroa.21.1, %if.then37 ], [ %sinfo.sroa.21.1, %if.end29 ], [ %sinfo.sroa.21.1, %if.then12 ]
   %bat_update.0 = phi i1 [ false, %if.else ], [ true, %if.then37 ], [ true, %if.end29 ], [ true, %if.then12 ]
@@ -1974,8 +1974,7 @@ sw.bb60:                                          ; preds = %if.then12, %if.then
   br i1 %cmp62, label %error_bat_restore, label %if.end65
 
 if.end65:                                         ; preds = %sw.bb60
-  %tobool66 = trunc i8 %use_zero_buffers.1 to i1
-  br i1 %tobool66, label %if.end70, label %if.then67
+  br i1 %use_zero_buffers.1, label %if.end70, label %if.then67
 
 if.then67:                                        ; preds = %if.end65
   %conv69 = zext i32 %shl16.i to i64

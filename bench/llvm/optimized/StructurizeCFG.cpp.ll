@@ -14153,7 +14153,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEPNS_5ValueENS_12DenseMapInf
   br label %64
 
 64:                                               ; preds = %59, %57
-  %.1 = phi i8 [ %.0921, %57 ], [ %spec.select, %59 ]
+  %.1 = phi i8 [ 1, %57 ], [ %spec.select, %59 ]
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 16
   %.not5.i3.i = icmp eq ptr %65, %49
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPNS_10BasicBlockEPNS_5ValueENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EELb0EEppEv.exit, label %.lr.ph.i4.i

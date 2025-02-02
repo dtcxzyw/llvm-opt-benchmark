@@ -26716,7 +26716,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   br label %200
 
 200:                                              ; preds = %198, %.lr.ph200
-  %.1108 = phi i8 [ %.0107197, %.lr.ph200 ], [ %spec.select, %198 ]
+  %.1108 = phi i8 [ 1, %.lr.ph200 ], [ %spec.select, %198 ]
   %.0103 = phi ptr [ %196, %.lr.ph200 ], [ %spec.select136, %198 ]
   %201 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #21
   %202 = add i64 %201, 1

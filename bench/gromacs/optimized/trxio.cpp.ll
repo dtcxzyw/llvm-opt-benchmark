@@ -1867,10 +1867,10 @@ define noundef zeroext i1 @_Z15read_next_framePK16gmx_output_env_tP11t_trxstatus
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 104
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.critedge
+  br label %.critedge135
 
-.critedge:                                        ; preds = %.critedge.backedge, %3
-  %.086 = phi i8 [ 0, %3 ], [ %.187, %.critedge.backedge ]
+.critedge135:                                     ; preds = %.critedge135.backedge, %3
+  %.086 = phi i1 [ false, %3 ], [ true, %.critedge135.backedge ]
   store i32 0, ptr %2, align 8
   store i8 0, ptr %14, align 4
   store i8 0, ptr %15, align 8
@@ -1886,24 +1886,24 @@ define noundef zeroext i1 @_Z15read_next_framePK16gmx_output_env_tP11t_trxstatus
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %49, label %.thread
 
-.thread:                                          ; preds = %.critedge
+.thread:                                          ; preds = %.critedge135
   %48 = call i64 @_Z9timeValue11TimeControl(i32 noundef 0)
-  br label %160
+  br label %163
 
-49:                                               ; preds = %.critedge
+49:                                               ; preds = %.critedge135
   %50 = load ptr, ptr %25, align 8
   %51 = call noundef i32 @_Z14gmx_fio_getftpP8t_fileio(ptr noundef %50)
   %52 = call i64 @_Z9timeValue11TimeControl(i32 noundef 0)
   %.sroa.0.0.extract.trunc = trunc i64 %52 to i32
   %53 = bitcast i32 %.sroa.0.0.extract.trunc to float
-  switch i32 %51, label %174 [
+  switch i32 %51, label %177 [
     i32 4, label %54
-    i32 18, label %192
-    i32 12, label %115
-    i32 6, label %131
-    i32 7, label %160
-    i32 13, label %164
-    i32 11, label %169
+    i32 18, label %195
+    i32 12, label %117
+    i32 6, label %133
+    i32 7, label %163
+    i32 13, label %167
+    i32 11, label %172
   ]
 
 54:                                               ; preds = %49
@@ -2020,401 +2020,415 @@ define noundef zeroext i1 @_Z15read_next_framePK16gmx_output_env_tP11t_trxstatus
 112:                                              ; preds = %54
   %113 = load i8, ptr %5, align 1
   %114 = trunc i8 %113 to i1
-  br i1 %114, label %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit, label %.sink.split.i
+  br i1 %114, label %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit.thread, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %112, %._crit_edge.i
-  %.sink.i = phi i32 [ 2, %._crit_edge.i ], [ 1, %112 ]
+.sink.split.i:                                    ; preds = %._crit_edge.i, %112
+  %.sink.i = phi i32 [ 1, %112 ], [ 2, %._crit_edge.i ]
   store i32 %.sink.i, ptr %2, align 8
-  br label %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit
+  br label %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit.thread
 
-_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit: ; preds = %._crit_edge.i, %112, %.sink.split.i
-  %.0.i = phi i8 [ 0, %112 ], [ 1, %._crit_edge.i ], [ 0, %.sink.split.i ]
+_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit.thread: ; preds = %112, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  br label %192
+  %115 = load float, ptr %29, align 4
+  store float %115, ptr %12, align 4
+  br label %.critedge
 
-115:                                              ; preds = %49
-  %116 = load ptr, ptr %25, align 8
-  %117 = call noundef ptr @_Z13gmx_fio_getfpP8t_fileio(ptr noundef %116)
+_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit: ; preds = %._crit_edge.i
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  %116 = load float, ptr %29, align 4
+  store float %116, ptr %12, align 4
+  br label %197
+
+117:                                              ; preds = %49
+  %118 = load ptr, ptr %25, align 8
+  %119 = call noundef ptr @_Z13gmx_fio_getfpP8t_fileio(ptr noundef %118)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #21
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33)
-          to label %_ZNSt10filesystem7__cxx114pathC2Ev.exit unwind label %118
+          to label %_ZNSt10filesystem7__cxx114pathC2Ev.exit unwind label %120
 
-118:                                              ; preds = %115
-  %119 = landingpad { ptr, i32 }
+120:                                              ; preds = %117
+  %121 = landingpad { ptr, i32 }
           catch ptr null
-  %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #23
+  %122 = extractvalue { ptr, i32 } %121, 0
+  call void @__clang_call_terminate(ptr %122) #23
   unreachable
 
-_ZNSt10filesystem7__cxx114pathC2Ev.exit:          ; preds = %115
-  %121 = load ptr, ptr %34, align 8
-  %122 = invoke noundef i32 @_Z13read_g96_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPPcP10t_trxframeP8t_symtabS6_(ptr noundef %117, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef null, ptr noundef nonnull %2, ptr noundef null, ptr noundef %121)
-          to label %123 unwind label %129
+_ZNSt10filesystem7__cxx114pathC2Ev.exit:          ; preds = %117
+  %123 = load ptr, ptr %34, align 8
+  %124 = invoke noundef i32 @_Z13read_g96_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPPcP10t_trxframeP8t_symtabS6_(ptr noundef %119, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef null, ptr noundef nonnull %2, ptr noundef null, ptr noundef %123)
+          to label %125 unwind label %131
 
-123:                                              ; preds = %_ZNSt10filesystem7__cxx114pathC2Ev.exit
-  %124 = load ptr, ptr %33, align 8
-  %.not.i.i.i = icmp eq ptr %124, null
-  br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %125
+125:                                              ; preds = %_ZNSt10filesystem7__cxx114pathC2Ev.exit
+  %126 = load ptr, ptr %33, align 8
+  %.not.i.i.i = icmp eq ptr %126, null
+  br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %127
 
-125:                                              ; preds = %123
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %124) #21
+127:                                              ; preds = %125
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %126) #21
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit
 
-_ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %123, %125
+_ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %125, %127
   store ptr null, ptr %33, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #21
-  %126 = load i32, ptr %26, align 8
-  %127 = icmp sgt i32 %126, 0
-  %128 = zext i1 %127 to i8
-  br label %192
+  %128 = load i32, ptr %26, align 8
+  %129 = icmp sgt i32 %128, 0
+  %130 = load float, ptr %29, align 4
+  store float %130, ptr %12, align 4
+  br i1 %129, label %197, label %.critedge
 
-129:                                              ; preds = %_ZNSt10filesystem7__cxx114pathC2Ev.exit
-  %130 = landingpad { ptr, i32 }
+131:                                              ; preds = %_ZNSt10filesystem7__cxx114pathC2Ev.exit
+  %132 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %305
 
-131:                                              ; preds = %49
-  %132 = and i64 %52, 4294967296
-  %.not134 = icmp eq i64 %132, 0
-  br i1 %.not134, label %144, label %_ZNRSt8optionalIfE5valueEv.exit
+133:                                              ; preds = %49
+  %134 = and i64 %52, 4294967296
+  %.not134 = icmp eq i64 %134, 0
+  br i1 %.not134, label %146, label %_ZNRSt8optionalIfE5valueEv.exit
 
-_ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %131
-  %133 = load float, ptr %12, align 4
-  %134 = fcmp olt float %133, %53
-  br i1 %134, label %_ZNRSt8optionalIfE5valueEv.exit103, label %144
+_ZNRSt8optionalIfE5valueEv.exit:                  ; preds = %133
+  %135 = load float, ptr %12, align 4
+  %136 = fcmp olt float %135, %53
+  br i1 %136, label %_ZNRSt8optionalIfE5valueEv.exit103, label %146
 
 _ZNRSt8optionalIfE5valueEv.exit103:               ; preds = %_ZNRSt8optionalIfE5valueEv.exit
-  %135 = load ptr, ptr %25, align 8
-  %136 = load i32, ptr %26, align 8
-  %137 = call noundef i32 @_Z13xtc_seek_timeP8t_fileiofib(ptr noundef %135, float noundef %53, i32 noundef %136, i1 noundef zeroext true)
-  %.not92 = icmp eq i32 %137, 0
-  br i1 %.not92, label %143, label %138
+  %137 = load ptr, ptr %25, align 8
+  %138 = load i32, ptr %26, align 8
+  %139 = call noundef i32 @_Z13xtc_seek_timeP8t_fileiofib(ptr noundef %137, float noundef %53, i32 noundef %138, i1 noundef zeroext true)
+  %.not92 = icmp eq i32 %139, 0
+  br i1 %.not92, label %145, label %140
 
-138:                                              ; preds = %_ZNRSt8optionalIfE5valueEv.exit103
+140:                                              ; preds = %_ZNRSt8optionalIfE5valueEv.exit103
   call void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(122) @.str.2, i8 noundef zeroext 2)
-  %139 = fpext float %53 to double
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 862, ptr noundef nonnull @.str.25, double noundef %139) #22
-          to label %140 unwind label %141
+  %141 = fpext float %53 to double
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 862, ptr noundef nonnull @.str.25, double noundef %141) #22
+          to label %142 unwind label %143
 
-140:                                              ; preds = %138
+142:                                              ; preds = %140
   unreachable
 
-141:                                              ; preds = %138
-  %142 = landingpad { ptr, i32 }
+143:                                              ; preds = %140
+  %144 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %305
 
-143:                                              ; preds = %_ZNRSt8optionalIfE5valueEv.exit103
+145:                                              ; preds = %_ZNRSt8optionalIfE5valueEv.exit103
   store i32 -1, ptr %27, align 4
-  br label %144
+  br label %146
 
-144:                                              ; preds = %143, %_ZNRSt8optionalIfE5valueEv.exit, %131
-  %145 = load ptr, ptr %25, align 8
-  %146 = load i32, ptr %26, align 8
-  %147 = load ptr, ptr %31, align 8
-  %148 = call noundef i32 @_Z13read_next_xtcP8t_fileioiPlPfPA3_fS4_S2_Pb(ptr noundef %145, i32 noundef %146, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef %147, ptr noundef nonnull %32, ptr noundef nonnull %6)
-  %149 = icmp ne i32 %148, 0
-  %150 = zext i1 %149 to i8
-  br i1 %149, label %151, label %155
+146:                                              ; preds = %145, %_ZNRSt8optionalIfE5valueEv.exit, %133
+  %147 = load ptr, ptr %25, align 8
+  %148 = load i32, ptr %26, align 8
+  %149 = load ptr, ptr %31, align 8
+  %150 = call noundef i32 @_Z13read_next_xtcP8t_fileioiPlPfPA3_fS4_S2_Pb(ptr noundef %147, i32 noundef %148, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef %149, ptr noundef nonnull %32, ptr noundef nonnull %6)
+  %151 = icmp ne i32 %150, 0
+  %152 = zext i1 %151 to i8
+  br i1 %151, label %153, label %157
 
-151:                                              ; preds = %144
-  %152 = load float, ptr %32, align 4
-  %153 = fcmp ogt float %152, 0.000000e+00
-  %154 = zext i1 %153 to i8
-  br label %155
+153:                                              ; preds = %146
+  %154 = load float, ptr %32, align 4
+  %155 = fcmp ogt float %154, 0.000000e+00
+  %156 = zext i1 %155 to i8
+  br label %157
 
-155:                                              ; preds = %151, %144
-  %156 = phi i8 [ 0, %144 ], [ %154, %151 ]
-  store i8 %156, ptr %19, align 8
-  store i8 %150, ptr %14, align 4
-  store i8 %150, ptr %15, align 8
-  store i8 %150, ptr %20, align 8
-  store i8 %150, ptr %23, align 8
-  %157 = load i8, ptr %6, align 1
-  %158 = trunc i8 %157 to i1
-  br i1 %158, label %192, label %159
+157:                                              ; preds = %153, %146
+  %158 = phi i8 [ 0, %146 ], [ %156, %153 ]
+  store i8 %158, ptr %19, align 8
+  store i8 %152, ptr %14, align 4
+  store i8 %152, ptr %15, align 8
+  store i8 %152, ptr %20, align 8
+  store i8 %152, ptr %23, align 8
+  %159 = load i8, ptr %6, align 1
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %195, label %161
 
-159:                                              ; preds = %155
+161:                                              ; preds = %157
   store i32 2, ptr %2, align 8
-  br label %192
+  %162 = load float, ptr %29, align 4
+  store float %162, ptr %12, align 4
+  br i1 %151, label %197, label %.critedge
 
-160:                                              ; preds = %.thread, %49
-  %161 = load ptr, ptr %24, align 8
-  %162 = call noundef zeroext i1 @_Z23gmx_read_next_tng_frameP18gmx_tng_trajectoryP10t_trxframePli(ptr noundef %161, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0)
-  %163 = zext i1 %162 to i8
-  br label %192
+163:                                              ; preds = %.thread, %49
+  %164 = load ptr, ptr %24, align 8
+  %165 = call noundef zeroext i1 @_Z23gmx_read_next_tng_frameP18gmx_tng_trajectoryP10t_trxframePli(ptr noundef %164, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0)
+  %166 = load float, ptr %29, align 4
+  store float %166, ptr %12, align 4
+  br i1 %165, label %197, label %.critedge
 
-164:                                              ; preds = %49
-  %165 = load ptr, ptr %25, align 8
-  %166 = call noundef ptr @_Z13gmx_fio_getfpP8t_fileio(ptr noundef %165)
-  %167 = call fastcc noundef zeroext i1 @_ZL10pdb_next_xP11t_trxstatusP8_IO_FILEP10t_trxframe(ptr noundef nonnull %1, ptr noundef %166, ptr noundef nonnull %2)
-  %168 = zext i1 %167 to i8
-  br label %192
+167:                                              ; preds = %49
+  %168 = load ptr, ptr %25, align 8
+  %169 = call noundef ptr @_Z13gmx_fio_getfpP8t_fileio(ptr noundef %168)
+  %170 = call fastcc noundef zeroext i1 @_ZL10pdb_next_xP11t_trxstatusP8_IO_FILEP10t_trxframe(ptr noundef nonnull %1, ptr noundef %169, ptr noundef nonnull %2)
+  %171 = load float, ptr %29, align 4
+  store float %171, ptr %12, align 4
+  br i1 %170, label %197, label %.critedge
 
-169:                                              ; preds = %49
-  %170 = load ptr, ptr %25, align 8
-  %171 = call noundef ptr @_Z13gmx_fio_getfpP8t_fileio(ptr noundef %170)
-  %172 = call noundef zeroext i1 @_Z15gro_next_x_or_vP8_IO_FILEP10t_trxframe(ptr noundef %171, ptr noundef nonnull %2)
-  %173 = zext i1 %172 to i8
-  br label %192
+172:                                              ; preds = %49
+  %173 = load ptr, ptr %25, align 8
+  %174 = call noundef ptr @_Z13gmx_fio_getfpP8t_fileio(ptr noundef %173)
+  %175 = call noundef zeroext i1 @_Z15gro_next_x_or_vP8_IO_FILEP10t_trxframe(ptr noundef %174, ptr noundef nonnull %2)
+  %176 = load float, ptr %29, align 4
+  store float %176, ptr %12, align 4
+  br i1 %175, label %197, label %.critedge
 
-174:                                              ; preds = %49
+177:                                              ; preds = %49
   call void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 1 dereferenceable(122) @.str.2, i8 noundef zeroext 2)
-  %175 = load ptr, ptr %25, align 8
-  %176 = invoke noundef i32 @_Z14gmx_fio_getftpP8t_fileio(ptr noundef %175)
-          to label %177 unwind label %185
+  %178 = load ptr, ptr %25, align 8
+  %179 = invoke noundef i32 @_Z14gmx_fio_getftpP8t_fileio(ptr noundef %178)
+          to label %180 unwind label %188
 
-177:                                              ; preds = %174
-  %178 = invoke noundef ptr @_Z7ftp2exti(i32 noundef %176)
-          to label %179 unwind label %185
+180:                                              ; preds = %177
+  %181 = invoke noundef ptr @_Z7ftp2exti(i32 noundef %179)
+          to label %182 unwind label %188
 
-179:                                              ; preds = %177
-  %180 = load ptr, ptr %25, align 8
-  invoke void @_Z15gmx_fio_getnameB5cxx11P8t_fileio(ptr dead_on_unwind nonnull writable sret(%"class.std::filesystem::__cxx11::path") align 8 %11, ptr noundef %180)
-          to label %181 unwind label %185
-
-181:                                              ; preds = %179
-  invoke void @_ZNKSt10filesystem7__cxx114path6stringEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(40) %11)
-          to label %182 unwind label %187
-
-182:                                              ; preds = %181
-  %183 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 891, ptr noundef nonnull @.str.26, ptr noundef %178, ptr noundef %183) #22
-          to label %184 unwind label %189
+182:                                              ; preds = %180
+  %183 = load ptr, ptr %25, align 8
+  invoke void @_Z15gmx_fio_getnameB5cxx11P8t_fileio(ptr dead_on_unwind nonnull writable sret(%"class.std::filesystem::__cxx11::path") align 8 %11, ptr noundef %183)
+          to label %184 unwind label %188
 
 184:                                              ; preds = %182
+  invoke void @_ZNKSt10filesystem7__cxx114path6stringEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(40) %11)
+          to label %185 unwind label %190
+
+185:                                              ; preds = %184
+  %186 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 noundef 891, ptr noundef nonnull @.str.26, ptr noundef %181, ptr noundef %186) #22
+          to label %187 unwind label %192
+
+187:                                              ; preds = %185
   unreachable
 
-185:                                              ; preds = %179, %177, %174
-  %186 = landingpad { ptr, i32 }
+188:                                              ; preds = %182, %180, %177
+  %189 = landingpad { ptr, i32 }
           cleanup
-  br label %300
+  br label %305
 
-187:                                              ; preds = %181
-  %188 = landingpad { ptr, i32 }
+190:                                              ; preds = %184
+  %191 = landingpad { ptr, i32 }
           cleanup
-  br label %191
+  br label %194
 
-189:                                              ; preds = %182
-  %190 = landingpad { ptr, i32 }
+192:                                              ; preds = %185
+  %193 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
-  br label %191
+  br label %194
 
-191:                                              ; preds = %189, %187
-  %.pn = phi { ptr, i32 } [ %190, %189 ], [ %188, %187 ]
+194:                                              ; preds = %192, %190
+  %.pn = phi { ptr, i32 } [ %193, %192 ], [ %191, %190 ]
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #21
-  br label %300
+  br label %305
 
-192:                                              ; preds = %155, %159, %49, %169, %164, %160, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit
-  %.187 = phi i8 [ %173, %169 ], [ %168, %164 ], [ %163, %160 ], [ %150, %155 ], [ %150, %159 ], [ %128, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.086, %49 ], [ %.0.i, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit ]
-  %193 = load float, ptr %29, align 4
-  store float %193, ptr %12, align 4
-  %194 = trunc nuw i8 %.187 to i1
-  br i1 %194, label %195, label %.critedge.thread
+195:                                              ; preds = %157, %49
+  %.187 = phi i1 [ %151, %157 ], [ %.086, %49 ]
+  %196 = load float, ptr %29, align 4
+  store float %196, ptr %12, align 4
+  br i1 %.187, label %197, label %.critedge
 
-195:                                              ; preds = %192
-  %196 = load i32, ptr %1, align 8
-  %197 = and i32 %196, 2
-  %.not93 = icmp eq i32 %197, 0
-  br i1 %.not93, label %201, label %198
+197:                                              ; preds = %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %161, %163, %167, %172, %195
+  %198 = phi float [ %176, %172 ], [ %196, %195 ], [ %171, %167 ], [ %166, %163 ], [ %162, %161 ], [ %130, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %116, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit ]
+  %199 = load i32, ptr %1, align 8
+  %200 = and i32 %199, 2
+  %.not93 = icmp eq i32 %200, 0
+  br i1 %.not93, label %204, label %201
 
-198:                                              ; preds = %195
-  %199 = load i8, ptr %20, align 8
-  %200 = trunc i8 %199 to i1
-  br i1 %200, label %201, label %.critedge.backedge
+201:                                              ; preds = %197
+  %202 = load i8, ptr %20, align 8
+  %203 = trunc i8 %202 to i1
+  br i1 %203, label %204, label %.critedge135.backedge
 
-.critedge.backedge:                               ; preds = %198, %203, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i108, %248, %244, %237, %208, %_ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit.sink.split
-  br label %.critedge, !llvm.loop !10
+.critedge135.backedge:                            ; preds = %201, %206, %262, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i108, %257, %253, %246, %211
+  br label %.critedge135
 
-201:                                              ; preds = %198, %195
-  %202 = and i32 %196, 8
-  %.not94 = icmp eq i32 %202, 0
-  br i1 %.not94, label %206, label %203
+204:                                              ; preds = %201, %197
+  %205 = and i32 %199, 8
+  %.not94 = icmp eq i32 %205, 0
+  br i1 %.not94, label %209, label %206
 
-203:                                              ; preds = %201
-  %204 = load i8, ptr %21, align 8
-  %205 = trunc i8 %204 to i1
-  br i1 %205, label %206, label %.critedge.backedge
+206:                                              ; preds = %204
+  %207 = load i8, ptr %21, align 8
+  %208 = trunc i8 %207 to i1
+  br i1 %208, label %209, label %.critedge135.backedge
 
-206:                                              ; preds = %203, %201
-  %207 = and i32 %196, 32
-  %.not95 = icmp eq i32 %207, 0
-  br i1 %.not95, label %.thread129, label %208
+209:                                              ; preds = %206, %204
+  %210 = and i32 %199, 32
+  %.not95 = icmp eq i32 %210, 0
+  br i1 %.not95, label %.thread129, label %211
 
-208:                                              ; preds = %206
-  %209 = load i8, ptr %22, align 8
-  %210 = trunc i8 %209 to i1
-  br i1 %210, label %.thread129, label %.critedge.backedge
+211:                                              ; preds = %209
+  %212 = load i8, ptr %22, align 8
+  %213 = trunc i8 %212 to i1
+  br i1 %213, label %.thread129, label %.critedge135.backedge
 
-.thread129:                                       ; preds = %206, %208
-  %211 = load float, ptr %46, align 8
-  %212 = call noundef i32 @_Z12check_times2ffb(float noundef %193, float noundef %211, i1 zeroext poison)
-  %213 = icmp eq i32 %212, 0
-  br i1 %213, label %219, label %214
+.thread129:                                       ; preds = %209, %211
+  %214 = load float, ptr %46, align 8
+  %215 = call noundef i32 @_Z12check_times2ffb(float noundef %198, float noundef %214, i1 zeroext poison)
+  %216 = icmp eq i32 %215, 0
+  br i1 %216, label %222, label %217
 
-214:                                              ; preds = %.thread129
-  %215 = load i32, ptr %1, align 8
-  %216 = and i32 %215, 64
-  %217 = icmp ne i32 %216, 0
-  %218 = icmp slt i32 %212, 0
-  %or.cond = and i1 %218, %217
-  br i1 %or.cond, label %219, label %235
+217:                                              ; preds = %.thread129
+  %218 = load i32, ptr %1, align 8
+  %219 = and i32 %218, 64
+  %220 = icmp ne i32 %219, 0
+  %221 = icmp slt i32 %215, 0
+  %or.cond = and i1 %221, %220
+  br i1 %or.cond, label %222, label %244
 
-219:                                              ; preds = %214, %.thread129
-  %220 = load float, ptr %29, align 4
-  %221 = load i32, ptr %27, align 4
-  %222 = add nsw i32 %221, 1
-  store i32 %222, ptr %27, align 4
-  %223 = icmp slt i32 %221, 19
-  %224 = urem i32 %222, 10
-  %225 = icmp eq i32 %224, 0
-  %or.cond.i.i.i = or i1 %223, %225
-  br i1 %or.cond.i.i.i, label %226, label %.critedge.thread148
+222:                                              ; preds = %217, %.thread129
+  %223 = load float, ptr %29, align 4
+  %224 = load i32, ptr %27, align 4
+  %225 = add nsw i32 %224, 1
+  store i32 %225, ptr %27, align 4
+  %226 = icmp slt i32 %224, 19
+  %227 = urem i32 %225, 10
+  %228 = icmp eq i32 %227, 0
+  %or.cond.i.i.i = or i1 %226, %228
+  br i1 %or.cond.i.i.i, label %229, label %.critedge.thread, !llvm.loop !10
 
-226:                                              ; preds = %219
-  %227 = icmp slt i32 %221, 199
-  %228 = urem i32 %222, 100
-  %229 = icmp eq i32 %228, 0
-  %or.cond11.i.i.i = or i1 %227, %229
-  br i1 %or.cond11.i.i.i, label %230, label %.critedge.thread148
+229:                                              ; preds = %222
+  %230 = icmp slt i32 %224, 199
+  %231 = urem i32 %225, 100
+  %232 = icmp eq i32 %231, 0
+  %or.cond11.i.i.i = or i1 %230, %232
+  br i1 %or.cond11.i.i.i, label %233, label %.critedge.thread, !llvm.loop !10
 
-230:                                              ; preds = %226
-  %231 = icmp slt i32 %221, 1999
-  %232 = urem i32 %222, 1000
-  %233 = icmp eq i32 %232, 0
-  %or.cond13.i.i.i = or i1 %231, %233
-  br i1 %or.cond13.i.i.i, label %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i, label %.critedge.thread148
+233:                                              ; preds = %229
+  %234 = icmp slt i32 %224, 1999
+  %235 = urem i32 %225, 1000
+  %236 = icmp eq i32 %235, 0
+  %or.cond13.i.i.i = or i1 %234, %236
+  br i1 %or.cond13.i.i.i, label %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i, label %.critedge.thread, !llvm.loop !10
 
-_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i: ; preds = %230
-  %234 = call noundef i32 @_Z38output_env_get_trajectory_io_verbosityPK16gmx_output_env_t(ptr noundef %0)
-  %.not.i.i = icmp eq i32 %234, 0
-  br i1 %.not.i.i, label %.critedge.thread148, label %.critedge.thread148.critedge
+_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i: ; preds = %233
+  %237 = call noundef i32 @_Z38output_env_get_trajectory_io_verbosityPK16gmx_output_env_t(ptr noundef %0)
+  %.not.i.i = icmp eq i32 %237, 0
+  br i1 %.not.i.i, label %.critedge.thread, label %238, !llvm.loop !10
 
-235:                                              ; preds = %214
-  %236 = icmp sgt i32 %212, 0
-  br i1 %236, label %.critedge.thread, label %237
+238:                                              ; preds = %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i
+  %239 = load ptr, ptr @stderr, align 8
+  %240 = load i32, ptr %27, align 4
+  %241 = call noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr noundef %0, float noundef %223)
+  %242 = fpext float %241 to double
+  %243 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %239, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.38, i32 noundef %240, double noundef %242) #24
+  br label %.critedge.thread.sink.split, !llvm.loop !10
 
-237:                                              ; preds = %235
-  %238 = load float, ptr %29, align 4
-  %239 = load i32, ptr %27, align 4
-  %240 = add nsw i32 %239, 1
-  store i32 %240, ptr %27, align 4
-  %241 = icmp slt i32 %239, 19
-  %242 = urem i32 %240, 10
-  %243 = icmp eq i32 %242, 0
-  %or.cond.i.i.i105 = or i1 %241, %243
-  br i1 %or.cond.i.i.i105, label %244, label %.critedge.backedge
+244:                                              ; preds = %217
+  %245 = icmp sgt i32 %215, 0
+  br i1 %245, label %.critedge, label %246
 
-244:                                              ; preds = %237
-  %245 = icmp slt i32 %239, 199
-  %246 = urem i32 %240, 100
-  %247 = icmp eq i32 %246, 0
-  %or.cond11.i.i.i106 = or i1 %245, %247
-  br i1 %or.cond11.i.i.i106, label %248, label %.critedge.backedge
+246:                                              ; preds = %244
+  %247 = load float, ptr %29, align 4
+  %248 = load i32, ptr %27, align 4
+  %249 = add nsw i32 %248, 1
+  store i32 %249, ptr %27, align 4
+  %250 = icmp slt i32 %248, 19
+  %251 = urem i32 %249, 10
+  %252 = icmp eq i32 %251, 0
+  %or.cond.i.i.i105 = or i1 %250, %252
+  br i1 %or.cond.i.i.i105, label %253, label %.critedge135.backedge
 
-248:                                              ; preds = %244
-  %249 = icmp slt i32 %239, 1999
-  %250 = urem i32 %240, 1000
-  %251 = icmp eq i32 %250, 0
-  %or.cond13.i.i.i107 = or i1 %249, %251
-  br i1 %or.cond13.i.i.i107, label %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i108, label %.critedge.backedge
+253:                                              ; preds = %246
+  %254 = icmp slt i32 %248, 199
+  %255 = urem i32 %249, 100
+  %256 = icmp eq i32 %255, 0
+  %or.cond11.i.i.i106 = or i1 %254, %256
+  br i1 %or.cond11.i.i.i106, label %257, label %.critedge135.backedge
 
-_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i108: ; preds = %248
-  %252 = call noundef i32 @_Z38output_env_get_trajectory_io_verbosityPK16gmx_output_env_t(ptr noundef %0)
-  %.not.i.i109 = icmp eq i32 %252, 0
-  br i1 %.not.i.i109, label %.critedge.backedge, label %_ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit.sink.split
+257:                                              ; preds = %253
+  %258 = icmp slt i32 %248, 1999
+  %259 = urem i32 %249, 1000
+  %260 = icmp eq i32 %259, 0
+  %or.cond13.i.i.i107 = or i1 %258, %260
+  br i1 %or.cond13.i.i.i107, label %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i108, label %.critedge135.backedge
 
-_ZL10printcountP11t_trxstatusPK16gmx_output_env_tfb.exit.sink.split: ; preds = %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i108
-  %253 = load ptr, ptr @stderr, align 8
-  %254 = load i32, ptr %27, align 4
-  %255 = call noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr noundef %0, float noundef %238)
-  %256 = fpext float %255 to double
-  %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %253, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.37, i32 noundef %254, double noundef %256) #24
-  %258 = load ptr, ptr @stderr, align 8
-  %259 = call i32 @fflush(ptr noundef %258)
-  br label %.critedge.backedge
+_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i108: ; preds = %257
+  %261 = call noundef i32 @_Z38output_env_get_trajectory_io_verbosityPK16gmx_output_env_t(ptr noundef %0)
+  %.not.i.i109 = icmp eq i32 %261, 0
+  br i1 %.not.i.i109, label %.critedge135.backedge, label %262
 
-.critedge.thread:                                 ; preds = %235, %192
-  %260 = load i32, ptr %27, align 4
-  %261 = icmp slt i32 %260, 20
-  %262 = urem i32 %260, 10
-  %263 = icmp eq i32 %262, 0
-  %or.cond.i.i.i111 = or i1 %261, %263
-  br i1 %or.cond.i.i.i111, label %264, label %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit
+262:                                              ; preds = %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i108
+  %263 = load ptr, ptr @stderr, align 8
+  %264 = load i32, ptr %27, align 4
+  %265 = call noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr noundef %0, float noundef %247)
+  %266 = fpext float %265 to double
+  %267 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.37, i32 noundef %264, double noundef %266) #24
+  %268 = load ptr, ptr @stderr, align 8
+  %269 = call i32 @fflush(ptr noundef %268)
+  br label %.critedge135.backedge
 
-264:                                              ; preds = %.critedge.thread
-  %265 = icmp slt i32 %260, 200
-  %266 = urem i32 %260, 100
-  %267 = icmp eq i32 %266, 0
-  %or.cond11.i.i.i112 = or i1 %265, %267
-  br i1 %or.cond11.i.i.i112, label %268, label %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit
+.critedge:                                        ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %161, %163, %167, %172, %244, %195, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit.thread
+  %270 = load i32, ptr %27, align 4
+  %271 = icmp slt i32 %270, 20
+  %272 = urem i32 %270, 10
+  %273 = icmp eq i32 %272, 0
+  %or.cond.i.i.i111 = or i1 %271, %273
+  br i1 %or.cond.i.i.i111, label %274, label %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit
 
-268:                                              ; preds = %264
-  %269 = icmp slt i32 %260, 2000
-  %270 = urem i32 %260, 1000
-  %271 = icmp eq i32 %270, 0
-  %or.cond13.i.i.i113 = or i1 %269, %271
+274:                                              ; preds = %.critedge
+  %275 = icmp slt i32 %270, 200
+  %276 = urem i32 %270, 100
+  %277 = icmp eq i32 %276, 0
+  %or.cond11.i.i.i112 = or i1 %275, %277
+  br i1 %or.cond11.i.i.i112, label %278, label %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit
+
+278:                                              ; preds = %274
+  %279 = icmp slt i32 %270, 2000
+  %280 = urem i32 %270, 1000
+  %281 = icmp eq i32 %280, 0
+  %or.cond13.i.i.i113 = or i1 %279, %281
   br i1 %or.cond13.i.i.i113, label %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i114, label %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit
 
-_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i114: ; preds = %268
-  %272 = call noundef i32 @_Z38output_env_get_trajectory_io_verbosityPK16gmx_output_env_t(ptr noundef %0)
-  %.not.i.i115 = icmp eq i32 %272, 0
-  br i1 %.not.i.i115, label %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit, label %273
+_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i114: ; preds = %278
+  %282 = call noundef i32 @_Z38output_env_get_trajectory_io_verbosityPK16gmx_output_env_t(ptr noundef %0)
+  %.not.i.i115 = icmp eq i32 %282, 0
+  br i1 %.not.i.i115, label %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit, label %283
 
-273:                                              ; preds = %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i114
-  %274 = load ptr, ptr @stderr, align 8
-  %275 = load i32, ptr %27, align 4
-  %276 = call noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr noundef %0, float noundef %13)
-  %277 = fpext float %276 to double
-  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %274, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %275, double noundef %277) #24
-  %279 = load ptr, ptr @stderr, align 8
-  %280 = call i32 @fflush(ptr noundef %279)
+283:                                              ; preds = %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i114
+  %284 = load ptr, ptr @stderr, align 8
+  %285 = load i32, ptr %27, align 4
+  %286 = call noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr noundef %0, float noundef %13)
+  %287 = fpext float %286 to double
+  %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %284, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %285, double noundef %287) #24
+  %289 = load ptr, ptr @stderr, align 8
+  %290 = call i32 @fflush(ptr noundef %289)
   br label %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit
 
-_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit: ; preds = %.critedge.thread, %264, %268, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i114, %273
-  %281 = load ptr, ptr @stderr, align 8
-  %fputc.i = call i32 @fputc(i32 10, ptr %281)
-  %282 = load ptr, ptr @stderr, align 8
-  %283 = call i32 @fflush(ptr noundef %282)
-  %284 = load i32, ptr %2, align 8
-  %.not96 = icmp eq i32 %284, 0
-  br i1 %.not96, label %.critedge.thread148, label %_ZL11printincompP11t_trxstatusP10t_trxframe.exit
+_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit: ; preds = %.critedge, %274, %278, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i114, %283
+  %291 = load ptr, ptr @stderr, align 8
+  %fputc.i = call i32 @fputc(i32 10, ptr %291)
+  %292 = load ptr, ptr @stderr, align 8
+  %293 = call i32 @fflush(ptr noundef %292)
+  %294 = load i32, ptr %2, align 8
+  %.not96 = icmp eq i32 %294, 0
+  br i1 %.not96, label %.critedge.thread, label %_ZL11printincompP11t_trxstatusP10t_trxframe.exit
 
 _ZL11printincompP11t_trxstatusP10t_trxframe.exit: ; preds = %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit
-  %285 = and i32 %284, 1
-  %.not.i116 = icmp eq i32 %285, 0
+  %295 = and i32 %294, 1
+  %.not.i116 = icmp eq i32 %295, 0
   %spec.select = select i1 %.not.i116, ptr @.str.43, ptr @.str.42
-  %286 = load ptr, ptr @stderr, align 8
-  %287 = load i32, ptr %27, align 4
-  %288 = add nsw i32 %287, 1
-  %289 = load float, ptr %29, align 4
-  %290 = fpext float %289 to double
-  %291 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull %spec.select, i32 noundef %288, double noundef %290) #24
-  br label %.critedge.thread148.sink.split
+  %296 = load ptr, ptr @stderr, align 8
+  %297 = load i32, ptr %27, align 4
+  %298 = add nsw i32 %297, 1
+  %299 = load float, ptr %29, align 4
+  %300 = fpext float %299 to double
+  %301 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %296, ptr noundef nonnull %spec.select, i32 noundef %298, double noundef %300) #24
+  br label %.critedge.thread.sink.split
 
-.critedge.thread148.critedge:                     ; preds = %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i
-  %292 = load ptr, ptr @stderr, align 8
-  %293 = load i32, ptr %27, align 4
-  %294 = call noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr noundef %0, float noundef %220)
-  %295 = fpext float %294 to double
-  %296 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %292, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.38, i32 noundef %293, double noundef %295) #24
-  br label %.critedge.thread148.sink.split
+.critedge.thread.sink.split:                      ; preds = %_ZL11printincompP11t_trxstatusP10t_trxframe.exit, %238
+  %.ph = phi i1 [ true, %238 ], [ false, %_ZL11printincompP11t_trxstatusP10t_trxframe.exit ]
+  %302 = load ptr, ptr @stderr, align 8
+  %303 = call i32 @fflush(ptr noundef %302)
+  br label %.critedge.thread
 
-.critedge.thread148.sink.split:                   ; preds = %_ZL11printincompP11t_trxstatusP10t_trxframe.exit, %.critedge.thread148.critedge
-  %.ph = phi i1 [ true, %.critedge.thread148.critedge ], [ false, %_ZL11printincompP11t_trxstatusP10t_trxframe.exit ]
-  %297 = load ptr, ptr @stderr, align 8
-  %298 = call i32 @fflush(ptr noundef %297)
-  br label %.critedge.thread148
+.critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %222, %229, %233, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i, %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit
+  %304 = phi i1 [ false, %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit ], [ true, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i ], [ true, %233 ], [ true, %229 ], [ true, %222 ], [ %.ph, %.critedge.thread.sink.split ]
+  ret i1 %304
 
-.critedge.thread148:                              ; preds = %.critedge.thread148.sink.split, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i, %230, %226, %219, %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit
-  %299 = phi i1 [ false, %_ZL9printlastP11t_trxstatusPK16gmx_output_env_tf.exit ], [ true, %219 ], [ true, %226 ], [ true, %230 ], [ true, %_Z24trxio_should_print_countPK16gmx_output_env_tP11t_trxstatus.exit.i.i ], [ %.ph, %.critedge.thread148.sink.split ]
-  ret i1 %299
-
-300:                                              ; preds = %185, %191, %141, %129
-  %.sink = phi ptr [ %8, %141 ], [ %7, %129 ], [ %9, %191 ], [ %9, %185 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %142, %141 ], [ %130, %129 ], [ %.pn, %191 ], [ %186, %185 ]
+305:                                              ; preds = %188, %194, %143, %131
+  %.sink = phi ptr [ %8, %143 ], [ %7, %131 ], [ %9, %194 ], [ %9, %188 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %144, %143 ], [ %132, %131 ], [ %.pn, %194 ], [ %189, %188 ]
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink) #21
   resume { ptr, i32 } %.pn.pn.pn
 }

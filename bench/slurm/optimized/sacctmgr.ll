@@ -541,6 +541,8 @@ _get_command.exit.thread:                         ; preds = %141
 
 158:                                              ; preds = %.lr.ph.i
   %brmerge.i = select i1 %.03957.i, i1 true, i1 %.058.i
+  %not..03957.i = xor i1 %.03957.i, true
+  %.0.mux.i = select i1 %not..03957.i, i1 true, i1 %.058.i
   br i1 %brmerge.i, label %168, label %159
 
 159:                                              ; preds = %158
@@ -560,7 +562,7 @@ _get_command.exit.thread:                         ; preds = %141
 
 168:                                              ; preds = %159, %158, %156, %154
   %.140.i = phi i1 [ %155, %154 ], [ %.03957.i, %156 ], [ %.03957.i, %158 ], [ false, %159 ]
-  %.1.i = phi i1 [ %.058.i, %154 ], [ %157, %156 ], [ %.058.i, %158 ], [ false, %159 ]
+  %.1.i = phi i1 [ %.058.i, %154 ], [ %157, %156 ], [ %.0.mux.i, %158 ], [ false, %159 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %129
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9

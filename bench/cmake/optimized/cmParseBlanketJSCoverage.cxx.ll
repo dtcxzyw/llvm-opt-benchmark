@@ -345,12 +345,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN24cmParseBlanketJSCoverage1
           cleanup
   br label %122
 
-.loopexit.loopexit:                               ; preds = %48, %24
+.loopexit.loopexit:                               ; preds = %24
   %lpad.loopexit47 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.loopexit.loopexit.split-lp:                      ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit, %34, %30
+.loopexit.loopexit.split-lp:                      ; preds = %48, %_ZNSt6vectorIiSaIiEE5clearEv.exit, %34, %30
   %lpad.loopexit.split-lp48 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -360,8 +360,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN24cmParseBlanketJSCoverage1
           cleanup
   br label %.loopexit
 
-24:                                               ; preds = %.backedge, %.outer
-  %.014 = phi i1 [ false, %.outer ], [ %.014.be, %.backedge ]
+24:                                               ; preds = %.outer, %108
+  %.014 = phi i1 [ %spec.select, %108 ], [ %.014.ph, %.outer ]
   %25 = invoke noundef zeroext i1 @_ZN5cmsys11SystemTools17GetLineFromStreamERSiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPbm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef null, i64 noundef -1)
           to label %26 unwind label %.loopexit.loopexit
 
@@ -408,10 +408,14 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %39, %36, %29
 _ZN24cmParseBlanketJSCoverage10JSONParser8getValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
   %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  br label %.outer.backedge
+
+.outer.backedge:                                  ; preds = %_ZN24cmParseBlanketJSCoverage10JSONParser8getValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
   br label %.outer, !llvm.loop !8
 
-.outer:                                           ; preds = %_ZN24cmParseBlanketJSCoverage10JSONParser8getValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, %.preheader
-  %.09.ph = phi i1 [ true, %_ZN24cmParseBlanketJSCoverage10JSONParser8getValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit ], [ false, %.preheader ]
+.outer:                                           ; preds = %.outer.backedge, %.preheader
+  %.014.ph = phi i1 [ false, %.preheader ], [ %.not, %.outer.backedge ]
+  %.09.ph = phi i1 [ false, %.preheader ], [ true, %.outer.backedge ]
   br label %24
 
 45:                                               ; preds = %27
@@ -425,7 +429,7 @@ _ZN24cmParseBlanketJSCoverage10JSONParser8getValueERKNSt7__cxx1112basic_stringIc
   %49 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 noundef signext 44, i64 noundef -1) #17, !noalias !10
   %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 noundef signext 58, i64 noundef 0) #17, !noalias !10
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %50, i64 noundef -1)
-          to label %_ZN24cmParseBlanketJSCoverage10JSONParser8getValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit20 unwind label %.loopexit.loopexit
+          to label %_ZN24cmParseBlanketJSCoverage10JSONParser8getValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit20 unwind label %.loopexit.loopexit.split-lp
 
 _ZN24cmParseBlanketJSCoverage10JSONParser8getValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit20: ; preds = %48
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 2, i64 noundef -1)
@@ -584,16 +588,12 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i29, %86, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %58
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
-  br label %.backedge
+  br label %.outer.backedge
 
 108:                                              ; preds = %45
   %109 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.8, i64 noundef 0) #17
   %.not17 = icmp ne i64 %109, -1
   %spec.select = select i1 %.not17, i1 true, i1 %.014
-  br label %.backedge
-
-.backedge:                                        ; preds = %108, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
-  %.014.be = phi i1 [ true, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ], [ %spec.select, %108 ]
   br label %24, !llvm.loop !8
 
 110:                                              ; preds = %26

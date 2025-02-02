@@ -23815,352 +23815,352 @@ define linkonce_odr dso_local void @_ZNSt3__111__introsortINS_17_ClassicAlgPolic
   %6 = zext i1 %4 to i8
   br label %.outer
 
-.outer:                                           ; preds = %177, %5
-  %.081.ph = phi ptr [ %170, %177 ], [ %1, %5 ]
-  %.080.ph = phi ptr [ %.080, %177 ], [ %0, %5 ]
-  %.043.ph = phi i8 [ %.043.ph87, %177 ], [ %6, %5 ]
-  %.0.ph = phi i64 [ %133, %177 ], [ %3, %5 ]
+.outer:                                           ; preds = %178, %5
+  %.081.ph = phi ptr [ %171, %178 ], [ %1, %5 ]
+  %.080.ph = phi ptr [ %.080, %178 ], [ %0, %5 ]
+  %.043.ph = phi i8 [ %.043.ph87, %178 ], [ %6, %5 ]
+  %.0.ph = phi i64 [ %134, %178 ], [ %3, %5 ]
   %7 = ptrtoint ptr %.081.ph to i64
   %8 = getelementptr inbounds i8, ptr %.081.ph, i64 -16
   %9 = getelementptr inbounds i8, ptr %.081.ph, i64 -32
   %10 = getelementptr inbounds i8, ptr %.081.ph, i64 -48
   br label %.outer85
 
-.outer85:                                         ; preds = %.outer, %179
-  %.080.ph86 = phi ptr [ %.080.ph, %.outer ], [ %180, %179 ]
-  %.043.ph87 = phi i8 [ %.043.ph, %.outer ], [ 0, %179 ]
-  %.0.ph88 = phi i64 [ %.0.ph, %.outer ], [ %133, %179 ]
+.outer85:                                         ; preds = %.outer85.backedge, %.outer
+  %.080.ph86 = phi ptr [ %.080.ph, %.outer ], [ %.080.ph86.be, %.outer85.backedge ]
+  %.043.ph87 = phi i8 [ %.043.ph, %.outer ], [ 0, %.outer85.backedge ]
+  %.0.ph88 = phi i64 [ %.0.ph, %.outer ], [ %134, %.outer85.backedge ]
   %11 = trunc nuw i8 %.043.ph87 to i1
-  br label %.backedge
+  br label %12
 
-.backedge:                                        ; preds = %.backedge.backedge, %.outer85
-  %.080 = phi ptr [ %.080.ph86, %.outer85 ], [ %.080.be, %.backedge.backedge ]
-  %.0 = phi i64 [ %.0.ph88, %.outer85 ], [ %133, %.backedge.backedge ]
-  %12 = ptrtoint ptr %.080 to i64
-  %13 = sub i64 %7, %12
-  %14 = ashr exact i64 %13, 4
-  switch i64 %14, label %67 [
+12:                                               ; preds = %.outer85, %179
+  %.080 = phi ptr [ %176, %179 ], [ %.080.ph86, %.outer85 ]
+  %.0 = phi i64 [ %134, %179 ], [ %.0.ph88, %.outer85 ]
+  %13 = ptrtoint ptr %.080 to i64
+  %14 = sub i64 %7, %13
+  %15 = ashr exact i64 %14, 4
+  switch i64 %15, label %68 [
     i64 0, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
     i64 1, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
-    i64 2, label %15
-    i64 3, label %28
-    i64 4, label %31
-    i64 5, label %63
+    i64 2, label %16
+    i64 3, label %29
+    i64 4, label %32
+    i64 5, label %64
   ]
 
-15:                                               ; preds = %.backedge
-  %16 = load i64, ptr %8, align 8
-  %17 = load i64, ptr %.080, align 8
-  %18 = icmp eq i64 %16, %17
-  %19 = icmp ult i64 %16, %17
-  %20 = getelementptr inbounds i8, ptr %.081.ph, i64 -8
-  %21 = getelementptr inbounds nuw i8, ptr %.080, i64 8
-  %22 = load i64, ptr %20, align 8
+16:                                               ; preds = %12
+  %17 = load i64, ptr %8, align 8
+  %18 = load i64, ptr %.080, align 8
+  %19 = icmp eq i64 %17, %18
+  %20 = icmp ult i64 %17, %18
+  %21 = getelementptr inbounds i8, ptr %.081.ph, i64 -8
+  %22 = getelementptr inbounds nuw i8, ptr %.080, i64 8
   %23 = load i64, ptr %21, align 8
-  %24 = icmp ult i64 %22, %23
-  %.sroa.04.0.i.i = select i1 %18, i1 %24, i1 %19
-  br i1 %.sroa.04.0.i.i, label %25, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
+  %24 = load i64, ptr %22, align 8
+  %25 = icmp ult i64 %23, %24
+  %.sroa.04.0.i.i = select i1 %19, i1 %25, i1 %20
+  br i1 %.sroa.04.0.i.i, label %26, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
 
-25:                                               ; preds = %15
-  store i64 %16, ptr %.080, align 8
-  store i64 %17, ptr %8, align 8
-  %26 = load i64, ptr %21, align 8
-  %27 = load i64, ptr %20, align 8
+26:                                               ; preds = %16
+  store i64 %17, ptr %.080, align 8
+  store i64 %18, ptr %8, align 8
+  %27 = load i64, ptr %22, align 8
+  %28 = load i64, ptr %21, align 8
+  store i64 %28, ptr %22, align 8
   store i64 %27, ptr %21, align 8
-  store i64 %26, ptr %20, align 8
   br label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
 
-28:                                               ; preds = %.backedge
-  %29 = getelementptr inbounds nuw i8, ptr %.080, i64 16
-  %30 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef %.080, ptr noundef nonnull %29, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
+29:                                               ; preds = %12
+  %30 = getelementptr inbounds nuw i8, ptr %.080, i64 16
+  %31 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef %.080, ptr noundef nonnull %30, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
   br label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
 
-31:                                               ; preds = %.backedge
-  %32 = getelementptr inbounds nuw i8, ptr %.080, i64 16
-  %33 = getelementptr inbounds nuw i8, ptr %.080, i64 32
-  %34 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef %.080, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %35 = load i64, ptr %8, align 8
-  %36 = load i64, ptr %33, align 8
-  %37 = icmp eq i64 %35, %36
-  %38 = icmp ult i64 %35, %36
-  %39 = getelementptr inbounds i8, ptr %.081.ph, i64 -8
-  %40 = getelementptr inbounds nuw i8, ptr %.080, i64 40
-  %41 = load i64, ptr %39, align 8
+32:                                               ; preds = %12
+  %33 = getelementptr inbounds nuw i8, ptr %.080, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.080, i64 32
+  %35 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef %.080, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %36 = load i64, ptr %8, align 8
+  %37 = load i64, ptr %34, align 8
+  %38 = icmp eq i64 %36, %37
+  %39 = icmp ult i64 %36, %37
+  %40 = getelementptr inbounds i8, ptr %.081.ph, i64 -8
+  %41 = getelementptr inbounds nuw i8, ptr %.080, i64 40
   %42 = load i64, ptr %40, align 8
-  %43 = icmp ult i64 %41, %42
-  %.sroa.04.0.i.i.i.i = select i1 %37, i1 %43, i1 %38
-  br i1 %.sroa.04.0.i.i.i.i, label %44, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
+  %43 = load i64, ptr %41, align 8
+  %44 = icmp ult i64 %42, %43
+  %.sroa.04.0.i.i.i.i = select i1 %38, i1 %44, i1 %39
+  br i1 %.sroa.04.0.i.i.i.i, label %45, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
 
-44:                                               ; preds = %31
-  store i64 %35, ptr %33, align 8
-  store i64 %36, ptr %8, align 8
-  %45 = load i64, ptr %40, align 8
-  %46 = load i64, ptr %39, align 8
+45:                                               ; preds = %32
+  store i64 %36, ptr %34, align 8
+  store i64 %37, ptr %8, align 8
+  %46 = load i64, ptr %41, align 8
+  %47 = load i64, ptr %40, align 8
+  store i64 %47, ptr %41, align 8
   store i64 %46, ptr %40, align 8
-  store i64 %45, ptr %39, align 8
-  %47 = load i64, ptr %33, align 8
-  %48 = load i64, ptr %32, align 8
-  %49 = icmp eq i64 %47, %48
-  %50 = icmp ult i64 %47, %48
-  %51 = getelementptr inbounds nuw i8, ptr %.080, i64 24
-  %52 = load i64, ptr %40, align 8
-  %53 = load i64, ptr %51, align 8
-  %54 = icmp ult i64 %52, %53
-  %.sroa.04.0.i.i4.i.i = select i1 %49, i1 %54, i1 %50
-  br i1 %.sroa.04.0.i.i4.i.i, label %55, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
+  %48 = load i64, ptr %34, align 8
+  %49 = load i64, ptr %33, align 8
+  %50 = icmp eq i64 %48, %49
+  %51 = icmp ult i64 %48, %49
+  %52 = getelementptr inbounds nuw i8, ptr %.080, i64 24
+  %53 = load i64, ptr %41, align 8
+  %54 = load i64, ptr %52, align 8
+  %55 = icmp ult i64 %53, %54
+  %.sroa.04.0.i.i4.i.i = select i1 %50, i1 %55, i1 %51
+  br i1 %.sroa.04.0.i.i4.i.i, label %56, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
 
-55:                                               ; preds = %44
-  store i64 %47, ptr %32, align 8
+56:                                               ; preds = %45
   store i64 %48, ptr %33, align 8
-  store i64 %52, ptr %51, align 8
-  store i64 %53, ptr %40, align 8
-  %56 = load i64, ptr %.080, align 8
-  %57 = icmp eq i64 %47, %56
-  %58 = icmp ult i64 %47, %56
-  %59 = getelementptr inbounds nuw i8, ptr %.080, i64 8
-  %60 = load i64, ptr %59, align 8
-  %61 = icmp ult i64 %52, %60
-  %.sroa.04.0.i.i5.i.i = select i1 %57, i1 %61, i1 %58
-  br i1 %.sroa.04.0.i.i5.i.i, label %62, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
+  store i64 %49, ptr %34, align 8
+  store i64 %53, ptr %52, align 8
+  store i64 %54, ptr %41, align 8
+  %57 = load i64, ptr %.080, align 8
+  %58 = icmp eq i64 %48, %57
+  %59 = icmp ult i64 %48, %57
+  %60 = getelementptr inbounds nuw i8, ptr %.080, i64 8
+  %61 = load i64, ptr %60, align 8
+  %62 = icmp ult i64 %53, %61
+  %.sroa.04.0.i.i5.i.i = select i1 %58, i1 %62, i1 %59
+  br i1 %.sroa.04.0.i.i5.i.i, label %63, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
 
-62:                                               ; preds = %55
-  store i64 %47, ptr %.080, align 8
-  store i64 %56, ptr %32, align 8
-  store i64 %52, ptr %59, align 8
-  store i64 %60, ptr %51, align 8
+63:                                               ; preds = %56
+  store i64 %48, ptr %.080, align 8
+  store i64 %57, ptr %33, align 8
+  store i64 %53, ptr %60, align 8
+  store i64 %61, ptr %52, align 8
   br label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
 
-63:                                               ; preds = %.backedge
-  %64 = getelementptr inbounds nuw i8, ptr %.080, i64 16
-  %65 = getelementptr inbounds nuw i8, ptr %.080, i64 32
-  %66 = getelementptr inbounds nuw i8, ptr %.080, i64 48
-  tail call void @_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEvT1_S8_S8_S8_S8_T0_(ptr noundef %.080, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
+64:                                               ; preds = %12
+  %65 = getelementptr inbounds nuw i8, ptr %.080, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.080, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %.080, i64 48
+  tail call void @_ZNSt3__17__sort5B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEvT1_S8_S8_S8_S8_T0_(ptr noundef %.080, ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
   br label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit
 
-67:                                               ; preds = %.backedge
-  %68 = icmp slt i64 %14, 24
-  br i1 %68, label %69, label %119
+68:                                               ; preds = %12
+  %69 = icmp slt i64 %15, 24
+  br i1 %69, label %70, label %120
 
-69:                                               ; preds = %67
-  %70 = icmp eq ptr %.080, %.081.ph
+70:                                               ; preds = %68
+  %71 = icmp eq ptr %.080, %.081.ph
   %storemerge28.i = getelementptr inbounds nuw i8, ptr %.080, i64 16
   %.not29.i = icmp eq ptr %storemerge28.i, %.081.ph
-  %or.cond.i = select i1 %70, i1 true, i1 %.not29.i
-  br i1 %11, label %71, label %95
+  %or.cond.i = select i1 %71, i1 true, i1 %.not29.i
+  br i1 %11, label %72, label %96
 
-71:                                               ; preds = %69
+72:                                               ; preds = %70
   br i1 %or.cond.i, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %71, %94
-  %storemerge31.i = phi ptr [ %storemerge.i, %94 ], [ %storemerge28.i, %71 ]
-  %.pn30.i = phi ptr [ %storemerge31.i, %94 ], [ %.080, %71 ]
-  %72 = load i64, ptr %storemerge31.i, align 8
-  %73 = load i64, ptr %.pn30.i, align 8
-  %74 = icmp eq i64 %72, %73
-  %75 = icmp ult i64 %72, %73
-  %76 = getelementptr inbounds nuw i8, ptr %.pn30.i, i64 24
-  %77 = getelementptr inbounds nuw i8, ptr %.pn30.i, i64 8
-  %78 = load i64, ptr %76, align 8
+.lr.ph.i:                                         ; preds = %72, %95
+  %storemerge31.i = phi ptr [ %storemerge.i, %95 ], [ %storemerge28.i, %72 ]
+  %.pn30.i = phi ptr [ %storemerge31.i, %95 ], [ %.080, %72 ]
+  %73 = load i64, ptr %storemerge31.i, align 8
+  %74 = load i64, ptr %.pn30.i, align 8
+  %75 = icmp eq i64 %73, %74
+  %76 = icmp ult i64 %73, %74
+  %77 = getelementptr inbounds nuw i8, ptr %.pn30.i, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.pn30.i, i64 8
   %79 = load i64, ptr %77, align 8
-  %80 = icmp ult i64 %78, %79
-  %.sroa.04.0.i.i.i = select i1 %74, i1 %80, i1 %75
-  br i1 %.sroa.04.0.i.i.i, label %.preheader.i, label %94
+  %80 = load i64, ptr %78, align 8
+  %81 = icmp ult i64 %79, %80
+  %.sroa.04.0.i.i.i = select i1 %75, i1 %81, i1 %76
+  br i1 %.sroa.04.0.i.i.i, label %.preheader.i, label %95
 
-.preheader.i:                                     ; preds = %.lr.ph.i, %85
-  %81 = phi i64 [ %87, %85 ], [ %73, %.lr.ph.i ]
-  %.025.i = phi ptr [ %86, %85 ], [ %.pn30.i, %.lr.ph.i ]
-  %.0.i = phi ptr [ %.025.i, %85 ], [ %storemerge31.i, %.lr.ph.i ]
-  store i64 %81, ptr %.0.i, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
-  %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  store i64 %83, ptr %84, align 8
+.preheader.i:                                     ; preds = %.lr.ph.i, %86
+  %82 = phi i64 [ %88, %86 ], [ %74, %.lr.ph.i ]
+  %.025.i = phi ptr [ %87, %86 ], [ %.pn30.i, %.lr.ph.i ]
+  %.0.i = phi ptr [ %.025.i, %86 ], [ %storemerge31.i, %.lr.ph.i ]
+  store i64 %82, ptr %.0.i, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
+  %84 = load i64, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  store i64 %84, ptr %85, align 8
   %.not17.i = icmp eq ptr %.025.i, %.080
-  br i1 %.not17.i, label %.critedge.i, label %85
+  br i1 %.not17.i, label %.critedge.i, label %86
 
-85:                                               ; preds = %.preheader.i
-  %86 = getelementptr inbounds i8, ptr %.025.i, i64 -16
-  %87 = load i64, ptr %86, align 8
-  %88 = icmp eq i64 %72, %87
-  %89 = icmp ult i64 %72, %87
-  %90 = getelementptr inbounds i8, ptr %.025.i, i64 -8
-  %91 = load i64, ptr %90, align 8
-  %92 = icmp ult i64 %78, %91
-  %.sroa.04.0.i.i18.i = select i1 %88, i1 %92, i1 %89
+86:                                               ; preds = %.preheader.i
+  %87 = getelementptr inbounds i8, ptr %.025.i, i64 -16
+  %88 = load i64, ptr %87, align 8
+  %89 = icmp eq i64 %73, %88
+  %90 = icmp ult i64 %73, %88
+  %91 = getelementptr inbounds i8, ptr %.025.i, i64 -8
+  %92 = load i64, ptr %91, align 8
+  %93 = icmp ult i64 %79, %92
+  %.sroa.04.0.i.i18.i = select i1 %89, i1 %93, i1 %90
   br i1 %.sroa.04.0.i.i18.i, label %.preheader.i, label %.critedge.i, !llvm.loop !617
 
-.critedge.i:                                      ; preds = %85, %.preheader.i
-  %.025.lcssa.i = phi ptr [ %.080, %.preheader.i ], [ %.025.i, %85 ]
-  %93 = getelementptr inbounds nuw i8, ptr %.025.lcssa.i, i64 8
-  store i64 %72, ptr %.025.lcssa.i, align 8
-  store i64 %78, ptr %93, align 8
-  br label %94
+.critedge.i:                                      ; preds = %86, %.preheader.i
+  %.025.lcssa.i = phi ptr [ %.080, %.preheader.i ], [ %.025.i, %86 ]
+  %94 = getelementptr inbounds nuw i8, ptr %.025.lcssa.i, i64 8
+  store i64 %73, ptr %.025.lcssa.i, align 8
+  store i64 %79, ptr %94, align 8
+  br label %95
 
-94:                                               ; preds = %.critedge.i, %.lr.ph.i
+95:                                               ; preds = %.critedge.i, %.lr.ph.i
   %storemerge.i = getelementptr inbounds nuw i8, ptr %storemerge31.i, i64 16
   %.not.i = icmp eq ptr %storemerge.i, %.081.ph
   br i1 %.not.i, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit, label %.lr.ph.i, !llvm.loop !618
 
-95:                                               ; preds = %69
+96:                                               ; preds = %70
   br i1 %or.cond.i, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit, label %.lr.ph.i46
 
-.lr.ph.i46:                                       ; preds = %95, %118
-  %storemerge27.i = phi ptr [ %storemerge.i48, %118 ], [ %storemerge28.i, %95 ]
-  %.pn26.i = phi ptr [ %storemerge27.i, %118 ], [ %.080, %95 ]
-  %96 = load i64, ptr %storemerge27.i, align 8
-  %97 = load i64, ptr %.pn26.i, align 8
-  %98 = icmp eq i64 %96, %97
-  %99 = icmp ult i64 %96, %97
-  %100 = getelementptr inbounds nuw i8, ptr %.pn26.i, i64 24
-  %101 = getelementptr inbounds nuw i8, ptr %.pn26.i, i64 8
-  %102 = load i64, ptr %100, align 8
+.lr.ph.i46:                                       ; preds = %96, %119
+  %storemerge27.i = phi ptr [ %storemerge.i48, %119 ], [ %storemerge28.i, %96 ]
+  %.pn26.i = phi ptr [ %storemerge27.i, %119 ], [ %.080, %96 ]
+  %97 = load i64, ptr %storemerge27.i, align 8
+  %98 = load i64, ptr %.pn26.i, align 8
+  %99 = icmp eq i64 %97, %98
+  %100 = icmp ult i64 %97, %98
+  %101 = getelementptr inbounds nuw i8, ptr %.pn26.i, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %.pn26.i, i64 8
   %103 = load i64, ptr %101, align 8
-  %104 = icmp ult i64 %102, %103
-  %.sroa.04.0.i.i.i47 = select i1 %98, i1 %104, i1 %99
-  br i1 %.sroa.04.0.i.i.i47, label %.preheader.i50, label %118
+  %104 = load i64, ptr %102, align 8
+  %105 = icmp ult i64 %103, %104
+  %.sroa.04.0.i.i.i47 = select i1 %99, i1 %105, i1 %100
+  br i1 %.sroa.04.0.i.i.i47, label %.preheader.i50, label %119
 
 .preheader.i50:                                   ; preds = %.lr.ph.i46, %.preheader.i50
-  %105 = phi i64 [ %110, %.preheader.i50 ], [ %97, %.lr.ph.i46 ]
-  %.021.i = phi ptr [ %109, %.preheader.i50 ], [ %.pn26.i, %.lr.ph.i46 ]
+  %106 = phi i64 [ %111, %.preheader.i50 ], [ %98, %.lr.ph.i46 ]
+  %.021.i = phi ptr [ %110, %.preheader.i50 ], [ %.pn26.i, %.lr.ph.i46 ]
   %.0.i51 = phi ptr [ %.021.i, %.preheader.i50 ], [ %storemerge27.i, %.lr.ph.i46 ]
-  store i64 %105, ptr %.0.i51, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
-  %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 8
-  store i64 %107, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %.021.i, i64 -16
-  %110 = load i64, ptr %109, align 8
-  %111 = icmp eq i64 %96, %110
-  %112 = icmp ult i64 %96, %110
-  %113 = getelementptr inbounds i8, ptr %.021.i, i64 -8
-  %114 = load i64, ptr %113, align 8
-  %115 = icmp ult i64 %102, %114
-  %.sroa.04.0.i.i14.i = select i1 %111, i1 %115, i1 %112
-  br i1 %.sroa.04.0.i.i14.i, label %.preheader.i50, label %116, !llvm.loop !619
+  store i64 %106, ptr %.0.i51, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
+  %108 = load i64, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 8
+  store i64 %108, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %.021.i, i64 -16
+  %111 = load i64, ptr %110, align 8
+  %112 = icmp eq i64 %97, %111
+  %113 = icmp ult i64 %97, %111
+  %114 = getelementptr inbounds i8, ptr %.021.i, i64 -8
+  %115 = load i64, ptr %114, align 8
+  %116 = icmp ult i64 %103, %115
+  %.sroa.04.0.i.i14.i = select i1 %112, i1 %116, i1 %113
+  br i1 %.sroa.04.0.i.i14.i, label %.preheader.i50, label %117, !llvm.loop !619
 
-116:                                              ; preds = %.preheader.i50
-  %117 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
-  store i64 %96, ptr %.021.i, align 8
-  store i64 %102, ptr %117, align 8
-  br label %118
+117:                                              ; preds = %.preheader.i50
+  %118 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
+  store i64 %97, ptr %.021.i, align 8
+  store i64 %103, ptr %118, align 8
+  br label %119
 
-118:                                              ; preds = %116, %.lr.ph.i46
+119:                                              ; preds = %117, %.lr.ph.i46
   %storemerge.i48 = getelementptr inbounds nuw i8, ptr %storemerge27.i, i64 16
   %.not.i49 = icmp eq ptr %storemerge.i48, %.081.ph
   br i1 %.not.i49, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit, label %.lr.ph.i46, !llvm.loop !620
 
-119:                                              ; preds = %67
-  %120 = icmp eq i64 %.0, 0
-  br i1 %120, label %121, label %132
+120:                                              ; preds = %68
+  %121 = icmp eq i64 %.0, 0
+  br i1 %121, label %122, label %133
 
-121:                                              ; preds = %119
-  %122 = icmp eq ptr %.080, %.081.ph
-  br i1 %122, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit, label %123
+122:                                              ; preds = %120
+  %123 = icmp eq ptr %.080, %.081.ph
+  br i1 %123, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit, label %124
 
-123:                                              ; preds = %121
-  %124 = add nsw i64 %14, -2
-  %125 = lshr i64 %124, 1
-  br label %126
+124:                                              ; preds = %122
+  %125 = add nsw i64 %15, -2
+  %126 = lshr i64 %125, 1
+  br label %127
 
-126:                                              ; preds = %126, %123
-  %.012.i.i = phi i64 [ %125, %123 ], [ %128, %126 ]
-  %127 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %.080, i64 %.012.i.i
-  tail call void @_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEvT1_OT0_NS_15iterator_traitsIS8_E15difference_typeES8_(ptr noundef %.080, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %14, ptr noundef %127)
-  %128 = add nsw i64 %.012.i.i, -1
+127:                                              ; preds = %127, %124
+  %.012.i.i = phi i64 [ %126, %124 ], [ %129, %127 ]
+  %128 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %.080, i64 %.012.i.i
+  tail call void @_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEvT1_OT0_NS_15iterator_traitsIS8_E15difference_typeES8_(ptr noundef %.080, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %15, ptr noundef %128)
+  %129 = add nsw i64 %.012.i.i, -1
   %.not.i.i = icmp eq i64 %.012.i.i, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %126, !llvm.loop !621
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %127, !llvm.loop !621
 
-.lr.ph.i.i:                                       ; preds = %126, %.lr.ph.i.i
-  %.015.i.i = phi i64 [ %130, %.lr.ph.i.i ], [ %14, %126 ]
-  %.01314.i.i = phi ptr [ %129, %.lr.ph.i.i ], [ %.081.ph, %126 ]
+.lr.ph.i.i:                                       ; preds = %127, %.lr.ph.i.i
+  %.015.i.i = phi i64 [ %131, %.lr.ph.i.i ], [ %15, %127 ]
+  %.01314.i.i = phi ptr [ %130, %.lr.ph.i.i ], [ %.081.ph, %127 ]
   tail call void @_ZNSt3__110__pop_heapB8ne190000INS_17_ClassicAlgPolicyENS_6__lessIvvEEPNS_4pairImmEEEEvT1_S7_RT0_NS_15iterator_traitsIS7_E15difference_typeE(ptr noundef %.080, ptr noundef %.01314.i.i, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %.015.i.i)
-  %129 = getelementptr inbounds i8, ptr %.01314.i.i, i64 -16
-  %130 = add nsw i64 %.015.i.i, -1
-  %131 = icmp samesign ugt i64 %.015.i.i, 2
-  br i1 %131, label %.lr.ph.i.i, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit, !llvm.loop !622
+  %130 = getelementptr inbounds i8, ptr %.01314.i.i, i64 -16
+  %131 = add nsw i64 %.015.i.i, -1
+  %132 = icmp samesign ugt i64 %.015.i.i, 2
+  br i1 %132, label %.lr.ph.i.i, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit, !llvm.loop !622
 
-132:                                              ; preds = %119
-  %133 = add nsw i64 %.0, -1
-  %134 = lshr i64 %14, 1
-  %135 = icmp samesign ugt i64 %14, 128
-  %136 = getelementptr %"struct.std::__1::pair", ptr %.080, i64 %134
-  br i1 %135, label %137, label %152
+133:                                              ; preds = %120
+  %134 = add nsw i64 %.0, -1
+  %135 = lshr i64 %15, 1
+  %136 = icmp samesign ugt i64 %15, 128
+  %137 = getelementptr %"struct.std::__1::pair", ptr %.080, i64 %135
+  br i1 %136, label %138, label %153
 
-137:                                              ; preds = %132
-  %138 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef %.080, ptr noundef %136, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %139 = getelementptr inbounds nuw i8, ptr %.080, i64 16
-  %140 = getelementptr i8, ptr %136, i64 -16
-  %141 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef nonnull %139, ptr noundef %140, ptr noundef nonnull %9, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %142 = getelementptr inbounds nuw i8, ptr %.080, i64 32
-  %143 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %144 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef nonnull %142, ptr noundef nonnull %143, ptr noundef nonnull %10, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %145 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef %140, ptr noundef %136, ptr noundef nonnull %143, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %146 = load i64, ptr %.080, align 8
-  %147 = load i64, ptr %136, align 8
-  store i64 %147, ptr %.080, align 8
-  store i64 %146, ptr %136, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %.080, i64 8
-  %149 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %150 = load i64, ptr %148, align 8
+138:                                              ; preds = %133
+  %139 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef %.080, ptr noundef %137, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %140 = getelementptr inbounds nuw i8, ptr %.080, i64 16
+  %141 = getelementptr i8, ptr %137, i64 -16
+  %142 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef nonnull %140, ptr noundef %141, ptr noundef nonnull %9, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %143 = getelementptr inbounds nuw i8, ptr %.080, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %145 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef nonnull %143, ptr noundef nonnull %144, ptr noundef nonnull %10, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %146 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef %141, ptr noundef %137, ptr noundef nonnull %144, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %147 = load i64, ptr %.080, align 8
+  %148 = load i64, ptr %137, align 8
+  store i64 %148, ptr %.080, align 8
+  store i64 %147, ptr %137, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %.080, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %151 = load i64, ptr %149, align 8
-  store i64 %151, ptr %148, align 8
-  store i64 %150, ptr %149, align 8
-  br label %154
+  %152 = load i64, ptr %150, align 8
+  store i64 %152, ptr %149, align 8
+  store i64 %151, ptr %150, align 8
+  br label %155
 
-152:                                              ; preds = %132
-  %153 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef %136, ptr noundef %.080, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  br label %154
+153:                                              ; preds = %133
+  %154 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEjT1_S8_S8_T0_(ptr noundef %137, ptr noundef %.080, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  br label %155
 
-154:                                              ; preds = %152, %137
-  br i1 %11, label %168, label %155
+155:                                              ; preds = %153, %138
+  br i1 %11, label %169, label %156
 
-155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %.080, i64 -16
-  %157 = load i64, ptr %156, align 8
-  %158 = load i64, ptr %.080, align 8
-  %159 = icmp eq i64 %157, %158
-  %160 = icmp ult i64 %157, %158
-  %161 = getelementptr inbounds i8, ptr %.080, i64 -8
-  %162 = getelementptr inbounds nuw i8, ptr %.080, i64 8
-  %163 = load i64, ptr %161, align 8
+156:                                              ; preds = %155
+  %157 = getelementptr inbounds i8, ptr %.080, i64 -16
+  %158 = load i64, ptr %157, align 8
+  %159 = load i64, ptr %.080, align 8
+  %160 = icmp eq i64 %158, %159
+  %161 = icmp ult i64 %158, %159
+  %162 = getelementptr inbounds i8, ptr %.080, i64 -8
+  %163 = getelementptr inbounds nuw i8, ptr %.080, i64 8
   %164 = load i64, ptr %162, align 8
-  %165 = icmp ult i64 %163, %164
-  %.sroa.04.0.i.i53 = select i1 %159, i1 %165, i1 %160
-  br i1 %.sroa.04.0.i.i53, label %168, label %166
+  %165 = load i64, ptr %163, align 8
+  %166 = icmp ult i64 %164, %165
+  %.sroa.04.0.i.i53 = select i1 %160, i1 %166, i1 %161
+  br i1 %.sroa.04.0.i.i53, label %169, label %167
 
-166:                                              ; preds = %155
-  %167 = tail call noundef ptr @_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_4pairImmEERNS_6__lessIvvEEEET0_S8_S8_T1_(ptr noundef nonnull %.080, ptr noundef %.081.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  br label %.backedge.backedge
+167:                                              ; preds = %156
+  %168 = tail call noundef ptr @_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_4pairImmEERNS_6__lessIvvEEEET0_S8_S8_T1_(ptr noundef nonnull %.080, ptr noundef %.081.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  br label %.outer85.backedge
 
-.backedge.backedge:                               ; preds = %166, %178
-  %.080.be = phi ptr [ %167, %166 ], [ %175, %178 ]
-  br label %.backedge, !llvm.loop !623
+169:                                              ; preds = %155, %156
+  %170 = tail call { ptr, i8 } @_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_4pairImmEERNS_6__lessIvvEEEENS2_IT0_bEES8_S8_T1_(ptr noundef %.080, ptr noundef %.081.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %171 = extractvalue { ptr, i8 } %170, 0
+  %172 = extractvalue { ptr, i8 } %170, 1
+  %173 = trunc i8 %172 to i1
+  br i1 %173, label %174, label %180
 
-168:                                              ; preds = %154, %155
-  %169 = tail call { ptr, i8 } @_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_4pairImmEERNS_6__lessIvvEEEENS2_IT0_bEES8_S8_T1_(ptr noundef %.080, ptr noundef %.081.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %170 = extractvalue { ptr, i8 } %169, 0
-  %171 = extractvalue { ptr, i8 } %169, 1
-  %172 = trunc i8 %171 to i1
-  br i1 %172, label %173, label %179
+174:                                              ; preds = %169
+  %175 = tail call noundef zeroext i1 @_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEbT1_S8_T0_(ptr noundef %.080, ptr noundef %171, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %176 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  %177 = tail call noundef zeroext i1 @_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEbT1_S8_T0_(ptr noundef nonnull %176, ptr noundef %.081.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  br i1 %177, label %178, label %179
 
-173:                                              ; preds = %168
-  %174 = tail call noundef zeroext i1 @_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEbT1_S8_T0_(ptr noundef %.080, ptr noundef %170, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %175 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %176 = tail call noundef zeroext i1 @_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEEEEbT1_S8_T0_(ptr noundef nonnull %175, ptr noundef %.081.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  br i1 %176, label %177, label %178
+178:                                              ; preds = %174
+  br i1 %175, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit, label %.outer, !llvm.loop !623
 
-177:                                              ; preds = %173
-  br i1 %174, label %_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit, label %.outer, !llvm.loop !623
+179:                                              ; preds = %174
+  br i1 %175, label %12, label %180, !llvm.loop !623
 
-178:                                              ; preds = %173
-  br i1 %174, label %.backedge.backedge, label %179
+180:                                              ; preds = %179, %169
+  tail call void @_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEELb0EEEvT1_S8_T0_NS_15iterator_traitsIS8_E15difference_typeEb(ptr noundef %.080, ptr noundef %171, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %134, i1 noundef zeroext %11)
+  %181 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  br label %.outer85.backedge
 
-179:                                              ; preds = %178, %168
-  tail call void @_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEELb0EEEvT1_S8_T0_NS_15iterator_traitsIS8_E15difference_typeEb(ptr noundef %.080, ptr noundef %170, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %133, i1 noundef zeroext %11)
-  %180 = getelementptr inbounds nuw i8, ptr %170, i64 16
+.outer85.backedge:                                ; preds = %180, %167
+  %.080.ph86.be = phi ptr [ %168, %167 ], [ %181, %180 ]
   br label %.outer85, !llvm.loop !623
 
-_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit: ; preds = %177, %.backedge, %.backedge, %.lr.ph.i.i, %118, %94, %121, %95, %71, %62, %55, %44, %31, %15, %25, %63, %28
+_ZNSt3__124__sort4_maybe_branchlessB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_4pairImmEETnNS_9enable_ifIXntsr21__use_branchless_sortIT0_T1_EE5valueEiE4typeELi0EEEvSA_SA_SA_SA_S9_.exit: ; preds = %178, %12, %12, %.lr.ph.i.i, %119, %95, %122, %96, %72, %63, %56, %45, %32, %16, %26, %64, %29
   ret void
 }
 

@@ -3431,7 +3431,7 @@ define void @"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$
   %251 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %227) #29
-          to label %.thread unwind label %255, !noalias !1071
+          to label %.body166.thread unwind label %255, !noalias !1071
 
 "_ZN79_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h148761913896dfe4E.llvm.3741760397517672727.exit.i": ; preds = %.noexc
   %252 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
@@ -3459,7 +3459,7 @@ define void @"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$
   %261 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %228) #29
-          to label %.thread unwind label %263, !noalias !1076
+          to label %.body166.thread unwind label %263, !noalias !1076
 
 "_ZN79_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h148761913896dfe4E.llvm.3741760397517672727.exit.i33": ; preds = %257
   %262 = invoke i64 @"_ZN92_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..Pixels$GT$$GT$4from17h5f587850a01200e3E"(float noundef %.sroa.0.0.i.i)
@@ -3500,7 +3500,7 @@ define void @"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$
   %275 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %192) #29
-          to label %.thread unwind label %279, !noalias !1089
+          to label %.body166.thread unwind label %279, !noalias !1089
 
 "_ZN79_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h148761913896dfe4E.llvm.3741760397517672727.exit.i.i": ; preds = %272
   %276 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
@@ -3533,7 +3533,7 @@ define void @"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$
   %286 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %190) #29
-          to label %.thread unwind label %290, !noalias !1093
+          to label %.body166.thread unwind label %290, !noalias !1093
 
 "_ZN79_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h148761913896dfe4E.llvm.3741760397517672727.exit.i4.i": ; preds = %283
   %287 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
@@ -3558,7 +3558,7 @@ define void @"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$
   %295 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %191) #29
-          to label %.thread unwind label %297, !noalias !1097
+          to label %.body166.thread unwind label %297, !noalias !1097
 
 "_ZN79_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h148761913896dfe4E.llvm.3741760397517672727.exit.i9.i": ; preds = %292
   %296 = invoke i64 @"_ZN100_$LT$gpui..geometry..DefiniteLength$u20$as$u20$core..convert..From$LT$gpui..geometry..Pixels$GT$$GT$4from17hb427b6578a093801E"(float noundef %282)
@@ -3581,7 +3581,7 @@ define void @"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$
   %302 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %191) #29
-          to label %.thread unwind label %303, !noalias !1079
+          to label %.body166.thread unwind label %303, !noalias !1079
 
 303:                                              ; preds = %309, %301
   %304 = landingpad { ptr, i32 }
@@ -3607,7 +3607,7 @@ define void @"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$
   %310 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %199) #29
-          to label %.thread unwind label %303, !noalias !1101
+          to label %.body166.thread unwind label %303, !noalias !1101
 
 "_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hadf0fe5b5ba17275E.exit": ; preds = %307, %305, %299
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %199)
@@ -3648,7 +3648,7 @@ define void @"_ZN61_$LT$title_bar..TitleBar$u20$as$u20$gpui..element..Render$GT$
   %323 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %198) #29
-          to label %.thread unwind label %325, !noalias !1112
+          to label %.body166.thread unwind label %325, !noalias !1112
 
 "_ZN79_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h148761913896dfe4E.llvm.3741760397517672727.exit.i.i38": ; preds = %320
   %324 = invoke { i32, float } @"_ZN100_$LT$gpui..geometry..AbsoluteLength$u20$as$u20$core..convert..From$LT$gpui..geometry..Pixels$GT$$GT$4from17h5adefcf0a8d8a369E"(float noundef 1.000000e+01)
@@ -3681,7 +3681,7 @@ _ZN4gpui6styled6Styled10rounded_tr17h3e04d85aa4ad198dE.exit.i: ; preds = %"_ZN79
   %335 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %186) #29
-          to label %.thread unwind label %337, !noalias !1116
+          to label %.body166.thread unwind label %337, !noalias !1116
 
 "_ZN79_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h148761913896dfe4E.llvm.3741760397517672727.exit.i6.i": ; preds = %332
   %336 = invoke { i32, float } @"_ZN100_$LT$gpui..geometry..AbsoluteLength$u20$as$u20$core..convert..From$LT$gpui..geometry..Pixels$GT$$GT$4from17h5adefcf0a8d8a369E"(float noundef 1.000000e+01)
@@ -3716,7 +3716,7 @@ _ZN4gpui6styled6Styled10rounded_tl17h5786143eca46f884E.exit.i: ; preds = %"_ZN79
   %348 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %187) #29
-          to label %.thread unwind label %350, !noalias !1122
+          to label %.body166.thread unwind label %350, !noalias !1122
 
 "_ZN79_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..styled..Styled$GT$5style17h148761913896dfe4E.llvm.3741760397517672727.exit.i7.i": ; preds = %345
   %349 = invoke i64 @"_ZN92_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..Pixels$GT$$GT$4from17h5f587850a01200e3E"(float noundef %344)
@@ -3747,7 +3747,7 @@ _ZN4gpui6styled6Styled10rounded_tl17h5786143eca46f884E.exit.i: ; preds = %"_ZN79
   %357 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %189) #29
-          to label %.thread unwind label %358, !noalias !1128
+          to label %.body166.thread unwind label %358, !noalias !1128
 
 358:                                              ; preds = %356
   %359 = landingpad { ptr, i32 }
@@ -3768,7 +3768,7 @@ _ZN4gpui6styled6Styled12border_color17h8920af59d3ea1e58E.exit.i: ; preds = %.noe
   %362 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %188) #29
-          to label %.thread unwind label %363, !noalias !1115
+          to label %.body166.thread unwind label %363, !noalias !1115
 
 363:                                              ; preds = %365, %361
   %364 = landingpad { ptr, i32 }
@@ -3780,7 +3780,7 @@ _ZN4gpui6styled6Styled12border_color17h8920af59d3ea1e58E.exit.i: ; preds = %.noe
   %366 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %187) #29
-          to label %.thread unwind label %363, !noalias !1115
+          to label %.body166.thread unwind label %363, !noalias !1115
 
 367:                                              ; preds = %_ZN4gpui6styled6Styled12border_color17h8920af59d3ea1e58E.exit.i, %313
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %186)
@@ -3799,7 +3799,7 @@ _ZN4gpui6styled6Styled12border_color17h8920af59d3ea1e58E.exit.i: ; preds = %.noe
   %369 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %230) #29
-          to label %.thread unwind label %371, !noalias !1142
+          to label %.body166.thread unwind label %371, !noalias !1142
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hfff2210c60546e7bE.llvm.3741760397517672727.exit.i": ; preds = %367
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(16) %185, i64 16, i1 false), !noalias !1139
@@ -3830,7 +3830,7 @@ _ZN4gpui6styled6Styled12border_color17h8920af59d3ea1e58E.exit.i: ; preds = %.noe
   %377 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %231) #29
-          to label %.thread unwind label %378, !noalias !1144
+          to label %.body166.thread unwind label %378, !noalias !1144
 
 378:                                              ; preds = %376
   %379 = landingpad { ptr, i32 }
@@ -7648,7 +7648,7 @@ _ZN4gpui7element7Element8into_any17h933cd86e24505995E.exit.i149: ; preds = %1475
   %1481 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %232) #29
-          to label %.thread unwind label %1483, !noalias !1865
+          to label %.body166.thread unwind label %1483, !noalias !1865
 
 _ZN4gpui7element7Element8into_any17h415cb6d217401d7bE.exit.i154: ; preds = %1479
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %15), !noalias !1858
@@ -7719,7 +7719,7 @@ default.unreachable:                              ; preds = %1488
   %1497 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %10) #29
-          to label %.thread unwind label %1503, !noalias !1873
+          to label %.body166.thread unwind label %1503, !noalias !1873
 
 "_ZN98_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..elements..div..InteractiveElement$GT$13interactivity17hb2abebae5c0078fbE.llvm.3741760397517672727.exit.i.i": ; preds = %1494
   %1498 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.llvm.3741760397517672727(ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 1, i64 noundef 1, i1 noundef zeroext false)
@@ -7794,7 +7794,7 @@ _ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h5e997d79346ab783E.exi
   %1511 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %14) #29
-          to label %.thread unwind label %1512, !noalias !1868
+          to label %.body166.thread unwind label %1512, !noalias !1868
 
 1512:                                             ; preds = %1518, %1516, %1514, %1510
   %1513 = landingpad { ptr, i32 }
@@ -7806,19 +7806,19 @@ _ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h5e997d79346ab783E.exi
   %1515 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %13) #29
-          to label %.thread unwind label %1512, !noalias !1868
+          to label %.body166.thread unwind label %1512, !noalias !1868
 
 1516:                                             ; preds = %"_ZN4gpui6window20ViewContext$LT$V$GT$8listener17hca8d4a555b3b1221E.exit.i"
   %1517 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %12) #29
-          to label %.thread unwind label %1512, !noalias !1868
+          to label %.body166.thread unwind label %1512, !noalias !1868
 
 1518:                                             ; preds = %_ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h5e997d79346ab783E.exit.i
   %1519 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %11) #29
-          to label %.thread unwind label %1512, !noalias !1868
+          to label %.body166.thread unwind label %1512, !noalias !1868
 
 .noexc165:                                        ; preds = %1488
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %4), !noalias !1868
@@ -7840,7 +7840,7 @@ _ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h5e997d79346ab783E.exi
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %233) #29
-          to label %.thread unwind label %1523
+          to label %.body166.thread unwind label %1523
 
 1523:                                             ; preds = %.thread189, %.thread212, %1533, %1531, %1529, %1527, %1526, %.thread242, %1525, %1522
   %1524 = landingpad { ptr, i32 }
@@ -7895,10 +7895,10 @@ _ZN4gpui8elements3div18InteractiveElement13on_mouse_down17h5e997d79346ab783E.exi
 .thread189:                                       ; preds = %1473, %895, %491, %.thread212, %1526, %.thread242, %419, %407, %400, %393, %386, %.thread204
   %.pn26188 = phi { ptr, i32 } [ %382, %.thread204 ], [ %387, %386 ], [ %394, %393 ], [ %401, %400 ], [ %408, %407 ], [ %420, %419 ], [ %.pn211, %.thread212 ], [ %eh.lpad-body93.ph, %1526 ], [ %.pn24241, %.thread242 ], [ %492, %491 ], [ %896, %895 ], [ %1474, %1473 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$gpui..elements..div..Stateful$LT$gpui..elements..div..Div$GT$$GT$17h42cd37502e5c6efcE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %232) #29
-          to label %.thread unwind label %1523
+          to label %.body166.thread unwind label %1523
 
-.thread:                                          ; preds = %1522, %1496, %1510, %1514, %1516, %1518, %1480, %376, %368, %322, %334, %347, %356, %361, %365, %274, %285, %294, %301, %309, %260, %250, %.thread189
-  %.pn28182 = phi { ptr, i32 } [ %.pn26188, %.thread189 ], [ %251, %250 ], [ %261, %260 ], [ %310, %309 ], [ %286, %285 ], [ %275, %274 ], [ %302, %301 ], [ %295, %294 ], [ %323, %322 ], [ %335, %334 ], [ %357, %356 ], [ %362, %361 ], [ %366, %365 ], [ %348, %347 ], [ %369, %368 ], [ %377, %376 ], [ %1481, %1480 ], [ %lpad.thr_comm.split-lp, %1522 ], [ %1519, %1518 ], [ %1517, %1516 ], [ %1515, %1514 ], [ %1511, %1510 ], [ %1497, %1496 ]
+.body166.thread:                                  ; preds = %1480, %376, %368, %322, %334, %347, %356, %361, %365, %274, %285, %294, %301, %309, %260, %250, %.thread189, %1522, %1518, %1516, %1514, %1510, %1496
+  %.pn28182 = phi { ptr, i32 } [ %1519, %1518 ], [ %1517, %1516 ], [ %1515, %1514 ], [ %1511, %1510 ], [ %1497, %1496 ], [ %.pn26188, %.thread189 ], [ %lpad.thr_comm.split-lp, %1522 ], [ %251, %250 ], [ %261, %260 ], [ %310, %309 ], [ %286, %285 ], [ %275, %274 ], [ %302, %301 ], [ %295, %294 ], [ %323, %322 ], [ %335, %334 ], [ %357, %356 ], [ %362, %361 ], [ %366, %365 ], [ %348, %347 ], [ %369, %368 ], [ %377, %376 ], [ %1481, %1480 ]
   resume { ptr, i32 } %.pn28182
 }
 

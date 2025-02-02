@@ -46167,7 +46167,7 @@ parser_update_heredoc_indent.exit:                ; preds = %.sink.split.i, %49,
   br i1 %115, label %.backedge, label %117
 
 .backedge:                                        ; preds = %465, %tokadd.exit.thread, %436, %parser_mixed_error.exit201, %403, %parser_mixed_error.exit, %352, %354, %358, %356, %112, %113, %159, %tokspace.exit, %227, %396, %424
-  %.0133.be = phi i8 [ %.0133223, %227 ], [ %.0133223, %tokspace.exit ], [ %.0133223, %396 ], [ %.0133223, %424 ], [ %.0133223, %159 ], [ %.0133223, %113 ], [ %.0133223, %112 ], [ %.0133223, %356 ], [ 1, %358 ], [ %.0133223, %354 ], [ %.0133223, %352 ], [ %.0133223, %403 ], [ 1, %parser_mixed_error.exit ], [ %.0133223, %436 ], [ 1, %parser_mixed_error.exit201 ], [ %.0133223, %tokadd.exit.thread ], [ %.0133223, %465 ]
+  %.0133.be = phi i8 [ %.0133223, %227 ], [ %.0133223, %tokspace.exit ], [ %.0133223, %396 ], [ %.0133223, %424 ], [ %.0133223, %159 ], [ %.0133223, %113 ], [ %.0133223, %112 ], [ 1, %356 ], [ 1, %358 ], [ %.0133223, %354 ], [ %.0133223, %352 ], [ 1, %parser_mixed_error.exit ], [ 1, %403 ], [ 1, %parser_mixed_error.exit201 ], [ 1, %436 ], [ %.0133223, %tokadd.exit.thread ], [ %.0133223, %465 ]
   %116 = call fastcc i32 @nextc0(ptr noundef nonnull %0, i32 noundef 1)
   %.not = icmp eq i32 %116, -1
   br i1 %.not, label %pushback.exit, label %40, !llvm.loop !157

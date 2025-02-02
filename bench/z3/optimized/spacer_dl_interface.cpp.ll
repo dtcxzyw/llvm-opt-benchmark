@@ -602,8 +602,8 @@ land.rhs.lr.ph:                                   ; preds = %_ZNK15ref_vector_co
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 552
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.backedge, %land.rhs.lr.ph
-  %indvars.iv23 = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv23.be, %land.rhs.backedge ]
+land.rhs:                                         ; preds = %for.inc19, %land.rhs.lr.ph
+  %indvars.iv23 = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next24, %for.inc19 ]
   %3 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %_ZNK7datalog8rule_set13get_num_rulesEv.exit, label %if.end.i.i.i
@@ -621,7 +621,6 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %land.rhs, %if.end.i
 
 land.rhs7:                                        ; preds = %_ZNK7datalog8rule_set13get_num_rulesEv.exit, %for.body11
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body11 ], [ 0, %_ZNK7datalog8rule_set13get_num_rulesEv.exit ]
-  %is_subsumed.118 = phi i8 [ %spec.select, %for.body11 ], [ 0, %_ZNK7datalog8rule_set13get_num_rulesEv.exit ]
   %6 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i12 = icmp eq ptr %6, null
   br i1 %cmp.i.i12, label %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit, label %if.end.i.i
@@ -635,7 +634,7 @@ if.end.i.i:                                       ; preds = %land.rhs7
 _ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit: ; preds = %land.rhs7, %if.end.i.i
   %retval.0.i.i = phi i64 [ %8, %if.end.i.i ], [ 0, %land.rhs7 ]
   %cmp9 = icmp samesign ult i64 %indvars.iv, %retval.0.i.i
-  br i1 %cmp9, label %for.body11, label %if.then17
+  br i1 %cmp9, label %for.body11, label %for.inc19.thread
 
 for.body11:                                       ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
   %9 = load ptr, ptr %m_ctx, align 8
@@ -645,22 +644,19 @@ for.body11:                                       ; preds = %_ZNK15ref_vector_co
   %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv23
   %12 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %call15 = tail call noundef zeroext i1 @_ZN7datalog7context14check_subsumesERKNS_4ruleES3_(ptr noundef nonnull align 8 dereferenceable(3556) %9, ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull align 8 dereferenceable(80) %12)
-  %spec.select = select i1 %call15, i8 1, i8 %is_subsumed.118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %tobool6 = trunc nuw i8 %spec.select to i1
-  br i1 %tobool6, label %land.rhs.backedge, label %land.rhs7, !llvm.loop !6
+  br i1 %call15, label %for.inc19, label %land.rhs7, !llvm.loop !6
 
-if.then17:                                        ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
+for.inc19.thread:                                 ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
   %13 = load ptr, ptr %m_context, align 8
   tail call void @_ZN6spacer7context5resetEv(ptr noundef nonnull align 8 dereferenceable(712) %13)
-  %.pre = trunc nuw i8 %is_subsumed.118 to i1
-  br i1 %.pre, label %land.rhs.backedge, label %for.end21
+  br label %for.end21
 
-land.rhs.backedge:                                ; preds = %for.body11, %if.then17
-  %indvars.iv23.be = add nuw nsw i64 %indvars.iv23, 1
+for.inc19:                                        ; preds = %for.body11
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   br label %land.rhs, !llvm.loop !7
 
-for.end21:                                        ; preds = %_ZNK7datalog8rule_set13get_num_rulesEv.exit, %if.then17, %entry, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE5emptyEv.exit
+for.end21:                                        ; preds = %_ZNK7datalog8rule_set13get_num_rulesEv.exit, %entry, %for.inc19.thread, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE5emptyEv.exit
   %m_rule_set.i = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %m_old_rules = getelementptr inbounds nuw i8, ptr %this, i64 304
   tail call void @_ZN7datalog8rule_set13replace_rulesERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %m_old_rules, ptr noundef nonnull align 8 dereferenceable(248) %m_rule_set.i)

@@ -3387,7 +3387,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i10:            ; preds = %_ZN4llvmeqENS_9Stri
   %bcmp.i.i11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %1, ptr noundef nonnull dereferenceable(11) @.str.273, i64 11)
   %9 = icmp eq i32 %bcmp.i.i11, 0
   %.sroa.0.0.insert.ext.i13 = zext i1 %6 to i8
-  %spec.select = select i1 %9, i8 %.sroa.0.0.insert.ext.i13, i8 undef
+  %spec.select162 = select i1 %9, i8 %.sroa.0.0.insert.ext.i13, i8 undef
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit55
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i20:            ; preds = %3
@@ -3403,7 +3403,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i30:            ; preds = %_ZN4llvmeqENS_9Stri
   %bcmp.i.i31 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1, ptr noundef nonnull dereferenceable(5) @.str.299, i64 5)
   %11 = icmp eq i32 %bcmp.i.i31, 0
   %.sroa.0.0.insert.ext.i33 = zext i1 %6 to i8
-  %spec.select158 = select i1 %11, i8 %.sroa.0.0.insert.ext.i33, i8 undef
+  %spec.select = select i1 %11, i8 %.sroa.0.0.insert.ext.i33, i8 undef
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit55
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i40:            ; preds = %3
@@ -3411,7 +3411,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i40:            ; preds = %3
   %13 = load i8, ptr %12, align 2
   %bcmp.i.i41 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str.302, i64 3)
   %14 = icmp eq i32 %bcmp.i.i41, 0
-  %spec.select160 = select i1 %14, i8 %13, i8 undef
+  %spec.select158 = select i1 %14, i8 %13, i8 undef
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit55
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i50:            ; preds = %3
@@ -3419,12 +3419,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i50:            ; preds = %3
   %16 = load i8, ptr %15, align 1
   %bcmp.i.i51 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @.str.303, i64 4)
   %17 = icmp eq i32 %bcmp.i.i51, 0
-  %spec.select162 = select i1 %17, i8 %16, i8 undef
+  %spec.select160 = select i1 %17, i8 %16, i8 undef
   br label %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit55
 
-_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit55: ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.i50, %_ZN4llvmeqENS_9StringRefES0_.exit.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i30, %_ZN4llvmeqENS_9StringRefES0_.exit.i10, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i22
-  %.sroa.14.5 = phi i8 [ %.sroa.0.0.insert.ext.i23, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i22 ], [ %.sroa.14.16.extract.trunc, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i10 ], [ %spec.select158, %_ZN4llvmeqENS_9StringRefES0_.exit.i30 ], [ %spec.select160, %_ZN4llvmeqENS_9StringRefES0_.exit.i40 ], [ %spec.select162, %_ZN4llvmeqENS_9StringRefES0_.exit.i50 ], [ undef, %3 ]
-  %.sroa.21.5 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i22 ], [ true, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit ], [ %9, %_ZN4llvmeqENS_9StringRefES0_.exit.i10 ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit.i30 ], [ %14, %_ZN4llvmeqENS_9StringRefES0_.exit.i40 ], [ %17, %_ZN4llvmeqENS_9StringRefES0_.exit.i50 ], [ false, %3 ]
+_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit55: ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.i10, %_ZN4llvmeqENS_9StringRefES0_.exit.i50, %_ZN4llvmeqENS_9StringRefES0_.exit.i40, %_ZN4llvmeqENS_9StringRefES0_.exit.i30, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i22
+  %.sroa.14.5 = phi i8 [ %.sroa.0.0.insert.ext.i23, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i22 ], [ %.sroa.14.16.extract.trunc, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i30 ], [ %spec.select158, %_ZN4llvmeqENS_9StringRefES0_.exit.i40 ], [ %spec.select160, %_ZN4llvmeqENS_9StringRefES0_.exit.i50 ], [ %spec.select162, %_ZN4llvmeqENS_9StringRefES0_.exit.i10 ], [ undef, %3 ]
+  %.sroa.21.5 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i22 ], [ true, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit.i30 ], [ %14, %_ZN4llvmeqENS_9StringRefES0_.exit.i40 ], [ %17, %_ZN4llvmeqENS_9StringRefES0_.exit.i50 ], [ %9, %_ZN4llvmeqENS_9StringRefES0_.exit.i10 ], [ false, %3 ]
   %18 = trunc i8 %.sroa.14.5 to i1
   %.0.i = select i1 %.sroa.21.5, i1 %18, i1 false
   ret i1 %.0.i

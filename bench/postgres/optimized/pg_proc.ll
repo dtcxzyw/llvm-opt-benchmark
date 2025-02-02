@@ -1346,7 +1346,7 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
 
 44:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %.096118 = phi i8 [ 0, %.lr.ph ], [ %.197, %57 ]
+  %.096120 = phi i8 [ 0, %.lr.ph ], [ %.197, %57 ]
   %45 = getelementptr [0 x i32], ptr %43, i64 0, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4
   %47 = tail call signext i8 @get_typtype(i32 noundef %46) #7
@@ -1380,7 +1380,7 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
   unreachable
 
 57:                                               ; preds = %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %44
-  %.197 = phi i8 [ %.096118, %44 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ]
+  %.197 = phi i8 [ %.096120, %44 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ], [ 1, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i16, ptr %40, align 4
   %59 = sext i16 %58 to i64
@@ -1439,78 +1439,78 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
   %.099 = phi ptr [ %84, %82 ], [ %86, %85 ]
   %88 = getelementptr inbounds nuw i8, ptr %.099, i64 4
   %.not105 = icmp eq ptr %.099, null
-  br i1 %.not105, label %.thread, label %.lr.ph122
+  br i1 %.not105, label %.thread, label %.lr.ph124
 
-.lr.ph122:                                        ; preds = %87
+.lr.ph124:                                        ; preds = %87
   %89 = getelementptr inbounds nuw i8, ptr %.099, i64 16
   %90 = load i32, ptr %88, align 4
   %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %.lr.ph129, label %.thread
+  br i1 %91, label %.lr.ph131, label %.thread
 
-.lr.ph129:                                        ; preds = %.lr.ph122, %.lr.ph129
-  %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.lr.ph129 ], [ 0, %.lr.ph122 ]
-  %.093120127 = phi ptr [ %96, %.lr.ph129 ], [ null, %.lr.ph122 ]
+.lr.ph131:                                        ; preds = %.lr.ph124, %.lr.ph131
+  %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.lr.ph131 ], [ 0, %.lr.ph124 ]
+  %.093122129 = phi ptr [ %96, %.lr.ph131 ], [ null, %.lr.ph124 ]
   %92 = load ptr, ptr %89, align 8
-  %93 = getelementptr %union.ListCell, ptr %92, i64 %indvars.iv148
+  %93 = getelementptr %union.ListCell, ptr %92, i64 %indvars.iv150
   %94 = load ptr, ptr %93, align 8
   call void @AcquireRewriteLocks(ptr noundef %94, i1 noundef zeroext true, i1 noundef zeroext false) #7
   %95 = call ptr @pg_rewrite_query(ptr noundef %94) #7
-  %96 = call ptr @lappend(ptr noundef %.093120127, ptr noundef %95) #7
-  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
+  %96 = call ptr @lappend(ptr noundef %.093122129, ptr noundef %95) #7
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %97 = load i32, ptr %88, align 4
   %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next149, %98
-  br i1 %99, label %.lr.ph129, label %.thread
+  %99 = icmp slt i64 %indvars.iv.next151, %98
+  br i1 %99, label %.lr.ph131, label %.thread
 
 100:                                              ; preds = %64
   %101 = call ptr @pg_parse_query(ptr noundef %67) #7
-  br i1 %.096.lcssa, label %.thread.thread156, label %102
+  br i1 %.096.lcssa, label %.thread115, label %102
 
 102:                                              ; preds = %100
   %103 = call ptr @prepare_sql_fn_parse_info(ptr noundef nonnull %16, ptr noundef null, i32 noundef 0) #7
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %.not107 = icmp eq ptr %101, null
-  br i1 %.not107, label %.thread.thread, label %.lr.ph134
+  br i1 %.not107, label %.thread.thread, label %.lr.ph136
 
-.lr.ph134:                                        ; preds = %102
+.lr.ph136:                                        ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %106 = load i32, ptr %104, align 4
   %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %.lr.ph142, label %.thread.thread
+  br i1 %107, label %.lr.ph144, label %.thread.thread
 
-.lr.ph142:                                        ; preds = %.lr.ph134, %.lr.ph142
-  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.lr.ph142 ], [ 0, %.lr.ph134 ]
-  %.2132140 = phi ptr [ %112, %.lr.ph142 ], [ null, %.lr.ph134 ]
+.lr.ph144:                                        ; preds = %.lr.ph136, %.lr.ph144
+  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.lr.ph144 ], [ 0, %.lr.ph136 ]
+  %.2134142 = phi ptr [ %112, %.lr.ph144 ], [ null, %.lr.ph136 ]
   %108 = load ptr, ptr %105, align 8
-  %109 = getelementptr %union.ListCell, ptr %108, i64 %indvars.iv151
+  %109 = getelementptr %union.ListCell, ptr %108, i64 %indvars.iv153
   %110 = load ptr, ptr %109, align 8
   %111 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef %110, ptr noundef %67, ptr noundef nonnull @sql_fn_parser_setup, ptr noundef %103, ptr noundef null) #7
-  %112 = call ptr @lappend(ptr noundef %.2132140, ptr noundef %111) #7
-  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %112 = call ptr @lappend(ptr noundef %.2134142, ptr noundef %111) #7
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %113 = load i32, ptr %104, align 4
   %114 = sext i32 %113 to i64
-  %115 = icmp slt i64 %indvars.iv.next152, %114
-  br i1 %115, label %.lr.ph142, label %.thread
+  %115 = icmp slt i64 %indvars.iv.next154, %114
+  br i1 %115, label %.lr.ph144, label %.thread
 
-.thread:                                          ; preds = %.lr.ph129, %.lr.ph142, %87, %.lr.ph122
-  %.1 = phi ptr [ null, %87 ], [ null, %.lr.ph122 ], [ %112, %.lr.ph142 ], [ %96, %.lr.ph129 ]
-  br i1 %.096.lcssa, label %.thread.thread156, label %.thread.thread
+.thread:                                          ; preds = %.lr.ph131, %.lr.ph144, %87, %.lr.ph124
+  %.1 = phi ptr [ null, %87 ], [ null, %.lr.ph124 ], [ %112, %.lr.ph144 ], [ %96, %.lr.ph131 ]
+  br i1 %.096.lcssa, label %.thread115, label %.thread.thread
 
-.thread.thread:                                   ; preds = %.lr.ph134, %102, %.thread
-  %.1155 = phi ptr [ %.1, %.thread ], [ null, %102 ], [ null, %.lr.ph134 ]
-  call void @check_sql_fn_statements(ptr noundef %.1155) #7
+.thread.thread:                                   ; preds = %.lr.ph136, %102, %.thread
+  %.1157 = phi ptr [ %.1, %.thread ], [ null, %102 ], [ null, %.lr.ph136 ]
+  call void @check_sql_fn_statements(ptr noundef %.1157) #7
   %116 = call i32 @get_func_result_type(i32 noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %117 = load i32, ptr %5, align 4
   %118 = load ptr, ptr %6, align 8
-  %119 = call zeroext i1 @check_sql_fn_retval(ptr noundef %.1155, i32 noundef %117, ptr noundef %118, i1 noundef zeroext false, ptr noundef null) #7
-  br label %.thread.thread156
+  %119 = call zeroext i1 @check_sql_fn_retval(ptr noundef %.1157, i32 noundef %117, ptr noundef %118, i1 noundef zeroext false, ptr noundef null) #7
+  br label %.thread115
 
-.thread.thread156:                                ; preds = %100, %.thread.thread, %.thread
+.thread115:                                       ; preds = %100, %.thread.thread, %.thread
   %120 = load ptr, ptr %4, align 8
   store ptr %120, ptr @error_context_stack, align 8
   br label %121
 
-121:                                              ; preds = %.thread.thread156, %._crit_edge
+121:                                              ; preds = %.thread115, %._crit_edge
   call void @ReleaseSysCache(ptr noundef nonnull %16) #7
   br label %122
 

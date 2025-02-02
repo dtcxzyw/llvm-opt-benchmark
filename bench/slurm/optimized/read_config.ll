@@ -1667,7 +1667,7 @@ define internal range(i32 -1, 2) i32 @_parse_nodename(ptr noundef writeonly capt
   br label %211
 
 211:                                              ; preds = %208, %206, %205
-  %.1 = phi i8 [ %.0207, %205 ], [ %.0207, %206 ], [ 1, %208 ]
+  %.1 = phi i8 [ %.0207, %205 ], [ 1, %206 ], [ 1, %208 ]
   %212 = load i16, ptr %38, align 8
   %213 = icmp eq i16 %212, 0
   br i1 %213, label %214, label %217

@@ -4858,25 +4858,24 @@ _ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
 
 for.body18.preheader:                             ; preds = %_ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %wide.trip.count = zext i32 %9 to i64
+  %10 = trunc nuw i8 %found_var.039 to i1
   br label %for.body18
 
 for.body18:                                       ; preds = %for.body18.preheader, %invoke.cont25
   %indvars.iv = phi i64 [ 0, %for.body18.preheader ], [ %indvars.iv.next, %invoke.cont25 ]
-  %found_var.236 = phi i8 [ %found_var.039, %for.body18.preheader ], [ %found_var.3, %invoke.cont25 ]
-  %tobool19 = trunc nuw i8 %found_var.236 to i1
-  br i1 %tobool19, label %if.end22, label %if.then20
+  %found_var.236 = phi i1 [ %10, %for.body18.preheader ], [ true, %invoke.cont25 ]
+  br i1 %found_var.236, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %for.body18
   %call21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.11)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %for.body18
-  %found_var.3 = phi i8 [ %found_var.236, %for.body18 ], [ 1, %if.then20 ]
-  %10 = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx.i.i28 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %11 = load ptr, ptr %arrayidx.i.i28, align 8
-  %12 = load ptr, ptr %this, align 8
-  call void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(976) %12, i32 noundef 0, i32 noundef 0, ptr noundef null)
+  %11 = load ptr, ptr %m_nodes.i, align 8
+  %arrayidx.i.i28 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = load ptr, ptr %arrayidx.i.i28, align 8
+  %13 = load ptr, ptr %this, align 8
+  call void @_ZN11mk_ismt2_ppC2EP3astR11ast_managerjjPKc(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(976) %13, i32 noundef 0, i32 noundef 0, ptr noundef null)
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -4891,20 +4890,20 @@ invoke.cont25:                                    ; preds = %invoke.cont
   br i1 %exitcond.not, label %for.inc29, label %for.body18, !llvm.loop !41
 
 lpad:                                             ; preds = %invoke.cont, %if.end22
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i.i) #21
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %14
 
 for.inc29:                                        ; preds = %invoke.cont25, %if.end14, %_ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %for.body11
-  %found_var.1 = phi i8 [ %found_var.039, %for.body11 ], [ %found_var.039, %_ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %found_var.039, %if.end14 ], [ %found_var.3, %invoke.cont25 ]
+  %found_var.1 = phi i8 [ %found_var.039, %for.body11 ], [ %found_var.039, %_ZNK15ref_vector_coreI3var19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ], [ %found_var.039, %if.end14 ], [ 1, %invoke.cont25 ]
   %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %__begin15.038, i64 8
   %cmp10.not = icmp eq ptr %incdec.ptr30, %add.ptr.i22
   br i1 %cmp10.not, label %for.end31, label %for.body11
 
 for.end31:                                        ; preds = %for.inc29
-  %14 = trunc nuw i8 %found_var.1 to i1
-  br i1 %14, label %if.then33, label %if.end35
+  %15 = trunc nuw i8 %found_var.1 to i1
+  br i1 %15, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %for.end31
   %call34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.9)

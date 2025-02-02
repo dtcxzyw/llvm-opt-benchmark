@@ -271,7 +271,7 @@ define void @var_destroy(ptr noundef readonly captures(none) %0) local_unnamed_a
   br label %58
 
 58:                                               ; preds = %43, %53
-  %.2 = phi i8 [ 1, %53 ], [ %.191, %43 ]
+  %.2 = phi i8 [ 1, %53 ], [ 0, %43 ]
   %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %60 = add i32 %59, -1
   store i32 %60, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
@@ -331,7 +331,7 @@ define void @var_destroy(ptr noundef readonly captures(none) %0) local_unnamed_a
   br label %92
 
 92:                                               ; preds = %87, %78
-  %.4 = phi i8 [ 1, %87 ], [ %.191, %78 ]
+  %.4 = phi i8 [ 1, %87 ], [ 0, %78 ]
   %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
   %94 = add i32 %93, -1
   store i32 %94, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 848), align 8
@@ -347,7 +347,7 @@ define void @var_destroy(ptr noundef readonly captures(none) %0) local_unnamed_a
   br label %100
 
 100:                                              ; preds = %26, %95, %92, %58, %61
-  %.3 = phi i8 [ %.191, %61 ], [ %.2, %58 ], [ %.191, %95 ], [ %.4, %92 ], [ %.191, %26 ]
+  %.3 = phi i8 [ 1, %61 ], [ %.2, %58 ], [ 1, %95 ], [ %.4, %92 ], [ %.191, %26 ]
   %101 = getelementptr inbounds nuw i8, ptr %27, i64 9
   %102 = load i8, ptr %101, align 1
   %.not83 = icmp eq i8 %102, 0

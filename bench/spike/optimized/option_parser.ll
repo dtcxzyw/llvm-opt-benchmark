@@ -234,18 +234,18 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
-  %.0105 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %.0105, align 8
-  %.not106 = icmp eq ptr %4, null
-  br i1 %.not106, label %.critedge, label %.lr.ph
+  %.0104 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load ptr, ptr %.0104, align 8
+  %.not105 = icmp eq ptr %4, null
+  br i1 %.not105, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 .critedge57.loopexit:                             ; preds = %58
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102143, i64 24
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102143, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102142, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102142, i64 48
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -256,7 +256,7 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull readonl
 
 10:                                               ; preds = %.lr.ph, %.critedge57.loopexit
   %11 = phi ptr [ %4, %.lr.ph ], [ %9, %.critedge57.loopexit ]
-  %.0107 = phi ptr [ %.0105, %.lr.ph ], [ %.0, %.critedge57.loopexit ]
+  %.0106 = phi ptr [ %.0104, %.lr.ph ], [ %.0, %.critedge57.loopexit ]
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 45
   br i1 %13, label %14, label %.critedge
@@ -267,29 +267,29 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull readonl
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %18 = load ptr, ptr %5, align 8
   %19 = icmp eq ptr %15, %18
-  br i1 %19, label %.critedge2, label %.lr.ph144
+  br i1 %19, label %.critedge2, label %.lr.ph143
 
-.lr.ph144:                                        ; preds = %14, %.thread77
-  %.sroa.058.0102143 = phi ptr [ %63, %.thread77 ], [ %15, %14 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102143, i64 8
+.lr.ph143:                                        ; preds = %14, %.thread77
+  %.sroa.058.0102142 = phi ptr [ %63, %.thread77 ], [ %15, %14 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102142, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not44 = icmp eq ptr %21, null
   br i1 %.not44, label %.thread, label %22
 
-22:                                               ; preds = %.lr.ph144
+22:                                               ; preds = %.lr.ph143
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #17
   %24 = load i8, ptr %16, align 1
   %.not45 = icmp eq i8 %24, 45
   br i1 %.not45, label %30, label %26
 
-.thread:                                          ; preds = %.lr.ph144
+.thread:                                          ; preds = %.lr.ph143
   %25 = load i8, ptr %16, align 1
-  %.not45113 = icmp eq i8 %25, 45
-  br i1 %.not45113, label %.thread77, label %26
+  %.not45112 = icmp eq i8 %25, 45
+  br i1 %.not45112, label %.thread77, label %26
 
 26:                                               ; preds = %.thread, %22
   %27 = phi i8 [ %25, %.thread ], [ %24, %22 ]
-  %28 = load i8, ptr %.sroa.058.0102143, align 8
+  %28 = load i8, ptr %.sroa.058.0102142, align 8
   %.not46 = icmp ne i8 %28, 0
   %29 = icmp eq i8 %27, %28
   %or.cond = and i1 %.not46, %29
@@ -323,26 +323,26 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull readonl
   br label %47
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102143, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102142, i64 16
   %43 = load i32, ptr %42, align 8
   %.not48 = icmp eq i32 %43, 0
   br i1 %.not48, label %.critedge56, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %.0107, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0106, i64 8
   %46 = load ptr, ptr %45, align 8
   br label %47
 
 47:                                               ; preds = %39, %44
-  %.2 = phi ptr [ %.0107, %39 ], [ %45, %44 ]
+  %.2 = phi ptr [ %.0106, %39 ], [ %45, %44 ]
   %48 = phi ptr [ %40, %39 ], [ %46, %44 ]
   %.not50 = icmp eq ptr %48, null
   br i1 %.not50, label %.critedge56, label %.thread85
 
 .thread85:                                        ; preds = %.critedge54, %47
   %49 = phi ptr [ %48, %47 ], [ %17, %.critedge54 ]
-  %.288 = phi ptr [ %.2, %47 ], [ %.0107, %.critedge54 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102143, i64 16
+  %.288 = phi ptr [ %.2, %47 ], [ %.0106, %.critedge54 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102142, i64 16
   %51 = load i32, ptr %50, align 8
   %.not51 = icmp eq i32 %51, 0
   br i1 %.not51, label %52, label %58
@@ -353,8 +353,8 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull readonl
   unreachable
 
 .critedge56:                                      ; preds = %.critedge54, %41, %47
-  %.284 = phi ptr [ %.2, %47 ], [ %.0107, %41 ], [ %.0107, %.critedge54 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102143, i64 16
+  %.284 = phi ptr [ %.2, %47 ], [ %.0106, %41 ], [ %.0106, %.critedge54 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102142, i64 16
   %55 = load i32, ptr %54, align 8
   %.not52 = icmp eq i32 %55, 0
   br i1 %.not52, label %58, label %56
@@ -369,7 +369,7 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull readonl
   %.283 = phi ptr [ %.284, %.critedge56 ], [ %.288, %.thread85 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %59, ptr %3, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102143, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102142, i64 40
   %61 = load ptr, ptr %60, align 8
   %.not.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i, label %62, label %.critedge57.loopexit
@@ -379,9 +379,9 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull readonl
   unreachable
 
 .thread77:                                        ; preds = %.thread, %34, %26, %30, %31
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102143, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.058.0102142, i64 56
   %64 = icmp eq ptr %63, %18
-  br i1 %64, label %.critedge2, label %.lr.ph144, !llvm.loop !6
+  br i1 %64, label %.critedge2, label %.lr.ph143, !llvm.loop !6
 
 .critedge2:                                       ; preds = %14, %.thread77
   %65 = load ptr, ptr %1, align 8
@@ -389,7 +389,7 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull readonl
   unreachable
 
 .critedge:                                        ; preds = %10, %.critedge57.loopexit, %2
-  %.0.lcssa = phi ptr [ %.0105, %2 ], [ %.0, %.critedge57.loopexit ], [ %.0107, %10 ]
+  %.0.lcssa = phi ptr [ %.0104, %2 ], [ %.0, %.critedge57.loopexit ], [ %.0106, %10 ]
   ret ptr %.0.lcssa
 }
 
