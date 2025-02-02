@@ -1087,7 +1087,7 @@ _ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EE5clear
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %nfa.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %call.i91 = invoke noundef i32 @_ZN3ue219remove_leading_dotsERNS_7raw_dfaE(ptr noundef nonnull align 8 dereferenceable(560) %39)
-          to label %call.i.noexc unwind label %lpad67
+          to label %call.i.noexc unwind label %ehcleanup105.thread
 
 call.i.noexc:                                     ; preds = %_ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EE5clearEv.exit85
   %46 = getelementptr inbounds nuw i8, ptr %accel_states.i, i64 8
@@ -1715,7 +1715,7 @@ terminate.lpad.i.i29.i:                           ; preds = %_ZN3ue212bytecode_p
 ehcleanup.i:                                      ; preds = %lpad1.body.i, %lpad.i
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad1.body.i ], [ %48, %lpad.i ]
   call void @_ZNSt3setItSt4lessItESaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %accel_states.i) #26, !noalias !41
-  br label %ehcleanup105
+  br label %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102
 
 invoke.cont68:                                    ; preds = %_ZN3ue212bytecode_ptrI3NFAED2Ev.exit28.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %accel_states.i)
@@ -1729,16 +1729,16 @@ cleanup.thread:                                   ; preds = %invoke.cont68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   br label %_ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit100
 
-lpad67:                                           ; preds = %_ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EE5clearEv.exit85
+ehcleanup105.thread:                              ; preds = %_ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EE5clearEv.exit85
   %127 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup105
+  br label %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102
 
 lpad69:                                           ; preds = %if.end78
   %128 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212bytecode_ptrI3NFAED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nfa) #26
-  br label %ehcleanup105
+  br label %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102
 
 if.end78:                                         ; preds = %invoke.cont68
   %length = getelementptr inbounds nuw i8, ptr %123, i64 4
@@ -1781,12 +1781,8 @@ _ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit100: ; preds = 
   call void %138(ptr noundef nonnull align 8 dereferenceable(560) %39) #26
   br label %return
 
-ehcleanup105:                                     ; preds = %lpad67, %ehcleanup.i, %lpad69
-  %.pn = phi { ptr, i32 } [ %128, %lpad69 ], [ %127, %lpad67 ], [ %.pn.i, %ehcleanup.i ]
-  %cmp.not.i101 = icmp eq i64 %38, 0
-  br i1 %cmp.not.i101, label %eh.resume, label %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102
-
-_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102: ; preds = %ehcleanup105
+_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102: ; preds = %lpad69, %ehcleanup.i, %ehcleanup105.thread
+  %.pn124 = phi { ptr, i32 } [ %127, %ehcleanup105.thread ], [ %128, %lpad69 ], [ %.pn.i, %ehcleanup.i ]
   %vtable.i.i103 = load ptr, ptr %39, align 8
   %vfn.i.i104 = getelementptr inbounds nuw i8, ptr %vtable.i.i103, i64 8
   %139 = load ptr, ptr %vfn.i.i104, align 8
@@ -1796,8 +1792,8 @@ _ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102: ; preds = %ehcleanup105
 return:                                           ; preds = %_ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit100, %_ZNSt6vectorISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_EE5clearEv.exit, %do.end50, %do.end12, %do.end
   ret void
 
-eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i66, %lpad41, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i17, %lpad, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102, %ehcleanup105
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup105 ], [ %.pn, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102 ], [ %15, %lpad ], [ %15, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i17 ], [ %27, %lpad41 ], [ %27, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i66 ]
+eh.resume:                                        ; preds = %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i66, %lpad41, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i17, %lpad, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102
+  %.pn.pn = phi { ptr, i32 } [ %.pn124, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i102 ], [ %15, %lpad ], [ %15, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i17 ], [ %27, %lpad41 ], [ %27, %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i66 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3038,7 +3034,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #26
   br label %lpad.body
 
 invoke.cont3:                                     ; preds = %entry
@@ -3242,7 +3238,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #26
   resume { ptr, i32 } %0
 }
 
@@ -3862,7 +3858,7 @@ while.body.i.i6.i:                                ; preds = %_ZN3ue29ue2_graphIN
   %68 = load i64, ptr %in_edge_list.i.i.i.i, align 8, !noalias !165
   %dec.i.i.i.i.i.i9.i = add i64 %68, -1
   store i64 %dec.i.i.i.i.i.i9.i, ptr %in_edge_list.i.i.i.i, align 8, !noalias !165
-  call void @_ZdlPv(ptr noundef %it.sroa.0.06.i.i.i) #29
+  call void @_ZdlPv(ptr noundef nonnull %it.sroa.0.06.i.i.i) #29
   %cmp.i.i.not.i.i10.i = icmp eq ptr %64, %m_header.i.i.i.i5.i
   br i1 %cmp.i.i.not.i.i10.i, label %invoke.cont22, label %while.body.i.i6.i, !llvm.loop !170
 
@@ -6127,7 +6123,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i47.i
 lpad.i.i48.i:                                     ; preds = %if.then.i.i47.i
   %243 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #26, !noalias !264
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i.i) #26, !noalias !264
   br label %lpad.body.i.i
 
 lpad.i.i:                                         ; preds = %invoke.cont.i.i.i
@@ -9576,7 +9572,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #26
   br label %lpad.body
 
 invoke.cont3:                                     ; preds = %entry
@@ -11010,7 +11006,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = call ptr @__cxa_begin_catch(ptr %10) #26
-  invoke void @_ZSt8_DestroyIPN3ue26dstateEEvT_S3_(ptr noundef %2, ptr noundef %__cur.09.i.i.i.i)
+  invoke void @_ZSt8_DestroyIPN3ue26dstateEEvT_S3_(ptr noundef %2, ptr noundef nonnull %__cur.09.i.i.i.i)
           to label %invoke.cont2.i.i.i.i unwind label %lpad1.i.i.i.i
 
 invoke.cont2.i.i.i.i:                             ; preds = %lpad.i.i.i.i
@@ -11191,7 +11187,7 @@ lpad.i.i.i.i93:                                   ; preds = %for.body.i.i.i.i90
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #26
-  invoke void @_ZSt8_DestroyIPN3ue26dstateEEvT_S3_(ptr noundef %add.ptr54, ptr noundef %__cur.09.i.i.i.i91)
+  invoke void @_ZSt8_DestroyIPN3ue26dstateEEvT_S3_(ptr noundef %add.ptr54, ptr noundef nonnull %__cur.09.i.i.i.i91)
           to label %invoke.cont2.i.i.i.i97 unwind label %lpad1.i.i.i.i94
 
 invoke.cont2.i.i.i.i97:                           ; preds = %lpad.i.i.i.i93

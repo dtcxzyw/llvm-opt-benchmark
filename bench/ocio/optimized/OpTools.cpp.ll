@@ -75,11 +75,11 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
   %cmp5064 = phi i1 [ false, %invoke.cont ], [ false, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ true, %for.body ]
   %tmp.sroa.0.062 = phi ptr [ %call5.i.i.i.i2.i.i25, %invoke.cont ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i25, %for.body ]
   invoke void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec8finalizeEv(ptr noundef nonnull align 8 dereferenceable(144) %ops)
-          to label %invoke.cont14 unwind label %lpad13.loopexit.split-lp
+          to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %for.end
   invoke void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec8optimizeENS_17OptimizationFlagsE(ptr noundef nonnull align 8 dereferenceable(144) %ops, i64 noundef 0)
-          to label %invoke.cont15 unwind label %lpad13.loopexit.split-lp
+          to label %invoke.cont15 unwind label %lpad13
 
 invoke.cont15:                                    ; preds = %invoke.cont14
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ops, i64 8
@@ -108,29 +108,26 @@ for.body20:                                       ; preds = %for.body20.preheade
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %9 = load ptr, ptr %vfn, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %tmp.sroa.0.062, ptr noundef nonnull %tmp.sroa.0.062, i64 noundef %numPixels)
-          to label %for.inc27 unwind label %lpad13.loopexit
+          to label %for.inc27 unwind label %lpad13.thread
 
 for.inc27:                                        ; preds = %for.body20
   %inc28 = add nuw i64 %i.054, 1
   %exitcond58.not = icmp eq i64 %inc28, %umax
   br i1 %exitcond58.not, label %for.cond31.preheader, label %for.body20, !llvm.loop !6
 
-lpad13.loopexit:                                  ; preds = %for.body20
+lpad13.thread:                                    ; preds = %for.body20
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %lpad13
+  br label %if.then.i.i.i
 
-lpad13.loopexit.split-lp:                         ; preds = %for.end, %invoke.cont14
+lpad13:                                           ; preds = %invoke.cont14, %for.end
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %lpad13
-
-lpad13:                                           ; preds = %lpad13.loopexit.split-lp, %lpad13.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad13.loopexit ], [ %lpad.loopexit.split-lp, %lpad13.loopexit.split-lp ]
   %tobool.not.i.i.i = icmp eq ptr %tmp.sroa.0.062, null
   br i1 %tobool.not.i.i.i, label %eh.resume, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %lpad13
+if.then.i.i.i:                                    ; preds = %lpad13.thread, %lpad13
+  %lpad.phi69 = phi { ptr, i32 } [ %lpad.loopexit, %lpad13.thread ], [ %lpad.loopexit.split-lp, %lpad13 ]
   tail call void @_ZdlPv(ptr noundef nonnull %tmp.sroa.0.062) #12
   br label %eh.resume
 
@@ -168,7 +165,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit36:                  ; preds = %for.end49, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad13
-  resume { ptr, i32 } %lpad.phi
+  %lpad.phi70 = phi { ptr, i32 } [ %lpad.phi69, %if.then.i.i.i ], [ %lpad.loopexit.split-lp, %lpad13 ]
+  resume { ptr, i32 } %lpad.phi70
 }
 
 declare i32 @__gxx_personality_v0(...)

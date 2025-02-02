@@ -1465,7 +1465,7 @@ return:                                           ; preds = %get_current_tstate.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @warn_explicit(ptr noundef nonnull %tstate, ptr noundef %category, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %module, ptr noundef %registry, ptr noundef %sourceline, ptr noundef %source) unnamed_addr #0 {
+define internal fastcc ptr @warn_explicit(ptr noundef nonnull %tstate, ptr noundef %category, ptr noundef %message, ptr noundef %filename, i32 noundef %lineno, ptr noundef %module, ptr noundef %registry, ptr noundef %sourceline, ptr noundef %source) unnamed_addr #0 {
 entry:
   %obj.i.i.i = alloca ptr, align 8
   %obj.i.i = alloca ptr, align 8
@@ -2169,12 +2169,12 @@ if.then109:                                       ; preds = %if.else106
 if.else118:                                       ; preds = %if.else106
   %call119 = call i32 @_PyUnicode_EqualToASCIIString(ptr noundef nonnull %retval.0.i84, ptr noundef nonnull @.str) #7
   %tobool120.not = icmp eq i32 %call119, 0
-  br i1 %tobool120.not, label %if.then121, label %if.then133
+  br i1 %tobool120.not, label %cleanup.thread, label %if.then133
 
-if.then121:                                       ; preds = %if.else118
+cleanup.thread:                                   ; preds = %if.else118
   %79 = load ptr, ptr @PyExc_RuntimeError, align 8
   %call122 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %79, ptr noundef nonnull @.str.14, ptr noundef nonnull %retval.0.i84, ptr noundef nonnull %item.2) #7
-  br label %cleanup
+  br label %if.then.i
 
 if.end126:                                        ; preds = %if.then109, %if.then93, %if.then98
   %registry.addr.0.sink = phi ptr [ %call99, %if.then98 ], [ %registry, %if.then93 ], [ %registry, %if.then109 ]
@@ -2200,30 +2200,32 @@ if.end.i.i93:                                     ; preds = %return_none
   store i32 %add.i.i91, ptr @_Py_NoneStruct, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end.i.i93, %return_none, %if.end126, %if.then133, %if.then98, %land.lhs.true85, %if.then121, %if.then71
-  %item.0 = phi ptr [ %item.2, %land.lhs.true85 ], [ %item.2, %if.then121 ], [ %item.2, %if.end126 ], [ %item.2, %if.then133 ], [ %item.2, %if.then98 ], [ %item.2, %if.then71 ], [ %item.1, %return_none ], [ %item.1, %if.end.i.i93 ]
-  %result.0 = phi ptr [ null, %land.lhs.true85 ], [ null, %if.then121 ], [ null, %if.end126 ], [ null, %if.then133 ], [ null, %if.then98 ], [ null, %if.then71 ], [ @_Py_NoneStruct, %return_none ], [ @_Py_NoneStruct, %if.end.i.i93 ]
+cleanup:                                          ; preds = %if.end.i.i93, %return_none, %if.end126, %if.then133, %if.then98, %land.lhs.true85, %if.then71
+  %item.0 = phi ptr [ %item.2, %land.lhs.true85 ], [ %item.2, %if.end126 ], [ %item.2, %if.then133 ], [ %item.2, %if.then98 ], [ %item.2, %if.then71 ], [ %item.1, %return_none ], [ %item.1, %if.end.i.i93 ]
+  %result.0 = phi ptr [ null, %land.lhs.true85 ], [ null, %if.end126 ], [ null, %if.then133 ], [ null, %if.then98 ], [ null, %if.then71 ], [ @_Py_NoneStruct, %return_none ], [ @_Py_NoneStruct, %if.end.i.i93 ]
   %cmp.not.i = icmp eq ptr %item.0, null
   br i1 %cmp.not.i, label %if.then.i101, label %if.then.i
 
-if.then.i:                                        ; preds = %cleanup
-  %81 = load i64, ptr %item.0, align 8
+if.then.i:                                        ; preds = %cleanup.thread, %cleanup
+  %result.0264 = phi ptr [ null, %cleanup.thread ], [ %result.0, %cleanup ]
+  %item.0263 = phi ptr [ %item.2, %cleanup.thread ], [ %item.0, %cleanup ]
+  %81 = load i64, ptr %item.0263, align 8
   %82 = and i64 %81, 2147483648
   %cmp.i2.not.i = icmp eq i64 %82, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i96, label %if.then.i101
 
 if.end.i.i96:                                     ; preds = %if.then.i
   %dec.i.i97 = add i64 %81, -1
-  store i64 %dec.i.i97, ptr %item.0, align 8
+  store i64 %dec.i.i97, ptr %item.0263, align 8
   %cmp.i.i98 = icmp eq i64 %dec.i.i97, 0
   br i1 %cmp.i.i98, label %if.then1.i.i99, label %if.then.i101
 
 if.then1.i.i99:                                   ; preds = %if.end.i.i96
-  call void @_Py_Dealloc(ptr noundef nonnull %item.0) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %item.0263) #7
   br label %if.then.i101
 
 if.then.i101:                                     ; preds = %if.then1.i.i99, %if.end.i.i96, %if.then.i, %cleanup, %if.then25.i, %if.then41.i, %if.then1.i121.i, %if.end.i118.i, %if.then47.i, %if.then1.i112.i, %if.end.i109.i, %if.then51.i, %if.then1.i103.i, %if.end.i100.i, %if.then55.i, %if.then1.i94.i, %if.end.i91.i, %if.then61.i, %if.then1.i85.i, %if.end.i82.i, %get_default_action.exit.i, %if.then3.i.i85, %if.then12.i.i, %if.then1.i23.i.i, %if.end.i20.i.i, %if.then3.i, %if.then14.i, %if.then51
-  %result.0156177 = phi ptr [ null, %if.then51 ], [ null, %if.then14.i ], [ null, %if.then3.i ], [ %result.0, %cleanup ], [ %result.0, %if.then.i ], [ %result.0, %if.end.i.i96 ], [ %result.0, %if.then1.i.i99 ], [ null, %if.then25.i ], [ null, %if.then41.i ], [ null, %if.then1.i121.i ], [ null, %if.end.i118.i ], [ null, %if.then47.i ], [ null, %if.then1.i112.i ], [ null, %if.end.i109.i ], [ null, %if.then51.i ], [ null, %if.then1.i103.i ], [ null, %if.end.i100.i ], [ null, %if.then55.i ], [ null, %if.then1.i94.i ], [ null, %if.end.i91.i ], [ null, %if.then61.i ], [ null, %if.then1.i85.i ], [ null, %if.end.i82.i ], [ null, %get_default_action.exit.i ], [ null, %if.then3.i.i85 ], [ null, %if.then12.i.i ], [ null, %if.then1.i23.i.i ], [ null, %if.end.i20.i.i ]
+  %result.0156177 = phi ptr [ null, %if.then51 ], [ null, %if.then14.i ], [ null, %if.then3.i ], [ %result.0, %cleanup ], [ %result.0264, %if.then.i ], [ %result.0264, %if.end.i.i96 ], [ %result.0264, %if.then1.i.i99 ], [ null, %if.then25.i ], [ null, %if.then41.i ], [ null, %if.then1.i121.i ], [ null, %if.end.i118.i ], [ null, %if.then47.i ], [ null, %if.then1.i112.i ], [ null, %if.end.i109.i ], [ null, %if.then51.i ], [ null, %if.then1.i103.i ], [ null, %if.end.i100.i ], [ null, %if.then55.i ], [ null, %if.then1.i94.i ], [ null, %if.end.i91.i ], [ null, %if.then61.i ], [ null, %if.then1.i85.i ], [ null, %if.end.i82.i ], [ null, %get_default_action.exit.i ], [ null, %if.then3.i.i85 ], [ null, %if.then12.i.i ], [ null, %if.then1.i23.i.i ], [ null, %if.end.i20.i.i ]
   %83 = load i64, ptr %call41, align 8
   %84 = and i64 %83, 2147483648
   %cmp.i2.not.i102 = icmp eq i64 %84, 0
@@ -2936,7 +2938,7 @@ declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #1
 declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @do_warn(ptr noundef %message, ptr noundef %category, i64 noundef %stack_level, ptr noundef %source, ptr noundef readonly %skip_file_prefixes) unnamed_addr #0 {
+define internal fastcc ptr @do_warn(ptr noundef %message, ptr noundef %category, i64 noundef %stack_level, ptr noundef %source, ptr noundef readonly %skip_file_prefixes) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -4267,7 +4269,7 @@ declare ptr @PyImport_GetModule(ptr noundef) local_unnamed_addr #1
 declare i32 @PyObject_GetOptionalAttr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @warnings_warn(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @warnings_warn(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -4470,7 +4472,7 @@ exit:                                             ; preds = %if.end9.i, %get_cat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @warnings_warn_explicit(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @warnings_warn_explicit(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %get_source.i.i = alloca ptr, align 8
   %argsbuf = alloca [8 x ptr], align 16

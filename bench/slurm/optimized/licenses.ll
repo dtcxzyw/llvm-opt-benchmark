@@ -504,22 +504,23 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %34 = load i8, ptr %33, align 4
   %.not39 = icmp eq i8 %34, 0
-  br i1 %.not39, label %40, label %.split.us
+  br i1 %.not39, label %40, label %.split.us.thread
 
-.split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %21, %.lr.ph.split.us ], [ %32, %.lr.ph.split ]
+.split.us.thread:                                 ; preds = %.lr.ph.split
   %35 = tail call ptr @list_remove(ptr noundef %18) #11
-  br i1 %.not40, label %36, label %.outer
+  br label %.outer
 
-36:                                               ; preds = %.split.us
+.split.us:                                        ; preds = %.lr.ph.split.us
+  %36 = tail call ptr @list_remove(ptr noundef %18) #11
   %37 = tail call ptr @list_create(ptr noundef nonnull @license_free_rec) #11
   br label %.outer
 
-.outer:                                           ; preds = %36, %.split.us
-  %.1 = phi ptr [ %.028.ph50, %.split.us ], [ %37, %36 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 12
+.outer:                                           ; preds = %.split.us.thread, %.split.us
+  %.us-phi61 = phi ptr [ %21, %.split.us ], [ %32, %.split.us.thread ]
+  %.1 = phi ptr [ %37, %.split.us ], [ %.028.ph50, %.split.us.thread ]
+  %38 = getelementptr inbounds nuw i8, ptr %.us-phi61, i64 12
   store i32 0, ptr %38, align 4
-  tail call void @list_append(ptr noundef %.1, ptr noundef nonnull %.us-phi) #11
+  tail call void @list_append(ptr noundef %.1, ptr noundef nonnull %.us-phi61) #11
   %39 = tail call ptr @list_next(ptr noundef %18) #11
   %.not3646 = icmp eq ptr %39, null
   br i1 %.not3646, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !12

@@ -37810,8 +37810,6 @@ define ptr @stbi_zlib_compress(ptr noundef %0, i32 noundef %1, ptr noundef write
 7:                                                ; preds = %4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %3, i32 5)
   %malloc = tail call dereferenceable_or_null(10) ptr @malloc(i64 10)
-  %.not18.i = icmp ne ptr %malloc, null
-  tail call void @llvm.assume(i1 %.not18.i)
   %8 = getelementptr inbounds nuw i8, ptr %malloc, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %malloc, i64 8
   store i32 2, ptr %malloc, align 4
@@ -39427,7 +39425,7 @@ define noundef ptr @stbi_write_png_to_mem(ptr noundef readonly captures(none) %0
   br i1 %exitcond201.not, label %._crit_edge, label %.preheader, !llvm.loop !292
 
 ._crit_edge:                                      ; preds = %50, %34, %23, %.preheader179
-  tail call void @free(ptr noundef %18) #54
+  tail call void @free(ptr noundef nonnull %18) #54
   %54 = load i32, ptr @stbi_write_png_compression_level, align 4
   %55 = call ptr @stbi_zlib_compress(ptr noundef nonnull %15, i32 noundef %13, ptr noundef nonnull %7, i32 noundef %54)
   tail call void @free(ptr noundef nonnull %15) #54
@@ -46159,7 +46157,7 @@ _ZSt10_ConstructIN8tinygltf5ValueEJRKS1_EEvPT_DpOT0_.exit.i: ; preds = %.lr.ph
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
   %25 = tail call ptr @__cxa_begin_catch(ptr %24) #54
-  invoke void @_ZSt8_DestroyIPN8tinygltf5ValueEEvT_S3_(ptr noundef %14, ptr noundef %.0.i19)
+  invoke void @_ZSt8_DestroyIPN8tinygltf5ValueEEvT_S3_(ptr noundef %14, ptr noundef nonnull %.0.i19)
           to label %26 unwind label %27
 
 26:                                               ; preds = %22
@@ -77753,7 +77751,7 @@ _ZSt10_ConstructIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_string
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
   %24 = tail call ptr @__cxa_begin_catch(ptr %23) #54
-  invoke void @_ZSt8_DestroyIPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEEEvT_SF_(ptr noundef %13, ptr noundef %.0.i19)
+  invoke void @_ZSt8_DestroyIPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEEEvT_SF_(ptr noundef %13, ptr noundef nonnull %.0.i19)
           to label %25 unwind label %26
 
 25:                                               ; preds = %21
@@ -116463,7 +116461,7 @@ _ZNSt12_Vector_baseIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   br i1 %.not, label %.thread, label %46
 
 .thread:                                          ; preds = %40
-  tail call void @_ZNSt16allocator_traitsISaIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEEEE7destroyISD_EEvRSE_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23) #54
+  tail call void @_ZNSt16allocator_traitsISaIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEEEE7destroyISD_EEvRSE_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %23) #54
   br label %_ZNSt12_Vector_baseIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESaISD_EE13_M_deallocateEPSD_m.exit35
 
 44:                                               ; preds = %_ZNSt12_Vector_baseIN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEEESaISD_EE13_M_deallocateEPSD_m.exit35
@@ -126933,7 +126931,7 @@ define linkonce_odr void @_ZSt19__throw_regex_errorNSt15regex_constants10error_t
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %3) #54
+  tail call void @__cxa_free_exception(ptr nonnull %3) #54
   resume { ptr, i32 } %6
 }
 
@@ -137459,7 +137457,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
   %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #54
-  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %2, ptr noundef %.016)
+  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %2, ptr noundef nonnull %.016)
           to label %14 unwind label %15
 
 14:                                               ; preds = %.body

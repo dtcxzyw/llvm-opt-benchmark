@@ -1686,11 +1686,11 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function6FnOnce40call_on
   %13 = getelementptr i8, ptr %5, i64 %12
   %14 = getelementptr i8, ptr %13, i64 16
   %15 = invoke { ptr, i64 } @_ZN7walkdir4dent8DirEntry9file_name17hcf6c2ce1f673de5eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
-          to label %.noexc.i unwind label %26, !noalias !309
+          to label %.noexc.i unwind label %24, !noalias !309
 
 .noexc.i:                                         ; preds = %3
   %16 = invoke { ptr, i64 } @_ZN7walkdir4dent8DirEntry9file_name17hcf6c2ce1f673de5eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
-          to label %.noexc2.i unwind label %26
+          to label %.noexc2.i unwind label %24
 
 .noexc2.i:                                        ; preds = %.noexc.i
   %17 = extractvalue { ptr, i64 } %15, 1
@@ -1699,55 +1699,51 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3ops8function6FnOnce40call_on
   %20 = extractvalue { ptr, i64 } %16, 1
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %22 = load ptr, ptr %21, align 8, !invariant.load !4, !alias.scope !298, !noalias !310, !nonnull !4
-  %23 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %23)
-  %24 = icmp ne ptr %19, null
-  tail call void @llvm.assume(i1 %24)
-  %25 = invoke noundef range(i8 -1, 2) i8 %22(ptr noundef align 1 %14, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20)
-          to label %"_ZN6ignore4walk11WalkBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53dfe517e6dbf5f0E.llvm.10367771592465264080.exit.i" unwind label %26
+  %23 = invoke noundef range(i8 -1, 2) i8 %22(ptr noundef align 1 %14, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %20)
+          to label %"_ZN6ignore4walk11WalkBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53dfe517e6dbf5f0E.llvm.10367771592465264080.exit.i" unwind label %24
 
-26:                                               ; preds = %.noexc2.i, %.noexc.i, %3
-  %27 = landingpad { ptr, i32 }
+24:                                               ; preds = %.noexc2.i, %.noexc.i, %3
+  %25 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !317)
-  %28 = load ptr, ptr %4, align 8, !alias.scope !320, !noalias !301, !nonnull !4, !noundef !4
-  %29 = atomicrmw sub ptr %28, i64 1 release, align 8, !noalias !320
-  %30 = icmp eq i64 %29, 1
-  br i1 %30, label %31, label %"_ZN4core3ptr111drop_in_place$LT$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he4b9f21e697d805dE.llvm.10367771592465264080.exit.i"
+  %26 = load ptr, ptr %4, align 8, !alias.scope !320, !noalias !301, !nonnull !4, !noundef !4
+  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !320
+  %28 = icmp eq i64 %27, 1
+  br i1 %28, label %29, label %"_ZN4core3ptr111drop_in_place$LT$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he4b9f21e697d805dE.llvm.10367771592465264080.exit.i"
 
-31:                                               ; preds = %26
+29:                                               ; preds = %24
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h91c9099697961012E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZN4core3ptr111drop_in_place$LT$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he4b9f21e697d805dE.llvm.10367771592465264080.exit.i" unwind label %36
+          to label %"_ZN4core3ptr111drop_in_place$LT$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he4b9f21e697d805dE.llvm.10367771592465264080.exit.i" unwind label %34
 
 "_ZN6ignore4walk11WalkBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53dfe517e6dbf5f0E.llvm.10367771592465264080.exit.i": ; preds = %.noexc2.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !324)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
-  %32 = load ptr, ptr %4, align 8, !alias.scope !330, !noalias !301, !nonnull !4, !noundef !4
-  %33 = atomicrmw sub ptr %32, i64 1 release, align 8, !noalias !330
-  %34 = icmp eq i64 %33, 1
-  br i1 %34, label %35, label %_ZN4core3ops8function6FnOnce9call_once17hc258992e1b024b73E.exit
+  %30 = load ptr, ptr %4, align 8, !alias.scope !330, !noalias !301, !nonnull !4, !noundef !4
+  %31 = atomicrmw sub ptr %30, i64 1 release, align 8, !noalias !330
+  %32 = icmp eq i64 %31, 1
+  br i1 %32, label %33, label %_ZN4core3ops8function6FnOnce9call_once17hc258992e1b024b73E.exit
 
-35:                                               ; preds = %"_ZN6ignore4walk11WalkBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53dfe517e6dbf5f0E.llvm.10367771592465264080.exit.i"
+33:                                               ; preds = %"_ZN6ignore4walk11WalkBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53dfe517e6dbf5f0E.llvm.10367771592465264080.exit.i"
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h91c9099697961012E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN4core3ops8function6FnOnce9call_once17hc258992e1b024b73E.exit
 
-36:                                               ; preds = %31
-  %37 = landingpad { ptr, i32 }
+34:                                               ; preds = %29
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #38
   unreachable
 
-"_ZN4core3ptr111drop_in_place$LT$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he4b9f21e697d805dE.llvm.10367771592465264080.exit.i": ; preds = %31, %26
-  resume { ptr, i32 } %27
+"_ZN4core3ptr111drop_in_place$LT$ignore..walk..WalkBuilder..build..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he4b9f21e697d805dE.llvm.10367771592465264080.exit.i": ; preds = %29, %24
+  resume { ptr, i32 } %25
 
-_ZN4core3ops8function6FnOnce9call_once17hc258992e1b024b73E.exit: ; preds = %"_ZN6ignore4walk11WalkBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53dfe517e6dbf5f0E.llvm.10367771592465264080.exit.i", %35
+_ZN4core3ops8function6FnOnce9call_once17hc258992e1b024b73E.exit: ; preds = %"_ZN6ignore4walk11WalkBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h53dfe517e6dbf5f0E.llvm.10367771592465264080.exit.i", %33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret i8 %25
+  ret i8 %23
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1948,19 +1944,17 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Resul
 
 4:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1), !noalias !367
-  %5 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %5)
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17ha98b89c27271be9fE.llvm.12875954175451687458(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull %.8.val), !noalias !367
-  %6 = load i8, ptr %1, align 8, !range !122, !alias.scope !374, !noalias !367, !noundef !4
-  %switch.not.i.i.i.i = icmp eq i8 %6, 3
-  br i1 %switch.not.i.i.i.i, label %7, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6c416b0226bfbab1E.exit"
+  %5 = load i8, ptr %1, align 8, !range !122, !alias.scope !374, !noalias !367, !noundef !4
+  %switch.not.i.i.i.i = icmp eq i8 %5, 3
+  br i1 %switch.not.i.i.i.i, label %6, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6c416b0226bfbab1E.exit"
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6b956ba37844f923E.llvm.12875954175451687458"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8), !noalias !367
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h6b956ba37844f923E.llvm.12875954175451687458"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7), !noalias !367
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6c416b0226bfbab1E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6c416b0226bfbab1E.exit": ; preds = %4, %7
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h6c416b0226bfbab1E.exit": ; preds = %4, %6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1), !noalias !367
   br label %3
 }
@@ -4395,12 +4389,8 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN6ignore4walk11WalkBuilder5build28_
   %18 = extractvalue { ptr, i64 } %16, 1
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load ptr, ptr %19, align 8, !invariant.load !4, !nonnull !4
-  %21 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %21)
-  %22 = icmp ne ptr %17, null
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call noundef i8 %20(ptr noundef align 1 %12, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %15, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18), !range !702
-  ret i8 %23
+  %21 = tail call noundef i8 %20(ptr noundef align 1 %12, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %15, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %18), !range !702
+  ret i8 %21
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

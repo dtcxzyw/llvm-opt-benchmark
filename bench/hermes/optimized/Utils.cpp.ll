@@ -27,8 +27,6 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %3, 51
   %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %2, ptr null
-  %tobool = icmp ne ptr %spec.select.i, null
-  tail call void @llvm.assume(i1 %tobool)
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i, i32 noundef 0) #3
   %tobool7.not = icmp eq ptr %res.011, null
   %cmp8.not = icmp eq ptr %call.i, %res.011
@@ -73,8 +71,6 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %3, 50
   %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %2, ptr null
-  %tobool = icmp ne ptr %spec.select.i, null
-  tail call void @llvm.assume(i1 %tobool)
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i, i32 noundef 1) #3
   %4 = icmp eq ptr %call.i, null
   %sub.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 -16
@@ -152,8 +148,6 @@ for.body.i:                                       ; preds = %if.then8, %for.inc.
 if.end.i:                                         ; preds = %for.body.i
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 51
   %spec.select.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %9, ptr null
-  %tobool.i = icmp ne ptr %spec.select.i.i, null
-  tail call void @llvm.assume(i1 %tobool.i)
   %call.i.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i.i, i32 noundef 0) #3
   %tobool7.not.i = icmp eq ptr %res.011.i, null
   %cmp8.not.i = icmp eq ptr %call.i.i, %res.011.i
@@ -336,8 +330,6 @@ for.body.i29:                                     ; preds = %if.end17, %for.inc.
 if.end.i32:                                       ; preds = %for.body.i29
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i8 %20, 51
   %spec.select.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, ptr %19, ptr null
-  %tobool.i = icmp ne ptr %spec.select.i.i, null
-  tail call void @llvm.assume(i1 %tobool.i)
   %call.i.i33 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %spec.select.i.i, i32 noundef 0) #3
   %tobool7.not.i = icmp eq ptr %res.011.i, null
   %cmp8.not.i34 = icmp eq ptr %call.i.i33, %res.011.i

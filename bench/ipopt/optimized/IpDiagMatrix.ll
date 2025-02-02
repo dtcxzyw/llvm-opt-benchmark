@@ -319,9 +319,9 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %_ZN5Ipopt6Vector4Ax
 40:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit15, label %41
+  br label %41
 
-41:                                               ; preds = %.thread, %40
+41:                                               ; preds = %40, %.thread
   %lpad.phi24 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %40 ]
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %43 = load i32, ptr %42, align 8
@@ -337,9 +337,8 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %_ZN5Ipopt6Vector4Ax
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(205) %18) #10
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit15
 
-_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit15:       ; preds = %40, %41, %46
-  %lpad.phi25 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %40 ], [ %lpad.phi24, %41 ], [ %lpad.phi24, %46 ]
-  resume { ptr, i32 } %lpad.phi25
+_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit15:       ; preds = %41, %46
+  resume { ptr, i32 } %lpad.phi24
 }
 
 declare void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceable(205), double noundef) local_unnamed_addr #4

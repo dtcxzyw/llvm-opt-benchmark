@@ -10145,7 +10145,7 @@ Vec_PtrStart.exit:                                ; preds = %.critedge, %40
   tail call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %48, i1 false)
   %49 = or i32 %3, %1
   %.not58 = icmp eq i32 %49, 0
-  br i1 %.not58, label %.critedge2, label %.lr.ph50.preheader
+  br i1 %.not58, label %.critedge2.thread, label %.lr.ph50.preheader
 
 .lr.ph50.preheader:                               ; preds = %Vec_PtrStart.exit
   %.not = icmp eq i32 %1, 0
@@ -10238,22 +10238,19 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %80 = sext i32 %.val to i64
   %81 = icmp slt i64 %indvars.iv.next53, %80
-  br i1 %81, label %.lr.ph50, label %.critedge2.loopexit, !llvm.loop !95
+  br i1 %81, label %.lr.ph50, label %.critedge2, !llvm.loop !95
 
-.critedge2.loopexit:                              ; preds = %._crit_edge
+.critedge2:                                       ; preds = %._crit_edge
   %.pre57 = load ptr, ptr %10, align 8
-  br label %.critedge2
+  %.not.i = icmp eq ptr %.pre57, null
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge2.thread
 
-.critedge2:                                       ; preds = %.critedge2.loopexit, %Vec_PtrStart.exit
-  %82 = phi ptr [ %.pre57, %.critedge2.loopexit ], [ %8, %Vec_PtrStart.exit ]
-  %.not.i = icmp eq ptr %82, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %83
-
-83:                                               ; preds = %.critedge2
+.critedge2.thread:                                ; preds = %Vec_PtrStart.exit, %.critedge2
+  %82 = phi ptr [ %.pre57, %.critedge2 ], [ %8, %Vec_PtrStart.exit ]
   tail call void @free(ptr noundef nonnull %82) #21
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge2, %83
+Vec_PtrFree.exit:                                 ; preds = %.critedge2, %.critedge2.thread
   tail call void @free(ptr noundef nonnull %5) #21
   ret ptr %38
 }
@@ -10703,7 +10700,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #21
-  call void @free(ptr noundef %9) #21
+  call void @free(ptr noundef nonnull %9) #21
   br label %16
 
 14:                                               ; preds = %5

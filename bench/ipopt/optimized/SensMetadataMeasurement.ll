@@ -1170,7 +1170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
   %430 = load i8, ptr %4, align 1
   %431 = trunc i8 %430 to i1
-  br i1 %431, label %432, label %485
+  br i1 %431, label %432, label %484
 
 432:                                              ; preds = %429
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #21
@@ -1295,14 +1295,14 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i..noexc188_crit_edge: 
   %470 = lshr exact i64 %.pre-phi305, 2
   %471 = trunc i64 %470 to i32
   %472 = invoke noundef i32 @_ZN5Ipopt10AsIndexMaxEiPKii(i32 noundef %471, ptr noundef nonnull %467, i32 noundef 1)
-          to label %_ZNSt6vectorIiSaIiEED2Ev.exit unwind label %482
+          to label %_ZNSt6vectorIiSaIiEED2Ev.exit unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit195
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %469
   %473 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %472, ptr %473, align 4
   call void @_ZdlPv(ptr noundef nonnull %467) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
-  br label %485
+  br label %484
 
 474:                                              ; preds = %.noexc, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit178
   %475 = landingpad { ptr, i32 }
@@ -1318,7 +1318,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %469
 .body:                                            ; preds = %474, %423, %476
   %.pn42 = phi { ptr, i32 } [ %477, %476 ], [ %475, %474 ], [ %424, %423 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
-  br label %486
+  br label %485
 
 478:                                              ; preds = %.noexc180, %432
   %479 = landingpad { ptr, i32 }
@@ -1328,33 +1328,29 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %469
 .body182:                                         ; preds = %434, %478
   %eh.lpad-body183 = phi { ptr, i32 } [ %479, %478 ], [ %435, %434 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #21
-  br label %486
+  br label %485
 
 480:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i, %.noexc.i.i
   %481 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit195
+  br label %483
 
-482:                                              ; preds = %469
-  %483 = landingpad { ptr, i32 }
+_ZNSt6vectorIiSaIiEED2Ev.exit195:                 ; preds = %469
+  %482 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i194 = icmp eq ptr %467, null
-  br i1 %.not.i.i.i194, label %_ZNSt6vectorIiSaIiEED2Ev.exit195, label %484
-
-484:                                              ; preds = %482
   call void @_ZdlPv(ptr noundef nonnull %467) #22
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit195
+  br label %483
 
-_ZNSt6vectorIiSaIiEED2Ev.exit195:                 ; preds = %484, %482, %480
-  %.pn44 = phi { ptr, i32 } [ %481, %480 ], [ %483, %482 ], [ %483, %484 ]
+483:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit195, %480
+  %.pn44 = phi { ptr, i32 } [ %482, %_ZNSt6vectorIiSaIiEED2Ev.exit195 ], [ %481, %480 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
-  br label %486
+  br label %485
 
-485:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %429
+484:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %429
   ret i1 true
 
-486:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit195, %.body182, %.body
-  %.pn44.pn = phi { ptr, i32 } [ %.pn44, %_ZNSt6vectorIiSaIiEED2Ev.exit195 ], [ %eh.lpad-body183, %.body182 ], [ %.pn42, %.body ]
+485:                                              ; preds = %483, %.body182, %.body
+  %.pn44.pn = phi { ptr, i32 } [ %.pn44, %483 ], [ %eh.lpad-body183, %.body182 ], [ %.pn42, %.body ]
   resume { ptr, i32 } %.pn44.pn
 }
 

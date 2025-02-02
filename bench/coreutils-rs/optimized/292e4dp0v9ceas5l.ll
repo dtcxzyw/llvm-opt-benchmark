@@ -2085,7 +2085,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %305, %301, %"_ZN55_
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  br label %357
+  br label %356
 
 .thread19:                                        ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit", %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h8ed495e3c6eb4d76E.exit"
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
@@ -2176,8 +2176,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %305, %301, %"_ZN55_
   %353 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4f56f1cd31108130E"(i64 noundef %352, i1 noundef zeroext false), !noalias !376
   %354 = extractvalue { i64, ptr } %353, 0
   %355 = extractvalue { i64, ptr } %353, 1
-  %356 = icmp ne ptr %355, null
-  call void @llvm.assume(i1 %356)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %355, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.i, i64 %352, i1 false)
   store i64 %354, ptr %0, align 8, !alias.scope !376
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2185,9 +2183,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %305, %301, %"_ZN55_
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %352, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !376
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
-  br label %357
+  br label %356
 
-357:                                              ; preds = %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
+356:                                              ; preds = %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit", %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
   ret void
 }
 

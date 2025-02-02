@@ -896,8 +896,8 @@ define noundef zeroext i1 @_ZN5draco33SequentialIntegerAttributeEncoder12EncodeV
   store i8 -2, ptr %4, align 1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8
-  %.not98 = icmp eq ptr %19, null
-  br i1 %.not98, label %32, label %20
+  %.not103 = icmp eq ptr %19, null
+  br i1 %.not103, label %32, label %20
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %0, align 8
@@ -936,8 +936,8 @@ define noundef zeroext i1 @_ZN5draco33SequentialIntegerAttributeEncoder12EncodeV
 
 _ZN5draco13EncoderBuffer6EncodeIaEEbRKT_.exit:    ; preds = %32, %36
   %45 = load ptr, ptr %18, align 8
-  %.not99 = icmp eq ptr %45, null
-  br i1 %.not99, label %_ZN5draco13EncoderBuffer6EncodeIaEEbRKT_.exit67, label %46
+  %.not104 = icmp eq ptr %45, null
+  br i1 %.not104, label %_ZN5draco13EncoderBuffer6EncodeIaEEbRKT_.exit67, label %46
 
 46:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeIaEEbRKT_.exit
   %47 = load ptr, ptr %45, align 8
@@ -1007,8 +1007,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc68
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc68, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.0.0 = phi ptr [ %81, %.noexc68 ], [ %81, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %85 = load ptr, ptr %18, align 8
-  %.not100 = icmp eq ptr %85, null
-  br i1 %.not100, label %.thread96, label %86
+  %.not105 = icmp eq ptr %85, null
+  br i1 %.not105, label %.thread96, label %86
 
 86:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %87 = load ptr, ptr %1, align 8
@@ -1019,17 +1019,17 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
           to label %92 unwind label %.loopexit.split-lp
 
 92:                                               ; preds = %86
-  br i1 %91, label %93, label %224
+  br i1 %91, label %93, label %.thread98
 
 .loopexit:                                        ; preds = %209
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %226
+  br label %225
 
 .loopexit.split-lp:                               ; preds = %86, %94, %.thread96, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit76, %219, %114, %168, %179, %197
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %226
+  br label %225
 
 93:                                               ; preds = %92
   %.pr = load ptr, ptr %18, align 8
@@ -1048,8 +1048,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 
 100:                                              ; preds = %99
   %.pr95 = load ptr, ptr %18, align 8
-  %.not101 = icmp eq ptr %.pr95, null
-  %spec.select = select i1 %.not101, ptr %78, ptr %.sroa.0.0
+  %.not106 = icmp eq ptr %.pr95, null
+  %spec.select = select i1 %.not106, ptr %78, ptr %.sroa.0.0
   br label %.thread96
 
 .thread96:                                        ; preds = %100, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, %93
@@ -1091,13 +1091,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 .critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
-  br i1 %111, label %.critedge.thread, label %.preheader103
+  br i1 %111, label %.critedge.thread, label %.preheader108
 
-.preheader103:                                    ; preds = %.critedge
-  %.not108 = icmp eq i32 %73, 0
-  br i1 %.not108, label %._crit_edge.thread, label %.lr.ph.preheader
+.preheader108:                                    ; preds = %.critedge
+  %.not113 = icmp eq i32 %73, 0
+  br i1 %.not113, label %._crit_edge.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader103
+.lr.ph.preheader:                                 ; preds = %.preheader108
   %wide.trip.count = and i64 %72, 4294967295
   br label %.lr.ph
 
@@ -1159,13 +1159,13 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %.critedge.thread, %
 .body:                                            ; preds = %136, %109, %138
   %.pn = phi { ptr, i32 } [ %139, %138 ], [ %137, %136 ], [ %110, %109 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
-  br label %226
+  br label %225
 
 140:                                              ; preds = %142, %133, %129
   %141 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5draco7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #19
-  br label %226
+  br label %225
 
 142:                                              ; preds = %133, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1197,11 +1197,11 @@ _ZN5draco7OptionsD2Ev.exit:                       ; preds = %153
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.049104 = phi i32 [ 0, %.lr.ph.preheader ], [ %160, %.lr.ph ]
+  %.049109 = phi i32 [ 0, %.lr.ph.preheader ], [ %160, %.lr.ph ]
   %158 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4
-  %.fr122 = freeze i32 %159
-  %160 = or i32 %.fr122, %.049104
+  %.fr127 = freeze i32 %159
+  %160 = or i32 %.fr127, %.049109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -1213,7 +1213,7 @@ _ZN5draco7OptionsD2Ev.exit:                       ; preds = %153
   %162 = sub nuw nsw i32 4, %.lhs.trunc
   br i1 %.not62, label %._crit_edge.thread, label %163
 
-._crit_edge.thread:                               ; preds = %.preheader103, %._crit_edge
+._crit_edge.thread:                               ; preds = %.preheader108, %._crit_edge
   br label %163
 
 163:                                              ; preds = %._crit_edge, %._crit_edge.thread
@@ -1267,18 +1267,18 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit76:  ; preds = %_ZN5draco13EncoderB
   br i1 %189, label %194, label %.preheader
 
 .preheader:                                       ; preds = %188
-  br i1 %.not108, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, label %.lr.ph107
+  br i1 %.not113, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, label %.lr.ph112
 
-.lr.ph107:                                        ; preds = %.preheader
+.lr.ph112:                                        ; preds = %.preheader
   %190 = zext nneg i32 %164 to i64
   %191 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %192 = load i64, ptr %33, align 8
   %193 = icmp slt i64 %192, 1
-  br i1 %193, label %.lr.ph107.split.preheader, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
+  br i1 %193, label %.lr.ph112.split.preheader, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
-.lr.ph107.split.preheader:                        ; preds = %.lr.ph107
-  %wide.trip.count115 = and i64 %72, 4294967295
-  br label %.lr.ph107.split
+.lr.ph112.split.preheader:                        ; preds = %.lr.ph112
+  %wide.trip.count120 = and i64 %72, 4294967295
+  br label %.lr.ph112.split
 
 194:                                              ; preds = %188
   %195 = load i64, ptr %33, align 8
@@ -1298,18 +1298,18 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit76:  ; preds = %_ZN5draco13EncoderB
   invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %2, ptr %206, ptr noundef %.sroa.0.0, ptr noundef %201)
           to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit unwind label %.loopexit.split-lp
 
-.lr.ph107.splitthread-pre-split:                  ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit79
-  %.pr121 = load i64, ptr %33, align 8
-  br label %.lr.ph107.split
+.lr.ph112.splitthread-pre-split:                  ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit79
+  %.pr126 = load i64, ptr %33, align 8
+  br label %.lr.ph112.split
 
-.lr.ph107.split:                                  ; preds = %.lr.ph107.splitthread-pre-split, %.lr.ph107.split.preheader
-  %207 = phi i64 [ %.pr121, %.lr.ph107.splitthread-pre-split ], [ %192, %.lr.ph107.split.preheader ]
-  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph107.splitthread-pre-split ], [ 0, %.lr.ph107.split.preheader ]
+.lr.ph112.split:                                  ; preds = %.lr.ph112.splitthread-pre-split, %.lr.ph112.split.preheader
+  %207 = phi i64 [ %.pr126, %.lr.ph112.splitthread-pre-split ], [ %192, %.lr.ph112.split.preheader ]
+  %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.lr.ph112.splitthread-pre-split ], [ 0, %.lr.ph112.split.preheader ]
   %208 = icmp slt i64 %207, 1
   br i1 %208, label %209, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit79
 
-209:                                              ; preds = %.lr.ph107.split
-  %210 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv112
+209:                                              ; preds = %.lr.ph112.split
+  %210 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv117
   %211 = load ptr, ptr %191, align 8
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 %190
   %213 = load ptr, ptr %2, align 8
@@ -1320,15 +1320,15 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit76:  ; preds = %_ZN5draco13EncoderB
   invoke void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %2, ptr %217, ptr noundef %210, ptr noundef %212)
           to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit79 unwind label %.loopexit
 
-_ZN5draco13EncoderBuffer6EncodeEPKvm.exit79:      ; preds = %.lr.ph107.split, %209
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, label %.lr.ph107.splitthread-pre-split, !llvm.loop !11
+_ZN5draco13EncoderBuffer6EncodeEPKvm.exit79:      ; preds = %.lr.ph112.split, %209
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
+  br i1 %exitcond121.not, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, label %.lr.ph112.splitthread-pre-split, !llvm.loop !11
 
-_ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit79, %.lr.ph107, %.preheader, %194, %197, %_ZN5draco7OptionsD2Ev.exit
+_ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit79, %.lr.ph112, %.preheader, %194, %197, %_ZN5draco7OptionsD2Ev.exit
   %218 = load ptr, ptr %18, align 8
-  %.not102 = icmp eq ptr %218, null
-  br i1 %.not102, label %224, label %219
+  %.not107 = icmp eq ptr %218, null
+  br i1 %.not107, label %224, label %219
 
 219:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
   %220 = load ptr, ptr %218, align 8
@@ -1337,29 +1337,30 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %_ZN5draco13EncoderB
   %223 = invoke noundef zeroext i1 %222(ptr noundef nonnull align 8 dereferenceable(8) %218, ptr noundef nonnull %2)
           to label %224 unwind label %.loopexit.split-lp
 
-224:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, %219, %92, %_ZN5draco7OptionsD2Ev.exit
-  %.1 = phi i1 [ false, %_ZN5draco7OptionsD2Ev.exit ], [ false, %92 ], [ true, %219 ], [ true, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit ]
+224:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, %219, %_ZN5draco7OptionsD2Ev.exit
+  %.1 = phi i1 [ false, %_ZN5draco7OptionsD2Ev.exit ], [ true, %219 ], [ true, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit ]
   %.not.i.i.i = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %225
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.thread98
 
-225:                                              ; preds = %224
+.thread98:                                        ; preds = %92, %224
+  %.1101 = phi i1 [ %.1, %224 ], [ false, %92 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #21
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-226:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body, %140
+225:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.body, %140
   %.pn64 = phi { ptr, i32 } [ %141, %140 ], [ %.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i80 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i80, label %_ZNSt6vectorIiSaIiEED2Ev.exit81, label %227
+  br i1 %.not.i.i.i80, label %_ZNSt6vectorIiSaIiEED2Ev.exit81, label %226
 
-227:                                              ; preds = %226
+226:                                              ; preds = %225
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #21
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit81
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %225, %224, %20, %3
-  %.046 = phi i1 [ true, %3 ], [ false, %20 ], [ %.1, %224 ], [ %.1, %225 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.thread98, %224, %20, %3
+  %.046 = phi i1 [ true, %3 ], [ false, %20 ], [ %.1, %224 ], [ %.1101, %.thread98 ]
   ret i1 %.046
 
-_ZNSt6vectorIiSaIiEED2Ev.exit81:                  ; preds = %227, %226
+_ZNSt6vectorIiSaIiEED2Ev.exit81:                  ; preds = %226, %225
   resume { ptr, i32 } %.pn64
 }
 

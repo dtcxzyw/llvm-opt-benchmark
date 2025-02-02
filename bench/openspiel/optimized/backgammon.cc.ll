@@ -5373,8 +5373,8 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %32
   %60 = and i8 %53, 1
   store ptr %57, ptr %58, align 8
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %sext91 = shl i64 %1, 32
-  %62 = ashr exact i64 %sext91, 32
+  %sext95 = shl i64 %1, 32
+  %62 = ashr exact i64 %sext95, 32
   store i64 %62, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i8 %60, ptr %63, align 8
@@ -5412,16 +5412,16 @@ _ZNSt6vectorIN10open_spiel10backgammon15TurnHistoryInfoESaIS2_EE9push_backEOS2_.
           to label %_ZNSt6vectorIN10open_spiel10backgammon15TurnHistoryInfoESaIS2_EE9push_backEOS2_.exit unwind label %95
 
 _ZNSt6vectorIN10open_spiel10backgammon15TurnHistoryInfoESaIS2_EE9push_backEOS2_.exit: ; preds = %77
-  %.pre102 = load ptr, ptr %52, align 8
-  %.not.i.i.i.i41 = icmp eq ptr %.pre102, null
+  %.pre106 = load ptr, ptr %52, align 8
+  %.not.i.i.i.i41 = icmp eq ptr %.pre106, null
   br i1 %.not.i.i.i.i41, label %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit, label %79
 
 79:                                               ; preds = %_ZNSt6vectorIN10open_spiel10backgammon15TurnHistoryInfoESaIS2_EE9push_backEOS2_.exit
   %80 = load ptr, ptr %56, align 8
   %81 = ptrtoint ptr %80 to i64
-  %82 = ptrtoint ptr %.pre102 to i64
+  %82 = ptrtoint ptr %.pre106 to i64
   %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %.pre102, i64 noundef %83) #29
+  call void @_ZdlPvm(ptr noundef nonnull %.pre106, i64 noundef %83) #29
   br label %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit
 
 _ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit: ; preds = %_ZNSt6vectorIN10open_spiel10backgammon15TurnHistoryInfoESaIS2_EE9push_backEOS2_.exit.thread, %_ZNSt6vectorIN10open_spiel10backgammon15TurnHistoryInfoESaIS2_EE9push_backEOS2_.exit, %79
@@ -5478,7 +5478,7 @@ _ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43: ; preds = %98, %95
   br i1 %.not.i.i.i44, label %_ZNSt6vectorIiSaIiEED2Ev.exit45, label %103
 
 103:                                              ; preds = %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43.thread, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43
-  %.pn35108 = phi { ptr, i32 } [ %94, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43.thread ], [ %96, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43 ]
+  %.pn35112 = phi { ptr, i32 } [ %94, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43.thread ], [ %96, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43 ]
   %104 = phi ptr [ %41, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43.thread ], [ %54, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43 ]
   call void @_ZdlPvm(ptr noundef nonnull %104, i64 noundef %31) #29
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit45
@@ -5492,12 +5492,12 @@ _ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43: ; preds = %98, %95
 107:                                              ; preds = %91
   %108 = icmp sgt i64 %1, 14
   %109 = trunc i64 %1 to i32
-  %.pre104 = add i32 %109, -15
-  %.pre-phi = select i1 %108, i32 %.pre104, i32 %59
-  %.sink99 = zext i1 %108 to i32
-  store i32 %.sink99, ptr %23, align 8
+  %.pre108 = add i32 %109, -15
+  %.pre-phi = select i1 %108, i32 %.pre108, i32 %59
+  %.sink103 = zext i1 %108 to i32
+  store i32 %.sink103, ptr %23, align 8
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %.sink99, ptr %110, align 4
+  store i32 %.sink103, ptr %110, align 4
   call void @_ZN10open_spiel10backgammon15BackgammonState8RollDiceEi(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %.pre-phi)
   store i32 0, ptr %85, align 4
   br label %270
@@ -5732,13 +5732,13 @@ _ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68.thread: ; preds = %_ZNSt
 
 _ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68: ; preds = %214, %211
   %.not.i.i.i69 = icmp eq ptr %164, null
-  br i1 %.not.i.i.i69, label %_ZNSt6vectorIiSaIiEED2Ev.exit70, label %219
+  br i1 %.not.i.i.i69, label %_ZNSt6vectorIiSaIiEED2Ev.exit70.thread, label %219
 
 219:                                              ; preds = %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68.thread, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68
-  %.pn112 = phi { ptr, i32 } [ %210, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68.thread ], [ %212, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68 ]
+  %.pn116 = phi { ptr, i32 } [ %210, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68.thread ], [ %212, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68 ]
   %220 = phi ptr [ %143, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68.thread ], [ %164, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68 ]
   call void @_ZdlPvm(ptr noundef nonnull %220, i64 noundef %140) #29
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit70
+  br label %_ZNSt6vectorIiSaIiEED2Ev.exit70.thread
 
 221:                                              ; preds = %199
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -5750,7 +5750,7 @@ _ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68: ; preds = %214, %211
 225:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit66
   %226 = load i32, ptr %121, align 4
   store i32 %226, ptr %132, align 8
-  %.pre101 = load ptr, ptr %134, align 8
+  %.pre105 = load ptr, ptr %134, align 8
   br label %.critedge
 
 227:                                              ; preds = %199, %204, %221
@@ -5769,7 +5769,7 @@ _ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68: ; preds = %214, %211
   %234 = phi ptr [ %244, %233 ], [ %228, %227 ]
   %235 = phi i1 [ false, %233 ], [ true, %227 ]
   %indvars.iv = phi i64 [ 1, %233 ], [ 0, %227 ]
-  %.02094 = phi i32 [ %.1, %233 ], [ 0, %227 ]
+  %.02098 = phi i32 [ %.1, %233 ], [ 0, %227 ]
   %236 = getelementptr inbounds nuw i32, ptr %234, i64 %indvars.iv
   %237 = load i32, ptr %236, align 4
   %238 = icmp sgt i32 %237, 6
@@ -5778,16 +5778,16 @@ _ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68: ; preds = %214, %211
 239:                                              ; preds = %.preheader
   %240 = add nsw i32 %237, -6
   store i32 %240, ptr %236, align 4
-  %241 = add nsw i32 %.02094, 1
-  %.pre100 = load ptr, ptr %134, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre100, i64 %indvars.iv
-  %.pre103 = load i32, ptr %.phi.trans.insert, align 4
+  %241 = add nsw i32 %.02098, 1
+  %.pre104 = load ptr, ptr %134, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre104, i64 %indvars.iv
+  %.pre107 = load i32, ptr %.phi.trans.insert, align 4
   br label %242
 
 242:                                              ; preds = %.preheader, %239
-  %243 = phi i32 [ %.pre103, %239 ], [ %237, %.preheader ]
-  %244 = phi ptr [ %.pre100, %239 ], [ %234, %.preheader ]
-  %.1 = phi i32 [ %241, %239 ], [ %.02094, %.preheader ]
+  %243 = phi i32 [ %.pre107, %239 ], [ %237, %.preheader ]
+  %244 = phi ptr [ %.pre104, %239 ], [ %234, %.preheader ]
+  %.1 = phi i32 [ %241, %239 ], [ %.02098, %.preheader ]
   store i32 %243, ptr %10, align 4
   store i32 1, ptr %11, align 4
   %245 = icmp sgt i32 %243, 0
@@ -5842,7 +5842,7 @@ _ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68: ; preds = %214, %211
   br i1 %261, label %_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit, label %.critedge
 
 .critedge:                                        ; preds = %225, %227, %260
-  %262 = phi ptr [ %.pre101, %225 ], [ %228, %227 ], [ %244, %260 ]
+  %262 = phi ptr [ %.pre105, %225 ], [ %228, %227 ], [ %244, %260 ]
   store i32 -1, ptr %121, align 4
   %263 = load ptr, ptr %135, align 8
   %.not.i.i71 = icmp eq ptr %263, %262
@@ -5866,22 +5866,23 @@ _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit: ; preds =
 270:                                              ; preds = %_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EED2Ev.exit, %116, %107
   ret void
 
-_ZNSt6vectorIiSaIiEED2Ev.exit70:                  ; preds = %219, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68, %258, %249, %208
-  %.pn33 = phi { ptr, i32 } [ %259, %258 ], [ %209, %208 ], [ %250, %249 ], [ %212, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68 ], [ %.pn112, %219 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit70:                  ; preds = %258, %249, %208
+  %.pn33 = phi { ptr, i32 } [ %259, %258 ], [ %209, %208 ], [ %250, %249 ]
   %.not.i.i.i73 = icmp eq ptr %123, null
-  br i1 %.not.i.i.i73, label %_ZNSt6vectorIiSaIiEED2Ev.exit45, label %271
+  br i1 %.not.i.i.i73, label %_ZNSt6vectorIiSaIiEED2Ev.exit45, label %_ZNSt6vectorIiSaIiEED2Ev.exit70.thread
 
-271:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit70
-  %272 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %273 = load ptr, ptr %272, align 8
-  %274 = ptrtoint ptr %273 to i64
-  %275 = ptrtoint ptr %123 to i64
-  %276 = sub i64 %274, %275
-  call void @_ZdlPvm(ptr noundef nonnull %123, i64 noundef %276) #29
+_ZNSt6vectorIiSaIiEED2Ev.exit70.thread:           ; preds = %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68, %219, %_ZNSt6vectorIiSaIiEED2Ev.exit70
+  %.pn3391 = phi { ptr, i32 } [ %.pn33, %_ZNSt6vectorIiSaIiEED2Ev.exit70 ], [ %.pn116, %219 ], [ %212, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit68 ]
+  %271 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %272 = load ptr, ptr %271, align 8
+  %273 = ptrtoint ptr %272 to i64
+  %274 = ptrtoint ptr %123 to i64
+  %275 = sub i64 %273, %274
+  call void @_ZdlPvm(ptr noundef nonnull %123, i64 noundef %275) #29
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit45
 
-_ZNSt6vectorIiSaIiEED2Ev.exit45:                  ; preds = %271, %_ZNSt6vectorIiSaIiEED2Ev.exit70, %103, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43, %114, %105
-  %.pn37 = phi { ptr, i32 } [ %106, %105 ], [ %115, %114 ], [ %96, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43 ], [ %.pn35108, %103 ], [ %.pn33, %_ZNSt6vectorIiSaIiEED2Ev.exit70 ], [ %.pn33, %271 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit45:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit70.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit70, %103, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43, %114, %105
+  %.pn37 = phi { ptr, i32 } [ %106, %105 ], [ %115, %114 ], [ %96, %_ZN10open_spiel10backgammon15TurnHistoryInfoD2Ev.exit43 ], [ %.pn35112, %103 ], [ %.pn33, %_ZNSt6vectorIiSaIiEED2Ev.exit70 ], [ %.pn3391, %_ZNSt6vectorIiSaIiEED2Ev.exit70.thread ]
   resume { ptr, i32 } %.pn37
 }
 

@@ -33,7 +33,7 @@ define hidden void @_ZN8rawspeed10FileWriterC2EPKc(ptr noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr %1, i32 %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr captures(none) %1, i32 %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !6
   %6 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str)
   %7 = icmp eq ptr %6, null
@@ -45,24 +45,22 @@ define hidden void @_ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj(ptr noundef
 
 9:                                                ; preds = %4
   %10 = tail call i32 @llvm.umin.i32(i32 %2, i32 %3)
-  %11 = icmp ne ptr %1, null
+  %11 = icmp sgt i32 %2, -1
   tail call void @llvm.assume(i1 %11)
-  %12 = icmp sgt i32 %2, -1
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp eq i32 %10, 0
-  %14 = select i1 %13, i32 %2, i32 %10
-  %15 = zext nneg i32 %14 to i64
-  %16 = tail call i64 @fwrite(ptr noundef nonnull %1, i64 noundef 1, i64 noundef %15, ptr noundef nonnull %6)
-  %17 = tail call i32 @fclose(ptr noundef nonnull %6)
-  %18 = zext nneg i32 %10 to i64
-  %19 = icmp eq i64 %16, %18
-  br i1 %19, label %21, label %20
+  %12 = icmp eq i32 %10, 0
+  %13 = select i1 %12, i32 %2, i32 %10
+  %14 = zext nneg i32 %13 to i64
+  %15 = tail call i64 @fwrite(ptr noundef nonnull %1, i64 noundef 1, i64 noundef %14, ptr noundef nonnull %6)
+  %16 = tail call i32 @fclose(ptr noundef nonnull %6)
+  %17 = zext nneg i32 %10 to i64
+  %18 = icmp eq i64 %15, %17
+  br i1 %18, label %20, label %19
 
-20:                                               ; preds = %9
+19:                                               ; preds = %9
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_15FileIOExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj) #10
   unreachable
 
-21:                                               ; preds = %9
+20:                                               ; preds = %9
   ret void
 }
 
@@ -92,7 +90,7 @@ define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_15FileIOExcepti
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5) #13
+  call void @__cxa_free_exception(ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #13
   resume { ptr, i32 } %8
 }

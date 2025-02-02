@@ -9128,8 +9128,6 @@ define noundef nonnull align 8 dereferenceable(208) ptr @_ZN10actix_http4test11T
   resume { ptr, i32 } %16
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i.i.i5": ; preds = %15
-  %20 = icmp ne ptr %.sroa.611.0.copyload, null
-  tail call void @llvm.assume(i1 %20)
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.611.0.copyload, i64 noundef %.sroa.7.0.copyload, i64 noundef 1) #37, !noalias !1007
   br label %19
 }

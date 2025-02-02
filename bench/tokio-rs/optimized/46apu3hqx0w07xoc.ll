@@ -1852,8 +1852,6 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %3 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7d2584f4f2737dd2E"(i64 noundef 20, i1 noundef zeroext false), !noalias !230
   %4 = extractvalue { i64, ptr } %3, 0
   %5 = extractvalue { i64, ptr } %3, 1
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %5, ptr noundef nonnull align 1 dereferenceable(20) @anon.489e625cf0d9bafa89a816c128d01e73.120, i64 20, i1 false)
   store i64 %4, ptr %0, align 8, !alias.scope !233
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7013,8 +7011,6 @@ define internal void @"_ZN5tokio7runtime7builder7Builder3new28_$u7b$$u7b$closure
   %3 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7d2584f4f2737dd2E"(i64 noundef 20, i1 noundef zeroext false), !noalias !765
   %4 = extractvalue { i64, ptr } %3, 0
   %5 = extractvalue { i64, ptr } %3, 1
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %5, ptr noundef nonnull align 1 dereferenceable(20) @anon.489e625cf0d9bafa89a816c128d01e73.120, i64 20, i1 false)
   store i64 %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

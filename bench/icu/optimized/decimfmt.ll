@@ -657,11 +657,11 @@ if.then.i:                                        ; preds = %invoke.cont18
   %4 = load ptr, ptr %fields.i, align 8
   %properties.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZN6icu_756number4impl13PatternParser25parseToExistingPropertiesERKNS_13UnicodeStringERNS1_23DecimalFormatPropertiesENS1_14IgnoreRoundingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %patternString, ptr noundef nonnull align 8 dereferenceable(757) %properties.i, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont20 unwind label %lpad19
+          to label %invoke.cont20 unwind label %ehcleanup.thread
 
 invoke.cont20:                                    ; preds = %invoke.cont18, %if.then.i
   invoke void @_ZN6icu_7513DecimalFormat5touchER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit unwind label %lpad19
+          to label %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit unwind label %ehcleanup.thread
 
 _ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit: ; preds = %invoke.cont20
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %patternString) #17
@@ -685,18 +685,19 @@ lpad11:                                           ; preds = %invoke.cont16, %inv
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #17
   br label %ehcleanup
 
-lpad19:                                           ; preds = %if.then.i, %invoke.cont20
+ehcleanup.thread:                                 ; preds = %invoke.cont20, %if.then.i
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %patternString) #17
-  br label %ehcleanup
+  br label %delete.notnull.i9
 
-ehcleanup:                                        ; preds = %lpad19, %lpad11, %lpad9
-  %.pn = phi { ptr, i32 } [ %8, %lpad19 ], [ %7, %lpad11 ], [ %6, %lpad9 ]
+ehcleanup:                                        ; preds = %lpad11, %lpad9
+  %.pn = phi { ptr, i32 } [ %7, %lpad11 ], [ %6, %lpad9 ]
   %isnull.i8 = icmp eq ptr %call7, null
   br i1 %isnull.i8, label %ehcleanup22, label %delete.notnull.i9
 
-delete.notnull.i9:                                ; preds = %ehcleanup
+delete.notnull.i9:                                ; preds = %ehcleanup.thread, %ehcleanup
+  %.pn17 = phi { ptr, i32 } [ %8, %ehcleanup.thread ], [ %.pn, %ehcleanup ]
   %vtable.i10 = load ptr, ptr %call7, align 8
   %vfn.i11 = getelementptr inbounds nuw i8, ptr %vtable.i10, i64 8
   %9 = load ptr, ptr %vfn.i11, align 8
@@ -704,7 +705,7 @@ delete.notnull.i9:                                ; preds = %ehcleanup
   br label %ehcleanup22
 
 ehcleanup22:                                      ; preds = %delete.notnull.i9, %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %1, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %delete.notnull.i9 ]
+  %.pn.pn = phi { ptr, i32 } [ %1, %lpad ], [ %.pn, %ehcleanup ], [ %.pn17, %delete.notnull.i9 ]
   call void @_ZN6icu_7513DecimalFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) #17
   resume { ptr, i32 } %.pn.pn
 }
@@ -8057,7 +8058,7 @@ if.then.i:                                        ; preds = %new.cont
 invoke.cont40:                                    ; preds = %invoke.cont34, %if.then.i, %new.cont
   %isoCode.i = getelementptr inbounds nuw i8, ptr %currencyUnit, i64 20
   invoke void @_ZN6icu_7520DecimalFormatSymbols11setCurrencyEPKDsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %call31, ptr noundef nonnull %isoCode.i, ptr noundef nonnull align 4 dereferenceable(4) %ec)
-          to label %invoke.cont46 unwind label %lpad41
+          to label %invoke.cont46 unwind label %delete.notnull.i26
 
 invoke.cont46:                                    ; preds = %invoke.cont40
   %13 = load ptr, ptr %fields, align 8
@@ -8111,20 +8112,17 @@ lpad33:                                           ; preds = %invoke.cont34, %new
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call31) #17
   br label %ehcleanup
 
-lpad41:                                           ; preds = %invoke.cont40
+delete.notnull.i26:                               ; preds = %invoke.cont40
   %20 = landingpad { ptr, i32 }
           cleanup
-  br i1 %new.isnull, label %ehcleanup, label %delete.notnull.i26
-
-delete.notnull.i26:                               ; preds = %lpad41
   %vtable.i27 = load ptr, ptr %call31, align 8
   %vfn.i28 = getelementptr inbounds nuw i8, ptr %vtable.i27, i64 8
   %21 = load ptr, ptr %vfn.i28, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(2883) %call31) #17
   br label %ehcleanup
 
-ehcleanup:                                        ; preds = %delete.notnull.i26, %lpad41, %lpad41.thread, %lpad33, %lpad17, %lpad4
-  %.pn = phi { ptr, i32 } [ %6, %lpad4 ], [ %19, %lpad33 ], [ %9, %lpad17 ], [ %18, %lpad41.thread ], [ %20, %lpad41 ], [ %20, %delete.notnull.i26 ]
+ehcleanup:                                        ; preds = %delete.notnull.i26, %lpad41.thread, %lpad33, %lpad17, %lpad4
+  %.pn = phi { ptr, i32 } [ %6, %lpad4 ], [ %19, %lpad33 ], [ %9, %lpad17 ], [ %18, %lpad41.thread ], [ %20, %delete.notnull.i26 ]
   call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %currencyUnit) #17
   br label %eh.resume
 

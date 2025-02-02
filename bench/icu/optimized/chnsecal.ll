@@ -1905,11 +1905,11 @@ if.end:                                           ; preds = %entry
 
 invoke.cont5:                                     ; preds = %if.end
   invoke void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %call3, i32 noundef 22, i32 noundef 0)
-          to label %invoke.cont8 unwind label %lpad
+          to label %invoke.cont8 unwind label %lpad.thread
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   invoke void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %call3, i32 noundef 5, i32 noundef 1)
-          to label %invoke.cont11 unwind label %lpad
+          to label %invoke.cont11 unwind label %lpad.thread
 
 invoke.cont11:                                    ; preds = %invoke.cont8
   store i32 0, ptr %status, align 4
@@ -1948,28 +1948,23 @@ _ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit: ; preds = %invoke.cont21
   call void %4(ptr noundef nonnull align 8 dereferenceable(618) %call3) #8
   br label %return
 
-lpad.thread:                                      ; preds = %invoke.cont21, %invoke.cont18, %invoke.cont11
+lpad.thread:                                      ; preds = %invoke.cont21, %invoke.cont18, %invoke.cont11, %invoke.cont8, %invoke.cont5
   %lpad.thr_comm25 = landingpad { ptr, i32 }
           cleanup
-  br label %delete.notnull.i14
+  br label %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit17
 
-lpad:                                             ; preds = %invoke.cont8, %invoke.cont5, %if.end
+lpad:                                             ; preds = %if.end
   %lpad.thr_comm.split-lp26 = landingpad { ptr, i32 }
           cleanup
-  %isnull.i13 = icmp eq ptr %call3, null
-  br i1 %isnull.i13, label %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit17, label %delete.notnull.i14
+  br label %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit17
 
-delete.notnull.i14:                               ; preds = %lpad.thread, %lpad
+_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit17: ; preds = %lpad.thread, %lpad
   %lpad.phi29 = phi { ptr, i32 } [ %lpad.thr_comm25, %lpad.thread ], [ %lpad.thr_comm.split-lp26, %lpad ]
   %vtable.i15 = load ptr, ptr %call3, align 8
   %vfn.i16 = getelementptr inbounds nuw i8, ptr %vtable.i15, i64 8
   %5 = load ptr, ptr %vfn.i16, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(618) %call3) #8
-  br label %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit17
-
-_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit17: ; preds = %lpad, %delete.notnull.i14
-  %lpad.phi30 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp26, %lpad ], [ %lpad.phi29, %delete.notnull.i14 ]
-  resume { ptr, i32 } %lpad.phi30
+  resume { ptr, i32 } %lpad.phi29
 
 return:                                           ; preds = %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit, %if.then
   %retval.0 = phi i32 [ %0, %if.then ], [ %call27, %_ZN6icu_7512LocalPointerINS_8CalendarEED2Ev.exit ]

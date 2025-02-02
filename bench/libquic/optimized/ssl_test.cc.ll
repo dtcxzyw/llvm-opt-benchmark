@@ -2270,7 +2270,7 @@ invoke.cont80:                                    ; preds = %invoke.cont77
 if.then87:                                        ; preds = %invoke.cont80
   %14 = load ptr, ptr @stderr, align 8
   %call89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.95, i32 noundef %call81) #26
-  br label %cleanup
+  br label %if.then.i
 
 if.end90:                                         ; preds = %invoke.cont80, %invoke.cont80, %invoke.cont80
   %cmp91 = icmp eq i32 %call65, 1
@@ -2314,7 +2314,7 @@ if.then109:                                       ; preds = %invoke.cont106
 if.then128:                                       ; preds = %if.then109
   %15 = load ptr, ptr @stderr, align 8
   %16 = call i64 @fwrite(ptr nonnull @.str.96, i64 12, i64 1, ptr %15) #26
-  br label %cleanup
+  br label %if.then.i
 
 if.end131:                                        ; preds = %if.then109
   %cmp132.not = icmp samesign ugt i64 %call101, %call104
@@ -2325,7 +2325,7 @@ if.end131:                                        ; preds = %if.then109
 if.then135:                                       ; preds = %if.end131
   %17 = load ptr, ptr @stderr, align 8
   %18 = call i64 @fwrite(ptr nonnull @.str.97, i64 31, i64 1, ptr %17) #26
-  br label %cleanup
+  br label %if.then.i
 
 if.else:                                          ; preds = %invoke.cont106
   %cmp139.not = icmp eq i64 %call101, %call104
@@ -2336,7 +2336,7 @@ if.else:                                          ; preds = %invoke.cont106
 if.then142:                                       ; preds = %if.else
   %19 = load ptr, ptr @stderr, align 8
   %20 = call i64 @fwrite(ptr nonnull @.str.97, i64 31, i64 1, ptr %19) #26
-  br label %cleanup
+  br label %if.then.i
 
 if.end146:                                        ; preds = %if.else, %if.end131
   store i8 0, ptr %byte, align 1
@@ -2358,7 +2358,7 @@ invoke.cont153:                                   ; preds = %lor.lhs.false151
 if.then156:                                       ; preds = %invoke.cont153, %invoke.cont148
   %21 = load ptr, ptr @stderr, align 8
   %22 = call i64 @fwrite(ptr nonnull @.str.98, i64 21, i64 1, ptr %21) #26
-  br label %cleanup
+  br label %if.then.i
 
 if.end159:                                        ; preds = %invoke.cont153
   %call162 = invoke i64 @SSL_get_write_sequence(ptr noundef nonnull %call39)
@@ -2376,20 +2376,19 @@ lor.lhs.false164:                                 ; preds = %invoke.cont161
 invoke.cont167:                                   ; preds = %lor.lhs.false164
   %add165 = add i64 %call104, 1
   %cmp169.not = icmp eq i64 %add165, %call168
-  br i1 %cmp169.not, label %cleanup, label %if.then170
+  br i1 %cmp169.not, label %if.then.i, label %if.then170
 
 if.then170:                                       ; preds = %invoke.cont167, %invoke.cont161
   %23 = load ptr, ptr @stderr, align 8
   %24 = call i64 @fwrite(ptr nonnull @.str.99, i64 36, i64 1, ptr %23) #26
-  br label %cleanup
+  br label %if.then.i
 
-cleanup:                                          ; preds = %invoke.cont167, %if.then170, %if.then156, %if.then142, %if.then135, %if.then128, %if.then87, %if.then72, %invoke.cont42
-  %retval.2 = phi i1 [ false, %invoke.cont42 ], [ true, %invoke.cont167 ], [ false, %if.then142 ], [ false, %if.then170 ], [ false, %if.then156 ], [ false, %if.then135 ], [ false, %if.then128 ], [ false, %if.then87 ], [ false, %if.then72 ]
+cleanup:                                          ; preds = %if.then72, %invoke.cont42
   %cmp.not.i = icmp eq ptr %call43, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %invoke.cont54, %cleanup
-  %retval.2111 = phi i1 [ %retval.2, %cleanup ], [ false, %invoke.cont54 ]
+if.then.i:                                        ; preds = %if.then87, %if.then128, %if.then135, %if.then142, %if.then156, %if.then170, %invoke.cont54, %invoke.cont167, %cleanup
+  %retval.2111 = phi i1 [ false, %cleanup ], [ false, %if.then87 ], [ false, %if.then128 ], [ false, %if.then135 ], [ false, %if.then156 ], [ false, %if.then170 ], [ false, %if.then142 ], [ false, %invoke.cont54 ], [ true, %invoke.cont167 ]
   invoke void @SSL_free(ptr noundef nonnull %call43)
           to label %_ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -2401,7 +2400,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit: ; preds = %cleanup, %if.then.i
-  %retval.2112 = phi i1 [ %retval.2, %cleanup ], [ %retval.2111, %if.then.i ]
+  %retval.2112 = phi i1 [ false, %cleanup ], [ %retval.2111, %if.then.i ]
   store ptr null, ptr %server, align 8
   br i1 %cmp.i47.not, label %_ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit58, label %if.then.i56
 

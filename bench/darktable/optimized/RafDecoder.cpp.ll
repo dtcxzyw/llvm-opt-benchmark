@@ -165,7 +165,7 @@ $_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = comdat an
 @_ZTVN8rawspeed19RawDecoderExceptionE = external unnamed_addr constant { [6 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN8rawspeed10RafDecoder5isRAFENS_6BufferE(ptr readonly %0, i32 %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN8rawspeed10RafDecoder5isRAFENS_6BufferE(ptr readonly captures(none) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ult i32 %1, 16
   br i1 %3, label %4, label %5
 
@@ -174,13 +174,11 @@ define hidden noundef zeroext i1 @_ZN8rawspeed10RafDecoder5isRAFENS_6BufferE(ptr
   unreachable
 
 5:                                                ; preds = %2
-  %6 = icmp ne ptr %0, null
+  %6 = icmp sgt i32 %1, -1
   tail call void @llvm.assume(i1 %6)
-  %7 = icmp sgt i32 %1, -1
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) @_ZZN8rawspeed10RafDecoder5isRAFENS_6BufferEE5magic, i64 16)
-  %9 = icmp eq i32 %8, 0
-  ret i1 %9
+  %7 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) @_ZZN8rawspeed10RafDecoder5isRAFENS_6BufferEE5magic, i64 16)
+  %8 = icmp eq i32 %7, 0
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1702,7 +1700,7 @@ define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExc
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5) #25
+  call void @__cxa_free_exception(ptr nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #25
   resume { ptr, i32 } %8
 }
@@ -4343,7 +4341,7 @@ define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEE
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %5) #25
+  call void @__cxa_free_exception(ptr nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #25
   resume { ptr, i32 } %8
 }

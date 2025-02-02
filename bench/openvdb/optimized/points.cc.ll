@@ -178802,7 +178802,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %call5.i.i.i.i1.i.i.
 invoke.cont84:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %tempData.sroa.0.0 = phi ptr [ %call5.i.i.i.i1.i.i121, %call5.i.i.i.i1.i.i.noexc ], [ %call5.i.i.i.i1.i.i121, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %call89 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %tempData.sroa.0.0, i64 noundef %69)
-          to label %_ZNSt6vectorIhSaIhEED2Ev.exit unwind label %lpad87
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit125
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont84
   call void @_ZdlPv(ptr noundef nonnull %tempData.sroa.0.0) #30
@@ -178813,13 +178813,9 @@ lpad83:                                           ; preds = %if.then.i.i.i.i.i12
           cleanup
   br label %ehcleanup92
 
-lpad87:                                           ; preds = %invoke.cont84
+_ZNSt6vectorIhSaIhEED2Ev.exit125:                 ; preds = %invoke.cont84
   %71 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i123 = icmp eq ptr %tempData.sroa.0.0, null
-  br i1 %tobool.not.i.i.i123, label %ehcleanup92, label %if.then.i.i.i124
-
-if.then.i.i.i124:                                 ; preds = %lpad87
   call void @_ZdlPv(ptr noundef nonnull %tempData.sroa.0.0) #30
   br label %ehcleanup92
 
@@ -178897,8 +178893,8 @@ if.end8.sink.split.i.i.i.i148:                    ; preds = %_ZN9__gnu_cxx27__ex
   call void %82(ptr noundef nonnull align 8 dereferenceable(16) %72) #16
   br label %if.end94thread-pre-split
 
-ehcleanup92:                                      ; preds = %if.then.i.i.i124, %lpad87, %lpad83, %lpad75
-  %.pn41 = phi { ptr, i32 } [ %68, %lpad75 ], [ %70, %lpad83 ], [ %71, %lpad87 ], [ %71, %if.then.i.i.i124 ]
+ehcleanup92:                                      ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit125, %lpad83, %lpad75
+  %.pn41 = phi { ptr, i32 } [ %68, %lpad75 ], [ %71, %_ZNSt6vectorIhSaIhEED2Ev.exit125 ], [ %70, %lpad83 ]
   call void @_ZNSt10shared_ptrIN7openvdb5v11_02io14StreamMetadataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %metadata) #16
   br label %ehcleanup226
 
@@ -188257,7 +188253,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 delete.notnull:                                   ; preds = %for.body
   call void @_ZN7openvdb5v11_06points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EED2Ev(ptr noundef nonnull align 8 dereferenceable(106) %3) #16
-  call void @_ZdlPv(ptr noundef %3) #30
+  call void @_ZdlPv(ptr noundef nonnull %3) #30
   %and.i = and i32 %iter.sroa.1.015, 63
   %sh_prom.i = zext nneg i32 %and.i to i64
   %shl.i = shl nuw i64 1, %sh_prom.i

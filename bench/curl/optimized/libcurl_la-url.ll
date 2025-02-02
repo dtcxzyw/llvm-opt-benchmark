@@ -1989,28 +1989,25 @@ if.then103.i.i:                                   ; preds = %if.end97.i.i
   %76 = load ptr, ptr %up1.i.i.i, align 8
   %call107.i.i = call i32 @curl_strequal(ptr noundef nonnull @.str.14, ptr noundef %76) #11
   %tobool108.not.i.i = icmp eq i32 %call107.i.i, 0
-  br i1 %tobool108.not.i.i, label %parseurlandfillconn.exit.thread.i, label %if.end118thread-pre-split.i.i
+  br i1 %tobool108.not.i.i, label %parseurlandfillconn.exit.thread.i, label %if.end118.i.i
 
 if.else111.i.i:                                   ; preds = %if.end97.i.i
   %77 = load ptr, ptr %hostname.i.i.i, align 8
   %call115.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #12
   %cmp.i.i = icmp ugt i64 %call115.i.i, 65535
-  br i1 %cmp.i.i, label %if.then116.i.i, label %if.end118.i.i
+  br i1 %cmp.i.i, label %if.then116.i.i, label %land.lhs.true123.i.i
 
 if.then116.i.i:                                   ; preds = %if.else111.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.15, i32 noundef 65535) #11
   br label %parseurlandfillconn.exit.thread.i
 
-if.end118thread-pre-split.i.i:                    ; preds = %if.then103.i.i
+if.end118.i.i:                                    ; preds = %if.then103.i.i
   %.pr.i.i = load ptr, ptr %hostname.i.i.i, align 8
-  br label %if.end118.i.i
-
-if.end118.i.i:                                    ; preds = %if.end118thread-pre-split.i.i, %if.else111.i.i
-  %78 = phi ptr [ %.pr.i.i, %if.end118thread-pre-split.i.i ], [ %77, %if.else111.i.i ]
-  %tobool122.not.i.i = icmp eq ptr %78, null
+  %tobool122.not.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %tobool122.not.i.i, label %if.end133.i.i, label %land.lhs.true123.i.i
 
-land.lhs.true123.i.i:                             ; preds = %if.end118.i.i
+land.lhs.true123.i.i:                             ; preds = %if.end118.i.i, %if.else111.i.i
+  %78 = phi ptr [ %.pr.i.i, %if.end118.i.i ], [ %77, %if.else111.i.i ]
   %79 = load i8, ptr %78, align 1
   %cmp125.i.i = icmp eq i8 %79, 91
   br i1 %cmp125.i.i, label %if.then127.i.i, label %if.end133.i.i

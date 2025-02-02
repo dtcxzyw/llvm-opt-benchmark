@@ -1133,7 +1133,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtNtB4_4iter8adapters3map3MapI
 ; Function Attrs: nonlazybind uwtable
 define void @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB5_6ClonedINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentEENtNtNtB9_6traits8iterator8Iterator4folduNCINvNvXs_NtB7_9enumerateINtB3O_9EnumeratepEB30_4fold9enumerateB22_uNCINvNvB30_8for_each4callTjB22_ENCINvMs1_B17_INtB17_8VecDequeB22_E10write_iterBP_E0E0E0EB28_(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  %.sroa.07.0.copyload = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %.sroa.07.0.copyload = load ptr, ptr %0, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.48.0.copyload = load ptr, ptr %.sroa.48.0..sroa_idx, align 8
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1143,8 +1143,6 @@ define void @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB5_6Cloned
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtBb_4iter6traits8iterator8Iterator4folduQNCINvNtNtB1T_8adapters3map8map_foldRBQ_BQ_uNvYBQ_NtNtBb_5clone5Clone5cloneNCINvNvXs_NtB2G_9enumerateINtB3V_9EnumeratepEB1N_4fold9enumerateBQ_uNCINvNvB1N_8for_each4callTjBQ_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5v_8VecDequeBQ_E10write_iterINtNtB2G_6cloned6ClonedINtNtB5v_4iter4IterBQ_EEE0E0E0E0EBW_.llvm.4870895441494037529(ptr noundef nonnull %.sroa.07.0.copyload, ptr noundef %.sroa.48.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(32) %3), !noalias !226
-  %4 = icmp ne ptr %.sroa.59.0.copyload, null
-  call void @llvm.assume(i1 %4)
   call void @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtBb_4iter6traits8iterator8Iterator4folduQNCINvNtNtB1T_8adapters3map8map_foldRBQ_BQ_uNvYBQ_NtNtBb_5clone5Clone5cloneNCINvNvXs_NtB2G_9enumerateINtB3V_9EnumeratepEB1N_4fold9enumerateBQ_uNCINvNvB1N_8for_each4callTjBQ_ENCINvMs1_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5v_8VecDequeBQ_E10write_iterINtNtB2G_6cloned6ClonedINtNtB5v_4iter4IterBQ_EEE0E0E0E0EBW_.llvm.4870895441494037529(ptr noundef nonnull %.sroa.59.0.copyload, ptr noundef %.sroa.610.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(32) %3), !noalias !226
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void

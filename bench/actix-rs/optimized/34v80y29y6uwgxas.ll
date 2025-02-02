@@ -1175,16 +1175,14 @@ define hidden void @_ZN10actix_http10extensions10Extensions6insert17h25d9d585ec2
 
 16:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd66e1bdb8e67cb87E.llvm.6550989041561640416.exit"
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %20
+  br label %19
 
 17:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd66e1bdb8e67cb87E.llvm.6550989041561640416.exit"
   %18 = extractvalue { ptr, ptr } %13, 1
-  %19 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %19)
   tail call void @_ZN10actix_http10extensions14downcast_owned17h99a2122764affebfE.llvm.6550989041561640416(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
-  br label %20
+  br label %19
 
-20:                                               ; preds = %17, %16
+19:                                               ; preds = %17, %16
   ret void
 }
 
@@ -1331,16 +1329,14 @@ define hidden void @_ZN10actix_http10extensions10Extensions6insert17hf86dc6df930
 
 16:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h984d57311f4af5b3E.llvm.6550989041561640416.exit"
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %20
+  br label %19
 
 17:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h984d57311f4af5b3E.llvm.6550989041561640416.exit"
   %18 = extractvalue { ptr, ptr } %13, 1
-  %19 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %19)
   tail call void @_ZN10actix_http10extensions14downcast_owned17h3ab47093676360b6E.llvm.6550989041561640416(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
-  br label %20
+  br label %19
 
-20:                                               ; preds = %17, %16
+19:                                               ; preds = %17, %16
   ret void
 }
 
@@ -3705,7 +3701,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hc69ec5c874ea4f
 14:                                               ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedfdc1bc2f8682b8E.exit"
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -24
   %.sroa.811.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -8
-  %.sroa.811.0.copyload = load ptr, ptr %.sroa.811.0..sroa_idx, align 8, !nonnull !4, !noundef !4
+  %.sroa.811.0.copyload = load ptr, ptr %.sroa.811.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !799
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx, i64 16, i1 false)
   store i64 %.sroa.09.0.copyload, ptr %3, align 8

@@ -1387,10 +1387,11 @@ invoke.cont57:                                    ; preds = %if.end54
   %cmp.i33 = icmp slt i32 %12, 1
   br i1 %cmp.i33, label %if.end63, label %cleanup
 
-ehcleanup.thread:                                 ; preds = %if.end90
+ehcleanup112.thread157:                           ; preds = %if.end90
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup112
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %canonicalID) #14
+  br label %delete.notnull.i59
 
 if.end63:                                         ; preds = %invoke.cont57
   store ptr %call31, ptr %call56, align 8
@@ -1437,7 +1438,7 @@ _ZN6icu_7512LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UEr
 if.end90:                                         ; preds = %new.cont83, %if.end63
   %mzMappings.sroa.0.7 = phi ptr [ %mzMappings.sroa.0.3.ph, %if.end63 ], [ %call76, %new.cont83 ]
   invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %mzMappings.sroa.0.7, ptr noundef nonnull %call56, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit unwind label %ehcleanup.thread
+          to label %_ZN6icu_7512LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit unwind label %ehcleanup112.thread157
 
 cleanup:                                          ; preds = %invoke.cont57
   %isnull.i44 = icmp eq ptr %call56, null
@@ -1496,22 +1497,24 @@ ehcleanup112.thread:                              ; preds = %lpad.i, %delete.not
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %canonicalID) #14
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit63
 
-ehcleanup112:                                     ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp, %ehcleanup.thread
-  %mzMappings.sroa.0.2 = phi ptr [ %mzMappings.sroa.0.7, %ehcleanup.thread ], [ %mzMappings.sroa.0.3.ph, %lpad1.loopexit ], [ %mzMappings.sroa.0.0.ph, %lpad1.loopexit.split-lp ]
-  %.pn16 = phi { ptr, i32 } [ %13, %ehcleanup.thread ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
+ehcleanup112:                                     ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp
+  %mzMappings.sroa.0.2 = phi ptr [ %mzMappings.sroa.0.3.ph, %lpad1.loopexit ], [ %mzMappings.sroa.0.0.ph, %lpad1.loopexit.split-lp ]
+  %.pn16 = phi { ptr, i32 } [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %canonicalID) #14
   %isnull.i58 = icmp eq ptr %mzMappings.sroa.0.2, null
   br i1 %isnull.i58, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit63, label %delete.notnull.i59
 
-delete.notnull.i59:                               ; preds = %ehcleanup112
-  %vtable.i60 = load ptr, ptr %mzMappings.sroa.0.2, align 8
+delete.notnull.i59:                               ; preds = %ehcleanup112.thread157, %ehcleanup112
+  %.pn16162 = phi { ptr, i32 } [ %13, %ehcleanup112.thread157 ], [ %.pn16, %ehcleanup112 ]
+  %mzMappings.sroa.0.2161 = phi ptr [ %mzMappings.sroa.0.7, %ehcleanup112.thread157 ], [ %mzMappings.sroa.0.2, %ehcleanup112 ]
+  %vtable.i60 = load ptr, ptr %mzMappings.sroa.0.2161, align 8
   %vfn.i61 = getelementptr inbounds nuw i8, ptr %vtable.i60, i64 8
   %21 = load ptr, ptr %vfn.i61, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %mzMappings.sroa.0.2) #14
+  call void %21(ptr noundef nonnull align 8 dereferenceable(40) %mzMappings.sroa.0.2161) #14
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit63
 
 _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit63: ; preds = %ehcleanup112.thread, %ehcleanup112, %delete.notnull.i59
-  %.pn16156 = phi { ptr, i32 } [ %.pn16.ph, %ehcleanup112.thread ], [ %.pn16, %ehcleanup112 ], [ %.pn16, %delete.notnull.i59 ]
+  %.pn16156 = phi { ptr, i32 } [ %.pn16.ph, %ehcleanup112.thread ], [ %.pn16, %ehcleanup112 ], [ %.pn16162, %delete.notnull.i59 ]
   resume { ptr, i32 } %.pn16156
 }
 

@@ -1426,7 +1426,6 @@ define range(i32 -13, 1) i32 @prte_hwloc_base_cpu_list_parse(ptr noundef %0, ptr
 prte_hwloc_base_get_obj_by_type.exit.i:           ; preds = %54
   %57 = load ptr, ptr %55, align 8
   %58 = tail call i32 @atoi(ptr noundef %57) #17
-  tail call void @llvm.assume(i1 %23)
   %59 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %1, i32 noundef 1) #16
   %switch.i.i.i = icmp ult i32 %59, -2
   tail call void @llvm.assume(i1 %switch.i.i.i)

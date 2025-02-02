@@ -243,10 +243,10 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   br i1 %exitcond279.not.i, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.lr.ph.us.i"
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i: ; preds = %2
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val153.i = load ptr, ptr %33, align 8, !alias.scope !9, !noalias !6, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val154.i = load ptr, ptr %34, align 8, !alias.scope !9, !noalias !6, !nonnull !4, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val154.i = load ptr, ptr %33, align 8, !alias.scope !9, !noalias !6, !nonnull !4, !noundef !4
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.val153.i = load ptr, ptr %34, align 8, !alias.scope !9, !noalias !6
   %35 = getelementptr inbounds nuw i8, ptr %.val154.i, i64 24
   %36 = load ptr, ptr %35, align 8, !invariant.load !4, !noalias !18, !nonnull !4
   %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 1 %.val153.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.67, i64 noundef 3), !noalias !18
@@ -254,7 +254,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i: ; 
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i: ; preds = %..loopexit_crit_edge.us.i
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val151.i = load ptr, ptr %38, align 8, !alias.scope !9, !noalias !6, !nonnull !4, !noundef !4
+  %.val151.i = load ptr, ptr %38, align 8, !alias.scope !9, !noalias !6
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val152.i = load ptr, ptr %39, align 8, !alias.scope !9, !noalias !6, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %.val152.i, i64 24
@@ -603,10 +603,10 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit215.i"
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i: ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val153.i = load ptr, ptr %25, align 8, !alias.scope !42, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val154.i = load ptr, ptr %26, align 8, !alias.scope !42, !nonnull !4, !noundef !4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val154.i = load ptr, ptr %25, align 8, !alias.scope !42, !nonnull !4, !noundef !4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.val153.i = load ptr, ptr %26, align 8, !alias.scope !42
   %27 = getelementptr inbounds nuw i8, ptr %.val154.i, i64 24
   %28 = load ptr, ptr %27, align 8, !invariant.load !4, !noalias !45, !nonnull !4
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 1 %.val153.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.67, i64 noundef 3), !noalias !45
@@ -614,7 +614,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i: ; 
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i: ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit215.i"
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val151.i = load ptr, ptr %30, align 8, !alias.scope !42, !nonnull !4, !noundef !4
+  %.val151.i = load ptr, ptr %30, align 8, !alias.scope !42
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val152.i = load ptr, ptr %31, align 8, !alias.scope !42, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds nuw i8, ptr %.val152.i, i64 24
@@ -954,15 +954,11 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..
 define internal fastcc noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E(ptr %.32.val, ptr %.40.val, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #5 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit:
   %1 = alloca [48 x i8], align 8
-  %2 = icmp ne ptr %.32.val, null
-  tail call void @llvm.assume(i1 %2)
-  %3 = icmp ne ptr %.40.val, null
-  tail call void @llvm.assume(i1 %3)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
-  %4 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.32.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.40.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1)
+  %2 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.32.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.40.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1)
-  ret i1 %4
+  ret i1 %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2341,10 +2337,6 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   %26 = getelementptr double, ptr %16, i64 %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !682
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !682
-  %27 = icmp ne ptr %24, null
-  tail call void @llvm.assume(i1 %27)
-  %28 = icmp ne ptr %26, null
-  tail call void @llvm.assume(i1 %28)
   tail call void @_ZN8nalgebra4base11blas_uninit11array_axcpy17h21b7bcebf3990a88E(ptr noalias noundef nonnull align 8 %24, i64 noundef %25, double noundef %22, ptr noalias noundef nonnull readonly align 8 %26, i64 noundef %25, double noundef 1.000000e+00, double noundef 1.000000e+00, i64 noundef 1, i64 noundef 1, i64 noundef %25), !noalias !682
   %exitcond19.not = icmp eq i64 %23, %7
   br i1 %exitcond19.not, label %._crit_edge, label %.lr.ph.split.us
@@ -2353,10 +2345,10 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %29 = load double, ptr %11, align 8, !alias.scope !676, !noundef !4
-  %30 = load double, ptr %.val, align 8, !alias.scope !679, !noundef !4
-  %31 = fdiv double %30, %29
-  store double %31, ptr %.val, align 8
+  %27 = load double, ptr %11, align 8, !alias.scope !676, !noundef !4
+  %28 = load double, ptr %.val, align 8, !alias.scope !679, !noundef !4
+  %29 = fdiv double %28, %27
+  store double %29, ptr %.val, align 8
   %.not1.i.i.i.not.not = icmp eq i64 %9, 0
   br i1 %.not1.i.i.i.not.not, label %.split.us, label %"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit"
 
@@ -2365,12 +2357,12 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
   unreachable
 
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$10view_range17h9baf0db005325195E.llvm.4752837998330011175.exit": ; preds = %.lr.ph.split
-  %32 = add i64 %13, -1
-  %33 = add i64 %7, -1
+  %30 = add i64 %13, -1
+  %31 = add i64 %7, -1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !682
-  store i64 %32, ptr %5, align 8, !noalias !682
+  store i64 %30, ptr %5, align 8, !noalias !682
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !682
-  store i64 %33, ptr %4, align 8, !noalias !682
+  store i64 %31, ptr %4, align 8, !noalias !682
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !682
   store ptr @anon.c16ec26a086e09edb08393af91730684.14, ptr %3, align 8, !noalias !682
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8

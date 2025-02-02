@@ -2435,19 +2435,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   invoke void @_ZN5folly17ThreadCachedArena7zombifyEONS_8SysArenaE(ptr noundef nonnull align 8 dereferenceable(128) %this.0.val, ptr noundef nonnull align 8 dereferenceable(96) %t)
-          to label %if.end unwind label %lpad
+          to label %if.end unwind label %_ZNSt10unique_ptrIN5folly8SysArenaESt14default_deleteIS1_EED2Ev.exit
 
-lpad:                                             ; preds = %if.then
+_ZNSt10unique_ptrIN5folly8SysArenaESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i = icmp eq ptr %t, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly8SysArenaESt14default_deleteIS1_EED2Ev.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %lpad
   call void @_ZNKSt14default_deleteIN5folly8SysArenaEEclEPS1_(ptr noundef nonnull align 1 dereferenceable(1) %tp, ptr noundef nonnull %t)
-  br label %_ZNSt10unique_ptrIN5folly8SysArenaESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN5folly8SysArenaESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then.i, %lpad
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tp) #33
   resume { ptr, i32 } %0
 

@@ -744,7 +744,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %53, label %12
+  br i1 %.not, label %52, label %12
 
 12:                                               ; preds = %4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %5, align 8
@@ -780,17 +780,17 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   %29 = load i32, ptr %6, align 4
   %30 = icmp slt i32 %29, 1
   %or.cond20 = select i1 %.not14, i1 %30, i1 false
-  br i1 %or.cond20, label %35, label %48
+  br i1 %or.cond20, label %35, label %47
 
 31:                                               ; preds = %12
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %52
+  br label %51
 
 33:                                               ; preds = %40, %35, %25, %23
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %50
 
 35:                                               ; preds = %27
   %36 = invoke noundef i32 @_ZNK6icu_7012RegexMatcher10groupCountEv(ptr noundef nonnull align 8 dereferenceable(336) %19)
@@ -800,7 +800,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   %38 = icmp sgt i32 %36, 0
   %39 = icmp ne ptr %3, null
   %or.cond = and i1 %39, %38
-  br i1 %or.cond, label %40, label %45
+  br i1 %or.cond, label %40, label %.thread
 
 40:                                               ; preds = %37
   invoke void @_ZNK6icu_7012RegexMatcher5groupEiR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_70::UnicodeString") align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %19, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -816,47 +816,48 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #12
-  br label %51
+  br label %50
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit: ; preds = %41
   %44 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %8) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #12
-  br label %45
+  br label %.thread
 
-45:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit, %37
-  %46 = load i32, ptr %6, align 4
-  %47 = icmp slt i32 %46, 1
-  br label %48
+.thread:                                          ; preds = %37, %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit
+  %45 = load i32, ptr %6, align 4
+  %46 = icmp slt i32 %45, 1
+  br label %49
 
-48:                                               ; preds = %27, %45
-  %.1 = phi i1 [ %47, %45 ], [ false, %27 ]
-  %49 = icmp eq ptr %19, null
-  br i1 %49, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %50
+47:                                               ; preds = %27
+  %48 = icmp eq ptr %19, null
+  br i1 %48, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %49
 
-50:                                               ; preds = %48
+49:                                               ; preds = %.thread, %47
+  %.122 = phi i1 [ %46, %.thread ], [ false, %47 ]
   call void @_ZN6icu_7012RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %19) #12
   call void @_ZN6icu_707UMemorydlEPv(ptr noundef nonnull %19) #12
   br label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
 
-_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %48, %50
+_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %47, %49
+  %.123 = phi i1 [ false, %47 ], [ %.122, %49 ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %5, align 8
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #12
-  br label %53
-
-51:                                               ; preds = %.body, %33
-  %.pn = phi { ptr, i32 } [ %43, %.body ], [ %34, %33 ]
-  call void @_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   br label %52
 
-52:                                               ; preds = %51, %31
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %51 ], [ %32, %31 ]
+50:                                               ; preds = %.body, %33
+  %.pn = phi { ptr, i32 } [ %43, %.body ], [ %34, %33 ]
+  call void @_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
+  br label %51
+
+51:                                               ; preds = %50, %31
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %50 ], [ %32, %31 ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %5, align 8
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #12
   resume { ptr, i32 } %.pn.pn
 
-53:                                               ; preds = %4, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
-  %.0 = phi i1 [ %.1, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
+52:                                               ; preds = %4, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
+  %.0 = phi i1 [ %.123, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
   ret i1 %.0
 }
 
@@ -872,7 +873,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %66, label %14
+  br i1 %.not, label %65, label %14
 
 14:                                               ; preds = %4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %5, align 8
@@ -892,12 +893,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   store ptr %21, ptr %7, align 8
   %23 = load i32, ptr %6, align 4
   %24 = icmp slt i32 %23, 1
-  br i1 %24, label %27, label %62
+  br i1 %24, label %27, label %61
 
 25:                                               ; preds = %14
   %26 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %64
 
 27:                                               ; preds = %22
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %8, align 8
@@ -908,7 +909,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
 
 30:                                               ; preds = %27
   %.not15 = icmp eq i8 %29, 0
-  br i1 %.not15, label %61, label %31
+  br i1 %.not15, label %.thread, label %31
 
 .loopexit:                                        ; preds = %.preheader, %39
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -977,7 +978,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125Utf8StringToUnicodeStringERKNSt7__cxx1112b
 50:                                               ; preds = %.loopexit22
   %51 = load i32, ptr %6, align 4
   %52 = icmp slt i32 %51, 1
-  br i1 %52, label %53, label %61
+  br i1 %52, label %53, label %.thread
 
 53:                                               ; preds = %50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
@@ -996,7 +997,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
 
 58:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
-  br label %61
+  br label %.thread
 
 59:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit
   %60 = landingpad { ptr, i32 }
@@ -1004,40 +1005,41 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #12
   br label %.body
 
-61:                                               ; preds = %50, %30, %58
+.thread:                                          ; preds = %58, %30, %50
   %.213 = phi i1 [ true, %58 ], [ false, %30 ], [ false, %50 ]
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #12
-  br label %62
+  br label %63
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %55, %59, %47, %45
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %60, %59 ], [ %46, %45 ], [ %56, %55 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #12
   call void @_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  br label %65
+  br label %64
 
-62:                                               ; preds = %22, %61
-  %.112 = phi i1 [ false, %22 ], [ %.213, %61 ]
-  %63 = icmp eq ptr %21, null
-  br i1 %63, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %64
+61:                                               ; preds = %22
+  %62 = icmp eq ptr %21, null
+  br i1 %62, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %63
 
-64:                                               ; preds = %62
+63:                                               ; preds = %.thread, %61
+  %.11224 = phi i1 [ %.213, %.thread ], [ false, %61 ]
   call void @_ZN6icu_7012RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %21) #12
   call void @_ZN6icu_707UMemorydlEPv(ptr noundef nonnull %21) #12
   br label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
 
-_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %62, %64
+_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %61, %63
+  %.11225 = phi i1 [ false, %61 ], [ %.11224, %63 ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %5, align 8
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #12
-  br label %66
+  br label %65
 
-65:                                               ; preds = %.body, %25
+64:                                               ; preds = %.body, %25
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %26, %25 ]
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %5, align 8
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #12
   resume { ptr, i32 } %.pn.pn.pn
 
-66:                                               ; preds = %4, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
-  %.011 = phi i1 [ %.112, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
+65:                                               ; preds = %4, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit
+  %.011 = phi i1 [ %.11225, %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit ], [ false, %4 ]
   ret i1 %.011
 }
 

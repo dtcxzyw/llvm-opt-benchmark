@@ -1780,7 +1780,7 @@ if.end373:                                        ; preds = %if.end368
   br i1 %tobool378.not, label %if.then414, label %for.cond381.preheader
 
 for.cond381.preheader:                            ; preds = %if.end373
-  br i1 %cmp16.not, label %for.end410, label %for.body384.preheader
+  br i1 %cmp16.not, label %if.end415.thread290, label %for.body384.preheader
 
 for.body384.preheader:                            ; preds = %for.cond381.preheader
   %smax285 = call i32 @llvm.smax.i32(i32 %num_primes, i32 3)
@@ -1790,7 +1790,7 @@ for.body384.preheader:                            ; preds = %for.cond381.prehead
 for.cond381:                                      ; preds = %lor.lhs.false400
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count286
-  br i1 %exitcond287.not, label %for.end410, label %for.body384, !llvm.loop !15
+  br i1 %exitcond287.not, label %if.end415.thread290, label %for.body384, !llvm.loop !15
 
 for.body384:                                      ; preds = %for.body384.preheader, %for.cond381
   %indvars.iv281 = phi i64 [ 2, %for.body384.preheader ], [ %indvars.iv.next282, %for.cond381 ]
@@ -1821,29 +1821,30 @@ lor.lhs.false400:                                 ; preds = %lor.lhs.false394
   %tobool405.not = icmp eq ptr %call404, null
   br i1 %tobool405.not, label %if.then414, label %for.cond381
 
-for.end410:                                       ; preds = %for.cond381, %for.cond381.preheader
+if.end415.thread290:                              ; preds = %for.cond381, %for.cond381.preheader
   %additional_primes411 = getelementptr inbounds nuw i8, ptr %rsa, i64 72
   store ptr %additional_primes.1289, ptr %additional_primes411, align 8
-  br label %if.end415
+  br label %if.then418
 
 if.then414:                                       ; preds = %for.body, %if.end128, %lor.lhs.false119, %lor.lhs.false114, %for.cond110, %if.end172, %lor.lhs.false163, %if.end158, %do.body, %if.end302, %if.then289, %if.else, %for.end279, %for.cond203.outer, %if.end262, %if.end273, %for.cond203.outer.us, %if.end262.us, %if.end273.us, %for.cond203.backedge, %if.end243, %lor.lhs.false248, %for.cond203.backedge.us.us, %if.end243.us.us, %lor.lhs.false248.us.us, %lor.lhs.false349, %for.body340, %lor.lhs.false400, %lor.lhs.false394, %for.body384, %if.end, %if.end3, %if.then17, %if.then45, %if.end373, %if.end368, %if.end362, %for.end356, %if.end332, %if.end326, %if.end320, %lor.lhs.false181, %for.end178, %for.end134, %if.end104, %land.lhs.true99, %land.lhs.true92, %land.lhs.true85, %land.lhs.true78, %land.lhs.true71, %land.lhs.true63, %land.lhs.true56, %land.lhs.true
   %additional_primes.0.ph = phi ptr [ %additional_primes.1289, %land.lhs.true ], [ %additional_primes.1289, %land.lhs.true56 ], [ %additional_primes.1289, %land.lhs.true63 ], [ %additional_primes.1289, %land.lhs.true71 ], [ %additional_primes.1289, %land.lhs.true78 ], [ %additional_primes.1289, %land.lhs.true85 ], [ %additional_primes.1289, %land.lhs.true92 ], [ %additional_primes.1289, %land.lhs.true99 ], [ %additional_primes.1289, %if.end104 ], [ %additional_primes.1289, %for.end134 ], [ %additional_primes.1289, %for.end178 ], [ %additional_primes.1289, %lor.lhs.false181 ], [ %additional_primes.1289, %if.end320 ], [ %additional_primes.1289, %if.end326 ], [ %additional_primes.1289, %if.end332 ], [ %additional_primes.1289, %for.end356 ], [ %additional_primes.1289, %if.end362 ], [ %additional_primes.1289, %if.end368 ], [ %additional_primes.1289, %if.end373 ], [ %call18, %if.then45 ], [ null, %if.then17 ], [ null, %if.end3 ], [ null, %if.end ], [ %additional_primes.1289, %for.body384 ], [ %additional_primes.1289, %lor.lhs.false394 ], [ %additional_primes.1289, %lor.lhs.false400 ], [ %additional_primes.1289, %for.body340 ], [ %additional_primes.1289, %lor.lhs.false349 ], [ %additional_primes.1289, %lor.lhs.false248.us.us ], [ %additional_primes.1289, %if.end243.us.us ], [ %additional_primes.1289, %for.cond203.backedge.us.us ], [ %additional_primes.1289, %lor.lhs.false248 ], [ %additional_primes.1289, %if.end243 ], [ %additional_primes.1289, %for.cond203.backedge ], [ %additional_primes.1289, %if.end273.us ], [ %additional_primes.1289, %if.end262.us ], [ %additional_primes.1289, %for.cond203.outer.us ], [ %additional_primes.1289, %if.end273 ], [ %additional_primes.1289, %if.end262 ], [ %additional_primes.1289, %for.cond203.outer ], [ %additional_primes.1289, %for.end279 ], [ %additional_primes.1289, %if.else ], [ %additional_primes.1289, %if.then289 ], [ %additional_primes.1289, %if.end302 ], [ %additional_primes.1289, %do.body ], [ %additional_primes.1289, %if.end158 ], [ %additional_primes.1289, %lor.lhs.false163 ], [ %additional_primes.1289, %if.end172 ], [ %additional_primes.1289, %for.cond110 ], [ %additional_primes.1289, %lor.lhs.false114 ], [ %additional_primes.1289, %lor.lhs.false119 ], [ %additional_primes.1289, %if.end128 ], [ %call18, %for.body ]
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1098) #7
   br label %if.end415
 
-if.end415:                                        ; preds = %if.then157, %for.end410, %if.then414
-  %additional_primes.0200 = phi ptr [ %additional_primes.0.ph, %if.then414 ], [ %additional_primes.1289, %if.then157 ], [ null, %for.end410 ]
-  %ok.1 = phi i32 [ 0, %if.then414 ], [ 0, %if.then157 ], [ 1, %for.end410 ]
+if.end415:                                        ; preds = %if.then157, %if.then414
+  %additional_primes.0200 = phi ptr [ %additional_primes.0.ph, %if.then414 ], [ %additional_primes.1289, %if.then157 ]
   br i1 %cmp1, label %if.end419, label %if.then418
 
-if.then418:                                       ; preds = %if.end415
+if.then418:                                       ; preds = %if.end415.thread290, %if.end415
+  %ok.1294 = phi i32 [ 1, %if.end415.thread290 ], [ 0, %if.end415 ]
+  %additional_primes.0200293 = phi ptr [ null, %if.end415.thread290 ], [ %additional_primes.0200, %if.end415 ]
   call void @BN_CTX_end(ptr noundef nonnull %call) #7
   call void @BN_CTX_free(ptr noundef nonnull %call) #7
   br label %if.end419
 
 if.end419:                                        ; preds = %if.end415.thread, %if.then418, %if.end415
-  %ok.1207 = phi i32 [ 0, %if.end415.thread ], [ %ok.1, %if.then418 ], [ %ok.1, %if.end415 ]
-  %additional_primes.0200206 = phi ptr [ null, %if.end415.thread ], [ %additional_primes.0200, %if.then418 ], [ %additional_primes.0200, %if.end415 ]
+  %ok.1207 = phi i32 [ 0, %if.end415.thread ], [ %ok.1294, %if.then418 ], [ 0, %if.end415 ]
+  %additional_primes.0200206 = phi ptr [ null, %if.end415.thread ], [ %additional_primes.0200293, %if.then418 ], [ %additional_primes.0200, %if.end415 ]
   call void @sk_pop_free(ptr noundef %additional_primes.0200206, ptr noundef nonnull @RSA_additional_prime_free) #7
   ret i32 %ok.1207
 }

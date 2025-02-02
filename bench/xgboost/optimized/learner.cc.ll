@@ -27357,7 +27357,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   %eh.lpad-body = phi { ptr, i32 } [ %11, %10 ], [ %7, %6 ]
   %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #15
-  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %2, ptr noundef %.018)
+  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %2, ptr noundef nonnull %.018)
           to label %14 unwind label %15
 
 14:                                               ; preds = %.body
@@ -32752,7 +32752,7 @@ _ZNSt16allocator_traitsISaIN7xgboost4JsonEEE7destroyIS1_EEvRS2_PT_.exit.sink.spl
 
 _ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3popEv.exit: ; preds = %133, %136, %140, %147, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE7destroyIS1_EEvRS2_PT_.exit.sink.split.i.i
   %154 = invoke noundef ptr @_ZN7xgboost4CastIKNS_10JsonObjectENS_5ValueEEEPT_PT0_(ptr noundef nonnull %127)
-          to label %155 unwind label %.loopexit.split-lp232.loopexit.split-lp.loopexit
+          to label %155 unwind label %.loopexit.split-lp232.thread
 
 155:                                              ; preds = %_ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3popEv.exit
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 40
@@ -32992,10 +32992,10 @@ _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traits
           cleanup
   br label %.loopexit.split-lp232
 
-.loopexit.split-lp232.loopexit.split-lp.loopexit: ; preds = %_ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3popEv.exit
+.loopexit.split-lp232.thread:                     ; preds = %_ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3popEv.exit
   %lpad.loopexit242 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp232
+  br label %406
 
 .loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %.noexc.i.i186, %.noexc3.i.i
   %lpad.loopexit.split-lp243 = landingpad { ptr, i32 }
@@ -33339,8 +33339,8 @@ _ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE4pushERKS1_.exit102: ; preds = %
   br i1 %.not217, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit, label %.lr.ph281
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit.sink.split: ; preds = %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i94, %.noexc95
-  %.sink359 = phi ptr [ %285, %.noexc95 ], [ %241, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i94 ]
-  store ptr %.sink359, ptr %43, align 8
+  %.sink361 = phi ptr [ %285, %.noexc95 ], [ %241, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i94 ]
+  store ptr %.sink361, ptr %43, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit: ; preds = %_ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE4pushERKS1_.exit102, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit.sink.split, %289, %.loopexit236, %.loopexit230
@@ -33368,11 +33368,12 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %._crit_edge, %399
   %405 = icmp eq ptr %403, %404
   br i1 %405, label %._crit_edge286, label %116, !llvm.loop !254
 
-.loopexit.split-lp232:                            ; preds = %.loopexit231, %.loopexit.split-lp232.loopexit.split-lp.loopexit, %.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp232.loopexit, %.body90
-  %.pn65 = phi { ptr, i32 } [ %eh.lpad-body91, %.body90 ], [ %lpad.loopexit233, %.loopexit231 ], [ %lpad.loopexit238, %.loopexit.split-lp232.loopexit ], [ %lpad.loopexit242, %.loopexit.split-lp232.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp243, %.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp232:                            ; preds = %.loopexit231, %.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp232.loopexit, %.body90
+  %.pn65 = phi { ptr, i32 } [ %eh.lpad-body91, %.body90 ], [ %lpad.loopexit233, %.loopexit231 ], [ %lpad.loopexit238, %.loopexit.split-lp232.loopexit ], [ %lpad.loopexit.split-lp243, %.loopexit.split-lp232.loopexit.split-lp.loopexit.split-lp ]
   br i1 %.not.i.i.i, label %_ZN7xgboost4JsonD2Ev.exit105, label %406
 
-406:                                              ; preds = %.loopexit.split-lp232
+406:                                              ; preds = %.loopexit.split-lp232.thread, %.loopexit.split-lp232
+  %.pn65333 = phi { ptr, i32 } [ %lpad.loopexit242, %.loopexit.split-lp232.thread ], [ %.pn65, %.loopexit.split-lp232 ]
   %407 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %408 = atomicrmw sub ptr %407, i32 1 release, align 4
   %409 = icmp eq i32 %408, 1
@@ -33953,7 +33954,7 @@ _ZN7xgboost4JsonD2Ev.exit163:                     ; preds = %_ZNSt6vectorINSt7__
   br label %_ZN7xgboost4JsonD2Ev.exit105
 
 _ZN7xgboost4JsonD2Ev.exit105:                     ; preds = %.loopexit245, %.loopexit.split-lp246, %607, %.loopexit.split-lp232, %406, %410
-  %.pn67 = phi { ptr, i32 } [ %.pn63, %607 ], [ %.pn65, %.loopexit.split-lp232 ], [ %.pn65, %406 ], [ %.pn65, %410 ], [ %lpad.loopexit247, %.loopexit245 ], [ %lpad.loopexit.split-lp248, %.loopexit.split-lp246 ]
+  %.pn67 = phi { ptr, i32 } [ %.pn63, %607 ], [ %.pn65, %.loopexit.split-lp232 ], [ %.pn65333, %406 ], [ %.pn65333, %410 ], [ %lpad.loopexit247, %.loopexit245 ], [ %lpad.loopexit.split-lp248, %.loopexit.split-lp246 ]
   %608 = atomicrmw sub ptr %63, i32 1 release, align 4
   %609 = icmp eq i32 %608, 1
   br i1 %609, label %610, label %_ZN7xgboost4JsonD2Ev.exit165
@@ -34050,7 +34051,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %8, %7 ]
   %13 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #15
-  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %2, ptr noundef %.016)
+  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %2, ptr noundef nonnull %.016)
           to label %15 unwind label %16
 
 15:                                               ; preds = %.body
@@ -41850,7 +41851,7 @@ _ZSt10_ConstructISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_
   %eh.lpad-body = phi { ptr, i32 } [ %12, %11 ], [ %8, %7 ]
   %13 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #15
-  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %2, ptr noundef %.016)
+  invoke void @_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvT_S9_(ptr noundef %2, ptr noundef nonnull %.016)
           to label %15 unwind label %16
 
 15:                                               ; preds = %.body
@@ -48609,7 +48610,7 @@ define linkonce_odr noundef float @_ZN4dmlc4stofERKNSt7__cxx1112basic_stringIcSt
 29:                                               ; preds = %21, %13
   %.sink = phi ptr [ %19, %21 ], [ %11, %13 ]
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %14, %13 ]
-  call void @__cxa_free_exception(ptr %.sink) #15
+  call void @__cxa_free_exception(ptr nonnull %.sink) #15
   resume { ptr, i32 } %.pn
 }
 

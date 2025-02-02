@@ -845,22 +845,23 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.lr.ph126
+.loopexit.split-lp.thread:                        ; preds = %.lr.ph126
   %lpad.loopexit110 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp
+  br label %109
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %139, %138
   %lpad.loopexit.split-lp111 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit110, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp111, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp111, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %109
 
-109:                                              ; preds = %.loopexit.split-lp
+109:                                              ; preds = %.loopexit.split-lp.thread, %.loopexit.split-lp
+  %lpad.phi155 = phi { ptr, i32 } [ %lpad.loopexit110, %.loopexit.split-lp.thread ], [ %lpad.phi, %.loopexit.split-lp ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #22
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
@@ -971,7 +972,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %175 = getelementptr inbounds nuw i8, ptr %164, i64 36
   %176 = load i32, ptr %175, align 4
   invoke void @_ZN2cv8ximgproc10intrinsics6div_1xEPfS2_i(ptr noundef %174, ptr noundef nonnull %.sroa.0.0, i32 noundef %176)
-          to label %177 unwind label %.loopexit.split-lp.loopexit
+          to label %177 unwind label %.loopexit.split-lp.thread
 
 177:                                              ; preds = %.lr.ph126
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
@@ -1083,7 +1084,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit96:                  ; preds = %232, %.lr.ph120, %2
   ret void
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %109, %.loopexit.split-lp
-  resume { ptr, i32 } %lpad.phi
+  %lpad.phi156 = phi { ptr, i32 } [ %lpad.phi155, %109 ], [ %lpad.phi, %.loopexit.split-lp ]
+  resume { ptr, i32 } %lpad.phi156
 }
 
 declare void @_ZN2cv8ximgproc10intrinsics7det_2x2EPfS2_S2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0

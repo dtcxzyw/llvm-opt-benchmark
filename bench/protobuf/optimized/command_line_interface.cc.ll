@@ -24577,25 +24577,32 @@ lpad4:                                            ; preds = %invoke.cont5, %if.e
           cleanup
   br label %ehcleanup
 
-lpad9:                                            ; preds = %cleanup.done34, %cond.false24, %cleanup.done, %cond.false, %invoke.cont7
-  %5 = landingpad { ptr, i32 }
+lpad9.thread:                                     ; preds = %cleanup.done34, %cond.false24
+  %lpad.thr_comm = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #31
+  br label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i
+
+lpad9:                                            ; preds = %cleanup.done, %cond.false, %invoke.cont7
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #31
   %cmp.not.i = icmp eq ptr %call.i9, null
   br i1 %cmp.not.i, label %ehcleanup, label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i: ; preds = %lpad9
+_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i: ; preds = %lpad9.thread, %lpad9
+  %lpad.phi22 = phi { ptr, i32 } [ %lpad.thr_comm, %lpad9.thread ], [ %lpad.thr_comm.split-lp, %lpad9 ]
   %vtable.i.i = load ptr, ptr %call.i9, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %6 = load ptr, ptr %vfn.i.i, align 8
-  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %call.i9) #31
+  %5 = load ptr, ptr %vfn.i.i, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(16) %call.i9) #31
   br label %ehcleanup
 
 cleanup.done:                                     ; preds = %invoke.cont10
   %call19 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #31
-  %7 = extractvalue { i64, ptr } %call19, 0
-  %8 = extractvalue { i64, ptr } %call19, 1
-  %call21 = invoke noundef zeroext i1 @_ZN6google8protobuf11MessageLite15ParseFromStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %call.i9, i64 %7, ptr %8)
+  %6 = extractvalue { i64, ptr } %call19, 0
+  %7 = extractvalue { i64, ptr } %call19, 1
+  %call21 = invoke noundef zeroext i1 @_ZN6google8protobuf11MessageLite15ParseFromStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %call.i9, i64 %6, ptr %7)
           to label %invoke.cont20 unwind label %lpad9
 
 invoke.cont20:                                    ; preds = %cleanup.done
@@ -24603,7 +24610,7 @@ invoke.cont20:                                    ; preds = %cleanup.done
 
 cond.false24:                                     ; preds = %invoke.cont20
   invoke void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26, ptr noundef nonnull @.str.17, i32 noundef 1117, i64 44, ptr nonnull @.str.187) #35
-          to label %cleanup.action33 unwind label %lpad9
+          to label %cleanup.action33 unwind label %lpad9.thread
 
 cleanup.action33:                                 ; preds = %cond.false24
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26) #36
@@ -24611,19 +24618,19 @@ cleanup.action33:                                 ; preds = %cond.false24
 
 cleanup.done34:                                   ; preds = %invoke.cont20
   %call38 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_134ValidateTargetConstraintsRecursiveERKNS0_7MessageERNS0_14DescriptorPool14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %call.i9, ptr noundef nonnull align 8 dereferenceable(8) %error_collector, i64 %file_name.coerce0, ptr %file_name.coerce1, i32 noundef %target_type)
-          to label %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit16 unwind label %lpad9
+          to label %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit16 unwind label %lpad9.thread
 
 _ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit16: ; preds = %cleanup.done34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #31
   %vtable.i.i14 = load ptr, ptr %call.i9, align 8
   %vfn.i.i15 = getelementptr inbounds nuw i8, ptr %vtable.i.i14, i64 8
-  %9 = load ptr, ptr %vfn.i.i15, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(16) %call.i9) #31
+  %8 = load ptr, ptr %vfn.i.i15, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %call.i9) #31
   call void @_ZN6google8protobuf21DynamicMessageFactoryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory) #31
   br label %return
 
 ehcleanup:                                        ; preds = %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i, %lpad9, %lpad4
-  %.pn = phi { ptr, i32 } [ %4, %lpad4 ], [ %5, %lpad9 ], [ %5, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad4 ], [ %lpad.thr_comm.split-lp, %lpad9 ], [ %lpad.phi22, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i ]
   call void @_ZN6google8protobuf21DynamicMessageFactoryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory) #31
   br label %eh.resume
 
@@ -27073,7 +27080,7 @@ lpad.body:                                        ; preds = %_ZNSt12_Vector_base
   br i1 %tobool.not, label %if.end.thread, label %if.then.i38
 
 if.end.thread:                                    ; preds = %lpad.body
-  tail call void @_ZNSt16allocator_traitsISaIN6google8protobuf8compiler20CommandLineInterface15OutputDirectiveEEE7destroyIS4_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %add.ptr) #31
+  tail call void @_ZNSt16allocator_traitsISaIN6google8protobuf8compiler20CommandLineInterface15OutputDirectiveEEE7destroyIS4_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull %add.ptr) #31
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19

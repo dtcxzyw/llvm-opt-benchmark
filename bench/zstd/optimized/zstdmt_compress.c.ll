@@ -2814,24 +2814,21 @@ entry:
   %cMem.val = load ptr, ptr %cMem, align 8
   %4 = getelementptr inbounds nuw i8, ptr %cMem, i64 16
   %tobool.not.i = icmp eq ptr %cMem.val, null
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  br i1 %tobool.not.i, label %ZSTD_customCalloc.exit, label %ZSTD_customCalloc.exit.thread
 
-if.then.i:                                        ; preds = %entry
+ZSTD_customCalloc.exit.thread:                    ; preds = %entry
   %cMem.val14 = load ptr, ptr %4, align 8
   %call.i = tail call ptr %cMem.val(ptr noundef %cMem.val14, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i, i8 0, i64 range(i64 -17179869184, 1924145348161) %mul, i1 false)
-  br label %ZSTD_customCalloc.exit
+  br label %if.end
 
-if.end.i:                                         ; preds = %entry
+ZSTD_customCalloc.exit:                           ; preds = %entry
   %call2.i = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef range(i64 -17179869184, 1924145348161) %mul) #15
-  br label %ZSTD_customCalloc.exit
-
-ZSTD_customCalloc.exit:                           ; preds = %if.then.i, %if.end.i
-  %retval.0.i = phi ptr [ %call.i, %if.then.i ], [ %call2.i, %if.end.i ]
-  %cmp = icmp eq ptr %retval.0.i, null
+  %cmp = icmp eq ptr %call2.i, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %ZSTD_customCalloc.exit
+if.end:                                           ; preds = %ZSTD_customCalloc.exit.thread, %ZSTD_customCalloc.exit
+  %retval.0.i23 = phi ptr [ %call.i, %ZSTD_customCalloc.exit.thread ], [ %call2.i, %ZSTD_customCalloc.exit ]
   store i32 %shl, ptr %nbJobsPtr, align 4
   %wide.trip.count = zext i32 %shl to i64
   br label %for.body
@@ -2839,7 +2836,7 @@ if.end:                                           ; preds = %ZSTD_customCalloc.e
 for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.body ]
   %initError.019 = phi i32 [ 0, %if.end ], [ %or9, %for.body ]
-  %arrayidx = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %retval.0.i, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %retval.0.i23, i64 %indvars.iv
   %job_mutex = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %call5 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %job_mutex, ptr noundef null) #14
   %job_cond = getelementptr inbounds nuw i8, ptr %arrayidx, i64 56
@@ -2862,7 +2859,7 @@ for.cond.preheader.i:                             ; preds = %for.end
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %retval.0.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %retval.0.i23, i64 %indvars.iv.i
   %job_mutex.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %call.i17 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %job_mutex.i) #14
   %job_cond.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
@@ -2876,15 +2873,15 @@ if.then.i.i:                                      ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.then.i.i
-  tail call void %cMem.val15(ptr noundef %cMem.val16, ptr noundef nonnull %retval.0.i) #14
+  tail call void %cMem.val15(ptr noundef %cMem.val16, ptr noundef nonnull %retval.0.i23) #14
   br label %return
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void @free(ptr noundef nonnull %retval.0.i) #14
+  tail call void @free(ptr noundef nonnull %retval.0.i23) #14
   br label %return
 
 return:                                           ; preds = %if.else.i.i, %if.then1.i.i, %for.end, %ZSTD_customCalloc.exit
-  %retval.0 = phi ptr [ null, %ZSTD_customCalloc.exit ], [ %retval.0.i, %for.end ], [ null, %if.then1.i.i ], [ null, %if.else.i.i ]
+  %retval.0 = phi ptr [ null, %ZSTD_customCalloc.exit ], [ %retval.0.i23, %for.end ], [ null, %if.then1.i.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0
 }
 

@@ -365,7 +365,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit73: ; preds = %_Z9uiMsgBaseIRA204
   br i1 %143, label %145, label %._ZN5ArrayIwE5AllocEm.exit_crit_edge
 
 ._ZN5ArrayIwE5AllocEm.exit_crit_edge:             ; preds = %139
-  %.pre159 = load ptr, ptr %1, align 8
+  %.pre167 = load ptr, ptr %1, align 8
   br label %_ZN5ArrayIwE5AllocEm.exit
 
 145:                                              ; preds = %139
@@ -409,12 +409,12 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit73: ; preds = %_Z9uiMsgBaseIRA204
 _ZN5ArrayIwE3AddEm.exit.i:                        ; preds = %160, %150
   store ptr %158, ptr %1, align 8
   store i64 %..i.i, ptr %141, align 8
-  %.pre160 = load i64, ptr %144, align 8
+  %.pre168 = load i64, ptr %144, align 8
   br label %_ZN5ArrayIwE5AllocEm.exit
 
 _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %._ZN5ArrayIwE5AllocEm.exit_crit_edge, %_ZN5ArrayIwE3AddEm.exit.i
-  %161 = phi i64 [ %140, %._ZN5ArrayIwE5AllocEm.exit_crit_edge ], [ %.pre160, %_ZN5ArrayIwE3AddEm.exit.i ]
-  %162 = phi ptr [ %.pre159, %._ZN5ArrayIwE5AllocEm.exit_crit_edge ], [ %158, %_ZN5ArrayIwE3AddEm.exit.i ]
+  %161 = phi i64 [ %140, %._ZN5ArrayIwE5AllocEm.exit_crit_edge ], [ %.pre168, %_ZN5ArrayIwE3AddEm.exit.i ]
+  %162 = phi ptr [ %.pre167, %._ZN5ArrayIwE5AllocEm.exit_crit_edge ], [ %158, %_ZN5ArrayIwE3AddEm.exit.i ]
   %163 = shl i64 %161, 2
   call void @llvm.memset.p0.i64(ptr align 4 %162, i8 0, i64 %163, i1 false)
   %164 = load ptr, ptr %8, align 8
@@ -450,11 +450,11 @@ _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %._ZN5ArrayIwE5Alloc
 .noexc83:                                         ; preds = %.noexc82
   %.pre.i.i80 = load i64, ptr %141, align 8
   %.pre10.i.i81 = load i64, ptr %144, align 8
-  %.pre161 = load ptr, ptr %1, align 8
+  %.pre169 = load ptr, ptr %1, align 8
   br label %178
 
 178:                                              ; preds = %.noexc83, %173
-  %179 = phi ptr [ %.pre161, %.noexc83 ], [ %169, %173 ]
+  %179 = phi ptr [ %.pre169, %.noexc83 ], [ %169, %173 ]
   %180 = phi i64 [ %.pre10.i.i81, %.noexc83 ], [ %170, %173 ]
   %181 = phi i64 [ %.pre.i.i80, %.noexc83 ], [ %171, %173 ]
   %182 = lshr i64 %181, 2
@@ -513,34 +513,40 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %_ZN5ArrayIhEC2Em.ex
   %or.cond67 = select i1 %200, i1 %201, i1 false
   %202 = zext nneg i32 %199 to i64
   %spec.select = select i1 %or.cond67, i64 %202, i64 %193
-  %spec.select158 = select i1 %or.cond67, i32 %199, i32 %.043
+  %spec.select166 = select i1 %or.cond67, i32 %199, i32 %.043
   %203 = load i32, ptr %10, align 8
   %.not54 = icmp eq i32 %203, 1
   br i1 %.not54, label %222, label %206
 
-.thread162:                                       ; preds = %279, %.noexc127, %268, %253
+.thread154:                                       ; preds = %279, %.noexc127, %268
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %205
 
-204:                                              ; preds = %252, %244, %.noexc108, %233, %_Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i99, %206, %_ZN5ArrayIhEC2Em.exit
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+.thread172:                                       ; preds = %206, %233, %.noexc108, %244, %252, %253
+  %.sroa.0.0.ph153.ph = phi ptr [ %.sroa.0.5, %253 ], [ %malloc.i, %252 ], [ %malloc.i, %244 ], [ %malloc.i, %.noexc108 ], [ %malloc.i, %233 ], [ %malloc.i, %206 ]
+  %lpad.thr_comm170 = landingpad { ptr, i32 }
+          cleanup
+  br label %205
+
+204:                                              ; preds = %_Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i99, %_ZN5ArrayIhEC2Em.exit
+  %lpad.thr_comm.split-lp171 = landingpad { ptr, i32 }
           cleanup
   %.not.i95 = icmp eq ptr %malloc.i, null
   br i1 %.not.i95, label %_ZN5ArrayIhED2Ev.exit, label %205
 
-205:                                              ; preds = %.thread162, %204
-  %lpad.phi167 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread162 ], [ %lpad.thr_comm.split-lp, %204 ]
-  %.sroa.0.0166 = phi ptr [ %.sroa.0.5, %.thread162 ], [ %malloc.i, %204 ]
-  call void @free(ptr noundef nonnull %.sroa.0.0166) #17
+205:                                              ; preds = %.thread172, %.thread154, %204
+  %lpad.phi159 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread154 ], [ %lpad.thr_comm.split-lp171, %204 ], [ %lpad.thr_comm170, %.thread172 ]
+  %.sroa.0.0158 = phi ptr [ %.sroa.0.5, %.thread154 ], [ %malloc.i, %204 ], [ %.sroa.0.0.ph153.ph, %.thread172 ]
+  call void @free(ptr noundef nonnull %.sroa.0.0158) #17
   br label %_ZN5ArrayIhED2Ev.exit
 
 206:                                              ; preds = %_ZN5ArrayIhE5AllocEm.exit
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 48432
   %208 = load i16, ptr %207, align 8
-  %209 = zext i32 %spec.select158 to i64
+  %209 = zext i32 %spec.select166 to i64
   %210 = invoke noundef i32 @_Z5CRC32jPKvm(i32 noundef -1, ptr noundef nonnull %malloc.i, i64 noundef %209)
-          to label %211 unwind label %204
+          to label %211 unwind label %.thread172
 
 211:                                              ; preds = %206
   %212 = zext i16 %208 to i32
@@ -574,7 +580,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i99: ; preds = %216
           to label %_ZN5ArrayIhED2Ev.exit132 unwind label %204
 
 222:                                              ; preds = %211, %_ZN5ArrayIhE5AllocEm.exit
-  %223 = add nuw i32 %spec.select158, 1
+  %223 = add nuw i32 %spec.select166, 1
   %224 = zext i32 %223 to i64
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %226 = load i64, ptr %225, align 8
@@ -593,11 +599,11 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i99: ; preds = %216
 
 233:                                              ; preds = %229
   invoke void (ptr, ptr, ...) @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull @.str.3, i64 noundef %231)
-          to label %.noexc108 unwind label %204
+          to label %.noexc108 unwind label %.thread172
 
 .noexc108:                                        ; preds = %233
   invoke void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
-          to label %.noexc109 unwind label %204
+          to label %.noexc109 unwind label %.thread172
 
 .noexc109:                                        ; preds = %.noexc108
   %.pre.i.i106 = load i64, ptr %225, align 8
@@ -619,7 +625,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i99: ; preds = %216
 
 244:                                              ; preds = %234
   invoke void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
-          to label %_ZN5ArrayIwE3AddEm.exit.i105 unwind label %204
+          to label %_ZN5ArrayIwE3AddEm.exit.i105 unwind label %.thread172
 
 _ZN5ArrayIwE3AddEm.exit.i105:                     ; preds = %244, %234
   store ptr %242, ptr %1, align 8
@@ -628,8 +634,8 @@ _ZN5ArrayIwE3AddEm.exit.i105:                     ; preds = %244, %234
 
 _ZN5ArrayIwE5AllocEm.exit111:                     ; preds = %_ZN5ArrayIwE3AddEm.exit.i105, %222
   %245 = add nuw nsw i64 %spec.select, 1
-  %.not157 = icmp samesign ult i64 %spec.select, %..i.i86
-  br i1 %.not157, label %253, label %246
+  %.not165 = icmp samesign ult i64 %spec.select, %..i.i86
+  br i1 %.not165, label %253, label %246
 
 246:                                              ; preds = %_ZN5ArrayIwE5AllocEm.exit111
   %247 = lshr i64 %..i.i86, 2
@@ -642,7 +648,7 @@ _ZN5ArrayIwE5AllocEm.exit111:                     ; preds = %_ZN5ArrayIwE3AddEm.
 
 252:                                              ; preds = %246
   invoke void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
-          to label %253 unwind label %204
+          to label %253 unwind label %.thread172
 
 253:                                              ; preds = %_ZN5ArrayIwE5AllocEm.exit111, %252, %246
   %.sroa.0.5 = phi ptr [ %malloc.i, %_ZN5ArrayIwE5AllocEm.exit111 ], [ null, %252 ], [ %250, %246 ]
@@ -652,7 +658,7 @@ _ZN5ArrayIwE5AllocEm.exit111:                     ; preds = %_ZN5ArrayIwE3AddEm.
   %256 = load ptr, ptr %1, align 8
   %257 = load i64, ptr %228, align 8
   %258 = invoke noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %.sroa.0.5, ptr noundef %256, i64 noundef %257)
-          to label %259 unwind label %.thread162
+          to label %259 unwind label %.thread172
 
 259:                                              ; preds = %253
   %260 = load ptr, ptr %1, align 8
@@ -672,11 +678,11 @@ _ZN5ArrayIwE5AllocEm.exit111:                     ; preds = %_ZN5ArrayIwE3AddEm.
 
 268:                                              ; preds = %264
   invoke void (ptr, ptr, ...) @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull @.str.3, i64 noundef %266)
-          to label %.noexc127 unwind label %.thread162
+          to label %.noexc127 unwind label %.thread154
 
 .noexc127:                                        ; preds = %268
   invoke void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
-          to label %.noexc128 unwind label %.thread162
+          to label %.noexc128 unwind label %.thread154
 
 .noexc128:                                        ; preds = %.noexc127
   %.pre.i.i125 = load i64, ptr %225, align 8
@@ -699,7 +705,7 @@ _ZN5ArrayIwE5AllocEm.exit111:                     ; preds = %_ZN5ArrayIwE3AddEm.
 
 279:                                              ; preds = %269
   invoke void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler)
-          to label %_ZN5ArrayIwE3AddEm.exit.i124 unwind label %.thread162
+          to label %_ZN5ArrayIwE3AddEm.exit.i124 unwind label %.thread154
 
 _ZN5ArrayIwE3AddEm.exit.i124:                     ; preds = %279, %269
   store ptr %277, ptr %1, align 8
@@ -726,7 +732,7 @@ _ZN5ArrayIhED2Ev.exit132:                         ; preds = %_Z9uiMsgBaseIRA2048
   ret i1 %.0
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %205, %204, %190
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %190 ], [ %lpad.thr_comm.split-lp, %204 ], [ %lpad.phi167, %205 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %190 ], [ %lpad.thr_comm.split-lp171, %204 ], [ %lpad.phi159, %205 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1070,7 +1076,7 @@ _ZN7Archive10GetCommentEP5ArrayIwE.exit:          ; preds = %.noexc6
   %28 = ashr exact i64 %27, 2
   %.0 = select i1 %.not, i64 %23, i64 %28
   invoke void @_Z10OutCommentPKwm(ptr noundef nonnull %.pr.pre, i64 noundef %.0)
-          to label %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread unwind label %29
+          to label %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread12 unwind label %29
 
 29:                                               ; preds = %.noexc6, %.noexc, %12, %21
   %30 = landingpad { ptr, i32 }
@@ -1086,15 +1092,15 @@ _ZN7Archive10GetCommentEP5ArrayIwE.exit:          ; preds = %.noexc6
 _ZN5ArrayIwED2Ev.exit:                            ; preds = %29, %32
   resume { ptr, i32 } %30
 
-_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread:   ; preds = %21, %_ZN7Archive10GetCommentEP5ArrayIwE.exit
+_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread:   ; preds = %_ZN7Archive10GetCommentEP5ArrayIwE.exit
   %.not.i8 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i8, label %_ZN5ArrayIwED2Ev.exit9, label %33
+  br i1 %.not.i8, label %_ZN5ArrayIwED2Ev.exit9, label %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread12
 
-33:                                               ; preds = %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread
+_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread12: ; preds = %21, %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread
   tail call void @free(ptr noundef nonnull %.pr.pre) #17
   br label %_ZN5ArrayIwED2Ev.exit9
 
-_ZN5ArrayIwED2Ev.exit9:                           ; preds = %8, %33, %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread, %1
+_ZN5ArrayIwED2Ev.exit9:                           ; preds = %8, %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread.thread12, %_ZN7Archive10GetCommentEP5ArrayIwE.exit.thread, %1
   ret void
 }
 

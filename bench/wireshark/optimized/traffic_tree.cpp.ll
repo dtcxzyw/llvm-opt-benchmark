@@ -870,8 +870,6 @@ _ZN11TrafficTree9dataModelEv.exit:                ; preds = %_ZN7QStringD2Ev.exi
   %.063 = phi i32 [ 0, %_ZN7QStringD2Ev.exit ], [ %103, %_ZN7QStringD2Ev.exit85 ]
   %53 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %33)
   %54 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QSortFilterProxyModel16staticMetaObjectE, ptr noundef %53)
-  %.not.i = icmp ne ptr %54, null
-  call void @llvm.assume(i1 %.not.i)
   %55 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %54)
   %56 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN13ATapDataModel16staticMetaObjectE, ptr noundef %55)
   store i32 -1, ptr %10, align 8
@@ -887,8 +885,6 @@ _ZN11TrafficTree9dataModelEv.exit:                ; preds = %_ZN7QStringD2Ev.exi
 _ZN11TrafficTree9dataModelEv.exit80:              ; preds = %_ZN11TrafficTree9dataModelEv.exit
   %62 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %33)
   %63 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QSortFilterProxyModel16staticMetaObjectE, ptr noundef %62)
-  %.not.i78 = icmp ne ptr %63, null
-  call void @llvm.assume(i1 %.not.i78)
   %64 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %63)
   %65 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN13ATapDataModel16staticMetaObjectE, ptr noundef %64)
   %66 = load ptr, ptr %65, align 8
@@ -1696,8 +1692,6 @@ _ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit: ; preds = %37, %40
           to label %.noexc30 unwind label %95
 
 .noexc30:                                         ; preds = %.noexc
-  %.not.i = icmp ne ptr %54, null
-  call void @llvm.assume(i1 %.not.i)
   %55 = invoke noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %54)
           to label %.noexc31 unwind label %95
 
@@ -2706,8 +2700,6 @@ _Z12qobject_castIP22TrafficDataFilterProxyET_P7QObject.exit: ; preds = %_Z12qobj
           to label %.noexc24 unwind label %.loopexit
 
 .noexc24:                                         ; preds = %.noexc23
-  %.not.i = icmp ne ptr %55, null
-  call void @llvm.assume(i1 %.not.i)
   %56 = invoke noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %55)
           to label %.noexc25 unwind label %.loopexit
 
@@ -8353,7 +8345,7 @@ _ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_.exit.i.i.i: ; preds = 
   %232 = load i64, ptr %64, align 8
   %233 = sub i64 %232, %174
   %234 = mul i64 %233, 24
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %231, ptr align 1 %230, i64 %234, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %231, ptr nonnull align 1 %230, i64 %234, i1 false)
   store ptr %171, ptr %230, align 8
   %235 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store ptr %172, ptr %235, align 8
@@ -10594,8 +10586,6 @@ _ZN11TrafficTree9dataModelEv.exit:                ; preds = %_ZN11TrafficTree9da
   %storemerge = phi i32 [ %44, %_ZN22TrafficDataFilterProxy19setColumnVisibilityEib.exit ], [ 0, %_ZN11TrafficTree9dataModelEv.exit.preheader ]
   %16 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %17 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21QSortFilterProxyModel16staticMetaObjectE, ptr noundef %16)
-  %.not.i = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %.not.i)
   %18 = call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
   %19 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN13ATapDataModel16staticMetaObjectE, ptr noundef %18)
   store i32 -1, ptr %7, align 8
@@ -13221,7 +13211,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread: ; preds = %3, %33,
   %83 = load i64, ptr %61, align 8
   %84 = sub i64 %83, %1
   %85 = mul i64 %84, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %82, ptr align 1 %81, i64 %85, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %82, ptr nonnull align 1 %81, i64 %85, i1 false)
   store ptr %56, ptr %81, align 8
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %58, ptr %86, align 8

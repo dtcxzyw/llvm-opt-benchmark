@@ -7048,7 +7048,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %15, %.noexc54, %_ZN
   %.05097 = phi i32 [ 0, %.lr.ph99 ], [ %143, %._crit_edge ]
   %.sroa.065.096 = phi ptr [ %20, %.lr.ph99 ], [ %142, %._crit_edge ]
   %33 = invoke noundef i32 @_ZN11QDataStream11readRawDataEPci(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %.sroa.073.0, i32 noundef %3)
-          to label %.preheader unwind label %.loopexit.split-lp
+          to label %.preheader unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit.thread
 
 .preheader:                                       ; preds = %32
   %34 = load ptr, ptr %31, align 8
@@ -7122,10 +7122,10 @@ _ZeqRK10QByteArrayPKc.exit:                       ; preds = %50
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-.loopexit.split-lp:                               ; preds = %32
+_ZNSt6vectorIfSaIfEED2Ev.exit.thread:             ; preds = %32
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit
+  br label %145
 
 67:                                               ; preds = %_ZeqRK10QByteArrayPKc.exit
   %68 = load ptr, ptr %2, align 8
@@ -7277,17 +7277,18 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   call void @_ZN11QDataStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   ret i32 0
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit87, %.loopexit.split-lp, %29, %25, %65
-  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %26, %29 ], [ %26, %25 ], [ %lpad.loopexit, %.loopexit87 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.loopexit87, %29, %25, %65
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %26, %29 ], [ %26, %25 ], [ %lpad.loopexit, %.loopexit87 ]
   %.not.i.i.i63 = icmp eq ptr %.sroa.073.0, null
   br i1 %.not.i.i.i63, label %_ZNSt6vectorIhSaIhEED2Ev.exit64, label %145
 
-145:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
+145:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.thread, %_ZNSt6vectorIfSaIfEED2Ev.exit
+  %.pn110 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %_ZNSt6vectorIfSaIfEED2Ev.exit.thread ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.073.0) #21
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit64
 
 _ZNSt6vectorIhSaIhEED2Ev.exit64:                  ; preds = %145, %_ZNSt6vectorIfSaIfEED2Ev.exit, %63
-  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.pn, %145 ]
+  %.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.pn110, %145 ]
   call void @_ZN11QDataStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   resume { ptr, i32 } %.pn.pn
 }

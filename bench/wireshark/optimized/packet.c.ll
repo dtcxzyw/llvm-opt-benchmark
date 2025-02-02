@@ -1525,8 +1525,6 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly %1, p
 11:                                               ; preds = %8
   %12 = load ptr, ptr @dissector_table_aliases, align 8
   %13 = tail call ptr @g_hash_table_lookup(ptr noundef %12, ptr noundef %0) #25
-  %.not12.i = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %.not12.i)
   %14 = load ptr, ptr @dissector_tables, align 8
   %15 = tail call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef nonnull %13) #25
   %.not13.i = icmp ne ptr %15, null
@@ -1853,8 +1851,6 @@ define void @dissector_delete_guid(ptr noundef %0, ptr noundef %1, ptr noundef r
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
   %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
-  %.not12.i = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %.not12.i)
   %9 = load ptr, ptr @dissector_tables, align 8
   %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %8) #25
   %.not13.i = icmp ne ptr %10, null
@@ -1904,8 +1900,6 @@ define void @dissector_delete_all(ptr noundef %0, ptr noundef %1) local_unnamed_
 5:                                                ; preds = %2
   %6 = load ptr, ptr @dissector_table_aliases, align 8
   %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #25
-  %.not12.i = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %.not12.i)
   %8 = load ptr, ptr @dissector_tables, align 8
   %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %7) #25
   %.not13.i = icmp ne ptr %9, null
@@ -3681,8 +3675,6 @@ define void @dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr noundef
 7:                                                ; preds = %3
   %8 = load ptr, ptr @dissector_table_aliases, align 8
   %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %0) #25
-  %.not12.i = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %.not12.i)
   %10 = load ptr, ptr @dissector_tables, align 8
   %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %9) #25
   %.not13.i = icmp ne ptr %11, null
@@ -3746,8 +3738,6 @@ define void @dissector_table_foreach_handle(ptr noundef %0, ptr noundef readonly
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
   %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
-  %.not12.i = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %.not12.i)
   %9 = load ptr, ptr @dissector_tables, align 8
   %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %8) #25
   %.not13.i = icmp ne ptr %10, null
@@ -3864,8 +3854,6 @@ define hidden void @dissector_table_foreach_changed(ptr noundef %0, ptr noundef 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @dissector_table_aliases, align 8
   %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %0) #25
-  %.not12.i = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %.not12.i)
   %10 = load ptr, ptr @dissector_tables, align 8
   %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %9) #25
   %.not13.i = icmp ne ptr %11, null
@@ -5793,8 +5781,6 @@ define internal void @dissector_dump_decodes_display(ptr noundef %0, i32 %1, ptr
 10:                                               ; preds = %5
   %11 = load ptr, ptr @dissector_table_aliases, align 8
   %12 = tail call ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %0) #25
-  %.not12.i = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %.not12.i)
   %13 = load ptr, ptr @dissector_tables, align 8
   %14 = tail call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %12) #25
   %.not13.i = icmp ne ptr %14, null
