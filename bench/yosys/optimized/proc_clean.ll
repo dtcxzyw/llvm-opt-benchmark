@@ -152,7 +152,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL10SwitchRuleESaIS3_EE5eraseEN9__gnu_cxx17__normal_ite
   store ptr %29, ptr %10, align 8
   store i8 1, ptr %1, align 1
   tail call void @_ZN5Yosys5RTLIL10SwitchRuleD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %17) #17
-  tail call void @_ZdlPv(ptr noundef %17) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %17) #18
   %30 = load i32, ptr %2, align 4
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %2, align 4
@@ -396,7 +396,7 @@ _ZNSt6vectorIPN5Yosys5RTLIL10SwitchRuleESaIS3_EE5eraseEN9__gnu_cxx17__normal_ite
   store ptr %142, ptr %10, align 8
   store i8 1, ptr %1, align 1
   tail call void @_ZN5Yosys5RTLIL10SwitchRuleD1Ev(ptr noundef nonnull align 8 dereferenceable(144) %131) #17
-  tail call void @_ZdlPv(ptr noundef %131) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %131) #18
   %143 = load i32, ptr %2, align 4
   %144 = add nsw i32 %143, 1
   store i32 %144, ptr %2, align 4
@@ -1329,7 +1329,7 @@ _ZNSt12_Vector_baseISt4pairIN5Yosys5RTLIL7SigSpecES3_ESaIS4_EE11_M_allocateEm.ex
   %27 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN5Yosys5RTLIL7SigSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %23) #17
-  br label %.body
+  br label %116
 
 _ZNSt16allocator_traitsISaISt4pairIN5Yosys5RTLIL7SigSpecES3_EEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %.noexc
   %.not10.i.i.i.i = icmp eq ptr %6, %1
@@ -1495,44 +1495,33 @@ _ZNSt12_Vector_baseISt4pairIN5Yosys5RTLIL7SigSpecES3_ESaIS4_EE13_M_deallocateEPS
 112:                                              ; preds = %_ZNSt12_Vector_baseISt4pairIN5Yosys5RTLIL7SigSpecES3_ESaIS4_EE11_M_allocateEm.exit
   %113 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body
+  br label %116
 
-.body:                                            ; preds = %26, %112
-  %eh.lpad-body = phi { ptr, i32 } [ %113, %112 ], [ %27, %26 ]
-  %114 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %115 = tail call ptr @__cxa_begin_catch(ptr %114) #17
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.thread, label %118
-
-.thread:                                          ; preds = %.body
-  tail call void @_ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %23) #17
-  br label %_ZNSt12_Vector_baseISt4pairIN5Yosys5RTLIL7SigSpecES3_ESaIS4_EE13_M_deallocateEPS4_m.exit35
-
-116:                                              ; preds = %_ZNSt12_Vector_baseISt4pairIN5Yosys5RTLIL7SigSpecES3_ESaIS4_EE13_M_deallocateEPS4_m.exit35
-  %117 = landingpad { ptr, i32 }
+114:                                              ; preds = %116
+  %115 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %119 unwind label %120
 
-118:                                              ; preds = %.body
+116:                                              ; preds = %112, %26
+  %eh.lpad-body = phi { ptr, i32 } [ %113, %112 ], [ %27, %26 ]
+  %117 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %118 = tail call ptr @__cxa_begin_catch(ptr %117) #17
   tail call void @_ZdlPv(ptr noundef nonnull %22) #18
-  br label %_ZNSt12_Vector_baseISt4pairIN5Yosys5RTLIL7SigSpecES3_ESaIS4_EE13_M_deallocateEPS4_m.exit35
-
-_ZNSt12_Vector_baseISt4pairIN5Yosys5RTLIL7SigSpecES3_ESaIS4_EE13_M_deallocateEPS4_m.exit35: ; preds = %118, %.thread
   invoke void @__cxa_rethrow() #20
-          to label %123 unwind label %116
+          to label %123 unwind label %114
 
-119:                                              ; preds = %116
-  resume { ptr, i32 } %117
+119:                                              ; preds = %114
+  resume { ptr, i32 } %115
 
-120:                                              ; preds = %116
+120:                                              ; preds = %114
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
   tail call void @__clang_call_terminate(ptr %122) #19
   unreachable
 
-123:                                              ; preds = %_ZNSt12_Vector_baseISt4pairIN5Yosys5RTLIL7SigSpecES3_ESaIS4_EE13_M_deallocateEPS4_m.exit35
+123:                                              ; preds = %116
   unreachable
 }
 

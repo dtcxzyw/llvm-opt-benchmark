@@ -2908,7 +2908,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end3:                                          ; preds = %entry
   %cmp13.not = icmp eq i64 %len, 0
-  br i1 %cmp13.not, label %for.end, label %for.body.us
+  br i1 %cmp13.not, label %if.end14, label %for.body.us
 
 if.end3.thread:                                   ; preds = %if.then
   tail call void @lua_createtable(ptr noundef nonnull %ctx, i32 noundef 0, i32 noundef 0) #11
@@ -2922,7 +2922,7 @@ for.body.us:                                      ; preds = %if.end3, %for.body.
   %call4.us = tail call i32 @parseReply(ptr noundef %parser, ptr noundef null) #11
   %inc.us = add nuw i64 %j.014.us, 1
   %exitcond16.not = icmp eq i64 %inc.us, %len
-  br i1 %exitcond16.not, label %for.end, label %for.body.us, !llvm.loop !19
+  br i1 %exitcond16.not, label %if.end14, label %for.body.us, !llvm.loop !19
 
 for.body:                                         ; preds = %if.end3.thread, %if.end10
   %j.014 = phi i64 [ %inc, %if.end10 ], [ 0, %if.end3.thread ]
@@ -2941,16 +2941,13 @@ if.end10:                                         ; preds = %for.body
   tail call void @lua_settable(ptr noundef nonnull %ctx, i32 noundef -3) #11
   %inc = add nuw i64 %j.014, 1
   %exitcond.not = icmp eq i64 %inc, %len
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %if.then13, label %for.body, !llvm.loop !19
 
-for.end:                                          ; preds = %if.end10, %for.body.us, %if.end3
-  br i1 %tobool.not, label %if.end14, label %if.then13
-
-if.then13:                                        ; preds = %if.end3.thread, %for.end
+if.then13:                                        ; preds = %if.end10, %if.end3.thread
   tail call void @lua_settable(ptr noundef nonnull %ctx, i32 noundef -3) #11
   br label %if.end14
 
-if.end14:                                         ; preds = %if.then13, %for.end
+if.end14:                                         ; preds = %for.body.us, %if.end3, %if.then13
   ret void
 }
 
@@ -2972,7 +2969,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end3:                                          ; preds = %entry
   %cmp13.not = icmp eq i64 %len, 0
-  br i1 %cmp13.not, label %for.end, label %for.body.us
+  br i1 %cmp13.not, label %if.end11, label %for.body.us
 
 if.end3.thread:                                   ; preds = %if.then
   tail call void @lua_createtable(ptr noundef nonnull %ctx, i32 noundef 0, i32 noundef 0) #11
@@ -2987,7 +2984,7 @@ for.body.us:                                      ; preds = %if.end3, %for.body.
   %call5.us = tail call i32 @parseReply(ptr noundef %parser, ptr noundef null) #11
   %inc.us = add nuw i64 %j.014.us, 1
   %exitcond16.not = icmp eq i64 %inc.us, %len
-  br i1 %exitcond16.not, label %for.end, label %for.body.us, !llvm.loop !20
+  br i1 %exitcond16.not, label %if.end11, label %for.body.us, !llvm.loop !20
 
 for.body:                                         ; preds = %if.end3.thread, %for.body
   %j.014 = phi i64 [ %inc, %for.body ], [ 0, %if.end3.thread ]
@@ -2996,16 +2993,13 @@ for.body:                                         ; preds = %if.end3.thread, %fo
   tail call void @lua_settable(ptr noundef nonnull %ctx, i32 noundef -3) #11
   %inc = add nuw i64 %j.014, 1
   %exitcond.not = icmp eq i64 %inc, %len
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %if.then10, label %for.body, !llvm.loop !20
 
-for.end:                                          ; preds = %for.body, %for.body.us, %if.end3
-  br i1 %tobool.not, label %if.end11, label %if.then10
-
-if.then10:                                        ; preds = %if.end3.thread, %for.end
+if.then10:                                        ; preds = %for.body, %if.end3.thread
   tail call void @lua_settable(ptr noundef nonnull %ctx, i32 noundef -3) #11
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then10, %for.end
+if.end11:                                         ; preds = %for.body.us, %if.end3, %if.then10
   ret void
 }
 

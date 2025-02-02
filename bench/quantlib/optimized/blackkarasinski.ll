@@ -4232,7 +4232,6 @@ for.body.lr.ph:                                   ; preds = %_ZN8QuantLib29TermS
   %termStructure_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %maxEvaluations_.i.i = getelementptr inbounds nuw i8, ptr %s1d, i64 40
   %lowerBound_.i.i = getelementptr inbounds nuw i8, ptr %s1d, i64 56
-  %cmp.not.i166 = icmp eq ptr %.pre.i168, null
   br label %for.body
 
 for.cond.cleanup.loopexit:                        ; preds = %invoke.cont75
@@ -4531,16 +4530,9 @@ invoke.cont66:                                    ; preds = %invoke.cont61
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %lowerBound_.i.i, i8 0, i64 18, i1 false)
   store i64 1000, ptr %maxEvaluations_.i.i, align 8, !tbaa !140
   %call70 = invoke noundef double @_ZNK8QuantLib8Solver1DINS_5BrentEE5solveINS_15BlackKarasinski6HelperEEEdRKT_dddd(ptr noundef nonnull align 8 dereferenceable(74) %s1d, ptr noundef nonnull align 8 dereferenceable(48) %finder, double noundef 0x3E7AD7F29ABCAF48, double noundef %value.0204, double noundef -5.000000e+01, double noundef 5.000000e+01)
-          to label %invoke.cont69 unwind label %lpad67
-
-invoke.cont69:                                    ; preds = %invoke.cont66
-  br i1 %cmp.not.i166, label %cond.false.i167, label %invoke.cont71, !prof !88
-
-cond.false.i167:                                  ; preds = %invoke.cont69
-  invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib29TermStructureFittingParameter13NumericalImplEEptEv, ptr noundef nonnull @.str.8, i64 noundef 784)
           to label %invoke.cont71 unwind label %lpad67
 
-invoke.cont71:                                    ; preds = %cond.false.i167, %invoke.cont69
+invoke.cont71:                                    ; preds = %invoke.cont66
   %130 = load ptr, ptr %grid, align 8, !tbaa !111
   %add.ptr.i.i171 = getelementptr inbounds nuw double, ptr %130, i64 %i.0205
   %131 = load double, ptr %add.ptr.i.i171, align 8, !tbaa !86
@@ -4575,7 +4567,7 @@ lpad65:                                           ; preds = %invoke.cont61
           cleanup
   br label %ehcleanup77
 
-lpad67:                                           ; preds = %cond.false.i167, %invoke.cont71, %invoke.cont66
+lpad67:                                           ; preds = %invoke.cont71, %invoke.cont66
   %137 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %s1d) #29

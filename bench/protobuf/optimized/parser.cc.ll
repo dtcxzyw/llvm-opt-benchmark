@@ -11275,8 +11275,7 @@ invoke.cont19.i7:                                 ; preds = %_ZNK6google8protobu
 lpad20.i:                                         ; preds = %invoke.cont19.i7
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #24
-  br label %ehcleanup.i
+  br label %ehcleanup.i.thread
 
 if.else.i:                                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i
   %call.i1314.i = invoke { ptr, ptr } %34(ptr noundef nonnull align 8 dereferenceable(16) %33)
@@ -11295,8 +11294,7 @@ invoke.cont28.i:                                  ; preds = %_ZNK6google8protobu
 lpad29.i:                                         ; preds = %invoke.cont28.i
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i) #24
-  br label %ehcleanup.i
+  br label %ehcleanup.i.thread
 
 if.end31.i:                                       ; preds = %invoke.cont28.i, %invoke.cont19.i7
   %agg.tmp26.i.sink = phi ptr [ %agg.tmp.i, %invoke.cont19.i7 ], [ %agg.tmp26.i, %invoke.cont28.i ]
@@ -11339,13 +11337,21 @@ _ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i.i: ; preds = %_
   call void %45(ptr noundef nonnull align 8 dereferenceable(16) %call.i5.i) #24
   br label %_ZZN6google8protobuf13json_internal21ParseProto2Descriptor10NewDynamicIZNS1_12_GLOBAL__N_18ParseAnyIS2_EEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSB_3MsgEEUlRKNS0_10DescriptorERNS2_3MsgEE_EES8_PKNS0_15FieldDescriptorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SB_ENKUlSJ_E_clESJ_.exit
 
-ehcleanup.i:                                      ; preds = %_ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf13json_internal11MessagePath4PushESt17basic_string_viewIcSt11char_traitsIcEENS5_8internal19FieldDescriptorLite4TypeESB_EUlvE_ED2Ev.exit18, %lpad7.i, %lpad29.i, %lpad20.i
-  %.pn.i6 = phi { ptr, i32 } [ %37, %lpad20.i ], [ %40, %lpad29.i ], [ %31, %lpad7.i ], [ %26, %_ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf13json_internal11MessagePath4PushESt17basic_string_viewIcSt11char_traitsIcEENS5_8internal19FieldDescriptorLite4TypeESB_EUlvE_ED2Ev.exit18 ]
+ehcleanup.i.thread:                               ; preds = %lpad29.i, %lpad20.i
+  %agg.tmp26.i.sink49 = phi ptr [ %agg.tmp26.i, %lpad29.i ], [ %agg.tmp.i, %lpad20.i ]
+  %.pn.i6.ph = phi { ptr, i32 } [ %40, %lpad29.i ], [ %37, %lpad20.i ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp26.i.sink49) #24
+  call void @_ZN6google8protobuf13json_internal21ParseProto2Descriptor3MsgD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %wrapper.i) #24
+  br label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i19.i
+
+ehcleanup.i:                                      ; preds = %_ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf13json_internal11MessagePath4PushESt17basic_string_viewIcSt11char_traitsIcEENS5_8internal19FieldDescriptorLite4TypeESB_EUlvE_ED2Ev.exit18, %lpad7.i
+  %.pn.i6 = phi { ptr, i32 } [ %31, %lpad7.i ], [ %26, %_ZN4absl12lts_202308027CleanupINS0_16cleanup_internal3TagEZN6google8protobuf13json_internal11MessagePath4PushESt17basic_string_viewIcSt11char_traitsIcEENS5_8internal19FieldDescriptorLite4TypeESB_EUlvE_ED2Ev.exit18 ]
   call void @_ZN6google8protobuf13json_internal21ParseProto2Descriptor3MsgD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %wrapper.i) #24
   %cmp.not.i18.i = icmp eq ptr %call.i5.i, null
   br i1 %cmp.not.i18.i, label %ehcleanup37.i, label %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i19.i
 
-_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i19.i: ; preds = %ehcleanup.i
+_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i19.i: ; preds = %ehcleanup.i.thread, %ehcleanup.i
+  %.pn.i647 = phi { ptr, i32 } [ %.pn.i6.ph, %ehcleanup.i.thread ], [ %.pn.i6, %ehcleanup.i ]
   %vtable.i.i20.i = load ptr, ptr %call.i5.i, align 8
   %vfn.i.i21.i = getelementptr inbounds nuw i8, ptr %vtable.i.i20.i, i64 8
   %46 = load ptr, ptr %vfn.i.i21.i, align 8
@@ -11357,7 +11363,7 @@ common.resume:                                    ; preds = %lpad.i, %lpad18.i, 
   resume { ptr, i32 } %common.resume.op
 
 ehcleanup37.i:                                    ; preds = %ehcleanup.i, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i19.i, %lpad.i4
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %30, %lpad.i4 ], [ %.pn.i6, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i19.i ], [ %.pn.i6, %ehcleanup.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %30, %lpad.i4 ], [ %.pn.i647, %_ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i19.i ], [ %.pn.i6, %ehcleanup.i ]
   call void @_ZN6google8protobuf21DynamicMessageFactoryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory.i) #24
   br label %common.resume
 

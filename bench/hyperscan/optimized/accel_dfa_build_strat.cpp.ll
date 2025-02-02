@@ -3253,7 +3253,7 @@ common.resume:                                    ; preds = %lpad.i.i134, %lpad.
 lpad.i.i:                                         ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i) #21
   br label %common.resume
 
 _ZN3ue29verify_u8IjEEhT_.exit:                    ; preds = %entry
@@ -3329,7 +3329,7 @@ invoke.cont.i.i75:                                ; preds = %if.then.i.i72
 lpad.i.i74:                                       ; preds = %if.then.i.i72
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i73) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i73) #21
   br label %common.resume
 
 _ZN3ue29verify_u8IjEEhT_.exit77:                  ; preds = %if.then
@@ -3408,7 +3408,7 @@ invoke.cont.i.i107:                               ; preds = %if.then.i.i104
 lpad.i.i106:                                      ; preds = %if.then.i.i104
   %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i105) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i.i105) #21
   br label %common.resume
 
 _ZN3ue29verify_u8IjEEhT_.exit109:                 ; preds = %if.then57
@@ -3443,7 +3443,7 @@ invoke.cont.i.i114:                               ; preds = %if.then.i.i111
 lpad.i.i113:                                      ; preds = %if.then.i.i111
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i112) #21
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i112) #21
   br label %common.resume
 
 _ZN3ue29verify_u8IjEEhT_.exit116:                 ; preds = %if.then68
@@ -3518,7 +3518,7 @@ invoke.cont.i.i135:                               ; preds = %if.then.i.i132
 lpad.i.i134:                                      ; preds = %if.then.i.i132
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i133) #21
+  call void @__cxa_free_exception(ptr nonnull %exception.i.i133) #21
   br label %common.resume
 
 _ZN3ue29verify_u8IjEEhT_.exit137:                 ; preds = %if.then101
@@ -5265,7 +5265,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #21
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #21
   resume { ptr, i32 } %0
 }
 
@@ -7300,7 +7300,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
   %0 = extractvalue { ptr, ptr } %call8, 0
   %1 = extractvalue { ptr, ptr } %call8, 1
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %cleanup, label %if.then
+  br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %0, null
@@ -7318,7 +7318,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
 
 cleanup.thread:                                   ; preds = %if.then, %lor.rhs.i.i
   %4 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %lor.rhs.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %4, ptr noundef %call.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #21
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %4, ptr noundef nonnull %call.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #21
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load i64, ptr %_M_node_count.i.i, align 8
   %inc.i.i = add i64 %5, 1
@@ -7331,11 +7331,7 @@ lpad:                                             ; preds = %invoke.cont
   call void @_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__z) #21
   resume { ptr, i32 } %6
 
-cleanup:                                          ; preds = %invoke.cont7
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE10_Auto_nodeD2Ev.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %cleanup
+if.then.i:                                        ; preds = %invoke.cont7
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %7 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %7, 0
@@ -7356,8 +7352,8 @@ _ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24
   br label %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE10_Auto_nodeD2Ev.exit
 
-_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %cleanup, %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit.i
-  %retval.sroa.0.06 = phi ptr [ %call.i, %cleanup.thread ], [ %0, %cleanup ], [ %0, %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit.i ]
+_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit.i
+  %retval.sroa.0.06 = phi ptr [ %call.i, %cleanup.thread ], [ %0, %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit.i ]
   ret ptr %retval.sroa.0.06
 }
 
@@ -8927,7 +8923,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
   %0 = extractvalue { ptr, ptr } %call8, 0
   %1 = extractvalue { ptr, ptr } %call8, 1
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %cleanup, label %if.then
+  br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %invoke.cont7
   %cmp.not.i.i = icmp ne ptr %0, null
@@ -8945,7 +8941,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
 
 cleanup.thread:                                   ; preds = %if.then, %lor.rhs.i.i
   %4 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %lor.rhs.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %4, ptr noundef %call.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #21
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %4, ptr noundef nonnull %call.i, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #21
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load i64, ptr %_M_node_count.i.i, align 8
   %inc.i.i = add i64 %5, 1
@@ -8958,11 +8954,7 @@ lpad:                                             ; preds = %invoke.cont
   call void @_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__z) #21
   resume { ptr, i32 } %6
 
-cleanup:                                          ; preds = %invoke.cont7
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE10_Auto_nodeD2Ev.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %cleanup
+if.then.i:                                        ; preds = %invoke.cont7
   %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %7 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %7, 0
@@ -8983,8 +8975,8 @@ _ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24
   br label %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE10_Auto_nodeD2Ev.exit
 
-_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %cleanup, %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit.i
-  %retval.sroa.0.06 = phi ptr [ %call.i, %cleanup.thread ], [ %0, %cleanup ], [ %0, %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit.i ]
+_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit.i
+  %retval.sroa.0.06 = phi ptr [ %call.i, %cleanup.thread ], [ %0, %_ZNSt8_Rb_treeItSt4pairIKtN3ue211AccelSchemeEESt10_Select1stIS4_ESt4lessItESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit.i ]
   ret ptr %retval.sroa.0.06
 }
 

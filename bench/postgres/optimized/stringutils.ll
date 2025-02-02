@@ -11,41 +11,45 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @strtokx(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i8 noundef signext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %.pr = load ptr, ptr @strtokx.storage, align 8
-  br i1 %.not, label %thread-pre-split, label %9
+  br i1 %.not, label %14, label %.thread
 
-9:                                                ; preds = %8
+.thread:                                          ; preds = %8
   tail call void @free(ptr noundef %.pr) #7
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
-  %11 = shl i64 %10, 1
-  %12 = or disjoint i64 %11, 1
-  %13 = tail call ptr @pg_malloc(i64 noundef %12) #7
-  store ptr %13, ptr @strtokx.storage, align 8
-  %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %0) #7
-  store ptr %13, ptr @strtokx.string, align 8
-  br label %thread-pre-split
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
+  %10 = shl i64 %9, 1
+  %11 = or disjoint i64 %10, 1
+  %12 = tail call ptr @pg_malloc(i64 noundef %11) #7
+  store ptr %12, ptr @strtokx.storage, align 8
+  %13 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %0) #7
+  store ptr %12, ptr @strtokx.string, align 8
+  br label %15
 
-thread-pre-split:                                 ; preds = %8, %9
-  %15 = phi ptr [ %13, %9 ], [ %.pr, %8 ]
-  %.not106 = icmp eq ptr %15, null
-  br i1 %.not106, label %127, label %16
+14:                                               ; preds = %8
+  %.not106 = icmp eq ptr %.pr, null
+  br i1 %.not106, label %127, label %._crit_edge
 
-16:                                               ; preds = %thread-pre-split
-  %17 = load ptr, ptr @strtokx.string, align 8
-  %18 = tail call i64 @strspn(ptr noundef %17, ptr noundef %1) #8
+._crit_edge:                                      ; preds = %14
+  %.pre = load ptr, ptr @strtokx.string, align 8
+  br label %15
+
+15:                                               ; preds = %._crit_edge, %.thread
+  %16 = phi ptr [ %12, %.thread ], [ %.pre, %._crit_edge ]
+  %17 = phi ptr [ %12, %.thread ], [ %.pr, %._crit_edge ]
+  %18 = tail call i64 @strspn(ptr noundef %16, ptr noundef %1) #8
   %19 = and i64 %18, 4294967295
-  %20 = getelementptr i8, ptr %17, i64 %19
+  %20 = getelementptr i8, ptr %16, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i32
   %23 = icmp eq i8 %21, 0
   br i1 %23, label %24, label %25
 
-24:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %15) #7
+24:                                               ; preds = %15
+  tail call void @free(ptr noundef nonnull %17) #7
   store ptr null, ptr @strtokx.storage, align 8
   store ptr null, ptr @strtokx.string, align 8
   br label %127
 
-25:                                               ; preds = %16
+25:                                               ; preds = %15
   %.not107 = icmp eq ptr %2, null
   br i1 %.not107, label %41, label %26
 
@@ -96,36 +100,36 @@ thread-pre-split:                                 ; preds = %8, %9
   %44 = getelementptr i8, ptr %20, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 39
-  br i1 %46, label %.thread, label %47
+  br i1 %46, label %.thread123, label %47
 
 47:                                               ; preds = %42, %43, %41
   %.not109 = icmp eq ptr %3, null
-  br i1 %.not109, label %103, label %.thread
+  br i1 %.not109, label %103, label %.thread123
 
-.thread:                                          ; preds = %47, %43
+.thread123:                                       ; preds = %47, %43
   %48 = phi i8 [ 39, %43 ], [ %21, %47 ]
-  %.087128 = phi ptr [ @.str, %43 ], [ %3, %47 ]
-  %.088127 = phi i8 [ 92, %43 ], [ %4, %47 ]
-  %.089126 = phi ptr [ %44, %43 ], [ %20, %47 ]
+  %.087130 = phi ptr [ @.str, %43 ], [ %3, %47 ]
+  %.088129 = phi i8 [ 92, %43 ], [ %4, %47 ]
+  %.089128 = phi ptr [ %44, %43 ], [ %20, %47 ]
   %49 = sext i8 %48 to i32
-  %50 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.087128, i32 noundef %49) #8
+  %50 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.087130, i32 noundef %49) #8
   %.not110 = icmp eq ptr %50, null
   br i1 %.not110, label %103, label %51
 
-51:                                               ; preds = %.thread
-  %52 = getelementptr i8, ptr %.089126, i64 1
+51:                                               ; preds = %.thread123
+  %52 = getelementptr i8, ptr %.089128, i64 1
   %53 = load i8, ptr %52, align 1
-  %.not113139 = icmp eq i8 %53, 0
-  br i1 %.not113139, label %.thread133, label %.lr.ph
+  %.not113141 = icmp eq i8 %53, 0
+  br i1 %.not113141, label %.thread135, label %.lr.ph
 
 .lr.ph:                                           ; preds = %51, %65
   %54 = phi i8 [ %69, %65 ], [ %53, %51 ]
-  %.1140 = phi ptr [ %68, %65 ], [ %52, %51 ]
-  %55 = icmp eq i8 %54, %.088127
+  %.1142 = phi ptr [ %68, %65 ], [ %52, %51 ]
+  %55 = icmp eq i8 %54, %.088129
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %.lr.ph
-  %57 = getelementptr i8, ptr %.1140, i64 1
+  %57 = getelementptr i8, ptr %.1142, i64 1
   %58 = load i8, ptr %57, align 1
   %.not114 = icmp eq i8 %58, 0
   br i1 %.not114, label %59, label %65
@@ -135,23 +139,23 @@ thread-pre-split:                                 ; preds = %8, %9
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %59
-  %62 = getelementptr i8, ptr %.1140, i64 1
+  %62 = getelementptr i8, ptr %.1142, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, %48
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %59, %61, %56
-  %.3 = phi ptr [ %57, %56 ], [ %62, %61 ], [ %.1140, %59 ]
+  %.3 = phi ptr [ %57, %56 ], [ %62, %61 ], [ %.1142, %59 ]
   %66 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.3, i32 noundef %7) #7
   %67 = sext i32 %66 to i64
   %68 = getelementptr i8, ptr %.3, i64 %67
   %69 = load i8, ptr %68, align 1
   %.not113 = icmp eq i8 %69, 0
-  br i1 %.not113, label %.thread133, label %.lr.ph, !llvm.loop !5
+  br i1 %.not113, label %.thread135, label %.lr.ph, !llvm.loop !5
 
 70:                                               ; preds = %61
   %.not115 = icmp eq i8 %63, 0
-  br i1 %.not115, label %.thread133, label %71
+  br i1 %.not115, label %.thread135, label %71
 
 71:                                               ; preds = %70
   %72 = sext i8 %63 to i32
@@ -160,7 +164,7 @@ thread-pre-split:                                 ; preds = %8, %9
   br i1 %.not117, label %74, label %78
 
 74:                                               ; preds = %71
-  %75 = getelementptr i8, ptr %.1140, i64 2
+  %75 = getelementptr i8, ptr %.1142, i64 2
   %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #8
   %77 = add i64 %76, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %75, ptr nonnull align 1 %62, i64 %77, i1 false)
@@ -168,15 +172,15 @@ thread-pre-split:                                 ; preds = %8, %9
 
 78:                                               ; preds = %74, %71
   store i8 0, ptr %62, align 1
-  %79 = getelementptr i8, ptr %.1140, i64 2
-  br label %.thread133
+  %79 = getelementptr i8, ptr %.1142, i64 2
+  br label %.thread135
 
-.thread133:                                       ; preds = %65, %51, %70, %78
+.thread135:                                       ; preds = %65, %51, %70, %78
   %storemerge116 = phi ptr [ %79, %78 ], [ %62, %70 ], [ %52, %51 ], [ %68, %65 ]
   store ptr %storemerge116, ptr @strtokx.string, align 8
   br i1 %6, label %80, label %127
 
-80:                                               ; preds = %.thread133
+80:                                               ; preds = %.thread135
   %81 = load i8, ptr %20, align 1
   %82 = icmp eq i8 %81, %48
   %.024.idx.i = zext i1 %82 to i64
@@ -210,7 +214,7 @@ thread-pre-split:                                 ; preds = %8, %9
   br i1 %92, label %97, label %.critedge.i
 
 .critedge.i:                                      ; preds = %91, %.lr.ph41.i
-  %93 = icmp eq i8 %85, %.088127
+  %93 = icmp eq i8 %85, %.088129
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %.critedge.i
@@ -243,9 +247,9 @@ strip_quotes.exit:                                ; preds = %.loopexit.i, %87, %
   store i8 0, ptr %.025.lcssa.i, align 1
   br label %127
 
-103:                                              ; preds = %.thread, %47
-  %.not109131 = phi i1 [ false, %.thread ], [ true, %47 ]
-  %.087129 = phi ptr [ %.087128, %.thread ], [ null, %47 ]
+103:                                              ; preds = %.thread123, %47
+  %.not109133 = phi i1 [ false, %.thread123 ], [ true, %47 ]
+  %.087131 = phi ptr [ %.087130, %.thread123 ], [ null, %47 ]
   %104 = tail call i64 @strcspn(ptr noundef nonnull %20, ptr noundef %1) #8
   %105 = trunc i64 %104 to i32
   br i1 %.not107, label %109, label %106
@@ -258,10 +262,10 @@ strip_quotes.exit:                                ; preds = %.loopexit.i, %87, %
 
 109:                                              ; preds = %106, %103
   %.090 = phi i32 [ %105, %103 ], [ %spec.select, %106 ]
-  br i1 %.not109131, label %113, label %110
+  br i1 %.not109133, label %113, label %110
 
 110:                                              ; preds = %109
-  %111 = tail call i64 @strcspn(ptr noundef nonnull %20, ptr noundef nonnull %.087129) #8
+  %111 = tail call i64 @strcspn(ptr noundef nonnull %20, ptr noundef nonnull %.087131) #8
   %112 = trunc i64 %111 to i32
   %spec.select121 = tail call i32 @llvm.umin.i32(i32 %.090, i32 %112)
   br label %113
@@ -297,8 +301,8 @@ strip_quotes.exit:                                ; preds = %.loopexit.i, %87, %
   store ptr %storemerge, ptr @strtokx.string, align 8
   br label %127
 
-127:                                              ; preds = %.thread133, %strip_quotes.exit, %thread-pre-split, %126, %40, %24
-  %.0 = phi ptr [ null, %24 ], [ %20, %40 ], [ %20, %126 ], [ null, %thread-pre-split ], [ %20, %strip_quotes.exit ], [ %20, %.thread133 ]
+127:                                              ; preds = %.thread135, %strip_quotes.exit, %14, %126, %40, %24
+  %.0 = phi ptr [ null, %24 ], [ %20, %40 ], [ %20, %126 ], [ null, %14 ], [ %20, %strip_quotes.exit ], [ %20, %.thread135 ]
   ret ptr %.0
 }
 

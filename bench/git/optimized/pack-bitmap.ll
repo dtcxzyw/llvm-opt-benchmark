@@ -2421,9 +2421,14 @@ if.end38.thread:                                  ; preds = %while.body12, %lor.
   br i1 %tobool11.not47, label %if.then41, label %while.body12.outer, !llvm.loop !22
 
 while.end39:                                      ; preds = %if.end38
-  br i1 %3, label %if.end43, label %if.then41
+  br i1 %3, label %if.end43, label %if.then41.thread
 
-if.then41:                                        ; preds = %if.end38.thread, %while.body12.us, %while.end39
+if.then41.thread:                                 ; preds = %while.end39
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %incdata.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %show_data.i)
+  br label %if.end.i18
+
+if.then41:                                        ; preds = %if.end38.thread, %while.body12.us
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %incdata.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %show_data.i)
   br i1 %cmp18, label %if.then.i, label %if.end.i18
@@ -2432,8 +2437,8 @@ if.then.i:                                        ; preds = %if.then41
   %call.i19 = call ptr @bitmap_new() #18
   br label %if.end.i18
 
-if.end.i18:                                       ; preds = %if.then.i, %if.then41
-  %base.addr.0.i = phi ptr [ %base.0.ph.lcssa.fr, %if.then41 ], [ %call.i19, %if.then.i ]
+if.end.i18:                                       ; preds = %if.then41.thread, %if.then.i, %if.then41
+  %base.addr.0.i = phi ptr [ %base.0.ph.lcssa.fr, %if.then41 ], [ %call.i19, %if.then.i ], [ %base.0.ph.lcssa.fr, %if.then41.thread ]
   store ptr %bitmap_git, ptr %incdata.i, align 8
   %base2.i = getelementptr inbounds nuw i8, ptr %incdata.i, i64 8
   store ptr %base.addr.0.i, ptr %base2.i, align 8
@@ -4149,7 +4154,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  tail call fastcc void @test_bitmap_type(ptr noundef nonnull %data, ptr noundef %commit, i32 noundef %call)
+  tail call fastcc void @test_bitmap_type(ptr noundef nonnull %data, ptr noundef nonnull %commit, i32 noundef %call)
   %base = getelementptr inbounds nuw i8, ptr %data, i64 8
   %1 = load ptr, ptr %base, align 8
   %conv = zext nneg i32 %call to i64
@@ -4180,7 +4185,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  tail call fastcc void @test_bitmap_type(ptr noundef nonnull %data, ptr noundef %object, i32 noundef %call)
+  tail call fastcc void @test_bitmap_type(ptr noundef nonnull %data, ptr noundef nonnull %object, i32 noundef %call)
   %base = getelementptr inbounds nuw i8, ptr %data, i64 8
   %1 = load ptr, ptr %base, align 8
   %conv = zext nneg i32 %call to i64
@@ -6176,7 +6181,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %_data, align 8
-  %call2 = tail call fastcc i32 @ext_index_add_object(ptr noundef %1, ptr noundef %commit, ptr noundef null)
+  %call2 = tail call fastcc i32 @ext_index_add_object(ptr noundef %1, ptr noundef nonnull %commit, ptr noundef null)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -6201,7 +6206,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
   br i1 %tobool5.not.i, label %if.end7.i, label %if.then5
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = tail call ptr @bitmap_for_commit(ptr noundef %2, ptr noundef %commit)
+  %call8.i = tail call ptr @bitmap_for_commit(ptr noundef %2, ptr noundef nonnull %commit)
   %tobool9.not.i = icmp eq ptr %call8.i, null
   %5 = load ptr, ptr %base.i, align 8
   br i1 %tobool9.not.i, label %add_to_include_set.exit, label %if.then10.i
@@ -6292,7 +6297,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %data_, align 8
-  %call2 = tail call fastcc i32 @ext_index_add_object(ptr noundef %1, ptr noundef %object, ptr noundef %name)
+  %call2 = tail call fastcc i32 @ext_index_add_object(ptr noundef %1, ptr noundef nonnull %object, ptr noundef %name)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

@@ -5616,9 +5616,9 @@ if.end121:                                        ; preds = %if.else116, %if.the
   %MaxTextureUnits124 = getelementptr inbounds nuw i8, ptr %this, i64 1731
   %12 = load i8, ptr %MaxTextureUnits124, align 1, !tbaa !151
   %cmp126.not = icmp eq i8 %12, 0
-  br i1 %cmp126.not, label %sw.epilog143, label %if.then127
+  br i1 %cmp126.not, label %sw.epilog143, label %if.then137
 
-if.then127:                                       ; preds = %if.end121
+if.then137:                                       ; preds = %if.end121
   %CacheHandler128 = getelementptr inbounds nuw i8, ptr %this, i64 3048
   %13 = load ptr, ptr %CacheHandler128, align 8, !tbaa !6
   tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %13, i32 noundef 33985) #24
@@ -5628,18 +5628,11 @@ if.then127:                                       ; preds = %if.end121
   %14 = load ptr, ptr %CacheHandler128, align 8, !tbaa !6
   tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %14, i32 noundef 33986) #24
   tail call void @glEnableClientState(i32 noundef 32888) #24
-  br i1 %tobool5.not, label %if.then137, label %if.else139
-
-if.then137:                                       ; preds = %if.then127
   %Binormal = getelementptr inbounds nuw i8, ptr %vertices, i64 48
   tail call void @glTexCoordPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 60, ptr noundef nonnull %Binormal) #24
   br label %sw.epilog143
 
-if.else139:                                       ; preds = %if.then127
-  tail call void @glTexCoordPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 60, ptr noundef nonnull inttoptr (i64 48 to ptr)) #24
-  br label %sw.epilog143
-
-sw.epilog143:                                     ; preds = %if.else139, %if.then137, %if.end121, %if.else103, %if.then101, %if.end92, %if.else74, %if.then71, %land.lhs.true63, %if.end60, %if.end49, %if.then38
+sw.epilog143:                                     ; preds = %if.then137, %if.end121, %if.else103, %if.then101, %if.end92, %if.else74, %if.then71, %land.lhs.true63, %if.end60, %if.end49, %if.then38
   tail call void @_ZN3irr5video13COpenGLDriver11renderArrayEPKvjNS_5scene16E_PRIMITIVE_TYPEENS0_12E_INDEX_TYPEE(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef %indexList, i32 noundef %primitiveCount, i32 noundef %pType, i32 noundef %iType)
   %MaxTextureUnits146 = getelementptr inbounds nuw i8, ptr %this, i64 1731
   %15 = load i8, ptr %MaxTextureUnits146, align 1, !tbaa !151

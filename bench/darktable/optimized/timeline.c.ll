@@ -4863,19 +4863,19 @@ define internal fastcc void @_selection_collect(ptr noundef readonly captures(no
 
 47:                                               ; preds = %42
   %48 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, i32 noundef %.sroa.019.0.copyload) #17
-  br label %_time_format_for_collect.exit
+  br label %.thread
 
 49:                                               ; preds = %42
   %50 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, i32 noundef %.sroa.019.0.copyload, i32 noundef %.sroa.4.0.copyload) #17
-  br label %_time_format_for_collect.exit
+  br label %.thread
 
 51:                                               ; preds = %42
   %52 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.38, i32 noundef %.sroa.019.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.5.0.copyload) #17
-  br label %_time_format_for_collect.exit
+  br label %.thread
 
 53:                                               ; preds = %42
   %54 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.39, i32 noundef %.sroa.019.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.5.0.copyload, i32 noundef %.sroa.6.0.copyload) #17
-  br label %_time_format_for_collect.exit
+  br label %.thread
 
 55:                                               ; preds = %42
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -4883,13 +4883,13 @@ define internal fastcc void @_selection_collect(ptr noundef readonly captures(no
   %56 = icmp eq i32 %46, 6
   call void @llvm.assume(i1 %56)
   %57 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.40, i32 noundef %.sroa.019.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.5.0.copyload, i32 noundef %.sroa.6.0.copyload, i32 noundef %.sroa.7.0.copyload) #17
-  br label %_time_format_for_collect.exit
+  br label %.thread
 
-_time_format_for_collect.exit:                    ; preds = %47, %49, %51, %53, %55
+.thread:                                          ; preds = %55, %53, %51, %49, %47
   %58 = phi ptr [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %57, %55 ]
   %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #21
   %60 = icmp ugt i64 %59, 10
-  br label %108
+  br label %109
 
 61:                                               ; preds = %34
   %.sroa.037.0.copyload = load i32, ptr %41, align 4, !tbaa !25
@@ -5011,39 +5011,36 @@ _time_format_for_collect.exit8:                   ; preds = %84, %86, %88, %90, 
   %104 = icmp ugt i64 %103, 10
   br label %_time_format_for_collect.exit8.thread
 
-_time_format_for_collect.exit8.thread:            ; preds = %_time_format_for_collect.exit7, %102, %98, %_time_format_for_collect.exit8
+_time_format_for_collect.exit8.thread:            ; preds = %_time_format_for_collect.exit7, %_time_format_for_collect.exit8, %98, %102
   %105 = phi ptr [ %94, %_time_format_for_collect.exit8 ], [ %94, %102 ], [ %94, %98 ], [ null, %_time_format_for_collect.exit7 ]
   %106 = phi ptr [ null, %_time_format_for_collect.exit8 ], [ %99, %102 ], [ %99, %98 ], [ null, %_time_format_for_collect.exit7 ]
   %107 = phi i1 [ true, %_time_format_for_collect.exit8 ], [ %104, %102 ], [ true, %98 ], [ true, %_time_format_for_collect.exit7 ]
   call void @g_free(ptr noundef %80) #17
   call void @g_free(ptr noundef %105) #17
-  br label %108
+  %108 = icmp eq ptr %106, null
+  br i1 %108, label %118, label %109
 
-108:                                              ; preds = %_time_format_for_collect.exit8.thread, %_time_format_for_collect.exit
-  %109 = phi ptr [ %58, %_time_format_for_collect.exit ], [ %106, %_time_format_for_collect.exit8.thread ]
-  %110 = phi i1 [ %60, %_time_format_for_collect.exit ], [ %107, %_time_format_for_collect.exit8.thread ]
-  %111 = icmp eq ptr %109, null
-  br i1 %111, label %119, label %112
-
-112:                                              ; preds = %108
-  %113 = add nuw nsw i32 %35, 1
-  call void @dt_conf_set_int(ptr noundef nonnull @.str.31, i32 noundef %113) #17
+109:                                              ; preds = %.thread, %_time_format_for_collect.exit8.thread
+  %110 = phi i1 [ %60, %.thread ], [ %107, %_time_format_for_collect.exit8.thread ]
+  %111 = phi ptr [ %58, %.thread ], [ %106, %_time_format_for_collect.exit8.thread ]
+  %112 = add nuw nsw i32 %35, 1
+  call void @dt_conf_set_int(ptr noundef nonnull @.str.31, i32 noundef %112) #17
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %4, i8 0, i64 200, i1 false)
-  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.32, i32 noundef %35) #17
-  %115 = select i1 %110, i32 10, i32 9
-  call void @dt_conf_set_int(ptr noundef nonnull %4, i32 noundef %115) #17
-  %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.33, i32 noundef %35) #17
+  %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.32, i32 noundef %35) #17
+  %114 = select i1 %110, i32 10, i32 9
+  call void @dt_conf_set_int(ptr noundef nonnull %4, i32 noundef %114) #17
+  %115 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.33, i32 noundef %35) #17
   call void @dt_conf_set_int(ptr noundef nonnull %4, i32 noundef 0) #17
-  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.34, i32 noundef %35) #17
-  call void @dt_conf_set_string(ptr noundef nonnull %4, ptr noundef nonnull %109) #17
-  call void @g_free(ptr noundef nonnull %109) #17
-  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !95
-  call void @dt_collection_update_query(ptr noundef %118, i32 noundef 1, i32 noundef 36, ptr noundef null) #17
+  %116 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str.34, i32 noundef %35) #17
+  call void @dt_conf_set_string(ptr noundef nonnull %4, ptr noundef nonnull %111) #17
+  call void @g_free(ptr noundef nonnull %111) #17
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !95
+  call void @dt_collection_update_query(ptr noundef %117, i32 noundef 1, i32 noundef 36, ptr noundef null) #17
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #17
-  br label %119
+  br label %118
 
-119:                                              ; preds = %112, %108
+118:                                              ; preds = %109, %_time_format_for_collect.exit8.thread
   ret void
 }
 

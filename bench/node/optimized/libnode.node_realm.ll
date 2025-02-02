@@ -10320,30 +10320,25 @@ if.end1970:                                       ; preds = %if.end1962, %land.l
   %363 = load i64, ptr %context, align 8
   %call.i3306 = tail call noundef ptr @_ZN2v87Context23GetDataFromSnapshotOnceEm(ptr noundef nonnull align 1 dereferenceable(1) %call, i64 noundef %363) #20
   %cond848 = icmp eq ptr %call.i3306, null
-  br i1 %cond848, label %if.then1980, label %if.then.i3309
-
-if.then.i3309:                                    ; preds = %if.end1970
-  %cmp.i.i5444 = icmp eq ptr %call, null
-  br i1 %cmp.i.i5444, label %do.body1988, label %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
+  br i1 %cond848, label %if.then1980, label %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
 
 if.then1980:                                      ; preds = %if.end1970
   %364 = load ptr, ptr @stderr, align 8
   %365 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 63, i64 1, ptr %364) #25
-  %cmp.i9.i = icmp eq ptr %call, null
-  br i1 %cmp.i9.i, label %do.end1991, label %do.body1988
+  br label %do.body1988
 
-_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit: ; preds = %if.then.i3309
+_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit: ; preds = %if.end1970
   %366 = load i64, ptr %call.i3306, align 8
   %367 = load i64, ptr %call, align 8
   %cmp.i = icmp eq i64 %366, %367
   br i1 %cmp.i, label %do.end1991, label %do.body1988
 
-do.body1988:                                      ; preds = %if.then1980, %if.then.i3309, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
+do.body1988:                                      ; preds = %if.then1980, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node5Realm21DeserializePropertiesEPKNS_18RealmSerializeInfoEE4args) #20
   tail call void @abort() #21
   unreachable
 
-do.end1991:                                       ; preds = %if.then1980, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
+do.end1991:                                       ; preds = %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
   %kind_.i = getelementptr inbounds nuw i8, ptr %this, i64 680
   %368 = load i32, ptr %kind_.i, align 8
   %cmp.i1261 = icmp eq i32 %368, 0

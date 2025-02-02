@@ -3529,7 +3529,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this.0.val, align 8
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %2, i64 17, ptr nonnull @.str.24)
-          to label %cleanup unwind label %lpad
+          to label %if.then.i11 unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont17, %if.then
   %3 = landingpad { ptr, i32 }
@@ -3596,20 +3596,21 @@ invoke.cont24:                                    ; preds = %lor.lhs.false
   store ptr %add.ptr.i, ptr %_M_str.i6, align 8
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont21, %invoke.cont24, %if.then
-  %12 = phi ptr [ %.pre, %invoke.cont21 ], [ %0, %invoke.cont24 ], [ %0, %if.then ]
+cleanup:                                          ; preds = %invoke.cont21, %invoke.cont24
+  %12 = phi ptr [ %.pre, %invoke.cont21 ], [ %0, %invoke.cont24 ]
   %cmp.not.i10 = icmp eq ptr %12, null
   br i1 %cmp.not.i10, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, label %if.then.i11
 
-if.then.i11:                                      ; preds = %cleanup
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %12)
+if.then.i11:                                      ; preds = %if.then, %cleanup
+  %13 = phi ptr [ %12, %cleanup ], [ %0, %if.then ]
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %13)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i11
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #22
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #22
   unreachable
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %cleanup, %if.then.i11

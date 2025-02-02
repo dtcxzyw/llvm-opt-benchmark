@@ -6331,7 +6331,7 @@ h5tools_dump_simple_dset.exit:                    ; preds = %56, %64, %68, %124,
   br label %.thread209.i.i.i
 
 757:                                              ; preds = %738
-  call void @free(ptr noundef %609) #12
+  call void @free(ptr noundef nonnull %609) #12
   %758 = load i32, ptr %472, align 8
   %759 = add nsw i32 %758, 1
   store i32 %759, ptr %472, align 8
@@ -7223,7 +7223,11 @@ define range(i32 -1, 1) i32 @h5tools_print_enum(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit201
 
 177:                                              ; preds = %158, %._crit_edge
-  br i1 %.not211, label %._crit_edge210, label %.lr.ph206
+  br i1 %.not211, label %._crit_edge210.thread, label %.lr.ph206
+
+._crit_edge210.thread:                            ; preds = %177
+  tail call void @free(ptr noundef nonnull %95) #12
+  br label %221
 
 .lr.ph206:                                        ; preds = %177
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -7312,17 +7316,17 @@ define range(i32 -1, 1) i32 @h5tools_print_enum(ptr noundef %0, ptr noundef %1, 
   %exitcond231.not = icmp eq i64 %indvars.iv.next228, %94
   br i1 %exitcond231.not, label %._crit_edge210, label %.lr.ph209
 
-._crit_edge210:                                   ; preds = %220, %177, %.loopexit201
-  %.1122234 = phi i32 [ %.1122, %.loopexit201 ], [ 0, %177 ], [ %.1122, %220 ]
+._crit_edge210:                                   ; preds = %220, %.loopexit201
   call void @free(ptr noundef %95) #12
   br i1 %116, label %.thread176.thread, label %221
 
-221:                                              ; preds = %._crit_edge210
+221:                                              ; preds = %._crit_edge210.thread, %._crit_edge210
+  %.1122234236 = phi i32 [ 0, %._crit_edge210.thread ], [ %.1122, %._crit_edge210 ]
   call void @free(ptr noundef nonnull %115) #12
   br label %.thread176.thread
 
 .thread176.thread:                                ; preds = %._crit_edge210, %221, %57, %61, %49, %78, %82, %70, %105, %109, %97
-  %.1122174182191 = phi i32 [ -1, %97 ], [ -1, %109 ], [ -1, %105 ], [ -1, %70 ], [ -1, %82 ], [ -1, %78 ], [ -1, %49 ], [ -1, %61 ], [ -1, %57 ], [ %.1122234, %221 ], [ %.1122234, %._crit_edge210 ]
+  %.1122174182191 = phi i32 [ -1, %97 ], [ -1, %109 ], [ -1, %105 ], [ -1, %70 ], [ -1, %82 ], [ -1, %78 ], [ -1, %49 ], [ -1, %61 ], [ -1, %57 ], [ %.1122234236, %221 ], [ %.1122, %._crit_edge210 ]
   %222 = call i32 @H5Tclose(i64 noundef %28) #12
   %223 = icmp slt i32 %222, 0
   br i1 %223, label %224, label %.thread176.thread193

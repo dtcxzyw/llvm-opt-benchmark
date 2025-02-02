@@ -8954,7 +8954,7 @@ define hidden void @_ZNK5ceres8internal17BlockSparseMatrix36ToCompressedRowSpars
           to label %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i unwind label %12, !noalias !93
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %88, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %87, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit ]
   resume { ptr, i32 } %common.resume.op
 
 12:                                               ; preds = %2
@@ -9109,7 +9109,7 @@ _ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1
   %sext.i = shl i64 %75, 32
   %77 = ashr exact i64 %sext.i, 32
   invoke void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %76, i64 noundef %77)
-          to label %.noexc unwind label %87
+          to label %.noexc unwind label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
 
 .noexc:                                           ; preds = %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit
   %78 = trunc i64 %75 to i32
@@ -9135,30 +9135,23 @@ _ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1
 ._crit_edge.i5:                                   ; preds = %.lr.ph.i7, %.noexc
   %85 = getelementptr inbounds nuw i8, ptr %69, i64 120
   %86 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit unwind label %87
+          to label %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit unwind label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
 
 _ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit: ; preds = %._crit_edge.i5
-  invoke void @_ZNK5ceres8internal17BlockSparseMatrix40UpdateCompressedRowSparseMatrixTransposeEPNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %69)
-          to label %92 unwind label %87
+  invoke void @_ZNK5ceres8internal17BlockSparseMatrix40UpdateCompressedRowSparseMatrixTransposeEPNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %69)
+          to label %91 unwind label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
 
-87:                                               ; preds = %._crit_edge.i5, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit, %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
-  %88 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit: ; preds = %._crit_edge.i5, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit, %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %.not.i12 = icmp eq ptr %69, null
-  br i1 %.not.i12, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i
-
-_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i: ; preds = %87
-  %89 = load ptr, ptr %69, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  tail call void %91(ptr noundef nonnull align 8 dereferenceable(144) %69) #28
-  br label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
-
-_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit: ; preds = %87, %_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i
+  %88 = load ptr, ptr %69, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load ptr, ptr %89, align 8
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(144) %69) #28
   store ptr null, ptr %0, align 8
   br label %common.resume
 
-92:                                               ; preds = %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
+91:                                               ; preds = %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
   ret void
 }
 
@@ -9507,7 +9500,7 @@ define hidden void @_ZNK5ceres8internal17BlockSparseMatrix27ToCompressedRowSpars
           to label %_ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i unwind label %12, !noalias !108
 
 common.resume:                                    ; preds = %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %95, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %94, %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit ]
   resume { ptr, i32 } %common.resume.op
 
 12:                                               ; preds = %2
@@ -9678,7 +9671,7 @@ _ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0
   %sext.i = shl i64 %82, 32
   %84 = ashr exact i64 %sext.i, 32
   invoke void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %83, i64 noundef %84)
-          to label %.noexc unwind label %94
+          to label %.noexc unwind label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
 
 .noexc:                                           ; preds = %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit
   %85 = trunc i64 %82 to i32
@@ -9704,30 +9697,23 @@ _ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0
 ._crit_edge.i3:                                   ; preds = %.lr.ph.i5, %.noexc
   %92 = getelementptr inbounds nuw i8, ptr %73, i64 120
   %93 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %74)
-          to label %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit unwind label %94
+          to label %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit unwind label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
 
 _ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit: ; preds = %._crit_edge.i3
-  invoke void @_ZNK5ceres8internal17BlockSparseMatrix31UpdateCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %73)
-          to label %99 unwind label %94
+  invoke void @_ZNK5ceres8internal17BlockSparseMatrix31UpdateCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %73)
+          to label %98 unwind label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
 
-94:                                               ; preds = %._crit_edge.i3, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit, %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
-  %95 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit: ; preds = %._crit_edge.i3, %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit, %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
+  %94 = landingpad { ptr, i32 }
           cleanup
-  %.not.i10 = icmp eq ptr %73, null
-  br i1 %.not.i10, label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i
-
-_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i: ; preds = %94
-  %96 = load ptr, ptr %73, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = load ptr, ptr %97, align 8
-  tail call void %98(ptr noundef nonnull align 8 dereferenceable(144) %73) #28
-  br label %_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit
-
-_ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_deleteIS2_EED2Ev.exit: ; preds = %94, %_ZNKSt14default_deleteIN5ceres8internal25CompressedRowSparseMatrixEEclEPS2_.exit.i
+  %95 = load ptr, ptr %73, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %97 = load ptr, ptr %96, align 8
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(144) %73) #28
   store ptr null, ptr %0, align 8
   br label %common.resume
 
-99:                                               ; preds = %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
+98:                                               ; preds = %_ZN5ceres8internal12_GLOBAL__N_144SetBlockStructureOfCompressedRowSparseMatrixEPNS0_25CompressedRowSparseMatrixEPNS0_27CompressedRowBlockStructureE.exit
   ret void
 }
 

@@ -1805,14 +1805,12 @@ if.then83:                                        ; preds = %if.end67
 
 if.end85:                                         ; preds = %if.end67
   %idx.ext86 = zext nneg i32 %call57 to i64
-  %cmp88.not = icmp eq ptr %cond, null
   %add.ptr91 = getelementptr inbounds nuw i8, ptr %cond, i64 %idx.ext86
-  %spec.select = select i1 %cmp88.not, ptr null, ptr %add.ptr91
   %sub95 = sub nsw i32 %sub, %call57
   br label %20
 
 20:                                               ; preds = %if.end85, %if.end85.thread
-  %spec.select363 = phi ptr [ %spec.select358, %if.end85.thread ], [ %spec.select, %if.end85 ]
+  %spec.select363 = phi ptr [ %spec.select358, %if.end85.thread ], [ %add.ptr91, %if.end85 ]
   %idx.ext86354.pn = phi i64 [ %idx.ext86354, %if.end85.thread ], [ %idx.ext86, %if.end85 ]
   %staticDataSize.0346361 = phi i32 [ %call52, %if.end85.thread ], [ %call57, %if.end85 ]
   %21 = phi i32 [ %length, %if.end85.thread ], [ %sub95, %if.end85 ]

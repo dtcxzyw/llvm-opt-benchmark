@@ -2354,10 +2354,10 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_inser
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
   %16 = load i32, ptr %4, align 4, !tbaa !59
   invoke void @_ZN5ZXing6ResultC1EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %15, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %16) #16
-          to label %17 unwind label %26
+          to label %17 unwind label %28
 
 17:                                               ; preds = %5
-  %18 = tail call noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %7, ptr noundef %1, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %0) #17
+  %18 = tail call noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %14, ptr noundef nonnull align 1 dereferenceable(1) %0) #17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 216
   %20 = tail call noundef ptr @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_(ptr noundef %1, ptr noundef %9, ptr noundef nonnull %19, ptr noundef nonnull align 1 dereferenceable(1) %0) #17
   %21 = icmp eq ptr %7, null
@@ -2375,43 +2375,32 @@ define linkonce_odr void @_ZNSt6vectorIN5ZXing6ResultESaIS1_EE17_M_realloc_inser
   store ptr %25, ptr %24, align 8, !tbaa !64
   ret void
 
-26:                                               ; preds = %5
+26:                                               ; preds = %28
   %27 = landingpad { ptr, i32 }
-          catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  %29 = tail call ptr @__cxa_begin_catch(ptr %28) #15
-  %30 = icmp eq ptr %14, null
-  br i1 %30, label %31, label %34
-
-31:                                               ; preds = %26
-  tail call void @_ZNSt15__new_allocatorIN5ZXing6ResultEE7destroyIS1_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %15) #17
-  br label %35
-
-32:                                               ; preds = %35
-  %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %36 unwind label %37
+          to label %32 unwind label %33
 
-34:                                               ; preds = %26
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #18
-  br label %35
-
-35:                                               ; preds = %34, %31
-  invoke void @__cxa_rethrow() #22
-          to label %40 unwind label %32
-
-36:                                               ; preds = %32
-  resume { ptr, i32 } %33
-
-37:                                               ; preds = %32
-  %38 = landingpad { ptr, i32 }
+28:                                               ; preds = %5
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #19
+  %30 = extractvalue { ptr, i32 } %29, 0
+  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #18
+  invoke void @__cxa_rethrow() #22
+          to label %36 unwind label %26
+
+32:                                               ; preds = %26
+  resume { ptr, i32 } %27
+
+33:                                               ; preds = %26
+  %34 = landingpad { ptr, i32 }
+          catch ptr null
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #19
   unreachable
 
-40:                                               ; preds = %35
+36:                                               ; preds = %28
   unreachable
 }
 

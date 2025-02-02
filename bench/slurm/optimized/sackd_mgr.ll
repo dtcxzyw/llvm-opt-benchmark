@@ -193,54 +193,42 @@ define internal range(i32 -1, 1) i32 @_unpack_node(ptr noundef writeonly capture
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = tail call i32 @unpack16(ptr noundef nonnull %9, ptr noundef %2) #7
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %21
+  br i1 %.not, label %11, label %_destroy_sackd_node.exit
 
 11:                                               ; preds = %3
   %12 = call i32 @unpack64(ptr noundef nonnull %5, ptr noundef %2) #7
   %.not11 = icmp eq i32 %12, 0
-  br i1 %.not11, label %13, label %21
+  br i1 %.not11, label %13, label %_destroy_sackd_node.exit
 
 13:                                               ; preds = %11
   %14 = load i64, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %14, ptr %15, align 8
-  %16 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %8, ptr noundef nonnull %6, ptr noundef %2) #7
+  %16 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef %2) #7
   %.not12 = icmp eq i32 %16, 0
-  br i1 %.not12, label %17, label %.thread
+  br i1 %.not12, label %17, label %_destroy_sackd_node.exit
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %18, ptr noundef nonnull %7, ptr noundef %2) #7
   %.not13 = icmp eq i32 %19, 0
-  br i1 %.not13, label %20, label %.thread
+  br i1 %.not13, label %20, label %_destroy_sackd_node.exit
 
 20:                                               ; preds = %17
   store ptr %8, ptr %0, align 8
-  br label %24
-
-.thread:                                          ; preds = %17, %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %8, ptr %4, align 8
   br label %22
 
-21:                                               ; preds = %11, %3
+_destroy_sackd_node.exit:                         ; preds = %17, %13, %11, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %8, ptr %4, align 8
-  %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %_destroy_sackd_node.exit, label %22
-
-22:                                               ; preds = %.thread, %21
   call void @slurm_xfree(ptr noundef nonnull %8) #7
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @slurm_xfree(ptr noundef nonnull %23) #7
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @slurm_xfree(ptr noundef nonnull %21) #7
   call void @slurm_xfree(ptr noundef nonnull %4) #7
-  br label %_destroy_sackd_node.exit
-
-_destroy_sackd_node.exit:                         ; preds = %21, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %24
+  br label %22
 
-24:                                               ; preds = %_destroy_sackd_node.exit, %20
+22:                                               ; preds = %_destroy_sackd_node.exit, %20
   %.0 = phi i32 [ -1, %_destroy_sackd_node.exit ], [ 0, %20 ]
   ret i32 %.0
 }

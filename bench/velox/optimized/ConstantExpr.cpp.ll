@@ -4227,7 +4227,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #26
+  tail call void @__cxa_free_exception(ptr nonnull %exception) #26
   resume { ptr, i32 } %1
 }
 
@@ -5848,12 +5848,9 @@ invoke.cont6:                                     ; preds = %cond.false4.i.i.i.i
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %2, i64 %cond.neg.i.i3
   %3 = load i32, ptr %length_, align 8
   invoke void @_ZN8facebook5velox17SelectivityVector6resizeEib(ptr noundef nonnull align 8 dereferenceable(38) %add.ptr.i.i4, i32 noundef %3, i1 noundef zeroext false)
-          to label %if.else.i.i.i unwind label %lpad5
+          to label %if.then3.i.i.i unwind label %lpad5
 
-if.else.i.i.i:                                    ; preds = %invoke.cont6
-  br i1 %tobool.not.i.i2, label %if.end, label %if.then3.i.i.i
-
-if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
+if.then3.i.i.i:                                   ; preds = %invoke.cont6
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.noexc1.i.i unwind label %terminate.lpad.i.i
 
@@ -5879,7 +5876,7 @@ lpad5:                                            ; preds = %invoke.cont6
   call void @_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE1ELNSA_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #26
   br label %ehcleanup
 
-if.end:                                           ; preds = %.noexc1.i.i, %if.else.i.i.i, %invoke.cont
+if.end:                                           ; preds = %.noexc1.i.i, %invoke.cont
   %8 = load i8, ptr %state_.i.i.i.i2.i.i.i, align 8
   %tobool.i.i.i.i.i6 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i.i.i6, label %if.then.i.i.i.i, label %_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE3ELNSA_23SynchronizedMutexMethodE0EEEED2Ev.exit

@@ -924,7 +924,7 @@ _ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit116: ; preds = 
   br i1 %cmp92, label %error, label %for.inc
 
 for.inc:                                          ; preds = %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit62, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit, %if.else79, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit116, %_ZL19validate_time_fieldRKN9grpc_core12experimental4JsonEPKc.exit100, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit74, %_ZL21validate_string_fieldRKN9grpc_core12experimental4JsonEPKc.exit50
-  %call.i117 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0132) #28
+  %call.i117 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.0132) #28
   %cmp.i.not = icmp eq ptr %call.i117, %add.ptr.i.i
   br i1 %cmp.i.not, label %return, label %for.body
 
@@ -1358,20 +1358,16 @@ _ZL19jose_header_destroyP11jose_header.exit:      ; preds = %_ZN9grpc_core11CSli
   call void @_Z26grpc_http_response_destroyP18grpc_http_response(ptr noundef nonnull %responses)
   %arrayidx.c = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   call void @_Z26grpc_http_response_destroyP18grpc_http_response(ptr noundef nonnull %arrayidx.c)
-  %isnull = icmp eq ptr %ctx, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %_ZL19jose_header_destroyP11jose_header.exit
   %http_request.i = getelementptr inbounds nuw i8, ptr %ctx, i64 240
   %15 = load ptr, ptr %http_request.i, align 8
   %cmp.not.i.i = icmp eq ptr %15, null
-  br i1 %cmp.not.i.i, label %_ZN15verifier_cb_ctxD2Ev.exit, label %if.then.i.i25
+  br i1 %cmp.not.i.i, label %delete.end, label %if.then.i.i25
 
-if.then.i.i25:                                    ; preds = %delete.notnull
+if.then.i.i25:                                    ; preds = %_ZL19jose_header_destroyP11jose_header.exit
   %vtable.i.i.i = load ptr, ptr %15, align 8
   %16 = load ptr, ptr %vtable.i.i.i, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(5288) %15)
-          to label %_ZN15verifier_cb_ctxD2Ev.exit unwind label %terminate.lpad.i.i
+          to label %delete.end unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i25
   %17 = landingpad { ptr, i32 }
@@ -1380,11 +1376,8 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i25
   call void @__clang_call_terminate(ptr %18) #25
   unreachable
 
-_ZN15verifier_cb_ctxD2Ev.exit:                    ; preds = %delete.notnull, %if.then.i.i25
+delete.end:                                       ; preds = %if.then.i.i25, %_ZL19jose_header_destroyP11jose_header.exit
   call void @_ZdlPv(ptr noundef nonnull %ctx) #29
-  br label %delete.end
-
-delete.end:                                       ; preds = %_ZN15verifier_cb_ctxD2Ev.exit, %_ZL19jose_header_destroyP11jose_header.exit
   ret void
 }
 

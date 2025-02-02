@@ -5264,29 +5264,22 @@ invoke.cont170:                                   ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i) #28
   store ptr %add.ptr.i.i404, ptr %__node_gen.i.i, align 8, !tbaa !15
   %call3.i.i.i408 = invoke { ptr, i8 } @_ZNSt10_HashtableIN5folly6detail14TypeDescriptorES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ENS1_20TypeDescriptorHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS2_S2_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i.i404, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp168, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp168, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
-          to label %if.else.i.i.i412 unwind label %lpad169
+          to label %if.then3.i.i.i414 unwind label %lpad169
 
-if.else.i.i.i412:                                 ; preds = %invoke.cont170
+if.then3.i.i.i414:                                ; preds = %invoke.cont170
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i) #28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp168) #28
-  br i1 %tobool.not.i.i402, label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setINS_6detail14TypeDescriptorENS3_20TypeDescriptorHasherESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then3.i.i.i414
-
-if.then3.i.i.i414:                                ; preds = %if.else.i.i.i412
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i409) #28
   %149 = atomicrmw and ptr %147, i32 -401 seq_cst, align 4
   %150 = and i32 %149, -401
   store i32 %150, ptr %state.i.i.i.i409, align 4, !tbaa !24
   %and.i.i.i.i.i415 = and i32 %149, 15
   %cmp.not.i.i.i.i.i416 = icmp eq i32 %and.i.i.i.i.i415, 0
-  br i1 %cmp.not.i.i.i.i.i416, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE6unlockEv.exit.i.i.i419, label %if.then.i.i.i.i.i417, !prof !7
+  br i1 %cmp.not.i.i.i.i.i416, label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setINS_6detail14TypeDescriptorENS3_20TypeDescriptorHasherESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then.i.i.i.i.i417, !prof !7
 
 if.then.i.i.i.i.i417:                             ; preds = %if.then3.i.i.i414
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE25wakeRegisteredWaitersImplERjj(ptr noundef nonnull align 4 dereferenceable(4) %147, ptr noundef nonnull align 4 dereferenceable(4) %state.i.i.i.i409, i32 noundef 15)
-          to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE6unlockEv.exit.i.i.i419 unwind label %terminate.lpad.i.i418
-
-_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE6unlockEv.exit.i.i.i419: ; preds = %if.then.i.i.i.i.i417, %if.then3.i.i.i414
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i409) #28
-  br label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setINS_6detail14TypeDescriptorENS3_20TypeDescriptorHasherESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit
+          to label %_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setINS_6detail14TypeDescriptorENS3_20TypeDescriptorHasherESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit unwind label %terminate.lpad.i.i418
 
 terminate.lpad.i.i418:                            ; preds = %if.then.i.i.i.i.i417
   %151 = landingpad { ptr, i32 }
@@ -5295,7 +5288,8 @@ terminate.lpad.i.i418:                            ; preds = %if.then.i.i.i.i.i41
   call void @__clang_call_terminate(ptr %152) #31
   unreachable
 
-_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setINS_6detail14TypeDescriptorENS3_20TypeDescriptorHasherESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE6unlockEv.exit.i.i.i419, %if.else.i.i.i412
+_ZN5folly9LockedPtrINS_12SynchronizedISt13unordered_setINS_6detail14TypeDescriptorENS3_20TypeDescriptorHasherESt8equal_toIS4_ESaIS4_EENS_15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEEEEENS3_22SynchronizedLockPolicyILNS3_22SynchronizedMutexLevelE1ELNS3_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %if.then3.i.i.i414, %if.then.i.i.i.i.i417
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i409) #28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp161) #28
   %153 = load ptr, ptr %_M_refcount.i.i292, align 8, !tbaa !14
   %cmp.not.i.i421 = icmp eq ptr %153, null

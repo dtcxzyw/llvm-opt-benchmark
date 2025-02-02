@@ -12001,13 +12001,9 @@ invoke.cont320:                                   ; preds = %if.end319
 
 invoke.cont326:                                   ; preds = %invoke.cont320
   %call329 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.31)
-          to label %invoke.cont328 unwind label %lpad228
+          to label %if.then.i.i.i418 unwind label %lpad228
 
-invoke.cont328:                                   ; preds = %invoke.cont326
-  %tobool.not.i.i417 = icmp eq ptr %138, null
-  br i1 %tobool.not.i.i417, label %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit, label %if.then.i.i.i418
-
-if.then.i.i.i418:                                 ; preds = %invoke.cont328
+if.then.i.i.i418:                                 ; preds = %invoke.cont326
   %139 = load ptr, ptr %m_manager.i309, align 8
   %m_ref_count.i.i.i.i420 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load i32, ptr %m_ref_count.i.i.i.i420, align 4
@@ -12027,7 +12023,7 @@ terminate.lpad.i424:                              ; preds = %if.then2.i.i.i423
   call void @__clang_call_terminate(ptr %142) #29
   unreachable
 
-_ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %invoke.cont328, %if.then.i.i.i418, %if.then2.i.i.i423
+_ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %if.then.i.i.i418, %if.then2.i.i.i423
   %indvars.iv.next668 = add nuw nsw i64 %indvars.iv667, 1
   br label %for.cond217, !llvm.loop !55
 

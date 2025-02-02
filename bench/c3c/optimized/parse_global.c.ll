@@ -37,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [14 x i8] c"Expected '{'.\00", align 1
 @poisoned_decl = external local_unnamed_addr global ptr, align 8
 @.str.21 = private unnamed_addr constant [14 x i8] c"variable name\00", align 1
-@.str.22 = private unnamed_addr constant [35 x i8] c"Expected an identifier before '='.\00", align 1
 @poisoned_expr = external local_unnamed_addr global ptr, align 8
 @.str.23 = private unnamed_addr constant [6 x i8] c"const\00", align 1
 @.str.24 = private unnamed_addr constant [52 x i8] c"Constants must be declared using 'const' not 'var'.\00", align 1
@@ -2711,7 +2710,7 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
   %7 = load i64, ptr %6, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %7, ptr noundef nonnull @.str.20) #8
   %8 = load ptr, ptr @poisoned_decl, align 8
-  br label %58
+  br label %54
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2721,7 +2720,7 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
   %14 = tail call ptr @decl_new_var(ptr noundef %11, i64 %13, ptr noundef %1, i32 noundef 13) #8
   tail call void @advance(ptr noundef nonnull %0) #8
   %15 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 10) #8
-  br i1 %15, label %16, label %58
+  br i1 %15, label %16, label %54
 
 16:                                               ; preds = %9
   %17 = tail call ptr @parse_expr(ptr noundef nonnull %0) #8
@@ -2738,11 +2737,11 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
 .critedge:                                        ; preds = %16, %19
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store ptr %17, ptr %23, align 8
-  br label %58
+  br label %54
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr @poisoned_decl, align 8
-  br label %58
+  br label %54
 
 26:                                               ; preds = %2
   br label %27
@@ -2753,7 +2752,7 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
   %29 = load i64, ptr %28, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %29, ptr noundef nonnull %.str.84.sink.i, ptr noundef nonnull @.str.21) #8
   %30 = load ptr, ptr @poisoned_decl, align 8
-  br label %58
+  br label %54
 
 31:                                               ; preds = %2
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2768,47 +2767,37 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
 
 39:                                               ; preds = %31
   %40 = load ptr, ptr @poisoned_decl, align 8
-  br label %58
+  br label %54
 
 41:                                               ; preds = %31
   %42 = load i32, ptr %3, align 8
   %43 = icmp eq i32 %42, 10
-  br i1 %43, label %44, label %58
+  br i1 %43, label %44, label %54
 
 44:                                               ; preds = %41
-  %.not = icmp eq ptr %36, null
-  br i1 %.not, label %45, label %48
-
-45:                                               ; preds = %44
-  %46 = load i64, ptr %34, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %46, ptr noundef nonnull @.str.22) #8
-  %47 = load ptr, ptr @poisoned_decl, align 8
-  br label %58
-
-48:                                               ; preds = %44
   tail call void @advance(ptr noundef nonnull %0) #8
-  %49 = tail call ptr @parse_expr(ptr noundef nonnull %0) #8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %.critedge2, label %51
+  %45 = tail call ptr @parse_expr(ptr noundef nonnull %0) #8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %.critedge2, label %47
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %53 = load i16, ptr %52, align 8
-  %54 = and i16 %53, 255
-  %.not62 = icmp eq i16 %54, 0
-  br i1 %.not62, label %56, label %.critedge2
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %49 = load i16, ptr %48, align 8
+  %50 = and i16 %49, 255
+  %.not62 = icmp eq i16 %50, 0
+  br i1 %.not62, label %52, label %.critedge2
 
-.critedge2:                                       ; preds = %48, %51
-  %55 = getelementptr inbounds nuw i8, ptr %36, i64 88
-  store ptr %49, ptr %55, align 8
-  br label %58
+.critedge2:                                       ; preds = %44, %47
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 88
+  store ptr %45, ptr %51, align 8
+  br label %54
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr @poisoned_decl, align 8
-  br label %58
+52:                                               ; preds = %47
+  %53 = load ptr, ptr @poisoned_decl, align 8
+  br label %54
 
-58:                                               ; preds = %41, %.critedge2, %9, %.critedge, %56, %45, %39, %27, %24, %5
-  %.057 = phi ptr [ %8, %5 ], [ %25, %24 ], [ %57, %56 ], [ %47, %45 ], [ %40, %39 ], [ %30, %27 ], [ %14, %.critedge ], [ %14, %9 ], [ %36, %.critedge2 ], [ %36, %41 ]
+54:                                               ; preds = %41, %.critedge2, %9, %.critedge, %52, %39, %27, %24, %5
+  %.057 = phi ptr [ %8, %5 ], [ %25, %24 ], [ %53, %52 ], [ %40, %39 ], [ %30, %27 ], [ %14, %.critedge ], [ %14, %9 ], [ %36, %.critedge2 ], [ %36, %41 ]
   ret ptr %.057
 }
 
@@ -4333,7 +4322,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %64 = load i64, ptr %63, align 8
   %65 = or i64 %64, 4294967296
   store i64 %65, ptr %63, align 8
-  %66 = call zeroext i1 @parse_struct_body(ptr noundef nonnull %0, ptr noundef %26)
+  %66 = call zeroext i1 @parse_struct_body(ptr noundef nonnull %0, ptr noundef nonnull %26)
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %62
@@ -7970,7 +7959,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br label %78
 
 22:                                               ; preds = %17
-  %23 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef %6)
+  %23 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef nonnull %6)
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %22
@@ -8159,7 +8148,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br label %35
 
 28:                                               ; preds = %23
-  %29 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef %13)
+  %29 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef nonnull %13)
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %28
@@ -8167,7 +8156,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br label %35
 
 32:                                               ; preds = %28
-  %33 = tail call zeroext i1 @parse_struct_body(ptr noundef nonnull %0, ptr noundef %13)
+  %33 = tail call zeroext i1 @parse_struct_body(ptr noundef nonnull %0, ptr noundef nonnull %13)
   %34 = load ptr, ptr @poisoned_decl, align 8
   %spec.select = select i1 %33, ptr %13, ptr %34
   br label %35
@@ -8686,7 +8675,7 @@ parse_enum_param_decl.exit.i:                     ; preds = %67
 
 parse_enum_param_list.exit:                       ; preds = %.critedge.i, %.preheader.i, %35, %23
   %.0105 = phi ptr [ null, %23 ], [ %26, %35 ], [ %26, %.preheader.i ], [ %26, %.critedge.i ]
-  %137 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef %7)
+  %137 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef nonnull %7)
   br i1 %137, label %140, label %138
 
 138:                                              ; preds = %parse_enum_param_list.exit
@@ -8975,7 +8964,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br label %128
 
 22:                                               ; preds = %17
-  %23 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef %6)
+  %23 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef nonnull %6)
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %22

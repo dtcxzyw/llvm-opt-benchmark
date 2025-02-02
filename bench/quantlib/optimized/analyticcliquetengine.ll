@@ -2126,7 +2126,11 @@ for.body.lr.ph:                                   ; preds = %invoke.cont260
 for.cond.cleanup:                                 ; preds = %_ZN8QuantLib10DayCounterD2Ev.exit460
   %.pre619 = load ptr, ptr %pn.i, align 8, !tbaa !37
   %cmp.not.i.i235 = icmp eq ptr %.pre619, null
-  br i1 %cmp.not.i.i235, label %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit, label %if.then.i.i236
+  br i1 %cmp.not.i.i235, label %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit.thread, label %if.then.i.i236
+
+_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit.thread: ; preds = %for.cond.cleanup
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %payoff249) #27
+  br label %if.then.i.i.i244
 
 if.then.i.i236:                                   ; preds = %invoke.cont260, %for.cond.cleanup
   %145 = phi ptr [ %.pre619, %for.cond.cleanup ], [ %call.i.i.i, %invoke.cont260 ]
@@ -2162,12 +2166,12 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i240,
   call void @__clang_call_terminate(ptr %151) #28
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit: ; preds = %for.cond.cleanup, %if.then.i.i236, %.noexc.i.i, %if.then.i.i.i.i240
+_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit: ; preds = %if.then.i.i236, %.noexc.i.i, %if.then.i.i.i.i240
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %payoff249) #27
   %tobool.not.i.i.i = icmp eq ptr %resetDates.sroa.0.1, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit, label %if.then.i.i.i244
 
-if.then.i.i.i244:                                 ; preds = %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit
+if.then.i.i.i244:                                 ; preds = %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit.thread, %_ZN5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEED2Ev.exit
   %sub.ptr.lhs.cast.i.i246 = ptrtoint ptr %resetDates.sroa.32.1 to i64
   %sub.ptr.sub.i.i248 = sub i64 %sub.ptr.lhs.cast.i.i246, %sub.ptr.rhs.cast.i
   call void @_ZdlPvm(ptr noundef nonnull %resetDates.sroa.0.1, i64 noundef %sub.ptr.sub.i.i248) #32
