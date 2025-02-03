@@ -6082,48 +6082,36 @@ define hidden void @"_ZN152_$LT$palette..hsl..Hsl$LT$S$C$T$GT$$u20$as$u20$palett
   %6 = load float, ptr %5, align 4, !noundef !4
   %7 = fsub float 2.000000e+00, %4
   %8 = fmul float %7, %6
-  %or.cond1.i = tail call i1 @llvm.is.fpclass.f32(float %6, i32 408)
-  %9 = bitcast float %6 to i32
-  %10 = and i32 %9, 2139095040
-  %11 = icmp ne i32 %10, 0
-  %.0.i.i = and i1 %or.cond1.i, %11
-  br i1 %.0.i.i, label %12, label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit"
+  %or.cond1.i = tail call i1 @llvm.is.fpclass.f32(float %6, i32 759)
+  br i1 %or.cond1.i, label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit", label %9
 
-12:                                               ; preds = %2
-  %13 = fcmp olt float %8, 1.000000e+00
-  br i1 %13, label %19, label %14
+9:                                                ; preds = %2
+  %10 = fcmp olt float %8, 1.000000e+00
+  br i1 %10, label %13, label %11
 
-14:                                               ; preds = %12
-  %15 = fsub float 2.000000e+00, %8
-  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %15, i32 408)
-  %16 = bitcast float %15 to i32
-  %17 = and i32 %16, 2139095040
-  %18 = icmp ne i32 %17, 0
-  %.0.i.i.i.i = and i1 %or.cond1.i.i.i, %18
-  br i1 %.0.i.i.i.i, label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i", label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit"
+11:                                               ; preds = %9
+  %12 = fsub float 2.000000e+00, %8
+  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %12, i32 264)
+  br i1 %or.cond1.i.i.i, label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i", label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit"
 
-19:                                               ; preds = %12
-  %or.cond1.i.i3.i = tail call i1 @llvm.is.fpclass.f32(float %8, i32 408)
-  %20 = bitcast float %8 to i32
-  %21 = and i32 %20, 2139095040
-  %22 = icmp ne i32 %21, 0
-  %.0.i.i.i4.i = and i1 %or.cond1.i.i3.i, %22
-  br i1 %.0.i.i.i4.i, label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i", label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit"
+13:                                               ; preds = %9
+  %or.cond1.i.i3.i = tail call i1 @llvm.is.fpclass.f32(float %8, i32 264)
+  br i1 %or.cond1.i.i3.i, label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i", label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit"
 
-"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i": ; preds = %19, %14
-  %.val.sink.i = phi float [ %15, %14 ], [ %8, %19 ]
-  %23 = fmul float %4, %6
-  %24 = fdiv float %23, %.val.sink.i
+"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i": ; preds = %13, %11
+  %.val.sink.i = phi float [ %12, %11 ], [ %8, %13 ]
+  %14 = fmul float %4, %6
+  %15 = fdiv float %14, %.val.sink.i
   br label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit"
 
-"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit": ; preds = %2, %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i", %19, %14
-  %.0.i = phi float [ 0.000000e+00, %14 ], [ 0.000000e+00, %19 ], [ %24, %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i" ], [ 0.000000e+00, %2 ]
-  %25 = fmul float %8, 5.000000e-01
+"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h111fbaeef7a2c0ddE.exit": ; preds = %2, %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i", %13, %11
+  %.0.i = phi float [ 0.000000e+00, %11 ], [ 0.000000e+00, %13 ], [ %15, %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h32a90f52012f29b4E.exit.sink.split.i" ], [ 0.000000e+00, %2 ]
+  %16 = fmul float %8, 5.000000e-01
   store float %.sroa.0.0.copyload, ptr %0, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.0.i, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %25, ptr %27, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.0.i, ptr %17, align 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %16, ptr %18, align 4
   ret void
 }
 

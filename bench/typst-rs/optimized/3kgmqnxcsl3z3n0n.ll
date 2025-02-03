@@ -65596,7 +65596,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %3 = alloca [9 x float], align 4
   %4 = load i64, ptr %1, align 8, !range !49, !noundef !4
   %trunc = trunc nuw i64 %4 to i1
-  br i1 %trunc, label %81, label %5
+  br i1 %trunc, label %78, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18290)
@@ -65635,73 +65635,69 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %34 = load float, ptr %33, align 4, !alias.scope !18323, !noalias !18301, !noundef !4
   %35 = fmul float %26, %34
   %36 = fadd float %32, %35
-  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %36, i32 408)
-  %37 = bitcast float %36 to i32
-  %38 = and i32 %37, 2139095040
-  %39 = icmp ne i32 %38, 0
-  %.0.i.i.i.i = select i1 %or.cond1.i.i.i, i1 %39, i1 false
-  br i1 %.0.i.i.i.i, label %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit", label %40
+  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %36, i32 264)
+  br i1 %or.cond1.i.i.i, label %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit", label %37
 
-40:                                               ; preds = %5
+37:                                               ; preds = %5
   tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.ecbbdf4ce99fb387dde54de6349d4c38.181, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ecbbdf4ce99fb387dde54de6349d4c38.182) #50, !noalias !18326
   unreachable
 
 "_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit": ; preds = %5
-  %41 = fmul float %7, %27
-  %42 = fmul float %18, %30
+  %38 = fmul float %7, %27
+  %39 = fmul float %18, %30
+  %40 = fsub float %38, %39
+  %41 = fmul float %12, %27
+  %42 = fmul float %18, %34
   %43 = fsub float %41, %42
-  %44 = fmul float %12, %27
-  %45 = fmul float %18, %34
+  %44 = fmul float %12, %30
+  %45 = fmul float %7, %34
   %46 = fsub float %44, %45
-  %47 = fmul float %12, %30
-  %48 = fmul float %7, %34
+  %47 = fmul float %14, %27
+  %48 = fmul float %21, %30
   %49 = fsub float %47, %48
-  %50 = fmul float %14, %27
-  %51 = fmul float %21, %30
+  %50 = fmul float %9, %27
+  %51 = fmul float %21, %34
   %52 = fsub float %50, %51
-  %53 = fmul float %9, %27
-  %54 = fmul float %21, %34
+  %53 = fmul float %9, %30
+  %54 = fmul float %14, %34
   %55 = fsub float %53, %54
-  %56 = fmul float %9, %30
-  %57 = fmul float %14, %34
-  %58 = fsub float %56, %57
-  %59 = fdiv float 1.000000e+00, %36
-  %60 = fmul float %16, %59
-  %61 = fneg float %58
-  %62 = fmul float %59, %61
-  %63 = fmul float %49, %59
-  %64 = fneg float %23
-  %65 = fmul float %59, %64
-  %66 = fmul float %55, %59
-  %67 = fneg float %46
-  %68 = fmul float %59, %67
-  %69 = fmul float %26, %59
-  %70 = fneg float %52
-  %71 = fmul float %59, %70
-  %72 = fmul float %43, %59
-  store float %60, ptr %0, align 4, !alias.scope !18301, !noalias !18296
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %62, ptr %73, align 4, !alias.scope !18301, !noalias !18296
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %63, ptr %74, align 4, !alias.scope !18301, !noalias !18296
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %65, ptr %75, align 4, !alias.scope !18301, !noalias !18296
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %66, ptr %76, align 4, !alias.scope !18301, !noalias !18296
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %68, ptr %77, align 4, !alias.scope !18301, !noalias !18296
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %69, ptr %78, align 4, !alias.scope !18301, !noalias !18296
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %71, ptr %79, align 4, !alias.scope !18301, !noalias !18296
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %72, ptr %80, align 4, !alias.scope !18301, !noalias !18296
+  %56 = fdiv float 1.000000e+00, %36
+  %57 = fmul float %16, %56
+  %58 = fneg float %55
+  %59 = fmul float %56, %58
+  %60 = fmul float %46, %56
+  %61 = fneg float %23
+  %62 = fmul float %56, %61
+  %63 = fmul float %52, %56
+  %64 = fneg float %43
+  %65 = fmul float %56, %64
+  %66 = fmul float %26, %56
+  %67 = fneg float %49
+  %68 = fmul float %56, %67
+  %69 = fmul float %40, %56
+  store float %57, ptr %0, align 4, !alias.scope !18301, !noalias !18296
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %59, ptr %70, align 4, !alias.scope !18301, !noalias !18296
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %60, ptr %71, align 4, !alias.scope !18301, !noalias !18296
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %62, ptr %72, align 4, !alias.scope !18301, !noalias !18296
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %63, ptr %73, align 4, !alias.scope !18301, !noalias !18296
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %65, ptr %74, align 4, !alias.scope !18301, !noalias !18296
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %66, ptr %75, align 4, !alias.scope !18301, !noalias !18296
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %68, ptr %76, align 4, !alias.scope !18301, !noalias !18296
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %69, ptr %77, align 4, !alias.scope !18301, !noalias !18296
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3), !noalias !18290
-  br label %100
+  br label %97
 
-81:                                               ; preds = %2
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01.0.copyload = load double, ptr %82, align 8
+78:                                               ; preds = %2
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01.0.copyload = load double, ptr %79, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -65718,35 +65714,35 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha57e4e493c8
   %.sroa.86.0.copyload = load double, ptr %.sroa.86.0..sroa_idx, align 8
   %.sroa.97.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.97.0.copyload = load double, ptr %.sroa.97.0..sroa_idx, align 8
-  %83 = fptrunc double %.sroa.01.0.copyload to float
-  %84 = fptrunc double %.sroa.2.0.copyload to float
-  %85 = fptrunc double %.sroa.3.0.copyload to float
-  %86 = fptrunc double %.sroa.42.0.copyload to float
-  %87 = fptrunc double %.sroa.53.0.copyload to float
-  %88 = fptrunc double %.sroa.64.0.copyload to float
-  %89 = fptrunc double %.sroa.75.0.copyload to float
-  %90 = fptrunc double %.sroa.86.0.copyload to float
-  %91 = fptrunc double %.sroa.97.0.copyload to float
-  store float %83, ptr %0, align 4, !alias.scope !18327, !noalias !18332
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %80 = fptrunc double %.sroa.01.0.copyload to float
+  %81 = fptrunc double %.sroa.2.0.copyload to float
+  %82 = fptrunc double %.sroa.3.0.copyload to float
+  %83 = fptrunc double %.sroa.42.0.copyload to float
+  %84 = fptrunc double %.sroa.53.0.copyload to float
+  %85 = fptrunc double %.sroa.64.0.copyload to float
+  %86 = fptrunc double %.sroa.75.0.copyload to float
+  %87 = fptrunc double %.sroa.86.0.copyload to float
+  %88 = fptrunc double %.sroa.97.0.copyload to float
+  store float %80, ptr %0, align 4, !alias.scope !18327, !noalias !18332
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %81, ptr %89, align 4, !alias.scope !18327, !noalias !18332
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %82, ptr %90, align 4, !alias.scope !18327, !noalias !18332
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %83, ptr %91, align 4, !alias.scope !18327, !noalias !18332
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %84, ptr %92, align 4, !alias.scope !18327, !noalias !18332
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %85, ptr %93, align 4, !alias.scope !18327, !noalias !18332
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %86, ptr %94, align 4, !alias.scope !18327, !noalias !18332
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %87, ptr %95, align 4, !alias.scope !18327, !noalias !18332
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %88, ptr %96, align 4, !alias.scope !18327, !noalias !18332
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %89, ptr %97, align 4, !alias.scope !18327, !noalias !18332
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %90, ptr %98, align 4, !alias.scope !18327, !noalias !18332
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %91, ptr %99, align 4, !alias.scope !18327, !noalias !18332
-  br label %100
+  br label %97
 
-100:                                              ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit", %81
+97:                                               ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h2941e00db1d8e073E.exit", %78
   ret void
 }
 
@@ -65755,7 +65751,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %3 = alloca [9 x float], align 4
   %4 = load i64, ptr %1, align 8, !range !49, !noundef !4
   %trunc = trunc nuw i64 %4 to i1
-  br i1 %trunc, label %81, label %5
+  br i1 %trunc, label %78, label %5
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18335)
@@ -65794,73 +65790,69 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %34 = load float, ptr %33, align 4, !alias.scope !18368, !noalias !18346, !noundef !4
   %35 = fmul float %26, %34
   %36 = fadd float %32, %35
-  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %36, i32 408)
-  %37 = bitcast float %36 to i32
-  %38 = and i32 %37, 2139095040
-  %39 = icmp ne i32 %38, 0
-  %.0.i.i.i.i = select i1 %or.cond1.i.i.i, i1 %39, i1 false
-  br i1 %.0.i.i.i.i, label %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit", label %40
+  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %36, i32 264)
+  br i1 %or.cond1.i.i.i, label %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit", label %37
 
-40:                                               ; preds = %5
+37:                                               ; preds = %5
   tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.ecbbdf4ce99fb387dde54de6349d4c38.181, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ecbbdf4ce99fb387dde54de6349d4c38.182) #50, !noalias !18371
   unreachable
 
 "_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit": ; preds = %5
-  %41 = fmul float %7, %27
-  %42 = fmul float %18, %30
+  %38 = fmul float %7, %27
+  %39 = fmul float %18, %30
+  %40 = fsub float %38, %39
+  %41 = fmul float %12, %27
+  %42 = fmul float %18, %34
   %43 = fsub float %41, %42
-  %44 = fmul float %12, %27
-  %45 = fmul float %18, %34
+  %44 = fmul float %12, %30
+  %45 = fmul float %7, %34
   %46 = fsub float %44, %45
-  %47 = fmul float %12, %30
-  %48 = fmul float %7, %34
+  %47 = fmul float %14, %27
+  %48 = fmul float %21, %30
   %49 = fsub float %47, %48
-  %50 = fmul float %14, %27
-  %51 = fmul float %21, %30
+  %50 = fmul float %9, %27
+  %51 = fmul float %21, %34
   %52 = fsub float %50, %51
-  %53 = fmul float %9, %27
-  %54 = fmul float %21, %34
+  %53 = fmul float %9, %30
+  %54 = fmul float %14, %34
   %55 = fsub float %53, %54
-  %56 = fmul float %9, %30
-  %57 = fmul float %14, %34
-  %58 = fsub float %56, %57
-  %59 = fdiv float 1.000000e+00, %36
-  %60 = fmul float %16, %59
-  %61 = fneg float %58
-  %62 = fmul float %59, %61
-  %63 = fmul float %49, %59
-  %64 = fneg float %23
-  %65 = fmul float %59, %64
-  %66 = fmul float %55, %59
-  %67 = fneg float %46
-  %68 = fmul float %59, %67
-  %69 = fmul float %26, %59
-  %70 = fneg float %52
-  %71 = fmul float %59, %70
-  %72 = fmul float %43, %59
-  store float %60, ptr %0, align 4, !alias.scope !18346, !noalias !18341
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %62, ptr %73, align 4, !alias.scope !18346, !noalias !18341
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %63, ptr %74, align 4, !alias.scope !18346, !noalias !18341
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %65, ptr %75, align 4, !alias.scope !18346, !noalias !18341
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %66, ptr %76, align 4, !alias.scope !18346, !noalias !18341
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %68, ptr %77, align 4, !alias.scope !18346, !noalias !18341
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %69, ptr %78, align 4, !alias.scope !18346, !noalias !18341
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %71, ptr %79, align 4, !alias.scope !18346, !noalias !18341
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %72, ptr %80, align 4, !alias.scope !18346, !noalias !18341
+  %56 = fdiv float 1.000000e+00, %36
+  %57 = fmul float %16, %56
+  %58 = fneg float %55
+  %59 = fmul float %56, %58
+  %60 = fmul float %46, %56
+  %61 = fneg float %23
+  %62 = fmul float %56, %61
+  %63 = fmul float %52, %56
+  %64 = fneg float %43
+  %65 = fmul float %56, %64
+  %66 = fmul float %26, %56
+  %67 = fneg float %49
+  %68 = fmul float %56, %67
+  %69 = fmul float %40, %56
+  store float %57, ptr %0, align 4, !alias.scope !18346, !noalias !18341
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %59, ptr %70, align 4, !alias.scope !18346, !noalias !18341
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %60, ptr %71, align 4, !alias.scope !18346, !noalias !18341
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %62, ptr %72, align 4, !alias.scope !18346, !noalias !18341
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %63, ptr %73, align 4, !alias.scope !18346, !noalias !18341
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %65, ptr %74, align 4, !alias.scope !18346, !noalias !18341
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float %66, ptr %75, align 4, !alias.scope !18346, !noalias !18341
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float %68, ptr %76, align 4, !alias.scope !18346, !noalias !18341
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float %69, ptr %77, align 4, !alias.scope !18346, !noalias !18341
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3), !noalias !18335
-  br label %100
+  br label %97
 
-81:                                               ; preds = %2
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.01.0.copyload = load double, ptr %82, align 8
+78:                                               ; preds = %2
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.01.0.copyload = load double, ptr %79, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -65877,35 +65869,35 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd4d8c92dddb
   %.sroa.86.0.copyload = load double, ptr %.sroa.86.0..sroa_idx, align 8
   %.sroa.97.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.97.0.copyload = load double, ptr %.sroa.97.0..sroa_idx, align 8
-  %83 = fptrunc double %.sroa.01.0.copyload to float
-  %84 = fptrunc double %.sroa.2.0.copyload to float
-  %85 = fptrunc double %.sroa.3.0.copyload to float
-  %86 = fptrunc double %.sroa.42.0.copyload to float
-  %87 = fptrunc double %.sroa.53.0.copyload to float
-  %88 = fptrunc double %.sroa.64.0.copyload to float
-  %89 = fptrunc double %.sroa.75.0.copyload to float
-  %90 = fptrunc double %.sroa.86.0.copyload to float
-  %91 = fptrunc double %.sroa.97.0.copyload to float
-  store float %83, ptr %0, align 4, !alias.scope !18372, !noalias !18377
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %80 = fptrunc double %.sroa.01.0.copyload to float
+  %81 = fptrunc double %.sroa.2.0.copyload to float
+  %82 = fptrunc double %.sroa.3.0.copyload to float
+  %83 = fptrunc double %.sroa.42.0.copyload to float
+  %84 = fptrunc double %.sroa.53.0.copyload to float
+  %85 = fptrunc double %.sroa.64.0.copyload to float
+  %86 = fptrunc double %.sroa.75.0.copyload to float
+  %87 = fptrunc double %.sroa.86.0.copyload to float
+  %88 = fptrunc double %.sroa.97.0.copyload to float
+  store float %80, ptr %0, align 4, !alias.scope !18372, !noalias !18377
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %81, ptr %89, align 4, !alias.scope !18372, !noalias !18377
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %82, ptr %90, align 4, !alias.scope !18372, !noalias !18377
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %83, ptr %91, align 4, !alias.scope !18372, !noalias !18377
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %84, ptr %92, align 4, !alias.scope !18372, !noalias !18377
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %85, ptr %93, align 4, !alias.scope !18372, !noalias !18377
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %86, ptr %94, align 4, !alias.scope !18372, !noalias !18377
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %87, ptr %95, align 4, !alias.scope !18372, !noalias !18377
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %88, ptr %96, align 4, !alias.scope !18372, !noalias !18377
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %89, ptr %97, align 4, !alias.scope !18372, !noalias !18377
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %90, ptr %98, align 4, !alias.scope !18372, !noalias !18377
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %91, ptr %99, align 4, !alias.scope !18372, !noalias !18377
-  br label %100
+  br label %97
 
-100:                                              ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit", %81
+97:                                               ; preds = %"_ZN263_$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..xyz..Xyz$LT$$LT$$LT$S$u20$as$u20$palette..rgb..RgbStandard$GT$..Space$u20$as$u20$palette..rgb..RgbSpace$GT$..WhitePoint$C$T$GT$$GT$$GT$20from_color_unclamped28_$u7b$$u7b$closure$u7d$$u7d$17h191ef4c109c0ae32E.exit", %78
   ret void
 }
 
@@ -101409,86 +101401,82 @@ define internal fastcc void @_ZN7palette6matrix17rgb_to_xyz_matrix17h983635fb510
   %40 = fsub float %38, %39
   %41 = fmul float %24, %37
   %42 = fadd float %41, %40
-  %or.cond1.i.i = tail call i1 @llvm.is.fpclass.f32(float %42, i32 408)
-  %43 = bitcast float %42 to i32
-  %44 = and i32 %43, 2139095040
-  %45 = icmp ne i32 %44, 0
-  %.0.i.i.i = select i1 %or.cond1.i.i, i1 %45, i1 false
-  br i1 %.0.i.i.i, label %_ZN7palette6matrix14matrix_inverse17h2a5aca64bb7d8908E.exit, label %46
+  %or.cond1.i.i = tail call i1 @llvm.is.fpclass.f32(float %42, i32 264)
+  br i1 %or.cond1.i.i, label %_ZN7palette6matrix14matrix_inverse17h2a5aca64bb7d8908E.exit, label %43
 
-46:                                               ; preds = %1
+43:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.ecbbdf4ce99fb387dde54de6349d4c38.181, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ecbbdf4ce99fb387dde54de6349d4c38.182) #50, !noalias !25731
   unreachable
 
 _ZN7palette6matrix14matrix_inverse17h2a5aca64bb7d8908E.exit: ; preds = %1
-  %47 = fmul float %14, %21
-  %48 = fmul float %16, %19
+  %44 = fmul float %14, %21
+  %45 = fmul float %16, %19
+  %46 = fsub float %44, %45
+  %47 = fmul float %14, %26
+  %48 = fmul float %16, %24
   %49 = fsub float %47, %48
-  %50 = fmul float %14, %26
-  %51 = fmul float %16, %24
+  %50 = fmul float %19, %26
+  %51 = fmul float %21, %24
   %52 = fsub float %50, %51
-  %53 = fmul float %19, %26
-  %54 = fmul float %21, %24
+  %53 = fmul float %14, %23
+  %54 = fmul float %18, %19
   %55 = fsub float %53, %54
-  %56 = fmul float %14, %23
-  %57 = fmul float %18, %19
+  %56 = fmul float %14, %28
+  %57 = fmul float %18, %24
   %58 = fsub float %56, %57
-  %59 = fmul float %14, %28
-  %60 = fmul float %18, %24
+  %59 = fmul float %19, %28
+  %60 = fmul float %23, %24
   %61 = fsub float %59, %60
-  %62 = fmul float %19, %28
-  %63 = fmul float %23, %24
-  %64 = fsub float %62, %63
-  %65 = fdiv float 1.000000e+00, %42
-  %66 = fmul float %31, %65
-  %67 = fmul float %55, %65
-  %68 = fneg float %34
-  %69 = fmul float %65, %68
-  %70 = fmul float %61, %65
-  %71 = fneg float %52
-  %72 = fmul float %65, %71
-  %73 = fmul float %37, %65
-  %74 = fmul float %49, %65
-  %75 = fmul float %66, 0x3FEE6A4000000000
-  %76 = fmul float %64, %65
-  %77 = fsub float %75, %76
-  %78 = fmul float %67, 0x3FF16BD900000000
-  %79 = fadd float %78, %77
-  %80 = fmul float %69, 0x3FEE6A4000000000
-  %81 = fadd float %70, %80
-  %82 = fmul float %72, 0x3FF16BD900000000
-  %83 = fadd float %82, %81
-  %84 = fmul float %73, 0x3FEE6A4000000000
-  %85 = fmul float %58, %65
-  %86 = fsub float %84, %85
-  %87 = fmul float %74, 0x3FF16BD900000000
-  %88 = fadd float %87, %86
-  %89 = fmul float %14, %79
-  %90 = fmul float %19, %83
-  %91 = fmul float %24, %88
-  %92 = fmul float %16, %79
-  %93 = fmul float %21, %83
-  %94 = fmul float %26, %88
-  %95 = fmul float %18, %79
-  %96 = fmul float %23, %83
-  %97 = fmul float %28, %88
-  store float %89, ptr %0, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %62 = fdiv float 1.000000e+00, %42
+  %63 = fmul float %31, %62
+  %64 = fmul float %52, %62
+  %65 = fneg float %34
+  %66 = fmul float %62, %65
+  %67 = fmul float %58, %62
+  %68 = fneg float %49
+  %69 = fmul float %62, %68
+  %70 = fmul float %37, %62
+  %71 = fmul float %46, %62
+  %72 = fmul float %63, 0x3FEE6A4000000000
+  %73 = fmul float %61, %62
+  %74 = fsub float %72, %73
+  %75 = fmul float %64, 0x3FF16BD900000000
+  %76 = fadd float %75, %74
+  %77 = fmul float %66, 0x3FEE6A4000000000
+  %78 = fadd float %67, %77
+  %79 = fmul float %69, 0x3FF16BD900000000
+  %80 = fadd float %79, %78
+  %81 = fmul float %70, 0x3FEE6A4000000000
+  %82 = fmul float %55, %62
+  %83 = fsub float %81, %82
+  %84 = fmul float %71, 0x3FF16BD900000000
+  %85 = fadd float %84, %83
+  %86 = fmul float %14, %76
+  %87 = fmul float %19, %80
+  %88 = fmul float %24, %85
+  %89 = fmul float %16, %76
+  %90 = fmul float %21, %80
+  %91 = fmul float %26, %85
+  %92 = fmul float %18, %76
+  %93 = fmul float %23, %80
+  %94 = fmul float %28, %85
+  store float %86, ptr %0, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %87, ptr %95, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %88, ptr %96, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %89, ptr %97, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %90, ptr %98, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %91, ptr %99, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %92, ptr %100, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %93, ptr %101, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %94, ptr %102, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %95, ptr %103, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %96, ptr %104, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %97, ptr %105, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)

@@ -4170,24 +4170,20 @@ define hidden void @"_ZN154_$LT$palette..xyz..Xyz$LT$Wp$C$T$GT$$u20$as$u20$palet
   %4 = load float, ptr %3, align 4, !noundef !16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load float, ptr %5, align 4, !noundef !16
-  %or.cond1.i = tail call i1 @llvm.is.fpclass.f32(float %4, i32 408)
-  %7 = bitcast float %4 to i32
-  %8 = and i32 %7, 2139095040
-  %9 = icmp ne i32 %8, 0
-  %.0.i.i = and i1 %or.cond1.i, %9
-  %10 = fsub float 1.000000e+00, %2
-  %11 = fsub float %10, %4
-  %12 = fdiv float %11, %4
-  %13 = fdiv float %2, %4
-  %.0.i11 = select i1 %.0.i.i, float %12, float 0.000000e+00
-  %.0.i5 = select i1 %.0.i.i, float %13, float 0.000000e+00
-  %14 = fmul float %6, %.0.i5
-  %15 = fmul float %6, %.0.i11
-  store float %14, ptr %0, align 4, !alias.scope !654, !noalias !657
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %6, ptr %16, align 4, !alias.scope !654, !noalias !657
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %15, ptr %17, align 4, !alias.scope !654, !noalias !657
+  %or.cond1.i = tail call i1 @llvm.is.fpclass.f32(float %4, i32 264)
+  %7 = fsub float 1.000000e+00, %2
+  %8 = fsub float %7, %4
+  %9 = fdiv float %8, %4
+  %10 = fdiv float %2, %4
+  %.0.i11 = select i1 %or.cond1.i, float %9, float 0.000000e+00
+  %.0.i5 = select i1 %or.cond1.i, float %10, float 0.000000e+00
+  %11 = fmul float %6, %.0.i5
+  %12 = fmul float %6, %.0.i11
+  store float %11, ptr %0, align 4, !alias.scope !654, !noalias !657
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %6, ptr %13, align 4, !alias.scope !654, !noalias !657
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %12, ptr %14, align 4, !alias.scope !654, !noalias !657
   ret void
 }
 
